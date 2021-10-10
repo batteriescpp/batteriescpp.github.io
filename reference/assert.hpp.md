@@ -4,7 +4,7 @@
 
 This header includes enhanced drop-in replacements for standard `assert()` statements.  All the supported assertion types have a version (`BATT_CHECK*`) which is always on, even in optimized/release builds, and a version (`BATT_ASSERT*`) that is automatically stripped out of non-Debug builds.
 
-## Advantages over standard `assert` statements
+## Advantages
 
 - Using a more descriptive assertion macro allows your program to print a more informative error message if an assertion does fail.  For example, you might use the statement:
   ```c++
