@@ -33,7 +33,8 @@ This header includes enhanced drop-in replacements for standard `assert()` state
       << " (expected x to be the average of y and z)";
   ```
   
-  **NOTE:** Diagnostic output expressions added via `<<` are never evaluated unless the assertion actually fails, so don't worry if they are somewhat expensive.  However, even on Release builds, all expressions that appear in a `BATT_ASSERT_*` statement _will_ be compiled, so you don't have to worry about breaking Debug builds when compiling primarily using optimization.
+  **NOTE:** Diagnostic output expressions added via `<<` are never evaluated unless the assertion actually fails, so don't worry if they are somewhat expensive.  
+  **(ALSO) NOTE:** Even on Release builds, all expressions that appear in a `BATT_ASSERT_*` statement _will_ be compiled, so you don't have to worry about breaking Debug builds when compiling primarily using optimization.
 
 ## Reference
 
