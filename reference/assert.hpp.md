@@ -30,6 +30,8 @@ This header includes enhanced drop-in replacements for standard `assert()` state
       << "y = " << y << ", z = " << z 
       << " (expected x to be the average of y and z)";
   ```
+  
+  **NOTE:** Diagnostic output expressions added via `<<` are never evaluated unless the assertion actually fails, so don't worry if they are somewhat expensive.
 
 ## Reference
 
