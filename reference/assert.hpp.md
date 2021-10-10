@@ -35,24 +35,11 @@ This header includes enhanced drop-in replacements for standard `assert()` state
 
 ### Logical Assertions
 
-| Debug-only                 | Always Enabled (-DNDEBUG)  | Description                      |
-| :------------------------- | :------------------------- | :------------------------------- |
-| `BATT_ASSERT(cond)`        | `BATT_CHECK(cond)`         | Assert that `bool{cond} == true` |
-| `BATT_ASSERT_IMPLES(p, q)` | `BATT_CHECK_IMPLIES(p, q)` | Assert that if `(p)` is true, then so is `(q)` (i.e., `(!(p) || (q))`|
-
-<!--
-| Debug-only | Always Enabled | Other |
-| ---------- | -------------- | ---------- |
-| {{< doxdefine file="assert.hpp" name="BATT_ASSERT" >}} | {{< doxdefine file="assert.hpp" name="BATT_CHECK" >}} | {{< doxdefine file="assert.hpp" name="BATT_PANIC" >}} |
-| {{< doxdefine file="assert.hpp" name="BATT_ASSERT_EQ" >}} | {{< doxdefine file="assert.hpp" name="BATT_CHECK_EQ" >}} | {{< doxdefine file="assert.hpp" name="BATT_UNREACHABLE" >}} |
-| {{< doxdefine file="assert.hpp" name="BATT_ASSERT_NE" >}} | {{< doxdefine file="assert.hpp" name="BATT_CHECK_NE" >}} |  {{< doxdefine file="assert.hpp" name="BATT_NORETURN" >}} |
-| {{< doxdefine file="assert.hpp" name="BATT_ASSERT_LT" >}} | {{< doxdefine file="assert.hpp" name="BATT_CHECK_LT" >}} | | 
-| {{< doxdefine file="assert.hpp" name="BATT_ASSERT_GT" >}} | {{< doxdefine file="assert.hpp" name="BATT_CHECK_GT" >}} | |
-| {{< doxdefine file="assert.hpp" name="BATT_ASSERT_LE" >}} | {{< doxdefine file="assert.hpp" name="BATT_CHECK_LE" >}} | |
-| {{< doxdefine file="assert.hpp" name="BATT_ASSERT_GE" >}} | {{< doxdefine file="assert.hpp" name="BATT_CHECK_GE" >}} | |
-| {{< doxdefine file="assert.hpp" name="BATT_ASSERT_NOT_NULLPTR" >}} | {{< doxdefine file="assert.hpp" name="BATT_CHECK_NOT_NULLPTR" >}} | |
-| {{< doxdefine file="assert.hpp" name="BATT_ASSERT_IMPLIES" >}} | {{< doxdefine file="assert.hpp" name="BATT_CHECK_IMPLIES" >}} | |
--->
+| Debug-only                   | Always Enabled (-DNDEBUG)   | Description                      |
+| :--------------------------- | :-------------------------- | :------------------------------- |
+| `BATT_ASSERT(cond)`          | `BATT_CHECK(cond)`          | Assert that `bool{cond} == true` |
+| `BATT_ASSERT_IMPLES(p, q)`   | `BATT_CHECK_IMPLIES(p, q) ` | Assert that if `(p)` is true, then so is `(q)` (i.e., `(!(p) || (q))`)|
+| `BATT_ASSERT_NOT_NULLPTR(x)` | `BATT_CHECK_NOT_NULLPTR(x)` | Assert that `(x) != nullptr` |
 
 ### Comparison Assertions
 
