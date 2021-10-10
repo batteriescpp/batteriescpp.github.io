@@ -164,12 +164,23 @@ body {
   background-color: $red-000;
 }
 
-.main-inner h1 {
-    background-color: #c5f7f3;
+.main-inner {
+    padding-top: 0px;
     position: relative;
+}
+
+.main-inner h1 {
+    background-color: #e0f6f0;
+    position: relative;
+    top: -1em;
     left: 0;
     right: 0;
     padding: 8px;
+    margin-left: -1em;
+    margin-right: -1em;
+    margin-bottom: -0.5em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 @media all and (max-width: 768px) {
