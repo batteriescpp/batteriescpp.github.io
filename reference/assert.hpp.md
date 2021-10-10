@@ -18,9 +18,6 @@ This header includes enhanced drop-in replacements for standard `assert()` state
   ```
   
   You don't have to worry about making sure that the types you're comparing support `std::ostream` output to take advantage of this feature; Batteries will automatically do its best to print out something that might be useful, regardless of type.  If you want to take advantage of this feature explicitly (when writing some arbitrary type to a stream), you can use `batt::make_printable`.
-  
-  _TODO EXAMPLE NEEDED_
-  
 - Full stack traces, with source symbols if available, are automatically printed whenever an assertion failure happens.
 - `BATT_CHECK_*` allows you to write assertions that are guaranteed never to be compiled out of your program, even in optimized/release builds.
 - All `BATT_CHECK_*`/`BATT_ASSERT_*` statements support `operator<<` like `std::ostream` objects, so that you can add more contextual information to help diagnose an assertion failure.  Example:
