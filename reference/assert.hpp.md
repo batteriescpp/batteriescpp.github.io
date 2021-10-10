@@ -60,6 +60,6 @@ This header includes enhanced drop-in replacements for standard `assert()` state
 
 | Name | Description |
 | :--- | :---------- |
-| `BATT_PANIC()` | Forces the program to exit immediately, printing a full stack trace and any message `<<`-inserted to the `BATT_PANIC()` statement. |
+| `BATT_PANIC()` | Forces the program to exit immediately, printing a full stack trace and any message `<<`-inserted to the `BATT_PANIC()` statement. Example: `BATT_PANIC() << "Something has gone horribly wrong!  x = " << x;` |
 | `BATT_UNREACHABLE()` | Statement that tells the compiler this point in the code should be unreachable; for example, it is right after a call to `std::abort()` or `std::terminate()`.  Use this to silence spurious warnings about dead code. |
 | `BATT_NORETURN` | When added to a function declaration (before the return type), tells the compiler that a function never returns.  Use this to silence spurious warnings.  Example: `BATT_NORETURN void print_stuff_and_exit();` |
