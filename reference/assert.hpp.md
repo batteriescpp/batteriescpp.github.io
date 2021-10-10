@@ -57,3 +57,9 @@ This header includes enhanced drop-in replacements for standard `assert()` state
 | `BATT_ASSERT_GE(a, b)` | `BATT_CHECK_GE(a, b)`     | Assert that `(a) >= (b)` |
 
 ### Other/Advanced
+
+| Name | Description | Example |
+| :--- | :---------- | :------ |
+| `BATT_PANIC()` | Forces the program to exit immediately, printing a full stack trace and any message `<<`-inserted to the `BATT_PANIC()` statement. | ```c++
+foo();
+```
