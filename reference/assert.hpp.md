@@ -4,6 +4,8 @@
 
 This header includes enhanced drop-in replacements for standard `assert()` statements.  All the supported assertion types have a version (`BATT_CHECK*`) which is always on, even in optimized/release builds, and a version (`BATT_ASSERT*`) that is automatically stripped out of non-Debug builds.
 
+**NOTE:** Batteries assumes the build type is Release/Optimized if the macro `NDEBUG` is defined; in this case, all `BATT_ASSERT*` statements will be stripped out of the compilation. 
+
 ## Advantages
 
 - Using a more descriptive assertion macro allows your program to print a more informative error message if an assertion does fail.  For example, you might use the statement:
@@ -37,7 +39,7 @@ This header includes enhanced drop-in replacements for standard `assert()` state
 
 ### Logical Assertions
 
-| Debug-only                   | Always Enabled (-DNDEBUG)   | Description                      |
+| Debug-only                   | Always Enabled              | Description                      |
 | :--------------------------- | :-------------------------- | :------------------------------- |
 | `BATT_ASSERT(cond)`          | `BATT_CHECK(cond)`          | Assert that `bool{cond} == true` |
 | `BATT_ASSERT_IMPLES(p, q)`   | `BATT_CHECK_IMPLIES(p, q) ` | Assert that if `(p)` is true, then so is `(q)` (i.e., `(!(p) || (q))`)|
@@ -45,7 +47,7 @@ This header includes enhanced drop-in replacements for standard `assert()` state
 
 ### Comparison Assertions
 
-| Debug-only             | Always Enabled (-DNDEBUG) | Description              |
+| Debug-only             | Always Enabled            | Description              |
 | :--------------------- | :------------------------ | :----------------------- |
 | `BATT_ASSERT_EQ(a, b)` | `BATT_CHECK_EQ(a, b)`     | Assert that `(a) == (b)` |
 | `BATT_ASSERT_NE(a, b)` | `BATT_CHECK_NE(a, b)`     | Assert that `(a) != (b)` |
