@@ -62,4 +62,4 @@ This header includes enhanced drop-in replacements for standard `assert()` state
 | :--- | :---------- | :------ |
 | `BATT_PANIC()` | Forces the program to exit immediately, printing a full stack trace and any message `<<`-inserted to the `BATT_PANIC()` statement. | ```c++
 foo();
-```
+``` |
