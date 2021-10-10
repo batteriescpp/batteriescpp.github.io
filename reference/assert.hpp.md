@@ -1,4 +1,8 @@
-Fatal error check macros: 
+# Fatal error check macros
+
+## Logical Assertions
+
+<!--
 | Debug-only | Always Enabled | Other |
 | ---------- | -------------- | ---------- |
 | {{< doxdefine file="assert.hpp" name="BATT_ASSERT" >}} | {{< doxdefine file="assert.hpp" name="BATT_CHECK" >}} | {{< doxdefine file="assert.hpp" name="BATT_PANIC" >}} |
@@ -10,6 +14,12 @@ Fatal error check macros:
 | {{< doxdefine file="assert.hpp" name="BATT_ASSERT_GE" >}} | {{< doxdefine file="assert.hpp" name="BATT_CHECK_GE" >}} | |
 | {{< doxdefine file="assert.hpp" name="BATT_ASSERT_NOT_NULLPTR" >}} | {{< doxdefine file="assert.hpp" name="BATT_CHECK_NOT_NULLPTR" >}} | |
 | {{< doxdefine file="assert.hpp" name="BATT_ASSERT_IMPLIES" >}} | {{< doxdefine file="assert.hpp" name="BATT_CHECK_IMPLIES" >}} | |
+-->
 
-[File Reference](/reference/files/assert_8hpp/)
-<!--more-->
+## Comparison Assertions
+
+| Debug-only             | Always Enabled        | Description              |
+| :--------------------- | :-------------------- | :----------------------- |
+| `BATT_ASSERT_EQ(a, b)` | `BATT_CHECK_EQ(a, b)` | Assert that `(a) == (b)` |
+
+## Other/Advanced
