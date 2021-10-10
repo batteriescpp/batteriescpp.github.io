@@ -26,12 +26,19 @@ This header includes enhanced drop-in replacements for standard `assert()` state
   int y = get_y();
   int z = get_z();
   int x = (y + z) / 2;
-  BATT_ASSERT_EQ(x, 1) << "y = " << y << ", z = " << z << " (expected x to be the average of y and z)";
+  BATT_ASSERT_EQ(x, 1) 
+      << "y = " << y << ", z = " << z 
+      << " (expected x to be the average of y and z)";
   ```
 
 ## Reference
 
 ### Logical Assertions
+
+| Debug-only                 | Always Enabled (-DNDEBUG)  | Description                      |
+| :------------------------- | :------------------------- | :------------------------------- |
+| `BATT_ASSERT(cond)`        | `BATT_CHECK(cond)`         | Assert that `bool{cond} == true` |
+| `BATT_ASSERT_IMPLES(p, q)` | `BATT_CHECK_IMPLIES(p, q)` | Assert that if `(p)` is true, then so is `(q)` (i.e., `(!(p) || (q))`|
 
 <!--
 | Debug-only | Always Enabled | Other |
@@ -49,13 +56,13 @@ This header includes enhanced drop-in replacements for standard `assert()` state
 
 ### Comparison Assertions
 
-| Debug-only             | Always Enabled        | Description              |
-| :--------------------- | :-------------------- | :----------------------- |
-| `BATT_ASSERT_EQ(a, b)` | `BATT_CHECK_EQ(a, b)` | Assert that `(a) == (b)` |
-| `BATT_ASSERT_NE(a, b)` | `BATT_CHECK_NE(a, b)` | Assert that `(a) != (b)` |
-| `BATT_ASSERT_LT(a, b)` | `BATT_CHECK_LT(a, b)` | Assert that `(a) < (b)`  |
-| `BATT_ASSERT_GT(a, b)` | `BATT_CHECK_GT(a, b)` | Assert that `(a) > (b)`  |
-| `BATT_ASSERT_LE(a, b)` | `BATT_CHECK_LE(a, b)` | Assert that `(a) <= (b)` |
-| `BATT_ASSERT_GE(a, b)` | `BATT_CHECK_GE(a, b)` | Assert that `(a) >= (b)` |
+| Debug-only             | Always Enabled (-DNDEBUG) | Description              |
+| :--------------------- | :------------------------ | :----------------------- |
+| `BATT_ASSERT_EQ(a, b)` | `BATT_CHECK_EQ(a, b)`     | Assert that `(a) == (b)` |
+| `BATT_ASSERT_NE(a, b)` | `BATT_CHECK_NE(a, b)`     | Assert that `(a) != (b)` |
+| `BATT_ASSERT_LT(a, b)` | `BATT_CHECK_LT(a, b)`     | Assert that `(a) < (b)`  |
+| `BATT_ASSERT_GT(a, b)` | `BATT_CHECK_GT(a, b)`     | Assert that `(a) > (b)`  |
+| `BATT_ASSERT_LE(a, b)` | `BATT_CHECK_LE(a, b)`     | Assert that `(a) <= (b)` |
+| `BATT_ASSERT_GE(a, b)` | `BATT_CHECK_GE(a, b)`     | Assert that `(a) >= (b)` |
 
 ### Other/Advanced
