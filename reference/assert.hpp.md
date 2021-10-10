@@ -1,6 +1,6 @@
-# Fatal error check macros
+# &lt;batteries/assert.hpp&gt; : Fatal error check macros
 
-## #include &ltbatteries/assert.hpp&gt;
+[Reference](#reference)
 
 This header includes enhanced drop-in replacements for the standard library's `assert(_<condition>_)` function.  All the supported assertion types have a version (`BATT_CHECK*`) which is always on, even in optimized/release builds, and a version (`BATT_ASSERT*`) that is automatically stripped out of non-Debug builds.
 
@@ -26,7 +26,9 @@ This header includes enhanced drop-in replacements for the standard library's `a
   BATT_ASSERT_EQ(x, 1) << "y = " << y << ", z = " << z << " (expected x to be the average of y and z)";
   ```
 
-## Logical Assertions
+## Reference
+
+### Logical Assertions
 
 <!--
 | Debug-only | Always Enabled | Other |
@@ -42,7 +44,7 @@ This header includes enhanced drop-in replacements for the standard library's `a
 | {{< doxdefine file="assert.hpp" name="BATT_ASSERT_IMPLIES" >}} | {{< doxdefine file="assert.hpp" name="BATT_CHECK_IMPLIES" >}} | |
 -->
 
-## Comparison Assertions
+### Comparison Assertions
 
 | Debug-only             | Always Enabled        | Description              |
 | :--------------------- | :-------------------- | :----------------------- |
@@ -53,4 +55,4 @@ This header includes enhanced drop-in replacements for the standard library's `a
 | `BATT_ASSERT_LE(a, b)` | `BATT_CHECK_LE(a, b)` | Assert that `(a) <= (b)` |
 | `BATT_ASSERT_GE(a, b)` | `BATT_CHECK_GE(a, b)` | Assert that `(a) >= (b)` |
 
-## Other/Advanced
+### Other/Advanced
