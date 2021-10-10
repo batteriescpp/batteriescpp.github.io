@@ -27,7 +27,7 @@ This header includes enhanced drop-in replacements for standard `assert()` state
   int x = (y + z) / 2;
   BATT_ASSERT_EQ(x, 1) 
       << "y = " << y << ", z = " << z 
-      << " (expected x to be the average of y and z)";
+      << " (expected the average of y and z to be 1)";
   ```
   
   **NOTE:** Diagnostic output expressions added via `<<` are never evaluated unless the assertion actually fails, so don't worry if they are somewhat expensive.  
