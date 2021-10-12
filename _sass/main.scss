@@ -224,7 +224,16 @@ body {
     padding-bottom: 0.5em;
 }
 
-nav ul a {
+nav ul li {
+    whitespace: nowrap;
+}
+nav ul li.active {
+    whitespace: nowrap;
+}
+nav ul li:hover {
+    whitespace: nowrap;
+}
+nav ul li:hover.active {
     whitespace: nowrap;
 }
 
