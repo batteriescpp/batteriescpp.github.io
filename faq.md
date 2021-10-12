@@ -1,5 +1,6 @@
 # Frequently Asked Questions
 
+* TOC
 {:toc}
 
 ## Why is it called 'batteries'?
