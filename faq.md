@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-[[toc]]
+* TOC {:toc}
 
 ## Why is it called 'batteries'?
 
