@@ -1,32 +1,18 @@
-Batteries is a Modern C++ library full of useful features to help make you more productive.
+# Welcome to Batteries!
 
-Some examples:
+Ever get the feeling that there's a lot of nice stuff in other
+programming languages that was just left out of C++?  Like the
+batteries weren't included?
 
-- [#include <batteries/segv.hpp>](/headers/segv) will install a signal handler that automatically prints a stack trace if your program crashes.
-- [BATT_ASSERT](/headers/assert) and [BATT_CHECK](/headers/assert) are replacements for `assert` that allow you to stream-insert additional diagnostic information that is only evaluated/printed if the assertion fails: 
-  ```c++
-  #include <batteries/assert.hpp>
-  #include <batteries/stream_util.hpp>
-  
-  #include <vector>
-  #include <string>
-  
-  int main(int argc, char** argv) {
-    BATT_ASSERT_LT(argc, 2) << "argc should have been less than 2!  argv=" 
-        << batt::dump_range(std::vector<std::string>(argv, argv + argc), batt::Pretty::True);
-    return 0;
-  }
-  ```
-- `utility.hpp` `BATT_FORWARD` implements "perfect" argument forwarding without having to write out the type of an expression every time:
-  ```c++
-  #include <batteries/utility.hpp>
-  
-  template <typename... Args>
-  void call_foo(Args&&... args) 
-  {
-    // Nicer than having to write std::forward<Args>(args)...
-    //
-    foo(BATT_FORWARD(args)...);
-  }
-  ```
-- `batt::make_copy` complements [std::move](https://en.cppreference.com/w/cpp/utility/move) by creating rvalues via copy (instead of move).
+Batteries is a library designed to fix that!
+
+Features:
+
+- Header-only: makes including/using in your program super easy
+- A la carte: only include what you need, don't pay for the rest
+- Many useful facilities, including:
+  - [Enhanced Runtime Checks/Assertions](/reference/assert.hpp.html)
+
+<!-- Guides: TODO; adding diagnostics to your program, C++
+metaprogramming for humans, using patterns from functional programming
+in C++, ...? -->
