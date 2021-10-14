@@ -1,4 +1,4 @@
-# Welcome to Batteries!
+# Welcome to Batteries C++!
 
 Ever get the feeling that there's a lot of nice stuff in other
 programming languages that was just left out of C++?  Like the
