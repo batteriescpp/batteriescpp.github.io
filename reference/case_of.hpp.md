@@ -27,7 +27,13 @@ The form of `batt::case_of` is:
 
 `batt::case_of(` _variant-object_ `, ` _handler-for-case-1_ `, ` _handler-for-case-2_ `, ...);`
 
-The "handlers" can be any callable type that takes one argument whose type matches one of the types in the variant passed as _variant-object_.  The handlers do not have to return a value, but if any of them do, they must all return the same type.  The handler that will be invoked is the first one (from left to right) that is invokable for a given variant case type.  This behavior allows you to write things like:
+The "handlers" can be any callable type that takes one argument whose
+type matches one of the types in the variant passed as
+_variant-object_.  The handlers do not have to return a value, but if
+any of them do, they must all return the same type.  The handler that
+will be invoked is the first one (from left to right) that is
+invokable for a given variant case type.  This behavior allows you to
+write things like:
 
 ```c++
 std::variant<std::logic_error, std::runtime_error, std::string, int, double> v;
@@ -47,7 +53,12 @@ batt::case_of(
 
 ## `batt::make_case_of_visitor`
 
-You can construct an overloaded functor from a list of functions with the same number of arguments using `batt::make_cose_of_visitor`.  This functor behaves similarly to `batt::case_of` (and in fact is used to implement `case_of`): the function that actually gets invoked on a particular set of arguments is the first one in the list whose paramaeters will bind to those arguments.
+You can construct an overloaded functor from a list of functions with
+the same number of arguments using `batt::make_cose_of_visitor`.  This
+functor behaves similarly to `batt::case_of` (and in fact is used to
+implement `case_of`): the function that actually gets invoked on a
+particular set of arguments is the first one in the list whose
+paramaeters will bind to those arguments.
 
 Example:
 
