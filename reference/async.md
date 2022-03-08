@@ -229,6 +229,8 @@ bool is_closed() const;
 * `true` if the Watch is closed
 * `false` otherwise
 
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 #### batt::Watch::modify
 
 Atomically modifies the Watch value by applying the passed transform `fn`.
