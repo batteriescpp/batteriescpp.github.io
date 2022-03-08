@@ -7,13 +7,13 @@
 
 ### Summary
 
-| Getters                             | Modifiers                                                                  || Synchronization                                    | 
-| :---------------------------------- | :----------------------------------- | :----------------------------------- | :------------------------------------------------- |
-| [is\_closed](#batt-watch-is_closed) | [close](#batt-watch-close)           | [fetch\_add](#batt-watch-fetch\_add) | [async_wait](#batt-watch-async\_wait)              |
-| [get\_value](#batt-watch-get_value) | [set_value](#batt-watch-set\_value)  | [fetch\_sub](#batt-watch-fetch\_sub) | [await\_not\_equal](#batt-watch-await\_not\_equal) | 
-|                                     | [modify](#batt-watch-modify)         | [fetch\_or](#batt-watch-fetch\_or)   | [await_true](#batt-watch-await\_true)              |
-|                                     | [modify\_if](#batt-watch-modify\_if) | [fetch\_and](#batt-watch-fetch\_sub) | [await\_equal](#batt-watch-await\_equal)           |
-|                                     |                                      |                                      | [await\_modify](#batt-watch-await\_modify)         |
+| Getters                           | Modifiers                                                            || Synchronization                                | 
+| :-------------------------------- | :-------------------------------- | :-------------------------------- | :--------------------------------------------- |
+| [is\_closed](#battwatchis_closed) | [close](#battwatchclose)          | [fetch\_add](#battwatchfetch_add) | [async_wait](#battwatchasync_wait)             |
+| [get\_value](#battwatchget_value) | [set_value](#battwatchset_value)  | [fetch\_sub](#battwatchfetch_sub) | [await\_not\_equal](#battwatchawait_not_equal) | 
+|                                   | [modify](#battwatchmodify)        | [fetch\_or](#battwatchfetch_or)   | [await\_true](#battwatchawait_true)            |
+|                                   | [modify\_if](#battwatchmodify_if) | [fetch\_and](#battwatchfetch_sub) | [await\_equal](#battwatchawait_equal)          |
+|                                   |                                   |                                   | [await\_modify](#battwatchawait_modify)        |
 
 ### Introduction
 
@@ -86,7 +86,7 @@ If `fn` returns `batt::None`, this indicates `fn` should not be called again unt
 <br><br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 
-#### batt::Watch::await_not\_equal
+#### batt::Watch::await_not_equal
 
 Blocks the current task/thread until the Watch value is _not_ equal to `last_seen`.
 
@@ -266,7 +266,7 @@ Optional<T> modify_if(Fn&& fn);
 
 `fn` **MUST** be safe to call multiple times within a single call to `modify_if`.  This is because `modify_if` may be implemented via an atomic compare-and-swap loop.
 
-Unlike [await\_modify](#batt-watch-await\_modify), this method never puts the current task/thread to sleep; it keeps _actively_ polling the Watch value until it reaches one of the exit criteria described above.
+Unlike [await\_modify](#battwatchawait\_modify), this method never puts the current task/thread to sleep; it keeps _actively_ polling the Watch value until it reaches one of the exit criteria described above.
 
 ##### Return Value
 
