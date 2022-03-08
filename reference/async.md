@@ -181,7 +181,7 @@ The prior value of the Watch.
 Atomically sets the Watch value to the bitwise-and of the current value and the passed `arg`, returning the previous value.
 
 ```c++
-T fetch_and(T arg);
+T fetch_or(T arg);
 ```
 
 _NOTE: This method is only available if T is a primitive integer type._
