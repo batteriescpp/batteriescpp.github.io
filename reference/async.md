@@ -44,7 +44,9 @@ int main() {
 
 #### batt::Watch::async_wait
 
-Invokes the passed handler `fn` with the current value of the Watch as soon as this value is _not_ equal to the passed value `last_seen`.
+Invokes the passed handler `fn` with the described value as soon as one of the following conditions is true:
+ * the current value of the Watch, if the value is _not_ equal to the passed value `last_seen`
+ * `batt::StatusCode::kClosed`, if the Watch is closed
 
 ```c++
 template <typename Handler = void(batt::StatusOr<T> new_value)>
