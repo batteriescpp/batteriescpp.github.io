@@ -48,8 +48,12 @@ int main() {
 Invokes the passed handler `fn` with the current value of the Watch as soon as this value is _not_ equal to the passed value `last_seen`.
 
 ```c++
-template <typename Handler = void(batt::StatusOr<T> new_value)>
-void async_wait(T last_seen, Handler&& fn) const;
+template <typename T>
+class Watch { 
+ public:
+  template <typename Handler = void(batt::StatusOr<T> new_value)>
+  void async_wait(T last_seen, Handler&& fn) const;
+};
 ```
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
