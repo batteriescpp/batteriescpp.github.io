@@ -10,13 +10,12 @@
 
 ### Summary
 
-| Getters                           | Modifiers                                                            || Synchronization                                | 
-| :-------------------------------- | :-------------------------------- | :-------------------------------- | :--------------------------------------------- |
-| [is\_closed](#battwatchis_closed) | [close](#battwatchclose)          | [fetch\_add](#battwatchfetch_add) | [async_wait](#battwatchasync_wait)             |
-| [get\_value](#battwatchget_value) | [set_value](#battwatchset_value)  | [fetch\_sub](#battwatchfetch_sub) | [await\_not\_equal](#battwatchawait_not_equal) | 
-|                                   | [modify](#battwatchmodify)        | [fetch\_or](#battwatchfetch_or)   | [await\_true](#battwatchawait_true)            |
-|                                   | [modify\_if](#battwatchmodify_if) | [fetch\_and](#battwatchfetch_sub) | [await\_equal](#battwatchawait_equal)          |
-|                                   |                                   |                                   | [await\_modify](#battwatchawait_modify)        |
+| Getters                           | Modifiers                                                            || Synchronization                               || 
+| :-------------------------------- | :-------------------------------- | :-------------------------------- | :--------------------------------------------- ||
+| [is\_closed](#battwatchis_closed) | [close](#battwatchclose)          | [fetch\_add](#battwatchfetch_add) | [async_wait](#battwatchasync_wait) | [await\_not\_equal](#battwatchawait_not_equal)|
+| [get\_value](#battwatchget_value) | [set_value](#battwatchset_value)  | [fetch\_sub](#battwatchfetch_sub) || [await\_equal](#battwatchawait_equal)  | 
+|                                   | [modify](#battwatchmodify)        | [fetch\_or](#battwatchfetch_or)   || [await\_true](#battwatchawait_true)            |
+|                                   | [modify\_if](#battwatchmodify_if) | [fetch\_and](#battwatchfetch_sub) || [await\_modify](#battwatchawait_modify)        |
 
 ### Introduction
 
