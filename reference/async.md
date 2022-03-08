@@ -82,6 +82,8 @@ batt::StatusOr<T> await_modify(Fn&& fn);
 
 If `fn` returns `batt::None`, this indicates `fn` should not be called again until a new value is available.
 
+`fn` **MUST** be safe to call multiple times within a single call to `await_modify`.  This is because `await_modify` may be implemented via an atomic compare-and-swap loop.
+
 ##### Return Value
 
 * If successful, the old (pre-modify) value on which `fn` finally succeeded
