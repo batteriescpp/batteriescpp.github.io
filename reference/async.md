@@ -4,6 +4,10 @@
 
 ## batt::Watch&lt;T&gt;
 
+```c++
+#include <batteries/async/watch.hpp>
+```
+
 ### Summary
 
 | Getters                           | Modifiers                                                            || Synchronization                                | 
