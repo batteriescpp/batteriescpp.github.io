@@ -42,6 +42,8 @@ int main() {
 ```
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
+### Methods
+
 #### batt::Watch::async_wait
 
 Invokes the passed handler `fn` with the described value as soon as one of the following conditions is true:
