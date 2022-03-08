@@ -73,7 +73,7 @@ batt::Status await_equal(T val) const;
 
 #### batt::Watch::await_modify
 
-Retries `fn` on the Watch value until it succeeds or the watch is closed.
+Retries `fn` on the Watch value until it succeeds or the Watch is closed.
 
 ```c++
 template <typename Fn = batt::Optional<T>(T)>
@@ -266,8 +266,8 @@ Retries calling `fn` on the Watch value until EITHER of:
     * the Watch value is atomically updated via compare-and-swap
 
 ```c++
-template <typename Fn = Optional<T>(T)>
-Optional<T> modify_if(Fn&& fn);
+template <typename Fn = batt::Optional<T>(T)>
+batt::Optional<T> modify_if(Fn&& fn);
 ```
 
 `fn` **MUST** be safe to call multiple times within a single call to `modify_if`.  This is because `modify_if` may be implemented via an atomic compare-and-swap loop.
