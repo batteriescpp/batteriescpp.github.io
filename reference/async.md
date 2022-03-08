@@ -38,8 +38,7 @@ int main() {
   return 0;
 }
 ```
-
-<div><!-- =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+--------------- -->
+<br><br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 #### batt::Watch::async_wait
 
@@ -50,7 +49,7 @@ template <typename Handler = void(batt::StatusOr<T> new_value)>
 void async_wait(T last_seen, Handler&& fn) const;
 ```
 
-</div><div><!-- =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+--------------- -->
+<br><br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 #### batt::Watch::await_equal
 
@@ -65,7 +64,8 @@ batt::Status await_equal(T val) const;
 * `batt::OkStatus()` if the Watch value was observed to be `val`
 * `batt::StatusCode::kClosed` if the Watch was closed before `val` was observed
 
-</div><div><!-- =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+--------------- -->
+<br><br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 
 #### batt::Watch::await_modify
 
@@ -83,7 +83,8 @@ If `fn` returns `batt::None`, this indicates `fn` should not be called again unt
 * If successful, the old (pre-modify) value on which `fn` finally succeeded
 * `batt::StatusCode::kClosed` if the Watch was closed before `fn` was successful
 
-</div><div><!-- =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+--------------- -->
+<br><br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 
 #### batt::Watch::await_not\_equal
 
@@ -98,7 +99,8 @@ batt::StatusOr<T> await_not_equal(T last_seen);
 * On success, the current value of the Watch, which is guaranteed to _not_ equal `last_seen`
 * `batt::StatusCode::kClosed` if the Watch was closed before a satisfactory value was observed
 
-</div><div><!-- =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+--------------- -->
+<br><br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 
 #### batt::Watch::await_true
 
@@ -116,7 +118,8 @@ This is the most general of Watch's blocking getter methods.
 * On success, the Watch value for which `pred` returned `true`
 * `batt::StatusCode::kClosed` if the Watch was closed before a satisfactory value was observed
 
-</div><div><!-- =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+--------------- -->
+<br><br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 
 #### batt::Watch::close
 
@@ -128,7 +131,8 @@ void close();
 
 This method is safe to call multiple times.  The Watch value can still be modified and retrieved after it is closed; this only disables the methods in the "Synchronization" category (see Summary section above).
 
-</div><div><!-- =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+--------------- -->
+<br><br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 
 #### batt::Watch::fetch_add
 
@@ -144,7 +148,8 @@ _NOTE: This method is only available if T is a primitive integer type._
 
 The prior value of the Watch.
 
-</div><div><!-- =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+--------------- -->
+<br><br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 
 #### batt::Watch::fetch_and
 
@@ -160,7 +165,8 @@ _NOTE: This method is only available if T is a primitive integer type._
 
 The prior value of the Watch.
 
-</div><div><!-- =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+--------------- -->
+<br><br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 
 #### batt::Watch::fetch_or
 
@@ -176,7 +182,8 @@ _NOTE: This method is only available if T is a primitive integer type._
 
 The prior value of the Watch.
 
-</div><div><!-- =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+--------------- -->
+<br><br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 
 #### batt::Watch::fetch_sub
 
@@ -192,7 +199,8 @@ _NOTE: This method is only available if T is a primitive integer type._
 
 The prior value of the Watch.
 
-</div><div><!-- =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+--------------- -->
+<br><br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 
 #### batt::Watch::get_value
 
@@ -206,7 +214,8 @@ T get_value() const;
 
 The current Watch value.
 
-</div><div><!-- =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+--------------- -->
+<br><br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 
 #### batt::Watch::is_closed
 
@@ -239,7 +248,8 @@ T modify(Fn&& fn);
 
 ***NOTE: This behavior is acknowledged to be less than ideal and will be fixed in the future to be consistent, regardless of `T`***
 
-</div><div><!-- =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+--------------- -->
+<br><br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 
 #### batt::Watch::modify_if
 
@@ -262,7 +272,8 @@ Unlike [await\_modify](#batt-watch-await\_modify), this method never puts the cu
 
 The final value returned by `fn`, which is either `batt::None` or the new Watch value.
 
-</div><div><!-- =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+--------------- -->
+<br><br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 
 #### batt::Watch::set_value
 
@@ -272,5 +283,5 @@ Atomically set the value of the Watch.
 void set_value(T new_value);
 ```
 
-</div><!-- =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+--------------- -->
+<br><br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
