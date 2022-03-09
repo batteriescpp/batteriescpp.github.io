@@ -2,15 +2,15 @@
 
 | Quick Reference ||
 | :---------------------- | :--------------------------------- |
-| [batt::Task](#batttask) | [batt::Watch&lt;T&gt;](#battwatch) |
+| [batt::Task](#batttask) | [batt::Watch&lt;T&gt;](#battwatcht) |
 
 ## batt::Task
+
+### Summary
 
 ```c++
 #include <batteries/async/task.hpp>
 ```
-
-### Summary
 
 | Constructors |
 | :----------- |
@@ -181,11 +181,11 @@ static batt::StatusOr<T> await(const Future)
 
 ## batt::Watch&lt;T&gt;
 
+### Summary
+
 ```c++
 #include <batteries/async/watch.hpp>
 ```
-
-### Summary
 
 | Constructors                        |
 | :---------------------------------- |
