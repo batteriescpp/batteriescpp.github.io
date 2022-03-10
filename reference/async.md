@@ -95,6 +95,28 @@ All continuation handler based async APIs require a callback (the continuation h
 
 #### Task Scheduling and Priorities
 
+When a `batt::Task` is created, it is passed a Boost Asio executor object.  All execution of task code on the task's stack will happen via `boost::asio::dispatch` or `boost::asio::post` using this executor.  NOTE: this means if, for example, you use the executor from a `boost::asio::io_context` to create a task, that task will not run unless you call `io_context::run()`!
+
+A running `batt::Task` is never preempted by another task.  Instead it must yield control of the current thread to allow another task to run.  There are four ways to do this:
+
+* [batt::Task::join()](#batttaskjoin)
+* [batt::Task::await()](#batttaskawait)
+* [batt::Task::yield()](#batttaskyield)
+* [batt::Task::sleep()](#batttasksleep)
+
+WARNING: if you use a kernel or standard library synchronization mechanism or blocking call, for example `std::mutex`, from inside a `batt::Task`, that task WILL NOT YIELD!  This is why the Batteries Async library contains its own synchronization primitives, like `batt::Watch`, `batt::Queue`, and `batt::Mutex`.  All of these primitives are implemented on top one or more of the four methods enumerated above.
+
+Each `batt::Task` is assigned a scheduling priority, which is a signed 32-bit integer.  Greater values of the priority int mean more urgent priority; lesser values mean less urgency.  Even though tasks don't interrupt each other (i.e. preemption), they sometimes perform actions that cause another task to move from a "waiting" state to a "ready to run" state.  For example, one task may be blocked inside a call to `batt::Watch<T>::await_equal`, and another task (let's call it the "notifier") may call `batt::Watch<T>::set_value`, activating the first task (let's call it the "listener").  As noted above, the newly activated ("listener") task will be run via `boost::asio::dispatch` or `boost::asio::post`.  Which mechanism is used depends on the relative priority of the two tasks:
+
+* If the "notifier" has a higher (numerically greater) priority value than the "listener", the "listener" is scheduled via `boost::asio::post`.
+* Otherwise, the "notifier" is immediately suspended and re-scheduled via `boost::asio::post`; then the "listener" is scheduled via `boost::asio::dispatch`.
+
+In any case, activating another task will _not_ cause a running task to go from a "running" state to a "waiting" state.  It may however "bounce" it to another thread, or to be pushed to the back of an execution queue.  This only matters when there are more tasks ready to run than there are available threads for a given ExecutionContext: higher priority tasks are scheduled before lower priority ones in general.
+
+NOTE: you may still end up with a priority inversion situation when multiple tasks with different priorities are `boost::asio::post`-ed to the same queue.  In this case, there is no mechanism currently for re-ordering the tasks to give preference based on priority.
+
+Overall, it is best to consider priority "best-effort" rather than a guarantee of scheduling order.  It should be used for performance tuning, not to control execution semantics in a way that affects the functional behavior of a program.
+
 ### Methods
 
 #### batt::Task::Task(executor, stack_size, body_fn)
@@ -126,37 +148,176 @@ The default priority for a Task is the current task priority plus 100; this mean
 
 #### batt::Task::await
 
+Block the current thread until some asynchronous operation completes.
 
 ```c++
 template <typename R, typename Fn=void(Handler)>
-static R await(Fn&& fn);                          // (1)
+static R await(Fn&& fn);                                         // (1)
 
 template <typename R, typename Fn=void(Handler)>
-static R await(batt::StaticType<R>, Fn&& fn);     // (2)
+static R await(batt::StaticType<R>, Fn&& fn);                    // (2)
 
 template <typename T>
-static batt::StatusOr<T> await(const Future)
+static batt::StatusOr<T> await(const batt::Future<T>& future_result);  // (3)
 ```
+
+Overloads (1) &amp; (2) take a function whose job is to initiate an asynchronous operation.  Since async ops require a callback (which is invoked when the op completes), the function `fn` is passed a `Handler` which serves to wake up the task and resume its execution.  Example:
+
+```c++
+boost::asio::ip::tcp::socket s;
+
+using ReadResult = std::pair<boost::system::error_code, std::size_t>;
+
+ReadResult r = batt::Task::await<ReadResult>([&](auto&& handler) {
+    s.async_read_some(buffers, BATT_FORWARD(handler));
+  });
+
+if (r.first) {
+  std::cout << "Error! ec=" << r.first;
+} else {
+  std::cout << r.second << " bytes were read.";
+}
+```
+
+The template parameter `R` is the return type of the `await` operation.  `R` can be any type that is movable and constructible from the arguments passed to the callback `Handler`.  In the example above, we define `R` to be a `std::pair` of the error code and the count of bytes read (size_t).  This is the exact signature required by the async op initiated inside the lambda expression passed to `await`.  When the socket implementation causes `handler(ec, n_bytes_read)` to be invoked, the `Handler` provided by `batt::Task::await` constructs an instance of `R` by forwarding the handler arguments (`auto retval = std::make_pair(ec, n_bytes_read);`), and resumes the task that was paused inside `await`, returning `retval`.
+
+##### Return Value
+
+* (1) &amp; (2): the instance of `R` constructed from callback arguments.
+* (3): the value of the passed `batt::Future<T>` if successful; non-ok status if the future completed with an error.
 
 #### batt::Task::backtrace_all
 
+Dumps stack trace and debug information for all active `batt::Task`s to stderr.
+
+```c++
+static i32 backtrace_all(bool force);
+```
+
+If `force` is true, then this function will attempt to dump debug information for running tasks, even though this may cause data races (if you're debugging a tricky threading issue, sometimes the risk of a crash is outweighed by the benefit of some additional clues about what's going on!).
+
+##### Return Value
+
+The number of tasks dumped.
+
 #### batt::Task::call_when_done
+    
+Attaches a listener callback to the task; this callback will be invoked when the task completes execution.
+
+```c++
+template <typename F = void()>
+void call_when_done(F&& handler);
+```
+
+This method can be thought of as an asynchronous version of [join()](#batttaskjoin).
 
 #### batt::Task::current
 
+Returns a reference to the currently running Task, if there is one.
+
+```c++
+static batt::Task& current();
+```
+
+WARNING: if this method is called outside of any `batt::Task`, behavior is undefined.
+
+##### Return Value
+
+The current task.
+
 #### batt::Task::current_name
+
+Returns the current task name, or "" if there is no current task.
+
+```c++
+static std::string_view current_name();
+```
+
+Unlike [batt::Task::current()](#batttaskcurrent), this method is safe to call outside a task.
+
+##### Return Value
+
+The current task name.
 
 #### batt::Task::current_priority
 
+```c++
+static batt::Task::Priority current_priority();
+```
+
+NOTE: this function is safe to call outside of a task; in this case, the default priority (0) is returned.
+
+##### Return Value
+
+The priority of the current task.
+
 #### batt::Task::current_stack_pos
+
+Returns the offset of the current locus of control relative to the base of the stack.
+
+```c++
+static batt::Optional<usize> current_stack_pos();
+```
+
+##### Return Value
+
+* If called from inside a task, the current stack position in bytes
+* Else `batt::None`
 
 #### batt::Task::current_stack_pos_of
 
+Returns the offset of some address relative to the base of the current task stack.
+
+```c++
+static batt::Optional<usize> current_stack_pos_of(const volatile void* ptr);
+```
+
+NOTE: If `ptr` isn't actually on the current task's stack, then this function will still return a number, but it will be essentially a garbage value.  It's up to the caller to make sure that `ptr` points at something on the task stack.
+
+##### Return Value
+
+* If called from inside a task, the stack offset in bytes of `ptr`
+* Else `batt::None`
+
 #### batt::Task::default_name
+
+```c++
+static std::string default_name()
+```
+
+##### Return Value
+
+The name given to a `batt::Task` if none is passed into the constructor.
 
 #### batt::Task::sleep
 
+Puts a `batt::Task` to sleep for the specified real-time duration.
+
+```c++
+template <typename Duration = boost::posix_time::ptime>
+static batt::ErrorCode sleep(const Duration& duration);
+```
+
+This operation can be interrupted by a [batt::Task::wake()](#batttaskwake), in which case a "cancelled" error code is returned instead of success (no error).
+
+This method is safe to call outside a task; in this case, it is implemented via `std::this_task::sleep_for`.
+
+##### Return Value
+
+* `batt::ErrorCode{}` (no error) if the specified duration passed
+* A value equal to `boost::asio::error::operation_aborted` if `batt::Task::wake()` was called on the given task
+
 #### batt::Task::get_executor
+
+Returns a copy of the executor passed to the given task at construction time.
+
+```c++
+batt::Task::executor_type get_executor() const;
+```
+
+##### Return Value
+
+The executor for this task.
 
 #### batt::Task::get_priority
 
@@ -176,8 +337,25 @@ static batt::StatusOr<T> await(const Future)
 
 #### batt::Task::wake
 
+Interrupts a call to `batt::Task::sleep` on the given task.
+
+```c++
+bool wake();
+```
+
+NOTE: if the given task is suspended for some other reason (i.e., it is not inside a call to `batt::Task::sleep`), this method will **not** wake the task (in this case it will return `false`).
+
+##### Return Value
+
+* `true` iff the task was inside a call to `sleep` and was successfully activated
+
 #### batt::Task::yield
 
+Suspend the current task and immediately schedule it to resume via `boost::asio::post`.
+
+```c++
+static void yield();
+```
 
 ## batt::Watch&lt;T&gt;
 
