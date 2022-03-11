@@ -119,7 +119,7 @@ Overall, it is best to consider priority "best-effort" rather than a guarantee o
 
 ### Methods
 
-#### batt::Task::Task(executor, stack_size, body_fn)
+#### [batt::Task](#batttask)::Task(executor, stack_size, body_fn)
 
 Create a new Task with a custom stack size.
 
@@ -132,7 +132,7 @@ explicit Task(const boost::asio::any_io_executor& ex,
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::Task(executor, body_fn, name, stack_size, stack_type, priority)
+#### [batt::Task](#batttask)::Task(executor, body_fn, name, stack_size, stack_type, priority)
 
 Create a new Task, optionally setting name, stack size, stack type, and priority.
 
@@ -150,7 +150,7 @@ The default priority for a Task is the current task priority plus 100; this mean
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::await
+#### [batt::Task](#batttask)::await
 
 Block the current thread until some asynchronous operation completes.
 
@@ -192,7 +192,7 @@ The template parameter `R` is the return type of the `await` operation.  `R` can
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::backtrace_all
+#### [batt::Task](#batttask)::backtrace_all
 
 Dumps stack trace and debug information for all active `batt::Task`s to stderr.
 
@@ -208,7 +208,7 @@ The number of tasks dumped.
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::call_when_done
+#### [batt::Task](#batttask)::call_when_done
     
 Attaches a listener callback to the task; this callback will be invoked when the task completes execution.
 
@@ -221,7 +221,7 @@ This method can be thought of as an asynchronous version of [join()](#batttaskjo
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::current
+#### [batt::Task](#batttask)::current
 
 Returns a reference to the currently running Task, if there is one.
 
@@ -237,7 +237,7 @@ The current task.
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::current_name
+#### [batt::Task](#batttask)::current_name
 
 Returns the current task name, or "" if there is no current task.
 
@@ -253,7 +253,7 @@ The current task name.
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::current_priority
+#### [batt::Task](#batttask)::current_priority
 
 ```c++
 static batt::Task::Priority current_priority();
@@ -269,7 +269,7 @@ The priority of the current task.
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::current_stack_pos
+#### [batt::Task](#batttask)::current_stack_pos
 
 Returns the offset of the current locus of control relative to the base of the stack.
 
@@ -284,7 +284,7 @@ static batt::Optional<usize> current_stack_pos();
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::current_stack_pos_of
+#### [batt::Task](#batttask)::current_stack_pos_of
 
 Returns the offset of some address relative to the base of the current task stack.
 
@@ -301,7 +301,7 @@ NOTE: If `ptr` isn't actually on the current task's stack, then this function wi
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::default_name
+#### [batt::Task](#batttask)::default_name
 
 ```c++
 static std::string default_name()
@@ -313,7 +313,7 @@ The name given to a `batt::Task` if none is passed into the constructor.
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::sleep
+#### [batt::Task](#batttask)::sleep
 
 Puts a `batt::Task` to sleep for the specified real-time duration.
 
@@ -333,7 +333,7 @@ This method is safe to call outside a task; in this case, it is implemented via 
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::get_executor
+#### [batt::Task](#batttask)::get_executor
 
 Returns a copy of the executor passed to the given task at construction time.
 
@@ -347,7 +347,7 @@ The executor for this task.
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::get_priority
+#### [batt::Task](#batttask)::get_priority
 
 Get the priority of this task.
 
@@ -363,7 +363,7 @@ The priority of the task.
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::id
+#### [batt::Task](#batttask)::id
 
 Get the process-unique serial number of this task.
 
@@ -377,7 +377,7 @@ The serial number of the task.
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::join
+#### [batt::Task](#batttask)::join
 
 Block until the task has finished.
 
@@ -387,7 +387,7 @@ void join();
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::name
+#### [batt::Task](#batttask)::name
 
 Get the human-friendly name of this task.
 
@@ -403,7 +403,7 @@ The name of the task.
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::set_priority
+#### [batt::Task](#batttask)::set_priority
 
 Set the scheduling priority of this task.
 
@@ -415,7 +415,7 @@ See [Task Scheduling and Priorities](#task-scheduling-and-priorities).
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::stack_pos
+#### [batt::Task](#batttask)::stack_pos
 
 Get the byte offset between the _current_ stack position and the base of this task's stack.  This value is only meaningful if this method is called while on the current task.  Usually you should just call [batt::Task::current_stack_pos()](#batttaskcurrent_stack_pos) instead.
 
@@ -429,7 +429,7 @@ The byte offset between the current stack position and the base of this task's s
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::stack_pos_of
+#### [batt::Task](#batttask)::stack_pos_of
 
 Get the byte offset between the given pointer and the base of this task's stack.  It is up to the caller to make sure that `ptr` is the address of something on the task's stack.  Usually you should just call [batt::Task::current_stack_pos_of](#batttaskcurrent_stack_pos_of) instead.
 
@@ -443,7 +443,7 @@ The byte offset between the given pointer and the base of this task's stack.
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::try_join
+#### [batt::Task](#batttask)::try_join
 
 Test whether this task has finished.
 
@@ -461,7 +461,7 @@ See [batt::Task::join()](#batttaskjoin).
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::wake
+#### [batt::Task](#batttask)::wake
 
 Interrupts a call to `batt::Task::sleep` on the given task.
 
@@ -477,7 +477,7 @@ NOTE: if the given task is suspended for some other reason (i.e., it is not insi
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Task::yield
+#### [batt::Task](#batttask)::yield
 
 Suspend the current task and immediately schedule it to resume via `boost::asio::post`.
 
@@ -534,13 +534,13 @@ int main() {
 
 ### Methods
 
-#### batt::Watch::Watch()
+#### [batt::Watch](#battwatcht)::Watch()
 
 Constructs a `batt::Watch` object with a default-initialized value of `T`.
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Watch::Watch(T init_value)
+#### [batt::Watch](#battwatcht)::Watch(T init_value)
 
 Constructs a `batt::Watch` object with the given initial value.
 
@@ -559,7 +559,7 @@ void async_wait(T last_seen, Handler&& fn) const;
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Watch::await_equal
+#### [batt::Watch](#battwatcht)::await_equal
 
 Blocks the current task/thread until the Watch contains the specified value.
 
@@ -575,7 +575,7 @@ batt::Status await_equal(T val) const;
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 
-#### batt::Watch::await_modify
+#### [batt::Watch](#battwatcht)::await_modify
 
 Retries `fn` on the Watch value until it succeeds or the Watch is closed.
 
@@ -596,7 +596,7 @@ If `fn` returns `batt::None`, this indicates `fn` should not be called again unt
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 
-#### batt::Watch::await_not_equal
+#### [batt::Watch](#battwatcht)::await_not_equal
 
 Blocks the current task/thread until the Watch value is _not_ equal to `last_seen`.
 
@@ -612,7 +612,7 @@ batt::StatusOr<T> await_not_equal(T last_seen);
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 
-#### batt::Watch::await_true
+#### [batt::Watch](#battwatcht)::await_true
 
 Blocks the current task/thread until the passed predicate function returns `true` for the current value of the Watch.
 
@@ -631,7 +631,7 @@ This is the most general of Watch's blocking getter methods.
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 
-#### batt::Watch::close
+#### [batt::Watch](#battwatcht)::close
 
 Set the Watch to the "closed" state, which disables all blocking/async synchronization on the Watch, immediately unblocking any currently waiting tasks/threads.
 
@@ -644,7 +644,7 @@ This method is safe to call multiple times.  The Watch value can still be modifi
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 
-#### batt::Watch::fetch_add
+#### [batt::Watch](#battwatcht)::fetch_add
 
 Atomically adds the specified amount to the Watch value, returning the previous value.
 
@@ -661,7 +661,7 @@ The prior value of the Watch.
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 
-#### batt::Watch::fetch_and
+#### [batt::Watch](#battwatcht)::fetch_and
 
 Atomically sets the Watch value to the bitwise-and of the current value and the passed `arg`, returning the previous value.
 
@@ -678,7 +678,7 @@ The prior value of the Watch.
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 
-#### batt::Watch::fetch_or
+#### [batt::Watch](#battwatcht)::fetch_or
 
 Atomically sets the Watch value to the bitwise-and of the current value and the passed `arg`, returning the previous value.
 
@@ -695,7 +695,7 @@ The prior value of the Watch.
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 
-#### batt::Watch::fetch_sub
+#### [batt::Watch](#battwatcht)::fetch_sub
 
 Atomically subtracts the specified amount to the Watch value, returning the previous value.
 
@@ -712,7 +712,7 @@ The prior value of the Watch.
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 
-#### batt::Watch::get_value
+#### [batt::Watch](#battwatcht)::get_value
 
 Returns the current value of the Watch to the caller.
 
@@ -727,7 +727,7 @@ The current Watch value.
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 
-#### batt::Watch::is_closed
+#### [batt::Watch](#battwatcht)::is_closed
 
 Returns whether the Watch is in a "closed" state.
 
@@ -742,7 +742,7 @@ bool is_closed() const;
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Watch::modify
+#### [batt::Watch](#battwatcht)::modify
 
 Atomically modifies the Watch value by applying the passed transform `fn`.
 
@@ -763,7 +763,7 @@ T modify(Fn&& fn);
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 
-#### batt::Watch::modify_if
+#### [batt::Watch](#battwatcht)::modify_if
 
 Retries calling `fn` on the Watch value until EITHER of: 
   * `fn` returns `batt::None`
@@ -787,7 +787,7 @@ The final value returned by `fn`, which is either `batt::None` or the new Watch 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 
-#### batt::Watch::set_value
+#### [batt::Watch](#battwatcht)::set_value
 
 Atomically set the value of the Watch.
 
