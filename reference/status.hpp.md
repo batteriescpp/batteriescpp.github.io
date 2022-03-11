@@ -1,4 +1,4 @@
-# &ltbatteries/status.hpp$gt;: Fast, ergonomic error handling
+# &lt;batteries/status.hpp&gt;: Fast, ergonomic error handling
 
 ## Summary
 
