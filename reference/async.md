@@ -510,7 +510,7 @@ static void yield();
 
 ### Description
 
-A `batt::Watch` is like a `std::atomic` that you can block on, synchronously and asynchronously.  Like `std::atomic`, it has methods to atomically get/set/increment/etc.  But unlike std::atomic, you can also block a task waiting for some condition to be true.  Example:
+A `batt::Watch` is like a `std::atomic` that you can block on, synchronously and asynchronously.  Like `std::atomic`, it has methods to atomically get/set/increment/etc.  But unlike `std::atomic`, you can also block a task waiting for some condition to be true.  Example:
 
 ```c++
 #include <batteries/async/watch.hpp>
