@@ -811,6 +811,117 @@ void set_value(T new_value);
 | [Mutex()](#battmutexmutex) |
 | [Mutex(args...)](#battmutexmutexargs) |
 
-| Methods ||
-| :- | :- |
-| [lock](#battmutexlock) | [lock (const)](#battmutexlock-const) |
+| Methods |||
+| :- | :- | :- |
+| [lock](#battmutexlock) | [lock (const)](#battmutexlock-const) | [with_lock](#battmutexwith_lock) |
+
+| Operators |
+| :- |
+| [operator-&gt;](#battmutexoperator-&gt;) |
+
+| Static Methods |
+| :- |
+| [thread_safe_base](#battmutexthreadsafebase) |
+
+### Description
+
+Provides mutually-exclusive access to an instance of type `T`.  This class has two advantages over `std::mutex`:
+
+1. It will yield the current `batt::Task` (if there is one) when blocking to acquire a lock, allowing the current thread to be used by other tasks
+2. By embedding the protected type `T` within the object, there is a much lower chance that state which should be accessed via a mutex will accidentally be accessed directly
+
+This mutex implementation is mostly fair because it uses [Lamport's Bakery Algorithm](https://en.wikipedia.org/wiki/Lamport's_bakery_algorithm).  It is non-recursive, so threads/tasks that attempt to acquire a lock that they already have will deadlock.  Also, an attempt to acquire a lock on a `batt::Mutex` can't be cancelled, so it is not possible to set a timeout on lock acquisition.
+
+An instance of `batt::Mutex&lt;T&gt;` may be locked in a few different ways:
+
+#### Lock via guard class (similar to std::unique_lock)
+
+```c++
+batt::Mutex<std::string> s;
+{
+  batt::Mutex<std::string>::Lock lock{s};
+  
+  // Once the lock is acquired, you can access the protected object via pointer...
+  //
+  std::string* ptr = lock.get();
+
+  // ... or by reference ...
+  //
+  std::string& ref = lock.value();
+  
+  // ... by operator* like a smart pointer...
+  //
+  std::string& ref2 = *lock;
+  
+  // ... or you can access its members via operator->:
+  //
+  const char* cs = lock->c_str();
+}
+// The lock is released when the guard class goes out of scope.
+```
+
+Equivalently, an instance of `batt::Mutex&lt;T&gt;::Lock` can be created via the `lock()` method:
+
+```c++
+batt::Mutex<std::string> s;
+{
+  auto locked = s.lock();
+  
+  static_assert(std::is_same_v<decltype(locked), batt::Mutex<std::string>::Lock>, 
+                "It is nice to use auto in this case!");
+}
+```
+
+As the second example implies, `batt::Mutex&lt;T&gt;::Lock` is a movable type (however it is non-copyable).
+
+#### Run function with lock acquired
+
+```c++
+batt::Mutex<std::string> s{"Some string"};
+
+s.with_lock([](std::string& locked_s) {
+    locked_s += " and then some!";
+});
+```
+
+#### Lock-free access to T
+
+Even though access to the protected object of type `T` mostly happens via a lock, `batt::Mutex` supports types with a partial interface that is thread-safe without locking.  Example:
+
+```c++
+struct MyStateBase {
+  explicit MyStateBase(std::string&& init_val) 
+    : initial_value{std::move(init_val)}
+  {}
+ 
+  const std::string initial_value;
+};
+
+struct MyState : MyStateBase {
+  // IMPORTANT: this member type alias tells batt::Mutex to enable the `no_lock()` method/feature.
+  //
+  using ThreadSafeBase = MyStateBase;
+
+  explicit MyState(std::string&& init_val)
+    : MyStateBase{init_val}
+    , current_value{init_val}
+  {}
+};
+
+batt::Mutex<MyState> state{"initial"};
+
+// No lock needed to read a const value.
+//
+std::cout << "initial value = " << state.no_lock().initial_value << std::endl;
+
+// We still need to acquire the lock to access the derived class.
+//
+state.with_lock([](MyState& s) {
+  std::cout << "current value = " << s.current_value << std::endl;
+  s.current_value = "changed";
+});
+
+// batt::Mutex::nolock returns a reference to the ThreadSafeBase type declared in MyState.
+//
+MyStateBase& base = state.no_lock();
+```
