@@ -261,6 +261,8 @@ static batt::Task::Priority current_priority();
 
 NOTE: this function is safe to call outside of a task; in this case, the default priority (0) is returned.
 
+See [Task Scheduling and Priorities](#task-scheduling-and-priorities).
+
 ##### Return Value
 
 The priority of the current task.
