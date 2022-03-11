@@ -1,8 +1,8 @@
 # &lt;batteries/async/...&gt; : Async Tasks and I/O
 
-| Quick Reference ||
-| :---------------------- | :--------------------------------- |
-| [batt::Task](#batttask) | [batt::Watch&lt;T&gt;](#battwatcht) |
+| Quick Reference         |                                     |                                     |
+| :---------------------- | :---------------------------------- | :---------------------------------- |
+| [batt::Task](#batttask) | [batt::Watch&lt;T&gt;](#battwatcht) | [batt::Mutex&lt;T&gt;](#battmutext) |
 
 ## batt::Task
 
@@ -795,5 +795,22 @@ Atomically set the value of the Watch.
 void set_value(T new_value);
 ```
 
+<hr><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
+## batt::Mutex&lt;T&gt;
+
+### Summary
+
+```c++
+#include <batteries/async/mutex.hpp>
+```
+
+| Constructors | 
+| :- |
+| [Mutex()](#battmutexmutex) |
+| [Mutex(args...)](#battmutexmutexargs) |
+
+| Methods ||
+| :- | :- |
+| [lock](#battmutexlock) | [lock (const)](#battmutexlock-const) |
