@@ -546,7 +546,7 @@ Constructs a `batt::Watch` object with the given initial value.
 
 <br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
-#### batt::Watch::async_wait
+#### [batt::Watch](#battwatcht)::async_wait
 
 Invokes the passed handler `fn` with the described value as soon as one of the following conditions is true:
  * if the Watch value is _not_ equal to the passed value `last_seen`, the current value of the Watch
