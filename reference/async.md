@@ -496,10 +496,10 @@ static void yield();
 #include <batteries/async/watch.hpp>
 ```
 
-| Constructors                        |
-| :---------------------------------- |
-| [Watch()](#battwatch_constructor)   |
-| [Watch(T)](#battwatcht-constructor) |
+| Constructors                            |
+| :-------------------------------------- |
+| [Watch()](#battwatchwatch)              |
+| [Watch(T)](#battwatchwatcht-init_value) |
 
 | Getters                           | Modifiers                                                            || Synchronization                               || 
 | :-------------------------------- | :-------------------------------- | :-------------------------------- | :--------------------------------------------- ||
@@ -533,6 +533,18 @@ int main() {
 ```
 
 ### Methods
+
+#### batt::Watch::Watch()
+
+Constructs a `batt::Watch` object with a default-initialized value of `T`.
+
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
+#### batt::Watch::Watch(T init_value)
+
+Constructs a `batt::Watch` object with the given initial value.
+
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 #### batt::Watch::async_wait
 
