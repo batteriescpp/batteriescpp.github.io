@@ -832,7 +832,7 @@ Provides mutually-exclusive access to an instance of type `T`.  This class has t
 
 This mutex implementation is mostly fair because it uses [Lamport's Bakery Algorithm](https://en.wikipedia.org/wiki/Lamport's_bakery_algorithm).  It is non-recursive, so threads/tasks that attempt to acquire a lock that they already have will deadlock.  Also, an attempt to acquire a lock on a `batt::Mutex` can't be cancelled, so it is not possible to set a timeout on lock acquisition.
 
-An instance of `batt::Mutex&lt;T&gt;` may be locked in a few different ways:
+An instance of `batt::Mutex<T>` may be locked in a few different ways:
 
 #### Lock via guard class (similar to std::unique_lock)
 
@@ -860,7 +860,7 @@ batt::Mutex<std::string> s;
 // The lock is released when the guard class goes out of scope.
 ```
 
-Equivalently, an instance of `batt::Mutex&lt;T&gt;::Lock` can be created via the `lock()` method:
+Equivalently, an instance of `batt::Mutex<T>::Lock` can be created via the `lock()` method:
 
 ```c++
 batt::Mutex<std::string> s;
@@ -872,7 +872,7 @@ batt::Mutex<std::string> s;
 }
 ```
 
-As the second example implies, `batt::Mutex&lt;T&gt;::Lock` is a movable type (however it is non-copyable).
+As the second example implies, `batt::Mutex<T>::Lock` is a movable type (however it is non-copyable).
 
 #### Run function with lock acquired
 
