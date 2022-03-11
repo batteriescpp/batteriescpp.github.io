@@ -14,8 +14,8 @@
 
 | Constructors |
 | :----------- |
-| [Task(executor, stack_size, body_fn)]() |
-| [Task(executor, body_fn, name, stack_size, stack_type, priority)]() |
+| [Task(executor, stack_size, body_fn)](#batttasktaskexecutor-stack_size-body_fn) |
+| [Task(executor, body_fn, name, stack_size, stack_type, priority)](#batttasktaskexecutor-body_fn-name-stack_size-stack_type-priority) |
 
 
 | Static Methods                                  |                                                       |                                               |
