@@ -549,8 +549,8 @@ Constructs a `batt::Watch` object with the given initial value.
 #### [batt::Watch](#battwatcht)::async_wait
 
 Invokes the passed handler `fn` with the described value as soon as one of the following conditions is true:
- * if the Watch value is _not_ equal to the passed value `last_seen`, the current value of the Watch
- * if the Watch is closed, `batt::StatusCode::kClosed`
+ * When the Watch value is _not_ equal to the passed value `last_seen`, invoke `fn` with the current value of the Watch.
+ * When the Watch is closed, invoke `fn` with `batt::StatusCode::kClosed`.
 
 ```c++
 template <typename Handler = void(batt::StatusOr<T> new_value)>
