@@ -130,7 +130,11 @@ explicit Task(const boost::asio::any_io_executor& ex,
               BodyFn&& body_fn) noexcept;
 ```
 
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 #### batt::Task::Task(executor, body_fn, name, stack_size, stack_type, priority)
+
+Create a new Task, optionally setting name, stack size, stack type, and priority.
 
 ```c++
 template <typename BodyFn = void()>
@@ -142,9 +146,9 @@ explicit Task(const boost::asio::any_io_executor& ex,
               batt::Optional<Priority> priority = None) noexcept;
 ```
 
-Create a new Task, optionally setting name, stack size, stack type, and priority.
-
 The default priority for a Task is the current task priority plus 100; this means that a new Task by default will always "soft-preempt" the currently running task.
+
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 #### batt::Task::await
 
@@ -152,10 +156,10 @@ Block the current thread until some asynchronous operation completes.
 
 ```c++
 template <typename R, typename Fn=void(Handler)>
-static R await(Fn&& fn);                                         // (1)
+static R await(Fn&& fn);                                               // (1)
 
 template <typename R, typename Fn=void(Handler)>
-static R await(batt::StaticType<R>, Fn&& fn);                    // (2)
+static R await(batt::StaticType<R>, Fn&& fn);                          // (2)
 
 template <typename T>
 static batt::StatusOr<T> await(const batt::Future<T>& future_result);  // (3)
@@ -186,6 +190,8 @@ The template parameter `R` is the return type of the `await` operation.  `R` can
 * (1) &amp; (2): the instance of `R` constructed from callback arguments.
 * (3): the value of the passed `batt::Future<T>` if successful; non-ok status if the future completed with an error.
 
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 #### batt::Task::backtrace_all
 
 Dumps stack trace and debug information for all active `batt::Task`s to stderr.
@@ -200,6 +206,8 @@ If `force` is true, then this function will attempt to dump debug information fo
 
 The number of tasks dumped.
 
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 #### batt::Task::call_when_done
     
 Attaches a listener callback to the task; this callback will be invoked when the task completes execution.
@@ -210,6 +218,8 @@ void call_when_done(F&& handler);
 ```
 
 This method can be thought of as an asynchronous version of [join()](#batttaskjoin).
+
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 #### batt::Task::current
 
@@ -225,6 +235,8 @@ WARNING: if this method is called outside of any `batt::Task`, behavior is undef
 
 The current task.
 
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 #### batt::Task::current_name
 
 Returns the current task name, or "" if there is no current task.
@@ -239,6 +251,8 @@ Unlike [batt::Task::current()](#batttaskcurrent), this method is safe to call ou
 
 The current task name.
 
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 #### batt::Task::current_priority
 
 ```c++
@@ -250,6 +264,8 @@ NOTE: this function is safe to call outside of a task; in this case, the default
 ##### Return Value
 
 The priority of the current task.
+
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 #### batt::Task::current_stack_pos
 
@@ -263,6 +279,8 @@ static batt::Optional<usize> current_stack_pos();
 
 * If called from inside a task, the current stack position in bytes
 * Else `batt::None`
+
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 #### batt::Task::current_stack_pos_of
 
@@ -279,6 +297,8 @@ NOTE: If `ptr` isn't actually on the current task's stack, then this function wi
 * If called from inside a task, the stack offset in bytes of `ptr`
 * Else `batt::None`
 
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 #### batt::Task::default_name
 
 ```c++
@@ -288,6 +308,8 @@ static std::string default_name()
 ##### Return Value
 
 The name given to a `batt::Task` if none is passed into the constructor.
+
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 #### batt::Task::sleep
 
@@ -307,6 +329,8 @@ This method is safe to call outside a task; in this case, it is implemented via 
 * `batt::ErrorCode{}` (no error) if the specified duration passed
 * A value equal to `boost::asio::error::operation_aborted` if `batt::Task::wake()` was called on the given task
 
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 #### batt::Task::get_executor
 
 Returns a copy of the executor passed to the given task at construction time.
@@ -319,21 +343,121 @@ batt::Task::executor_type get_executor() const;
 
 The executor for this task.
 
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 #### batt::Task::get_priority
+
+Get the priority of this task.
+
+```c++
+batt::Task::Priority get_priority() const;
+```
+
+See [Task Scheduling and Priorities](#task-scheduling-and-priorities).
+
+##### Return Value
+
+The priority of the task.
+
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 #### batt::Task::id
 
+Get the process-unique serial number of this task.
+
+```c++
+i32 id() const;
+```
+
+##### Return Value
+
+The serial number of the task.
+
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 #### batt::Task::join
+
+Block until the task has finished.
+
+```c++
+void join();
+```
+
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 #### batt::Task::name
 
+Get the human-friendly name of this task.
+
+```c++
+std::string_view name() const;
+```
+
+This string is not necessarily unique to this task.  It is optionally passed in when the task is constructed.  The purpose is to identify the task for debugging purposes.
+
+##### Return Value
+
+The name of the task.
+
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 #### batt::Task::set_priority
+
+Set the scheduling priority of this task.
+
+```c++
+void set_priority(batt::Task::Priority new_priority);
+```
+
+See [Task Scheduling and Priorities](#task-scheduling-and-priorities).
+
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 #### batt::Task::stack_pos
 
+Get the byte offset between the _current_ stack position and the base of this task's stack.  This value is only meaningful if this method is called while on the current task.  Usually you should just call [batt::Task::current_stack_pos()](#batttaskcurrent_stack_pos) instead.
+
+```c+++
+usize stack_pos() const;
+```
+
+##### Return Value
+
+The byte offset between the current stack position and the base of this task's stack.
+
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 #### batt::Task::stack_pos_of
 
+Get the byte offset between the given pointer and the base of this task's stack.  It is up to the caller to make sure that `ptr` is the address of something on the task's stack.  Usually you should just call [batt::Task::current_stack_pos_of](#batttaskcurrent_stack_pos_of) instead.
+
+```c++
+usize stack_pos_of(const volatile void* ptr) const;;
+```
+
+##### Return Value
+
+The byte offset between the given pointer and the base of this task's stack.
+
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 #### batt::Task::try_join
+
+Test whether this task has finished.
+
+```c++
+bool try_join();
+```
+
+This function is guaranteed never to block.
+
+See [batt::Task::join()](#batttaskjoin).
+
+##### Return Value
+
+`true` iff the task has finished executing.
+
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 #### batt::Task::wake
 
@@ -349,6 +473,8 @@ NOTE: if the given task is suspended for some other reason (i.e., it is not insi
 
 * `true` iff the task was inside a call to `sleep` and was successfully activated
 
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+
 #### batt::Task::yield
 
 Suspend the current task and immediately schedule it to resume via `boost::asio::post`.
@@ -356,6 +482,9 @@ Suspend the current task and immediately schedule it to resume via `boost::asio:
 ```c++
 static void yield();
 ```
+
+<hr><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
+<br><!-- ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   - -->
 
 ## batt::Watch&lt;T&gt;
 
