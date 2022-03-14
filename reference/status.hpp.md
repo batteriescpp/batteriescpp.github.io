@@ -1,4 +1,4 @@
-# &lt;batteries/status.hpp&gt;: Fast, ergonomic error handling
+# &lt;batteries/status.hpp&gt;: Efficient, Ergonomic Error Handling
 
 ## Summary
 
@@ -12,7 +12,9 @@
 | [batt::StatusCode](#battstatuscode) | [batt::OkStatus](#battokstatus) | [BATT_CHECK_OK](#batt_check_ok) |
 | [batt::StatusOr&lt;T&gt;](#battstatusort) | [batt::status_from_retval](#battstatus_from_retval) | [BATT_OK_RESULT_OR_PANIC](#batt_ok_result_or_panic) |
 | [batt::ErrnoValue](#batterrnovalue) | [batt::status_from_errno](#battstatus_from_errno) | [BATT_ASSIGN_OK_RESULT](#batt_assign_ok_result) |
-
+| [batt::IsStatusOr<T>](#battisstatusort) | [batt::status_is_retryable](#battstatus_is_retryable) ||
+| [batt::RemoveStatusOr<T>](#battremovestatusort) ] | [batt::is_ok_status](#battis_ok_status) ] ||
+| [batt::LogLevel](#battloglevel) | [#batt::ok_result_or_panic&lt;T&gt;](#battok_result_or_panict) ||
 
 ## Why not exceptions?
 
