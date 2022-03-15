@@ -138,11 +138,11 @@ batt::Status even_better_example()
 #include <batteries/status.hpp>
 ```
 
-| Constructors                                          | Operators |
-| :---------------------------------------------------- | :-------- |
-| [Status()](#battstatusstatus)                         ||
-| [Status(enum_value)](#battstatusstatusenum_value)     ||
-| [Status(const Status&)](#battstatusstatusconststatus) ||
+| Constructors                                          | Operators  | Methods                       |                                       |
+| :---------------------------------------------------- | :--------- | :---------------------------- | :------------------------------------ |
+| [Status()](#battstatusstatus)                         | operator=  | [ok](#battstatusok)           | [group](#battstatusgroup)             |
+| [Status(enum_value)](#battstatusstatusenum_value)     | operator<< | [code](#battstatuscodemethod) | [IgnoreError](#battstatusignoreerror) |
+| [Status(const Status&)](#battstatusstatusconststatus) | operator== | [message](#battstatusmessage) | [Update](#battstatusupdate)           |
 
 | Static Methods                                                      | Types                               | Constants                                   |
 | :------------------------------------------------------------------ | :---------------------------------- | :------------------------------------------ |
@@ -150,8 +150,3 @@ batt::Status even_better_example()
 | [message_from_code](#battstatusmessage_from_code)                   | [CodeEntry](#battstatuscodeentry)   | [kGroupSize](#battstatuskgroupsize)         |
 | [register_codes](#battstatusregister_codes)                         | [CodeGroup](#battstatuscodegroup)   | [kMaxGroups](#battstatuskmaxgroups)         |
 | [unknown_enum_value_message](#battstatusunknown_enum_value_message) |                                     |                                             |
-
-| Methods                   |                                       |                               |
-| :------------------------ | :------------------------------------ | :---------------------------- |
-| [ok](#battstatusok)       | [code](#battstatuscodemethod)         | [message](#battstatusmessage) |
-| [group](#battstatusgroup) | [IgnoreError](#battstatusignoreerror) | [Update](#battstatusupdate)   |
