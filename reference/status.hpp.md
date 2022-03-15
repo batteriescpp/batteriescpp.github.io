@@ -129,3 +129,29 @@ batt::Status even_better_example()
   return batt::OkStatus();
 }
 ```
+
+## batt::Status
+
+### Summary
+
+```c++
+#include <batteries/status.hpp>
+```
+
+| Constructors                                          | Operators |
+| :---------------------------------------------------- | :-------- |
+| [Status()](#battstatusstatus)                         ||
+| [Status(enum_value)](#battstatusstatusenum_value)     ||
+| [Status(const Status&)](#battstatusstatusconststatus) ||
+
+| Static Methods                                                      | Types                               | Constants                                   |
+| :------------------------------------------------------------------ | :---------------------------------- | :------------------------------------------ |
+| [code_group_for_type](#battstatuscode_group_for_type)               | [value_type](#battstatusvalue_type) | [kGroupSizeBits](#battstatuskgroupsizebits) |
+| [message_from_code](#battstatusmessage_from_code)                   | [CodeEntry](#battstatuscodeentry)   | [kGroupSize](#battstatuskgroupsize)         |
+| [register_codes](#battstatusregister_codes)                         | [CodeGroup](#battstatuscodegroup)   | [kMaxGroups](#battstatuskmaxgroups)         |
+| [unknown_enum_value_message](#battstatusunknown_enum_value_message) |                                     |                                             |
+
+| Methods                   |                                       |                               |
+| :------------------------ | :------------------------------------ | :---------------------------- |
+| [ok](#battstatusok)       | [code](#battstatuscodemethod)         | [message](#battstatusmessage) |
+| [group](#battstatusgroup) | [IgnoreError](#battstatusignoreerror) | [Update](#battstatusupdate)   |
