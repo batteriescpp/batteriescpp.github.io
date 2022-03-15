@@ -118,7 +118,7 @@ batt::Status example()
 }
 ```
 
-In fact, because this pattern is so common when invoking system apis, the above example can also be written as:
+In fact, because this pattern is so common when invoking system APIs, the above example can also be written as:
 
 ```c++
 batt::Status even_better_example() 
@@ -138,11 +138,11 @@ batt::Status even_better_example()
 #include <batteries/status.hpp>
 ```
 
-| Constructors                                          | Operators  | Methods                       |                                       |
-| :---------------------------------------------------- | :--------- | :---------------------------- | :------------------------------------ |
-| [Status()](#battstatusstatus)                         | operator=  | [ok](#battstatusok)           | [group](#battstatusgroup)             |
-| [Status(enum_value)](#battstatusstatusenum_value)     | operator<< | [code](#battstatuscodemethod) | [IgnoreError](#battstatusignoreerror) |
-| [Status(const Status&)](#battstatusstatusconststatus) | operator== | [message](#battstatusmessage) | [Update](#battstatusupdate)           |
+| Constructors                                          | Operators                           | Methods                       |                                       |
+| :---------------------------------------------------- | :---------------------------------- | :---------------------------- | :------------------------------------ |
+| [Status()](#battstatusstatus)                         | [operator=](#battstatusoperator=)   | [ok](#battstatusok)           | [group](#battstatusgroup)             |
+| [Status(enum_value)](#battstatusstatusenum_value)     | [operator<<](#battstatusoperator<<) | [code](#battstatuscodemethod) | [IgnoreError](#battstatusignoreerror) |
+| [Status(const Status&)](#battstatusstatusconststatus) | [operator==](#battstatusoperator==) | [message](#battstatusmessage) | [Update](#battstatusupdate)           |
 
 | Static Methods                                                      | Types                               | Constants                                   |
 | :------------------------------------------------------------------ | :---------------------------------- | :------------------------------------------ |
@@ -150,3 +150,15 @@ batt::Status even_better_example()
 | [message_from_code](#battstatusmessage_from_code)                   | [CodeEntry](#battstatuscodeentry)   | [kGroupSize](#battstatuskgroupsize)         |
 | [register_codes](#battstatusregister_codes)                         | [CodeGroup](#battstatuscodegroup)   | [kMaxGroups](#battstatuskmaxgroups)         |
 | [unknown_enum_value_message](#battstatusunknown_enum_value_message) |                                     |                                             |
+
+### Constructors
+
+### Operators
+
+### Methods
+
+### Static Methods
+
+### Types
+
+### Constants
