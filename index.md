@@ -16,4 +16,4 @@ Features:
 
 <!-- Guides: TODO; adding diagnostics to your program, C++
 metaprogramming for humans, using patterns from functional programming
-in C++, ...? -->
+in C++, ...? change -->
