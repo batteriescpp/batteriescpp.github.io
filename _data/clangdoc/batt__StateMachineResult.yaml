@@ -1,0 +1,146 @@
+---
+USR:             '849572E82FE44AC8EEB7425FE223C92EDB32D403'
+Name:            'StateMachineResult'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------'
+DefLocation:
+  LineNumber:      20
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/state_machine_result.hpp'
+Members:
+  - Type:
+      Name:            '_Bool'
+    Name:            'ok'
+    Access:          Public
+  - Type:
+      Name:            'batt::int_types::usize'
+    Name:            'branch_push_count'
+    Access:          Public
+  - Type:
+      Name:            'batt::int_types::usize'
+    Name:            'branch_pop_count'
+    Access:          Public
+  - Type:
+      Name:            'batt::int_types::usize'
+    Name:            'branch_miss_count'
+    Access:          Public
+  - Type:
+      Name:            'batt::int_types::usize'
+    Name:            'state_count'
+    Access:          Public
+  - Type:
+      Name:            'batt::int_types::usize'
+    Name:            'self_branch_count'
+    Access:          Public
+  - Type:
+      Type:            Record
+      Name:            'time_point'
+      USR:             'D043FFBF0DDDC3C3429D9F1EA02F9AB26316F96B'
+      Path:            'std/chrono'
+    Name:            'start_time'
+  - Type:
+      Name:            'batt::int_types::usize'
+    Name:            'elapsed_ms'
+    Access:          Public
+  - Type:
+      Name:            'double'
+    Name:            'states_per_second'
+    Access:          Public
+  - Type:
+      Name:            'double'
+    Name:            'branch_pop_per_second'
+    Access:          Public
+  - Type:
+      Name:            'double'
+    Name:            'branch_push_per_second'
+    Access:          Public
+  - Type:
+      Type:            Record
+      Name:            'bitset'
+      USR:             '7479FCE7CB5125F015FA400A558B6540A8DE54CF'
+      Path:            'std'
+    Name:            'shards'
+  - Type:
+      Type:            Record
+      Name:            'Optional'
+      USR:             'D35CDE74E00493F62AB889C0D841FE5FC5A57103'
+      Path:            'batt'
+    Name:            'seed'
+ChildFunctions:
+  - USR:             '0FA4C9AF4B7A197BCFCCCD09D67656D50B56F388'
+    Name:            'update_elapsed_time'
+    Namespace:
+      - Type:            Record
+        Name:            'StateMachineResult'
+        USR:             '849572E82FE44AC8EEB7425FE223C92EDB32D403'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      35
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/state_machine_result.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'StateMachineResult'
+      USR:             '849572E82FE44AC8EEB7425FE223C92EDB32D403'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'C13EECE5979DF1B2C618D0B8D5068FE009D90478'
+    Name:            'compute_rate'
+    Namespace:
+      - Type:            Record
+        Name:            'StateMachineResult'
+        USR:             '849572E82FE44AC8EEB7425FE223C92EDB32D403'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      43
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/state_machine_result.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'StateMachineResult'
+      USR:             '849572E82FE44AC8EEB7425FE223C92EDB32D403'
+    Params:
+      - Type:
+          Name:            'batt::int_types::usize'
+        Name:            'count'
+    ReturnType:
+      Type:
+        Name:            'double'
+    Access:          Public
+  - USR:             'E378196888A9CB4572EDF2881D269E6F38758FCA'
+    Name:            'update_rates'
+    Namespace:
+      - Type:            Record
+        Name:            'StateMachineResult'
+        USR:             '849572E82FE44AC8EEB7425FE223C92EDB32D403'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      48
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/state_machine_result.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'StateMachineResult'
+      USR:             '849572E82FE44AC8EEB7425FE223C92EDB32D403'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

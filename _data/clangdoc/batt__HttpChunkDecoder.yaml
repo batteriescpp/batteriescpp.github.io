@@ -1,0 +1,295 @@
+---
+USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+Name:            'HttpChunkDecoder'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      18
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_chunk_decoder.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'Src'
+    Name:            'src_'
+    Access:          Private
+  - Type:
+      Type:            Record
+      Name:            'ChunkedDecoder'
+      USR:             '139843082DE03CF509A7B80A6A85AC0D82F7B2C5'
+      Path:            'pico_http'
+    Name:            'decoder_checkpoint_'
+  - Type:
+      Type:            Record
+      Name:            'ChunkedDecoder'
+      USR:             '139843082DE03CF509A7B80A6A85AC0D82F7B2C5'
+      Path:            'pico_http'
+    Name:            'decoder_latest_'
+  - Type:
+      Name:            '_Bool'
+    Name:            'done_'
+    Access:          Private
+  - Type:
+      Name:            'batt::int_types::usize'
+    Name:            'decoded_src_size_'
+    Access:          Private
+  - Type:
+      Name:            'batt::int_types::usize'
+    Name:            'output_available_'
+    Access:          Private
+  - Type:
+      Name:            'batt::int_types::usize'
+    Name:            'output_consumed_'
+    Access:          Private
+  - Type:
+      Type:            Record
+      Name:            'small_vector'
+      USR:             '7A40F79529D23B8AC4BBE0A2801A0C0F844F0AD4'
+      Path:            'boost/container'
+    Name:            'decoded_chunks_'
+ChildFunctions:
+  - USR:             'F5D180399A94C69F1783131AFD47B084D8C6B8E7'
+    Name:            'HttpChunkDecoder<Src>'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpChunkDecoder'
+        USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      21
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_chunk_decoder.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpChunkDecoder'
+      USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+    Params:
+      - Type:
+          Name:            'Src &&'
+        Name:            'src'
+      - Type:
+          Type:            Record
+          Name:            'StrongType'
+          USR:             'D23DCC48B00B7E9D739327641B46378947DEAD0A'
+          Path:            'batt'
+        Name:            'consume_trailer'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '5AD74E3C4A2C4D9A1005C9837A962CECA67DA0C3'
+    Name:            'size'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpChunkDecoder'
+        USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' The current number of bytes available as consumable data.'
+    DefLocation:
+      LineNumber:      33
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_chunk_decoder.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpChunkDecoder'
+      USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::usize'
+    Access:          Public
+  - USR:             '0858DDAB635FF56E61EB25B1C54C0C7B0A97F2D9'
+    Name:            'done'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpChunkDecoder'
+        USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' The decoder has completed.'
+    DefLocation:
+      LineNumber:      40
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_chunk_decoder.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpChunkDecoder'
+      USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '5E898B74C60C9DBDFA178EECE5D365262EB70253'
+    Name:            'fetch_at_least'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpChunkDecoder'
+        USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Returns a ConstBufferSequence containing at least `min_count` bytes of data.'
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' This method may block the current task if there isn''t enough data available to satisfy'
+              - Kind:            'TextComment'
+                Text:            ' the request (i.e., if `this->size() '
+              - Kind:            'TextComment'
+                Text:            '<'
+              - Kind:            'TextComment'
+                Text:            ' min_count`).'
+    DefLocation:
+      LineNumber:      50
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_chunk_decoder.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpChunkDecoder'
+      USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+    Params:
+      - Type:
+          Name:            'const batt::int_types::i64'
+        Name:            'min_count_i'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'StatusOr'
+        USR:             'BE453B0ED42D07330BADC46317733F4153B6642A'
+        Path:            'batt'
+    Access:          Public
+  - USR:             '7577160598C601B413E513D6487D3A480838B0FB'
+    Name:            'consume'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpChunkDecoder'
+        USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Consume the specified number of bytes from the front of the stream so that future calls to'
+              - Kind:            'TextComment'
+                Text:            ' `fetch_at_least` will not return the same data.'
+    DefLocation:
+      LineNumber:      120
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_chunk_decoder.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpChunkDecoder'
+      USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+    Params:
+      - Type:
+          Name:            'batt::int_types::i64'
+        Name:            'count'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'D3522621ABAB71D7593C57692FC9AA4E55B17BD5'
+    Name:            'close_for_read'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpChunkDecoder'
+        USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Unblocks any current and future calls to `prepare_at_least` (and all other fetch/read methods).  This'
+              - Kind:            'TextComment'
+                Text:            ' signals to the buffer (and all other clients of this object) that no more data will be read/consumed.'
+    DefLocation:
+      LineNumber:      134
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_chunk_decoder.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpChunkDecoder'
+      USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'DB0F9265929A7F8B5765E84E1E543B050AE85A62'
+    Name:            'release_decoded_chunks'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpChunkDecoder'
+        USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      140
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_chunk_decoder.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpChunkDecoder'
+      USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Private
+  - USR:             '9FB0B25D981D0424FEF6CD8811848B87649E4755'
+    Name:            'consume_from_src'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpChunkDecoder'
+        USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      149
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_chunk_decoder.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpChunkDecoder'
+      USR:             '88CA62EBCE477332FFB6FD4F97B9BB1CF217185F'
+    Params:
+      - Type:
+          Name:            'batt::int_types::usize'
+        Name:            'count'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Private
+...

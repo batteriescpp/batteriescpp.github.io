@@ -1,0 +1,149 @@
+---
+USR:             '55B4A565EB458D2F5CE984004E31F4CF625EE401'
+Name:            'Flatten'
+Path:            'batt/seq'
+Namespace:
+  - Type:            Namespace
+    Name:            'seq'
+    USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+          - Kind:            'TextComment'
+            Text:            ' flatten - turns Seq'
+          - Kind:            'TextComment'
+            Text:            '<Seq'
+          - Kind:            'TextComment'
+            Text:            '<T'
+          - Kind:            'TextComment'
+            Text:            '>> into Seq'
+          - Kind:            'TextComment'
+            Text:            '<T'
+          - Kind:            'TextComment'
+            Text:            '> by concatenating'
+DefLocation:
+  LineNumber:      24
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/flatten.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'OuterSeq'
+    Name:            'outer_'
+    Access:          Private
+  - Type:
+      Name:            'Optional<batt::seq::Flatten::InnerSeq>'
+    Name:            'inner_'
+    Access:          Private
+ChildFunctions:
+  - USR:             '7E12602DCC988394A2393BF09B0DFC2D1E81166F'
+    Name:            'Flatten<OuterSeq>'
+    Namespace:
+      - Type:            Record
+        Name:            'Flatten'
+        USR:             '55B4A565EB458D2F5CE984004E31F4CF625EE401'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      30
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/flatten.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Flatten'
+      USR:             '55B4A565EB458D2F5CE984004E31F4CF625EE401'
+    Params:
+      - Type:
+          Name:            'OuterSeq &&'
+        Name:            'outer'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '22842EEC0C26BB18F90CCF92D48DA4FEE2A187F6'
+    Name:            'peek'
+    Namespace:
+      - Type:            Record
+        Name:            'Flatten'
+        USR:             '55B4A565EB458D2F5CE984004E31F4CF625EE401'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      34
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/flatten.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Flatten'
+      USR:             '55B4A565EB458D2F5CE984004E31F4CF625EE401'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::Flatten::Item>'
+    Access:          Public
+  - USR:             '2348F5545314F2E92E1859554C982F827800B725'
+    Name:            'next'
+    Namespace:
+      - Type:            Record
+        Name:            'Flatten'
+        USR:             '55B4A565EB458D2F5CE984004E31F4CF625EE401'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      38
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/flatten.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Flatten'
+      USR:             '55B4A565EB458D2F5CE984004E31F4CF625EE401'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::Flatten::Item>'
+    Access:          Public
+  - USR:             '999EBBF5C9FCA45390931D836E1E3C05DBE773C8'
+    Name:            'impl'
+    Namespace:
+      - Type:            Record
+        Name:            'Flatten'
+        USR:             '55B4A565EB458D2F5CE984004E31F4CF625EE401'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      53
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/flatten.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Flatten'
+      USR:             '55B4A565EB458D2F5CE984004E31F4CF625EE401'
+    Params:
+      - Type:
+          Name:            '_Bool'
+        Name:            'consume_item'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::Flatten::Item>'
+    Access:          Private
+...

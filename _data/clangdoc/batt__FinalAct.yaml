@@ -1,0 +1,166 @@
+---
+USR:             '2401B0D79AEA2D929460075019E8FF211F21C15D'
+Name:            'FinalAct'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      18
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/finally.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'std::optional<Fn>'
+    Name:            'fn_'
+    Access:          Private
+ChildFunctions:
+  - USR:             'A5D75D80FBE575CA36CF13231F37CE88CA4436B1'
+    Name:            'FinalAct<Fn>'
+    Namespace:
+      - Type:            Record
+        Name:            'FinalAct'
+        USR:             '2401B0D79AEA2D929460075019E8FF211F21C15D'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      21
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/finally.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FinalAct'
+      USR:             '2401B0D79AEA2D929460075019E8FF211F21C15D'
+    Params:
+      - Type:
+          Name:            'const FinalAct<Fn> &'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'A8561F70EA5F0FCFA6A11C7CFDEEDADFA8AB5BBB'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'FinalAct'
+        USR:             '2401B0D79AEA2D929460075019E8FF211F21C15D'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      22
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/finally.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FinalAct'
+      USR:             '2401B0D79AEA2D929460075019E8FF211F21C15D'
+    Params:
+      - Type:
+          Name:            'const FinalAct<Fn> &'
+    ReturnType:
+      Type:
+        Name:            'FinalAct<Fn> &'
+    Access:          Public
+  - USR:             'AF28F1C6FFDD8DEFD514E0E9F71D105434AC2451'
+    Name:            'FinalAct<Fn>'
+    Namespace:
+      - Type:            Record
+        Name:            'FinalAct'
+        USR:             '2401B0D79AEA2D929460075019E8FF211F21C15D'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Moves a final act to a more narrow scope in order to invoke it early.'
+    DefLocation:
+      LineNumber:      26
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/finally.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FinalAct'
+      USR:             '2401B0D79AEA2D929460075019E8FF211F21C15D'
+    Params:
+      - Type:
+          Name:            'FinalAct<Fn> &&'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'A77912DBCE77433DE1C3C5FA0C4B20A8F9738444'
+    Name:            'FinalAct<Fn>'
+    Namespace:
+      - Type:            Record
+        Name:            'FinalAct'
+        USR:             '2401B0D79AEA2D929460075019E8FF211F21C15D'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      32
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/finally.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FinalAct'
+      USR:             '2401B0D79AEA2D929460075019E8FF211F21C15D'
+    Params:
+      - Type:
+          Name:            'FnArg &&'
+        Name:            'arg'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '457A190D03560A1B6DD6BDC0A2300D9441A694FD'
+    Name:            '~FinalAct<Fn>'
+    Namespace:
+      - Type:            Record
+        Name:            'FinalAct'
+        USR:             '2401B0D79AEA2D929460075019E8FF211F21C15D'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      36
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/finally.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FinalAct'
+      USR:             '2401B0D79AEA2D929460075019E8FF211F21C15D'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '8A81BC5367BEC372A5802F2DA3B77A2792FC5C8F'
+    Name:            'cancel'
+    Namespace:
+      - Type:            Record
+        Name:            'FinalAct'
+        USR:             '2401B0D79AEA2D929460075019E8FF211F21C15D'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      44
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/finally.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FinalAct'
+      USR:             '2401B0D79AEA2D929460075019E8FF211F21C15D'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

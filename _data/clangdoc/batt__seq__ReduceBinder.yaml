@@ -1,0 +1,33 @@
+---
+USR:             '32D93D9709B28BD4CE618AFEFB6334CA8D945343'
+Name:            'ReduceBinder'
+Path:            'batt/seq'
+Namespace:
+  - Type:            Namespace
+    Name:            'seq'
+    USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+          - Kind:            'TextComment'
+            Text:            ' reduce'
+DefLocation:
+  LineNumber:      19
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/reduce.hpp'
+Members:
+  - Type:
+      Name:            'State'
+    Name:            'state'
+    Access:          Public
+  - Type:
+      Name:            'ReduceFn'
+    Name:            'reduce_fn'
+    Access:          Public
+...

@@ -1,0 +1,42 @@
+---
+USR:             'C8A35B7387AE2B58544A1CA3CCF50B0C2CA1643C'
+Name:            'CodeGroup'
+Path:            'batt/Status'
+Namespace:
+  - Type:            Record
+    Name:            'Status'
+    USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      97
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+Members:
+  - Type:
+      Type:            Record
+      Name:            'type_index'
+      USR:             '13271A639392221B28AF9F7149533D7F5F0E9F58'
+      Path:            'std'
+    Name:            'enum_type_index'
+  - Type:
+      Name:            'batt::int_types::usize'
+    Name:            'index'
+    Access:          Public
+  - Type:
+      Name:            'int'
+    Name:            'min_enum_value'
+    Access:          Public
+  - Type:
+      Type:            Record
+      Name:            'vector'
+      USR:             '51107E979CDC1DD5D9B33A5244FCE10F02F2E4E0'
+      Path:            'std'
+    Name:            'enum_value_to_code'
+  - Type:
+      Type:            Record
+      Name:            'vector'
+      USR:             '8100A64AE2EA7DA2DEA3CA9E9C5A59B36A36796A'
+      Path:            'std'
+    Name:            'entries'
+...

@@ -1,5 +1,22 @@
 # &lt;batteries/async/...&gt; : Async Tasks and I/O
 
+<ul>
+<li> BEFORE 123 </li>
+{% for member in site.data.batt.HttpData.Members %}
+<li>
+{{ member.Name }}
+</li>
+{% endfor %}
+<li> {{ site.data.testing.foo }}</li>
+<li> {{ site.data.testing.Grill }}</li>
+<li> SubDir: {{ site.data.SubDir.testing.Grill }}</li>
+<li> {{ site.data.batt.BoxedSeq.Name }}</li>
+<li> AFTER xyz </li>
+</ul>
+
+{% include defn.html id=site.data.clangdoc.batt__BasicInterval %}
+{% include defn.html id=site.data.clangdoc.batt__BufferSource %}
+
 | Quick Reference         |                                     |                                     |
 | :---------------------- | :---------------------------------- | :---------------------------------- |
 | [batt::Task](#batttask) | [batt::Watch&lt;T&gt;](#battwatcht) | [batt::Mutex&lt;T&gt;](#battmutext) |

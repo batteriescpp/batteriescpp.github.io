@@ -1,0 +1,558 @@
+---
+USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+Name:            'HttpMessageBase'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      27
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      Path:            'batt'
+    Name:            'status_'
+  - Type:
+      Type:            Record
+      Name:            'Watch'
+      USR:             '49652DDA0EB16828F223BB8552C6B715B320D142'
+      Path:            'batt'
+    Name:            'state_'
+  - Type:
+      Name:            'Channel<batt::HttpMessageBase::Message>'
+    Name:            'message_'
+    Access:          Protected
+  - Type:
+      Type:            Record
+      Name:            'Channel'
+      USR:             'C3F1A7A570A045B56ADF2A49637EC74C03327341'
+      Path:            'batt'
+    Name:            'data_'
+Bases:
+  - USR:             '64A37617D81BBDDDE8992D2C20D4EE2547BB5E98'
+    Name:            'Pinnable'
+    Path:            'batt'
+    Members:
+      - Type:
+          Type:            Record
+          Name:            'atomic'
+          USR:             '84B8ADE928AACE7FB47B0DFB3B03ADB06E9C81C8'
+          Path:            'std'
+        Name:            'pin_count_'
+    ChildFunctions:
+      - USR:             '1EC58633A8367B76FB34B7C613F656E4276C32A0'
+        Name:            '~Pinnable'
+        Namespace:
+          - Type:            Record
+            Name:            'Pinnable'
+            USR:             '64A37617D81BBDDDE8992D2C20D4EE2547BB5E98'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             'C540A9226047597C9E9F7E993207D593954A3731'
+        Name:            'pin'
+        Namespace:
+          - Type:            Record
+            Name:            'Pinnable'
+            USR:             '64A37617D81BBDDDE8992D2C20D4EE2547BB5E98'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             'B55CEAD5DC16EEF49002DAFFBB4478F4B5CCBDAF'
+        Name:            'unpin'
+        Namespace:
+          - Type:            Record
+            Name:            'Pinnable'
+            USR:             '64A37617D81BBDDDE8992D2C20D4EE2547BB5E98'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+    Access:          Public
+    IsParent:        true
+Parents:
+  - Type:            Record
+    Name:            'Pinnable'
+    USR:             '64A37617D81BBDDDE8992D2C20D4EE2547BB5E98'
+    Path:            'batt'
+ChildFunctions:
+  - USR:             'FDEF3184CD0E72FD49B7049F9CC8EFCF972F3DE2'
+    Name:            'HttpMessageBase<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      38
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    Params:
+      - Type:
+          Name:            'const HttpMessageBase<T> &'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'EF00A9A1E7D2DF12AD1DE2C882BB2150EEAE5D23'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      39
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    Params:
+      - Type:
+          Name:            'const HttpMessageBase<T> &'
+    ReturnType:
+      Type:
+        Name:            'HttpMessageBase<T> &'
+    Access:          Public
+  - USR:             'A180C1E5809C567B39E0C041F61EA23DB2A256E9'
+    Name:            'HttpMessageBase<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      41
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '3671CAAE7E7C48A386524BF3E457EE726FAEBF3F'
+    Name:            '~HttpMessageBase<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      45
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '42534D63C550C1D5D3F5EC6A3E6F3AE491B3C8F5'
+    Name:            'state'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      51
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    ReturnType:
+      Type:
+        Name:            'Watch<batt::int_types::i32> &'
+    Access:          Public
+  - USR:             'B7EC78E53F53D8DF10242331BDEF0315260EEE67'
+    Name:            'update_status'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      56
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    Params:
+      - Type:
+          Type:            Record
+          Name:            'Status'
+          USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+          Path:            'batt'
+        Name:            'status'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'D1219E173B7E5773C86481CAE6A324C970825254'
+    Name:            'get_status'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      61
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+        Path:            'batt'
+    Access:          Public
+  - USR:             '71629E5C372EC6A506C20A247252866042E7859A'
+    Name:            'async_set_message'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      68
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    Params:
+      - Type:
+          Name:            'batt::HttpMessageBase::Message &'
+        Name:            'message'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'E52A5065F48B57586F696967F499FFF2C8C1793F'
+    Name:            'await_set_message'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      75
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    Params:
+      - Type:
+          Name:            'batt::HttpMessageBase::Message &'
+        Name:            'message'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+        Path:            'batt'
+    Access:          Public
+  - USR:             'E9A0BF4B569607DBD0A275C147255D8245E781B6'
+    Name:            'await_message'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      80
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    ReturnType:
+      Type:
+        Name:            'StatusOr<batt::HttpMessageBase::Message &>'
+    Access:          Public
+  - USR:             '24EB22F41639B2837324B17B53CD68B49549167F'
+    Name:            'await_message_or_panic'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      85
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    ReturnType:
+      Type:
+        Name:            'batt::HttpMessageBase::Message &'
+    Access:          Public
+  - USR:             '444AEC1694D94A9D201D11635B63BA4EA3AFCF0B'
+    Name:            'release_message'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      92
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '1A32480DDBD6B73B89A82739A14BE85831D8A7A9'
+    Name:            'async_set_data'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      99
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    Params:
+      - Type:
+          Name:            'struct batt::HttpData &'
+        Name:            'data'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '90BACB11D42898C86B60CDC765A4DE0F55536879'
+    Name:            'await_set_data'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      106
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    Params:
+      - Type:
+          Name:            'struct batt::HttpData &'
+        Name:            'data'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+        Path:            'batt'
+    Access:          Public
+  - USR:             'CEF5E4748274DBF7F08DF69FFF478B7B189A688F'
+    Name:            'await_data'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      111
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'StatusOr'
+        USR:             '76521285CE5BB41F68498B64970BE168C725E97F'
+        Path:            'batt'
+    Access:          Public
+  - USR:             '4E625D5C28870D9FA85C022F85EAFEDDC094D232'
+    Name:            'release_data'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      117
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '66CB1D4A633296BB19A54B73BDE94DEF578A2EBD'
+    Name:            'headers'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      126
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    ReturnType:
+      Type:
+        Name:            'const SmallVecBase<batt::HttpHeader> &'
+    Access:          Public
+  - USR:             '42034EEBE75C49169AE0D8279AA25667F87B916C'
+    Name:            'find_header'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      131
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpMessageBase'
+      USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    Params:
+      - Type:
+          Name:            'const std::string_view &'
+        Name:            'name'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'Optional'
+        USR:             '3B4CBA23F2D73869085646C33BBE4D79523FD0D6'
+        Path:            'batt'
+    Access:          Public
+ChildEnums:
+  - USR:             '292A005A31C08CB8DC11BDF533783C3FD7A68D67'
+    Name:            'State'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpMessageBase'
+        USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      32
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_message_base.hpp'
+    Members:
+      - 'kCreated'
+      - 'kInitialized'
+      - 'kConsumed'
+...

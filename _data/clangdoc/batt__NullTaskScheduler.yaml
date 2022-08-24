@@ -1,0 +1,194 @@
+---
+USR:             '52E022461BFA1079D4AA4F6B9AFB5A3018FB40A3'
+Name:            'NullTaskScheduler'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------'
+          - Kind:            'TextComment'
+            Text:            ' TaskScheduler implementation that does not schedule anything (`schedule_task` panics).'
+DefLocation:
+  LineNumber:      45
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/task_scheduler.hpp'
+TagType:         Class
+Bases:
+  - USR:             'DFAED4550C8AFE882B5E2B1C1D848D3290818B41'
+    Name:            'TaskScheduler'
+    Path:            'batt'
+    ChildFunctions:
+      - USR:             'D0D543C97D276F1A78AA4D5BE7601376A6C80908'
+        Name:            'schedule_task'
+        Namespace:
+          - Type:            Record
+            Name:            'TaskScheduler'
+            USR:             'DFAED4550C8AFE882B5E2B1C1D848D3290818B41'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Type:            Record
+            Name:            'any_io_executor'
+            USR:             'BF1F03DC07FDF8726D627A8DFE1006D6C52E6F91'
+            Path:            'boost/asio'
+        Access:          Public
+      - USR:             '446A6412FCC039EC36548FDEA85DDF74780BFCF5'
+        Name:            'halt'
+        Namespace:
+          - Type:            Record
+            Name:            'TaskScheduler'
+            USR:             'DFAED4550C8AFE882B5E2B1C1D848D3290818B41'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             'B075CB34007EAC390B07AD653AD73636DAB758C2'
+        Name:            'join'
+        Namespace:
+          - Type:            Record
+            Name:            'TaskScheduler'
+            USR:             'DFAED4550C8AFE882B5E2B1C1D848D3290818B41'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+    Access:          Public
+    IsParent:        true
+Parents:
+  - Type:            Record
+    Name:            'TaskScheduler'
+    USR:             'DFAED4550C8AFE882B5E2B1C1D848D3290818B41'
+    Path:            'batt'
+ChildFunctions:
+  - USR:             '5B85B9E692A4100F1EFFF6292070983973AEDD99'
+    Name:            'instance'
+    Namespace:
+      - Type:            Record
+        Name:            'NullTaskScheduler'
+        USR:             '52E022461BFA1079D4AA4F6B9AFB5A3018FB40A3'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      48
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/task_scheduler.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'NullTaskScheduler'
+      USR:             '52E022461BFA1079D4AA4F6B9AFB5A3018FB40A3'
+    ReturnType:
+      Type:
+        Name:            'class batt::NullTaskScheduler &'
+    Access:          Public
+  - USR:             '955DA2F163D21519520C85F0EC949FA5EF2897AE'
+    Name:            'NullTaskScheduler'
+    Namespace:
+      - Type:            Record
+        Name:            'NullTaskScheduler'
+        USR:             '52E022461BFA1079D4AA4F6B9AFB5A3018FB40A3'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      54
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/task_scheduler.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'NullTaskScheduler'
+      USR:             '52E022461BFA1079D4AA4F6B9AFB5A3018FB40A3'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'ADA410C5585222FBE13A766E9A4A9AAA66A239EA'
+    Name:            'schedule_task'
+    Namespace:
+      - Type:            Record
+        Name:            'NullTaskScheduler'
+        USR:             '52E022461BFA1079D4AA4F6B9AFB5A3018FB40A3'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      58
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/task_scheduler.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'NullTaskScheduler'
+      USR:             '52E022461BFA1079D4AA4F6B9AFB5A3018FB40A3'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'any_io_executor'
+        USR:             'BF1F03DC07FDF8726D627A8DFE1006D6C52E6F91'
+        Path:            'boost/asio'
+    Access:          Public
+  - USR:             'B63CE10D6EBFB30678472F555E8E16E537F7B9AA'
+    Name:            'halt'
+    Namespace:
+      - Type:            Record
+        Name:            'NullTaskScheduler'
+        USR:             '52E022461BFA1079D4AA4F6B9AFB5A3018FB40A3'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      64
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/task_scheduler.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'NullTaskScheduler'
+      USR:             '52E022461BFA1079D4AA4F6B9AFB5A3018FB40A3'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '94776B2F8B24711AB1DCAD923AA68C7CECE827CB'
+    Name:            'join'
+    Namespace:
+      - Type:            Record
+        Name:            'NullTaskScheduler'
+        USR:             '52E022461BFA1079D4AA4F6B9AFB5A3018FB40A3'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      68
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/task_scheduler.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'NullTaskScheduler'
+      USR:             '52E022461BFA1079D4AA4F6B9AFB5A3018FB40A3'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

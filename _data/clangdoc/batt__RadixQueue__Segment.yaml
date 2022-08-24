@@ -1,0 +1,31 @@
+---
+USR:             '36A304BB864700A278A67ED2F2EF71E1D0F08A90'
+Name:            'Segment'
+Path:            'batt/RadixQueue'
+Namespace:
+  - Type:            Record
+    Name:            'RadixQueue'
+    USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' The queue is stored in segments of 64 bits each.'
+DefLocation:
+  LineNumber:      45
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+Members:
+  - Type:
+      Name:            'batt::int_types::u64'
+    Name:            'radix'
+    Access:          Public
+  - Type:
+      Name:            'batt::int_types::u64'
+    Name:            'value'
+    Access:          Public
+...

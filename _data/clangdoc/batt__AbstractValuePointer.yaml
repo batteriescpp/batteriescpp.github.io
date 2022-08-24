@@ -1,0 +1,111 @@
+---
+USR:             '62DA9A67A03F6563D5106E1417643A92A461EBA7'
+Name:            'AbstractValuePointer'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------'
+DefLocation:
+  LineNumber:      41
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/type_erasure.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'std::unique_ptr<T>'
+    Name:            'ptr_'
+    Access:          Private
+Parents:
+  - Type:            Record
+    Name:            'AbstractValue<T>'
+    USR:             'AD4C05B404267C3F6BC61BA47E05D5DCC3640C9C'
+ChildFunctions:
+  - USR:             '278112CC1E0E531FA542650BB35A3312D1B0BF39'
+    Name:            'AbstractValuePointer<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'AbstractValuePointer'
+        USR:             '62DA9A67A03F6563D5106E1417643A92A461EBA7'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      44
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/type_erasure.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AbstractValuePointer'
+      USR:             '62DA9A67A03F6563D5106E1417643A92A461EBA7'
+    Params:
+      - Type:
+          Name:            'std::unique_ptr<T>'
+        Name:            'ptr'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '5BED9E408755DFF87F4F71574521390F9263266A'
+    Name:            'copy_to'
+    Namespace:
+      - Type:            Record
+        Name:            'AbstractValuePointer'
+        USR:             '62DA9A67A03F6563D5106E1417643A92A461EBA7'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      48
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/type_erasure.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AbstractValuePointer'
+      USR:             '62DA9A67A03F6563D5106E1417643A92A461EBA7'
+    Params:
+      - Type:
+          Type:            Record
+          Name:            'mutable_buffer'
+          USR:             '8FDB4478A6FCE6D2A9D456533E92D0F075712F47'
+          Path:            'boost/asio'
+        Name:            'memory'
+    ReturnType:
+      Type:
+        Name:            'T *'
+    Access:          Public
+  - USR:             '64999450A40CE9D4B3CD703B15CAE6DB7543BAC0'
+    Name:            'move_to'
+    Namespace:
+      - Type:            Record
+        Name:            'AbstractValuePointer'
+        USR:             '62DA9A67A03F6563D5106E1417643A92A461EBA7'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      53
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/type_erasure.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AbstractValuePointer'
+      USR:             '62DA9A67A03F6563D5106E1417643A92A461EBA7'
+    Params:
+      - Type:
+          Type:            Record
+          Name:            'mutable_buffer'
+          USR:             '8FDB4478A6FCE6D2A9D456533E92D0F075712F47'
+          Path:            'boost/asio'
+        Name:            'memory'
+    ReturnType:
+      Type:
+        Name:            'T *'
+    Access:          Public
+...

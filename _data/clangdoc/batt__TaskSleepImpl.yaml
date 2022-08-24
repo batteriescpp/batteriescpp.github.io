@@ -1,0 +1,50 @@
+---
+USR:             '375A45D138ABA6DB3FFFEBAA51BFF0BCF3337600'
+Name:            'TaskSleepImpl'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------'
+          - Kind:            'TextComment'
+            Text:            ' The default sleep implementation for `with_retry_policy`.'
+DefLocation:
+  LineNumber:      115
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/backoff.hpp'
+Location:
+  - LineNumber:      24
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/backoff.hpp'
+ChildFunctions:
+  - USR:             'B3D140585E745DA4BB911A72B51557F990E8C302'
+    Name:            'operator()'
+    Namespace:
+      - Type:            Record
+        Name:            'TaskSleepImpl'
+        USR:             '375A45D138ABA6DB3FFFEBAA51BFF0BCF3337600'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      117
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/backoff.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'TaskSleepImpl'
+      USR:             '375A45D138ABA6DB3FFFEBAA51BFF0BCF3337600'
+    Params:
+      - Type:
+          Name:            'DurationT &&'
+        Name:            'duration'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

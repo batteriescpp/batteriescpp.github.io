@@ -1,0 +1,58 @@
+---
+USR:             'BEF23D3CC34BBC8BFF4502B1E125026AB4E09D42'
+Name:            'HeapOrder'
+Path:            'batt/seq/KMergeBy'
+Namespace:
+  - Type:            Record
+    Name:            'KMergeBy'
+    USR:             '00A62F3069A9656D4CE406A9630EB5124072559A'
+  - Type:            Namespace
+    Name:            'seq'
+    USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      167
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+Members:
+  - Type:
+      Name:            'Compare'
+    Name:            'compare_'
+    Access:          Public
+ChildFunctions:
+  - USR:             '07FF326120C4497CEB93AB61B1102F418065156C'
+    Name:            'operator()'
+    Namespace:
+      - Type:            Record
+        Name:            'HeapOrder'
+        USR:             'BEF23D3CC34BBC8BFF4502B1E125026AB4E09D42'
+      - Type:            Record
+        Name:            'KMergeBy'
+        USR:             '00A62F3069A9656D4CE406A9630EB5124072559A'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      169
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HeapOrder'
+      USR:             'BEF23D3CC34BBC8BFF4502B1E125026AB4E09D42'
+    Params:
+      - Type:
+          Name:            'L *'
+        Name:            'l'
+      - Type:
+          Name:            'R *'
+        Name:            'r'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+...

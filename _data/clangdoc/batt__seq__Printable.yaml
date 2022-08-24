@@ -1,0 +1,126 @@
+---
+USR:             'F836B3AF330FC5A936F10757161454750E99A26E'
+Name:            'Printable'
+Path:            'batt/seq'
+Namespace:
+  - Type:            Namespace
+    Name:            'seq'
+    USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      19
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/printable.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'Seq'
+    Name:            'seq_'
+    Access:          Private
+ChildFunctions:
+  - USR:             'E644BEBA7AB23744AEA5C69BF7FF595833249ECE'
+    Name:            'Printable<Seq>'
+    Namespace:
+      - Type:            Record
+        Name:            'Printable'
+        USR:             'F836B3AF330FC5A936F10757161454750E99A26E'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      24
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/printable.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Printable'
+      USR:             'F836B3AF330FC5A936F10757161454750E99A26E'
+    Params:
+      - Type:
+          Name:            'Seq &&'
+        Name:            'seq'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'A3C22293A8E1827851F9DF52F1FCE3EA1A0F6E27'
+    Name:            'peek'
+    Namespace:
+      - Type:            Record
+        Name:            'Printable'
+        USR:             'F836B3AF330FC5A936F10757161454750E99A26E'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      28
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/printable.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Printable'
+      USR:             'F836B3AF330FC5A936F10757161454750E99A26E'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::Printable::Item>'
+    Access:          Public
+  - USR:             '27C274D1BC4CFD8F8BE7E1719D6D314CE1B9F38C'
+    Name:            'next'
+    Namespace:
+      - Type:            Record
+        Name:            'Printable'
+        USR:             'F836B3AF330FC5A936F10757161454750E99A26E'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      32
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/printable.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Printable'
+      USR:             'F836B3AF330FC5A936F10757161454750E99A26E'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::Printable::Item>'
+    Access:          Public
+  - USR:             'B6964E4368130AF51046F2EEDB3FBBD0DC4178F0'
+    Name:            'operator()'
+    Namespace:
+      - Type:            Record
+        Name:            'Printable'
+        USR:             'F836B3AF330FC5A936F10757161454750E99A26E'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      37
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/printable.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Printable'
+      USR:             'F836B3AF330FC5A936F10757161454750E99A26E'
+    Params:
+      - Type:
+          Name:            'std::ostream &'
+        Name:            'out'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

@@ -1,0 +1,430 @@
+---
+USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+Name:            'RadixQueue'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' A fixed-capacity FIFO queue of integers with variable radix per integer.  This is used to store sequences'
+          - Kind:            'TextComment'
+            Text:            ' of events.'
+DefLocation:
+  LineNumber:      31
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+Location:
+  - LineNumber:      22
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'batt::RadixQueue::index_type'
+    Name:            'front_'
+    Access:          Private
+  - Type:
+      Name:            'batt::RadixQueue::index_type'
+    Name:            'back_'
+    Access:          Private
+  - Type:
+      Name:            'std::array<Segment, kQueueSize>'
+    Name:            'queue_'
+    Access:          Private
+Parents:
+  - Type:            Record
+    Name:            'boost::equality_comparable<RadixQueue<kCapacityInBits> >'
+    USR:             'C30CE2B83E7ED9AD72A96CF067B7BA6FD1CD8E41'
+ChildRecords:
+  - Type:            Record
+    Name:            'Segment'
+    USR:             '36A304BB864700A278A67ED2F2EF71E1D0F08A90'
+    Path:            'batt/RadixQueue'
+  - Type:            Record
+    Name:            'Hash'
+    USR:             '38D2847888228895C25C30F768B1C514F8C6E96F'
+    Path:            'batt/RadixQueue'
+ChildFunctions:
+  - USR:             '2C49CE5EAC686B94FD799C7B192996621A249018'
+    Name:            'operator=='
+    Namespace:
+      - Type:            Record
+        Name:            'RadixQueue'
+        USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      73
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RadixQueue'
+      USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+    Params:
+      - Type:
+          Name:            'const RadixQueue<kCapacityInBits> &'
+        Name:            'other'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '811324BDE446F127FE15FEDA907C1C0AFB88AE64'
+    Name:            'RadixQueue<kCapacityInBits>'
+    Namespace:
+      - Type:            Record
+        Name:            'RadixQueue'
+        USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      92
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RadixQueue'
+      USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '974E5253E7D1B5EA7A980B516695BE8A70699B66'
+    Name:            'empty'
+    Namespace:
+      - Type:            Record
+        Name:            'RadixQueue'
+        USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Returns true when there are no items in the queue.'
+    DefLocation:
+      LineNumber:      96
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RadixQueue'
+      USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '818DB53CF3BB42B86AD85FB4774385805414CF7C'
+    Name:            'full'
+    Namespace:
+      - Type:            Record
+        Name:            'RadixQueue'
+        USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Returns true when the queue has reached its maximum capacity.'
+    DefLocation:
+      LineNumber:      103
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RadixQueue'
+      USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '99C9FCE01C343E99A89440260FD54C3466795347'
+    Name:            'clear'
+    Namespace:
+      - Type:            Record
+        Name:            'RadixQueue'
+        USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Discards the contents of the queue, resetting it to default state.'
+    DefLocation:
+      LineNumber:      110
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RadixQueue'
+      USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '31E918E795582F50DA15A106505920CE185B96FE'
+    Name:            'push'
+    Namespace:
+      - Type:            Record
+        Name:            'RadixQueue'
+        USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Insert the given value with the given radix at the back of the queue.'
+    DefLocation:
+      LineNumber:      119
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RadixQueue'
+      USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+    Params:
+      - Type:
+          Name:            'batt::int_types::u64'
+        Name:            'radix'
+      - Type:
+          Name:            'batt::int_types::u64'
+        Name:            'value'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'CE29899B1A7D732D5F1DB7C8D0A64AB3EBFAE079'
+    Name:            'pop'
+    Namespace:
+      - Type:            Record
+        Name:            'RadixQueue'
+        USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Extract the next value out of the queue.  The passed radix must match the radix used when inserting'
+              - Kind:            'TextComment'
+                Text:            ' the item originally; otherwise behavior is undefined.'
+    DefLocation:
+      LineNumber:      137
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RadixQueue'
+      USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+    Params:
+      - Type:
+          Name:            'batt::int_types::u64'
+        Name:            'radix'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::u64'
+    Access:          Public
+  - USR:             'A843A9D29427F4FC0E665E5F2C2C966A1865F079'
+    Name:            'advance_index'
+    Namespace:
+      - Type:            Record
+        Name:            'RadixQueue'
+        USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      159
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RadixQueue'
+      USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+    Params:
+      - Type:
+          Name:            'batt::RadixQueue::index_type *'
+        Name:            'i'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Private
+  - USR:             '9624727A06C0A29EDEF420BB6451ACF9718DB641'
+    Name:            'queue_size'
+    Namespace:
+      - Type:            Record
+        Name:            'RadixQueue'
+        USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      164
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RadixQueue'
+      USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::usize'
+    Access:          Private
+  - USR:             'BFFDD68A83AF664A3A957761C9DF4DC6384E9D6A'
+    Name:            'front'
+    Namespace:
+      - Type:            Record
+        Name:            'RadixQueue'
+        USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      177
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RadixQueue'
+      USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+    ReturnType:
+      Type:
+        Name:            'struct batt::RadixQueue::Segment &'
+    Access:          Private
+  - USR:             '451B58610B638AD1FB1BB1A9139E19530B3FD786'
+    Name:            'front'
+    Namespace:
+      - Type:            Record
+        Name:            'RadixQueue'
+        USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      181
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RadixQueue'
+      USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+    ReturnType:
+      Type:
+        Name:            'const struct batt::RadixQueue::Segment &'
+    Access:          Private
+  - USR:             '9CD35D84E85D517E8DC0E8C289C4C8475E40AB2B'
+    Name:            'back'
+    Namespace:
+      - Type:            Record
+        Name:            'RadixQueue'
+        USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      186
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RadixQueue'
+      USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+    ReturnType:
+      Type:
+        Name:            'struct batt::RadixQueue::Segment &'
+    Access:          Private
+  - USR:             '3ED576CDBAD09B55779E19DD188A983AFA8A9584'
+    Name:            'back'
+    Namespace:
+      - Type:            Record
+        Name:            'RadixQueue'
+        USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      190
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RadixQueue'
+      USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+    ReturnType:
+      Type:
+        Name:            'const struct batt::RadixQueue::Segment &'
+    Access:          Private
+  - USR:             '2687D37825BAECBF6F85428E4DE557BC675EA5C1'
+    Name:            'pop_front'
+    Namespace:
+      - Type:            Record
+        Name:            'RadixQueue'
+        USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      195
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RadixQueue'
+      USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Private
+  - USR:             '7137FC47AABAEA96F7694B4BF53924B11A50DA3B'
+    Name:            'push_back'
+    Namespace:
+      - Type:            Record
+        Name:            'RadixQueue'
+        USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      201
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/radix_queue.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RadixQueue'
+      USR:             'C021436C2E39FF70563F623930E5830A521B6C85'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Private
+...

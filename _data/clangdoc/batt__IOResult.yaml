@@ -1,0 +1,221 @@
+---
+USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+Name:            'IOResult'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      25
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/io_result.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Type:            Record
+      Name:            'error_code'
+      USR:             'EAB2068C8857CCAD72665703F940443A4C1F5067'
+      Path:            'boost/system'
+    Name:            'ec_'
+  - Type:
+      Name:            'batt::IOResult::value_type'
+    Name:            'value_'
+    Access:          Private
+ChildFunctions:
+  - USR:             'D4F2E152F1E37EF742B547B6D8D834BAB282364B'
+    Name:            'IOResult<Ts...>'
+    Namespace:
+      - Type:            Record
+        Name:            'IOResult'
+        USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      32
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/io_result.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'IOResult'
+      USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+    Params:
+      - Type:
+          Name:            'const batt::ErrorCode &'
+        Name:            'ec'
+      - Type:
+          Name:            'Args &&...'
+        Name:            'args'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '79F42A09DBA5CB0F658191BB1D235B4C0F3E54FF'
+    Name:            'ok'
+    Namespace:
+      - Type:            Record
+        Name:            'IOResult'
+        USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      37
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/io_result.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'IOResult'
+      USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '53265346C4511A0E5E650794459A0BA950D82999'
+    Name:            'error'
+    Namespace:
+      - Type:            Record
+        Name:            'IOResult'
+        USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      42
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/io_result.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'IOResult'
+      USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+    ReturnType:
+      Type:
+        Name:            'const batt::ErrorCode &'
+    Access:          Public
+  - USR:             '82E3E5E2F7543A41073B3CBE38AB72B0750E5D49'
+    Name:            'operator*'
+    Namespace:
+      - Type:            Record
+        Name:            'IOResult'
+        USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      47
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/io_result.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'IOResult'
+      USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+    ReturnType:
+      Type:
+        Name:            'batt::IOResult::value_type &'
+    Access:          Public
+  - USR:             '030252E1F45EDA6E6D9C1CF8D9D8119CD8D6495B'
+    Name:            'operator*'
+    Namespace:
+      - Type:            Record
+        Name:            'IOResult'
+        USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      52
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/io_result.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'IOResult'
+      USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+    ReturnType:
+      Type:
+        Name:            'const batt::IOResult::value_type &'
+    Access:          Public
+  - USR:             'A8E71A379E175C1E7CB4BF47A50AC246ACF4603A'
+    Name:            'value'
+    Namespace:
+      - Type:            Record
+        Name:            'IOResult'
+        USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      57
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/io_result.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'IOResult'
+      USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+    ReturnType:
+      Type:
+        Name:            'batt::IOResult::value_type &'
+    Access:          Public
+  - USR:             'D8B26F937DD9440F7B46776FD497CB371B2D1FA4'
+    Name:            'value'
+    Namespace:
+      - Type:            Record
+        Name:            'IOResult'
+        USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      62
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/io_result.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'IOResult'
+      USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+    ReturnType:
+      Type:
+        Name:            'const batt::IOResult::value_type &'
+    Access:          Public
+  - USR:             'E6827CB79F9C040E86763C38B8A9BA750ED2E354'
+    Name:            'operator->'
+    Namespace:
+      - Type:            Record
+        Name:            'IOResult'
+        USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      67
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/io_result.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'IOResult'
+      USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+    ReturnType:
+      Type:
+        Name:            'batt::IOResult::value_type *'
+    Access:          Public
+  - USR:             'C7D09A2AC437D8CC4854FED7740E09E63B978C8E'
+    Name:            'operator->'
+    Namespace:
+      - Type:            Record
+        Name:            'IOResult'
+        USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      72
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/io_result.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'IOResult'
+      USR:             '6BFA020AA76BBBF9F9C84BDDB13845A6F96A784A'
+    ReturnType:
+      Type:
+        Name:            'const batt::IOResult::value_type *'
+    Access:          Public
+...

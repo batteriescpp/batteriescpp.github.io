@@ -1,0 +1,125 @@
+---
+USR:             '2C0B209027C98A16C989036801F6317E249F2D85'
+Name:            'HttpClient'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      40
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client.hpp'
+Location:
+  - LineNumber:      25
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_decl.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'boost::asio::io_context &'
+    Name:            'io_'
+    Access:          Private
+  - Type:
+      Type:            Record
+      Name:            'Mutex'
+      USR:             'F418DC507383C607D5CC138D200ABA795F035068'
+      Path:            'batt'
+    Name:            'host_contexts_'
+ChildFunctions:
+  - USR:             '8D13A176EDDABA1717B2BF3C53D248630B18F2D4'
+    Name:            'HttpClient'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClient'
+        USR:             '2C0B209027C98A16C989036801F6317E249F2D85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      47
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClient'
+      USR:             '2C0B209027C98A16C989036801F6317E249F2D85'
+    Params:
+      - Type:
+          Name:            'boost::asio::io_context &'
+        Name:            'io'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '714F90F6C0C0782523B7C2C09E21854B108729A5'
+    Name:            'get_io_context'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClient'
+        USR:             '2C0B209027C98A16C989036801F6317E249F2D85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      51
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClient'
+      USR:             '2C0B209027C98A16C989036801F6317E249F2D85'
+    ReturnType:
+      Type:
+        Name:            'boost::asio::io_context &'
+    Access:          Public
+  - USR:             '4A618CA38DF957BFA5D8E42C8459662EEA4B82DB'
+    Name:            'submit_request'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClient'
+        USR:             '2C0B209027C98A16C989036801F6317E249F2D85'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      14
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_impl.hpp'
+    Location:
+      - LineNumber:      56
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClient'
+      USR:             '2C0B209027C98A16C989036801F6317E249F2D85'
+    Params:
+      - Type:
+          Name:            'const struct batt::HostAddress &'
+        Name:            'host_address'
+      - Type:
+          Name:            'Pin<class batt::HttpRequest> &&'
+        Name:            'request'
+      - Type:
+          Name:            'Pin<class batt::HttpResponse> &&'
+        Name:            'response'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+        Path:            'batt'
+    Access:          Public
+...

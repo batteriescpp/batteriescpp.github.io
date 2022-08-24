@@ -1,0 +1,54 @@
+---
+USR:             '987479BA36A4E2CA8F777DF8A66615FBE3BEE55B'
+Name:            'IsVariant'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      83
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/type_traits.hpp'
+Bases:
+  - USR:             'DCD99CC522B9E872B3084A5B891004AFE72394D9'
+    Name:            'std::true_type'
+    Path:            'std'
+    ChildFunctions:
+      - USR:             '82CD74677321A6A597179EBF2796C18E65C99765'
+        Name:            'operator bool'
+        Namespace:
+          - Type:            Record
+            Name:            'integral_constant'
+            USR:             'EFF594FC7E874CD7A2E6D951534B86EB3EBC11F7'
+          - Type:            Namespace
+            Name:            'std'
+            USR:             '788BE0EE2B9E1883DC13CA753557E782CA76A23C'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'std::integral_constant<_Bool, true>::value_type'
+        Access:          Public
+      - USR:             '128B4CFCC2F39F0287A4E9609D7B9DAA40FC9C93'
+        Name:            'operator()'
+        Namespace:
+          - Type:            Record
+            Name:            'integral_constant'
+            USR:             'EFF594FC7E874CD7A2E6D951534B86EB3EBC11F7'
+          - Type:            Namespace
+            Name:            'std'
+            USR:             '788BE0EE2B9E1883DC13CA753557E782CA76A23C'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'std::integral_constant<_Bool, true>::value_type'
+        Access:          Public
+    Access:          Public
+    IsParent:        true
+Parents:
+  - Type:            Record
+    Name:            'std::true_type'
+    USR:             'DCD99CC522B9E872B3084A5B891004AFE72394D9'
+...

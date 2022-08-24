@@ -1,0 +1,575 @@
+---
+USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+Name:            'Status'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      80
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+Location:
+  - LineNumber:      21
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/boxed.hpp'
+  - LineNumber:      78
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'batt::Status::value_type'
+    Name:            'value_'
+    Access:          Private
+Bases:
+  - USR:             '7E5768FABA47408383ABDF4B26110CAB5E0D1442'
+    Name:            'StatusBase'
+    Path:            'batt/detail'
+    ChildFunctions:
+      - USR:             'B7CE7DECFC2535EC16AB86EBBAD69397207AFBC5'
+        Name:            'StatusBase'
+        Namespace:
+          - Type:            Record
+            Name:            'StatusBase'
+            USR:             '7E5768FABA47408383ABDF4B26110CAB5E0D1442'
+          - Type:            Namespace
+            Name:            'detail'
+            USR:             '7EFD2C42787CC2D5BEDB73B9828224F9950DADAE'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Private
+    Access:          Private
+    IsParent:        true
+Parents:
+  - Type:            Record
+    Name:            'StatusBase'
+    USR:             '7E5768FABA47408383ABDF4B26110CAB5E0D1442'
+    Path:            'batt/detail'
+ChildRecords:
+  - Type:            Record
+    Name:            'CodeEntry'
+    USR:             'F67C6BD068276595E024AFBD93B23FC6260302E8'
+    Path:            'batt/Status'
+  - Type:            Record
+    Name:            'CodeGroup'
+    USR:             'C8A35B7387AE2B58544A1CA3CCF50B0C2CA1643C'
+    Path:            'batt/Status'
+ChildFunctions:
+  - USR:             'C912B19C5F4B99B4A61877574598272B24BD728E'
+    Name:            'code_group_for_type'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      108
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    ReturnType:
+      Type:
+        Name:            'const struct batt::Status::CodeGroup &'
+    Access:          Public
+  - USR:             '6E21528AFD4B1DE719E6D65FDEA385BA45FD3F33'
+    Name:            'unknown_enum_value_message'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      113
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    ReturnType:
+      Type:
+        Name:            'const std::string &'
+    Access:          Public
+  - USR:             '123080952D994148883E0573B40F032F7CEACB4B'
+    Name:            'register_codes'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '#=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++'
+    DefLocation:
+      LineNumber:      975
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    Location:
+      - LineNumber:      120
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    Params:
+      - Type:
+          Name:            'const std::vector<std::pair<EnumT, std::string> > &'
+        Name:            'codes'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             'EC1DA5DCF695BD4A3BA89AB4FCBED1F12582168C'
+    Name:            'message_from_code'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      122
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    Params:
+      - Type:
+          Name:            'batt::Status::value_type'
+        Name:            'value'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'basic_string_view'
+        USR:             'E7D0A20D4E99A84446C003E51B2F4AAECE09E5BB'
+        Path:            'std'
+    Access:          Public
+  - USR:             '16449B5402094CB9CD5946D254A50B910E914221'
+    Name:            'Status'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Construct a no-error status object.'
+    DefLocation:
+      LineNumber:      139
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'C4E283D3E67F3AD82CBEA20D084945E4A39571C1'
+    Name:            'Status'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' This is a regular copyable value type.'
+    DefLocation:
+      LineNumber:      145
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    Params:
+      - Type:
+          Name:            'const class batt::Status &'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '74483B9889A34DCDEC1D214BA8FD3ABC976108D2'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      146
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    Params:
+      - Type:
+          Name:            'const class batt::Status &'
+    ReturnType:
+      Type:
+        Name:            'class batt::Status &'
+    Access:          Public
+  - USR:             'B6B499E167C4DDBC82E349EEE4544AC1956BD794'
+    Name:            'Status'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            'implicit'
+    DefLocation:
+      LineNumber:      152
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    Params:
+      - Type:
+          Name:            'EnumT'
+        Name:            'enum_value'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '831CE6C1C176114E7DB134A0BBD1F517F8B52164'
+    Name:            'ok'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      180
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '5A1B1C37B62165115E96F9FDBCD28D91F140FCFA'
+    Name:            'code'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      185
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    ReturnType:
+      Type:
+        Name:            'batt::Status::value_type'
+    Access:          Public
+  - USR:             'BF1C07F96A40D10AA8DFDB9DCF330ADFFB658021'
+    Name:            'message'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      190
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'basic_string_view'
+        USR:             'E7D0A20D4E99A84446C003E51B2F4AAECE09E5BB'
+        Path:            'std'
+    Access:          Public
+  - USR:             'BF444D188A32334C14E3E44AF32ABA615ECC4667'
+    Name:            'group'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      199
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    ReturnType:
+      Type:
+        Name:            'const struct batt::Status::CodeGroup &'
+    Access:          Public
+  - USR:             '843D3597C490F58A48E8F131F4F5E16D19393C1D'
+    Name:            'IgnoreError'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      210
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'A80FFAC8C6F03634D6F600B922D084D84899B44F'
+    Name:            'Update'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      289
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    Location:
+      - LineNumber:      215
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    Params:
+      - Type:
+          Name:            'const class batt::Status &'
+        Name:            'new_status'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '80F958AEDDA9C7286ADF2BB6708AA64EC092F159'
+    Name:            'next_group_index'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      228
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::usize'
+    Access:          Private
+  - USR:             '685ECF5A063933CE2FC6E4B7BE2F00CEA439E601'
+    Name:            'registered_groups'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      236
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    ReturnType:
+      Type:
+        Name:            'std::array<CodeGroup *, kMaxGroupCount> &'
+    Access:          Private
+  - USR:             'A54BAEDA070B45F45552AC8CC901DA613B8FE39E'
+    Name:            'code_group_for_type_internal'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      243
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    ReturnType:
+      Type:
+        Name:            'struct batt::Status::CodeGroup &'
+    Access:          Private
+  - USR:             '6714B29EC2A8563F77BA05E27B0B4A6FF544EA0F'
+    Name:            'get_index_of_group'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      249
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    Params:
+      - Type:
+          Name:            'batt::Status::value_type'
+        Name:            'value'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::usize'
+    Access:          Private
+  - USR:             '58BA8C5F73BF6B45177F6C821ABFCE4564EF787B'
+    Name:            'get_index_within_group'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      254
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    Params:
+      - Type:
+          Name:            'batt::Status::value_type'
+        Name:            'value'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::usize'
+    Access:          Private
+  - USR:             '20837983C2558ABE6FECBA7099BBCED350490743'
+    Name:            'register_codes_internal'
+    Namespace:
+      - Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      983
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    Location:
+      - LineNumber:      260
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Status'
+      USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+    Params:
+      - Type:
+          Name:            'const std::vector<std::pair<EnumT, std::string> > &'
+        Name:            'codes'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Private
+...

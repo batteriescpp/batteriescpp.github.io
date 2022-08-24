@@ -1,0 +1,143 @@
+---
+USR:             'D4834E597BB3E02F592E7E24FC835AFFAE7BCE09'
+Name:            'MapFold'
+Path:            'batt/seq'
+Namespace:
+  - Type:            Namespace
+    Name:            'seq'
+    USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+          - Kind:            'TextComment'
+            Text:            ' map_fold(state, map_fn)'
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '  map_fn: (state, item) -> tuple'
+          - Kind:            'TextComment'
+            Text:            '<state'
+          - Kind:            'TextComment'
+            Text:            ', mapped_item>'
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' seq | map_fold(...): Seq'
+          - Kind:            'TextComment'
+            Text:            '<mapped'
+          - Kind:            'TextComment'
+            Text:            '_item>'
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' Threads a state variable through a map operation, so that each invocation'
+          - Kind:            'TextComment'
+            Text:            ' of the map function sees the folded state from previous items.'
+DefLocation:
+  LineNumber:      660
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'Seq'
+    Name:            'seq_'
+    Access:          Private
+  - Type:
+      Name:            'State'
+    Name:            'state_'
+    Access:          Private
+  - Type:
+      Name:            'MapFn'
+    Name:            'map_fn_'
+    Access:          Private
+ChildFunctions:
+  - USR:             '8819D21290DDA86B72AE191CBA9E80FC0E67FA33'
+    Name:            'MapFold<Seq, State, MapFn>'
+    Namespace:
+      - Type:            Record
+        Name:            'MapFold'
+        USR:             'D4834E597BB3E02F592E7E24FC835AFFAE7BCE09'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      665
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'MapFold'
+      USR:             'D4834E597BB3E02F592E7E24FC835AFFAE7BCE09'
+    Params:
+      - Type:
+          Name:            'Seq &&'
+        Name:            'seq'
+      - Type:
+          Name:            'State &&'
+        Name:            'state'
+      - Type:
+          Name:            'MapFn &&'
+        Name:            'map_fn'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'DEEBA8342AC29C6916EA7A71A1B461DA63E788FD'
+    Name:            'peek'
+    Namespace:
+      - Type:            Record
+        Name:            'MapFold'
+        USR:             'D4834E597BB3E02F592E7E24FC835AFFAE7BCE09'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      672
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'MapFold'
+      USR:             'D4834E597BB3E02F592E7E24FC835AFFAE7BCE09'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::MapFold::Item>'
+    Access:          Public
+  - USR:             '7B1D1B2A89B62BDB344839F7C39F95FF45E8871E'
+    Name:            'next'
+    Namespace:
+      - Type:            Record
+        Name:            'MapFold'
+        USR:             'D4834E597BB3E02F592E7E24FC835AFFAE7BCE09'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      685
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'MapFold'
+      USR:             'D4834E597BB3E02F592E7E24FC835AFFAE7BCE09'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::MapFold::Item>'
+    Access:          Public
+...

@@ -1,0 +1,23 @@
+## {{ include.id.Namespace | map: "Name" | join: "::" }}::{{ include.id.Name }}
+
+### Summary
+
+{% include desc.html src=include.id.Description %}
+
+{% for member in include.id.Members %}
+INDEX={{ forloop.index }}
+HAS_USR={{ member.USR }} 
+MEMBER={{ member }}
+<hr>
+
+{% endfor %}
+
+<!--<table border=1>
+  {% for member in include.id.Members %}
+    {% unless member.Name == empty %}
+      <tr><td> {{ member.Name }} </td></tr>
+    {% endunless %}
+  {% endfor %}
+</table>
+END OF DEFN
+-->

@@ -1,0 +1,74 @@
+---
+USR:             'AD849FB5189957EFCA3C18F2C805EBA65BC02A21'
+Name:            'ExponentialBackoff'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------'
+          - Kind:            'TextComment'
+            Text:            ' A retry policy that implements simple exponential backoff and retry with no jitter.'
+DefLocation:
+  LineNumber:      56
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/backoff.hpp'
+Members:
+  - Type:
+      Name:            'batt::int_types::u64'
+    Name:            'max_attempts'
+    Access:          Public
+  - Type:
+      Name:            'batt::int_types::u64'
+    Name:            'initial_delay_usec'
+    Access:          Public
+  - Type:
+      Name:            'batt::int_types::u64'
+    Name:            'backoff_factor'
+    Access:          Public
+  - Type:
+      Name:            'batt::int_types::u64'
+    Name:            'backoff_divisor'
+    Access:          Public
+  - Type:
+      Name:            'batt::int_types::u64'
+    Name:            'max_delay_usec'
+    Access:          Public
+ChildFunctions:
+  - USR:             '4398627A5222BCC2D562586572A238385CABDBE2'
+    Name:            'with_default_params'
+    Namespace:
+      - Type:            Record
+        Name:            'ExponentialBackoff'
+        USR:             'AD849FB5189957EFCA3C18F2C805EBA65BC02A21'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      77
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/backoff.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'ExponentialBackoff'
+      USR:             'AD849FB5189957EFCA3C18F2C805EBA65BC02A21'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'ExponentialBackoff'
+        USR:             'AD849FB5189957EFCA3C18F2C805EBA65BC02A21'
+        Path:            'batt'
+    Access:          Public
+...

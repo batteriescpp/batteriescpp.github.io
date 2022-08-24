@@ -1,0 +1,428 @@
+---
+USR:             '3866EF00EAFF63FDD1094BF215FA1588F094EB59'
+Name:            'HttpRequest'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      24
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_request.hpp'
+Location:
+  - LineNumber:      26
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_decl.hpp'
+TagType:         Class
+Bases:
+  - USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+    Name:            'HttpMessageBase<pico_http::Request>'
+    Path:            'batt'
+    Members:
+      - Type:
+          Type:            Record
+          Name:            'Status'
+          USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+          Path:            'batt'
+        Name:            'status_'
+      - Type:
+          Type:            Record
+          Name:            'Watch'
+          USR:             '49652DDA0EB16828F223BB8552C6B715B320D142'
+          Path:            'batt'
+        Name:            'state_'
+      - Type:
+          Type:            Record
+          Name:            'Channel'
+          USR:             'A6A83ECC0133F36DA9D954A9ECF9FF2BD72F5B0A'
+          Path:            'batt'
+        Name:            'message_'
+      - Type:
+          Type:            Record
+          Name:            'Channel'
+          USR:             'C3F1A7A570A045B56ADF2A49637EC74C03327341'
+          Path:            'batt'
+        Name:            'data_'
+    ChildFunctions:
+      - USR:             '8F725127CE55F010C2D6CF0B6086D0F1D8E1D021'
+        Name:            'HttpMessageBase'
+        Namespace:
+          - Type:            Record
+            Name:            'HttpMessageBase'
+            USR:             '49DB3D4BC0D23F20204563611E059682CBFB0C70'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             '3A0BB6DC2809C0EB60CB74B5B171CDD2603AC030'
+        Name:            '~HttpMessageBase'
+        Namespace:
+          - Type:            Record
+            Name:            'HttpMessageBase'
+            USR:             '49DB3D4BC0D23F20204563611E059682CBFB0C70'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             'FC2A638FB747D1A1D57A3E34CF3BCA89DCCD9F4B'
+        Name:            'state'
+        Namespace:
+          - Type:            Record
+            Name:            'HttpMessageBase'
+            USR:             '49DB3D4BC0D23F20204563611E059682CBFB0C70'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'Watch<batt::int_types::i32> &'
+        Access:          Public
+      - USR:             'EA2296BA8337D4AE1931010D60496D5F967AB0D4'
+        Name:            'update_status'
+        Namespace:
+          - Type:            Record
+            Name:            'HttpMessageBase'
+            USR:             '49DB3D4BC0D23F20204563611E059682CBFB0C70'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Type:            Record
+              Name:            'Status'
+              USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+              Path:            'batt'
+            Name:            'status'
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             '1F7C514DDD17AA79E2AEFA9FCFF7DFBADF897FCC'
+        Name:            'get_status'
+        Namespace:
+          - Type:            Record
+            Name:            'HttpMessageBase'
+            USR:             '49DB3D4BC0D23F20204563611E059682CBFB0C70'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Type:            Record
+            Name:            'Status'
+            USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+            Path:            'batt'
+        Access:          Public
+      - USR:             '3F377D6ADDC77AA2F77F23503CF1E1AEE0CCE0BD'
+        Name:            'async_set_message'
+        Namespace:
+          - Type:            Record
+            Name:            'HttpMessageBase'
+            USR:             '49DB3D4BC0D23F20204563611E059682CBFB0C70'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Name:            'batt::HttpMessageBase<struct pico_http::Request>::Message &'
+            Name:            'message'
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             'B1CA68247A38FCEADFA2562515E039BEE64957A9'
+        Name:            'await_set_message'
+        Namespace:
+          - Type:            Record
+            Name:            'HttpMessageBase'
+            USR:             '49DB3D4BC0D23F20204563611E059682CBFB0C70'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        Location:
+          - {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Name:            'batt::HttpMessageBase<struct pico_http::Request>::Message &'
+            Name:            'message'
+        ReturnType:
+          Type:
+            Type:            Record
+            Name:            'Status'
+            USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+            Path:            'batt'
+        Access:          Public
+      - USR:             '300A684507CD2223BFF66A066ACC6C41359E5626'
+        Name:            'await_message'
+        Namespace:
+          - Type:            Record
+            Name:            'HttpMessageBase'
+            USR:             '49DB3D4BC0D23F20204563611E059682CBFB0C70'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Type:            Record
+            Name:            'StatusOr'
+            USR:             'B9BF4B178B972894001008A052DD92D79B2E4580'
+            Path:            'batt'
+        Access:          Public
+      - USR:             '3381B89639AF29B84AC8A046FA034509BB1B5942'
+        Name:            'await_message_or_panic'
+        Namespace:
+          - Type:            Record
+            Name:            'HttpMessageBase'
+            USR:             '49DB3D4BC0D23F20204563611E059682CBFB0C70'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'batt::HttpMessageBase<struct pico_http::Request>::Message &'
+        Access:          Public
+      - USR:             '8A65392F25539805F74BEFF5B41224129F3AD218'
+        Name:            'release_message'
+        Namespace:
+          - Type:            Record
+            Name:            'HttpMessageBase'
+            USR:             '49DB3D4BC0D23F20204563611E059682CBFB0C70'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             '1BADE642A5122B0E1726AB4AE42CE18C68B78363'
+        Name:            'async_set_data'
+        Namespace:
+          - Type:            Record
+            Name:            'HttpMessageBase'
+            USR:             '49DB3D4BC0D23F20204563611E059682CBFB0C70'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Name:            'struct batt::HttpData &'
+            Name:            'data'
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             '133674B5A4EDE5FCA0B5973CAC6855B83AD4087A'
+        Name:            'await_set_data'
+        Namespace:
+          - Type:            Record
+            Name:            'HttpMessageBase'
+            USR:             '49DB3D4BC0D23F20204563611E059682CBFB0C70'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        Location:
+          - {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Name:            'struct batt::HttpData &'
+            Name:            'data'
+        ReturnType:
+          Type:
+            Type:            Record
+            Name:            'Status'
+            USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+            Path:            'batt'
+        Access:          Public
+      - USR:             'A5C2BB200D2D911DC7B2EEF35D665B0E88AA27DE'
+        Name:            'await_data'
+        Namespace:
+          - Type:            Record
+            Name:            'HttpMessageBase'
+            USR:             '49DB3D4BC0D23F20204563611E059682CBFB0C70'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Type:            Record
+            Name:            'StatusOr'
+            USR:             '76521285CE5BB41F68498B64970BE168C725E97F'
+            Path:            'batt'
+        Access:          Public
+      - USR:             '491F286EBF6A9B80EBB16A5F2775EAB0CE851D81'
+        Name:            'release_data'
+        Namespace:
+          - Type:            Record
+            Name:            'HttpMessageBase'
+            USR:             '49DB3D4BC0D23F20204563611E059682CBFB0C70'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             'DC1147DF6D1BADE0EEFAE9B4CFD17C7F8C655AA3'
+        Name:            'headers'
+        Namespace:
+          - Type:            Record
+            Name:            'HttpMessageBase'
+            USR:             '49DB3D4BC0D23F20204563611E059682CBFB0C70'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'const SmallVecBase<batt::HttpHeader> &'
+        Access:          Public
+      - USR:             'D63AE509EDF04255D469B921D5EF491C2EF3CD63'
+        Name:            'find_header'
+        Namespace:
+          - Type:            Record
+            Name:            'HttpMessageBase'
+            USR:             '49DB3D4BC0D23F20204563611E059682CBFB0C70'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        Location:
+          - {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Name:            'const std::string_view &'
+            Name:            'name'
+        ReturnType:
+          Type:
+            Type:            Record
+            Name:            'Optional'
+            USR:             '3B4CBA23F2D73869085646C33BBE4D79523FD0D6'
+            Path:            'batt'
+        Access:          Public
+    Access:          Public
+    IsParent:        true
+  - USR:             '64A37617D81BBDDDE8992D2C20D4EE2547BB5E98'
+    Name:            'Pinnable'
+    Path:            'batt'
+    Members:
+      - Type:
+          Type:            Record
+          Name:            'atomic'
+          USR:             '84B8ADE928AACE7FB47B0DFB3B03ADB06E9C81C8'
+          Path:            'std'
+        Name:            'pin_count_'
+    ChildFunctions:
+      - USR:             '1EC58633A8367B76FB34B7C613F656E4276C32A0'
+        Name:            '~Pinnable'
+        Namespace:
+          - Type:            Record
+            Name:            'Pinnable'
+            USR:             '64A37617D81BBDDDE8992D2C20D4EE2547BB5E98'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             'C540A9226047597C9E9F7E993207D593954A3731'
+        Name:            'pin'
+        Namespace:
+          - Type:            Record
+            Name:            'Pinnable'
+            USR:             '64A37617D81BBDDDE8992D2C20D4EE2547BB5E98'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             'B55CEAD5DC16EEF49002DAFFBB4478F4B5CCBDAF'
+        Name:            'unpin'
+        Namespace:
+          - Type:            Record
+            Name:            'Pinnable'
+            USR:             '64A37617D81BBDDDE8992D2C20D4EE2547BB5E98'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+    Access:          Public
+Parents:
+  - Type:            Record
+    Name:            'HttpMessageBase<pico_http::Request>'
+    USR:             'CDF521CEE8221C94F393A513B2341F4D4B2311C2'
+ChildFunctions:
+  - USR:             'DEF8B736B366D31F34AD5C206DF1112C8C94CE39'
+    Name:            'serialize'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpRequest'
+        USR:             '3866EF00EAFF63FDD1094BF215FA1588F094EB59'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      30
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_request.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpRequest'
+      USR:             '3866EF00EAFF63FDD1094BF215FA1588F094EB59'
+    Params:
+      - Type:
+          Name:            'AsyncWriteStream &'
+        Name:            'stream'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+        Path:            'batt'
+    Access:          Public
+...

@@ -1,0 +1,385 @@
+---
+USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+Name:            'HttpClientConnection'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      26
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_decl.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'class batt::HttpClientHostContext &'
+    Name:            'context_'
+    Access:          Public
+  - Type:
+      Type:            Record
+      Name:            'basic_stream_socket'
+      USR:             '2F4B4BB850249BF4C5A4634D230B48DCE71E2D12'
+      Path:            'boost/asio'
+    Name:            'socket_'
+  - Type:
+      Type:            Record
+      Name:            'Queue'
+      USR:             '43F1C9D301FEADDE2B7E8EEB05C9C61488345C1A'
+      Path:            'batt'
+    Name:            'response_queue_'
+  - Type:
+      Type:            Record
+      Name:            'StreamBuffer'
+      USR:             '85057B2C5843F97B301DFFEF62A3E1B7C40799E9'
+      Path:            'batt'
+    Name:            'input_buffer_'
+  - Type:
+      Type:            Record
+      Name:            'Optional'
+      USR:             'B93D36E5FAFA1230D58CCC8318A539E5BF0160DF'
+      Path:            'batt'
+    Name:            'task_'
+ChildRecords:
+  - Type:            Record
+    Name:            'ResponseInfo'
+    USR:             'CBA9D6DBAE01D558A188CE2ED1D675B2C95B7C17'
+    Path:            'batt/HttpClientConnection'
+ChildFunctions:
+  - USR:             '378BBB1DA0C4B94ED8F51AA1E84FD607A5C1BB36'
+    Name:            'HttpClientConnection'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientConnection'
+        USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      18
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_impl.hpp'
+    Location:
+      - LineNumber:      44
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientConnection'
+      USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+    Params:
+      - Type:
+          Name:            'class batt::HttpClientHostContext &'
+        Name:            'context'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '51DD47D2F033D53F38FB4CB32B3A546F1EDCBBBB'
+    Name:            'start'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientConnection'
+        USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      34
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_impl.hpp'
+    Location:
+      - LineNumber:      46
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientConnection'
+      USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'E7120208E73704D8D863762B373A92850CE5AC5F'
+    Name:            'halt'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientConnection'
+        USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Location:
+      - LineNumber:      48
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientConnection'
+      USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '6261134FE955E204DB9E0554E1FEF4494D3B92B4'
+    Name:            'join'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientConnection'
+        USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      233
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_impl.hpp'
+    Location:
+      - LineNumber:      50
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientConnection'
+      USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'C4E90F214C248388856CA6A3F14123D9DF26D33C'
+    Name:            'process_requests'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientConnection'
+        USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      72
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_impl.hpp'
+    Location:
+      - LineNumber:      52
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientConnection'
+      USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+        Path:            'batt'
+    Access:          Public
+  - USR:             '064CCA89871B4843427B87EFAFF56C66E4B1AEC0'
+    Name:            'fill_input_buffer'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientConnection'
+        USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      123
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_impl.hpp'
+    Location:
+      - LineNumber:      54
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientConnection'
+      USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+        Path:            'batt'
+    Access:          Public
+  - USR:             '0076EC9DAA23B17D2123D3D4E699DFB98ED23FFE'
+    Name:            'process_responses'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientConnection'
+        USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      150
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_impl.hpp'
+    Location:
+      - LineNumber:      56
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientConnection'
+      USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+        Path:            'batt'
+    Access:          Public
+  - USR:             'E114AD246F9303B151C4A4494BE524D3D658033F'
+    Name:            'open_connection'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientConnection'
+        USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      54
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_impl.hpp'
+    Location:
+      - LineNumber:      58
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientConnection'
+      USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+        Path:            'batt'
+    Access:          Public
+  - USR:             '129CF01D1E543CE9A56296435DB9B8236DC4B4B1'
+    Name:            'close_connection'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientConnection'
+        USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Location:
+      - LineNumber:      60
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientConnection'
+      USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'D091A6C37BE0CCF33B00E7BD6C472CFEEDAFEA51'
+    Name:            'read_next_response'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientConnection'
+        USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      203
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_impl.hpp'
+    Location:
+      - LineNumber:      62
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientConnection'
+      USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+    Params:
+      - Type:
+          Name:            'pico_http::Response &'
+        Name:            'response'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'StatusOr'
+        USR:             'ABF886FC2663F61E20D2B1B04CECDFB7AF6D3CF0'
+        Path:            'batt'
+    Access:          Public
+  - USR:             'EAD650F09FACF70ACD3A82924FCEA368B15F4279'
+    Name:            'get_io_context'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientConnection'
+        USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      27
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_impl.hpp'
+    Location:
+      - LineNumber:      64
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientConnection'
+      USR:             'EBB24FF2E1FBDADA2064722E6B77B5AAC7E62087'
+    ReturnType:
+      Type:
+        Name:            'boost::asio::io_context &'
+    Access:          Public
+...

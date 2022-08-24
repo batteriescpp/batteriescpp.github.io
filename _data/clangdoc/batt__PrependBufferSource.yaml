@@ -1,0 +1,171 @@
+---
+USR:             '04A7B3405AEA06854C62DF30F3D549A731812CB8'
+Name:            'PrependBufferSource'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------'
+          - Kind:            'TextComment'
+            Text:            ' BufferSource | seq::prepend(buffers)'
+DefLocation:
+  LineNumber:      448
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/buffer_source.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'ConstBufferSequence'
+    Name:            'first_'
+    Access:          Private
+  - Type:
+      Name:            'batt::PrependBufferSource::BufferIter'
+    Name:            'first_begin_'
+    Access:          Private
+  - Type:
+      Name:            'batt::PrependBufferSource::BufferIter'
+    Name:            'first_end_'
+    Access:          Private
+  - Type:
+      Name:            'batt::int_types::usize'
+    Name:            'first_offset_'
+    Access:          Private
+  - Type:
+      Name:            'batt::int_types::usize'
+    Name:            'first_size_'
+    Access:          Private
+  - Type:
+      Name:            'Src'
+    Name:            'rest_'
+    Access:          Private
+ChildFunctions:
+  - USR:             '513D481D1FE2CA9C88F434DAC6FBD13076B70681'
+    Name:            'PrependBufferSource<Src, ConstBufferSequence>'
+    Namespace:
+      - Type:            Record
+        Name:            'PrependBufferSource'
+        USR:             '04A7B3405AEA06854C62DF30F3D549A731812CB8'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      454
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/buffer_source.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'PrependBufferSource'
+      USR:             '04A7B3405AEA06854C62DF30F3D549A731812CB8'
+    Params:
+      - Type:
+          Name:            'ConstBufferSequence &&'
+        Name:            'buffers'
+      - Type:
+          Name:            'Src &&'
+        Name:            'rest'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'FC69C4FE95E62C96B7669D2CEA9F2B65421395D1'
+    Name:            'size'
+    Namespace:
+      - Type:            Record
+        Name:            'PrependBufferSource'
+        USR:             '04A7B3405AEA06854C62DF30F3D549A731812CB8'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      467
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/buffer_source.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'PrependBufferSource'
+      USR:             '04A7B3405AEA06854C62DF30F3D549A731812CB8'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::usize'
+    Access:          Public
+  - USR:             'DA6B488F67614A97994D09E70D7BE64E2FEB9D39'
+    Name:            'fetch_at_least'
+    Namespace:
+      - Type:            Record
+        Name:            'PrependBufferSource'
+        USR:             '04A7B3405AEA06854C62DF30F3D549A731812CB8'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      472
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/buffer_source.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'PrependBufferSource'
+      USR:             '04A7B3405AEA06854C62DF30F3D549A731812CB8'
+    Params:
+      - Type:
+          Name:            'batt::int_types::i64'
+        Name:            'min_count_i'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'StatusOr'
+        USR:             '84CCAF682F7A339735B4C2035C7AF9C63E2F327D'
+        Path:            'batt'
+    Access:          Public
+  - USR:             'AD1E1A0195BD95EACBB7ABF74B0106CF6D211CF2'
+    Name:            'consume'
+    Namespace:
+      - Type:            Record
+        Name:            'PrependBufferSource'
+        USR:             '04A7B3405AEA06854C62DF30F3D549A731812CB8'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      497
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/buffer_source.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'PrependBufferSource'
+      USR:             '04A7B3405AEA06854C62DF30F3D549A731812CB8'
+    Params:
+      - Type:
+          Name:            'batt::int_types::i64'
+        Name:            'count_i'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'D17DF84C415305049C350665C913F2AF42CC7A21'
+    Name:            'close_for_read'
+    Namespace:
+      - Type:            Record
+        Name:            'PrependBufferSource'
+        USR:             '04A7B3405AEA06854C62DF30F3D549A731812CB8'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      511
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/buffer_source.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'PrependBufferSource'
+      USR:             '04A7B3405AEA06854C62DF30F3D549A731812CB8'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

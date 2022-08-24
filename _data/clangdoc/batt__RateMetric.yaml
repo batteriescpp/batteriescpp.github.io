@@ -1,0 +1,103 @@
+---
+USR:             '2B58C5EFDB7706101A39BA1B52C41E270183D4AE'
+Name:            'RateMetric'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------'
+DefLocation:
+  LineNumber:      178
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Type:            Record
+      Name:            'atomic'
+      USR:             '84B8ADE928AACE7FB47B0DFB3B03ADB06E9C81C8'
+      Path:            'std'
+    Name:            'start_time_'
+  - Type:
+      Name:            'std::atomic<T>'
+    Name:            'start_value_'
+    Access:          Private
+  - Type:
+      Name:            'std::atomic<T>'
+    Name:            'current_value_'
+    Access:          Private
+ChildFunctions:
+  - USR:             'DF3EDD0310C823DFC9866C29DC36A64222285D13'
+    Name:            'base_time'
+    Namespace:
+      - Type:            Record
+        Name:            'RateMetric'
+        USR:             '2B58C5EFDB7706101A39BA1B52C41E270183D4AE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      181
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RateMetric'
+      USR:             '2B58C5EFDB7706101A39BA1B52C41E270183D4AE'
+    ReturnType:
+      Type:
+        Name:            'const auto &'
+    Access:          Public
+  - USR:             '6058EAB42D0F58064DBF6AD70619C80750A19934'
+    Name:            'update'
+    Namespace:
+      - Type:            Record
+        Name:            'RateMetric'
+        USR:             '2B58C5EFDB7706101A39BA1B52C41E270183D4AE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      188
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RateMetric'
+      USR:             '2B58C5EFDB7706101A39BA1B52C41E270183D4AE'
+    Params:
+      - Type:
+          Name:            'T'
+        Name:            'value'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '2C3679F3FCBC7FE5DF46298D8564EEE2AFA33630'
+    Name:            'get'
+    Namespace:
+      - Type:            Record
+        Name:            'RateMetric'
+        USR:             '2B58C5EFDB7706101A39BA1B52C41E270183D4AE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      204
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'RateMetric'
+      USR:             '2B58C5EFDB7706101A39BA1B52C41E270183D4AE'
+    ReturnType:
+      Type:
+        Name:            'double'
+    Access:          Public
+...

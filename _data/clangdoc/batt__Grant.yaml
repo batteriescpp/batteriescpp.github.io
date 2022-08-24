@@ -1,0 +1,641 @@
+---
+USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+Name:            'Grant'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      20
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Type:            Record
+      Name:            'unique_ptr'
+      USR:             'F1B3A91270C7C44FEFC48A3268CA2D3885F1FCA6'
+      Path:            'std'
+    Name:            'issuer_'
+  - Type:
+      Type:            Record
+      Name:            'Watch'
+      USR:             '6F1E82C8D5265ACDE9F6C2883A5A78069DBD35C6'
+      Path:            'batt'
+    Name:            'size_'
+ChildRecords:
+  - Type:            Record
+    Name:            'Issuer'
+    USR:             'FE7AEF0FB308678DC821B71B614B2930D081BD38'
+    Path:            'batt/Grant'
+ChildFunctions:
+  - USR:             'F8C35A8009943FBC0063EE5DB034F3C5258E9E44'
+    Name:            'Grant'
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '----- --- -- -  -  -   -'
+              - Kind:            'TextComment'
+                Text:            ' (Grant has no default constructor; you must create a new one by calling `Grant::Issuer::issue_grant` or'
+              - Kind:            'TextComment'
+                Text:            ' by spending part of an existing Grant.  This guarantees that a Grant is never detached from a'
+              - Kind:            'TextComment'
+                Text:            ' Grant::Issuer unless it has gone out of scope via move, which is equivalent to destruction.)'
+              - Kind:            'TextComment'
+                Text:            '----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      63
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    Params:
+      - Type:
+          Name:            'const class batt::Grant &'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'EE1A5DD32262CE5F6A888F4280B744E14633D001'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      64
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    Params:
+      - Type:
+          Name:            'const class batt::Grant &'
+    ReturnType:
+      Type:
+        Name:            'class batt::Grant &'
+    Access:          Public
+  - USR:             'A7FE4F5BD3C3E665FD6B98C184692E095D7CB263'
+    Name:            'Grant'
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' A Grant may be move-constructed, but not move-assigned (like a built-in reference type).'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      73
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_impl.hpp'
+    Location:
+      - LineNumber:      68
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    Params:
+      - Type:
+          Name:            'class batt::Grant &&'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '0DD79D78B5DB36FC86D4C74542097D20DE85057D'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      69
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    Params:
+      - Type:
+          Name:            'class batt::Grant &&'
+    ReturnType:
+      Type:
+        Name:            'class batt::Grant &'
+    Access:          Public
+  - USR:             '61A0D45E882A0708B669F0A88199CA906E17BBB6'
+    Name:            '~Grant'
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      82
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_impl.hpp'
+    Location:
+      - LineNumber:      71
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '4A47AE95C185B94FE612A8ECB7C24993C76182A8'
+    Name:            'get_issuer'
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      75
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    ReturnType:
+      Type:
+        Name:            'const class batt::Grant::Issuer *'
+    Access:          Public
+  - USR:             '1B2E7AFDF1B34778118254F60C5F3FBE0C60A5A7'
+    Name:            'empty'
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      80
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '46232730A74EC74E73C35DEDE93E2CE654700B4C'
+    Name:            'operator bool'
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      85
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '94A5D7DA13CDBDFF68FFDA234ACD8EC2AB7EE230'
+    Name:            'is_valid'
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      90
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '1CB3C970ADBBA9712342E2C3D07A9A5ED4504CD4'
+    Name:            'is_revoked'
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      95
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             'B47BC05FF835F430957D5A6526C7E883CB44E72C'
+    Name:            'revoke'
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Permanently invalidate this Grant, waking all waiters with error status.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      89
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_impl.hpp'
+    Location:
+      - LineNumber:      109
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '102E9115D7E91C353D1F2C801576BBC10329E602'
+    Name:            'size'
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' The current count available for spending on this Grant.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      105
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_impl.hpp'
+    Location:
+      - LineNumber:      113
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::u64'
+    Access:          Public
+  - USR:             'C3622158E4AF05A568F782C16BD5CDB096CB885B'
+    Name:            'spend'
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Spend part of the grant, returning a new Grant representing the spent amount if successful; otherwise:'
+              - Kind:            'TextComment'
+                Text:            '  - `batt::StatusCode::kGrantUnavailable` if the remaining size of this grant isn''t big enough'
+              - Kind:            'TextComment'
+                Text:            '  - `batt::StatusCode::kGrantRevoked` if this Grant has been revoked'
+              - Kind:            'TextComment'
+                Text:            '  - `batt::StatusCode::kFailedPrecondition` if this Grant has been invalidated by a move'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      112
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_impl.hpp'
+    Location:
+      - LineNumber:      120
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    Params:
+      - Type:
+          Name:            'batt::int_types::u64'
+        Name:            'count'
+      - Type:
+          Name:            'enum batt::WaitForResource'
+        Name:            'wait_for_resource'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'StatusOr'
+        USR:             '3F7EEBA2890DDC7C5D130745A06818438021610F'
+        Path:            'batt'
+    Access:          Public
+  - USR:             'F6F487D8BA035E2BE48661D300D92D92FF90E0DE'
+    Name:            'spend_all'
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Spend all of the grant, returning the previous size.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      120
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_impl.hpp'
+    Location:
+      - LineNumber:      124
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::u64'
+    Access:          Public
+  - USR:             'B7B1A11F003ADC2F2F3D4A5624D903874D3AC1A6'
+    Name:            'subsume'
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Increase this grant by that.size() and set that to empty.'
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Will panic unless all of the following are true:'
+              - Kind:            'TextComment'
+                Text:            '  - `this->get_issuer() != nullptr`'
+              - Kind:            'TextComment'
+                Text:            '  - `this->get_issuer() == that.get_issuer()`'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      135
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_impl.hpp'
+    Location:
+      - LineNumber:      132
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    Params:
+      - Type:
+          Name:            'class batt::Grant &&'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'class batt::Grant &'
+    Access:          Public
+  - USR:             '49A216E56B59F024730BA05A724D2B036706C9CA'
+    Name:            'swap'
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Swap the values of this and that.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      97
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_impl.hpp'
+    Location:
+      - LineNumber:      136
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    Params:
+      - Type:
+          Name:            'class batt::Grant &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'F886FC0FCF27752235BDEF43516C4A416BB08709'
+    Name:            'transfer_impl'
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      152
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_impl.hpp'
+    Location:
+      - LineNumber:      139
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    Params:
+      - Type:
+          Name:            'class Grant::Issuer *'
+        Name:            'issuer'
+      - Type:
+          Name:            'Watch<batt::int_types::u64> &'
+        Name:            'source'
+      - Type:
+          Name:            'batt::int_types::u64'
+        Name:            'count'
+      - Type:
+          Name:            'enum batt::WaitForResource'
+        Name:            'wait_for_resource'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'StatusOr'
+        USR:             '3F7EEBA2890DDC7C5D130745A06818438021610F'
+        Path:            'batt'
+    Access:          Private
+  - USR:             '1278B7EE4A3401A490F39CDA2CD0206CD0A8D864'
+    Name:            'Grant'
+    Namespace:
+      - Type:            Record
+        Name:            'Grant'
+        USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '+++++++++++-+-+--+----- --- -- -  -  -   -'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      66
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_impl.hpp'
+    Location:
+      - LineNumber:      144
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/grant_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Grant'
+      USR:             'F4595C7D9DE962B76B7FD13F23DB93FE9D1F20A4'
+    Params:
+      - Type:
+          Name:            'class batt::Grant::Issuer *'
+        Name:            'issuer'
+      - Type:
+          Name:            'batt::int_types::u64'
+        Name:            'size'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Private
+...

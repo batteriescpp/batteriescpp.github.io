@@ -1,0 +1,235 @@
+---
+USR:             '43E4D086C3BEE444E7C462105BA4647A64EA871A'
+Name:            'DerivedMetricExporter'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+          - Kind:            'TextComment'
+            Text:            ' Exports a DerivedMetric'
+          - Kind:            'TextComment'
+            Text:            '<T'
+          - Kind:            'TextComment'
+            Text:            '>.'
+DefLocation:
+  LineNumber:      118
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_registry.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Type:            Record
+      Name:            'flyweight'
+      USR:             'B26D9F499C82428744A486743498CC6687A88362'
+      Path:            'boost/flyweights'
+    Name:            'name_'
+  - Type:
+      Name:            'DerivedMetric<T> &'
+    Name:            'metric_'
+    Access:          Private
+Bases:
+  - USR:             '960A3075BD918ED9823E0A58571AF6CF16DCA885'
+    Name:            'MetricExporter'
+    Path:            'batt'
+    Members:
+      - Type:
+          Type:            Record
+          Name:            'vector'
+          USR:             '40BCD3969A822319E2143BAF40D1C9F0A77AD3B9'
+          Path:            'std'
+        Name:            'labels_'
+    ChildFunctions:
+      - USR:             'E3936DCDD9B674A18371EB5EDD4E640F903E2051'
+        Name:            'get_name'
+        Namespace:
+          - Type:            Record
+            Name:            'MetricExporter'
+            USR:             '960A3075BD918ED9823E0A58571AF6CF16DCA885'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Type:            Record
+            Name:            'flyweight'
+            USR:             'B26D9F499C82428744A486743498CC6687A88362'
+            Path:            'boost/flyweights'
+        Access:          Public
+      - USR:             '7E600BDD62DFFEE4011B43B4FFE45D0381677AE2'
+        Name:            'get_description'
+        Namespace:
+          - Type:            Record
+            Name:            'MetricExporter'
+            USR:             '960A3075BD918ED9823E0A58571AF6CF16DCA885'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Type:            Record
+            Name:            'basic_string_view'
+            USR:             'E7D0A20D4E99A84446C003E51B2F4AAECE09E5BB'
+            Path:            'std'
+        Access:          Public
+      - USR:             'F50164B3062E67DBFFB38F6EFF34B800554633CB'
+        Name:            'get_type'
+        Namespace:
+          - Type:            Record
+            Name:            'MetricExporter'
+            USR:             '960A3075BD918ED9823E0A58571AF6CF16DCA885'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Type:            Record
+            Name:            'basic_string_view'
+            USR:             'E7D0A20D4E99A84446C003E51B2F4AAECE09E5BB'
+            Path:            'std'
+        Access:          Public
+      - USR:             '803EF696F5C5B9620226CF3D25714CFB7140E69A'
+        Name:            'get_labels'
+        Namespace:
+          - Type:            Record
+            Name:            'MetricExporter'
+            USR:             '960A3075BD918ED9823E0A58571AF6CF16DCA885'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'const batt::MetricLabelSet &'
+        Access:          Public
+      - USR:             '81357D0E4C52A24BB08E7249EC5601BA7D109400'
+        Name:            'set_labels'
+        Namespace:
+          - Type:            Record
+            Name:            'MetricExporter'
+            USR:             '960A3075BD918ED9823E0A58571AF6CF16DCA885'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        DefLocation:     {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Name:            'batt::MetricLabelSet &&'
+            Name:            'labels'
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             '7AFFF58E052AE10919E000FB01C63C8D69743FCF'
+        Name:            'get_value'
+        Namespace:
+          - Type:            Record
+            Name:            'MetricExporter'
+            USR:             '960A3075BD918ED9823E0A58571AF6CF16DCA885'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'double'
+        Access:          Public
+    Access:          Public
+    IsParent:        true
+Parents:
+  - Type:            Record
+    Name:            'MetricExporter'
+    USR:             '960A3075BD918ED9823E0A58571AF6CF16DCA885'
+    Path:            'batt'
+ChildFunctions:
+  - USR:             '8CD022E23711131C4D484CDB4D9477AFABABDD68'
+    Name:            'DerivedMetricExporter<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'DerivedMetricExporter'
+        USR:             '43E4D086C3BEE444E7C462105BA4647A64EA871A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      121
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_registry.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'DerivedMetricExporter'
+      USR:             '43E4D086C3BEE444E7C462105BA4647A64EA871A'
+    Params:
+      - Type:
+          Name:            'const std::string &'
+        Name:            'name'
+      - Type:
+          Name:            'DerivedMetric<T> &'
+        Name:            'metric'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'ED69131C2B3BCB852AEDC64281480B9ED079C695'
+    Name:            'get_name'
+    Namespace:
+      - Type:            Record
+        Name:            'DerivedMetricExporter'
+        USR:             '43E4D086C3BEE444E7C462105BA4647A64EA871A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      127
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_registry.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'DerivedMetricExporter'
+      USR:             '43E4D086C3BEE444E7C462105BA4647A64EA871A'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'flyweight'
+        USR:             'B26D9F499C82428744A486743498CC6687A88362'
+        Path:            'boost/flyweights'
+    Access:          Public
+  - USR:             '6FDDCCBF3BCA06BD64F75F5E31E9370D21AB1ED9'
+    Name:            'get_value'
+    Namespace:
+      - Type:            Record
+        Name:            'DerivedMetricExporter'
+        USR:             '43E4D086C3BEE444E7C462105BA4647A64EA871A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      132
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_registry.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'DerivedMetricExporter'
+      USR:             '43E4D086C3BEE444E7C462105BA4647A64EA871A'
+    ReturnType:
+      Type:
+        Name:            'double'
+    Access:          Public
+...

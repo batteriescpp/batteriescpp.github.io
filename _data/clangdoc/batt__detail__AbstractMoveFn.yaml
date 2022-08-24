@@ -1,0 +1,213 @@
+---
+USR:             '4BA32BE9EBD64A742949EBD614629DC16C97A015'
+Name:            'AbstractMoveFn'
+Path:            'batt/detail'
+Namespace:
+  - Type:            Namespace
+    Name:            'detail'
+    USR:             '7EFD2C42787CC2D5BEDB73B9828224F9950DADAE'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' Base class for abstract function types.  Defines the common'
+          - Kind:            'TextComment'
+            Text:            ' interface/concept for move-only and copyable functions:'
+          - Kind:            'TextComment'
+            Text:            ' - Invocable (with the signature `auto(Args...)->Result`)'
+          - Kind:            'TextComment'
+            Text:            ' - Move-Constructible/Assignable'
+          - Kind:            'TextComment'
+            Text:            ' - Destructible'
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' Forward declare the abstract base class templates for function type erasure.'
+DefLocation:
+  LineNumber:      76
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+Location:
+  - LineNumber:      45
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+TagType:         Class
+ChildFunctions:
+  - USR:             '7F67CCDC4D4A5E27CDB390D4DDA11D5B1535F3A6'
+    Name:            'AbstractMoveFn<kMoveOnly, Result, Args...>'
+    Namespace:
+      - Type:            Record
+        Name:            'AbstractMoveFn'
+        USR:             '4BA32BE9EBD64A742949EBD614629DC16C97A015'
+      - Type:            Namespace
+        Name:            'detail'
+        USR:             '7EFD2C42787CC2D5BEDB73B9828224F9950DADAE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      79
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AbstractMoveFn'
+      USR:             '4BA32BE9EBD64A742949EBD614629DC16C97A015'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Protected
+  - USR:             'B1C5229309C5286F19EE889AAC3A80AB6FB2AE3F'
+    Name:            'AbstractMoveFn<kMoveOnly, Result, Args...>'
+    Namespace:
+      - Type:            Record
+        Name:            'AbstractMoveFn'
+        USR:             '4BA32BE9EBD64A742949EBD614629DC16C97A015'
+      - Type:            Namespace
+        Name:            'detail'
+        USR:             '7EFD2C42787CC2D5BEDB73B9828224F9950DADAE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      82
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AbstractMoveFn'
+      USR:             '4BA32BE9EBD64A742949EBD614629DC16C97A015'
+    Params:
+      - Type:
+          Name:            'const AbstractMoveFn<kMoveOnly, Result, Args...> &'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '7518886F5243BBD047CD22F3536DFAFB43DF8264'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'AbstractMoveFn'
+        USR:             '4BA32BE9EBD64A742949EBD614629DC16C97A015'
+      - Type:            Namespace
+        Name:            'detail'
+        USR:             '7EFD2C42787CC2D5BEDB73B9828224F9950DADAE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      83
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AbstractMoveFn'
+      USR:             '4BA32BE9EBD64A742949EBD614629DC16C97A015'
+    Params:
+      - Type:
+          Name:            'const AbstractMoveFn<kMoveOnly, Result, Args...> &'
+    ReturnType:
+      Type:
+        Name:            'AbstractMoveFn<kMoveOnly, Result, Args...> &'
+    Access:          Public
+  - USR:             '9648BD9EF77B211F6C3D5240ADEDD36A87994ED4'
+    Name:            '~AbstractMoveFn<kMoveOnly, Result, Args...>'
+    Namespace:
+      - Type:            Record
+        Name:            'AbstractMoveFn'
+        USR:             '4BA32BE9EBD64A742949EBD614629DC16C97A015'
+      - Type:            Namespace
+        Name:            'detail'
+        USR:             '7EFD2C42787CC2D5BEDB73B9828224F9950DADAE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      85
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AbstractMoveFn'
+      USR:             '4BA32BE9EBD64A742949EBD614629DC16C97A015'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '815F1966702DFA26236AF7BBAF2A5AFC0AB4D066'
+    Name:            'invoke'
+    Namespace:
+      - Type:            Record
+        Name:            'AbstractMoveFn'
+        USR:             '4BA32BE9EBD64A742949EBD614629DC16C97A015'
+      - Type:            Namespace
+        Name:            'detail'
+        USR:             '7EFD2C42787CC2D5BEDB73B9828224F9950DADAE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Location:
+      - LineNumber:      87
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AbstractMoveFn'
+      USR:             '4BA32BE9EBD64A742949EBD614629DC16C97A015'
+    Params:
+      - Type:
+          Name:            'Args...'
+        Name:            'args'
+    ReturnType:
+      Type:
+        Name:            'Result'
+    Access:          Public
+  - USR:             '07E84EB7E0ACF780CF9FA073FE8418B605696C6B'
+    Name:            'move'
+    Namespace:
+      - Type:            Record
+        Name:            'AbstractMoveFn'
+        USR:             '4BA32BE9EBD64A742949EBD614629DC16C97A015'
+      - Type:            Namespace
+        Name:            'detail'
+        USR:             '7EFD2C42787CC2D5BEDB73B9828224F9950DADAE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Move construct from `this` into `storage`.  `size` MUST be big enough to'
+              - Kind:            'TextComment'
+                Text:            ' fit the stored function, otherwise this method will assert-crash.'
+              - Kind:            'TextComment'
+                Text:            ' Invalidates `this`; `invoke` must not be called after `move`.'
+    Location:
+      - LineNumber:      93
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AbstractMoveFn'
+      USR:             '4BA32BE9EBD64A742949EBD614629DC16C97A015'
+    Params:
+      - Type:
+          Name:            'void *'
+        Name:            'storage'
+      - Type:
+          Name:            'std::size_t'
+        Name:            'size'
+    ReturnType:
+      Type:
+        Name:            'AbstractFn<kMoveOnly, Result, Args...> *'
+    Access:          Public
+...

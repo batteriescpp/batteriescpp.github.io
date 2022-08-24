@@ -1,0 +1,264 @@
+---
+USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+Name:            'WorkerPool'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      21
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/worker_pool.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Type:            Record
+      Name:            'vector'
+      USR:             'E84B2316C2C4F8D4C5C7CCB2DF8A087B562CCFC2'
+      Path:            'std'
+    Name:            'workers_'
+  - Type:
+      Type:            Record
+      Name:            'atomic'
+      USR:             '60134B3BCB0287C4C6D593F3D28A2DBC1240CD27'
+      Path:            'std'
+    Name:            'round_robin_'
+ChildFunctions:
+  - USR:             'ABC8EF4667AF3C3CA0F4F530790E5DA9D818D082'
+    Name:            'default_pool'
+    Namespace:
+      - Type:            Record
+        Name:            'WorkerPool'
+        USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      17
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/worker_pool_impl.hpp'
+    Location:
+      - LineNumber:      24
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/worker_pool.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'WorkerPool'
+      USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+    ReturnType:
+      Type:
+        Name:            'class batt::WorkerPool &'
+    Access:          Public
+  - USR:             'B2F95503820E5769D19E4A1A224F88D343191E8F'
+    Name:            'null_pool'
+    Namespace:
+      - Type:            Record
+        Name:            'WorkerPool'
+        USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' A pool containing no workers; `async_run` will always execute the passed function immediately on the'
+              - Kind:            'TextComment'
+                Text:            ' caller''s thread.'
+    DefLocation:
+      LineNumber:      29
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/worker_pool.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'WorkerPool'
+      USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+    ReturnType:
+      Type:
+        Name:            'class batt::WorkerPool &'
+    Access:          Public
+  - USR:             '9F3A81C86CBDCEF44FCF4D2ED1ADDF2C47BDCD9F'
+    Name:            'WorkerPool'
+    Namespace:
+      - Type:            Record
+        Name:            'WorkerPool'
+        USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      35
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/worker_pool.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'WorkerPool'
+      USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+    Params:
+      - Type:
+          Name:            'batt::int_types::usize'
+        Name:            'size'
+      - Type:
+          Name:            'class batt::TaskScheduler &'
+        Name:            'scheduler'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'CDC6A83D4007A28C07A7A85B69F383E762B66645'
+    Name:            'async_run'
+    Namespace:
+      - Type:            Record
+        Name:            'WorkerPool'
+        USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      43
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/worker_pool.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'WorkerPool'
+      USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+    Params:
+      - Type:
+          Name:            'Fn &&'
+        Name:            'fn'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'DE9B19ED5F837E67724F15B67AED301E0FAC5FFE'
+    Name:            'reset'
+    Namespace:
+      - Type:            Record
+        Name:            'WorkerPool'
+        USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      53
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/worker_pool.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'WorkerPool'
+      USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+    Params:
+      - Type:
+          Name:            'batt::int_types::usize'
+        Name:            'phase_shift'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'C0DCAB967D21757900DABF8181855A71DAC1A495'
+    Name:            'size'
+    Namespace:
+      - Type:            Record
+        Name:            'WorkerPool'
+        USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      58
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/worker_pool.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'WorkerPool'
+      USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::usize'
+    Access:          Public
+  - USR:             'C07FF8C82C993B4100CDA3AF970AB7C423F12130'
+    Name:            'halt'
+    Namespace:
+      - Type:            Record
+        Name:            'WorkerPool'
+        USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      63
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/worker_pool.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'WorkerPool'
+      USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '66E5233026EE167326E3A3BF6F15173DE9DE12D9'
+    Name:            'join'
+    Namespace:
+      - Type:            Record
+        Name:            'WorkerPool'
+        USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      70
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/worker_pool.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'WorkerPool'
+      USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'CFF13D9C86AD137CCD7AC2692327AF839BE568F8'
+    Name:            '~WorkerPool'
+    Namespace:
+      - Type:            Record
+        Name:            'WorkerPool'
+        USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      77
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/worker_pool.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'WorkerPool'
+      USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '73E1E91A6AA2DB6859AF89696FCCFE312041E13F'
+    Name:            'WorkerPool'
+    Namespace:
+      - Type:            Record
+        Name:            'WorkerPool'
+        USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      84
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/worker_pool.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'WorkerPool'
+      USR:             '54224811B79D1502C337C7A4B761ED6FF3D60C8A'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Private
+...

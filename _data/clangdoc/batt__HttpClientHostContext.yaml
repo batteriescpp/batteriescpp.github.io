@@ -1,0 +1,427 @@
+---
+USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+Name:            'HttpClientHostContext'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      29
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_decl.hpp'
+Location:
+  - LineNumber:      24
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_connection_decl.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'class batt::HttpClient &'
+    Name:            'client_'
+    Access:          Private
+  - Type:
+      Type:            Record
+      Name:            'HostAddress'
+      USR:             'F1C54872709E8D611C8721DBB37FEED31D072A3A'
+      Path:            'batt'
+    Name:            'host_address_'
+  - Type:
+      Type:            Record
+      Name:            'Queue'
+      USR:             '089A302A12287222729DE81499858CD9BD0E0AEA'
+      Path:            'batt'
+    Name:            'request_queue_'
+  - Type:
+      Type:            Record
+      Name:            'Watch'
+      USR:             '6F1E82C8D5265ACDE9F6C2883A5A78069DBD35C6'
+      Path:            'batt'
+    Name:            'max_connections_'
+  - Type:
+      Type:            Record
+      Name:            'Task'
+      USR:             '98945B7B2B80613C66470D7A2F0FEBE93D861955'
+      Path:            'batt'
+    Name:            'task_'
+  - Type:
+      Type:            Record
+      Name:            'small_vector'
+      USR:             '234DE525AC2873B907F93B04B7FC6AC1832DAA65'
+      Path:            'boost/container'
+    Name:            'connection_tasks_'
+Bases:
+  - USR:             '5CD544653F32DE6A6285F94B0B660C7FA2831AAF'
+    Name:            'RefCounted<class batt::HttpClientHostContext>'
+    Path:            'boost/sp_adl_block'
+    Members:
+      - Type:
+          Type:            Record
+          Name:            'atomic_count'
+          USR:             '03D500ED2C11937F503BBEF05F66455191878A43'
+          Path:            'boost/detail'
+        Name:            'm_ref_counter'
+    ChildFunctions:
+      - USR:             '1953E753DF9CE8F485F6D4BB3EEAB4D344B1359F'
+        Name:            'intrusive_ref_counter'
+        Namespace:
+          - Type:            Record
+            Name:            'intrusive_ref_counter'
+            USR:             'BB1E58BC2E71B045C9D154C9D1425A39951D9E9A'
+          - Type:            Namespace
+            Name:            'sp_adl_block'
+            USR:             '19D1CA59A3C78B236F49EA9AB0B9E3054DF83D0C'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             '47FF0103685A031FACDD6022280039590EE3D039'
+        Name:            'intrusive_ref_counter'
+        Namespace:
+          - Type:            Record
+            Name:            'intrusive_ref_counter'
+            USR:             'BB1E58BC2E71B045C9D154C9D1425A39951D9E9A'
+          - Type:            Namespace
+            Name:            'sp_adl_block'
+            USR:             '19D1CA59A3C78B236F49EA9AB0B9E3054DF83D0C'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Name:            'const class boost::sp_adl_block::intrusive_ref_counter<class batt::HttpClientHostContext> &'
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             '8A2C231AF40BBFFFBB865D47AED9D50B9E852DF7'
+        Name:            'operator='
+        Namespace:
+          - Type:            Record
+            Name:            'intrusive_ref_counter'
+            USR:             'BB1E58BC2E71B045C9D154C9D1425A39951D9E9A'
+          - Type:            Namespace
+            Name:            'sp_adl_block'
+            USR:             '19D1CA59A3C78B236F49EA9AB0B9E3054DF83D0C'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Name:            'const class boost::sp_adl_block::intrusive_ref_counter<class batt::HttpClientHostContext> &'
+        ReturnType:
+          Type:
+            Name:            'class boost::sp_adl_block::intrusive_ref_counter<class batt::HttpClientHostContext> &'
+        Access:          Public
+      - USR:             'BBAFB3D427BF58D76E8923E7AB1F058475B8B3FA'
+        Name:            'use_count'
+        Namespace:
+          - Type:            Record
+            Name:            'intrusive_ref_counter'
+            USR:             'BB1E58BC2E71B045C9D154C9D1425A39951D9E9A'
+          - Type:            Namespace
+            Name:            'sp_adl_block'
+            USR:             '19D1CA59A3C78B236F49EA9AB0B9E3054DF83D0C'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'unsigned int'
+        Access:          Public
+    Access:          Public
+    IsParent:        true
+Parents:
+  - Type:            Record
+    Name:            'RefCounted<class batt::HttpClientHostContext>'
+    USR:             '5CD544653F32DE6A6285F94B0B660C7FA2831AAF'
+ChildFunctions:
+  - USR:             '5A39976111325FCC1A22F26867384F3C9B8B8380'
+    Name:            'HttpClientHostContext'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientHostContext'
+        USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      17
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_impl.hpp'
+    Location:
+      - LineNumber:      36
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientHostContext'
+      USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+    Params:
+      - Type:
+          Name:            'class batt::HttpClient &'
+        Name:            'client'
+      - Type:
+          Name:            'const struct batt::HostAddress &'
+        Name:            'host_address'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '10C0CE74779E697310CEF42E56D53AB4D13E150D'
+    Name:            'get_io_context'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientHostContext'
+        USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '+++++++++++-+-+--+----- --- -- -  -  -   -'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      29
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_impl.hpp'
+    Location:
+      - LineNumber:      40
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientHostContext'
+      USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+    ReturnType:
+      Type:
+        Name:            'boost::asio::io_context &'
+    Access:          Public
+  - USR:             'F5A290C4FD7A4FFFF3393144747FD68B266023BF'
+    Name:            'client'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientHostContext'
+        USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      42
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientHostContext'
+      USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+    ReturnType:
+      Type:
+        Name:            'class batt::HttpClient &'
+    Access:          Public
+  - USR:             'D9367ABDC26DB64DB601D6A2CEC73B8A8CF13AEA'
+    Name:            'submit_request'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientHostContext'
+        USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      47
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientHostContext'
+      USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+    Params:
+      - Type:
+          Name:            'Pin<class batt::HttpRequest> &&'
+        Name:            'request'
+      - Type:
+          Name:            'Pin<class batt::HttpResponse> &&'
+        Name:            'response'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+        Path:            'batt'
+    Access:          Public
+  - USR:             '46E785B43BA341585D983D574DA26D7AFDAF6FDF'
+    Name:            'join'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientHostContext'
+        USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      53
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientHostContext'
+      USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '07D86B608F7B8358F104AC58A6265C6670633F4D'
+    Name:            'can_grow'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientHostContext'
+        USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      58
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientHostContext'
+      USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '6BA9165F6575021D4AB983CB108E6A97B2FE74BD'
+    Name:            'host_address'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientHostContext'
+        USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      63
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientHostContext'
+      USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+    ReturnType:
+      Type:
+        Name:            'const struct batt::HostAddress &'
+    Access:          Public
+  - USR:             '90E7112086CD7D18557D318C57FB9C0F2A7A5A58'
+    Name:            'await_next_request'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientHostContext'
+        USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      68
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientHostContext'
+      USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'StatusOr'
+        USR:             '0BDA61E6607611AC3F169E0AEB1EB7D21C9BE578'
+        Path:            'batt'
+    Access:          Public
+  - USR:             '5AC6E16DB12C904299D30F1D450A4D5854542A12'
+    Name:            'host_task_main'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientHostContext'
+        USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      36
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_impl.hpp'
+    Location:
+      - LineNumber:      74
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientHostContext'
+      USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Private
+  - USR:             'C93E823E4EB0B7FE7F4100830F4546731DB0DA47'
+    Name:            'create_connection'
+    Namespace:
+      - Type:            Record
+        Name:            'HttpClientHostContext'
+        USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      61
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_impl.hpp'
+    Location:
+      - LineNumber:      76
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client_host_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HttpClientHostContext'
+      USR:             'FDA1B266DB85CF383C93363172E01AD2EEF0FDB3'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Private
+...

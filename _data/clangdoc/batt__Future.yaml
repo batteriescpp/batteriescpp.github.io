@@ -1,0 +1,123 @@
+---
+USR:             '2B2314AE95A4CFC5AAB39D729B464D4A04E1E0E5'
+Name:            'Future'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      42
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/future_decl.hpp'
+Location:
+  - LineNumber:      24
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/future_decl.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'boost::intrusive_ptr<detail::FutureImpl<T> >'
+    Name:            'impl_'
+    Access:          Private
+ChildFunctions:
+  - USR:             '4C45497321E0540E06FA6AA4474B41C615731337'
+    Name:            'async_wait'
+    Namespace:
+      - Type:            Record
+        Name:            'Future'
+        USR:             '2B2314AE95A4CFC5AAB39D729B464D4A04E1E0E5'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      50
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/future_impl.hpp'
+    Location:
+      - LineNumber:      46
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/future_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Future'
+      USR:             '2B2314AE95A4CFC5AAB39D729B464D4A04E1E0E5'
+    Params:
+      - Type:
+          Name:            'Handler &&'
+        Name:            'handler'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '8E39FB2A82DF039B79771765D39E42197D542204'
+    Name:            'is_ready'
+    Namespace:
+      - Type:            Record
+        Name:            'Future'
+        USR:             '2B2314AE95A4CFC5AAB39D729B464D4A04E1E0E5'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      75
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/future_impl.hpp'
+    Location:
+      - LineNumber:      55
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/future_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Future'
+      USR:             '2B2314AE95A4CFC5AAB39D729B464D4A04E1E0E5'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '7E8B77A1AD24D1E487B1BC8807E8A28E021FF211'
+    Name:            'Future<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Future'
+        USR:             '2B2314AE95A4CFC5AAB39D729B464D4A04E1E0E5'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      59
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/future_impl.hpp'
+    Location:
+      - LineNumber:      58
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/future_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Future'
+      USR:             '2B2314AE95A4CFC5AAB39D729B464D4A04E1E0E5'
+    Params:
+      - Type:
+          Name:            'boost::intrusive_ptr<detail::FutureImpl<T> > &&'
+        Name:            'impl'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Private
+...

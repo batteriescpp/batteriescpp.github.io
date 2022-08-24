@@ -1,0 +1,564 @@
+---
+USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+Name:            'Iterator'
+Path:            'batt/RunningTotal'
+Namespace:
+  - Type:            Record
+    Name:            'RunningTotal'
+    USR:             '278ED9742408D49C57C6009EE1F396218B9367B4'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' #=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++'
+DefLocation:
+  LineNumber:      264
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/algo/running_total.hpp'
+Location:
+  - LineNumber:      56
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/algo/running_total.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'const class batt::RunningTotal *'
+    Name:            'container_'
+    Access:          Private
+  - Type:
+      Name:            'batt::int_types::isize'
+    Name:            'position_'
+    Access:          Private
+Bases:
+  - USR:             '5342EF1E00E30A8E79DDAAF636DB14B3D5EE8278'
+    Name:            'boost::iterator_facade<Iterator, usize, std::random_access_iterator_tag, usize, isize>'
+    Path:            'boost/iterators'
+    Access:          Public
+    IsParent:        true
+  - USR:             '7C0B3030E6050A1D80439D8D0EA34F25B26BB511'
+    Name:            'detail::iterator_facade_base<Iterator, unsigned long, random_access_iterator_tag, unsigned long, long, detail::is_traversal_at_least<random_access_iterator_tag, bidirectional_traversal_tag>::value, detail::is_traversal_at_least<random_access_iterator_tag, random_access_traversal_tag>::value>'
+    Path:            'boost/iterators/detail'
+    ChildFunctions:
+      - USR:             'F00B031D0C7E416BBBB029C1399C786C9DBEC9D1'
+        Name:            'operator[]'
+        Namespace:
+          - Type:            Record
+            Name:            'iterator_facade_base'
+            USR:             '111343D7727BB269EB6E01C8535DD165BB2C2E84'
+          - Type:            Namespace
+            Name:            'detail'
+            USR:             '11861B2E31006F874E31FBB603885B764B91957C'
+          - Type:            Namespace
+            Name:            'iterators'
+            USR:             '500D70D4D58D202FECC25C5E1BBF6E333C2CA9FD'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Name:            'boost::iterators::detail::iterator_facade_base<class batt::RunningTotal::Iterator, unsigned long, struct std::random_access_iterator_tag, unsigned long, long, true, true>::difference_type'
+            Name:            'n'
+        ReturnType:
+          Type:
+            Name:            'typename boost::iterators::detail::operator_brackets_result<class Iterator, unsigned long, reference>::type'
+        Access:          Public
+      - USR:             '04BE3B690A0BDDAE96A8E5B0A14437427D3E16E4'
+        Name:            'operator+='
+        Namespace:
+          - Type:            Record
+            Name:            'iterator_facade_base'
+            USR:             '111343D7727BB269EB6E01C8535DD165BB2C2E84'
+          - Type:            Namespace
+            Name:            'detail'
+            USR:             '11861B2E31006F874E31FBB603885B764B91957C'
+          - Type:            Namespace
+            Name:            'iterators'
+            USR:             '500D70D4D58D202FECC25C5E1BBF6E333C2CA9FD'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        DefLocation:     {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Name:            'boost::iterators::detail::iterator_facade_base<class batt::RunningTotal::Iterator, unsigned long, struct std::random_access_iterator_tag, unsigned long, long, true, true>::difference_type'
+            Name:            'n'
+        ReturnType:
+          Type:
+            Name:            'class batt::RunningTotal::Iterator &'
+        Access:          Public
+      - USR:             '5AFD6425BD55ABB15E4AAD24A20F647D999AB34E'
+        Name:            'operator-='
+        Namespace:
+          - Type:            Record
+            Name:            'iterator_facade_base'
+            USR:             '111343D7727BB269EB6E01C8535DD165BB2C2E84'
+          - Type:            Namespace
+            Name:            'detail'
+            USR:             '11861B2E31006F874E31FBB603885B764B91957C'
+          - Type:            Namespace
+            Name:            'iterators'
+            USR:             '500D70D4D58D202FECC25C5E1BBF6E333C2CA9FD'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Name:            'boost::iterators::detail::iterator_facade_base<class batt::RunningTotal::Iterator, unsigned long, struct std::random_access_iterator_tag, unsigned long, long, true, true>::difference_type'
+            Name:            'n'
+        ReturnType:
+          Type:
+            Name:            'class batt::RunningTotal::Iterator &'
+        Access:          Public
+      - USR:             '8C991C8D1AE47A07A23432F3FF4341EDAF36ACFE'
+        Name:            'operator-'
+        Namespace:
+          - Type:            Record
+            Name:            'iterator_facade_base'
+            USR:             '111343D7727BB269EB6E01C8535DD165BB2C2E84'
+          - Type:            Namespace
+            Name:            'detail'
+            USR:             '11861B2E31006F874E31FBB603885B764B91957C'
+          - Type:            Namespace
+            Name:            'iterators'
+            USR:             '500D70D4D58D202FECC25C5E1BBF6E333C2CA9FD'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Name:            'boost::iterators::detail::iterator_facade_base<class batt::RunningTotal::Iterator, unsigned long, struct std::random_access_iterator_tag, unsigned long, long, true, true>::difference_type'
+            Name:            'x'
+        ReturnType:
+          Type:
+            Type:            Record
+            Name:            'Iterator'
+            USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+            Path:            'batt/RunningTotal'
+        Access:          Public
+    Access:          Public
+  - USR:             '7C0B3030E6050A1D80439D8D0EA34F25B26BB511'
+    Name:            'iterator_facade_base<class batt::RunningTotal::Iterator, unsigned long, struct std::random_access_iterator_tag, unsigned long, long, true, false>'
+    Path:            'boost/iterators/detail'
+    ChildFunctions:
+      - USR:             'AD053710CD8CEAA1BED86EF4B3F0E0E368222AF7'
+        Name:            'operator--'
+        Namespace:
+          - Type:            Record
+            Name:            'iterator_facade_base'
+            USR:             '6F1C659F1951E722150BC9C53DF238542F2D6523'
+          - Type:            Namespace
+            Name:            'detail'
+            USR:             '11861B2E31006F874E31FBB603885B764B91957C'
+          - Type:            Namespace
+            Name:            'iterators'
+            USR:             '500D70D4D58D202FECC25C5E1BBF6E333C2CA9FD'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'class batt::RunningTotal::Iterator &'
+        Access:          Public
+      - USR:             'B46912DF2D5B3EABB082BFDEEDC12A31E4625216'
+        Name:            'operator--'
+        Namespace:
+          - Type:            Record
+            Name:            'iterator_facade_base'
+            USR:             '6F1C659F1951E722150BC9C53DF238542F2D6523'
+          - Type:            Namespace
+            Name:            'detail'
+            USR:             '11861B2E31006F874E31FBB603885B764B91957C'
+          - Type:            Namespace
+            Name:            'iterators'
+            USR:             '500D70D4D58D202FECC25C5E1BBF6E333C2CA9FD'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Name:            'int'
+        ReturnType:
+          Type:
+            Type:            Record
+            Name:            'Iterator'
+            USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+            Path:            'batt/RunningTotal'
+        Access:          Public
+    Access:          Public
+  - USR:             '7C0B3030E6050A1D80439D8D0EA34F25B26BB511'
+    Name:            'iterator_facade_base<class batt::RunningTotal::Iterator, unsigned long, struct std::random_access_iterator_tag, unsigned long, long, false, false>'
+    Path:            'boost/iterators/detail'
+    ChildFunctions:
+      - USR:             '1782A2427F84D9602D439B95A6B977F0C1EF0E2D'
+        Name:            'operator*'
+        Namespace:
+          - Type:            Record
+            Name:            'iterator_facade_base'
+            USR:             'F33A57974CF2DD1779730E36A8E3C13164A108CB'
+          - Type:            Namespace
+            Name:            'detail'
+            USR:             '11861B2E31006F874E31FBB603885B764B91957C'
+          - Type:            Namespace
+            Name:            'iterators'
+            USR:             '500D70D4D58D202FECC25C5E1BBF6E333C2CA9FD'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'boost::iterators::detail::iterator_facade_base<class batt::RunningTotal::Iterator, unsigned long, struct std::random_access_iterator_tag, unsigned long, long, false, false>::reference'
+        Access:          Public
+      - USR:             'A510CFE14C9FC70F52B7E0CCEBC2AF167E2D3D6B'
+        Name:            'operator->'
+        Namespace:
+          - Type:            Record
+            Name:            'iterator_facade_base'
+            USR:             'F33A57974CF2DD1779730E36A8E3C13164A108CB'
+          - Type:            Namespace
+            Name:            'detail'
+            USR:             '11861B2E31006F874E31FBB603885B764B91957C'
+          - Type:            Namespace
+            Name:            'iterators'
+            USR:             '500D70D4D58D202FECC25C5E1BBF6E333C2CA9FD'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'boost::iterators::detail::iterator_facade_base<class batt::RunningTotal::Iterator, unsigned long, struct std::random_access_iterator_tag, unsigned long, long, false, false>::pointer'
+        Access:          Public
+      - USR:             'C99684681BF24429229173F33279E32F4EF6E9A0'
+        Name:            'operator++'
+        Namespace:
+          - Type:            Record
+            Name:            'iterator_facade_base'
+            USR:             'F33A57974CF2DD1779730E36A8E3C13164A108CB'
+          - Type:            Namespace
+            Name:            'detail'
+            USR:             '11861B2E31006F874E31FBB603885B764B91957C'
+          - Type:            Namespace
+            Name:            'iterators'
+            USR:             '500D70D4D58D202FECC25C5E1BBF6E333C2CA9FD'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'class batt::RunningTotal::Iterator &'
+        Access:          Public
+      - USR:             '38AC4C17B3D7B000F8261D490D99CD8615F67850'
+        Name:            'derived'
+        Namespace:
+          - Type:            Record
+            Name:            'iterator_facade_base'
+            USR:             'F33A57974CF2DD1779730E36A8E3C13164A108CB'
+          - Type:            Namespace
+            Name:            'detail'
+            USR:             '11861B2E31006F874E31FBB603885B764B91957C'
+          - Type:            Namespace
+            Name:            'iterators'
+            USR:             '500D70D4D58D202FECC25C5E1BBF6E333C2CA9FD'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'class batt::RunningTotal::Iterator &'
+        Access:          Protected
+      - USR:             '1E2BB49D2148E657D734AE5C2314FD119437DF0C'
+        Name:            'derived'
+        Namespace:
+          - Type:            Record
+            Name:            'iterator_facade_base'
+            USR:             'F33A57974CF2DD1779730E36A8E3C13164A108CB'
+          - Type:            Namespace
+            Name:            'detail'
+            USR:             '11861B2E31006F874E31FBB603885B764B91957C'
+          - Type:            Namespace
+            Name:            'iterators'
+            USR:             '500D70D4D58D202FECC25C5E1BBF6E333C2CA9FD'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'const class batt::RunningTotal::Iterator &'
+        Access:          Protected
+    Access:          Public
+Parents:
+  - Type:            Record
+    Name:            'boost::iterator_facade<Iterator, usize, std::random_access_iterator_tag, usize, isize>'
+    USR:             '5342EF1E00E30A8E79DDAAF636DB14B3D5EE8278'
+ChildFunctions:
+  - USR:             'BA44CAE3558C635B333952A771B4AE8BF6D3DB59'
+    Name:            'Iterator'
+    Namespace:
+      - Type:            Record
+        Name:            'Iterator'
+        USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+      - Type:            Record
+        Name:            'RunningTotal'
+        USR:             '278ED9742408D49C57C6009EE1F396218B9367B4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      279
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/algo/running_total.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Iterator'
+      USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+    Params:
+      - Type:
+          Name:            'const class batt::RunningTotal *'
+        Name:            'container'
+      - Type:
+          Name:            'batt::int_types::usize'
+        Name:            'position'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '9B65E27487626E823089B4C67143414CC959C945'
+    Name:            'dereference'
+    Namespace:
+      - Type:            Record
+        Name:            'Iterator'
+        USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+      - Type:            Record
+        Name:            'RunningTotal'
+        USR:             '278ED9742408D49C57C6009EE1F396218B9367B4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      286
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/algo/running_total.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Iterator'
+      USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+    ReturnType:
+      Type:
+        Name:            'batt::RunningTotal::Iterator::reference'
+    Access:          Public
+  - USR:             '972188CCADC65565381B1E9ADD2287910B0B13A1'
+    Name:            'equal'
+    Namespace:
+      - Type:            Record
+        Name:            'Iterator'
+        USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+      - Type:            Record
+        Name:            'RunningTotal'
+        USR:             '278ED9742408D49C57C6009EE1F396218B9367B4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      291
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/algo/running_total.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Iterator'
+      USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+    Params:
+      - Type:
+          Name:            'const batt::RunningTotal::Iterator::Self &'
+        Name:            'other'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '6713038A4CF04A108E12749CDE0F9A349F65B513'
+    Name:            'increment'
+    Namespace:
+      - Type:            Record
+        Name:            'Iterator'
+        USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+      - Type:            Record
+        Name:            'RunningTotal'
+        USR:             '278ED9742408D49C57C6009EE1F396218B9367B4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      296
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/algo/running_total.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Iterator'
+      USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '1253A72A0DFA2CC6AC0468CCAA100CE79DBCFFBE'
+    Name:            'decrement'
+    Namespace:
+      - Type:            Record
+        Name:            'Iterator'
+        USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+      - Type:            Record
+        Name:            'RunningTotal'
+        USR:             '278ED9742408D49C57C6009EE1F396218B9367B4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      302
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/algo/running_total.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Iterator'
+      USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '0C3120FC1A1A68DDD805DDCCC38219D076C3629E'
+    Name:            'advance'
+    Namespace:
+      - Type:            Record
+        Name:            'Iterator'
+        USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+      - Type:            Record
+        Name:            'RunningTotal'
+        USR:             '278ED9742408D49C57C6009EE1F396218B9367B4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      308
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/algo/running_total.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Iterator'
+      USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+    Params:
+      - Type:
+          Name:            'batt::int_types::isize'
+        Name:            'delta'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'F297554003B09C2E84CDDFD8D99AAB707519E345'
+    Name:            'distance_to'
+    Namespace:
+      - Type:            Record
+        Name:            'Iterator'
+        USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+      - Type:            Record
+        Name:            'RunningTotal'
+        USR:             '278ED9742408D49C57C6009EE1F396218B9367B4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      314
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/algo/running_total.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Iterator'
+      USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+    Params:
+      - Type:
+          Name:            'const batt::RunningTotal::Iterator::Self &'
+        Name:            'other'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::isize'
+    Access:          Public
+  - USR:             '2FAE28CFA25241AB023CF05C76F6C1109DF64A60'
+    Name:            'container'
+    Namespace:
+      - Type:            Record
+        Name:            'Iterator'
+        USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+      - Type:            Record
+        Name:            'RunningTotal'
+        USR:             '278ED9742408D49C57C6009EE1F396218B9367B4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      321
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/algo/running_total.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Iterator'
+      USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+    ReturnType:
+      Type:
+        Name:            'const class batt::RunningTotal *'
+    Access:          Public
+  - USR:             '22F4D5E650817BB2375DA71E5325DD3C1888B2CA'
+    Name:            'position'
+    Namespace:
+      - Type:            Record
+        Name:            'Iterator'
+        USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+      - Type:            Record
+        Name:            'RunningTotal'
+        USR:             '278ED9742408D49C57C6009EE1F396218B9367B4'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      326
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/algo/running_total.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Iterator'
+      USR:             '1D219D4FBC8F8C48F487EAE0528B6AAD6F463ED5'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::isize'
+    Access:          Public
+...

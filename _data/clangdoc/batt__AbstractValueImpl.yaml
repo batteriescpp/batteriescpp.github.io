@@ -1,0 +1,125 @@
+---
+USR:             '12B623E22CE1E4666DE4C97DD66F04416F1DF8FE'
+Name:            'AbstractValueImpl'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------'
+DefLocation:
+  LineNumber:      214
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/type_erasure.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'T'
+    Name:            'obj_'
+    Access:          Protected
+Parents:
+  - Name:            'AbstractType'
+ChildFunctions:
+  - USR:             '924ABEC13865B79D02ECDFE2760DBDEFBB323B66'
+    Name:            'AbstractValueImpl<AbstractType, TypedImpl, T>'
+    Namespace:
+      - Type:            Record
+        Name:            'AbstractValueImpl'
+        USR:             '12B623E22CE1E4666DE4C97DD66F04416F1DF8FE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      219
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/type_erasure.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AbstractValueImpl'
+      USR:             '12B623E22CE1E4666DE4C97DD66F04416F1DF8FE'
+    Params:
+      - Type:
+          Name:            'T &&'
+        Name:            'obj'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '1ED0A8C71E4A927A7DC2D1EF0C8E79090E6B1960'
+    Name:            'copy_to'
+    Namespace:
+      - Type:            Record
+        Name:            'AbstractValueImpl'
+        USR:             '12B623E22CE1E4666DE4C97DD66F04416F1DF8FE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '+++++++++++-+-+--+----- --- -- -  -  -   -'
+              - Kind:            'TextComment'
+                Text:            ' AbstractValue interface'
+    DefLocation:
+      LineNumber:      234
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/type_erasure.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AbstractValueImpl'
+      USR:             '12B623E22CE1E4666DE4C97DD66F04416F1DF8FE'
+    Params:
+      - Type:
+          Type:            Record
+          Name:            'mutable_buffer'
+          USR:             '8FDB4478A6FCE6D2A9D456533E92D0F075712F47'
+          Path:            'boost/asio'
+        Name:            'memory'
+    ReturnType:
+      Type:
+        Name:            'AbstractType *'
+    Access:          Public
+  - USR:             '3AC7C3A009C935CD29EDB920D5F5BF1E1F9BFA3A'
+    Name:            'move_to'
+    Namespace:
+      - Type:            Record
+        Name:            'AbstractValueImpl'
+        USR:             '12B623E22CE1E4666DE4C97DD66F04416F1DF8FE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      240
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/type_erasure.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AbstractValueImpl'
+      USR:             '12B623E22CE1E4666DE4C97DD66F04416F1DF8FE'
+    Params:
+      - Type:
+          Type:            Record
+          Name:            'mutable_buffer'
+          USR:             '8FDB4478A6FCE6D2A9D456533E92D0F075712F47'
+          Path:            'boost/asio'
+        Name:            'memory'
+    ReturnType:
+      Type:
+        Name:            'AbstractType *'
+    Access:          Public
+...

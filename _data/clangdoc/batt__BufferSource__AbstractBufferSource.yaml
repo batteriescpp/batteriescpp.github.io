@@ -1,0 +1,191 @@
+---
+USR:             'E166050E0C8C58E6386D57E6494F53806BE2D8A4'
+Name:            'AbstractBufferSource'
+Path:            'batt/BufferSource'
+Namespace:
+  - Type:            Record
+    Name:            'BufferSource'
+    USR:             'A643289CD3E4C6AF73528C957DDD20191A59F7CD'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------'
+DefLocation:
+  LineNumber:      17
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/buffer_source_impl.hpp'
+Location:
+  - LineNumber:      179
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/buffer_source.hpp'
+TagType:         Class
+Bases:
+  - USR:             'AD4C05B404267C3F6BC61BA47E05D5DCC3640C9C'
+    Name:            'AbstractValue<class batt::BufferSource::AbstractBufferSource>'
+    Path:            'batt'
+    ChildFunctions:
+      - USR:             'B78BED4CA5A06AEDB6D668C466595004B1BCBD20'
+        Name:            'copy_to'
+        Namespace:
+          - Type:            Record
+            Name:            'AbstractValue'
+            USR:             'FC7D8A79DD8CDE90D078651F0E97680A3C31E897'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        Location:
+          - {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Type:            Record
+              Name:            'mutable_buffer'
+              USR:             '8FDB4478A6FCE6D2A9D456533E92D0F075712F47'
+              Path:            'boost/asio'
+            Name:            'memory'
+        ReturnType:
+          Type:
+            Name:            'class batt::BufferSource::AbstractBufferSource *'
+        Access:          Public
+      - USR:             'EBB189742CEB744B956737E16ABC71FD1DA69F71'
+        Name:            'move_to'
+        Namespace:
+          - Type:            Record
+            Name:            'AbstractValue'
+            USR:             'FC7D8A79DD8CDE90D078651F0E97680A3C31E897'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        Location:
+          - {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Type:            Record
+              Name:            'mutable_buffer'
+              USR:             '8FDB4478A6FCE6D2A9D456533E92D0F075712F47'
+              Path:            'boost/asio'
+            Name:            'memory'
+        ReturnType:
+          Type:
+            Name:            'class batt::BufferSource::AbstractBufferSource *'
+        Access:          Public
+    Access:          Public
+    IsParent:        true
+Parents:
+  - Type:            Record
+    Name:            'AbstractValue<class batt::BufferSource::AbstractBufferSource>'
+    USR:             'AD4C05B404267C3F6BC61BA47E05D5DCC3640C9C'
+ChildFunctions:
+  - USR:             '1C1C147B6A52AEEFB3567BB3E02374B9240B5ADD'
+    Name:            'size'
+    Namespace:
+      - Type:            Record
+        Name:            'AbstractBufferSource'
+        USR:             'E166050E0C8C58E6386D57E6494F53806BE2D8A4'
+      - Type:            Record
+        Name:            'BufferSource'
+        USR:             'A643289CD3E4C6AF73528C957DDD20191A59F7CD'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Location:
+      - LineNumber:      20
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/buffer_source_impl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AbstractBufferSource'
+      USR:             'E166050E0C8C58E6386D57E6494F53806BE2D8A4'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::usize'
+    Access:          Public
+  - USR:             'AC7241DB1D724F6DE4BC6FF7FB5BC72F894E276A'
+    Name:            'fetch_at_least'
+    Namespace:
+      - Type:            Record
+        Name:            'AbstractBufferSource'
+        USR:             'E166050E0C8C58E6386D57E6494F53806BE2D8A4'
+      - Type:            Record
+        Name:            'BufferSource'
+        USR:             'A643289CD3E4C6AF73528C957DDD20191A59F7CD'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Location:
+      - LineNumber:      22
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/buffer_source_impl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AbstractBufferSource'
+      USR:             'E166050E0C8C58E6386D57E6494F53806BE2D8A4'
+    Params:
+      - Type:
+          Name:            'batt::int_types::i64'
+        Name:            'min_count'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'StatusOr'
+        USR:             'BE453B0ED42D07330BADC46317733F4153B6642A'
+        Path:            'batt'
+    Access:          Public
+  - USR:             'B4262D296B889EFB1C3D488CF890F02CCB62710D'
+    Name:            'consume'
+    Namespace:
+      - Type:            Record
+        Name:            'AbstractBufferSource'
+        USR:             'E166050E0C8C58E6386D57E6494F53806BE2D8A4'
+      - Type:            Record
+        Name:            'BufferSource'
+        USR:             'A643289CD3E4C6AF73528C957DDD20191A59F7CD'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Location:
+      - LineNumber:      24
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/buffer_source_impl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AbstractBufferSource'
+      USR:             'E166050E0C8C58E6386D57E6494F53806BE2D8A4'
+    Params:
+      - Type:
+          Name:            'batt::int_types::i64'
+        Name:            'count'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'B8BB239C872EE36EC7B31DA810F098E71D5FE0B4'
+    Name:            'close_for_read'
+    Namespace:
+      - Type:            Record
+        Name:            'AbstractBufferSource'
+        USR:             'E166050E0C8C58E6386D57E6494F53806BE2D8A4'
+      - Type:            Record
+        Name:            'BufferSource'
+        USR:             'A643289CD3E4C6AF73528C957DDD20191A59F7CD'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Location:
+      - LineNumber:      26
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/buffer_source_impl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AbstractBufferSource'
+      USR:             'E166050E0C8C58E6386D57E6494F53806BE2D8A4'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

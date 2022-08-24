@@ -1,0 +1,206 @@
+---
+USR:             'B095059FC95E2EE733C5980434F9066AEB0C4DFE'
+Name:            'MetricDumper'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      23
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_dumper.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'class batt::MetricRegistry &'
+    Name:            'registry_'
+    Access:          Private
+  - Type:
+      Name:            'const double'
+    Name:            'rows_per_sec_'
+    Access:          Private
+  - Type:
+      Name:            'std::ostream &'
+    Name:            'out_'
+    Access:          Private
+  - Type:
+      Type:            Record
+      Name:            'unique_ptr'
+      USR:             'EF2517E443C495AEAE616386D8A756C5AD7A4441'
+      Path:            'std'
+    Name:            'formatter_'
+  - Type:
+      Type:            Record
+      Name:            'promise'
+      USR:             '4C0912A666639C10B3CE2C2D23B7DF1BE23B2877'
+      Path:            'std'
+    Name:            'done_'
+  - Type:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '50BEE11BA7106FA0033D4B2920C9CB8A03FDA388'
+      Path:            'batt'
+    Name:            'thread_'
+ChildFunctions:
+  - USR:             '4344FF72ACE873F01249D44A70811C3EAA5550D8'
+    Name:            'MetricDumper'
+    Namespace:
+      - Type:            Record
+        Name:            'MetricDumper'
+        USR:             'B095059FC95E2EE733C5980434F9066AEB0C4DFE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      25
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_dumper_impl.hpp'
+    Location:
+      - LineNumber:      26
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_dumper.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'MetricDumper'
+      USR:             'B095059FC95E2EE733C5980434F9066AEB0C4DFE'
+    Params:
+      - Type:
+          Name:            'class batt::MetricRegistry &'
+        Name:            'registry'
+      - Type:
+          Name:            'double'
+        Name:            'rows_per_sec'
+      - Type:
+          Name:            'std::ostream &'
+        Name:            'out'
+      - Type:
+          Type:            Record
+          Name:            'unique_ptr'
+          USR:             'EF2517E443C495AEAE616386D8A756C5AD7A4441'
+          Path:            'std'
+        Name:            'formatter'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '61862C2D11960E170F50B977682997C2AA821108'
+    Name:            '~MetricDumper'
+    Namespace:
+      - Type:            Record
+        Name:            'MetricDumper'
+        USR:             'B095059FC95E2EE733C5980434F9066AEB0C4DFE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      56
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_dumper_impl.hpp'
+    Location:
+      - LineNumber:      29
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_dumper.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'MetricDumper'
+      USR:             'B095059FC95E2EE733C5980434F9066AEB0C4DFE'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '95580C0F290890B30F0E052A6C1CC7484D8E47E6'
+    Name:            'halt'
+    Namespace:
+      - Type:            Record
+        Name:            'MetricDumper'
+        USR:             'B095059FC95E2EE733C5980434F9066AEB0C4DFE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      63
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_dumper_impl.hpp'
+    Location:
+      - LineNumber:      31
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_dumper.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'MetricDumper'
+      USR:             'B095059FC95E2EE733C5980434F9066AEB0C4DFE'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'A6C79D9007D61C97FDE2655E53FA15A56BD89AC1'
+    Name:            'join'
+    Namespace:
+      - Type:            Record
+        Name:            'MetricDumper'
+        USR:             'B095059FC95E2EE733C5980434F9066AEB0C4DFE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      70
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_dumper_impl.hpp'
+    Location:
+      - LineNumber:      33
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_dumper.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'MetricDumper'
+      USR:             'B095059FC95E2EE733C5980434F9066AEB0C4DFE'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '6BD27AA863658523594587662AE7A71EBD52EF23'
+    Name:            'stop'
+    Namespace:
+      - Type:            Record
+        Name:            'MetricDumper'
+        USR:             'B095059FC95E2EE733C5980434F9066AEB0C4DFE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      35
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_dumper.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'MetricDumper'
+      USR:             'B095059FC95E2EE733C5980434F9066AEB0C4DFE'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

@@ -1,0 +1,53 @@
+---
+USR:             '04C358E1865F970A88EBCD12F9875213E23DA2DD'
+Name:            'DecayItem'
+Path:            'batt/seq'
+Namespace:
+  - Type:            Namespace
+    Name:            'seq'
+    USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+          - Kind:            'TextComment'
+            Text:            ' decayed'
+DefLocation:
+  LineNumber:      144
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+ChildFunctions:
+  - USR:             '9CADAE318F3D6065808085D0550F8706CC9F6DE6'
+    Name:            'operator()'
+    Namespace:
+      - Type:            Record
+        Name:            'DecayItem'
+        USR:             '04C358E1865F970A88EBCD12F9875213E23DA2DD'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      146
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'DecayItem'
+      USR:             '04C358E1865F970A88EBCD12F9875213E23DA2DD'
+    Params:
+      - Type:
+          Name:            'T &&'
+        Name:            'val'
+    ReturnType:
+      Type:
+        Name:            'std::decay_t<T>'
+    Access:          Public
+...

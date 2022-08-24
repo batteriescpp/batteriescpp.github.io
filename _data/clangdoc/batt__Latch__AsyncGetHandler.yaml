@@ -1,0 +1,91 @@
+---
+USR:             '21E49C108B9A491A011AE73729C90492D5B8FA13'
+Name:            'AsyncGetHandler'
+Path:            'batt/Latch'
+Namespace:
+  - Type:            Record
+    Name:            'Latch'
+    USR:             'B72FF82C70DF5F78F8CC69EAC35AD8E265DC765D'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '#=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++'
+DefLocation:
+  LineNumber:      120
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/latch.hpp'
+Location:
+  - LineNumber:      110
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/latch.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'Latch<T> *'
+    Name:            'latch_'
+    Access:          Private
+ChildFunctions:
+  - USR:             '37EDE72F9A2BE821274488ADF8895522353D13BE'
+    Name:            'AsyncGetHandler'
+    Namespace:
+      - Type:            Record
+        Name:            'AsyncGetHandler'
+        USR:             '21E49C108B9A491A011AE73729C90492D5B8FA13'
+      - Type:            Record
+        Name:            'Latch'
+        USR:             'B72FF82C70DF5F78F8CC69EAC35AD8E265DC765D'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      124
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/latch.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AsyncGetHandler'
+      USR:             '21E49C108B9A491A011AE73729C90492D5B8FA13'
+    Params:
+      - Type:
+          Name:            'Latch<T> *'
+        Name:            'latch'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '287C2B7802B8E7F2271F544BC6A62CC5E89B4362'
+    Name:            'operator()'
+    Namespace:
+      - Type:            Record
+        Name:            'AsyncGetHandler'
+        USR:             '21E49C108B9A491A011AE73729C90492D5B8FA13'
+      - Type:            Record
+        Name:            'Latch'
+        USR:             'B72FF82C70DF5F78F8CC69EAC35AD8E265DC765D'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      129
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/latch.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'AsyncGetHandler'
+      USR:             '21E49C108B9A491A011AE73729C90492D5B8FA13'
+    Params:
+      - Type:
+          Name:            'Handler &&'
+        Name:            'handler'
+      - Type:
+          Name:            'const StatusOr<batt::int_types::u32> &'
+        Name:            'result'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

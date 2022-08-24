@@ -1,0 +1,33 @@
+---
+USR:             'DAAADF22C0DD09D9B6B64DBA732D3A2289F2A7AE'
+Name:            'ApplyBinder'
+Path:            'batt/seq'
+Namespace:
+  - Type:            Namespace
+    Name:            'seq'
+    USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+          - Kind:            'TextComment'
+            Text:            ' apply(seq_function) - apply a function to an entire sequence.'
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' Not to be confused with map, which applies some function to each item.'
+DefLocation:
+  LineNumber:      964
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+Members:
+  - Type:
+      Name:            'SeqFn'
+    Name:            'seq_fn'
+    Access:          Public
+...

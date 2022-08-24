@@ -1,0 +1,280 @@
+---
+USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+Name:            'CountMetric'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      20
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'std::atomic<T>'
+    Name:            'value_'
+    Access:          Private
+ChildFunctions:
+  - USR:             'E607CA83169843BD9DE2EA47AE2AC293B3E69C24'
+    Name:            'CountMetric<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'CountMetric'
+        USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      23
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'CountMetric'
+      USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '4EF3DE050692E1B7C03F310006C50D58B1947ACC'
+    Name:            'CountMetric<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'CountMetric'
+        USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            'implicit'
+    DefLocation:
+      LineNumber:      25
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'CountMetric'
+      USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+    Params:
+      - Type:
+          Name:            'T'
+        Name:            'init_val'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '1D5310057EF30751B18AC59B4B1AB8104C760CEE'
+    Name:            'set'
+    Namespace:
+      - Type:            Record
+        Name:            'CountMetric'
+        USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      29
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'CountMetric'
+      USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+    Params:
+      - Type:
+          Name:            'T'
+        Name:            'value'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '3E69784B2E80A620442029AC6969CFBA3A82070E'
+    Name:            'add'
+    Namespace:
+      - Type:            Record
+        Name:            'CountMetric'
+        USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      35
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'CountMetric'
+      USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+    Params:
+      - Type:
+          Name:            'D'
+        Name:            'delta'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '8C8D6113CC45B6649DD7D5CE307E2161CAFA68DA'
+    Name:            'fetch_add'
+    Namespace:
+      - Type:            Record
+        Name:            'CountMetric'
+        USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      41
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'CountMetric'
+      USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+    Params:
+      - Type:
+          Name:            'D'
+        Name:            'delta'
+    ReturnType:
+      Type:
+        Name:            'decltype(auto)'
+    Access:          Public
+  - USR:             'E8DDE178F55269B56B180183166C7BA9D69CC69A'
+    Name:            'operator type-parameter-0-0'
+    Namespace:
+      - Type:            Record
+        Name:            'CountMetric'
+        USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      46
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'CountMetric'
+      USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+    ReturnType:
+      Type:
+        Name:            'T'
+    Access:          Public
+  - USR:             '7D3047122269AE7D409D8005D064CC6220C3FD78'
+    Name:            'operator++'
+    Namespace:
+      - Type:            Record
+        Name:            'CountMetric'
+        USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      51
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'CountMetric'
+      USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+    Params:
+      - Type:
+          Name:            'int'
+    ReturnType:
+      Type:
+        Name:            'decltype(auto)'
+    Access:          Public
+  - USR:             'D6FF570FB64719A8653D0CEC47F602C0314D690F'
+    Name:            'operator++'
+    Namespace:
+      - Type:            Record
+        Name:            'CountMetric'
+        USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      56
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'CountMetric'
+      USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+    ReturnType:
+      Type:
+        Name:            'decltype(auto)'
+    Access:          Public
+  - USR:             'D22B71E7F321AC7322E85DE3FCA667C824817331'
+    Name:            'operator+='
+    Namespace:
+      - Type:            Record
+        Name:            'CountMetric'
+        USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      62
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'CountMetric'
+      USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+    Params:
+      - Type:
+          Name:            'D'
+        Name:            'delta'
+    ReturnType:
+      Type:
+        Name:            'decltype(auto)'
+    Access:          Public
+  - USR:             'A5F6C88D6E7820D0B239AB3A2A669FFDF467F5F1'
+    Name:            'load'
+    Namespace:
+      - Type:            Record
+        Name:            'CountMetric'
+        USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      67
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'CountMetric'
+      USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+    ReturnType:
+      Type:
+        Name:            'T'
+    Access:          Public
+  - USR:             'DD8D17E2FBAE14F58AA3FA593D395FBA68ECD0E9'
+    Name:            'reset'
+    Namespace:
+      - Type:            Record
+        Name:            'CountMetric'
+        USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      72
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'CountMetric'
+      USR:             'C9C639EAC7BC66B3705C9AD5A6C3FD47948F8E20'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

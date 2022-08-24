@@ -1,0 +1,445 @@
+---
+USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+Name:            'SmallFn'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' A type-erased container for a callable function-like object with a statically'
+          - Kind:            'TextComment'
+            Text:            ' bounded maximum size.'
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' By default, the static buffer allocated internal to SmallFn is sized such'
+          - Kind:            'TextComment'
+            Text:            ' that `sizeof(SmallFn)` is equal to a single CPU cache line.  This class can'
+          - Kind:            'TextComment'
+            Text:            ' be used to type-erase both regular copyable types and move-only callable'
+          - Kind:            'TextComment'
+            Text:            ' types.  [UniqueSmallFn](/reference/namespaces/namespacebatt/#using-uniquesmallfn) can be used to'
+          - Kind:            'TextComment'
+            Text:            ' type-erase move-only callable types.'
+Location:
+  - LineNumber:      31
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+  - LineNumber:      181
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+TagType:         Class
+ChildFunctions:
+  - USR:             'E92596EA2B5EA8D238E1C19F1DE5CD099548CBA4'
+    Name:            'check_fn_size'
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      195
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    Params:
+      - Type:
+          Name:            'Fn &&'
+        Name:            'fn'
+    ReturnType:
+      Type:
+        Name:            'Fn &&'
+    Access:          Private
+  - USR:             'B4D4943129FDEEC11FEC9D452B5FADA76B5B62FD'
+    Name:            'SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>'
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      208
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '5D7F6368EBF67C4E4472005C52958CEA36AA1C01'
+    Name:            'SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>'
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      212
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    Params:
+      - Type:
+          Name:            'Fn &&'
+        Name:            'fn'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '8467DAFFAE99173BA261157A43D1F647E062373A'
+    Name:            'SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>'
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      217
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    Params:
+      - Type:
+          Name:            'batt::SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>::self_type &&'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'B6020BFDBFB22916F4077E2A4B15089E61DCB1A9'
+    Name:            'SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>'
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      227
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    Params:
+      - Type:
+          Name:            'const batt::SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>::self_type &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '9B9BDE1C0A4CC8E8E291F7EA767D30559A4B5E54'
+    Name:            'SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>'
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      242
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    Params:
+      - Type:
+          Name:            'SmallFn<Result (Args...), kThatSize, false> &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'BD3E6CDBA8D4ECBE805F31E30F3E046F4B79913D'
+    Name:            'SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>'
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      243
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    Params:
+      - Type:
+          Name:            'const SmallFn<Result (Args...), kThatSize, false> &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'C90F559CD9A867639DE8D122667A6DA13C1C98EB'
+    Name:            '~SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>'
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      247
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '927B4176E808289A536EEBE3719A53156A27833A'
+    Name:            'clear'
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      252
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '690B3AE399EC806CC87926D3BB0C0A4D3AF3D1F9'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      260
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    Params:
+      - Type:
+          Name:            'std::nullptr_t'
+    ReturnType:
+      Type:
+        Name:            'batt::SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>::self_type &'
+    Access:          Public
+  - USR:             'D87515990BB6C5061083F71DF68E65B15F8C65B1'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      267
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    Params:
+      - Type:
+          Name:            'Fn &&'
+        Name:            'fn'
+    ReturnType:
+      Type:
+        Name:            'batt::SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>::self_type &'
+    Access:          Public
+  - USR:             '8ACCEE218D6772A82F9B8B13732F956E8DFEEBD4'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      274
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    Params:
+      - Type:
+          Name:            'batt::SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>::self_type &&'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'batt::SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>::self_type &'
+    Access:          Public
+  - USR:             'C6DA7B45AA74E94AD7B65DFF12B573AF3A7F83D3'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      284
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    Params:
+      - Type:
+          Name:            'const batt::SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>::self_type &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'batt::SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>::self_type &'
+    Access:          Public
+  - USR:             '366C9E9686B1E966A2094F537718C386B755B255'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      305
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    Params:
+      - Type:
+          Name:            'SmallFn<Result (Args...), kThatSize, false> &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'batt::SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>::self_type &'
+    Access:          Public
+  - USR:             '7B3F52FCB5FCF019502EEEE7737718C141A4DE58'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      306
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    Params:
+      - Type:
+          Name:            'const SmallFn<Result (Args...), kThatSize, false> &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'batt::SmallFn<type-parameter-0-1 (type-parameter-0-0...), kMaxSize, kMoveOnly>::self_type &'
+    Access:          Public
+  - USR:             'DA59A630F4BF8E4869649CD03D15C09462266FE4'
+    Name:            'operator bool'
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      310
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             'DA0CCFD4366A8401652EB2FAD7873C8B4E0BD3E5'
+    Name:            'operator()'
+    Namespace:
+      - Type:            Record
+        Name:            'SmallFn'
+        USR:             'F139E0DE5C8B0E1AA925C3E19243F46AB4022F68'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      315
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SmallFn'
+      USR:             'D85E2B01FAA7A8CDB18EE7A2B69A16E53F4E5A07'
+    Params:
+      - Type:
+          Name:            'Args...'
+        Name:            'args'
+    ReturnType:
+      Type:
+        Name:            'Result'
+    Access:          Public
+...

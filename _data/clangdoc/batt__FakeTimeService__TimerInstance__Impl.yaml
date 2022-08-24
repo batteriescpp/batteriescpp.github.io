@@ -1,0 +1,91 @@
+---
+USR:             '2B377CB87BE331FEA81AF7D176D2DD5D3784606B'
+Name:            'Impl'
+Path:            'batt/FakeTimeService/TimerInstance'
+Namespace:
+  - Type:            Record
+    Name:            'TimerInstance'
+    USR:             'D3F4F88FC89E1A95879A13BF9741B16975290F9C'
+  - Type:            Record
+    Name:            'FakeTimeService'
+    USR:             'BF037F22311F62D0E2F67861EAF92BF48D2747A8'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      46
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_time_service_decl.hpp'
+Members:
+  - Type:
+      Name:            'class batt::FakeTimeService *'
+    Name:            'service_instance'
+    Access:          Public
+  - Type:
+      Type:            Record
+      Name:            'any_io_executor'
+      USR:             'BF1F03DC07FDF8726D627A8DFE1006D6C52E6F91'
+      Path:            'boost/asio'
+    Name:            'executor'
+  - Type:
+      Type:            Record
+      Name:            'ptime'
+      USR:             '41988D24E97A639C22DF84CDEA0CDCE5F7002C2A'
+      Path:            'boost/posix_time'
+    Name:            'expires_at'
+  - Type:
+      Type:            Record
+      Name:            'UniqueHandler'
+      USR:             '5404971E54373D4C1CEAA8B8300522204AE2FFCA'
+      Path:            'batt'
+    Name:            'handler'
+ChildFunctions:
+  - USR:             'B1E27A9126AB1EB05756F93263D1A77D187C0481'
+    Name:            'Impl'
+    Namespace:
+      - Type:            Record
+        Name:            'Impl'
+        USR:             '2B377CB87BE331FEA81AF7D176D2DD5D3784606B'
+      - Type:            Record
+        Name:            'TimerInstance'
+        USR:             'D3F4F88FC89E1A95879A13BF9741B16975290F9C'
+      - Type:            Record
+        Name:            'FakeTimeService'
+        USR:             'BF037F22311F62D0E2F67861EAF92BF48D2747A8'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      52
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_time_service_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Impl'
+      USR:             '2B377CB87BE331FEA81AF7D176D2DD5D3784606B'
+    Params:
+      - Type:
+          Name:            'class batt::FakeTimeService *'
+        Name:            'service'
+      - Type:
+          Type:            Record
+          Name:            'any_io_executor'
+          USR:             'BF1F03DC07FDF8726D627A8DFE1006D6C52E6F91'
+          Path:            'boost/asio'
+        Name:            'ex'
+      - Type:
+          Type:            Record
+          Name:            'ptime'
+          USR:             '41988D24E97A639C22DF84CDEA0CDCE5F7002C2A'
+          Path:            'boost/posix_time'
+        Name:            'expire'
+      - Type:
+          Type:            Record
+          Name:            'UniqueHandler'
+          USR:             '5404971E54373D4C1CEAA8B8300522204AE2FFCA'
+          Path:            'batt'
+        Name:            'h'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

@@ -1,0 +1,138 @@
+---
+USR:             'E209855821DAB2AC9B280FAE91E00C46FB2BFD92'
+Name:            'LatencyMetric'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      81
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Type:            Record
+      Name:            'CountMetric'
+      USR:             '062B06DDBC8DC935AA90D238CC046B755248EBA6'
+      Path:            'batt'
+    Name:            'total_usec'
+  - Type:
+      Type:            Record
+      Name:            'CountMetric'
+      USR:             '062B06DDBC8DC935AA90D238CC046B755248EBA6'
+      Path:            'batt'
+    Name:            'count'
+ChildFunctions:
+  - USR:             'E1F7B52DC06BBA1032782A2A79E71ADA9F9E899F'
+    Name:            'update'
+    Namespace:
+      - Type:            Record
+        Name:            'LatencyMetric'
+        USR:             'E209855821DAB2AC9B280FAE91E00C46FB2BFD92'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      84
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'LatencyMetric'
+      USR:             'E209855821DAB2AC9B280FAE91E00C46FB2BFD92'
+    Params:
+      - Type:
+          Type:            Record
+          Name:            'time_point'
+          USR:             'D043FFBF0DDDC3C3429D9F1EA02F9AB26316F96B'
+          Path:            'std/chrono'
+        Name:            'start'
+      - Type:
+          Name:            'batt::int_types::u64'
+        Name:            'count_delta'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'EF4B933B7F92800D16BAAAA9C1100807AA9E0692'
+    Name:            'update'
+    Namespace:
+      - Type:            Record
+        Name:            'LatencyMetric'
+        USR:             'E209855821DAB2AC9B280FAE91E00C46FB2BFD92'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      89
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'LatencyMetric'
+      USR:             'E209855821DAB2AC9B280FAE91E00C46FB2BFD92'
+    Params:
+      - Type:
+          Type:            Record
+          Name:            'duration'
+          USR:             '38493BF3401B98B3FD2F3E63E71D48C743A829B5'
+          Path:            'std/chrono'
+        Name:            'elapsed_duration'
+      - Type:
+          Name:            'batt::int_types::u64'
+        Name:            'count_delta'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'D77DF86B7D086A8C8567788FC8C568E126CEC6EB'
+    Name:            'rate_per_second'
+    Namespace:
+      - Type:            Record
+        Name:            'LatencyMetric'
+        USR:             'E209855821DAB2AC9B280FAE91E00C46FB2BFD92'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Count per second.'
+    DefLocation:
+      LineNumber:      100
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'LatencyMetric'
+      USR:             'E209855821DAB2AC9B280FAE91E00C46FB2BFD92'
+    ReturnType:
+      Type:
+        Name:            'double'
+    Access:          Public
+  - USR:             'E6F59E1F2E8E13B2A8751C88184DB910CD0B83C9'
+    Name:            'reset'
+    Namespace:
+      - Type:            Record
+        Name:            'LatencyMetric'
+        USR:             'E209855821DAB2AC9B280FAE91E00C46FB2BFD92'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      105
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'LatencyMetric'
+      USR:             'E209855821DAB2AC9B280FAE91E00C46FB2BFD92'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

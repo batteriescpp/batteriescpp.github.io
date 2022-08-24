@@ -1,0 +1,210 @@
+---
+USR:             '00A62F3069A9656D4CE406A9630EB5124072559A'
+Name:            'KMergeBy'
+Path:            'batt/seq'
+Namespace:
+  - Type:            Namespace
+    Name:            'seq'
+    USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+          - Kind:            'TextComment'
+            Text:            ' kmerge, kmerge_by'
+DefLocation:
+  LineNumber:      162
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Type:            Record
+      Name:            'HeapOrder'
+      USR:             'BEF23D3CC34BBC8BFF4502B1E125026AB4E09D42'
+      Path:            'batt/seq/KMergeBy'
+    Name:            'order_'
+    Access:          Public
+  - Type:
+      Name:            'std::vector<CacheNext<std::decay_t<Seq> > >'
+    Name:            'k_seqs_'
+    Access:          Private
+  - Type:
+      Name:            'SmallVec<CacheNext<std::decay_t<Seq> > *, 6>'
+    Name:            'heap_'
+    Access:          Private
+ChildRecords:
+  - Type:            Record
+    Name:            'HeapOrder'
+    USR:             'BEF23D3CC34BBC8BFF4502B1E125026AB4E09D42'
+    Path:            'batt/seq/KMergeBy'
+ChildFunctions:
+  - USR:             '5DDACF1A2608962B09831FA5C0A7469DCC55DA4E'
+    Name:            'KMergeBy<Seq, Compare>'
+    Namespace:
+      - Type:            Record
+        Name:            'KMergeBy'
+        USR:             '00A62F3069A9656D4CE406A9630EB5124072559A'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      179
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'KMergeBy'
+      USR:             '00A62F3069A9656D4CE406A9630EB5124072559A'
+    Params:
+      - Type:
+          Name:            'KSeqs &&'
+        Name:            'k_seqs'
+      - Type:
+          Name:            'Compare &&'
+        Name:            'compare'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'D1EEBDF634CC9E345A76E586FD5EAE19D54ACE79'
+    Name:            'KMergeBy<Seq, Compare>'
+    Namespace:
+      - Type:            Record
+        Name:            'KMergeBy'
+        USR:             '00A62F3069A9656D4CE406A9630EB5124072559A'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      199
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'KMergeBy'
+      USR:             '00A62F3069A9656D4CE406A9630EB5124072559A'
+    Params:
+      - Type:
+          Name:            'const KMergeBy<Seq, Compare> &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '7B6C86F64F2D7B73824570C93841DEECC0AAB434'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'KMergeBy'
+        USR:             '00A62F3069A9656D4CE406A9630EB5124072559A'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      204
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'KMergeBy'
+      USR:             '00A62F3069A9656D4CE406A9630EB5124072559A'
+    Params:
+      - Type:
+          Name:            'const KMergeBy<Seq, Compare> &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'KMergeBy<Seq, Compare> &'
+    Access:          Public
+  - USR:             'EFE95C86BC21EFDFAB48153F852E1DE6C86439D0'
+    Name:            'next'
+    Namespace:
+      - Type:            Record
+        Name:            'KMergeBy'
+        USR:             '00A62F3069A9656D4CE406A9630EB5124072559A'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      215
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'KMergeBy'
+      USR:             '00A62F3069A9656D4CE406A9630EB5124072559A'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::KMergeBy::Item>'
+    Access:          Public
+  - USR:             '669AACE2D905437D973436F5D3022729A9D0050B'
+    Name:            'peek'
+    Namespace:
+      - Type:            Record
+        Name:            'KMergeBy'
+        USR:             '00A62F3069A9656D4CE406A9630EB5124072559A'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      242
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'KMergeBy'
+      USR:             '00A62F3069A9656D4CE406A9630EB5124072559A'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::KMergeBy::Item>'
+    Access:          Public
+  - USR:             'A846D1290C7C1D4DD0E6E73B125C0351D9C899F5'
+    Name:            'fix_heap_pointers'
+    Namespace:
+      - Type:            Record
+        Name:            'KMergeBy'
+        USR:             '00A62F3069A9656D4CE406A9630EB5124072559A'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      251
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'KMergeBy'
+      USR:             '00A62F3069A9656D4CE406A9630EB5124072559A'
+    Params:
+      - Type:
+          Name:            'const KMergeBy<Seq, Compare> &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Private
+...

@@ -1,0 +1,583 @@
+---
+USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+Name:            'FakeExecutionContext'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------'
+          - Kind:            'TextComment'
+            Text:            ' A drop-in replacement for boost::asio::io_context, suitable for fake-testing in unit tests.'
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' Unlike a "real" execution context, this class doesn''t'
+DefLocation:
+  LineNumber:      30
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_decl.hpp'
+Location:
+  - LineNumber:      18
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_executor_decl.hpp'
+  - LineNumber:      33
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_time_service_decl.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Type:            Record
+      Name:            'Watch'
+      USR:             'F4ADA38551D0D4F641D861EA9196FDE2B6159F58'
+      Path:            'batt'
+    Name:            'work_count_'
+  - Type:
+      Type:            Record
+      Name:            'Watch'
+      USR:             'F4ADA38551D0D4F641D861EA9196FDE2B6159F58'
+      Path:            'batt'
+    Name:            'push_ready_count_'
+  - Type:
+      Type:            Record
+      Name:            'Watch'
+      USR:             'F4ADA38551D0D4F641D861EA9196FDE2B6159F58'
+      Path:            'batt'
+    Name:            'pop_ready_count_'
+  - Type:
+      Type:            Record
+      Name:            'allocator'
+      USR:             'BFED4ED2C174DE008F96E26B209D0F100FE63F3F'
+      Path:            'std'
+    Name:            'allocator_'
+  - Type:
+      Type:            Record
+      Name:            'mutex'
+      USR:             '1D92624477BA7E327D27B92AE6E89844B26A6226'
+      Path:            'std'
+    Name:            'mutex_'
+  - Type:
+      Type:            Record
+      Name:            'vector'
+      USR:             '66A5CE0A2DD8102215BDE8941ED236D9F7169C55'
+      Path:            'std'
+    Name:            'ready_to_run_'
+Bases:
+  - USR:             'EA4894D97DF97DB21143E18F8E186611D31CAF5E'
+    Name:            'execution_context'
+    Path:            'boost/asio'
+    Members:
+      - Type:
+          Name:            'boost::asio::detail::service_registry *'
+        Name:            'service_registry_'
+        Access:          Private
+    ChildFunctions:
+      - USR:             'B4E341188E753203A0AEFC83698F0FFAADB7BB28'
+        Name:            'execution_context'
+        Namespace:
+          - Type:            Record
+            Name:            'execution_context'
+            USR:             'EA4894D97DF97DB21143E18F8E186611D31CAF5E'
+          - Type:            Namespace
+            Name:            'asio'
+            USR:             'C4F40AE3CF97F8D9D155223BD913EE94D9F5B461'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             '3AC1FD585EE4EBA2F382FDC0EB65187D4424A91E'
+        Name:            '~execution_context'
+        Namespace:
+          - Type:            Record
+            Name:            'execution_context'
+            USR:             'EA4894D97DF97DB21143E18F8E186611D31CAF5E'
+          - Type:            Namespace
+            Name:            'asio'
+            USR:             'C4F40AE3CF97F8D9D155223BD913EE94D9F5B461'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             '696100A25290A1503AAB4F5FC2B963754BB71C51'
+        Name:            'shutdown'
+        Namespace:
+          - Type:            Record
+            Name:            'execution_context'
+            USR:             'EA4894D97DF97DB21143E18F8E186611D31CAF5E'
+          - Type:            Namespace
+            Name:            'asio'
+            USR:             'C4F40AE3CF97F8D9D155223BD913EE94D9F5B461'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Protected
+      - USR:             '588F59707F24E4B8B8C58778CEEC4808F3D55F40'
+        Name:            'destroy'
+        Namespace:
+          - Type:            Record
+            Name:            'execution_context'
+            USR:             'EA4894D97DF97DB21143E18F8E186611D31CAF5E'
+          - Type:            Namespace
+            Name:            'asio'
+            USR:             'C4F40AE3CF97F8D9D155223BD913EE94D9F5B461'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Protected
+      - USR:             'D14E9C91D54174DA5E5F2079177357CF67006BB0'
+        Name:            'notify_fork'
+        Namespace:
+          - Type:            Record
+            Name:            'execution_context'
+            USR:             'EA4894D97DF97DB21143E18F8E186611D31CAF5E'
+          - Type:            Namespace
+            Name:            'asio'
+            USR:             'C4F40AE3CF97F8D9D155223BD913EE94D9F5B461'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Name:            'enum boost::asio::execution_context::fork_event'
+            Name:            'event'
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+    Access:          Public
+    IsParent:        true
+  - USR:             '7EE5D3ECE6B139BA2496159A57806E8C5C148A22'
+    Name:            'noncopyable'
+    Path:            'boost/asio/detail'
+    ChildFunctions:
+      - USR:             '409E39CBBC9CEE8FE6CDDBA42EF2458022C30959'
+        Name:            'noncopyable'
+        Namespace:
+          - Type:            Record
+            Name:            'noncopyable'
+            USR:             '7EE5D3ECE6B139BA2496159A57806E8C5C148A22'
+          - Type:            Namespace
+            Name:            'detail'
+            USR:             '0B81DF66D2F2376A312C4B159821CBE2213BDD35'
+          - Type:            Namespace
+            Name:            'asio'
+            USR:             'C4F40AE3CF97F8D9D155223BD913EE94D9F5B461'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Private
+      - USR:             '6D652DF9008FDC42B5ECC3AA14C9647FC7AFF1E2'
+        Name:            '~noncopyable'
+        Namespace:
+          - Type:            Record
+            Name:            'noncopyable'
+            USR:             '7EE5D3ECE6B139BA2496159A57806E8C5C148A22'
+          - Type:            Namespace
+            Name:            'detail'
+            USR:             '0B81DF66D2F2376A312C4B159821CBE2213BDD35'
+          - Type:            Namespace
+            Name:            'asio'
+            USR:             'C4F40AE3CF97F8D9D155223BD913EE94D9F5B461'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Private
+    Access:          Private
+Parents:
+  - Type:            Record
+    Name:            'execution_context'
+    USR:             'EA4894D97DF97DB21143E18F8E186611D31CAF5E'
+    Path:            'boost/asio'
+ChildRecords:
+  - Type:            Record
+    Name:            'AlwaysReturnZero'
+    USR:             '4AAF15D80B4DA1E879C124117D08D4C931284CAB'
+    Path:            'batt/FakeExecutionContext'
+ChildFunctions:
+  - USR:             '4E8C5BF39D2EE2D77E51F950443BC4464C28B41A'
+    Name:            'FakeExecutionContext'
+    Namespace:
+      - Type:            Record
+        Name:            'FakeExecutionContext'
+        USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      45
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FakeExecutionContext'
+      USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '17E2F5E8FBA1D9D1AD653FB9F66628A93F4A8D5B'
+    Name:            '~FakeExecutionContext'
+    Namespace:
+      - Type:            Record
+        Name:            'FakeExecutionContext'
+        USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      46
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FakeExecutionContext'
+      USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '0F45811CCCD14509429E70F9CD5D09A9E23EC87B'
+    Name:            'get_executor'
+    Namespace:
+      - Type:            Record
+        Name:            'FakeExecutionContext'
+        USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      16
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_impl.hpp'
+    Location:
+      - LineNumber:      48
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FakeExecutionContext'
+      USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'BasicFakeExecutor'
+        USR:             '2294AD432A48C723FE1CFFC57077C359E18771C9'
+        Path:            'batt'
+    Access:          Public
+  - USR:             'EB0C568A1AAA1079B2DFAB992532CB0B915753CC'
+    Name:            'work_count'
+    Namespace:
+      - Type:            Record
+        Name:            'FakeExecutionContext'
+        USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' The current work count.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      23
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_impl.hpp'
+    Location:
+      - LineNumber:      52
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FakeExecutionContext'
+      USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+    ReturnType:
+      Type:
+        Name:            'Watch<batt::int_types::i64> &'
+    Access:          Public
+  - USR:             '25848E87F4416388420CC8F58D91FD274EA86F54'
+    Name:            'push_ready_handler'
+    Namespace:
+      - Type:            Record
+        Name:            'FakeExecutionContext'
+        USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Add a ready-to-run completion handler to the context.  This handler is never run automatically by the'
+              - Kind:            'TextComment'
+                Text:            ' FakeExecutionContext; it must be removed via `pop_ready_handler` and run by the client code.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      31
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_impl.hpp'
+    Location:
+      - LineNumber:      57
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FakeExecutionContext'
+      USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+    Params:
+      - Type:
+          Name:            'UniqueHandler<> &&'
+        Name:            'handler'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '32C16E5CE0FCDE74761D15A0CF44C55094DBA46F'
+    Name:            'pop_ready_handler'
+    Namespace:
+      - Type:            Record
+        Name:            'FakeExecutionContext'
+        USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Passes `picker` the current number of ready-to-run completion handlers for this executor; picker then'
+              - Kind:            'TextComment'
+                Text:            ' returns some non-negative integer smaller than this number.  This method then removes that handler from'
+              - Kind:            'TextComment'
+                Text:            ' the ready set and returns it.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      45
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_impl.hpp'
+    Location:
+      - LineNumber:      63
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FakeExecutionContext'
+      USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+    Params:
+      - Type:
+          Name:            'const std::function<usize (usize)> &'
+        Name:            'picker'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'UniqueHandler'
+        USR:             'E9DCAF03D2BE25C478F0D8EDA47C8D927636E58D'
+        Path:            'batt'
+    Access:          Public
+  - USR:             '1C62703DC05068B27101D91C6769EFB4BDB68FCE'
+    Name:            'get_allocator'
+    Namespace:
+      - Type:            Record
+        Name:            'FakeExecutionContext'
+        USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Access the default allocator directly.'
+    DefLocation:
+      LineNumber:      67
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FakeExecutionContext'
+      USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'allocator'
+        USR:             'BFED4ED2C174DE008F96E26B209D0F100FE63F3F'
+        Path:            'std'
+    Access:          Public
+  - USR:             'FFAC5C440B5CF914840C1DB4475908B952BDBBE8'
+    Name:            'poll_one'
+    Namespace:
+      - Type:            Record
+        Name:            'FakeExecutionContext'
+        USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Shortcut to pop an arbitrary ready handler and run it.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      71
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_impl.hpp'
+    Location:
+      - LineNumber:      74
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FakeExecutionContext'
+      USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '9339AD573DD76E0CA20410421503E99A0F8587F6'
+    Name:            'poll'
+    Namespace:
+      - Type:            Record
+        Name:            'FakeExecutionContext'
+        USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Shortcut to pop all ready handlers and run them.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      85
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_impl.hpp'
+    Location:
+      - LineNumber:      78
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FakeExecutionContext'
+      USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::usize'
+    Access:          Public
+  - USR:             '185A10467675395ECE26BD4AF3ED0816189AC2D4'
+    Name:            'run'
+    Namespace:
+      - Type:            Record
+        Name:            'FakeExecutionContext'
+        USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Shortcut to wait for ready handlers and run them, while work count is > 0.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      96
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_impl.hpp'
+    Location:
+      - LineNumber:      82
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/fake_execution_context_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FakeExecutionContext'
+      USR:             'B0A7AAECE88F6E46875BCB028ABA663F9DF74DD9'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::usize'
+    Access:          Public
+...

@@ -1,0 +1,49 @@
+---
+USR:             '1459D74AFD45C069E0A06AA59B1D5ED75C6A1381'
+Name:            'Hash'
+Path:            'batt/StrongType'
+Namespace:
+  - Type:            Record
+    Name:            'StrongType'
+    USR:             '10C0E46C961A8F6CDE55C6013A521A3DE8215339'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      57
+  Filename:        '/home/astolfi/projects/batteries/src/batteries/strong_typedef.hpp'
+Members:
+  - Type:
+      Name:            'std::hash<T>'
+    Name:            'impl_'
+    Access:          Private
+ChildFunctions:
+  - USR:             'BFBBFF9BFD0991A628F1A4111AFF1D27594B48FF'
+    Name:            'operator()'
+    Namespace:
+      - Type:            Record
+        Name:            'Hash'
+        USR:             '1459D74AFD45C069E0A06AA59B1D5ED75C6A1381'
+      - Type:            Record
+        Name:            'StrongType'
+        USR:             '10C0E46C961A8F6CDE55C6013A521A3DE8215339'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      60
+      Filename:        '/home/astolfi/projects/batteries/src/batteries/strong_typedef.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Hash'
+      USR:             '1459D74AFD45C069E0A06AA59B1D5ED75C6A1381'
+    Params:
+      - Type:
+          Name:            'const StrongType<T, Tag> &'
+        Name:            'obj'
+    ReturnType:
+      Type:
+        Name:            'batt::StrongType::Hash::result_type'
+    Access:          Public
+...

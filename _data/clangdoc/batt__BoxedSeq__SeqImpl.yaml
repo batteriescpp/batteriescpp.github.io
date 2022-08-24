@@ -1,0 +1,191 @@
+---
+USR:             'D966921D51BABC25C0D4D187472C9E7A12C727FC'
+Name:            'SeqImpl'
+Path:            'batt/BoxedSeq'
+Namespace:
+  - Type:            Record
+    Name:            'BoxedSeq'
+    USR:             'C5A19B0B1694E5344553E1F6201A4507B5502A93'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      49
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/boxed.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'T'
+    Name:            'seq_'
+    Access:          Private
+Bases:
+  - USR:             '9674772464234F8CBC452D4CD6FE68F6D52A8807'
+    Name:            'AbstractSeq'
+    Path:            'batt/BoxedSeq'
+    ChildFunctions:
+      - USR:             '22805C29877F5C3B017862936F3F33D22EF023B1'
+        Name:            'clone'
+        Namespace:
+          - Type:            Record
+            Name:            'AbstractSeq'
+            USR:             '9674772464234F8CBC452D4CD6FE68F6D52A8807'
+          - Type:            Record
+            Name:            'BoxedSeq'
+            USR:             'C5A19B0B1694E5344553E1F6201A4507B5502A93'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'class batt::BoxedSeq::AbstractSeq *'
+        Access:          Public
+      - USR:             '6ED3D24D301DFB38785E912E7B9462DE43FBDAAC'
+        Name:            'peek'
+        Namespace:
+          - Type:            Record
+            Name:            'AbstractSeq'
+            USR:             '9674772464234F8CBC452D4CD6FE68F6D52A8807'
+          - Type:            Record
+            Name:            'BoxedSeq'
+            USR:             'C5A19B0B1694E5344553E1F6201A4507B5502A93'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'Optional<ItemT>'
+        Access:          Public
+      - USR:             '69661ADE13E3BCA863775A2256BBB643DEA6CE84'
+        Name:            'next'
+        Namespace:
+          - Type:            Record
+            Name:            'AbstractSeq'
+            USR:             '9674772464234F8CBC452D4CD6FE68F6D52A8807'
+          - Type:            Record
+            Name:            'BoxedSeq'
+            USR:             'C5A19B0B1694E5344553E1F6201A4507B5502A93'
+          - Type:            Namespace
+            Name:            'batt'
+            USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'Optional<ItemT>'
+        Access:          Public
+    Access:          Public
+    IsParent:        true
+Parents:
+  - Type:            Record
+    Name:            'AbstractSeq'
+    USR:             '9674772464234F8CBC452D4CD6FE68F6D52A8807'
+    Path:            'batt/BoxedSeq'
+ChildFunctions:
+  - USR:             'E4CD801C5DA656465A762F3E5648D5DBFB6F45FE'
+    Name:            'SeqImpl<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'SeqImpl'
+        USR:             'D966921D51BABC25C0D4D187472C9E7A12C727FC'
+      - Type:            Record
+        Name:            'BoxedSeq'
+        USR:             'C5A19B0B1694E5344553E1F6201A4507B5502A93'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      54
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/boxed.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SeqImpl'
+      USR:             'D966921D51BABC25C0D4D187472C9E7A12C727FC'
+    Params:
+      - Type:
+          Name:            'T &&'
+        Name:            'seq'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'B273CD02AAB261DFE0EB0C37509AB217D1CABCAA'
+    Name:            'clone'
+    Namespace:
+      - Type:            Record
+        Name:            'SeqImpl'
+        USR:             'D966921D51BABC25C0D4D187472C9E7A12C727FC'
+      - Type:            Record
+        Name:            'BoxedSeq'
+        USR:             'C5A19B0B1694E5344553E1F6201A4507B5502A93'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      58
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/boxed.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SeqImpl'
+      USR:             'D966921D51BABC25C0D4D187472C9E7A12C727FC'
+    ReturnType:
+      Type:
+        Name:            'class batt::BoxedSeq::AbstractSeq *'
+    Access:          Public
+  - USR:             '85AA4D155C9AE02FC2F9F5F163E6586752F2B134'
+    Name:            'peek'
+    Namespace:
+      - Type:            Record
+        Name:            'SeqImpl'
+        USR:             'D966921D51BABC25C0D4D187472C9E7A12C727FC'
+      - Type:            Record
+        Name:            'BoxedSeq'
+        USR:             'C5A19B0B1694E5344553E1F6201A4507B5502A93'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      63
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/boxed.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SeqImpl'
+      USR:             'D966921D51BABC25C0D4D187472C9E7A12C727FC'
+    ReturnType:
+      Type:
+        Name:            'Optional<ItemT>'
+    Access:          Public
+  - USR:             '9FC4BDB9ED4BBDFF334B6168C8FEBB1026945696'
+    Name:            'next'
+    Namespace:
+      - Type:            Record
+        Name:            'SeqImpl'
+        USR:             'D966921D51BABC25C0D4D187472C9E7A12C727FC'
+      - Type:            Record
+        Name:            'BoxedSeq'
+        USR:             'C5A19B0B1694E5344553E1F6201A4507B5502A93'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      68
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/boxed.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'SeqImpl'
+      USR:             'D966921D51BABC25C0D4D187472C9E7A12C727FC'
+    ReturnType:
+      Type:
+        Name:            'Optional<ItemT>'
+    Access:          Public
+...

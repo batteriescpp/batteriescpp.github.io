@@ -1,0 +1,25 @@
+---
+USR:             '071D547F426CEA6A0CA8622AE1F15A58CF9D5E59'
+Name:            'DecayRValueRefImpl'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' ============================================================================='
+          - Kind:            'TextComment'
+            Text:            ' Decays T iff it is an rvalue reference type.'
+DefLocation:
+  LineNumber:      164
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/type_traits.hpp'
+Parents:
+  - Type:            Record
+    Name:            'std::conditional_t<std::is_rvalue_reference_v<T>, std::decay<T>, batt::StaticType<T> >'
+    USR:             '1DB5F8E58DDB9FC1530F7E152567D8362959D203'
+...

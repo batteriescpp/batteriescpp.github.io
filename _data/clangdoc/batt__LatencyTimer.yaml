@@ -1,0 +1,168 @@
+---
+USR:             'B13777A9054B7ABF4540B7DB2D650B693C11EE70'
+Name:            'LatencyTimer'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      123
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'class batt::LatencyMetric *'
+    Name:            'metric_'
+    Access:          Private
+  - Type:
+      Name:            'const batt::int_types::u64'
+    Name:            'delta_'
+    Access:          Private
+  - Type:
+      Type:            Record
+      Name:            'time_point'
+      USR:             'D043FFBF0DDDC3C3429D9F1EA02F9AB26316F96B'
+      Path:            'std/chrono'
+    Name:            'start_'
+ChildFunctions:
+  - USR:             '7B77FD33ECF1067C8B2680A18B62ED5BE4D387A7'
+    Name:            'LatencyTimer'
+    Namespace:
+      - Type:            Record
+        Name:            'LatencyTimer'
+        USR:             'B13777A9054B7ABF4540B7DB2D650B693C11EE70'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      126
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'LatencyTimer'
+      USR:             'B13777A9054B7ABF4540B7DB2D650B693C11EE70'
+    Params:
+      - Type:
+          Name:            'const class batt::LatencyTimer &'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '8E67BA06DA0144E64B2BF76B22A42FB5CB1E0847'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'LatencyTimer'
+        USR:             'B13777A9054B7ABF4540B7DB2D650B693C11EE70'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      127
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'LatencyTimer'
+      USR:             'B13777A9054B7ABF4540B7DB2D650B693C11EE70'
+    Params:
+      - Type:
+          Name:            'const class batt::LatencyTimer &'
+    ReturnType:
+      Type:
+        Name:            'class batt::LatencyTimer &'
+    Access:          Public
+  - USR:             '6DB30C2CADD54155E4E5EC24EA0A975D029459BC'
+    Name:            'LatencyTimer'
+    Namespace:
+      - Type:            Record
+        Name:            'LatencyTimer'
+        USR:             'B13777A9054B7ABF4540B7DB2D650B693C11EE70'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      129
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'LatencyTimer'
+      USR:             'B13777A9054B7ABF4540B7DB2D650B693C11EE70'
+    Params:
+      - Type:
+          Name:            'class batt::LatencyMetric &'
+        Name:            'counter'
+      - Type:
+          Name:            'batt::int_types::u64'
+        Name:            'delta'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'C96A2E70002D3449AEB73CEFAB14990FB35BFDCE'
+    Name:            '~LatencyTimer'
+    Namespace:
+      - Type:            Record
+        Name:            'LatencyTimer'
+        USR:             'B13777A9054B7ABF4540B7DB2D650B693C11EE70'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      133
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'LatencyTimer'
+      USR:             'B13777A9054B7ABF4540B7DB2D650B693C11EE70'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '9D3DDBAF7F7A0060834EBA8E0D4F489890E024A4'
+    Name:            'read_usec'
+    Namespace:
+      - Type:            Record
+        Name:            'LatencyTimer'
+        USR:             'B13777A9054B7ABF4540B7DB2D650B693C11EE70'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      138
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'LatencyTimer'
+      USR:             'B13777A9054B7ABF4540B7DB2D650B693C11EE70'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::i64'
+    Access:          Public
+  - USR:             '4A0F55864770C794459124866F41D447853CC250'
+    Name:            'stop'
+    Namespace:
+      - Type:            Record
+        Name:            'LatencyTimer'
+        USR:             'B13777A9054B7ABF4540B7DB2D650B693C11EE70'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      145
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/metrics/metric_collectors.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'LatencyTimer'
+      USR:             'B13777A9054B7ABF4540B7DB2D650B693C11EE70'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

@@ -1,0 +1,131 @@
+---
+USR:             'EF908CB70257D3059DF4B8641D6F732791DCE0DB'
+Name:            'MoveFnImpl'
+Path:            'batt/detail'
+Namespace:
+  - Type:            Namespace
+    Name:            'detail'
+    USR:             '7EFD2C42787CC2D5BEDB73B9828224F9950DADAE'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' Forward declare the implementation class templates for function type erasure.'
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' Implements the basic concept; can be extended because `fn_` is protected,'
+          - Kind:            'TextComment'
+            Text:            ' not private.'
+DefLocation:
+  LineNumber:      122
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+Location:
+  - LineNumber:      60
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'Fn'
+    Name:            'fn_'
+    Access:          Protected
+Parents:
+  - Type:            Record
+    Name:            'AbstractFn<kMoveOnly, Result, Args...>'
+    USR:             '9131FF945A1F01A4B94497E73831DF2CA47A83FA'
+ChildFunctions:
+  - USR:             'FE70DC7DC01EACC2965AE016C72F653BACABEC19'
+    Name:            'MoveFnImpl<Fn, kMoveOnly, Result, Args...>'
+    Namespace:
+      - Type:            Record
+        Name:            'MoveFnImpl'
+        USR:             'EF908CB70257D3059DF4B8641D6F732791DCE0DB'
+      - Type:            Namespace
+        Name:            'detail'
+        USR:             '7EFD2C42787CC2D5BEDB73B9828224F9950DADAE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      128
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'MoveFnImpl'
+      USR:             'EF908CB70257D3059DF4B8641D6F732791DCE0DB'
+    Params:
+      - Type:
+          Name:            'FnRef &&'
+        Name:            'ref'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'B75D6019C3F1DE8D4B92F2E0A3C1C91487FA7D24'
+    Name:            'invoke'
+    Namespace:
+      - Type:            Record
+        Name:            'MoveFnImpl'
+        USR:             'EF908CB70257D3059DF4B8641D6F732791DCE0DB'
+      - Type:            Namespace
+        Name:            'detail'
+        USR:             '7EFD2C42787CC2D5BEDB73B9828224F9950DADAE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      132
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'MoveFnImpl'
+      USR:             'EF908CB70257D3059DF4B8641D6F732791DCE0DB'
+    Params:
+      - Type:
+          Name:            'Args...'
+        Name:            'args'
+    ReturnType:
+      Type:
+        Name:            'Result'
+    Access:          Public
+  - USR:             'ECADC4C3101BD33F46C72A9AB987426B850046A9'
+    Name:            'move'
+    Namespace:
+      - Type:            Record
+        Name:            'MoveFnImpl'
+        USR:             'EF908CB70257D3059DF4B8641D6F732791DCE0DB'
+      - Type:            Namespace
+        Name:            'detail'
+        USR:             '7EFD2C42787CC2D5BEDB73B9828224F9950DADAE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      137
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/small_fn.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'MoveFnImpl'
+      USR:             'EF908CB70257D3059DF4B8641D6F732791DCE0DB'
+    Params:
+      - Type:
+          Name:            'void *'
+        Name:            'memory'
+      - Type:
+          Name:            'std::size_t'
+        Name:            'size'
+    ReturnType:
+      Type:
+        Name:            'AbstractFn<kMoveOnly, Result, Args...> *'
+    Access:          Public
+...

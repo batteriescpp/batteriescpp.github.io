@@ -1,0 +1,60 @@
+---
+USR:             '40A583D31746010C5C5161BC3D669E91BB6367A3'
+Name:            'StateMachineModelCheckAdvancedOptions'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      16
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/advanced_options.hpp'
+Members:
+  - Type:
+      Name:            '_Bool'
+    Name:            'pin_shard_to_cpu'
+    Access:          Public
+  - Type:
+      Name:            'batt::int_types::usize'
+    Name:            'max_loop_iterations_between_flush'
+    Access:          Public
+  - Type:
+      Name:            'batt::int_types::usize'
+    Name:            'max_loop_iterations_between_update'
+    Access:          Public
+  - Type:
+      Name:            'batt::int_types::i64'
+    Name:            'min_running_time_ms'
+    Access:          Public
+  - Type:
+      Type:            Record
+      Name:            'Optional'
+      USR:             'D35CDE74E00493F62AB889C0D841FE5FC5A57103'
+      Path:            'batt'
+    Name:            'starting_seed'
+ChildFunctions:
+  - USR:             '88AA77A10893C9EDF356B9581312F4AE4335F671'
+    Name:            'with_default_values'
+    Namespace:
+      - Type:            Record
+        Name:            'StateMachineModelCheckAdvancedOptions'
+        USR:             '40A583D31746010C5C5161BC3D669E91BB6367A3'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      25
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/advanced_options.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'StateMachineModelCheckAdvancedOptions'
+      USR:             '40A583D31746010C5C5161BC3D669E91BB6367A3'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'StateMachineModelCheckAdvancedOptions'
+        USR:             '40A583D31746010C5C5161BC3D669E91BB6367A3'
+        Path:            'batt'
+    Access:          Public
+...

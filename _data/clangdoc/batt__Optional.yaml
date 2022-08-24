@@ -1,0 +1,975 @@
+---
+USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+Name:            'Optional'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      80
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'std::aligned_storage_t<sizeof(T), __alignof(T)>'
+    Name:            'storage_'
+    Access:          Private
+  - Type:
+      Name:            '_Bool'
+    Name:            'valid_'
+    Access:          Private
+ChildFunctions:
+  - USR:             'C1EB03995D91B9D756FB710DACEA206E6F624B78'
+    Name:            'Optional<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      86
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '9ACFCACA2CEE88C6D803621E703E9FEE6908756D'
+    Name:            'Optional<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      90
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Type:            Record
+          Name:            'NoneType'
+          USR:             '6905D0DCFB63276F3A614E3276851C924870C8B9'
+          Path:            'batt'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '0AE41338D1A43CDD1648EB272231458E3BCEC211'
+    Name:            'Optional<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      95
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Type:            Record
+          Name:            'InPlaceInitType'
+          USR:             '114DBF1631EA8FF16691C65D350F6A3B1823E84A'
+          Path:            'batt'
+      - Type:
+          Name:            'Args &&...'
+        Name:            'args'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'B80BDFF29BB1BAF3DB17E4A86F9A7413D79D2A4E'
+    Name:            'Optional<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      101
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Name:            'std::optional<T> &&'
+        Name:            'init'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '93E5D951167D13D2127E37F08FF7D900B27A4C5D'
+    Name:            'Optional<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '  template '
+              - Kind:            'TextComment'
+                Text:            '<typename'
+              - Kind:            'TextComment'
+                Text:            ' U,'
+              - Kind:            'TextComment'
+                Text:            '            typename = std::enable_if_t'
+              - Kind:            'TextComment'
+                Text:            '<'
+              - Kind:            'TextComment'
+                Text:            '!std::is_constructible_v'
+              - Kind:            'TextComment'
+                Text:            '<T'
+              - Kind:            'TextComment'
+                Text:            ', U'
+              - Kind:            'TextComment'
+                Text:            '&'
+              - Kind:            'TextComment'
+                Text:            '&'
+              - Kind:            'TextComment'
+                Text:            '> '
+              - Kind:            'TextComment'
+                Text:            '&'
+              - Kind:            'TextComment'
+                Text:            '&'
+              - Kind:            'TextComment'
+                Text:            ' std::is_convertible_v'
+              - Kind:            'TextComment'
+                Text:            '<U'
+              - Kind:            'TextComment'
+                Text:            ', T> >,'
+              - Kind:            'TextComment'
+                Text:            '            typename = batt::EnableIfNoShadow'
+              - Kind:            'TextComment'
+                Text:            '<Optional'
+              - Kind:            'TextComment'
+                Text:            ', U> >'
+              - Kind:            'TextComment'
+                Text:            '  Optional(U'
+              - Kind:            'TextComment'
+                Text:            '&'
+              - Kind:            'TextComment'
+                Text:            '&'
+              - Kind:            'TextComment'
+                Text:            ' u) noexcept : valid_{false}'
+              - Kind:            'TextComment'
+                Text:            '  {'
+              - Kind:            'TextComment'
+                Text:            '    new ('
+              - Kind:            'TextComment'
+                Text:            '&this'
+              - Kind:            'TextComment'
+                Text:            '->storage_) T(BATT_FORWARD(u));'
+              - Kind:            'TextComment'
+                Text:            '    valid_ = true;'
+              - Kind:            'TextComment'
+                Text:            '  }'
+    DefLocation:
+      LineNumber:      122
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Name:            'Optional<U> &&'
+        Name:            'u'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'BA44D25337CC8C070840E92CB8E7F5611C1FB58F'
+    Name:            'Optional<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      133
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Name:            'const Optional<U> &'
+        Name:            'u'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '8853BCECCF8465D00C016556BD05DC620D270AF5'
+    Name:            'Optional<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      143
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Name:            'Args &&...'
+        Name:            'args'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '751B42DF8702793D5167B43C51F0EA8EA2AA37C1'
+    Name:            'Optional<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      149
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Name:            'const T &'
+        Name:            'val'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'B6C6AAC33A166EC434BABD105A4782B973422797'
+    Name:            '~Optional<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      155
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'C5EF675651338B44E7654E4A310886058FE272D8'
+    Name:            'Optional<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      162
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Name:            'Optional<T> &&'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'ABAA640DD96C22B9845211BC4829FC8FDEA3C87D'
+    Name:            'Optional<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      170
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Name:            'const Optional<T> &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '7306DE360A45CBA0C8DEC9EDBEE2A41D449E9176'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      178
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Name:            'Optional<T> &&'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'Optional<T> &'
+    Access:          Public
+  - USR:             '06FA23F78B131A34FFCC0E297B1DBAA9889D23FD'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      193
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Name:            'const Optional<T> &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'Optional<T> &'
+    Access:          Public
+  - USR:             '41BE7C0B88B7E4EC95A1AB5A1D04DD7CFD5CCA37'
+    Name:            'emplace'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      209
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Name:            'Args &&...'
+        Name:            'args'
+    ReturnType:
+      Type:
+        Name:            'T &'
+    Access:          Public
+  - USR:             'BED81440E3648BC8A8ABDA01253BF04621224653'
+    Name:            'value_or'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      221
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Name:            'U &&'
+        Name:            'else_val'
+    ReturnType:
+      Type:
+        Name:            'T'
+    Access:          Public
+  - USR:             'FD1BE648D467087B223F7FBE2608D3E5366B41EE'
+    Name:            'map'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      230
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Name:            'Fn &&'
+        Name:            'fn'
+    ReturnType:
+      Type:
+        Name:            'Optional<U>'
+    Access:          Public
+  - USR:             '254469BDEC3EAC5F7516332FB74A89D959547F43'
+    Name:            'flat_map'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      239
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Name:            'Fn &&'
+        Name:            'fn'
+    ReturnType:
+      Type:
+        Name:            'OptionalU'
+    Access:          Public
+  - USR:             '54B5BC9A4A68E5DD7FD6BB8ABEA26F9E762A12A2'
+    Name:            'operator bool'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      247
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '7B81B0865806C46197D377445543684818950C0E'
+    Name:            'has_value'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      252
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '88AF4D463AB210580DA3E1A8F0B171780E36E2B7'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      257
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Type:            Record
+          Name:            'NoneType'
+          USR:             '6905D0DCFB63276F3A614E3276851C924870C8B9'
+          Path:            'batt'
+    ReturnType:
+      Type:
+        Name:            'Optional<T> &'
+    Access:          Public
+  - USR:             '9ACD92DF8DAABDFF05DE66FA6AA649DFD9AD8B99'
+    Name:            'operator*'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      266
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            'T &'
+    Access:          Public
+  - USR:             'A7B12A128F389D3BEC9B7961F133898FE5D7AD77'
+    Name:            'operator*'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      271
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            'const T &'
+    Access:          Public
+  - USR:             'D361051FCCE9B108CC07EEF3FF078A0400BA7D5E'
+    Name:            'operator*'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      276
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            'T'
+    Access:          Public
+  - USR:             '7D7D2E8DAAE19D8A3D6F222F9B9A500997C672F8'
+    Name:            'operator*'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      281
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            'T'
+    Access:          Public
+  - USR:             '31F471141E012B8030BEE375CEED5B1EE0A7C324'
+    Name:            'operator->'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      283
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            'T *'
+    Access:          Public
+  - USR:             'F4D2933DA34BA74FC38062A95DCF7A7829E7694C'
+    Name:            'operator->'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      288
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            'const T *'
+    Access:          Public
+  - USR:             'C89C9A85AEE56C21904A5A1BDC5C63AF3A1CA6FD'
+    Name:            'get_ptr'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      293
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            'T *'
+    Access:          Public
+  - USR:             '22694C1B74710E60A216BF5FF423AA4D39575ED5'
+    Name:            'get_ptr'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      298
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            'const T *'
+    Access:          Public
+  - USR:             '2E1D74F728E6FD367FDB115D292FA87987A5D5BF'
+    Name:            'obj'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      304
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            'T &'
+    Access:          Private
+  - USR:             '2548FDD473CF28F3E33D71CDFF39A5077CDE4DBA'
+    Name:            'obj'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      309
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            'const T &'
+    Access:          Private
+  - USR:             '7F9EF1EB7757644805589BFFA161EACF8C8CA26D'
+    Name:            'Optional<type-parameter-0-0 &>'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '12730E5DA1F1080E6880C969525E851AEA1D0B1F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      322
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Type:            Record
+          Name:            'NoneType'
+          USR:             '6905D0DCFB63276F3A614E3276851C924870C8B9'
+          Path:            'batt'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '6AF723CDAE23960769D7E4165610933E1C356F09'
+    Name:            'Optional<type-parameter-0-0 &>'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '12730E5DA1F1080E6880C969525E851AEA1D0B1F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      326
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Name:            'T &'
+        Name:            'ref'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '6BA0724CE5D23695DA621371B5E8FCC087E4A24A'
+    Name:            '~Optional<type-parameter-0-0 &>'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '12730E5DA1F1080E6880C969525E851AEA1D0B1F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      330
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'FDE521153C8D052339FCDBC2A00258E48F5B000A'
+    Name:            'map'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '12730E5DA1F1080E6880C969525E851AEA1D0B1F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      336
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Name:            'Fn &&'
+        Name:            'fn'
+    ReturnType:
+      Type:
+        Name:            'Optional<U>'
+    Access:          Public
+  - USR:             'B4794AE92E1AC97F8CE83D433DEEE08EB6958912'
+    Name:            'flat_map'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '12730E5DA1F1080E6880C969525E851AEA1D0B1F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      345
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    Params:
+      - Type:
+          Name:            'Fn &&'
+        Name:            'fn'
+    ReturnType:
+      Type:
+        Name:            'OptionalU'
+    Access:          Public
+  - USR:             'DF76AF3045CCEC5DD78C4A4C830CA1D91D08C618'
+    Name:            'operator*'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '12730E5DA1F1080E6880C969525E851AEA1D0B1F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      353
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            'T &'
+    Access:          Public
+  - USR:             'A53D9AC9868CA42E269094E9766EFEC8DC0AE436'
+    Name:            'operator bool'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '12730E5DA1F1080E6880C969525E851AEA1D0B1F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      358
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '5711D08C5CDE71AC5C29F6B3A89713D41494C059'
+    Name:            'operator!'
+    Namespace:
+      - Type:            Record
+        Name:            'Optional'
+        USR:             '12730E5DA1F1080E6880C969525E851AEA1D0B1F'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      363
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/optional.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Optional'
+      USR:             '5C6B322960B60008D3BE374709690ABFD8AA5BDE'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+...

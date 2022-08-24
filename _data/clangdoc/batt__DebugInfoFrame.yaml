@@ -1,0 +1,199 @@
+---
+USR:             '9567F41D66048D3603F9CB722E584C6259BCC9BD'
+Name:            'DebugInfoFrame'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' A stack-local linked list node that captures diagnostic information.  This class should most often not be'
+          - Kind:            'TextComment'
+            Text:            ' used directly; see `BATT_DEBUG_INFO` below.'
+DefLocation:
+  LineNumber:      42
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/debug_info_decl.hpp'
+Location:
+  - LineNumber:      21
+    Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/debug_info_decl.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Type:            Record
+      Name:            'function'
+      USR:             '7E71FD5325694BDFE7F754666968012A9E2B1D25'
+      Path:            'std'
+    Name:            'print_info_'
+  - Type:
+      Name:            'class batt::DebugInfoFrame *'
+    Name:            'prev_'
+    Access:          Private
+ChildFunctions:
+  - USR:             'A2F5887A1FBA584EBE719799EC0CB57648DBECD3'
+    Name:            'all_threads'
+    Namespace:
+      - Type:            Record
+        Name:            'DebugInfoFrame'
+        USR:             '9567F41D66048D3603F9CB722E584C6259BCC9BD'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' A fixed-sized slice of pointers to DebugInfoFrame stack tops; indexed by the thread id.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      21
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/debug_info_impl.hpp'
+    Location:
+      - LineNumber:      47
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/debug_info_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'DebugInfoFrame'
+      USR:             '9567F41D66048D3603F9CB722E584C6259BCC9BD'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'iterator_range'
+        USR:             'A9CD03479838CA30BA54E22D5D138D4A42B0193F'
+        Path:            'boost'
+    Access:          Public
+  - USR:             '6366EF88A5C28682E9CB42C543470754590873F9'
+    Name:            'top'
+    Namespace:
+      - Type:            Record
+        Name:            'DebugInfoFrame'
+        USR:             '9567F41D66048D3603F9CB722E584C6259BCC9BD'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' (Thread-Local) A read/write reference to the top-of-stack debug info frame for the current thread.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      33
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/debug_info_impl.hpp'
+    Location:
+      - LineNumber:      51
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/debug_info_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'DebugInfoFrame'
+      USR:             '9567F41D66048D3603F9CB722E584C6259BCC9BD'
+    ReturnType:
+      Type:
+        Name:            'class batt::DebugInfoFrame *&'
+    Access:          Public
+  - USR:             '93B01998249A2066CF010BBFDB66215808A60C13'
+    Name:            'DebugInfoFrame'
+    Namespace:
+      - Type:            Record
+        Name:            'DebugInfoFrame'
+        USR:             '9567F41D66048D3603F9CB722E584C6259BCC9BD'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' `Fn` is a callable object with signature `void (std::ostream'
+              - Kind:            'TextComment'
+                Text:            '&'
+              - Kind:            'TextComment'
+                Text:            ')`.'
+              - Kind:            'TextComment'
+                Text:            ' `fn` should print human readable diagnostic information to the passed stream when invoked.'
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' When a DebugInfoFrame is created, it automatically links to the thread/Task-local "top"'
+              - Kind:            'TextComment'
+                Text:            ' DebugInfoFrame*, forming a stack.  *WARNING*: this means it will create problems if you try to create a'
+              - Kind:            'TextComment'
+                Text:            ' DebugInfoFrame in one block scope and then move it to another one for destruction.  In most cases, you'
+              - Kind:            'TextComment'
+                Text:            ' should just use the BATT_DEBUG_INFO macro inside a function to create a DebugInfoFrame implicitly.'
+    DefLocation:
+      LineNumber:      62
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/debug_info_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'DebugInfoFrame'
+      USR:             '9567F41D66048D3603F9CB722E584C6259BCC9BD'
+    Params:
+      - Type:
+          Name:            'Fn &&'
+        Name:            'fn'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '33F9BB09E33282868A0BA37DC483F2F4267A7584'
+    Name:            '~DebugInfoFrame'
+    Namespace:
+      - Type:            Record
+        Name:            'DebugInfoFrame'
+        USR:             '9567F41D66048D3603F9CB722E584C6259BCC9BD'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Pop this frame from the top of the stack, restoring the old top frame.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      50
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/debug_info_impl.hpp'
+    Location:
+      - LineNumber:      70
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/debug_info_decl.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'DebugInfoFrame'
+      USR:             '9567F41D66048D3603F9CB722E584C6259BCC9BD'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

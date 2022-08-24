@@ -1,0 +1,184 @@
+---
+USR:             'C5A4706AB927F0505B7AB1EFD6D2848ADC38A58C'
+Name:            'ManagedBuffer'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      103
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/buffer.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Type:            Record
+      Name:            'array'
+      USR:             'C179D469F7E672F80E4C92F4AD3A51206467FDAB'
+      Path:            'std'
+    Name:            'storage_'
+Bases:
+  - USR:             '5CD544653F32DE6A6285F94B0B660C7FA2831AAF'
+    Name:            'RefCounted<class batt::ManagedBuffer>'
+    Path:            'boost/sp_adl_block'
+    Members:
+      - Type:
+          Type:            Record
+          Name:            'atomic_count'
+          USR:             '03D500ED2C11937F503BBEF05F66455191878A43'
+          Path:            'boost/detail'
+        Name:            'm_ref_counter'
+    ChildFunctions:
+      - USR:             'AB51C059ED6E702539E4C437DB303EC690233CDF'
+        Name:            'intrusive_ref_counter'
+        Namespace:
+          - Type:            Record
+            Name:            'intrusive_ref_counter'
+            USR:             '3DE1EB3E0E47B8F2DB08293DC141A257EDB6026C'
+          - Type:            Namespace
+            Name:            'sp_adl_block'
+            USR:             '19D1CA59A3C78B236F49EA9AB0B9E3054DF83D0C'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             'BDB7D55A935AC2DC9F91A1B7EC171F25C790D80C'
+        Name:            'intrusive_ref_counter'
+        Namespace:
+          - Type:            Record
+            Name:            'intrusive_ref_counter'
+            USR:             '3DE1EB3E0E47B8F2DB08293DC141A257EDB6026C'
+          - Type:            Namespace
+            Name:            'sp_adl_block'
+            USR:             '19D1CA59A3C78B236F49EA9AB0B9E3054DF83D0C'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Name:            'const class boost::sp_adl_block::intrusive_ref_counter<class batt::ManagedBuffer> &'
+        ReturnType:
+          Type:
+            Name:            'void'
+        Access:          Public
+      - USR:             '9AE4BD6159F0739899DDE0E0DB44D7B09BEA5564'
+        Name:            'operator='
+        Namespace:
+          - Type:            Record
+            Name:            'intrusive_ref_counter'
+            USR:             '3DE1EB3E0E47B8F2DB08293DC141A257EDB6026C'
+          - Type:            Namespace
+            Name:            'sp_adl_block'
+            USR:             '19D1CA59A3C78B236F49EA9AB0B9E3054DF83D0C'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        Params:
+          - Type:
+              Name:            'const class boost::sp_adl_block::intrusive_ref_counter<class batt::ManagedBuffer> &'
+        ReturnType:
+          Type:
+            Name:            'class boost::sp_adl_block::intrusive_ref_counter<class batt::ManagedBuffer> &'
+        Access:          Public
+      - USR:             'BCC612CE478052BDEB906A9BEB088385258FC660'
+        Name:            'use_count'
+        Namespace:
+          - Type:            Record
+            Name:            'intrusive_ref_counter'
+            USR:             '3DE1EB3E0E47B8F2DB08293DC141A257EDB6026C'
+          - Type:            Namespace
+            Name:            'sp_adl_block'
+            USR:             '19D1CA59A3C78B236F49EA9AB0B9E3054DF83D0C'
+          - Type:            Namespace
+            Name:            'boost'
+            USR:             'FA33B4A66301FD15DA871B5AB55518A04C14296B'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'unsigned int'
+        Access:          Public
+    Access:          Public
+    IsParent:        true
+Parents:
+  - Type:            Record
+    Name:            'RefCounted<class batt::ManagedBuffer>'
+    USR:             '5CD544653F32DE6A6285F94B0B660C7FA2831AAF'
+ChildFunctions:
+  - USR:             'E5E6CF4D63FD78FC3355055F4E814901946E88A7'
+    Name:            'data'
+    Namespace:
+      - Type:            Record
+        Name:            'ManagedBuffer'
+        USR:             'C5A4706AB927F0505B7AB1EFD6D2848ADC38A58C'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      108
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/buffer.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'ManagedBuffer'
+      USR:             'C5A4706AB927F0505B7AB1EFD6D2848ADC38A58C'
+    ReturnType:
+      Type:
+        Name:            'char *'
+    Access:          Public
+  - USR:             'D68088D6A259DA88E1638BB1ADCF4C680994D862'
+    Name:            'data'
+    Namespace:
+      - Type:            Record
+        Name:            'ManagedBuffer'
+        USR:             'C5A4706AB927F0505B7AB1EFD6D2848ADC38A58C'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      113
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/buffer.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'ManagedBuffer'
+      USR:             'C5A4706AB927F0505B7AB1EFD6D2848ADC38A58C'
+    ReturnType:
+      Type:
+        Name:            'const char *'
+    Access:          Public
+  - USR:             '6DBF2B32EF565152D2D151D8442A82763B704BB5'
+    Name:            'size'
+    Namespace:
+      - Type:            Record
+        Name:            'ManagedBuffer'
+        USR:             'C5A4706AB927F0505B7AB1EFD6D2848ADC38A58C'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      118
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/buffer.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'ManagedBuffer'
+      USR:             'C5A4706AB927F0505B7AB1EFD6D2848ADC38A58C'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::usize'
+    Access:          Public
+...

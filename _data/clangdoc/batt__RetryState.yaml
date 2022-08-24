@@ -1,0 +1,40 @@
+---
+USR:             'FDF0D76B02B27F1BDC58B4574B81DF852CC2C5D2'
+Name:            'RetryState'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------'
+          - Kind:            'TextComment'
+            Text:            ' State variables passed into `update_retry_state` along with a RetryPolicy object in order to update the'
+          - Kind:            'TextComment'
+            Text:            ' backoff delay.'
+DefLocation:
+  LineNumber:      46
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/backoff.hpp'
+Members:
+  - Type:
+      Name:            '_Bool'
+    Name:            'should_retry'
+    Access:          Public
+  - Type:
+      Name:            'batt::int_types::u64'
+    Name:            'n_attempts'
+    Access:          Public
+  - Type:
+      Name:            'batt::int_types::u64'
+    Name:            'prev_delay_usec'
+    Access:          Public
+  - Type:
+      Name:            'batt::int_types::u64'
+    Name:            'next_delay_usec'
+    Access:          Public
+...

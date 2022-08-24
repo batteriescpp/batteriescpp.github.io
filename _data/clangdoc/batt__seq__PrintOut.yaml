@@ -1,0 +1,33 @@
+---
+USR:             '3904CF182C14B2EB3EBD17F409F04E036942A1C6'
+Name:            'PrintOut'
+Path:            'batt/seq'
+Namespace:
+  - Type:            Namespace
+    Name:            'seq'
+    USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' print_out'
+DefLocation:
+  LineNumber:      22
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/print_out.hpp'
+Members:
+  - Type:
+      Name:            'std::ostream &'
+    Name:            'out'
+    Access:          Public
+  - Type:
+      Type:            Record
+      Name:            'basic_string_view'
+      USR:             'E7D0A20D4E99A84446C003E51B2F4AAECE09E5BB'
+      Path:            'std'
+    Name:            'sep'
+...

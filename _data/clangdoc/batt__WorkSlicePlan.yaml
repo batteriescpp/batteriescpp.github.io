@@ -1,0 +1,111 @@
+---
+USR:             '8AF167FFD4D57D65FB0127398FEFA9F63CF69073'
+Name:            'WorkSlicePlan'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------'
+          - Kind:            'TextComment'
+            Text:            ' An abstract plan for slicing up some amount of work into smaller tasks of roughly equal size that can'
+          - Kind:            'TextComment'
+            Text:            ' be executed in parallel.'
+DefLocation:
+  LineNumber:      92
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/slice_work.hpp'
+Members:
+  - Type:
+      Type:            Record
+      Name:            'StrongType'
+      USR:             'E09D0FB15D68201659A30A118F35CBC739D4EC4E'
+      Path:            'batt'
+    Name:            'input_size'
+  - Type:
+      Type:            Record
+      Name:            'StrongType'
+      USR:             'DBE7043FD988028A06D5B13AB68978D7B1E759B0'
+      Path:            'batt'
+    Name:            'task_size'
+  - Type:
+      Type:            Record
+      Name:            'StrongType'
+      USR:             'E8075AB7B467FED60555215B3FB81AFDB2E6989A'
+      Path:            'batt'
+    Name:            'n_tasks'
+ChildFunctions:
+  - USR:             '50A5720B67AC7B7045822A7AACCE05C6B5016671'
+    Name:            'WorkSlicePlan'
+    Namespace:
+      - Type:            Record
+        Name:            'WorkSlicePlan'
+        USR:             '8AF167FFD4D57D65FB0127398FEFA9F63CF69073'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      26
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/slice_work_impl.hpp'
+    Location:
+      - LineNumber:      93
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/slice_work.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'WorkSlicePlan'
+      USR:             '8AF167FFD4D57D65FB0127398FEFA9F63CF69073'
+    Params:
+      - Type:
+          Name:            'const struct batt::WorkSliceParams &'
+        Name:            'params'
+      - Type:
+          Type:            Record
+          Name:            'StrongType'
+          USR:             'E09D0FB15D68201659A30A118F35CBC739D4EC4E'
+          Path:            'batt'
+        Name:            'input_size'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'B255246F643E3A2AFA15026A7FADF610CEB88F78'
+    Name:            'WorkSlicePlan'
+    Namespace:
+      - Type:            Record
+        Name:            'WorkSlicePlan'
+        USR:             '8AF167FFD4D57D65FB0127398FEFA9F63CF69073'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      39
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/slice_work_impl.hpp'
+    Location:
+      - LineNumber:      96
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/slice_work.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'WorkSlicePlan'
+      USR:             '8AF167FFD4D57D65FB0127398FEFA9F63CF69073'
+    Params:
+      - Type:
+          Name:            'const struct batt::WorkSliceParams &'
+        Name:            'params'
+      - Type:
+          Name:            'const Iter &'
+        Name:            'first'
+      - Type:
+          Name:            'const Iter &'
+        Name:            'last'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

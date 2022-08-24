@@ -1,0 +1,226 @@
+---
+USR:             '350E4355318CF8E173B0E347A949CF4B84E45DC9'
+Name:            'Filter'
+Path:            'batt/seq'
+Namespace:
+  - Type:            Namespace
+    Name:            'seq'
+    USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+          - Kind:            'TextComment'
+            Text:            ' filter'
+DefLocation:
+  LineNumber:      20
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/filter.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'Seq'
+    Name:            'seq_'
+    Access:          Private
+  - Type:
+      Name:            'Optional<Predicate>'
+    Name:            'predicate_'
+    Access:          Private
+ChildFunctions:
+  - USR:             'F55E51125C1D07AEAE9BFDE4AD41AED7FFC817C4'
+    Name:            'Filter<Seq, Predicate>'
+    Namespace:
+      - Type:            Record
+        Name:            'Filter'
+        USR:             '350E4355318CF8E173B0E347A949CF4B84E45DC9'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      25
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/filter.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Filter'
+      USR:             '350E4355318CF8E173B0E347A949CF4B84E45DC9'
+    Params:
+      - Type:
+          Name:            'Seq &&'
+        Name:            'seq'
+      - Type:
+          Name:            'Predicate &&'
+        Name:            'predicate'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '301D962CA81963ED8AF47579266610C665A36999'
+    Name:            'Filter<Seq, Predicate>'
+    Namespace:
+      - Type:            Record
+        Name:            'Filter'
+        USR:             '350E4355318CF8E173B0E347A949CF4B84E45DC9'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      31
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/filter.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Filter'
+      USR:             '350E4355318CF8E173B0E347A949CF4B84E45DC9'
+    Params:
+      - Type:
+          Name:            'Filter<Seq, Predicate> &&'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'A80448E16B003BCB97D1F41D1B4DED5172C8A5C5'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'Filter'
+        USR:             '350E4355318CF8E173B0E347A949CF4B84E45DC9'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      35
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/filter.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Filter'
+      USR:             '350E4355318CF8E173B0E347A949CF4B84E45DC9'
+    Params:
+      - Type:
+          Name:            'Filter<Seq, Predicate> &&'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'Filter<Seq, Predicate> &'
+    Access:          Public
+  - USR:             'D31542A1DE1541A008E9001534457C04FECD9F04'
+    Name:            'Filter<Seq, Predicate>'
+    Namespace:
+      - Type:            Record
+        Name:            'Filter'
+        USR:             '350E4355318CF8E173B0E347A949CF4B84E45DC9'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      44
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/filter.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Filter'
+      USR:             '350E4355318CF8E173B0E347A949CF4B84E45DC9'
+    Params:
+      - Type:
+          Name:            'const Filter<Seq, Predicate> &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'F2D3DCC3DD3E3EDB68E6721C90E600763FD8BF69'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'Filter'
+        USR:             '350E4355318CF8E173B0E347A949CF4B84E45DC9'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      48
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/filter.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Filter'
+      USR:             '350E4355318CF8E173B0E347A949CF4B84E45DC9'
+    Params:
+      - Type:
+          Name:            'const Filter<Seq, Predicate> &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'Filter<Seq, Predicate> &'
+    Access:          Public
+  - USR:             '0BE07EB19435DC83BB8375B2790F4683073E5A9C'
+    Name:            'peek'
+    Namespace:
+      - Type:            Record
+        Name:            'Filter'
+        USR:             '350E4355318CF8E173B0E347A949CF4B84E45DC9'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      57
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/filter.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Filter'
+      USR:             '350E4355318CF8E173B0E347A949CF4B84E45DC9'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::Filter::Item>'
+    Access:          Public
+  - USR:             '8F37E5E49A1BCB0BE540AC50F0DBB848E968DD65'
+    Name:            'next'
+    Namespace:
+      - Type:            Record
+        Name:            'Filter'
+        USR:             '350E4355318CF8E173B0E347A949CF4B84E45DC9'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      68
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/filter.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Filter'
+      USR:             '350E4355318CF8E173B0E347A949CF4B84E45DC9'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::Filter::Item>'
+    Access:          Public
+...

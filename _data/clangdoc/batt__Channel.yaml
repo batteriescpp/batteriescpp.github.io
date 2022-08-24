@@ -1,0 +1,421 @@
+---
+USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+Name:            'Channel'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' A Channel'
+          - Kind:            'TextComment'
+            Text:            '<T'
+          - Kind:            'TextComment'
+            Text:            '> is a one-way, unbuffered, SPSC (single-producer, single consumer)'
+          - Kind:            'TextComment'
+            Text:            ' communication/synchronization primitive.'
+DefLocation:
+  LineNumber:      21
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Type:            Record
+      Name:            'Watch'
+      USR:             '49652DDA0EB16828F223BB8552C6B715B320D142'
+      Path:            'batt'
+    Name:            'read_count_'
+  - Type:
+      Type:            Record
+      Name:            'Watch'
+      USR:             '49652DDA0EB16828F223BB8552C6B715B320D142'
+      Path:            'batt'
+    Name:            'write_count_'
+  - Type:
+      Name:            'T *'
+    Name:            'value_'
+    Access:          Private
+ChildFunctions:
+  - USR:             '3EADCE615C87C4D3A11F1C63655E5E201469EFDD'
+    Name:            'Channel<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Channel'
+        USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      24
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Channel'
+      USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'B4D8ADE2E5D9D289B991DCFB88C7AD38FB28294C'
+    Name:            'Channel<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Channel'
+        USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      28
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Channel'
+      USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+    Params:
+      - Type:
+          Name:            'const Channel<T> &'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'C62E994ACE3FDFB829F9C578C60CCA9250199C82'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'Channel'
+        USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      29
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Channel'
+      USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+    Params:
+      - Type:
+          Name:            'const Channel<T> &'
+    ReturnType:
+      Type:
+        Name:            'Channel<T> &'
+    Access:          Public
+  - USR:             'C29CCC5BE2377AF241A707F5E9119F080D0A5DC0'
+    Name:            '~Channel<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Channel'
+        USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      31
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Channel'
+      USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'F8C40EB47F6B3E14492851424E8E4D338C46BE67'
+    Name:            'is_active'
+    Namespace:
+      - Type:            Record
+        Name:            'Channel'
+        USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Returns true iff there is currently an object available on the channel.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      122
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    Location:
+      - LineNumber:      41
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Channel'
+      USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             'FF9948A5F5B76611775987C7B710D700FDA8F45B'
+    Name:            'read'
+    Namespace:
+      - Type:            Record
+        Name:            'Channel'
+        USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Wait for an object to be written to the Channel, then return a reference to that object.  The referred'
+              - Kind:            'TextComment'
+                Text:            ' object will stay valid until `consume()` is called.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      130
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    Location:
+      - LineNumber:      48
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Channel'
+      USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+    ReturnType:
+      Type:
+        Name:            'StatusOr<T &>'
+    Access:          Public
+  - USR:             '4EAF40283AD219121204D3D58C5611453D8CB2F3'
+    Name:            'consume'
+    Namespace:
+      - Type:            Record
+        Name:            'Channel'
+        USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Release the last value read on the Channel.  Panic if `consume()` is called without a prior successful'
+              - Kind:            'TextComment'
+                Text:            ' call to `read()` (indicating that `this->is_active()` is true).'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      141
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    Location:
+      - LineNumber:      53
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Channel'
+      USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '777ECC0B9812B094CBF9929788C05E151F6B6BF0'
+    Name:            'close_for_read'
+    Namespace:
+      - Type:            Record
+        Name:            'Channel'
+        USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Unblock all ongoing calls to write/async_write and cause all future calls to fail with closed error'
+              - Kind:            'TextComment'
+                Text:            ' status.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      171
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    Location:
+      - LineNumber:      58
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Channel'
+      USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'F5D78EEEB1352BF412C08D5A90166356020E7BD6'
+    Name:            'async_write'
+    Namespace:
+      - Type:            Record
+        Name:            'Channel'
+        USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Write a value to the Channel.  Panic if there is currently an ongoing write (single-producer).'
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' The passed handler is invoked once the value is consumed via `read`/`consume`.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      91
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    Location:
+      - LineNumber:      67
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Channel'
+      USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+    Params:
+      - Type:
+          Name:            'T &'
+        Name:            'value'
+      - Type:
+          Name:            'Handler &&'
+        Name:            'handler'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '8D3C759C7F9AB715928290CD248F1CC8F3D0AF6A'
+    Name:            'write'
+    Namespace:
+      - Type:            Record
+        Name:            'Channel'
+        USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Blocking (Task::await) version of `async_write`.  This function will not return until the passed value'
+              - Kind:            'TextComment'
+                Text:            ' has been consumed.  The value is guaranteed not to be copied; the consumer will see the same exact'
+              - Kind:            'TextComment'
+                Text:            ' object passed into write.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      151
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    Location:
+      - LineNumber:      73
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Channel'
+      USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+    Params:
+      - Type:
+          Name:            'T &'
+        Name:            'value'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'Status'
+        USR:             '944577833EB747A64F321F3A2990B3D0B0C6DA9F'
+        Path:            'batt'
+    Access:          Public
+  - USR:             '97F581DFA0F4A74BC813D51AB0F862FEB108349F'
+    Name:            'close_for_write'
+    Namespace:
+      - Type:            Record
+        Name:            'Channel'
+        USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Unblock all ongoing calls to read and cause all future calls to fail with closed error status.'
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      179
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    Location:
+      - LineNumber:      77
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/channel.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Channel'
+      USR:             'EE392110E0A395A5B1BCE0AD78647886DDEF0815'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

@@ -1,0 +1,114 @@
+---
+USR:             '2ACEFEFA31AE3AAA54301E795BB9069C00C6BFFD'
+Name:            'Chain'
+Path:            'batt/seq'
+Namespace:
+  - Type:            Namespace
+    Name:            'seq'
+    USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+          - Kind:            'TextComment'
+            Text:            ' chain'
+DefLocation:
+  LineNumber:      22
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/chain.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'Optional<Seq1>'
+    Name:            'seq1_'
+    Access:          Private
+  - Type:
+      Name:            'Seq2'
+    Name:            'seq2_'
+    Access:          Private
+ChildFunctions:
+  - USR:             '7F1FA00EA22481751723C953CE18B4951EB75518'
+    Name:            'Chain<Seq1, Seq2>'
+    Namespace:
+      - Type:            Record
+        Name:            'Chain'
+        USR:             '2ACEFEFA31AE3AAA54301E795BB9069C00C6BFFD'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      27
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/chain.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Chain'
+      USR:             '2ACEFEFA31AE3AAA54301E795BB9069C00C6BFFD'
+    Params:
+      - Type:
+          Name:            'Seq1 &&'
+        Name:            'seq1'
+      - Type:
+          Name:            'Seq2 &&'
+        Name:            'seq2'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'A1131156ED3723B7420D7F487DB54E98BEF5AE7D'
+    Name:            'peek'
+    Namespace:
+      - Type:            Record
+        Name:            'Chain'
+        USR:             '2ACEFEFA31AE3AAA54301E795BB9069C00C6BFFD'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      31
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/chain.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Chain'
+      USR:             '2ACEFEFA31AE3AAA54301E795BB9069C00C6BFFD'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::Chain::Item>'
+    Access:          Public
+  - USR:             '3545D45AB37F13168AAE01EDDBAA33262F5F5A70'
+    Name:            'next'
+    Namespace:
+      - Type:            Record
+        Name:            'Chain'
+        USR:             '2ACEFEFA31AE3AAA54301E795BB9069C00C6BFFD'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      39
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/chain.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Chain'
+      USR:             '2ACEFEFA31AE3AAA54301E795BB9069C00C6BFFD'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::Chain::Item>'
+    Access:          Public
+...

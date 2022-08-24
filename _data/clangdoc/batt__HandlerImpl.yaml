@@ -1,0 +1,225 @@
+---
+USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+Name:            'HandlerImpl'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------'
+DefLocation:
+  LineNumber:      70
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/handler.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'HandlerFn'
+    Name:            'fn_'
+    Access:          Private
+Parents:
+  - Type:            Record
+    Name:            'AbstractHandler<Args...>'
+    USR:             '3810C038626DEF944CE3E0C6FA6E4B6A9F476687'
+ChildFunctions:
+  - USR:             'EA3B6FABEB9D06FC0607CBE4531662FAF418452C'
+    Name:            'make_new'
+    Namespace:
+      - Type:            Record
+        Name:            'HandlerImpl'
+        USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      82
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/handler.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HandlerImpl'
+      USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+    Params:
+      - Type:
+          Name:            'HandlerFnArg &&'
+        Name:            'h'
+    ReturnType:
+      Type:
+        Name:            'HandlerImpl<HandlerFn, Args...> *'
+    Access:          Public
+  - USR:             'DC38592B594337264F6F2E05B684FB51CCF798F5'
+    Name:            'make_new'
+    Namespace:
+      - Type:            Record
+        Name:            'HandlerImpl'
+        USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      90
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/handler.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HandlerImpl'
+      USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+    Params:
+      - Type:
+          Name:            'HandlerFnArg &&'
+        Name:            'h'
+      - Type:
+          Name:            'batt::int_types::usize'
+        Name:            'extra_bytes'
+    ReturnType:
+      Type:
+        Name:            'HandlerImpl<HandlerFn, Args...> *'
+    Access:          Public
+  - USR:             'B7ED3425B9DA204CCF7DC11E0BBAB7DA73F577AD'
+    Name:            'HandlerImpl<HandlerFn, Args...>'
+    Namespace:
+      - Type:            Record
+        Name:            'HandlerImpl'
+        USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      99
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/handler.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HandlerImpl'
+      USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+    Params:
+      - Type:
+          Name:            'HandlerFnArg &&'
+        Name:            'h'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '295297E874125B958233E824D2ECB2C8AA90A830'
+    Name:            'notify'
+    Namespace:
+      - Type:            Record
+        Name:            'HandlerImpl'
+        USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      103
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/handler.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HandlerImpl'
+      USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+    Params:
+      - Type:
+          Name:            'Args...'
+        Name:            'args'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '7D5BD51D33F5B948F4E979D7B8827F1AFA25549D'
+    Name:            'destroy'
+    Namespace:
+      - Type:            Record
+        Name:            'HandlerImpl'
+        USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      110
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/handler.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HandlerImpl'
+      USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'DA2740877937DE85ACC1B338A0BD4ABC71C9B0A2'
+    Name:            'dump'
+    Namespace:
+      - Type:            Record
+        Name:            'HandlerImpl'
+        USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      115
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/handler.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HandlerImpl'
+      USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+    Params:
+      - Type:
+          Name:            'std::ostream &'
+        Name:            'out'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'DD96EBA637695343CED0F9E2BBF44963B604A6D5'
+    Name:            'get_fn'
+    Namespace:
+      - Type:            Record
+        Name:            'HandlerImpl'
+        USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      120
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/handler.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HandlerImpl'
+      USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+    ReturnType:
+      Type:
+        Name:            'HandlerFn &'
+    Access:          Public
+  - USR:             '2F3A572091482FAB7268FD7E83C57AF1D84AE6FB'
+    Name:            'consume_impl'
+    Namespace:
+      - Type:            Record
+        Name:            'HandlerImpl'
+        USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      127
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/handler.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'HandlerImpl'
+      USR:             '824974D378A957B42F49C1D181065C1D71A6450C'
+    Params:
+      - Type:
+          Name:            'FnAction &&'
+        Name:            'fn_action'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Private
+...

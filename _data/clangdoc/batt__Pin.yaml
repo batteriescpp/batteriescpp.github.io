@@ -1,0 +1,363 @@
+---
+USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+Name:            'Pin'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' A copyable/move-optimized smart pointer to PinnableObject `T` that prevents the pointee from being'
+          - Kind:            'TextComment'
+            Text:            ' destructed.  This is an alternative to shared_ptr/intrusive_ptr for the case where application code wishes'
+          - Kind:            'TextComment'
+            Text:            ' to avoid the overhead of heap allocation.  The use case is that a unique owner can be identified within the'
+          - Kind:            'TextComment'
+            Text:            ' code, but there may be race conditions on destruction of the object.  For example, if one Task creates an'
+          - Kind:            'TextComment'
+            Text:            ' object, hands it to another Task, waits for the other Task to be done with it, then the first Task deletes'
+          - Kind:            'TextComment'
+            Text:            ' the object. Normally you would need some external synchronization mechanism for this, but Pin'
+          - Kind:            'TextComment'
+            Text:            '<T'
+          - Kind:            'TextComment'
+            Text:            '> allows the'
+          - Kind:            'TextComment'
+            Text:            ' object itself to contain the required synchronization.'
+DefLocation:
+  LineNumber:      107
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/pin.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'T *'
+    Name:            'ptr_'
+    Access:          Private
+ChildFunctions:
+  - USR:             'F668320C72128662DABCAF47F952F85B756E7E51'
+    Name:            'Pin<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Pin'
+        USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      110
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/pin.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Pin'
+      USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'DBA8BDEA0C077F27CB6B37403AC9CECFFB0E7BC6'
+    Name:            'Pin<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Pin'
+        USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      114
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/pin.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Pin'
+      USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+    Params:
+      - Type:
+          Name:            'std::nullptr_t'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'DD8D5D6B4A3472FEB87E440B31D28A5B7683A2BE'
+    Name:            'Pin<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Pin'
+        USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      118
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/pin.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Pin'
+      USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+    Params:
+      - Type:
+          Name:            'T *'
+        Name:            'object'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'F8B7AB49330BB7ABCE077EE33E592D5FFCD5FFE1'
+    Name:            'Pin<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Pin'
+        USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      125
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/pin.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Pin'
+      USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+    Params:
+      - Type:
+          Name:            'const Pin<T> &'
+        Name:            'other'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'E68FE7DF6EBA65B8F129F652C315B973CCCD3B9D'
+    Name:            'Pin<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Pin'
+        USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      129
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/pin.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Pin'
+      USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+    Params:
+      - Type:
+          Name:            'Pin<T> &&'
+        Name:            'other'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '9DBE8DB318B763E1DB1166EA8F0B4CC3C5871A94'
+    Name:            '~Pin<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'Pin'
+        USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      134
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/pin.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Pin'
+      USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'A549466AA40FE52EC4E112163B3B57616F1594AE'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'Pin'
+        USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      139
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/pin.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Pin'
+      USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+    Params:
+      - Type:
+          Name:            'const Pin<T> &'
+        Name:            'other'
+    ReturnType:
+      Type:
+        Name:            'Pin<T> &'
+    Access:          Public
+  - USR:             '61A32BD5BB15278631BF2B0C2ECE45BA9AD786B8'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'Pin'
+        USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      146
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/pin.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Pin'
+      USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+    Params:
+      - Type:
+          Name:            'Pin<T> &&'
+        Name:            'other'
+    ReturnType:
+      Type:
+        Name:            'Pin<T> &'
+    Access:          Public
+  - USR:             'B5A076BCB58E9CE10BD2A9B227AF4FF50C792055'
+    Name:            'operator bool'
+    Namespace:
+      - Type:            Record
+        Name:            'Pin'
+        USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      153
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/pin.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Pin'
+      USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '34A06C80D379A58F8B4ADCAE1FA63CB2B820E804'
+    Name:            'swap'
+    Namespace:
+      - Type:            Record
+        Name:            'Pin'
+        USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      158
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/pin.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Pin'
+      USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+    Params:
+      - Type:
+          Name:            'Pin<T> &'
+        Name:            'other'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'AA999398AE5D5DEDB5C443872655DE250FB8EF34'
+    Name:            'release'
+    Namespace:
+      - Type:            Record
+        Name:            'Pin'
+        USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      163
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/pin.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Pin'
+      USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             'ADC73EC7E897091FAD06277824C2177BDC984C4A'
+    Name:            'get'
+    Namespace:
+      - Type:            Record
+        Name:            'Pin'
+        USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      171
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/pin.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Pin'
+      USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+    ReturnType:
+      Type:
+        Name:            'T *'
+    Access:          Public
+  - USR:             '0C8FE45015B7C4D537F9C15CD7E35B53718873D0'
+    Name:            'operator*'
+    Namespace:
+      - Type:            Record
+        Name:            'Pin'
+        USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      176
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/pin.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Pin'
+      USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+    ReturnType:
+      Type:
+        Name:            'T &'
+    Access:          Public
+  - USR:             '0678B98F88C535DF0CA5BC29C75EF3F67FB73EB3'
+    Name:            'operator->'
+    Namespace:
+      - Type:            Record
+        Name:            'Pin'
+        USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      181
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/pin.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'Pin'
+      USR:             '529922A1F76FBF974BC893A6AAFB6CAD096C08D0'
+    ReturnType:
+      Type:
+        Name:            'T *'
+    Access:          Public
+...

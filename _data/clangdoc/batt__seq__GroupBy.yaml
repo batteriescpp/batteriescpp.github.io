@@ -1,0 +1,480 @@
+---
+USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+Name:            'GroupBy'
+Path:            'batt/seq'
+Namespace:
+  - Type:            Namespace
+    Name:            'seq'
+    USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+          - Kind:            'TextComment'
+            Text:            ' group_by'
+DefLocation:
+  LineNumber:      28
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'class batt::seq::GroupBy::SubGroup *'
+    Name:            'sub_group_'
+    Access:          Private
+  - Type:
+      Name:            'Seq'
+    Name:            'seq_'
+    Access:          Private
+  - Type:
+      Name:            'Optional<GroupEq>'
+    Name:            'group_eq_'
+    Access:          Private
+  - Type:
+      Name:            'Optional<SeqItem<Seq> >'
+    Name:            'next_item_'
+    Access:          Private
+ChildRecords:
+  - Type:            Record
+    Name:            'SubGroup'
+    USR:             '10302C5958C53401E4966F21D47AC6C26EAE76A8'
+    Path:            'batt/seq/GroupBy'
+ChildFunctions:
+  - USR:             '44F1F29548E2913859564D95D1F029DA414B1735'
+    Name:            'detach'
+    Namespace:
+      - Type:            Record
+        Name:            'GroupBy'
+        USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' If *p_sub_group points to a SubGroup that is attached to an external GroupBy'
+              - Kind:            'TextComment'
+                Text:            ' object, copy its external state into the sub group and set the GroupBy'
+              - Kind:            'TextComment'
+                Text:            ' sub_group_ pointer to nullptr.'
+    DefLocation:
+      LineNumber:      347
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    Location:
+      - LineNumber:      35
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'GroupBy'
+      USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+    Params:
+      - Type:
+          Name:            'class batt::seq::GroupBy::SubGroup *'
+      - Type:
+          Name:            '_Bool'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '94A7C8D862A5CFAFD8C5A86A5A37BD817DD350EE'
+    Name:            'GroupBy<Seq, GroupEq>'
+    Namespace:
+      - Type:            Record
+        Name:            'GroupBy'
+        USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      41
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'GroupBy'
+      USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+    Params:
+      - Type:
+          Name:            'Seq &&'
+        Name:            'seq'
+      - Type:
+          Name:            'GroupEq &&'
+        Name:            'group_eq'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '5032989DB5EADC01F97114910ADB1AAD3926EFE4'
+    Name:            'GroupBy<Seq, GroupEq>'
+    Namespace:
+      - Type:            Record
+        Name:            'GroupBy'
+        USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      48
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'GroupBy'
+      USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+    Params:
+      - Type:
+          Name:            'Seq &&'
+        Name:            'seq'
+      - Type:
+          Name:            'GroupEq &&'
+        Name:            'group_eq'
+      - Type:
+          Name:            'Optional<batt::seq::GroupBy::SubGroupItem> &&'
+        Name:            'next_item'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '5695419E839EEFAE73A377F2145160D95CC7B0C9'
+    Name:            '~GroupBy<Seq, GroupEq>'
+    Namespace:
+      - Type:            Record
+        Name:            'GroupBy'
+        USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      55
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'GroupBy'
+      USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '3386611C821CD749FC88F29E92BB98D65C997F43'
+    Name:            'GroupBy<Seq, GroupEq>'
+    Namespace:
+      - Type:            Record
+        Name:            'GroupBy'
+        USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+              - Kind:            'TextComment'
+                Text:            ' We need custom copy and move constructors because `sub_group_` contains a'
+              - Kind:            'TextComment'
+                Text:            ' back-reference to the GroupBy sequence object that needs to be fixed up'
+              - Kind:            'TextComment'
+                Text:            ' when we copy/move.'
+    DefLocation:
+      LineNumber:      74
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'GroupBy'
+      USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+    Params:
+      - Type:
+          Name:            'GroupBy<Seq, GroupEq> &&'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '04FADC68F5061EAAA6D5F878D4857713BE2FDF27'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'GroupBy'
+        USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      82
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'GroupBy'
+      USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+    Params:
+      - Type:
+          Name:            'GroupBy<Seq, GroupEq> &&'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'GroupBy<Seq, GroupEq> &'
+    Access:          Public
+  - USR:             'E12BFBD6E8AEA1437B25EC2DB15F8690F0F60E50'
+    Name:            'GroupBy<Seq, GroupEq>'
+    Namespace:
+      - Type:            Record
+        Name:            'GroupBy'
+        USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      96
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'GroupBy'
+      USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+    Params:
+      - Type:
+          Name:            'const GroupBy<Seq, GroupEq> &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '5510401E783EEE5D7C78160F2691DFC5B3210FEB'
+    Name:            'operator='
+    Namespace:
+      - Type:            Record
+        Name:            'GroupBy'
+        USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      104
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'GroupBy'
+      USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+    Params:
+      - Type:
+          Name:            'const GroupBy<Seq, GroupEq> &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'GroupBy<Seq, GroupEq> &'
+    Access:          Public
+  - USR:             'B2CDA89FAA211E659DA4BADE8E780D54F85C5B40'
+    Name:            'peek'
+    Namespace:
+      - Type:            Record
+        Name:            'GroupBy'
+        USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      395
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    Location:
+      - LineNumber:      121
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'GroupBy'
+      USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::GroupBy::Item>'
+    Access:          Public
+  - USR:             '03593D5D9497CE8B706A31F90B99733212AE0256'
+    Name:            'next'
+    Namespace:
+      - Type:            Record
+        Name:            'GroupBy'
+        USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      408
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    Location:
+      - LineNumber:      122
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'GroupBy'
+      USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::GroupBy::Item>'
+    Access:          Public
+  - USR:             '7ACE82E692A4E8169F0F2F86E2510C45209F4974'
+    Name:            'move_sub_group'
+    Namespace:
+      - Type:            Record
+        Name:            'GroupBy'
+        USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      136
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'GroupBy'
+      USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+    Params:
+      - Type:
+          Name:            'GroupBy<Seq, GroupEq> &&'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Private
+  - USR:             '32CF55FB4DAFBE80E8FCB798B264FCDCD635D2D3'
+    Name:            'copy_sub_group'
+    Namespace:
+      - Type:            Record
+        Name:            'GroupBy'
+        USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      147
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'GroupBy'
+      USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+    Params:
+      - Type:
+          Name:            'const GroupBy<Seq, GroupEq> &'
+        Name:            'that'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Private
+  - USR:             '5B1D3E5FB7A0241164A1EAE92742EB91A4346A69'
+    Name:            'sub_group_peek'
+    Namespace:
+      - Type:            Record
+        Name:            'GroupBy'
+        USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      156
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'GroupBy'
+      USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::GroupBy::SubGroupItem>'
+    Access:          Private
+  - USR:             'F83DF2C6C01D619907E034EEB90A3205A087BF83'
+    Name:            'sub_group_next'
+    Namespace:
+      - Type:            Record
+        Name:            'GroupBy'
+        USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      376
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    Location:
+      - LineNumber:      160
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/group_by.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'GroupBy'
+      USR:             'E2F6C25381FDCD24DB29DB4ABF38E1AA4B769225'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::GroupBy::SubGroupItem>'
+    Access:          Private
+...

@@ -1,0 +1,339 @@
+---
+USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+Name:            'ExhaustiveModelChecker'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------'
+DefLocation:
+  LineNumber:      59
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/exhaustive_model_checker.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'batt::ExhaustiveModelChecker::StateMachineModel &'
+    Name:            'model_'
+    Access:          Private
+  - Type:
+      Type:            Record
+      Name:            'StateMachineModelCheckAdvancedOptions'
+      USR:             '40A583D31746010C5C5161BC3D669E91BB6367A3'
+      Path:            'batt'
+    Name:            'options_'
+  - Type:
+      Name:            'detail::ParallelModelCheckState<Branch> &'
+    Name:            'mesh_'
+    Access:          Private
+  - Type:
+      Name:            'const batt::int_types::usize'
+    Name:            'shard_i_'
+    Access:          Private
+  - Type:
+      Name:            'Optional<batt::ExhaustiveModelChecker::Branch>'
+    Name:            'current_branch_'
+    Access:          Private
+  - Type:
+      Name:            'batt::ExhaustiveModelChecker::BranchDelta'
+    Name:            'history_'
+    Access:          Private
+  - Type:
+      Name:            'std::deque<Branch>'
+    Name:            'queue_'
+    Access:          Private
+  - Type:
+      Type:            Record
+      Name:            'StateMachineResult'
+      USR:             '849572E82FE44AC8EEB7425FE223C92EDB32D403'
+      Path:            'batt'
+    Name:            'result_'
+  - Type:
+      Name:            'batt::int_types::usize'
+    Name:            'progress_reports_'
+    Access:          Private
+ChildRecords:
+  - Type:            Record
+    Name:            'ForceSend_TAG'
+    USR:             '5BC9CAD4CAABAF7CC3BBA287D697273C8AA54D65'
+    Path:            'batt/ExhaustiveModelChecker'
+ChildFunctions:
+  - USR:             '7CACF3E021045D60595614B42B74A677E8F779F0'
+    Name:            'strong_typedef_default_value'
+    Namespace:
+      - Type:            Record
+        Name:            'ExhaustiveModelChecker'
+        USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      70
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/exhaustive_model_checker.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'ExhaustiveModelChecker'
+      USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+    Params:
+      - Type:
+          Name:            'struct batt::ExhaustiveModelChecker::ForceSend_TAG *'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             'A13CB8210ECA3C55276893D84506BB8FB2368693'
+    Name:            'ExhaustiveModelChecker<ModelT>'
+    Namespace:
+      - Type:            Record
+        Name:            'ExhaustiveModelChecker'
+        USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      105
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/exhaustive_model_checker.hpp'
+    Location:
+      - LineNumber:      72
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/exhaustive_model_checker.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'ExhaustiveModelChecker'
+      USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+    Params:
+      - Type:
+          Name:            'batt::ExhaustiveModelChecker::StateMachineModel &'
+        Name:            'model'
+      - Type:
+          Name:            'detail::ParallelModelCheckState<Branch> &'
+        Name:            'mesh'
+      - Type:
+          Name:            'batt::int_types::usize'
+        Name:            'shard_i'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '62CEB26D5BFCDE88445FF000116EC0296777E6B1'
+    Name:            '~ExhaustiveModelChecker<ModelT>'
+    Namespace:
+      - Type:            Record
+        Name:            'ExhaustiveModelChecker'
+        USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      123
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/exhaustive_model_checker.hpp'
+    Location:
+      - LineNumber:      75
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/exhaustive_model_checker.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'ExhaustiveModelChecker'
+      USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '35727323C65E64C196508542DF0A7E3BCC54DA47'
+    Name:            'run'
+    Namespace:
+      - Type:            Record
+        Name:            'ExhaustiveModelChecker'
+        USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      272
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/exhaustive_model_checker.hpp'
+    Location:
+      - LineNumber:      77
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/exhaustive_model_checker.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'ExhaustiveModelChecker'
+      USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'StateMachineResult'
+        USR:             '849572E82FE44AC8EEB7425FE223C92EDB32D403'
+        Path:            'batt'
+    Access:          Public
+  - USR:             '826542E6E4950B8F8CB50C5D067D6BA12C7CB74D'
+    Name:            'pick_int'
+    Namespace:
+      - Type:            Record
+        Name:            'ExhaustiveModelChecker'
+        USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      131
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/exhaustive_model_checker.hpp'
+    Location:
+      - LineNumber:      79
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/exhaustive_model_checker.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'ExhaustiveModelChecker'
+      USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+    Params:
+      - Type:
+          Name:            'batt::int_types::usize'
+        Name:            'min_value'
+      - Type:
+          Name:            'batt::int_types::usize'
+        Name:            'max_value'
+    ReturnType:
+      Type:
+        Name:            'batt::int_types::usize'
+    Access:          Public
+  - USR:             '70FE4A8BEC3FF7D57A721265B3979843C1BFA42C'
+    Name:            'explore'
+    Namespace:
+      - Type:            Record
+        Name:            'ExhaustiveModelChecker'
+        USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      171
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/exhaustive_model_checker.hpp'
+    Location:
+      - LineNumber:      82
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/exhaustive_model_checker.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'ExhaustiveModelChecker'
+      USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+    Params:
+      - Type:
+          Name:            'batt::ExhaustiveModelChecker::Branch &&'
+        Name:            'branch'
+      - Type:
+          Name:            'batt::ExhaustiveModelChecker::ForceSend'
+        Name:            'force_send'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Private
+  - USR:             '88F4E2D8BE7FB67F8D94E1F8F8BB5925BCE0F715'
+    Name:            'enter_loop'
+    Namespace:
+      - Type:            Record
+        Name:            'ExhaustiveModelChecker'
+        USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      192
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/exhaustive_model_checker.hpp'
+    Location:
+      - LineNumber:      84
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/exhaustive_model_checker.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'ExhaustiveModelChecker'
+      USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+    Params:
+      - Type:
+          Name:            'batt::int_types::usize'
+        Name:            'loop_counter'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Private
+  - USR:             'C2D8E36A0A8D7A221BBBB5809608678D9DF9DB0E'
+    Name:            'pop_next'
+    Namespace:
+      - Type:            Record
+        Name:            'ExhaustiveModelChecker'
+        USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+    DefLocation:
+      LineNumber:      218
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/exhaustive_model_checker.hpp'
+    Location:
+      - LineNumber:      86
+        Filename:        '/home/astolfi/projects/batteries/src/./batteries/state_machine_model/exhaustive_model_checker.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'ExhaustiveModelChecker'
+      USR:             '147F6C79F2F367CFE34B6834A392331FB8148EE0'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Private
+...

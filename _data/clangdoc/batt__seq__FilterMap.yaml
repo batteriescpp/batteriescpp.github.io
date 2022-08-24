@@ -1,0 +1,101 @@
+---
+USR:             '8E500CBFE05106F93862602598B09FB9146D1007'
+Name:            'FilterMap'
+Path:            'batt/seq'
+Namespace:
+  - Type:            Namespace
+    Name:            'seq'
+    USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      42
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/filter_map.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'batt::seq::FilterMap::impl_type'
+    Name:            'impl_'
+    Access:          Private
+ChildFunctions:
+  - USR:             'EC2DB8B9D371E7EF5A9DA2600E12597DC8CA0004'
+    Name:            'FilterMap<Seq, Fn>'
+    Namespace:
+      - Type:            Record
+        Name:            'FilterMap'
+        USR:             '8E500CBFE05106F93862602598B09FB9146D1007'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      49
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/filter_map.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FilterMap'
+      USR:             '8E500CBFE05106F93862602598B09FB9146D1007'
+    Params:
+      - Type:
+          Name:            'Seq &&'
+        Name:            'seq'
+      - Type:
+          Name:            'Fn &&'
+        Name:            'fn'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '09504833B9A8D20126BE953525FDC4B83D9F4B92'
+    Name:            'peek'
+    Namespace:
+      - Type:            Record
+        Name:            'FilterMap'
+        USR:             '8E500CBFE05106F93862602598B09FB9146D1007'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      54
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/filter_map.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FilterMap'
+      USR:             '8E500CBFE05106F93862602598B09FB9146D1007'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::FilterMap::Item>'
+    Access:          Public
+  - USR:             'DF2C90F40C4FAFDE11DDC2782A13E67281B6E34C'
+    Name:            'next'
+    Namespace:
+      - Type:            Record
+        Name:            'FilterMap'
+        USR:             '8E500CBFE05106F93862602598B09FB9146D1007'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      58
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/filter_map.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'FilterMap'
+      USR:             '8E500CBFE05106F93862602598B09FB9146D1007'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::FilterMap::Item>'
+    Access:          Public
+...

@@ -1,0 +1,46 @@
+---
+USR:             '23397D487DAF09339ECE2EA072501BA32A11A346'
+Name:            'VecSeq'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      93
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+TagType:         Class
+Parents:
+  - Type:            Record
+    Name:            'VecSeqBase<T>'
+    USR:             '29429283CC96AF4FF00C47E1E7087AB5EFA59CB9'
+  - Type:            Record
+    Name:            'SubRangeSeq<boost::iterator_range<const T *> >'
+    USR:             'A7CC204CDFADE98618EF9C75D2C62AFB67D77E13'
+ChildFunctions:
+  - USR:             '0F5C94FDC6014E1750B80764676B302954A4AEB1'
+    Name:            'VecSeq<T>'
+    Namespace:
+      - Type:            Record
+        Name:            'VecSeq'
+        USR:             '23397D487DAF09339ECE2EA072501BA32A11A346'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      98
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'VecSeq'
+      USR:             '23397D487DAF09339ECE2EA072501BA32A11A346'
+    Params:
+      - Type:
+          Name:            'std::vector<T> &&'
+        Name:            'v'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+...

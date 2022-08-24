@@ -18,6 +18,21 @@
     <!--<script async src='https://www.google-analytics.com/analytics.js'></script>-->
   </head>
   <body>
+
+<ul>
+ <li> BEFORE </li>
+      {% for member in site.data.batt.HttpData.Members %}
+      <li>
+        {{ member.Name }}
+      </li>
+      {% endfor %}
+      <li> {{ site.data.testing.foo }}</li>
+      <li> {{ site.data.testing.Grill }}</li>
+      <li> SubDir: {{ site.data.SubDir.testing.Grill }}</li>
+      <li> {{ site.data.batt.BoxedSeq.Name }}</li>
+      <li> AFTER </li>
+    </ul>
+
     <div class="sidebar">
       <div class="header">
         <h1><div class="logo"><img width="100px" src="/images/BatteriesLogo.png"></div>

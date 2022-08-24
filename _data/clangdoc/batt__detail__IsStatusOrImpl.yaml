@@ -1,0 +1,57 @@
+---
+USR:             '7C21AEAB65764BD2C2C78FAA3C850016A5224551'
+Name:            'IsStatusOrImpl'
+Path:            'batt/detail'
+Namespace:
+  - Type:            Namespace
+    Name:            'detail'
+    USR:             '7EFD2C42787CC2D5BEDB73B9828224F9950DADAE'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      734
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/status.hpp'
+Bases:
+  - USR:             'DCD99CC522B9E872B3084A5B891004AFE72394D9'
+    Name:            'std::false_type'
+    Path:            'std'
+    ChildFunctions:
+      - USR:             'ECE9277AAE47EA63D936A9DA1145AD343E4EFD6A'
+        Name:            'operator bool'
+        Namespace:
+          - Type:            Record
+            Name:            'integral_constant'
+            USR:             '9C34B28BFD3E7FFB9730CB1F4AB1B1B01B9D2BD8'
+          - Type:            Namespace
+            Name:            'std'
+            USR:             '788BE0EE2B9E1883DC13CA753557E782CA76A23C'
+        DefLocation:     {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'std::integral_constant<_Bool, false>::value_type'
+        Access:          Public
+      - USR:             '46172D66B0E27A7F66CCB8F4FCDA726CC7B4BC4B'
+        Name:            'operator()'
+        Namespace:
+          - Type:            Record
+            Name:            'integral_constant'
+            USR:             '9C34B28BFD3E7FFB9730CB1F4AB1B1B01B9D2BD8'
+          - Type:            Namespace
+            Name:            'std'
+            USR:             '788BE0EE2B9E1883DC13CA753557E782CA76A23C'
+        Location:
+          - {}
+        IsMethod:        true
+        ReturnType:
+          Type:
+            Name:            'std::integral_constant<_Bool, false>::value_type'
+        Access:          Public
+    Access:          Public
+    IsParent:        true
+Parents:
+  - Type:            Record
+    Name:            'std::false_type'
+    USR:             'DCD99CC522B9E872B3084A5B891004AFE72394D9'
+...

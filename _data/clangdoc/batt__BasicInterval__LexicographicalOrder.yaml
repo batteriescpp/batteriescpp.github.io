@@ -1,0 +1,54 @@
+---
+USR:             'C561CDAFA7B0B1DFB202A3FEC967609DA8A1F872'
+Name:            'LexicographicalOrder'
+Path:            'batt/BasicInterval'
+Namespace:
+  - Type:            Record
+    Name:            'BasicInterval'
+    USR:             '70A18B91B0DB3F758570FD469212731D45D58EB8'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' Total order that sorts intervals first by lower bound, then by upper bound.'
+DefLocation:
+  LineNumber:      173
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/interval.hpp'
+ChildFunctions:
+  - USR:             '2AEE9C587DB52EDC0ADEE638D76BDE7EF4A44B55'
+    Name:            'operator()'
+    Namespace:
+      - Type:            Record
+        Name:            'LexicographicalOrder'
+        USR:             'C561CDAFA7B0B1DFB202A3FEC967609DA8A1F872'
+      - Type:            Record
+        Name:            'BasicInterval'
+        USR:             '70A18B91B0DB3F758570FD469212731D45D58EB8'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      175
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/interval.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'LexicographicalOrder'
+      USR:             'C561CDAFA7B0B1DFB202A3FEC967609DA8A1F872'
+    Params:
+      - Type:
+          Name:            'const BasicInterval<TraitsL> &'
+        Name:            'l'
+      - Type:
+          Name:            'const BasicInterval<TraitsR> &'
+        Name:            'r'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+...

@@ -1,0 +1,70 @@
+---
+USR:             '64FE96D5298CE36937673C45ED468D921029B8D0'
+Name:            'WorkSliceParams'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------'
+          - Kind:            'TextComment'
+            Text:            ' Parameters that control the formation of a work-slicing plan (WorkSlicePlan).'
+DefLocation:
+  LineNumber:      37
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/slice_work.hpp'
+Members:
+  - Type:
+      Type:            Record
+      Name:            'StrongType'
+      USR:             'DBE7043FD988028A06D5B13AB68978D7B1E759B0'
+      Path:            'batt'
+    Name:            'min_task_size'
+  - Type:
+      Type:            Record
+      Name:            'StrongType'
+      USR:             'E8075AB7B467FED60555215B3FB81AFDB2E6989A'
+      Path:            'batt'
+    Name:            'max_tasks'
+ChildFunctions:
+  - USR:             '36AA2EEFA7C768D323ACFEDC9A6608932B58F679'
+    Name:            'from_worker_pool'
+    Namespace:
+      - Type:            Record
+        Name:            'WorkSliceParams'
+        USR:             '64FE96D5298CE36937673C45ED468D921029B8D0'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    Description:
+      - Kind:            'FullComment'
+        Children:
+          - Kind:            'ParagraphComment'
+            Children:
+              - Kind:            'TextComment'
+                Text:            ' Returns reasonable defaults for slicing work to be performed by the given WorkerPool.'
+    DefLocation:
+      LineNumber:      46
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/async/slice_work.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'WorkSliceParams'
+      USR:             '64FE96D5298CE36937673C45ED468D921029B8D0'
+    Params:
+      - Type:
+          Name:            'class batt::WorkerPool &'
+        Name:            'worker_pool'
+    ReturnType:
+      Type:
+        Type:            Record
+        Name:            'WorkSliceParams'
+        USR:             '64FE96D5298CE36937673C45ED468D921029B8D0'
+        Path:            'batt'
+    Access:          Public
+...

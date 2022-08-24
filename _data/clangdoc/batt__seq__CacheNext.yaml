@@ -1,0 +1,113 @@
+---
+USR:             '54D3B672C5ADEA14337400216FC7C024BAD10C0A'
+Name:            'CacheNext'
+Path:            'batt/seq'
+Namespace:
+  - Type:            Namespace
+    Name:            'seq'
+    USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            '==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -'
+          - Kind:            'TextComment'
+            Text:            ' cache_next() - Adapts any sequence to cache the next item so that repeated'
+          - Kind:            'TextComment'
+            Text:            ' calls to peek will be fast.'
+DefLocation:
+  LineNumber:      24
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/cache_next.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Name:            'Seq'
+    Name:            'seq_'
+    Access:          Private
+  - Type:
+      Name:            'Optional<Optional<batt::seq::CacheNext::Item> >'
+    Name:            'cached_'
+    Access:          Private
+ChildFunctions:
+  - USR:             'DFBFFFBBCAC72EA3577496F8076942C826DE0BBE'
+    Name:            'CacheNext<Seq>'
+    Namespace:
+      - Type:            Record
+        Name:            'CacheNext'
+        USR:             '54D3B672C5ADEA14337400216FC7C024BAD10C0A'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      29
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/cache_next.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'CacheNext'
+      USR:             '54D3B672C5ADEA14337400216FC7C024BAD10C0A'
+    Params:
+      - Type:
+          Name:            'Seq &&'
+        Name:            'seq'
+    ReturnType:
+      Type:
+        Name:            'void'
+    Access:          Public
+  - USR:             '1BB05FE4E2A000D5199BD35F57EA55AFC6F4EA5D'
+    Name:            'peek'
+    Namespace:
+      - Type:            Record
+        Name:            'CacheNext'
+        USR:             '54D3B672C5ADEA14337400216FC7C024BAD10C0A'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      33
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/cache_next.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'CacheNext'
+      USR:             '54D3B672C5ADEA14337400216FC7C024BAD10C0A'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::CacheNext::Item>'
+    Access:          Public
+  - USR:             '92AC62D273094C423F9910C25296925A1B13560E'
+    Name:            'next'
+    Namespace:
+      - Type:            Record
+        Name:            'CacheNext'
+        USR:             '54D3B672C5ADEA14337400216FC7C024BAD10C0A'
+      - Type:            Namespace
+        Name:            'seq'
+        USR:             '00481DCD4E164F73B3B214AC83E4E7CB16DF18BB'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      41
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/seq/cache_next.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'CacheNext'
+      USR:             '54D3B672C5ADEA14337400216FC7C024BAD10C0A'
+    ReturnType:
+      Type:
+        Name:            'Optional<batt::seq::CacheNext::Item>'
+    Access:          Public
+...

@@ -1,0 +1,120 @@
+---
+USR:             '68C66B4FC4C9A85F0F6D0EECEF76B9634650E91C'
+Name:            'LinearOrder'
+Path:            'batt/BasicInterval'
+Namespace:
+  - Type:            Record
+    Name:            'BasicInterval'
+    USR:             '70A18B91B0DB3F758570FD469212731D45D58EB8'
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+Description:
+  - Kind:            'FullComment'
+    Children:
+      - Kind:            'ParagraphComment'
+        Children:
+          - Kind:            'TextComment'
+            Text:            ' Partial order on Interval values that corresponds to a strict ordering on a one dimensional number'
+          - Kind:            'TextComment'
+            Text:            ' line; i.e. requires that the lower bound of the "greater" interval is greater than or equal to the'
+          - Kind:            'TextComment'
+            Text:            ' upper bound of the "lesser."'
+DefLocation:
+  LineNumber:      146
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/interval.hpp'
+ChildFunctions:
+  - USR:             '6548E638AE1BC03161DCAC6ECD49B4AF7DE422F0'
+    Name:            'operator()'
+    Namespace:
+      - Type:            Record
+        Name:            'LinearOrder'
+        USR:             '68C66B4FC4C9A85F0F6D0EECEF76B9634650E91C'
+      - Type:            Record
+        Name:            'BasicInterval'
+        USR:             '70A18B91B0DB3F758570FD469212731D45D58EB8'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      148
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/interval.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'LinearOrder'
+      USR:             '68C66B4FC4C9A85F0F6D0EECEF76B9634650E91C'
+    Params:
+      - Type:
+          Name:            'const BasicInterval<TraitsL> &'
+        Name:            'l'
+      - Type:
+          Name:            'const BasicInterval<TraitsR> &'
+        Name:            'r'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '26E067B8E5D9DF35E0B36845EB428D4BDBA0B426'
+    Name:            'operator()'
+    Namespace:
+      - Type:            Record
+        Name:            'LinearOrder'
+        USR:             '68C66B4FC4C9A85F0F6D0EECEF76B9634650E91C'
+      - Type:            Record
+        Name:            'BasicInterval'
+        USR:             '70A18B91B0DB3F758570FD469212731D45D58EB8'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      155
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/interval.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'LinearOrder'
+      USR:             '68C66B4FC4C9A85F0F6D0EECEF76B9634650E91C'
+    Params:
+      - Type:
+          Name:            'const L &'
+        Name:            'l'
+      - Type:
+          Name:            'const BasicInterval<TraitsR> &'
+        Name:            'r'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+  - USR:             '2C9B6A7D81EF735236D6E977D3AC39E40068F849'
+    Name:            'operator()'
+    Namespace:
+      - Type:            Record
+        Name:            'LinearOrder'
+        USR:             '68C66B4FC4C9A85F0F6D0EECEF76B9634650E91C'
+      - Type:            Record
+        Name:            'BasicInterval'
+        USR:             '70A18B91B0DB3F758570FD469212731D45D58EB8'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      161
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/interval.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'LinearOrder'
+      USR:             '68C66B4FC4C9A85F0F6D0EECEF76B9634650E91C'
+    Params:
+      - Type:
+          Name:            'const BasicInterval<TraitsL> &'
+        Name:            'l'
+      - Type:
+          Name:            'const R &'
+        Name:            'r'
+    ReturnType:
+      Type:
+        Name:            '_Bool'
+    Access:          Public
+...

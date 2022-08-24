@@ -1,0 +1,60 @@
+---
+USR:             '40AAE2691575000584F77786028F62A88F506306'
+Name:            'DefaultHttpClient'
+Path:            'batt'
+Namespace:
+  - Type:            Namespace
+    Name:            'batt'
+    USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+DefLocation:
+  LineNumber:      66
+  Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client.hpp'
+TagType:         Class
+Members:
+  - Type:
+      Type:            Record
+      Name:            'io_context'
+      USR:             '9DA6E7A872741DD3AE48733C7289B51E71DD6B18'
+      Path:            'boost/asio'
+    Name:            'io_'
+  - Type:
+      Type:            Record
+      Name:            'Optional'
+      USR:             'ABCDF7267FFAD689643910FE192CCFBC1A08E3CB'
+      Path:            'batt'
+    Name:            'work_guard_'
+  - Type:
+      Type:            Record
+      Name:            'HttpClient'
+      USR:             '2C0B209027C98A16C989036801F6317E249F2D85'
+      Path:            'batt'
+    Name:            'client_'
+  - Type:
+      Type:            Record
+      Name:            'thread'
+      USR:             'A8F048A15E83A9DAA20FD4CD7CF0018E7E36C0E2'
+      Path:            'std'
+    Name:            'io_thread_'
+ChildFunctions:
+  - USR:             '5C9A174121B92A8921BD39A10BAB4004F8B76EEF'
+    Name:            'get'
+    Namespace:
+      - Type:            Record
+        Name:            'DefaultHttpClient'
+        USR:             '40AAE2691575000584F77786028F62A88F506306'
+      - Type:            Namespace
+        Name:            'batt'
+        USR:             '49435140F6D880081C8A244416FD20058C1765BB'
+    DefLocation:
+      LineNumber:      69
+      Filename:        '/home/astolfi/projects/batteries/src/./batteries/http/http_client.hpp'
+    IsMethod:        true
+    Parent:
+      Type:            Record
+      Name:            'DefaultHttpClient'
+      USR:             '40AAE2691575000584F77786028F62A88F506306'
+    ReturnType:
+      Type:
+        Name:            'class batt::HttpClient &'
+    Access:          Public
+...
