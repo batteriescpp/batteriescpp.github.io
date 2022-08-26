@@ -189,22 +189,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="https://gitlab.com/tonyastolfi/batteries/" class="md-nav__link">
+        GitLab Repo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_2">
+        <label class="md-nav__link" for="__nav_3">
           Headers
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Headers" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Headers
         </label>
@@ -311,18 +326,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_3">
+        <label class="md-nav__link" for="__nav_4">
           Reference
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Reference" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Reference
         </label>
@@ -350,6 +365,82 @@
     <li class="md-nav__item">
       <a href="/_autogen/Classes/" class="md-nav__link">
         Classes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/coding_style" class="md-nav__link">
+        Coding Style
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/how-to/configure-ci-pipelines" class="md-nav__link">
+        Configuring CI Pipelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/how-to/write-the-docs" class="md-nav__link">
+        Writing Documentation
       </a>
     </li>
   
@@ -487,9 +578,11 @@
 <ul>
 <li><code>Seq&lt;T&gt;</code> must be copy-constructible, copy-assignable, and publically destructible</li>
 <li><code>Seq&lt;T&gt;</code> must have a public type member or type alias/typedef named <code>Item</code>, equivalent to <code>T</code></li>
-<li>Given an object <code>seq</code> of type <code>Seq&lt;T&gt;</code>:</li>
+<li>Given an object <code>seq</code> of type <code>Seq&lt;T&gt;</code>:<ul>
 <li><code>seq.peek()</code> must return a value of type <code>batt::Optional&lt;T&gt;</code>; if the sequence is empty or at its end, <code>batt::None</code> is returned, otherwise the next item in the sequence is returned</li>
 <li><code>seq.next()</code> is the same in terms of returned value, but it additionally has the side effect of consuming the returned item from the sequence</li>
+</ul>
+</li>
 </ul>
 <h2 id="stl-ranges-to-sequences">STL Ranges to Sequences<a class="headerlink" href="#stl-ranges-to-sequences" title="Permanent link">&#128279;</a></h2>
 <p>The function <code>batt::as_seq</code> is used to create a <code>Seq</code> from STL containers and ranges in order to access the rest of the Seq API.  You can pass a range, a pair of iterators, or a starting iterator and a size to overloads of <code>batt::as_seq</code> to do this.</p>
