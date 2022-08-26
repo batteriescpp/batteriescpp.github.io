@@ -1413,7 +1413,7 @@
 <tbody>
 <tr>
 <td>template &lt;typename AsyncWriteStream > <br>auto</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-write_to">write_to</a></strong>(AsyncWriteStream &amp;&amp; dst)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-write-to">write_to</a></strong>(AsyncWriteStream &amp;&amp; dst)</td>
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/structbatt_1_1seq_1_1BoxedBinder/">BoxedBinder</a></td>
@@ -1425,7 +1425,7 @@
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/structbatt_1_1seq_1_1CacheNextBinder/">CacheNextBinder</a></td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-cache_next">cache_next</a></strong>()</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-cache-next">cache_next</a></strong>()</td>
 </tr>
 <tr>
 <td>template &lt;typename Seq > <br>auto</td>
@@ -1441,7 +1441,7 @@
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/structbatt_1_1seq_1_1CollectVec/">CollectVec</a></td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-collect_vec">collect_vec</a></strong>()</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-collect-vec">collect_vec</a></strong>()</td>
 </tr>
 <tr>
 <td>template &lt;typename Seq ,typename  =EnableIfSeq<Seq>> <br>auto</td>
@@ -1469,7 +1469,7 @@
 </tr>
 <tr>
 <td>template &lt;typename Container > <br>auto</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-emplace_back">emplace_back</a></strong>(Container * dst)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-emplace-back">emplace_back</a></strong>(Container * dst)</td>
 </tr>
 <tr>
 <td>template &lt;typename Predicate > <br><a href="/_autogen/Classes/structbatt_1_1seq_1_1FilterBinder/">FilterBinder</a>&lt; Predicate &gt;</td>
@@ -1481,11 +1481,11 @@
 </tr>
 <tr>
 <td>template &lt;typename Seq ,typename Fn > <br>auto</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-filter_map_impl">filter_map_impl</a></strong>(Seq &amp;&amp; seq, Fn &amp;&amp; fn)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-filter-map-impl">filter_map_impl</a></strong>(Seq &amp;&amp; seq, Fn &amp;&amp; fn)</td>
 </tr>
 <tr>
 <td>template &lt;typename Fn > <br><a href="/_autogen/Classes/structbatt_1_1seq_1_1FilterMapBinder/">FilterMapBinder</a>&lt; Fn &gt;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-filter_map">filter_map</a></strong>(Fn &amp;&amp; fn)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-filter-map">filter_map</a></strong>(Fn &amp;&amp; fn)</td>
 </tr>
 <tr>
 <td>template &lt;typename Seq ,typename Fn > <br><a href="/_autogen/Classes/classbatt_1_1seq_1_1FilterMap/">FilterMap</a>&lt; Seq, Fn &gt;</td>
@@ -1509,7 +1509,7 @@
 </tr>
 <tr>
 <td>template &lt;typename Fn > <br><a href="/_autogen/Classes/structbatt_1_1seq_1_1ForEachBinder/">ForEachBinder</a>&lt; Fn &gt;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-for_each">for_each</a></strong>(Fn &amp;&amp; fn)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-for-each">for_each</a></strong>(Fn &amp;&amp; fn)</td>
 </tr>
 <tr>
 <td>template &lt;typename Seq ,typename Fn ,typename  =EnableIfSeq<Seq>> <br>LoopControl</td>
@@ -1517,7 +1517,7 @@
 </tr>
 <tr>
 <td>template &lt;typename GroupEq > <br><a href="/_autogen/Classes/structbatt_1_1seq_1_1GroupByBinder/">GroupByBinder</a>&lt; GroupEq &gt;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-group_by">group_by</a></strong>(GroupEq &amp;&amp; group_eq)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-group-by">group_by</a></strong>(GroupEq &amp;&amp; group_eq)</td>
 </tr>
 <tr>
 <td>template &lt;typename Seq ,typename GroupEq > <br><a href="/_autogen/Classes/classbatt_1_1seq_1_1GroupBy/">GroupBy</a>&lt; Seq, GroupEq &gt;</td>
@@ -1529,11 +1529,11 @@
 </tr>
 <tr>
 <td>template &lt;typename Fn ,typename... Args,typename  =std::enable_if_t<std::is_convertible_v\<std::invoke_result_t\<Fn&&, Args&&...>, LoopControl>>> <br>LoopControl</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-run_loop_fn">run_loop_fn</a></strong>(Fn &amp;&amp; fn, Args &amp;&amp;... args)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-run-loop-fn">run_loop_fn</a></strong>(Fn &amp;&amp; fn, Args &amp;&amp;... args)</td>
 </tr>
 <tr>
 <td>template &lt;typename Fn ,typename... Args,typename  =std::enable_if_t&lt;!std::is_convertible_v<std::invoke_result_t\<Fn&&, Args&&...>, LoopControl>&gt;,typename  =void> <br>LoopControl</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-run_loop_fn">run_loop_fn</a></strong>(Fn &amp;&amp; fn, Args &amp;&amp;... args)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-run-loop-fn">run_loop_fn</a></strong>(Fn &amp;&amp; fn, Args &amp;&amp;... args)</td>
 </tr>
 <tr>
 <td>template &lt;typename MapFn > <br><a href="/_autogen/Classes/structbatt_1_1seq_1_1MapBinder/">MapBinder</a>&lt; MapFn &gt;</td>
@@ -1545,7 +1545,7 @@
 </tr>
 <tr>
 <td>template &lt;typename Compare ,typename RightSeq > <br><a href="/_autogen/Classes/structbatt_1_1seq_1_1MergeByBinder/">MergeByBinder</a>&lt; RightSeq, Compare &gt;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-merge_by">merge_by</a></strong>(Compare &amp;&amp; compare, RightSeq &amp;&amp; right)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-merge-by">merge_by</a></strong>(Compare &amp;&amp; compare, RightSeq &amp;&amp; right)</td>
 </tr>
 <tr>
 <td>template &lt;typename RightSeq > <br>auto</td>
@@ -1561,7 +1561,7 @@
 </tr>
 <tr>
 <td>auto</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-print_out">print_out</a></strong>(std::ostream &amp; out, std::string_view sep =" ")</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-print-out">print_out</a></strong>(std::ostream &amp; out, std::string_view sep =" ")</td>
 </tr>
 <tr>
 <td>template &lt;typename Seq ,typename  =EnableIfSeq<Seq>> <br>auto</td>
@@ -1569,7 +1569,7 @@
 </tr>
 <tr>
 <td>auto</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-debug_out">debug_out</a></strong>(std::ostream &amp; out, std::string_view sep =" ")</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-debug-out">debug_out</a></strong>(std::ostream &amp; out, std::string_view sep =" ")</td>
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/structbatt_1_1seq_1_1PrintableBinder/">PrintableBinder</a></td>
@@ -1589,7 +1589,7 @@
 </tr>
 <tr>
 <td>auto</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-status_ok">status_ok</a></strong>()</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-status-ok">status_ok</a></strong>()</td>
 </tr>
 <tr>
 <td>template &lt;typename SeqT > <br><a href="/_autogen/Classes/classbatt_1_1seq_1_1StatusOk/">StatusOk</a>&lt; SeqT &gt;</td>
@@ -1597,7 +1597,7 @@
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/structbatt_1_1seq_1_1TakeNBinder/">TakeNBinder</a></td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-take_n">take_n</a></strong>(usize n)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-take-n">take_n</a></strong>(usize n)</td>
 </tr>
 <tr>
 <td>template &lt;typename Seq ,typename  =EnableIfSeq<Seq>> <br><a href="/_autogen/Classes/classbatt_1_1seq_1_1TakeN/">TakeN</a>&lt; Seq &gt;</td>
@@ -1605,7 +1605,7 @@
 </tr>
 <tr>
 <td>template &lt;typename Predicate > <br><a href="/_autogen/Classes/structbatt_1_1seq_1_1TakeWhileBinder/">TakeWhileBinder</a>&lt; Predicate &gt;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-take_while">take_while</a></strong>(Predicate &amp;&amp; predicate)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-take-while">take_while</a></strong>(Predicate &amp;&amp; predicate)</td>
 </tr>
 <tr>
 <td>template &lt;typename Seq ,typename Predicate > <br><a href="/_autogen/Classes/classbatt_1_1seq_1_1TakeWhile/">TakeWhile</a>&lt; Seq, Predicate &gt;</td>
@@ -1625,7 +1625,7 @@
 </tr>
 <tr>
 <td>template &lt;typename Compare > <br><a href="/_autogen/Classes/structbatt_1_1seq_1_1KMergeByBinder/">KMergeByBinder</a>&lt; Compare &gt;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-kmerge_by">kmerge_by</a></strong>(Compare &amp;&amp; compare)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-kmerge-by">kmerge_by</a></strong>(Compare &amp;&amp; compare)</td>
 </tr>
 <tr>
 <td>auto</td>
@@ -1637,7 +1637,7 @@
 </tr>
 <tr>
 <td>template &lt;typename RightSeq ,typename MapFn > <br><a href="/_autogen/Classes/structbatt_1_1seq_1_1MapPairwiseBinder/">MapPairwiseBinder</a>&lt; RightSeq, MapFn &gt;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-map_pairwise">map_pairwise</a></strong>(RightSeq &amp;&amp; right, MapFn &amp;&amp; map_fn)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-map-pairwise">map_pairwise</a></strong>(RightSeq &amp;&amp; right, MapFn &amp;&amp; map_fn)</td>
 </tr>
 <tr>
 <td>template &lt;typename LeftSeq ,typename RightSeq ,typename MapFn > <br><a href="/_autogen/Classes/classbatt_1_1seq_1_1MapPairwise/">MapPairwise</a>&lt; LeftSeq, RightSeq, MapFn &gt;</td>
@@ -1653,7 +1653,7 @@
 </tr>
 <tr>
 <td>template &lt;typename ReduceFn > <br><a href="/_autogen/Classes/structbatt_1_1seq_1_1InnerReduceBinder/">InnerReduceBinder</a>&lt; ReduceFn &gt;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-inner_reduce">inner_reduce</a></strong>(ReduceFn &amp;&amp; reduce_fn)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-inner-reduce">inner_reduce</a></strong>(ReduceFn &amp;&amp; reduce_fn)</td>
 </tr>
 <tr>
 <td>template &lt;typename Seq ,typename ReduceFn > <br><a href="/_autogen/Classes/classbatt_1_1Optional/">Optional</a>&lt; std::decay_t&lt; SeqItem&lt; Seq &gt; &gt; &gt;</td>
@@ -1661,7 +1661,7 @@
 </tr>
 <tr>
 <td>template &lt;typename T > <br><a href="/_autogen/Classes/classbatt_1_1seq_1_1SingleItem/">SingleItem</a>&lt; T &gt;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-single_item">single_item</a></strong>(T &amp;&amp; item)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-single-item">single_item</a></strong>(T &amp;&amp; item)</td>
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/structbatt_1_1seq_1_1SumBinder/">SumBinder</a></td>
@@ -1681,7 +1681,7 @@
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/structbatt_1_1seq_1_1AnyBinder/">AnyBinder</a></td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-any_true">any_true</a></strong>()</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-any-true">any_true</a></strong>()</td>
 </tr>
 <tr>
 <td>template &lt;typename Seq > <br>auto</td>
@@ -1689,7 +1689,7 @@
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/structbatt_1_1seq_1_1AllBinder/">AllBinder</a></td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-all_true">all_true</a></strong>()</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-all-true">all_true</a></strong>()</td>
 </tr>
 <tr>
 <td>template &lt;typename Seq > <br>auto</td>
@@ -1697,7 +1697,7 @@
 </tr>
 <tr>
 <td>template &lt;typename Fn > <br><a href="/_autogen/Classes/structbatt_1_1seq_1_1MapAdjacentBinder/">MapAdjacentBinder</a>&lt; Fn &gt;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-map_adjacent">map_adjacent</a></strong>(Fn &amp;&amp; fn)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-map-adjacent">map_adjacent</a></strong>(Fn &amp;&amp; fn)</td>
 </tr>
 <tr>
 <td>template &lt;typename Seq ,typename Fn > <br><a href="/_autogen/Classes/classbatt_1_1seq_1_1MapAdjacent/">MapAdjacent</a>&lt; Seq, Fn &gt;</td>
@@ -1705,7 +1705,7 @@
 </tr>
 <tr>
 <td>template &lt;typename State ,typename MapFn > <br><a href="/_autogen/Classes/structbatt_1_1seq_1_1MapFoldBinder/">MapFoldBinder</a>&lt; State, MapFn &gt;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-map_fold">map_fold</a></strong>(State &amp;&amp; state, MapFn &amp;&amp; map_fn)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-map-fold">map_fold</a></strong>(State &amp;&amp; state, MapFn &amp;&amp; map_fn)</td>
 </tr>
 <tr>
 <td>template &lt;typename Seq ,typename State ,typename MapFn > <br><a href="/_autogen/Classes/classbatt_1_1seq_1_1MapFold/">MapFold</a>&lt; Seq, State, MapFn &gt;</td>
@@ -1721,7 +1721,7 @@
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/structbatt_1_1seq_1_1RunningTotalBinder/">RunningTotalBinder</a></td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-running_total">running_total</a></strong>()</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-running-total">running_total</a></strong>()</td>
 </tr>
 <tr>
 <td>template &lt;typename Seq > <br>auto</td>
@@ -1741,11 +1741,11 @@
 </tr>
 <tr>
 <td>template &lt;typename Compare > <br><a href="/_autogen/Classes/structbatt_1_1seq_1_1IsSortedBinder/">IsSortedBinder</a>&lt; Compare &gt;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-is_sorted_by">is_sorted_by</a></strong>(Compare &amp;&amp; compare)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-is-sorted-by">is_sorted_by</a></strong>(Compare &amp;&amp; compare)</td>
 </tr>
 <tr>
 <td>auto</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-is_sorted">is_sorted</a></strong>()</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-is-sorted">is_sorted</a></strong>()</td>
 </tr>
 <tr>
 <td>template &lt;typename Seq ,typename Compare > <br>bool</td>
@@ -1753,7 +1753,7 @@
 </tr>
 <tr>
 <td>template &lt;typename Fn > <br><a href="/_autogen/Classes/structbatt_1_1seq_1_1InspectAdjacentBinder/">InspectAdjacentBinder</a>&lt; Fn &gt;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-inspect_adjacent">inspect_adjacent</a></strong>(Fn &amp;&amp; fn)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-inspect-adjacent">inspect_adjacent</a></strong>(Fn &amp;&amp; fn)</td>
 </tr>
 <tr>
 <td>template &lt;typename Seq ,typename Fn > <br><a href="/_autogen/Classes/classbatt_1_1seq_1_1InspectAdjacent/">InspectAdjacent</a>&lt; Seq, Fn &gt;</td>
@@ -2709,7 +2709,7 @@
 <a id="__codelineno-92-5" name="__codelineno-92-5"></a><span class="p">)</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 24 August 2022 at 16:20:04 EDT</p>
+<p>Updated on 26 August 2022 at 16:57:27 UTC</p>
 
 
 

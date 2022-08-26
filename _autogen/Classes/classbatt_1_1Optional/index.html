@@ -678,7 +678,7 @@
 </tr>
 <tr>
 <td>template &lt;typename U > <br>T</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-value_or">value_or</a></strong>(U &amp;&amp; else_val) const</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-value-or">value_or</a></strong>(U &amp;&amp; else_val) const</td>
 </tr>
 <tr>
 <td>template &lt;typename Fn ,typename U  =std::invoke_result_t<Fn, const T&>> <br><a href="/_autogen/Classes/classbatt_1_1Optional/">Optional</a>&lt; U &gt;</td>
@@ -686,7 +686,7 @@
 </tr>
 <tr>
 <td>template &lt;typename Fn ,typename OptionalU  =std::invoke_result_t<Fn, const T&>> <br>OptionalU</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-flat_map">flat_map</a></strong>(Fn &amp;&amp; fn) const</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-flat-map">flat_map</a></strong>(Fn &amp;&amp; fn) const</td>
 </tr>
 <tr>
 <td></td>
@@ -694,7 +694,7 @@
 </tr>
 <tr>
 <td>bool</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-has_value">has_value</a></strong>() const</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-has-value">has_value</a></strong>() const</td>
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/classbatt_1_1Optional/">Optional</a> &amp;</td>
@@ -714,7 +714,7 @@
 </tr>
 <tr>
 <td>T</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-operator*">operator*</a></strong>() const</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-operator*">operator*</a></strong>() const =deleted</td>
 </tr>
 <tr>
 <td>T *</td>
@@ -726,11 +726,11 @@
 </tr>
 <tr>
 <td>T *</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-get_ptr">get_ptr</a></strong>()</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-get-ptr">get_ptr</a></strong>()</td>
 </tr>
 <tr>
 <td>const T *</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-get_ptr">get_ptr</a></strong>() const</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-get-ptr">get_ptr</a></strong>() const</td>
 </tr>
 </tbody>
 </table>
@@ -910,7 +910,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">operator</span><span class="o">*</span><span class="p">()</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-operator_6">function operator*<a class="headerlink" href="#function-operator_6" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">T</span><span class="w"> </span><span class="k">operator</span><span class="o">*</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">T</span><span class="w"> </span><span class="k">operator</span><span class="o">*</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">=</span><span class="n">deleted</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-operator-">function operator-&gt;<a class="headerlink" href="#function-operator-" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">operator</span><span class="o">-&gt;</span><span class="p">()</span><span class="w"></span>
@@ -925,7 +925,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">get_ptr</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 24 August 2022 at 16:20:04 EDT</p>
+<p>Updated on 26 August 2022 at 16:57:27 UTC</p>
 
 
 

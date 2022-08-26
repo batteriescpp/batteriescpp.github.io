@@ -489,11 +489,11 @@
 <tbody>
 <tr>
 <td></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractValue/#function-abstractvalue">AbstractValue</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1AbstractValue/">AbstractValue</a> &amp; )</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractValue/#function-abstractvalue">AbstractValue</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1AbstractValue/">AbstractValue</a> &amp; ) =deleted</td>
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/classbatt_1_1AbstractValue/">AbstractValue</a> &amp;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractValue/#function-operator=">operator=</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1AbstractValue/">AbstractValue</a> &amp; )</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractValue/#function-operator=">operator=</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1AbstractValue/">AbstractValue</a> &amp; ) =deleted</td>
 </tr>
 <tr>
 <td>virtual</td>
@@ -501,11 +501,11 @@
 </tr>
 <tr>
 <td>virtual T *</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractValue/#function-copy_to">copy_to</a></strong>(MutableBuffer memory) =0</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractValue/#function-copy-to">copy_to</a></strong>(MutableBuffer memory) =0</td>
 </tr>
 <tr>
 <td>virtual T *</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractValue/#function-move_to">move_to</a></strong>(MutableBuffer memory) =0</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractValue/#function-move-to">move_to</a></strong>(MutableBuffer memory) =0</td>
 </tr>
 </tbody>
 </table>
@@ -535,14 +535,14 @@
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
 <span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">AbstractValue</span><span class="p">(</span><span class="w"></span>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">AbstractValue</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="n">deleted</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-operator">function operator=<a class="headerlink" href="#function-operator" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">AbstractValue</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="w"></span>
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">AbstractValue</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="n">deleted</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-abstractvalue_1">function ~AbstractValue<a class="headerlink" href="#function-abstractvalue_1" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">AbstractValue</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">default</span><span class="w"></span>
@@ -554,7 +554,7 @@
 <a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">MutableBuffer</span><span class="w"> </span><span class="n">memory</span><span class="w"></span>
 <a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<p><strong>Reimplemented by</strong>: <a href="/_autogen/Classes/classbatt_1_1AbstractValuePointer/#function-copy_to">batt::AbstractValuePointer::copy_to</a></p>
+<p><strong>Reimplemented by</strong>: <a href="/_autogen/Classes/classbatt_1_1AbstractValuePointer/#function-copy-to">batt::AbstractValuePointer::copy_to</a></p>
 <h3 id="function-move_to">function move_to<a class="headerlink" href="#function-move_to" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
@@ -562,13 +562,13 @@
 <a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="n">MutableBuffer</span><span class="w"> </span><span class="n">memory</span><span class="w"></span>
 <a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<p><strong>Reimplemented by</strong>: <a href="/_autogen/Classes/classbatt_1_1AbstractValuePointer/#function-move_to">batt::AbstractValuePointer::move_to</a></p>
+<p><strong>Reimplemented by</strong>: <a href="/_autogen/Classes/classbatt_1_1AbstractValuePointer/#function-move-to">batt::AbstractValuePointer::move_to</a></p>
 <h2 id="protected-functions-documentation">Protected Functions Documentation<a class="headerlink" href="#protected-functions-documentation" title="Permanent link">&#128279;</a></h2>
 <h3 id="function-abstractvalue_2">function AbstractValue<a class="headerlink" href="#function-abstractvalue_2" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">AbstractValue</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">default</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 24 August 2022 at 16:20:04 EDT</p>
+<p>Updated on 26 August 2022 at 16:57:27 UTC</p>
 
 
 

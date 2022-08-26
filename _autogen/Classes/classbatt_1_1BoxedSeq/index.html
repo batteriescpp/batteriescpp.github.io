@@ -409,6 +409,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#using-storage_type" class="md-nav__link">
+    using storage_type
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#using-item" class="md-nav__link">
     using Item
   </a>
@@ -464,15 +471,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#function-operator" class="md-nav__link">
-    function operator=
+  <a href="#function-boxedseq_5" class="md-nav__link">
+    function BoxedSeq
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#function-boxedseq_5" class="md-nav__link">
-    function BoxedSeq
+  <a href="#function-operator" class="md-nav__link">
+    function operator=
   </a>
   
 </li>
@@ -548,6 +555,10 @@
 </thead>
 <tbody>
 <tr>
+<td>using <a href="/_autogen/Classes/classbatt_1_1TypeErasedStorage/">TypeErasedStorage</a>&lt; <a href="/_autogen/Classes/classbatt_1_1BoxedSeq_1_1AbstractSeq/">AbstractSeq</a>, <a href="/_autogen/Classes/classbatt_1_1BoxedSeq_1_1SeqImpl/">SeqImpl</a> &gt;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BoxedSeq/#using-storage-type">storage_type</a></strong></td>
+</tr>
+<tr>
 <td>using ItemT</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1BoxedSeq/#using-item">Item</a></strong></td>
 </tr>
@@ -572,27 +583,27 @@
 </tr>
 <tr>
 <td>template &lt;typename U ,typename  =std::enable_if_t&lt;!std::is_same_v<ItemT, U>&gt;> <br></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1BoxedSeq/#function-boxedseq">BoxedSeq</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1BoxedSeq/">BoxedSeq</a>&lt; U &gt; &amp; other_seq)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BoxedSeq/#function-boxedseq">BoxedSeq</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1BoxedSeq/">BoxedSeq</a>&lt; U &gt; &amp; other_seq) =deleted</td>
 </tr>
 <tr>
 <td>template &lt;typename U ,typename  =std::enable_if_t&lt;!std::is_same_v<ItemT, U>&gt;> <br></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1BoxedSeq/#function-boxedseq">BoxedSeq</a></strong>(<a href="/_autogen/Classes/classbatt_1_1BoxedSeq/">BoxedSeq</a>&lt; U &gt; &amp;&amp; other_seq)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BoxedSeq/#function-boxedseq">BoxedSeq</a></strong>(<a href="/_autogen/Classes/classbatt_1_1BoxedSeq/">BoxedSeq</a>&lt; U &gt; &amp;&amp; other_seq) =deleted</td>
 </tr>
 <tr>
 <td></td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1BoxedSeq/#function-boxedseq">BoxedSeq</a></strong>(<a href="/_autogen/Classes/classbatt_1_1BoxedSeq/">BoxedSeq</a> &amp;&amp; ) =default</td>
 </tr>
 <tr>
+<td></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BoxedSeq/#function-boxedseq">BoxedSeq</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1BoxedSeq/">BoxedSeq</a> &amp; that) =default</td>
+</tr>
+<tr>
 <td><a href="/_autogen/Classes/classbatt_1_1BoxedSeq/">BoxedSeq</a> &amp;</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1BoxedSeq/#function-operator=">operator=</a></strong>(<a href="/_autogen/Classes/classbatt_1_1BoxedSeq/">BoxedSeq</a> &amp;&amp; ) =default</td>
 </tr>
 <tr>
-<td></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1BoxedSeq/#function-boxedseq">BoxedSeq</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1BoxedSeq/">BoxedSeq</a> &amp; that)</td>
-</tr>
-<tr>
 <td><a href="/_autogen/Classes/classbatt_1_1BoxedSeq/">BoxedSeq</a> &amp;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1BoxedSeq/#function-operator=">operator=</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1BoxedSeq/">BoxedSeq</a> &amp; that)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BoxedSeq/#function-operator=">operator=</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1BoxedSeq/">BoxedSeq</a> &amp; that) =default</td>
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/classbatt_1_1Optional/">Optional</a>&lt; Item &gt;</td>
@@ -610,40 +621,32 @@
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">batt</span><span class="o">::</span><span class="n">BoxedSeq</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h2 id="public-types-documentation">Public Types Documentation<a class="headerlink" href="#public-types-documentation" title="Permanent link">&#128279;</a></h2>
+<h3 id="using-storage_type">using storage_type<a class="headerlink" href="#using-storage_type" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">BoxedSeq</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ItemT</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">storage_type</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">TypeErasedStorage</span><span class="o">&lt;</span><span class="n">AbstractSeq</span><span class="p">,</span><span class="w"> </span><span class="n">SeqImpl</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 <h3 id="using-item">using Item<a class="headerlink" href="#using-item" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">BoxedSeq</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ItemT</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">Item</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">ItemT</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">BoxedSeq</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ItemT</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">Item</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">ItemT</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&#128279;</a></h2>
 <h3 id="function-boxedseq">function BoxedSeq<a class="headerlink" href="#function-boxedseq" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">BoxedSeq</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">default</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">BoxedSeq</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">default</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-boxedseq_1">function BoxedSeq<a class="headerlink" href="#function-boxedseq_1" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span>
-<span class="normal"><a href="#__codelineno-3-4">4</a></span>
-<span class="normal"><a href="#__codelineno-3-5">5</a></span>
-<span class="normal"><a href="#__codelineno-3-6">6</a></span>
-<span class="normal"><a href="#__codelineno-3-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">EnableIfNoShadow</span><span class="o">&lt;</span><span class="n">BoxedSeq</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;&amp;&gt;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">EnableIfSeq</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;!</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Status</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">                                          </span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">StatusCode</span><span class="o">&gt;&gt;&gt;</span><span class="w"></span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="kr">inline</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">BoxedSeq</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">seq</span><span class="w"></span>
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="p">)</span><span class="w"></span>
-</code></pre></div></td></tr></table></div>
-<h3 id="function-boxedseq_2">function BoxedSeq<a class="headerlink" href="#function-boxedseq_2" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
 <span class="normal"><a href="#__codelineno-4-3">3</a></span>
 <span class="normal"><a href="#__codelineno-4-4">4</a></span>
-<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="w"> </span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;!</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">ItemT</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;&gt;&gt;</span><span class="w"></span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">BoxedSeq</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BoxedSeq</span><span class="o">&lt;</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">other_seq</span><span class="w"></span>
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="p">)</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">EnableIfNoShadow</span><span class="o">&lt;</span><span class="n">BoxedSeq</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;&amp;&gt;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">EnableIfSeq</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;!</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Status</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">                                          </span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">StatusCode</span><span class="o">&gt;&gt;&gt;</span><span class="w"></span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="kr">inline</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">BoxedSeq</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">seq</span><span class="w"></span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="p">)</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-boxedseq_3">function BoxedSeq<a class="headerlink" href="#function-boxedseq_3" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-boxedseq_2">function BoxedSeq<a class="headerlink" href="#function-boxedseq_2" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
 <span class="normal"><a href="#__codelineno-5-3">3</a></span>
@@ -651,45 +654,56 @@
 <span class="normal"><a href="#__codelineno-5-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="w"> </span><span class="p">,</span><span class="w"></span>
 <a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;!</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">ItemT</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;&gt;&gt;</span><span class="w"></span>
 <a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">BoxedSeq</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="n">BoxedSeq</span><span class="o">&lt;</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other_seq</span><span class="w"></span>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BoxedSeq</span><span class="o">&lt;</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">other_seq</span><span class="w"></span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="n">deleted</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-boxedseq_4">function BoxedSeq<a class="headerlink" href="#function-boxedseq_4" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-boxedseq_3">function BoxedSeq<a class="headerlink" href="#function-boxedseq_3" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
 <span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">BoxedSeq</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">BoxedSeq</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="w"> </span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;!</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">ItemT</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;&gt;&gt;</span><span class="w"></span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">BoxedSeq</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">    </span><span class="n">BoxedSeq</span><span class="o">&lt;</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other_seq</span><span class="w"></span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="n">deleted</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-operator">function operator=<a class="headerlink" href="#function-operator" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-boxedseq_4">function BoxedSeq<a class="headerlink" href="#function-boxedseq_4" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
-<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">BoxedSeq</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">BoxedSeq</span><span class="p">(</span><span class="w"></span>
 <a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">BoxedSeq</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>
 <a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-boxedseq_5">function BoxedSeq<a class="headerlink" href="#function-boxedseq_5" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
 <span class="normal"><a href="#__codelineno-8-2">2</a></span>
-<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">BoxedSeq</span><span class="p">(</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">BoxedSeq</span><span class="p">(</span><span class="w"></span>
 <a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BoxedSeq</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span><span class="w"></span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-operator_1">function operator=<a class="headerlink" href="#function-operator_1" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-operator">function operator=<a class="headerlink" href="#function-operator" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
 <span class="normal"><a href="#__codelineno-9-2">2</a></span>
-<span class="normal"><a href="#__codelineno-9-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">BoxedSeq</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BoxedSeq</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span><span class="w"></span>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="p">)</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">BoxedSeq</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="n">BoxedSeq</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-operator_1">function operator=<a class="headerlink" href="#function-operator_1" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">BoxedSeq</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BoxedSeq</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span><span class="w"></span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-peek">function peek<a class="headerlink" href="#function-peek" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">peek</span><span class="p">()</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">peek</span><span class="p">()</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-next">function next<a class="headerlink" href="#function-next" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">next</span><span class="p">()</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">next</span><span class="p">()</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 24 August 2022 at 16:20:04 EDT</p>
+<p>Updated on 26 August 2022 at 16:57:27 UTC</p>
 
 
 

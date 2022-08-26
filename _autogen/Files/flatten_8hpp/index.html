@@ -481,7 +481,7 @@
 <tbody>
 <tr>
 <td></td>
-<td><strong><a href="/_autogen/Files/flatten_8hpp/#define-batteries_seq_flatten_hpp">BATTERIES_SEQ_FLATTEN_HPP</a></strong></td>
+<td><strong><a href="/_autogen/Files/flatten_8hpp/#define-batteries-seq-flatten-hpp">BATTERIES_SEQ_FLATTEN_HPP</a></strong></td>
 </tr>
 </tbody>
 </table>
@@ -640,11 +640,11 @@
 <a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
 <a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="c1">// flatten - turns Seq&lt;Seq&lt;T&gt;&gt; into Seq&lt;T&gt; by concatenating</span>
 <a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="c1">//</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">OuterSeq</span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">OuterSeq</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">InnerSeqT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">SeqItem</span><span class="o">&lt;</span><span class="n">OuterSeq</span><span class="o">&gt;&gt;&gt;</span><span class="w"></span>
 <a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="k">class</span><span class="w"> </span><span class="nc">Flatten</span><span class="w"></span>
 <a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="w">   </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">InnerSeq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">SeqItem</span><span class="o">&lt;</span><span class="n">OuterSeq</span><span class="o">&gt;&gt;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">InnerSeq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InnerSeqT</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SeqItem</span><span class="o">&lt;</span><span class="n">InnerSeq</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-1-29" name="__codelineno-1-29"></a>
 <a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Flatten</span><span class="p">(</span><span class="n">OuterSeq</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">outer</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">outer_</span><span class="p">(</span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">outer</span><span class="p">)),</span><span class="w"> </span><span class="n">inner_</span><span class="p">(</span><span class="n">outer_</span><span class="p">.</span><span class="n">next</span><span class="p">())</span><span class="w"></span>
@@ -749,7 +749,7 @@
 <a id="__codelineno-1-129" name="__codelineno-1-129"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_SEQ_FLATTEN_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 24 August 2022 at 16:20:04 EDT</p>
+<p>Updated on 26 August 2022 at 16:57:27 UTC</p>
 
 
 

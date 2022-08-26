@@ -619,7 +619,7 @@
 <tbody>
 <tr>
 <td>using boost::asio::any_io_executor</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#using-executor_type">executor_type</a></strong></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#using-executor-type">executor_type</a></strong></td>
 </tr>
 </tbody>
 </table>
@@ -654,19 +654,19 @@
 </tr>
 <tr>
 <td>executor_type</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-get_executor">get_executor</a></strong>() const</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-get-executor">get_executor</a></strong>() const</td>
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/classbatt_1_1StatusOr/">StatusOr</a>&lt; SmallVec&lt; MutableBuffer, 2 &gt; &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-prepare_exactly">prepare_exactly</a></strong>(i64 exact_count)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-prepare-exactly">prepare_exactly</a></strong>(i64 exact_count)</td>
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/classbatt_1_1StatusOr/">StatusOr</a>&lt; SmallVec&lt; MutableBuffer, 2 &gt; &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-prepare_at_least">prepare_at_least</a></strong>(i64 min_count)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-prepare-at-least">prepare_at_least</a></strong>(i64 min_count)</td>
 </tr>
 <tr>
 <td>template &lt;typename Handler  =void(const ErrorCode&amp; ec, SmallVec<MutableBuffer, 2>)> <br>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-async_prepare_at_least">async_prepare_at_least</a></strong>(i64 min_count, Handler &amp;&amp; handler)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-async-prepare-at-least">async_prepare_at_least</a></strong>(i64 min_count, Handler &amp;&amp; handler)</td>
 </tr>
 <tr>
 <td>void</td>
@@ -674,23 +674,23 @@
 </tr>
 <tr>
 <td>template &lt;typename T > <br><a href="/_autogen/Classes/classbatt_1_1Status/">Status</a></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-write_type">write_type</a></strong>(<a href="/_autogen/Classes/structbatt_1_1StaticType/">StaticType</a>&lt; T &gt; , const T &amp; value)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-write-type">write_type</a></strong>(<a href="/_autogen/Classes/structbatt_1_1StaticType/">StaticType</a>&lt; T &gt; , const T &amp; value)</td>
 </tr>
 <tr>
 <td>template &lt;typename ConstBuffers ,typename Handler  =void(const ErrorCode&amp; ec, usize n_bytes_written)> <br>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-async_write_some">async_write_some</a></strong>(ConstBuffers &amp;&amp; buffers, Handler &amp;&amp; handler)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-async-write-some">async_write_some</a></strong>(ConstBuffers &amp;&amp; buffers, Handler &amp;&amp; handler)</td>
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/classbatt_1_1Status/">Status</a></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-write_all">write_all</a></strong>(ConstBuffer buffer)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-write-all">write_all</a></strong>(ConstBuffer buffer)</td>
 </tr>
 <tr>
 <td>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-close_for_write">close_for_write</a></strong>()</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-close-for-write">close_for_write</a></strong>()</td>
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/classbatt_1_1StatusOr/">StatusOr</a>&lt; SmallVec&lt; ConstBuffer, 2 &gt; &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-fetch_at_least">fetch_at_least</a></strong>(i64 min_count)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-fetch-at-least">fetch_at_least</a></strong>(i64 min_count)</td>
 </tr>
 <tr>
 <td>void</td>
@@ -698,19 +698,19 @@
 </tr>
 <tr>
 <td>template &lt;typename T > <br><a href="/_autogen/Classes/classbatt_1_1StatusOr/">StatusOr</a>&lt; std::reference_wrapper&lt; const T &gt; &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-fetch_type">fetch_type</a></strong>(<a href="/_autogen/Classes/structbatt_1_1StaticType/">StaticType</a>&lt; T &gt;  ={})</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-fetch-type">fetch_type</a></strong>(<a href="/_autogen/Classes/structbatt_1_1StaticType/">StaticType</a>&lt; T &gt;  ={})</td>
 </tr>
 <tr>
 <td>template &lt;typename T > <br>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-consume_type">consume_type</a></strong>(<a href="/_autogen/Classes/structbatt_1_1StaticType/">StaticType</a>&lt; T &gt;  ={})</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-consume-type">consume_type</a></strong>(<a href="/_autogen/Classes/structbatt_1_1StaticType/">StaticType</a>&lt; T &gt;  ={})</td>
 </tr>
 <tr>
 <td>template &lt;typename T > <br><a href="/_autogen/Classes/classbatt_1_1StatusOr/">StatusOr</a>&lt; T &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-read_type">read_type</a></strong>(<a href="/_autogen/Classes/structbatt_1_1StaticType/">StaticType</a>&lt; T &gt;  ={})</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-read-type">read_type</a></strong>(<a href="/_autogen/Classes/structbatt_1_1StaticType/">StaticType</a>&lt; T &gt;  ={})</td>
 </tr>
 <tr>
 <td>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-close_for_read">close_for_read</a></strong>()</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1StreamBuffer/#function-close-for-read">close_for_read</a></strong>()</td>
 </tr>
 <tr>
 <td>void</td>
@@ -878,7 +878,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kTempBufferSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">512</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 24 August 2022 at 16:20:04 EDT</p>
+<p>Updated on 26 August 2022 at 16:57:27 UTC</p>
 
 
 

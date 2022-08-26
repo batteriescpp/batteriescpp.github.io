@@ -478,7 +478,7 @@
 <tbody>
 <tr>
 <td></td>
-<td><strong><a href="/_autogen/Files/task__decl_8hpp/#define-batteries_async_task_hpp">BATTERIES_ASYNC_TASK_HPP</a></strong></td>
+<td><strong><a href="/_autogen/Files/task__decl_8hpp/#define-batteries-async-task-hpp">BATTERIES_ASYNC_TASK_HPP</a></strong></td>
 </tr>
 </tbody>
 </table>
@@ -1320,7 +1320,7 @@
 <a id="__codelineno-1-85" name="__codelineno-1-85"></a>
 <a id="__codelineno-1-86" name="__codelineno-1-86"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">AllTaskList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">intrusive</span><span class="o">::</span><span class="n">list</span><span class="o">&lt;</span><span class="n">Task</span><span class="p">,</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">intrusive</span><span class="o">::</span><span class="n">constant_time_size</span><span class="o">&lt;</span><span class="nb">false</span><span class="o">&gt;&gt;</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-1-87" name="__codelineno-1-87"></a>
-<a id="__codelineno-1-88" name="__codelineno-1-88"></a><span class="w">    </span><span class="c1">//-==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-88" name="__codelineno-1-88"></a><span class="w">    </span><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
 <a id="__codelineno-1-89" name="__codelineno-1-89"></a>
 <a id="__codelineno-1-90" name="__codelineno-1-90"></a><span class="w">    </span><span class="c1">// Thread-local counter that limits stack growth while running Tasks via `dispatch`.</span>
 <a id="__codelineno-1-91" name="__codelineno-1-91"></a><span class="w">    </span><span class="c1">//</span>
@@ -1422,7 +1422,7 @@
 <a id="__codelineno-1-187" name="__codelineno-1-187"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">kSuspended</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">kTerminated</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="n">kSuspended</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">kTerminated</span><span class="p">);</span><span class="w"></span>
 <a id="__codelineno-1-188" name="__codelineno-1-188"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
 <a id="__codelineno-1-189" name="__codelineno-1-189"></a>
-<a id="__codelineno-1-190" name="__codelineno-1-190"></a><span class="w">    </span><span class="c1">//-==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-190" name="__codelineno-1-190"></a><span class="w">    </span><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
 <a id="__codelineno-1-191" name="__codelineno-1-191"></a>
 <a id="__codelineno-1-192" name="__codelineno-1-192"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">DebugTrace</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-1-193" name="__codelineno-1-193"></a><span class="w">        </span><span class="n">boost</span><span class="o">::</span><span class="n">stacktrace</span><span class="o">::</span><span class="n">stacktrace</span><span class="w"> </span><span class="n">stack_trace</span><span class="p">;</span><span class="w"></span>
@@ -1431,7 +1431,7 @@
 <a id="__codelineno-1-196" name="__codelineno-1-196"></a><span class="w">        </span><span class="n">isize</span><span class="w"> </span><span class="n">stack_growth_bytes</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-1-197" name="__codelineno-1-197"></a><span class="w">    </span><span class="p">};</span><span class="w"></span>
 <a id="__codelineno-1-198" name="__codelineno-1-198"></a>
-<a id="__codelineno-1-199" name="__codelineno-1-199"></a><span class="w">    </span><span class="c1">//-==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-199" name="__codelineno-1-199"></a><span class="w">    </span><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
 <a id="__codelineno-1-200" name="__codelineno-1-200"></a>
 <a id="__codelineno-1-201" name="__codelineno-1-201"></a><span class="w">    </span><span class="c1">// Returns a reference to the global mutex that protects the global task list.</span>
 <a id="__codelineno-1-202" name="__codelineno-1-202"></a><span class="w">    </span><span class="c1">//</span>
@@ -1643,7 +1643,7 @@
 <a id="__codelineno-1-408" name="__codelineno-1-408"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">b_</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-1-409" name="__codelineno-1-409"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
 <a id="__codelineno-1-410" name="__codelineno-1-410"></a>
-<a id="__codelineno-1-411" name="__codelineno-1-411"></a><span class="w">    </span><span class="c1">//-==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-411" name="__codelineno-1-411"></a><span class="w">    </span><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
 <a id="__codelineno-1-412" name="__codelineno-1-412"></a>
 <a id="__codelineno-1-413" name="__codelineno-1-413"></a><span class="w">    </span><span class="n">Task</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Task</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-1-414" name="__codelineno-1-414"></a><span class="w">    </span><span class="n">Task</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Task</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span><span class="w"></span>
@@ -1757,7 +1757,7 @@
 <a id="__codelineno-1-522" name="__codelineno-1-522"></a><span class="w">    </span><span class="c1">// =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------</span>
 <a id="__codelineno-1-523" name="__codelineno-1-523"></a>
 <a id="__codelineno-1-524" name="__codelineno-1-524"></a><span class="w">   </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
-<a id="__codelineno-1-525" name="__codelineno-1-525"></a><span class="w">    </span><span class="c1">//-=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------</span>
+<a id="__codelineno-1-525" name="__codelineno-1-525"></a><span class="w">    </span><span class="c1">//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------</span>
 <a id="__codelineno-1-526" name="__codelineno-1-526"></a><span class="w">    </span><span class="c1">//</span>
 <a id="__codelineno-1-527" name="__codelineno-1-527"></a><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">SpinLockGuard</span><span class="w"></span>
 <a id="__codelineno-1-528" name="__codelineno-1-528"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
@@ -1800,13 +1800,13 @@
 <a id="__codelineno-1-565" name="__codelineno-1-565"></a><span class="w">        </span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="n">current_task_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-1-566" name="__codelineno-1-566"></a><span class="w">    </span><span class="p">};</span><span class="w"></span>
 <a id="__codelineno-1-567" name="__codelineno-1-567"></a>
-<a id="__codelineno-1-568" name="__codelineno-1-568"></a><span class="w">    </span><span class="c1">//-==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-568" name="__codelineno-1-568"></a><span class="w">    </span><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
 <a id="__codelineno-1-569" name="__codelineno-1-569"></a>
 <a id="__codelineno-1-570" name="__codelineno-1-570"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="nf">next_id</span><span class="p">();</span><span class="w"></span>
 <a id="__codelineno-1-571" name="__codelineno-1-571"></a>
 <a id="__codelineno-1-572" name="__codelineno-1-572"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="nf">current_ptr</span><span class="p">();</span><span class="w"></span>
 <a id="__codelineno-1-573" name="__codelineno-1-573"></a>
-<a id="__codelineno-1-574" name="__codelineno-1-574"></a><span class="w">    </span><span class="c1">//-==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-574" name="__codelineno-1-574"></a><span class="w">    </span><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
 <a id="__codelineno-1-575" name="__codelineno-1-575"></a>
 <a id="__codelineno-1-576" name="__codelineno-1-576"></a><span class="w">    </span><span class="c1">// Invoked in the task&#39;s context prior to entering the task function; yields control back to the parent</span>
 <a id="__codelineno-1-577" name="__codelineno-1-577"></a><span class="w">    </span><span class="c1">// context, ensuring that the task function is invoked via the executor.</span>
@@ -1925,7 +1925,7 @@
 <a id="__codelineno-1-690" name="__codelineno-1-690"></a><span class="w">    </span><span class="c1">//</span>
 <a id="__codelineno-1-691" name="__codelineno-1-691"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">run_completion_handlers</span><span class="p">();</span><span class="w"></span>
 <a id="__codelineno-1-692" name="__codelineno-1-692"></a>
-<a id="__codelineno-1-693" name="__codelineno-1-693"></a><span class="w">    </span><span class="c1">//-==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-693" name="__codelineno-1-693"></a><span class="w">    </span><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
 <a id="__codelineno-1-694" name="__codelineno-1-694"></a>
 <a id="__codelineno-1-695" name="__codelineno-1-695"></a><span class="w">    </span><span class="c1">// Process-unique serial id number for this Task; automatically assigned at construction time.</span>
 <a id="__codelineno-1-696" name="__codelineno-1-696"></a><span class="w">    </span><span class="c1">//</span>
@@ -1982,7 +1982,7 @@
 <a id="__codelineno-1-747" name="__codelineno-1-747"></a><span class="cp">#endif</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 24 August 2022 at 16:20:04 EDT</p>
+<p>Updated on 26 August 2022 at 16:57:27 UTC</p>
 
 
 

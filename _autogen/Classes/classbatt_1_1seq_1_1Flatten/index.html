@@ -480,7 +480,7 @@
 </thead>
 <tbody>
 <tr>
-<td>using std::decay_t&lt; SeqItem&lt; OuterSeq &gt; &gt;</td>
+<td>using InnerSeqT</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1seq_1_1Flatten/#using-innerseq">InnerSeq</a></strong></td>
 </tr>
 <tr>
@@ -514,15 +514,17 @@
 </table>
 <h2 id="detailed-description">Detailed Description<a class="headerlink" href="#detailed-description" title="Permanent link">&#128279;</a></h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">OuterSeq</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">batt</span><span class="o">::</span><span class="n">seq</span><span class="o">::</span><span class="n">Flatten</span><span class="p">;</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">OuterSeq</span><span class="w"> </span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">typename</span><span class="w"> </span><span class="nc">InnerSeqT</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">SeqItem</span><span class="o">&lt;</span><span class="n">OuterSeq</span><span class="o">&gt;&gt;&gt;</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">batt</span><span class="o">::</span><span class="n">seq</span><span class="o">::</span><span class="n">Flatten</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h2 id="public-types-documentation">Public Types Documentation<a class="headerlink" href="#public-types-documentation" title="Permanent link">&#128279;</a></h2>
 <h3 id="using-innerseq">using InnerSeq<a class="headerlink" href="#using-innerseq" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">seq</span><span class="o">::</span><span class="n">Flatten</span><span class="o">&lt;</span><span class="w"> </span><span class="n">OuterSeq</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">InnerSeq</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">SeqItem</span><span class="o">&lt;</span><span class="n">OuterSeq</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">seq</span><span class="o">::</span><span class="n">Flatten</span><span class="o">&lt;</span><span class="w"> </span><span class="n">OuterSeq</span><span class="p">,</span><span class="w"> </span><span class="n">InnerSeqT</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">InnerSeq</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">InnerSeqT</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="using-item">using Item<a class="headerlink" href="#using-item" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">seq</span><span class="o">::</span><span class="n">Flatten</span><span class="o">&lt;</span><span class="w"> </span><span class="n">OuterSeq</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">Item</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">SeqItem</span><span class="o">&lt;</span><span class="n">InnerSeq</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">seq</span><span class="o">::</span><span class="n">Flatten</span><span class="o">&lt;</span><span class="w"> </span><span class="n">OuterSeq</span><span class="p">,</span><span class="w"> </span><span class="n">InnerSeqT</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">Item</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">SeqItem</span><span class="o">&lt;</span><span class="n">InnerSeq</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&#128279;</a></h2>
 <h3 id="function-flatten">function Flatten<a class="headerlink" href="#function-flatten" title="Permanent link">&#128279;</a></h3>
@@ -539,7 +541,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">next</span><span class="p">()</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 24 August 2022 at 16:20:04 EDT</p>
+<p>Updated on 26 August 2022 at 16:57:27 UTC</p>
 
 
 

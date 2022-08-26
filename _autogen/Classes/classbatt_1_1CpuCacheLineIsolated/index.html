@@ -627,7 +627,7 @@
 <tbody>
 <tr>
 <td>using T</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/#using-value_type">value_type</a></strong></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/#using-value-type">value_type</a></strong></td>
 </tr>
 </tbody>
 </table>
@@ -642,11 +642,11 @@
 <tbody>
 <tr>
 <td><a href="/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/">CpuCacheLineIsolated</a> *</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/#function-pointer_from">pointer_from</a></strong>(T * inner_obj)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/#function-pointer-from">pointer_from</a></strong>(T * inner_obj)</td>
 </tr>
 <tr>
 <td>const <a href="/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/">CpuCacheLineIsolated</a> *</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/#function-pointer_from">pointer_from</a></strong>(const T * inner_obj)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/#function-pointer-from">pointer_from</a></strong>(const T * inner_obj)</td>
 </tr>
 <tr>
 <td></td>
@@ -702,7 +702,7 @@
 </tr>
 <tr>
 <td>const T &amp;&amp;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/#function-value">value</a></strong>() const</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/#function-value">value</a></strong>() const =deleted</td>
 </tr>
 <tr>
 <td>T *</td>
@@ -837,7 +837,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">()</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-value_3">function value<a class="headerlink" href="#function-value_3" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">=</span><span class="n">deleted</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-operator-">function operator-&gt;<a class="headerlink" href="#function-operator-" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">operator</span><span class="o">-&gt;</span><span class="p">()</span><span class="w"></span>
@@ -861,7 +861,7 @@
 <a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="w">        </span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kCpuCacheLineSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">((</span><span class="k">sizeof</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">kCpuCacheLineSize</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">kCpuCacheLineSize</span><span class="p">);</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 24 August 2022 at 16:20:04 EDT</p>
+<p>Updated on 26 August 2022 at 16:57:27 UTC</p>
 
 
 

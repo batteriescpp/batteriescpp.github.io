@@ -660,7 +660,7 @@
 </tr>
 <tr>
 <td>usize</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#function-find_shard">find_shard</a></strong>(const Branch &amp; branch) const</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#function-find-shard">find_shard</a></strong>(const Branch &amp; branch) const</td>
 </tr>
 <tr>
 <td>void</td>
@@ -668,11 +668,11 @@
 </tr>
 <tr>
 <td>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#function-flush_all">flush_all</a></strong>(usize src_i)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#function-flush-all">flush_all</a></strong>(usize src_i)</td>
 </tr>
 <tr>
 <td>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#function-queue_push">queue_push</a></strong>(usize dst_i, std::vector&lt; Branch &gt; * branch)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#function-queue-push">queue_push</a></strong>(usize dst_i, std::vector&lt; Branch &gt; * branch)</td>
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/classbatt_1_1StatusOr/">StatusOr</a>&lt; usize &gt;</td>
@@ -680,7 +680,7 @@
 </tr>
 <tr>
 <td>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#function-close_all">close_all</a></strong>(usize shard_i, bool allow_pending =false)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#function-close-all">close_all</a></strong>(usize shard_i, bool allow_pending =false)</td>
 </tr>
 <tr>
 <td>void</td>
@@ -692,7 +692,7 @@
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/classbatt_1_1Status/">Status</a></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#function-wait_for_other_shards">wait_for_other_shards</a></strong>()</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#function-wait-for-other-shards">wait_for_other_shards</a></strong>()</td>
 </tr>
 </tbody>
 </table>
@@ -719,23 +719,23 @@
 </tr>
 <tr>
 <td>const usize</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-shard_count">shard_count</a></strong></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-shard-count">shard_count</a></strong></td>
 </tr>
 <tr>
 <td>const usize</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-hash_space_per_shard">hash_space_per_shard</a></strong></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-hash-space-per-shard">hash_space_per_shard</a></strong></td>
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>&lt; usize &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-barrier_">barrier_</a></strong></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-barrier-">barrier_</a></strong></td>
 </tr>
 <tr>
 <td>std::atomic&lt; i64 &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-queue_push_count">queue_push_count</a></strong></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-queue-push-count">queue_push_count</a></strong></td>
 </tr>
 <tr>
 <td>std::atomic&lt; i64 &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-queue_pop_count">queue_pop_count</a></strong></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-queue-pop-count">queue_pop_count</a></strong></td>
 </tr>
 <tr>
 <td>std::vector&lt; std::unique_ptr&lt; std::atomic&lt; bool &gt;[]&gt; &gt;</td>
@@ -743,23 +743,23 @@
 </tr>
 <tr>
 <td>std::vector&lt; std::unique_ptr&lt; <a href="/_autogen/Classes/classbatt_1_1Queue/">Queue</a>&lt; std::vector&lt; Branch &gt; &gt; &gt; &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-recv_queues">recv_queues</a></strong></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-recv-queues">recv_queues</a></strong></td>
 </tr>
 <tr>
 <td>std::vector&lt; <a href="/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/">CpuCacheLineIsolated</a>&lt; std::vector&lt; std::vector&lt; Branch &gt; &gt; &gt; &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-send_queues">send_queues</a></strong></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-send-queues">send_queues</a></strong></td>
 </tr>
 <tr>
 <td>std::vector&lt; <a href="/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/">CpuCacheLineIsolated</a>&lt; <a href="/_autogen/Classes/structbatt_1_1detail_1_1ModelCheckShardMetrics/">ShardMetrics</a> &gt; &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-shard_metrics">shard_metrics</a></strong></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-shard-metrics">shard_metrics</a></strong></td>
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/">CpuCacheLineIsolated</a>&lt; std::atomic&lt; i64 &gt; &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-total_pending_count">total_pending_count</a></strong></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-total-pending-count">total_pending_count</a></strong></td>
 </tr>
 <tr>
 <td>std::vector&lt; <a href="/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/">CpuCacheLineIsolated</a>&lt; i64 &gt; &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-local_consume_count">local_consume_count</a></strong></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/#variable-local-consume-count">local_consume_count</a></strong></td>
 </tr>
 </tbody>
 </table>
@@ -893,7 +893,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="w"> </span><span class="n">CpuCacheLineIsolated</span><span class="o">&lt;</span><span class="w"> </span><span class="n">i64</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">local_consume_count</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 24 August 2022 at 16:20:04 EDT</p>
+<p>Updated on 26 August 2022 at 16:57:27 UTC</p>
 
 
 
