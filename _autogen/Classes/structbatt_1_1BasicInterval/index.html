@@ -617,6 +617,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#function-shift_up" class="md-nav__link">
+    function shift_up
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-shift_down" class="md-nav__link">
+    function shift_down
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -698,7 +712,8 @@
 
 
 <h1 id="battbasicinterval">batt::BasicInterval<a class="headerlink" href="#battbasicinterval" title="Permanent link">&#128279;</a></h1>
-<p><a href="#detailed-description">More...</a></p>
+<p>A set of totally ordered values, defined by a lower and upper bound.  <a href="#detailed-description">More...</a></p>
+<p><code>#include &lt;batteries/interval.hpp&gt;</code></p>
 <h2 id="public-classes">Public Classes<a class="headerlink" href="#public-classes" title="Permanent link">&#128279;</a></h2>
 <table>
 <thead>
@@ -710,11 +725,11 @@
 <tbody>
 <tr>
 <td>struct</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval_1_1LexicographicalOrder/">LexicographicalOrder</a></strong></td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval_1_1LexicographicalOrder/">LexicographicalOrder</a></strong> <br>Total order that sorts intervals first by lower bound, then by upper bound (i.e., by "dictionary order").</td>
 </tr>
 <tr>
 <td>struct</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval_1_1LinearOrder/">LinearOrder</a></strong></td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval_1_1LinearOrder/">LinearOrder</a></strong> <br>Partial order on Interval values that corresponds to a strict ordering on a one dimensional number line.</td>
 </tr>
 </tbody>
 </table>
@@ -733,11 +748,11 @@
 </tr>
 <tr>
 <td>using <a href="/_autogen/Classes/structbatt_1_1seq_1_1Reverse/">seq::Reverse</a>&lt; <a href="/_autogen/Classes/structbatt_1_1BasicInterval_1_1LinearOrder/">LinearOrder</a> &gt;</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#using-reverselinearorder">ReverseLinearOrder</a></strong></td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#using-reverselinearorder">ReverseLinearOrder</a></strong> <br>The reverse of <a href="">LinearOrder</a> (for max-heaps).</td>
 </tr>
 <tr>
 <td>using <a href="/_autogen/Classes/structbatt_1_1seq_1_1Reverse/">seq::Reverse</a>&lt; <a href="/_autogen/Classes/structbatt_1_1BasicInterval_1_1LexicographicalOrder/">LexicographicalOrder</a> &gt;</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#using-reverselexicographicalorder">ReverseLexicographicalOrder</a></strong></td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#using-reverselexicographicalorder">ReverseLexicographicalOrder</a></strong> <br>Reverse of <a href="">LexicographicalOrder</a>; so max-heap functions can be used to implement a min-heap.</td>
 </tr>
 </tbody>
 </table>
@@ -752,35 +767,43 @@
 <tbody>
 <tr>
 <td>auto</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-size">size</a></strong>() const</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-size">size</a></strong>() const<br>Returns the size of the interval as defined by Traits (usually integer difference).</td>
 </tr>
 <tr>
 <td>bool</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-empty">empty</a></strong>() const</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-empty">empty</a></strong>() const<br>Returns true iff the interval contains no elements.</td>
 </tr>
 <tr>
 <td>template &lt;typename V > <br>bool</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-contains">contains</a></strong>(const V &amp; item) const</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-contains">contains</a></strong>(const V &amp; item) const<br>Returns true iff the interval contains the passed item.</td>
 </tr>
 <tr>
 <td>template &lt;typename ThatTraits > <br>bool</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-adjacent-to">adjacent_to</a></strong>(const <a href="/_autogen/Classes/structbatt_1_1BasicInterval/">BasicInterval</a>&lt; ThatTraits &gt; &amp; that) const</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-adjacent-to">adjacent_to</a></strong>(const <a href="/_autogen/Classes/structbatt_1_1BasicInterval/">BasicInterval</a>&lt; ThatTraits &gt; &amp; that) const<br>Returns true iff no non-empty interval can be constructed between <code>this</code> and <code>that</code>.</td>
 </tr>
 <tr>
 <td>template &lt;typename ThatTraits > <br><a href="/_autogen/Classes/structbatt_1_1BasicInterval/">BasicInterval</a></td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-union-with">union_with</a></strong>(const <a href="/_autogen/Classes/structbatt_1_1BasicInterval/">BasicInterval</a>&lt; ThatTraits &gt; &amp; that) const</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-union-with">union_with</a></strong>(const <a href="/_autogen/Classes/structbatt_1_1BasicInterval/">BasicInterval</a>&lt; ThatTraits &gt; &amp; that) const<br>Returns the interval representing the set-union between <code>this</code>, <code>that</code>, and any non-empty interval that can be formed in between.</td>
 </tr>
 <tr>
 <td>template &lt;typename ThatTraits > <br>bool</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-overlaps">overlaps</a></strong>(const <a href="/_autogen/Classes/structbatt_1_1BasicInterval/">BasicInterval</a>&lt; ThatTraits &gt; &amp; that) const</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-overlaps">overlaps</a></strong>(const <a href="/_autogen/Classes/structbatt_1_1BasicInterval/">BasicInterval</a>&lt; ThatTraits &gt; &amp; that) const<br>Returns true iff the minimal bounding range for <code>this</code> and <code>that</code> is non-empty.</td>
 </tr>
 <tr>
 <td>template &lt;typename ThatTraits > <br><a href="/_autogen/Classes/structbatt_1_1BasicInterval/">BasicInterval</a></td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-intersection-with">intersection_with</a></strong>(const <a href="/_autogen/Classes/structbatt_1_1BasicInterval/">BasicInterval</a>&lt; ThatTraits &gt; &amp; that) const</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-intersection-with">intersection_with</a></strong>(const <a href="/_autogen/Classes/structbatt_1_1BasicInterval/">BasicInterval</a>&lt; ThatTraits &gt; &amp; that) const<br>Returns the interval representing the set of values that are in both <code>this</code> and <code>that</code>.</td>
 </tr>
 <tr>
 <td>SmallVec&lt; <a href="/_autogen/Classes/structbatt_1_1BasicInterval/">BasicInterval</a>, 2 &gt;</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-without">without</a></strong>(const <a href="/_autogen/Classes/structbatt_1_1BasicInterval/">BasicInterval</a> &amp; that) const</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-without">without</a></strong>(const <a href="/_autogen/Classes/structbatt_1_1BasicInterval/">BasicInterval</a> &amp; that) const<br>Returns the interval representing <code>this</code>, with any overlap with <code>that</code> removed.</td>
+</tr>
+<tr>
+<td>template &lt;typename DiffT > <br><a href="/_autogen/Classes/structbatt_1_1BasicInterval/">BasicInterval</a></td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-shift-up">shift_up</a></strong>(const DiffT &amp; d) const<br>Add the given amount to both lower and upper bounds and return the resulting interval.</td>
+</tr>
+<tr>
+<td>template &lt;typename DiffT > <br><a href="/_autogen/Classes/structbatt_1_1BasicInterval/">BasicInterval</a></td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicInterval/#function-shift-down">shift_down</a></strong>(const DiffT &amp; d) const<br>Subtract the given amount from both lower and upper bounds and return the resulting interval.</td>
 </tr>
 </tbody>
 </table>
@@ -831,118 +854,188 @@
 <span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Traits</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">batt</span><span class="o">::</span><span class="n">BasicInterval</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
+<p>A set of totally ordered values, defined by a lower and upper bound. </p>
+<p><strong>See</strong>: Interval, CInterval </p>
+<p>Example:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/assert.hpp&gt;</span><span class="cp"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/interval.hpp&gt;</span><span class="cp"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="n">batt</span><span class="o">::</span><span class="n">Interval</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">i</span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="n">BATT_CHECK_EQ</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="n">BATT_CHECK</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span><span class="w"></span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="n">BATT_CHECK</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="mi">6</span><span class="p">));</span><span class="w"></span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="n">BATT_CHECK</span><span class="p">(</span><span class="o">!</span><span class="n">i</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span><span class="w"></span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="n">BATT_CHECK</span><span class="p">(</span><span class="o">!</span><span class="n">i</span><span class="p">.</span><span class="n">contains</span><span class="p">(</span><span class="mi">7</span><span class="p">));</span><span class="w"></span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="n">BATT_CHECK</span><span class="p">((</span><span class="n">batt</span><span class="o">::</span><span class="n">Interval</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">}).</span><span class="n">empty</span><span class="p">());</span><span class="w"></span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p><em>Filename: examples/interval.cpp</em></p>
 <h2 id="public-types-documentation">Public Types Documentation<a class="headerlink" href="#public-types-documentation" title="Permanent link">&#128279;</a></h2>
 <h3 id="using-traits_type">using traits_type<a class="headerlink" href="#using-traits_type" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Traits</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">traits_type</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">Traits</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Traits</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">traits_type</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">Traits</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="using-reverselinearorder">using ReverseLinearOrder<a class="headerlink" href="#using-reverselinearorder" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Traits</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">ReverseLinearOrder</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">seq</span><span class="o">::</span><span class="n">Reverse</span><span class="o">&lt;</span><span class="n">LinearOrder</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Traits</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">ReverseLinearOrder</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">seq</span><span class="o">::</span><span class="n">Reverse</span><span class="o">&lt;</span><span class="n">LinearOrder</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
+<p>The reverse of <a href="">LinearOrder</a> (for max-heaps). </p>
 <h3 id="using-reverselexicographicalorder">using ReverseLexicographicalOrder<a class="headerlink" href="#using-reverselexicographicalorder" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Traits</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">ReverseLexicographicalOrder</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">seq</span><span class="o">::</span><span class="n">Reverse</span><span class="o">&lt;</span><span class="n">LexicographicalOrder</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Traits</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">ReverseLexicographicalOrder</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">seq</span><span class="o">::</span><span class="n">Reverse</span><span class="o">&lt;</span><span class="n">LexicographicalOrder</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
+<p>Reverse of <a href="">LexicographicalOrder</a>; so max-heap functions can be used to implement a min-heap. </p>
 <h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&#128279;</a></h2>
 <h3 id="function-size">function size<a class="headerlink" href="#function-size" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
+<p>Returns the size of the interval as defined by Traits (usually integer difference). </p>
 <h3 id="function-empty">function empty<a class="headerlink" href="#function-empty" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
+<p>Returns true iff the interval contains no elements. </p>
 <h3 id="function-contains">function contains<a class="headerlink" href="#function-contains" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span>
-<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">V</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">contains</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">item</span><span class="w"></span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
-</code></pre></div></td></tr></table></div>
-<h3 id="function-adjacent_to">function adjacent_to<a class="headerlink" href="#function-adjacent_to" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
 <span class="normal"><a href="#__codelineno-7-3">3</a></span>
-<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ThatTraits</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">adjacent_to</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ThatTraits</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">V</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">contains</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">V</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">item</span><span class="w"></span>
 <a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-union_with">function union_with<a class="headerlink" href="#function-union_with" title="Permanent link">&#128279;</a></h3>
+<p>Returns true iff the interval contains the passed item. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>item</strong> The value to test for membership. </li>
+</ul>
+<h3 id="function-adjacent_to">function adjacent_to<a class="headerlink" href="#function-adjacent_to" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
 <span class="normal"><a href="#__codelineno-8-2">2</a></span>
 <span class="normal"><a href="#__codelineno-8-3">3</a></span>
 <span class="normal"><a href="#__codelineno-8-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ThatTraits</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kr">inline</span><span class="w"> </span><span class="n">BasicInterval</span><span class="w"> </span><span class="n">union_with</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">adjacent_to</span><span class="p">(</span><span class="w"></span>
 <a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ThatTraits</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span><span class="w"></span>
 <a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-overlaps">function overlaps<a class="headerlink" href="#function-overlaps" title="Permanent link">&#128279;</a></h3>
+<p>Returns true iff no non-empty interval can be constructed between <code>this</code> and <code>that</code>. </p>
+<h3 id="function-union_with">function union_with<a class="headerlink" href="#function-union_with" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
 <span class="normal"><a href="#__codelineno-9-2">2</a></span>
 <span class="normal"><a href="#__codelineno-9-3">3</a></span>
 <span class="normal"><a href="#__codelineno-9-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ThatTraits</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">overlaps</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kr">inline</span><span class="w"> </span><span class="n">BasicInterval</span><span class="w"> </span><span class="n">union_with</span><span class="p">(</span><span class="w"></span>
 <a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ThatTraits</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span><span class="w"></span>
 <a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-intersection_with">function intersection_with<a class="headerlink" href="#function-intersection_with" title="Permanent link">&#128279;</a></h3>
+<p>Returns the interval representing the set-union between <code>this</code>, <code>that</code>, and any non-empty interval that can be formed in between. </p>
+<h3 id="function-overlaps">function overlaps<a class="headerlink" href="#function-overlaps" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
 <span class="normal"><a href="#__codelineno-10-2">2</a></span>
 <span class="normal"><a href="#__codelineno-10-3">3</a></span>
 <span class="normal"><a href="#__codelineno-10-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ThatTraits</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kr">inline</span><span class="w"> </span><span class="n">BasicInterval</span><span class="w"> </span><span class="n">intersection_with</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">overlaps</span><span class="p">(</span><span class="w"></span>
 <a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ThatTraits</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span><span class="w"></span>
 <a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-without">function without<a class="headerlink" href="#function-without" title="Permanent link">&#128279;</a></h3>
+<p>Returns true iff the minimal bounding range for <code>this</code> and <code>that</code> is non-empty. </p>
+<h3 id="function-intersection_with">function intersection_with<a class="headerlink" href="#function-intersection_with" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
 <span class="normal"><a href="#__codelineno-11-2">2</a></span>
-<span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">SmallVec</span><span class="o">&lt;</span><span class="w"> </span><span class="n">BasicInterval</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">without</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span><span class="w"></span>
-<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">ThatTraits</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kr">inline</span><span class="w"> </span><span class="n">BasicInterval</span><span class="w"> </span><span class="n">intersection_with</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ThatTraits</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span><span class="w"></span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h2 id="public-attributes-documentation">Public Attributes Documentation<a class="headerlink" href="#public-attributes-documentation" title="Permanent link">&#128279;</a></h2>
-<h3 id="variable-lower_bound">variable lower_bound<a class="headerlink" href="#variable-lower_bound" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">Traits</span><span class="o">::</span><span class="n">lower_bound_type</span><span class="w"> </span><span class="n">lower_bound</span><span class="p">;</span><span class="w"></span>
+<p>Returns the interval representing the set of values that are in both <code>this</code> and <code>that</code>. </p>
+<h3 id="function-without">function without<a class="headerlink" href="#function-without" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">SmallVec</span><span class="o">&lt;</span><span class="w"> </span><span class="n">BasicInterval</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">without</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span><span class="w"></span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h3 id="variable-upper_bound">variable upper_bound<a class="headerlink" href="#variable-upper_bound" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">Traits</span><span class="o">::</span><span class="n">upper_bound_type</span><span class="w"> </span><span class="n">upper_bound</span><span class="p">;</span><span class="w"></span>
+<p>Returns the interval representing <code>this</code>, with any overlap with <code>that</code> removed. </p>
+<h3 id="function-shift_up">function shift_up<a class="headerlink" href="#function-shift_up" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">DiffT</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="kr">inline</span><span class="w"> </span><span class="n">BasicInterval</span><span class="w"> </span><span class="n">shift_up</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">DiffT</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">d</span><span class="w"></span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h2 id="friends_1">Friends<a class="headerlink" href="#friends_1" title="Permanent link">&#128279;</a></h2>
-<h3 id="friend-operator">friend operator==<a class="headerlink" href="#friend-operator" title="Permanent link">&#128279;</a></h3>
+<p>Add the given amount to both lower and upper bounds and return the resulting interval. </p>
+<h3 id="function-shift_down">function shift_down<a class="headerlink" href="#function-shift_down" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
 <span class="normal"><a href="#__codelineno-14-2">2</a></span>
 <span class="normal"><a href="#__codelineno-14-3">3</a></span>
-<span class="normal"><a href="#__codelineno-14-4">4</a></span>
-<span class="normal"><a href="#__codelineno-14-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">friend</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">TraitsL</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a>
-<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">TraitsR</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="w"></span>
-<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="p">);</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">DiffT</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="kr">inline</span><span class="w"> </span><span class="n">BasicInterval</span><span class="w"> </span><span class="n">shift_down</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">DiffT</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">d</span><span class="w"></span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<p>Subtract the given amount from both lower and upper bounds and return the resulting interval. </p>
+<h2 id="public-attributes-documentation">Public Attributes Documentation<a class="headerlink" href="#public-attributes-documentation" title="Permanent link">&#128279;</a></h2>
+<h3 id="variable-lower_bound">variable lower_bound<a class="headerlink" href="#variable-lower_bound" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">Traits</span><span class="o">::</span><span class="n">lower_bound_type</span><span class="w"> </span><span class="n">lower_bound</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h3 id="variable-upper_bound">variable upper_bound<a class="headerlink" href="#variable-upper_bound" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">Traits</span><span class="o">::</span><span class="n">upper_bound_type</span><span class="w"> </span><span class="n">upper_bound</span><span class="p">;</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h2 id="friends_1">Friends<a class="headerlink" href="#friends_1" title="Permanent link">&#128279;</a></h2>
+<h3 id="friend-operator">friend operator==<a class="headerlink" href="#friend-operator" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span>
+<span class="normal"><a href="#__codelineno-17-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">friend</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">TraitsL</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">TraitsR</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="w"></span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="p">);</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="friend-operator_1">friend operator!=<a class="headerlink" href="#friend-operator_1" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
-<span class="normal"><a href="#__codelineno-15-2">2</a></span>
-<span class="normal"><a href="#__codelineno-15-3">3</a></span>
-<span class="normal"><a href="#__codelineno-15-4">4</a></span>
-<span class="normal"><a href="#__codelineno-15-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">friend</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">TraitsL</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-15-3" name="__codelineno-15-3"></a>
-<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">TraitsR</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="w"></span>
-<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="p">);</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span>
+<span class="normal"><a href="#__codelineno-18-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="k">friend</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">TraitsL</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">TraitsR</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="w"></span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="p">);</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="friend-operator_2">friend operator&lt;&lt;<a class="headerlink" href="#friend-operator_2" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
-<span class="normal"><a href="#__codelineno-16-2">2</a></span>
-<span class="normal"><a href="#__codelineno-16-3">3</a></span>
-<span class="normal"><a href="#__codelineno-16-4">4</a></span>
-<span class="normal"><a href="#__codelineno-16-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">friend</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-16-3" name="__codelineno-16-3"></a>
-<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">TraitsT</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
-<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="p">);</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span>
+<span class="normal"><a href="#__codelineno-19-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="k">friend</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicInterval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">TraitsT</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="w"></span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="p">);</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 26 August 2022 at 19:43:39 UTC</p>
+<p>Updated on 29 August 2022 at 19:47:41 UTC</p>
 
 
 
