@@ -4574,11 +4574,11 @@
 </tr>
 <tr>
 <td>template &lt;typename SizeT > <br>ConstBuffer</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-slice-buffer">slice_buffer</a></strong>(const ConstBuffer &amp; b, const <a href="/_autogen/Classes/structbatt_1_1BasicInterval/">Interval</a>&lt; SizeT &gt; &amp; slice)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-slice-buffer">slice_buffer</a></strong>(const ConstBuffer &amp; b, const <a href="/_autogen/Classes/structbatt_1_1BasicInterval/">Interval</a>&lt; SizeT &gt; &amp; slice)<br>Select a subset of the passed buffer according to the passed interval.</td>
 </tr>
 <tr>
 <td>template &lt;typename SizeT > <br>MutableBuffer</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-slice-buffer">slice_buffer</a></strong>(const MutableBuffer &amp; b, const <a href="/_autogen/Classes/structbatt_1_1BasicInterval/">Interval</a>&lt; SizeT &gt; &amp; slice)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-slice-buffer">slice_buffer</a></strong>(const MutableBuffer &amp; b, const <a href="/_autogen/Classes/structbatt_1_1BasicInterval/">Interval</a>&lt; SizeT &gt; &amp; slice)<br>Select a subset of the passed buffer according to the passed interval.</td>
 </tr>
 <tr>
 <td>template &lt;typename VecT > <br>void</td>
@@ -7237,6 +7237,12 @@
 <a id="__codelineno-173-4" name="__codelineno-173-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Interval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">SizeT</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">slice</span><span class="w"></span>
 <a id="__codelineno-173-5" name="__codelineno-173-5"></a><span class="p">)</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
+<p>Select a subset of the passed buffer according to the passed interval. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>b</strong> The buffer to slice </li>
+<li><strong>slice</strong> Defines the start (inclusive) and end (non-inclusive) of the slice within buffer </li>
+</ul>
 <h3 id="function-slice_buffer_1">function slice_buffer<a class="headerlink" href="#function-slice_buffer_1" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-174-1">1</a></span>
 <span class="normal"><a href="#__codelineno-174-2">2</a></span>
@@ -7248,6 +7254,12 @@
 <a id="__codelineno-174-4" name="__codelineno-174-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Interval</span><span class="o">&lt;</span><span class="w"> </span><span class="n">SizeT</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">slice</span><span class="w"></span>
 <a id="__codelineno-174-5" name="__codelineno-174-5"></a><span class="p">)</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
+<p>Select a subset of the passed buffer according to the passed interval. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>b</strong> The buffer to slice </li>
+<li><strong>slice</strong> Defines the start (inclusive) and end (non-inclusive) of the slice within buffer </li>
+</ul>
 <h3 id="function-consume_buffers">function consume_buffers<a class="headerlink" href="#function-consume_buffers" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-175-1">1</a></span>
 <span class="normal"><a href="#__codelineno-175-2">2</a></span>
@@ -9151,7 +9163,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-361-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-361-1" name="__codelineno-361-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">TupleIndexOf_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TupleIndexOf</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">TupleT</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 29 August 2022 at 19:47:41 UTC</p>
+<p>Updated on 30 August 2022 at 15:56:39 UTC</p>
 
 
 
