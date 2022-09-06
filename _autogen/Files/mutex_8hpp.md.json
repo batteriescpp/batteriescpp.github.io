@@ -1,0 +1,149 @@
+{
+  "abstract": false,
+  "anchor": "#file-mutex.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-mutex-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_MUTEX_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/mutex.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/mutex.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_MUTEX_HPP",
+      "override": false,
+      "refid": "mutex_8hpp_1a398aabbbba84fef69fca577ce67dadd3",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_MUTEX_HPP",
+      "url": "/_autogen/Files/mutex_8hpp/#define-batteries-async-mutex-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/mutex.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/mutex.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/mutex.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_MUTEX_HPP\n#define BATTERIES_ASYNC_MUTEX_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/async/watch.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/pointers.hpp>\n\n#include <atomic>\n\nnamespace batt {\n\ntemplate <typename T>\nclass Mutex\n{\n   public:\n    template <typename U, typename MutexT>\n    class LockImpl\n    {\n       public:\n        explicit LockImpl(MutexT& m) noexcept : m_{m}, val_{&(U&)m_.acquire()}\n        {\n        }\n\n        LockImpl(const LockImpl&) = delete;\n        LockImpl& operator=(const LockImpl&) = delete;\n\n        LockImpl(LockImpl&&) = default;\n        LockImpl& operator=(LockImpl&&) = default;\n\n        ~LockImpl() noexcept\n        {\n            this->release();\n        }\n\n        bool is_held() const noexcept\n        {\n            return val_ != nullptr;\n        }\n\n        explicit operator bool() const noexcept\n        {\n            return this->is_held();\n        }\n\n        U& operator*() noexcept\n        {\n            return *val_;\n        }\n\n        U* get() noexcept\n        {\n            return val_.get();\n        }\n\n        U& value() noexcept\n        {\n            return *val_;\n        }\n\n        U* operator->() noexcept\n        {\n            return val_.get();\n        }\n\n        bool release()\n        {\n            if (val_ != nullptr) {\n                val_.release();\n                m_.release();\n                return true;\n            }\n            return false;\n        }\n\n       private:\n        MutexT& m_;\n        UniqueNonOwningPtr<U> val_;\n    };\n\n    using Lock = LockImpl<T, Mutex>;\n    using ConstLock = LockImpl<const T, const Mutex>;\n\n    Mutex(const Mutex&) = delete;\n    Mutex& operator=(const Mutex&) = delete;\n\n    Mutex() = default;\n\n    template <typename... Args, typename = EnableIfNoShadow<Mutex, Args...>>\n    explicit Mutex(Args&&... args) noexcept : value_(BATT_FORWARD(args)...)\n    {\n    }\n\n    Lock lock()\n    {\n        return Lock{*this};\n    }\n\n    ConstLock lock() const\n    {\n        return ConstLock{*this};\n    }\n\n    template <typename Action>\n    decltype(auto) with_lock(Action&& action)\n    {\n        Lock lock{*this};\n        return BATT_FORWARD(action)(value_);\n    }\n\n    template <typename Self, typename Base = typename Self::ThreadSafeBase>\n    static Base* thread_safe_base(Self* ptr)\n    {\n        return ptr;\n    }\n\n    template <typename Self, typename Base = typename Self::ThreadSafeBase>\n    static const Base* thread_safe_base(const Self* ptr)\n    {\n        return ptr;\n    }\n\n    template <typename Self, typename Base = typename Self::ThreadSafeBase, typename = void>\n    static Base* thread_safe_base(const std::unique_ptr<Self>* ptr)\n    {\n        return ptr->get();\n    }\n\n    template <typename>\n    struct ThreadSafeBaseIsNotSupportedByType {\n    };\n\n    static ThreadSafeBaseIsNotSupportedByType<T>* thread_safe_base(...)\n    {\n        return nullptr;\n    }\n\n    auto operator->()\n    {\n        return thread_safe_base(&this->value_);\n    }\n\n    decltype(auto) no_lock()\n    {\n        return *thread_safe_base(&this->value_);\n    }\n\n    decltype(auto) no_lock() const\n    {\n        return *thread_safe_base(&this->value_);\n    }\n\n   private:\n    const T& acquire() const\n    {\n        const u64 my_ticket = next_ticket_.fetch_add(1);\n        StatusOr<u64> latest_ticket = current_ticket_.get_value();\n\n        // This is OK since it will probably take something like 100 years to wrap.  We should be so lucky!\n        //\n        while (latest_ticket.ok() && *latest_ticket < my_ticket) {\n            latest_ticket = current_ticket_.await_not_equal(*latest_ticket);\n        }\n        BATT_CHECK_EQ(*latest_ticket, my_ticket);\n\n        return value_;\n    }\n\n    void release() const\n    {\n        current_ticket_.fetch_add(1);\n    }\n\n    mutable std::atomic<u64> next_ticket_{0};\n    mutable Watch<u64> current_ticket_{0};\n    T value_;\n};\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_MUTEX_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Mutex",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Mutex",
+      "refid": "classbatt_1_1Mutex",
+      "title": "batt::Mutex",
+      "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Mutex::LockImpl",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Mutex::LockImpl",
+      "refid": "classbatt_1_1Mutex_1_1LockImpl",
+      "title": "batt::Mutex::LockImpl",
+      "url": "/_autogen/Classes/classbatt_1_1Mutex_1_1LockImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Mutex::ThreadSafeBaseIsNotSupportedByType",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::Mutex::ThreadSafeBaseIsNotSupportedByType",
+      "refid": "structbatt_1_1Mutex_1_1ThreadSafeBaseIsNotSupportedByType",
+      "title": "batt::Mutex::ThreadSafeBaseIsNotSupportedByType",
+      "url": "/_autogen/Classes/structbatt_1_1Mutex_1_1ThreadSafeBaseIsNotSupportedByType/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "mutex_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/mutex.hpp",
+  "url": "/_autogen/Files/mutex_8hpp/#file-mutex.hpp",
+  "visibility": "public"
+}

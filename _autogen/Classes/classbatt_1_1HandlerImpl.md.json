@@ -1,0 +1,725 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "baseClasses": [
+    {
+      "external": false,
+      "name": "batt::AbstractHandler< Args... >",
+      "protectedFunctions": [
+        {
+          "abstract": false,
+          "anchor": "#function-abstracthandler",
+          "argsString": "()=default",
+          "category": "functions",
+          "const": false,
+          "default": true,
+          "definition": "batt::AbstractHandler< Args >::AbstractHandler",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::AbstractHandler::AbstractHandler",
+          "hasDetails": false,
+          "inline": false,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "column": 5,
+            "file": "batteries/async/handler.hpp",
+            "line": 60
+          },
+          "name": "AbstractHandler",
+          "override": false,
+          "params": [],
+          "pureVirtual": false,
+          "refid": "classbatt_1_1AbstractHandler_1a25c0ce41a1e4fbc1bc35d80c775dc292",
+          "static": false,
+          "strong": false,
+          "title": "AbstractHandler",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractHandler/#function-abstracthandler",
+          "virtual": false,
+          "visibility": "protected"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-~abstracthandler",
+          "argsString": "()=default",
+          "category": "functions",
+          "const": false,
+          "default": true,
+          "definition": "virtual batt::AbstractHandler< Args >::~AbstractHandler",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::AbstractHandler::~AbstractHandler",
+          "hasDetails": false,
+          "inline": false,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "column": 13,
+            "file": "batteries/async/handler.hpp",
+            "line": 64
+          },
+          "name": "~AbstractHandler",
+          "override": false,
+          "params": [],
+          "pureVirtual": false,
+          "refid": "classbatt_1_1AbstractHandler_1aa91cdff70c406755316eb7140fa99400",
+          "static": false,
+          "strong": false,
+          "title": "~AbstractHandler",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractHandler/#function-~abstracthandler",
+          "virtual": true,
+          "visibility": "protected"
+        }
+      ],
+      "publicClasses": [
+        {
+          "anchor": "",
+          "category": "classes",
+          "fullname": "batt::AbstractHandler::Deleter",
+          "kind": "struct",
+          "language": "cpp",
+          "name": "batt::AbstractHandler::Deleter",
+          "refid": "structbatt_1_1AbstractHandler_1_1Deleter",
+          "title": "batt::AbstractHandler::Deleter",
+          "url": "/_autogen/Classes/structbatt_1_1AbstractHandler_1_1Deleter/",
+          "visibility": "public"
+        }
+      ],
+      "publicFunctions": [
+        {
+          "abstract": false,
+          "anchor": "#function-abstracthandler",
+          "argsString": "(const AbstractHandler &)=delete",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "batt::AbstractHandler< Args >::AbstractHandler",
+          "deleted": true,
+          "explicit": false,
+          "fullname": "batt::AbstractHandler::AbstractHandler",
+          "hasDetails": false,
+          "inline": false,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "column": 5,
+            "file": "batteries/async/handler.hpp",
+            "line": 44
+          },
+          "name": "AbstractHandler",
+          "override": false,
+          "params": [
+            {
+              "name": "",
+              "type": "const [AbstractHandler](/_autogen/Classes/classbatt_1_1AbstractHandler/) &",
+              "typePlain": "const AbstractHandler &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "classbatt_1_1AbstractHandler_1adc482ed548d841aafaf8bdb2ecbcadea",
+          "static": false,
+          "strong": false,
+          "title": "AbstractHandler",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractHandler/#function-abstracthandler",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-operator=",
+          "argsString": "(const AbstractHandler &)=delete",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "AbstractHandler& batt::AbstractHandler< Args >::operator=",
+          "deleted": true,
+          "explicit": false,
+          "fullname": "batt::AbstractHandler::operator=",
+          "hasDetails": false,
+          "inline": false,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "column": 21,
+            "file": "batteries/async/handler.hpp",
+            "line": 45
+          },
+          "name": "operator=",
+          "override": false,
+          "params": [
+            {
+              "name": "",
+              "type": "const [AbstractHandler](/_autogen/Classes/classbatt_1_1AbstractHandler/) &",
+              "typePlain": "const AbstractHandler &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "classbatt_1_1AbstractHandler_1a45779d4a3647a1241c02ce71dea165cc",
+          "static": false,
+          "strong": false,
+          "title": "operator=",
+          "type": "[AbstractHandler](/_autogen/Classes/classbatt_1_1AbstractHandler/) &",
+          "typePlain": "AbstractHandler &",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractHandler/#function-operator=",
+          "virtual": false,
+          "visibility": "public"
+        }
+      ],
+      "refid": "classbatt_1_1AbstractHandler",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractHandler/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    },
+    {
+      "external": true,
+      "name": "boost::intrusive::list_base_hook<>",
+      "refid": null,
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::HandlerImpl",
+  "hasAdditionalMembers": true,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 138,
+    "bodyFile": "batteries/async/handler.hpp",
+    "bodyStart": 70,
+    "column": 1,
+    "file": "batteries/async/handler.hpp",
+    "line": 71
+  },
+  "name": "batt::HandlerImpl",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-fn-",
+      "category": "attributes",
+      "const": false,
+      "definition": "HandlerFn batt::HandlerImpl< HandlerFn, Args >::fn_",
+      "explicit": false,
+      "fullname": "batt::HandlerImpl::fn_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 137,
+        "column": 15,
+        "file": "batteries/async/handler.hpp",
+        "line": 137
+      },
+      "name": "fn_",
+      "override": false,
+      "refid": "classbatt_1_1HandlerImpl_1aa775274280e9a45f166b56e627787347",
+      "static": false,
+      "strong": false,
+      "title": "fn_",
+      "type": "HandlerFn",
+      "typePlain": "HandlerFn",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerImpl/#variable-fn-",
+      "visibility": "private"
+    }
+  ],
+  "privateFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-consume-impl",
+      "argsString": "(FnAction &&fn_action)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::HandlerImpl< HandlerFn, Args >::consume_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HandlerImpl::consume_impl",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 135,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 127,
+        "column": 10,
+        "file": "batteries/async/handler.hpp",
+        "line": 127
+      },
+      "name": "consume_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "fn_action",
+          "type": "FnAction &&",
+          "typePlain": "FnAction &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HandlerImpl_1af03af9b8179de162b3063ee39c54747d",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename FnAction",
+          "typePlain": "typename FnAction"
+        }
+      ],
+      "title": "consume_impl",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerImpl/#function-consume-impl",
+      "virtual": false,
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-make-new",
+      "argsString": "(HandlerFnArg &&h)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static HandlerImpl* batt::HandlerImpl< HandlerFn, Args >::make_new",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HandlerImpl::make_new",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 87,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 82,
+        "column": 24,
+        "file": "batteries/async/handler.hpp",
+        "line": 82
+      },
+      "name": "make_new",
+      "override": false,
+      "params": [
+        {
+          "name": "h",
+          "type": "HandlerFnArg &&",
+          "typePlain": "HandlerFnArg &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HandlerImpl_1a1385e7e7f8679203da8045fc9944651e",
+      "static": true,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename HandlerFnArg",
+          "typePlain": "typename HandlerFnArg"
+        }
+      ],
+      "title": "make_new",
+      "type": "[HandlerImpl](/_autogen/Classes/classbatt_1_1HandlerImpl/) *",
+      "typePlain": "HandlerImpl *",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerImpl/#function-make-new",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-make-new",
+      "argsString": "(HandlerFnArg &&h, usize extra_bytes)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static HandlerImpl* batt::HandlerImpl< HandlerFn, Args >::make_new",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HandlerImpl::make_new",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 96,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 90,
+        "column": 24,
+        "file": "batteries/async/handler.hpp",
+        "line": 90
+      },
+      "name": "make_new",
+      "override": false,
+      "params": [
+        {
+          "name": "h",
+          "type": "HandlerFnArg &&",
+          "typePlain": "HandlerFnArg &&"
+        },
+        {
+          "name": "extra_bytes",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HandlerImpl_1af4c8b7ad5edb9fc3fbb1c52dd58fca12",
+      "static": true,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename HandlerFnArg",
+          "typePlain": "typename HandlerFnArg"
+        }
+      ],
+      "title": "make_new",
+      "type": "[HandlerImpl](/_autogen/Classes/classbatt_1_1HandlerImpl/) *",
+      "typePlain": "HandlerImpl *",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerImpl/#function-make-new",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-handlerimpl",
+      "argsString": "(HandlerFnArg &&h) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::HandlerImpl< HandlerFn, Args >::HandlerImpl",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::HandlerImpl::HandlerImpl",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 101,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 99,
+        "column": 14,
+        "file": "batteries/async/handler.hpp",
+        "line": 99
+      },
+      "name": "HandlerImpl",
+      "override": false,
+      "params": [
+        {
+          "name": "h",
+          "type": "HandlerFnArg &&",
+          "typePlain": "HandlerFnArg &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HandlerImpl_1abad403239892e71b5f1f79ac6b6847d6",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename HandlerFnArg",
+          "typePlain": "typename HandlerFnArg"
+        },
+        {
+          "defval": "batt::EnableIfNoShadow<[HandlerImpl](/_autogen/Classes/classbatt_1_1HandlerImpl/), HandlerFnArg&&>",
+          "defvalPlain": "batt::EnableIfNoShadow<HandlerImpl, HandlerFnArg&&>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "HandlerImpl",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerImpl/#function-handlerimpl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-notify",
+      "argsString": "(Args... args) override",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::HandlerImpl< HandlerFn, Args >::notify",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HandlerImpl::notify",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 108,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 103,
+        "column": 10,
+        "file": "batteries/async/handler.hpp",
+        "line": 103
+      },
+      "name": "notify",
+      "override": true,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args...",
+          "typePlain": "Args..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HandlerImpl_1a7ebfd5966eb8266aeed732a5f5543523",
+      "reimplements": {
+        "anchor": "#function-notify",
+        "category": "functions",
+        "fullname": "batt::AbstractHandler::notify",
+        "kind": "function",
+        "language": "cpp",
+        "name": "notify",
+        "pureVirtual": true,
+        "refid": "classbatt_1_1AbstractHandler_1a10d83cbd15fe9303eb6ef14eac4030d0",
+        "title": "notify",
+        "url": "/_autogen/Classes/classbatt_1_1AbstractHandler/#function-notify",
+        "virtual": true,
+        "visibility": "public"
+      },
+      "static": false,
+      "strong": false,
+      "title": "notify",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerImpl/#function-notify",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-destroy",
+      "argsString": "() override",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::HandlerImpl< HandlerFn, Args >::destroy",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HandlerImpl::destroy",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 113,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 110,
+        "column": 10,
+        "file": "batteries/async/handler.hpp",
+        "line": 110
+      },
+      "name": "destroy",
+      "override": true,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HandlerImpl_1a0d2c2665d6661da9dfe80e59793f78d3",
+      "reimplements": {
+        "anchor": "#function-destroy",
+        "category": "functions",
+        "fullname": "batt::AbstractHandler::destroy",
+        "kind": "function",
+        "language": "cpp",
+        "name": "destroy",
+        "pureVirtual": true,
+        "refid": "classbatt_1_1AbstractHandler_1a3eaf0b6d7e8f1f2da2d9bf325bdf81f9",
+        "title": "destroy",
+        "url": "/_autogen/Classes/classbatt_1_1AbstractHandler/#function-destroy",
+        "virtual": true,
+        "visibility": "public"
+      },
+      "static": false,
+      "strong": false,
+      "title": "destroy",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerImpl/#function-destroy",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-dump",
+      "argsString": "(std::ostream &out) override",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::HandlerImpl< HandlerFn, Args >::dump",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HandlerImpl::dump",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 118,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 115,
+        "column": 10,
+        "file": "batteries/async/handler.hpp",
+        "line": 115
+      },
+      "name": "dump",
+      "override": true,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HandlerImpl_1a2a7e2277d9c30fb1a6b1caab6e24cbdb",
+      "reimplements": {
+        "anchor": "#function-dump",
+        "category": "functions",
+        "fullname": "batt::AbstractHandler::dump",
+        "kind": "function",
+        "language": "cpp",
+        "name": "dump",
+        "pureVirtual": true,
+        "refid": "classbatt_1_1AbstractHandler_1a35d735bd55b8de35b82b37f9d766e816",
+        "title": "dump",
+        "url": "/_autogen/Classes/classbatt_1_1AbstractHandler/#function-dump",
+        "virtual": true,
+        "visibility": "public"
+      },
+      "static": false,
+      "strong": false,
+      "title": "dump",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerImpl/#function-dump",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get-fn",
+      "argsString": "()",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "HandlerFn& batt::HandlerImpl< HandlerFn, Args >::get_fn",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HandlerImpl::get_fn",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 123,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 120,
+        "column": 15,
+        "file": "batteries/async/handler.hpp",
+        "line": 120
+      },
+      "name": "get_fn",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HandlerImpl_1a860903c4695484ac1eb6db1bcd44c189",
+      "static": false,
+      "strong": false,
+      "title": "get_fn",
+      "type": "HandlerFn &",
+      "typePlain": "HandlerFn &",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerImpl/#function-get-fn",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-allocator-type",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::HandlerImpl< HandlerFn, Args >::allocator_type =  typename std::allocator_traits< boost::asio::associated_allocator_t<HandlerFn> >::template rebind_alloc<HandlerImpl>",
+      "explicit": false,
+      "fullname": "batt::HandlerImpl::allocator_type",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 79,
+        "column": 5,
+        "file": "batteries/async/handler.hpp",
+        "line": 78
+      },
+      "name": "allocator_type",
+      "override": false,
+      "refid": "classbatt_1_1HandlerImpl_1af33fa7ad2edd7216b5a84dde3b50a14a",
+      "static": false,
+      "strong": false,
+      "title": "allocator_type",
+      "type": "typename std::allocator_traits< boost::asio::associated_allocator_t< HandlerFn > >::template rebind_alloc< [HandlerImpl](/_autogen/Classes/classbatt_1_1HandlerImpl/) >",
+      "typePlain": "typename std::allocator_traits< boost::asio::associated_allocator_t< HandlerFn > >::template rebind_alloc< HandlerImpl >",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerImpl/#using-allocator-type",
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1HandlerImpl",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename HandlerFn",
+      "typePlain": "typename HandlerFn"
+    },
+    {
+      "name": "Args",
+      "type": "typename...",
+      "typePlain": "typename..."
+    }
+  ],
+  "title": "batt::HandlerImpl",
+  "url": "/_autogen/Classes/classbatt_1_1HandlerImpl/",
+  "visibility": "public"
+}

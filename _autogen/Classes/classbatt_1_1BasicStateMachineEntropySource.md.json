@@ -1,0 +1,429 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::BasicStateMachineEntropySource",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyFile": "batteries/state_machine_model/entropy_source.hpp",
+    "bodyStart": 27,
+    "column": 1,
+    "file": "batteries/state_machine_model/entropy_source.hpp",
+    "line": 27
+  },
+  "name": "batt::BasicStateMachineEntropySource",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-pick-int-",
+      "category": "attributes",
+      "const": false,
+      "definition": "PickIntFn batt::BasicStateMachineEntropySource< Fn >::pick_int_",
+      "explicit": false,
+      "fullname": "batt::BasicStateMachineEntropySource::pick_int_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/state_machine_model/entropy_source.hpp",
+        "bodyStart": 106,
+        "column": 15,
+        "file": "batteries/state_machine_model/entropy_source.hpp",
+        "line": 106
+      },
+      "name": "pick_int_",
+      "override": false,
+      "refid": "classbatt_1_1BasicStateMachineEntropySource_1ad03e56d09c85818b451c530b92b245e3",
+      "static": false,
+      "strong": false,
+      "title": "pick_int_",
+      "type": "PickIntFn",
+      "typePlain": "PickIntFn",
+      "url": "/_autogen/Classes/classbatt_1_1BasicStateMachineEntropySource/#variable-pick-int-",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-basicstatemachineentropysource",
+      "argsString": "()=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::BasicStateMachineEntropySource< Fn >::BasicStateMachineEntropySource",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicStateMachineEntropySource::BasicStateMachineEntropySource",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/state_machine_model/entropy_source.hpp",
+        "line": 44
+      },
+      "name": "BasicStateMachineEntropySource",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1BasicStateMachineEntropySource_1a809a92549f72700b3f2c0942d558cb09",
+      "static": false,
+      "strong": false,
+      "title": "BasicStateMachineEntropySource",
+      "url": "/_autogen/Classes/classbatt_1_1BasicStateMachineEntropySource/#function-basicstatemachineentropysource",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-basicstatemachineentropysource",
+      "argsString": "(PickIntFn &&pick_int_fn) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::BasicStateMachineEntropySource< Fn >::BasicStateMachineEntropySource",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::BasicStateMachineEntropySource::BasicStateMachineEntropySource",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 51,
+        "bodyFile": "batteries/state_machine_model/entropy_source.hpp",
+        "bodyStart": 48,
+        "column": 14,
+        "file": "batteries/state_machine_model/entropy_source.hpp",
+        "line": 48
+      },
+      "name": "BasicStateMachineEntropySource",
+      "override": false,
+      "params": [
+        {
+          "name": "pick_int_fn",
+          "type": "PickIntFn &&",
+          "typePlain": "PickIntFn &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1BasicStateMachineEntropySource_1ac89c6defc3b1d1967f34021ab9b028d4",
+      "static": false,
+      "strong": false,
+      "title": "BasicStateMachineEntropySource",
+      "url": "/_autogen/Classes/classbatt_1_1BasicStateMachineEntropySource/#function-basicstatemachineentropysource",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-pick-int",
+      "argsString": "(usize min_value, usize max_value) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "usize batt::BasicStateMachineEntropySource< Fn >::pick_int",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicStateMachineEntropySource::pick_int",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 58,
+        "bodyFile": "batteries/state_machine_model/entropy_source.hpp",
+        "bodyStart": 55,
+        "column": 11,
+        "file": "batteries/state_machine_model/entropy_source.hpp",
+        "line": 55
+      },
+      "name": "pick_int",
+      "override": false,
+      "params": [
+        {
+          "name": "min_value",
+          "type": "usize",
+          "typePlain": "usize"
+        },
+        {
+          "name": "max_value",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1BasicStateMachineEntropySource_1acc3c3ac887744e624a752dbcf50f64a3",
+      "static": false,
+      "strong": false,
+      "title": "pick_int",
+      "type": "usize",
+      "typePlain": "usize",
+      "url": "/_autogen/Classes/classbatt_1_1BasicStateMachineEntropySource/#function-pick-int",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-pick-branch",
+      "argsString": "() const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "bool batt::BasicStateMachineEntropySource< Fn >::pick_branch",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicStateMachineEntropySource::pick_branch",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 65,
+        "bodyFile": "batteries/state_machine_model/entropy_source.hpp",
+        "bodyStart": 62,
+        "column": 10,
+        "file": "batteries/state_machine_model/entropy_source.hpp",
+        "line": 62
+      },
+      "name": "pick_branch",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1BasicStateMachineEntropySource_1a1fe7f058b1c35916ae1953aff4cddc6a",
+      "static": false,
+      "strong": false,
+      "title": "pick_branch",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/classbatt_1_1BasicStateMachineEntropySource/#function-pick-branch",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-pick-one-of",
+      "argsString": "(std::initializer_list< T > values) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "T batt::BasicStateMachineEntropySource< Fn >::pick_one_of",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicStateMachineEntropySource::pick_one_of",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 74,
+        "bodyFile": "batteries/state_machine_model/entropy_source.hpp",
+        "bodyStart": 70,
+        "column": 7,
+        "file": "batteries/state_machine_model/entropy_source.hpp",
+        "line": 70
+      },
+      "name": "pick_one_of",
+      "override": false,
+      "params": [
+        {
+          "name": "values",
+          "type": "std::initializer_list< T >",
+          "typePlain": "std::initializer_list< T >"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1BasicStateMachineEntropySource_1a4f4033fddffe2c284ac666d6c61595c1",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "pick_one_of",
+      "type": "T",
+      "typePlain": "T",
+      "url": "/_autogen/Classes/classbatt_1_1BasicStateMachineEntropySource/#function-pick-one-of",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-run-one",
+      "argsString": "(FakeExecutionContext &context) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "bool batt::BasicStateMachineEntropySource< Fn >::run_one",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicStateMachineEntropySource::run_one",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 89,
+        "bodyFile": "batteries/state_machine_model/entropy_source.hpp",
+        "bodyStart": 79,
+        "column": 10,
+        "file": "batteries/state_machine_model/entropy_source.hpp",
+        "line": 79
+      },
+      "name": "run_one",
+      "override": false,
+      "params": [
+        {
+          "name": "context",
+          "type": "[FakeExecutionContext](/_autogen/Classes/classbatt_1_1FakeExecutionContext/) &",
+          "typePlain": "FakeExecutionContext &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1BasicStateMachineEntropySource_1abb457e1996d3aabfddc08ca5a5f2b386",
+      "static": false,
+      "strong": false,
+      "title": "run_one",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/classbatt_1_1BasicStateMachineEntropySource/#function-run-one",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-do-one-of",
+      "argsString": "(ActionFn &&... actions) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "void batt::BasicStateMachineEntropySource< Fn >::do_one_of",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicStateMachineEntropySource::do_one_of",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 103,
+        "bodyFile": "batteries/state_machine_model/entropy_source.hpp",
+        "bodyStart": 95,
+        "column": 10,
+        "file": "batteries/state_machine_model/entropy_source.hpp",
+        "line": 95
+      },
+      "name": "do_one_of",
+      "override": false,
+      "params": [
+        {
+          "name": "actions",
+          "type": "ActionFn &&...",
+          "typePlain": "ActionFn &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1BasicStateMachineEntropySource_1ac3fa01e5c59f40558a101ecbd907d223",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "ActionFn",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "do_one_of",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1BasicStateMachineEntropySource/#function-do-one-of",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-pickintfn",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::BasicStateMachineEntropySource< Fn >::PickIntFn =  Fn",
+      "explicit": false,
+      "fullname": "batt::BasicStateMachineEntropySource::PickIntFn",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/state_machine_model/entropy_source.hpp",
+        "bodyStart": 40,
+        "column": 5,
+        "file": "batteries/state_machine_model/entropy_source.hpp",
+        "line": 40
+      },
+      "name": "PickIntFn",
+      "override": false,
+      "refid": "classbatt_1_1BasicStateMachineEntropySource_1a07dc708cea80420392dc6b6265ff57a1",
+      "static": false,
+      "strong": false,
+      "title": "PickIntFn",
+      "type": "Fn",
+      "typePlain": "Fn",
+      "url": "/_autogen/Classes/classbatt_1_1BasicStateMachineEntropySource/#using-pickintfn",
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1BasicStateMachineEntropySource",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename Fn",
+      "typePlain": "typename Fn"
+    }
+  ],
+  "title": "batt::BasicStateMachineEntropySource",
+  "url": "/_autogen/Classes/classbatt_1_1BasicStateMachineEntropySource/",
+  "visibility": "public"
+}

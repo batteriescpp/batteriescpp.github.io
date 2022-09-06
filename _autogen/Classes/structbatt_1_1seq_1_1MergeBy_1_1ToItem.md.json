@@ -1,0 +1,203 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::seq::MergeBy::ToItem",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "struct",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 111,
+    "bodyFile": "batteries/seq/merge_by.hpp",
+    "bodyStart": 99,
+    "column": 17,
+    "file": "batteries/seq/merge_by.hpp",
+    "line": 99
+  },
+  "name": "batt::seq::MergeBy::ToItem",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "classes",
+    "fullname": "batt::seq::MergeBy",
+    "kind": "class",
+    "language": "cpp",
+    "name": "batt::seq::MergeBy",
+    "refid": "classbatt_1_1seq_1_1MergeBy",
+    "title": "batt::seq::MergeBy",
+    "url": "/_autogen/Classes/classbatt_1_1seq_1_1MergeBy/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::MergeBy",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::seq::MergeBy",
+      "refid": "classbatt_1_1seq_1_1MergeBy",
+      "title": "batt::seq::MergeBy",
+      "url": "/_autogen/Classes/classbatt_1_1seq_1_1MergeBy/",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-operator()",
+      "argsString": "(T &&item) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "Item batt::seq::MergeBy< LeftSeq, RightSeq, Compare >::ToItem::operator()",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::seq::MergeBy::ToItem::operator()",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 104,
+        "bodyFile": "batteries/seq/merge_by.hpp",
+        "bodyStart": 101,
+        "column": 14,
+        "file": "batteries/seq/merge_by.hpp",
+        "line": 101
+      },
+      "name": "operator()",
+      "override": false,
+      "params": [
+        {
+          "name": "item",
+          "type": "T &&",
+          "typePlain": "T &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1seq_1_1MergeBy_1_1ToItem_1a3f4f972f9981efa3882b797a13018b57",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "defval": "std::enable_if_t<!std::is_same_v<Item, T&&>>",
+          "defvalPlain": "std::enable_if_t<!std::is_same_v<Item, T&&>>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "operator()",
+      "type": "Item",
+      "typePlain": "Item",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1MergeBy_1_1ToItem/#function-operator()",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator()",
+      "argsString": "(T &&item) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "Item batt::seq::MergeBy< LeftSeq, RightSeq, Compare >::ToItem::operator()",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::seq::MergeBy::ToItem::operator()",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 110,
+        "bodyFile": "batteries/seq/merge_by.hpp",
+        "bodyStart": 107,
+        "column": 14,
+        "file": "batteries/seq/merge_by.hpp",
+        "line": 107
+      },
+      "name": "operator()",
+      "override": false,
+      "params": [
+        {
+          "name": "item",
+          "type": "T &&",
+          "typePlain": "T &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1seq_1_1MergeBy_1_1ToItem_1a53dfa490084ecf4921950b5f18365ab8",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "defval": "std::enable_if_t<std::is_same_v<Item, T&&>>",
+          "defvalPlain": "std::enable_if_t<std::is_same_v<Item, T&&>>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        },
+        {
+          "defval": "void",
+          "defvalPlain": "void",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "operator()",
+      "type": "Item",
+      "typePlain": "Item",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1MergeBy_1_1ToItem/#function-operator()",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "structbatt_1_1seq_1_1MergeBy_1_1ToItem",
+  "static": false,
+  "strong": false,
+  "title": "batt::seq::MergeBy::ToItem",
+  "url": "/_autogen/Classes/structbatt_1_1seq_1_1MergeBy_1_1ToItem/",
+  "visibility": "private"
+}

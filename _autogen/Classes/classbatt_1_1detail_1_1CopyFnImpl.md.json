@@ -1,0 +1,214 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::detail::CopyFnImpl",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyFile": "batteries/small_fn.hpp",
+    "bodyStart": 64,
+    "column": 1,
+    "file": "batteries/small_fn.hpp",
+    "line": 64
+  },
+  "name": "batt::detail::CopyFnImpl",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt::detail",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt::detail",
+    "refid": "namespacebatt_1_1detail",
+    "title": "batt::detail",
+    "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-copy",
+      "argsString": "(void *memory, usize size) const noexcept override",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "AbstractFn<false, Result, Args...>* batt::detail::CopyFnImpl< Fn, Result, Args >::copy",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::CopyFnImpl::copy",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 163,
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 158,
+        "column": 16,
+        "file": "batteries/small_fn.hpp",
+        "line": 158
+      },
+      "name": "copy",
+      "override": true,
+      "params": [
+        {
+          "name": "memory",
+          "type": "void *",
+          "typePlain": "void *"
+        },
+        {
+          "name": "size",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1CopyFnImpl_1a1a351911b0172fb022d13151fef74070",
+      "static": false,
+      "strong": false,
+      "title": "copy",
+      "type": "AbstractFn< false, Result, Args... > *",
+      "typePlain": "AbstractFn< false, Result, Args... > *",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1CopyFnImpl/#function-copy",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-copy-to-move-only",
+      "argsString": "(void *memory, usize size) const noexcept override",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "AbstractFn<true, Result, Args...>* batt::detail::CopyFnImpl< Fn, Result, Args >::copy_to_move_only",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::CopyFnImpl::copy_to_move_only",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 170,
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 165,
+        "column": 16,
+        "file": "batteries/small_fn.hpp",
+        "line": 165
+      },
+      "name": "copy_to_move_only",
+      "override": true,
+      "params": [
+        {
+          "name": "memory",
+          "type": "void *",
+          "typePlain": "void *"
+        },
+        {
+          "name": "size",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1CopyFnImpl_1a1d60270e53595fbf56ba0f519f2fa9de",
+      "static": false,
+      "strong": false,
+      "title": "copy_to_move_only",
+      "type": "AbstractFn< true, Result, Args... > *",
+      "typePlain": "AbstractFn< true, Result, Args... > *",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1CopyFnImpl/#function-copy-to-move-only",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-self-type",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::detail::CopyFnImpl< Fn, Result, Args >::self_type =  CopyFnImpl",
+      "explicit": false,
+      "fullname": "batt::detail::CopyFnImpl::self_type",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 154,
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 154
+      },
+      "name": "self_type",
+      "override": false,
+      "refid": "classbatt_1_1detail_1_1CopyFnImpl_1a41fa37ece956527b4dd7fdb190cecf97",
+      "static": false,
+      "strong": false,
+      "title": "self_type",
+      "type": "[CopyFnImpl](/_autogen/Classes/classbatt_1_1detail_1_1CopyFnImpl/)",
+      "typePlain": "CopyFnImpl",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1CopyFnImpl/#using-self-type",
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1detail_1_1CopyFnImpl",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename Fn",
+      "typePlain": "typename Fn"
+    },
+    {
+      "name": "",
+      "type": "typename Result",
+      "typePlain": "typename Result"
+    },
+    {
+      "name": "Args",
+      "type": "typename...",
+      "typePlain": "typename..."
+    }
+  ],
+  "title": "batt::detail::CopyFnImpl",
+  "url": "/_autogen/Classes/classbatt_1_1detail_1_1CopyFnImpl/",
+  "visibility": "public"
+}

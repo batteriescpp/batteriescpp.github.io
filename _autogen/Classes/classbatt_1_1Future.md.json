@@ -1,0 +1,275 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "friends": [
+    {
+      "abstract": false,
+      "anchor": "#friend-get-future",
+      "argsString": "(const Promise< U > &promise)",
+      "category": "friends",
+      "const": false,
+      "default": false,
+      "definition": "Future<U> get_future",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Future::get_future",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "friend",
+      "language": "cpp",
+      "location": {
+        "column": 19,
+        "file": "batteries/async/future_decl.hpp",
+        "line": 53
+      },
+      "name": "get_future",
+      "override": false,
+      "params": [
+        {
+          "name": "promise",
+          "type": "const [Promise](/_autogen/Classes/classbatt_1_1Promise/)< U > &",
+          "typePlain": "const Promise< U > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Future_1aebf757a9dac1d3ae2f5c06f7ade9a0eb",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "get_future",
+      "type": "[Future](/_autogen/Classes/classbatt_1_1Future/)< U >",
+      "typePlain": "Future< U >",
+      "url": "/_autogen/Classes/classbatt_1_1Future/#friend-get-future",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "fullname": "batt::Future",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyFile": "batteries/async/future_decl.hpp",
+    "bodyStart": 24,
+    "column": 1,
+    "file": "batteries/async/future_decl.hpp",
+    "line": 24
+  },
+  "name": "batt::Future",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-impl-",
+      "category": "attributes",
+      "const": false,
+      "definition": "boost::intrusive_ptr<detail::FutureImpl<T> > batt::Future< T >::impl_",
+      "explicit": false,
+      "fullname": "batt::Future::impl_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/future_decl.hpp",
+        "bodyStart": 60,
+        "column": 26,
+        "file": "batteries/async/future_decl.hpp",
+        "line": 60
+      },
+      "name": "impl_",
+      "override": false,
+      "refid": "classbatt_1_1Future_1aa65ba5995205098a1633eef2e18e1b86",
+      "static": false,
+      "strong": false,
+      "title": "impl_",
+      "type": "boost::intrusive_ptr< [detail::FutureImpl](/_autogen/Classes/classbatt_1_1detail_1_1FutureImpl/)< T > >",
+      "typePlain": "boost::intrusive_ptr< detail::FutureImpl< T > >",
+      "url": "/_autogen/Classes/classbatt_1_1Future/#variable-impl-",
+      "visibility": "private"
+    }
+  ],
+  "privateFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-future",
+      "argsString": "(boost::intrusive_ptr< detail::FutureImpl< T >> &&impl) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::Future< T >::Future",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::Future::Future",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 63,
+        "bodyFile": "batteries/async/future_impl.hpp",
+        "bodyStart": 60,
+        "column": 14,
+        "file": "batteries/async/future_decl.hpp",
+        "line": 58
+      },
+      "name": "Future",
+      "override": false,
+      "params": [
+        {
+          "name": "impl",
+          "type": "boost::intrusive_ptr< [detail::FutureImpl](/_autogen/Classes/classbatt_1_1detail_1_1FutureImpl/)< T >> &&",
+          "typePlain": "boost::intrusive_ptr< detail::FutureImpl< T >> &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Future_1aed7e09b2e86adcfea374339c28370a87",
+      "static": false,
+      "strong": false,
+      "title": "Future",
+      "url": "/_autogen/Classes/classbatt_1_1Future/#function-future",
+      "virtual": false,
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-async-wait",
+      "argsString": "(Handler &&handler) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "void batt::Future< T >::async_wait",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Future::async_wait",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 55,
+        "bodyFile": "batteries/async/future_impl.hpp",
+        "bodyStart": 52,
+        "column": 10,
+        "file": "batteries/async/future_decl.hpp",
+        "line": 46
+      },
+      "name": "async_wait",
+      "override": false,
+      "params": [
+        {
+          "name": "handler",
+          "type": "Handler &&",
+          "typePlain": "Handler &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Future_1a86af7ba95ea650e85b76776655b65cc7",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Handler",
+          "typePlain": "typename Handler"
+        }
+      ],
+      "title": "async_wait",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1Future/#function-async-wait",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is-ready",
+      "argsString": "() const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "bool batt::Future< T >::is_ready",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Future::is_ready",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 79,
+        "bodyFile": "batteries/async/future_impl.hpp",
+        "bodyStart": 76,
+        "column": 10,
+        "file": "batteries/async/future_decl.hpp",
+        "line": 55
+      },
+      "name": "is_ready",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Future_1a7474b80a9a959808752bd7d33e010e5c",
+      "static": false,
+      "strong": false,
+      "title": "is_ready",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/classbatt_1_1Future/#function-is-ready",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1Future",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename T",
+      "typePlain": "typename T"
+    }
+  ],
+  "title": "batt::Future",
+  "url": "/_autogen/Classes/classbatt_1_1Future/",
+  "visibility": "public"
+}

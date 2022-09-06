@@ -1,0 +1,343 @@
+{
+  "abstract": false,
+  "anchor": "#file-suppress.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batt-do-pragma",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_DO_PRAGMA",
+      "hasDetails": false,
+      "initializer": "_Pragma(#x)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/suppress.hpp",
+        "bodyStart": 7,
+        "column": 9,
+        "file": "batteries/suppress.hpp",
+        "line": 7
+      },
+      "name": "BATT_DO_PRAGMA",
+      "override": false,
+      "params": [
+        {
+          "name": "x",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "suppress_8hpp_1a4fbc19d1bcfd3547eca523df93b7b139",
+      "static": false,
+      "strong": false,
+      "title": "BATT_DO_PRAGMA",
+      "url": "/_autogen/Files/suppress_8hpp/#define-batt-do-pragma",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-suppress",
+      "brief": "Disables specific compiler warnings (by id). ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "Nests with BATT_UNSUPPRESS().\n\nExample: \n\n```cpp\n#include <batteries/strict.hpp>\n#include <batteries/suppress.hpp>\n\n// Ordinarily the function below would fail to compile because:\n//  - foo() is declared as returning int, but never returns anything\n//  - foo() is never used\n//\n\nBATT_SUPPRESS(\"-Wreturn-type\")\nBATT_SUPPRESS(\"-Wunused-function\")\n\nint foo()\n{}\n\nBATT_UNSUPPRESS()\nBATT_UNSUPPRESS()\n```",
+      "explicit": false,
+      "fullname": "BATT_SUPPRESS",
+      "hasDetails": true,
+      "initializer": "_Pragma(\"GCC diagnostic push\") BATT_DO_PRAGMA(GCC diagnostic ignored warn_id)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/suppress.hpp",
+        "bodyStart": 33,
+        "column": 9,
+        "file": "batteries/suppress.hpp",
+        "line": 33
+      },
+      "name": "BATT_SUPPRESS",
+      "override": false,
+      "params": [
+        {
+          "name": "warn_id",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "suppress_8hpp_1a7ff4f13d2c457a0e52994789bf29cc0d",
+      "static": false,
+      "strong": false,
+      "summary": "Disables specific compiler warnings (by id). ",
+      "title": "BATT_SUPPRESS",
+      "url": "/_autogen/Files/suppress_8hpp/#define-batt-suppress",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-unsuppress",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_UNSUPPRESS",
+      "hasDetails": true,
+      "initializer": "_Pragma(\"GCC diagnostic pop\")",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/suppress.hpp",
+        "bodyStart": 39,
+        "column": 9,
+        "file": "batteries/suppress.hpp",
+        "line": 39
+      },
+      "name": "BATT_UNSUPPRESS",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "suppress_8hpp_1adf3534456d145582e3e16396b44903d3",
+      "see": [
+        "[BATT_SUPPRESS](/reference/files/suppress_8hpp/#define-batt_suppress)"
+      ],
+      "static": false,
+      "strong": false,
+      "title": "BATT_UNSUPPRESS",
+      "url": "/_autogen/Files/suppress_8hpp/#define-batt-unsuppress",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-no-optimize",
+      "brief": "Disables optimization for a single function. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "Example: \n\n```cpp\nvoid BATT_NO_OPTIMIZE empty_function() {}\n```",
+      "explicit": false,
+      "fullname": "BATT_NO_OPTIMIZE",
+      "hasDetails": true,
+      "initializer": "__attribute__((optimize(\"O0\")))",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/suppress.hpp",
+        "bodyStart": 52,
+        "column": 10,
+        "file": "batteries/suppress.hpp",
+        "line": 52
+      },
+      "name": "BATT_NO_OPTIMIZE",
+      "override": false,
+      "refid": "suppress_8hpp_1ae17307c923ef27cd7793d7ec693b762d",
+      "static": false,
+      "strong": false,
+      "summary": "Disables optimization for a single function. ",
+      "title": "BATT_NO_OPTIMIZE",
+      "url": "/_autogen/Files/suppress_8hpp/#define-batt-no-optimize",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-suppress-if-gcc",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_SUPPRESS_IF_GCC",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/suppress.hpp",
+        "bodyStart": 63,
+        "column": 9,
+        "file": "batteries/suppress.hpp",
+        "line": 63
+      },
+      "name": "BATT_SUPPRESS_IF_GCC",
+      "override": false,
+      "params": [
+        {
+          "name": "warn_id",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "suppress_8hpp_1a0dc827e6162fde138600465b7af055bb",
+      "static": false,
+      "strong": false,
+      "title": "BATT_SUPPRESS_IF_GCC",
+      "url": "/_autogen/Files/suppress_8hpp/#define-batt-suppress-if-gcc",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-unsuppress-if-gcc",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_UNSUPPRESS_IF_GCC",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/suppress.hpp",
+        "bodyStart": 64,
+        "column": 9,
+        "file": "batteries/suppress.hpp",
+        "line": 64
+      },
+      "name": "BATT_UNSUPPRESS_IF_GCC",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "suppress_8hpp_1ac87104c24dbbc9ec58a58e10f3fe8bd0",
+      "static": false,
+      "strong": false,
+      "title": "BATT_UNSUPPRESS_IF_GCC",
+      "url": "/_autogen/Files/suppress_8hpp/#define-batt-unsuppress-if-gcc",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-suppress-if-clang",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_SUPPRESS_IF_CLANG",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/suppress.hpp",
+        "bodyStart": 76,
+        "column": 9,
+        "file": "batteries/suppress.hpp",
+        "line": 76
+      },
+      "name": "BATT_SUPPRESS_IF_CLANG",
+      "override": false,
+      "params": [
+        {
+          "name": "warn_id",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "suppress_8hpp_1a3f356632564f33625a36c599ad72411a",
+      "static": false,
+      "strong": false,
+      "title": "BATT_SUPPRESS_IF_CLANG",
+      "url": "/_autogen/Files/suppress_8hpp/#define-batt-suppress-if-clang",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-unsuppress-if-clang",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_UNSUPPRESS_IF_CLANG",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/suppress.hpp",
+        "bodyStart": 77,
+        "column": 9,
+        "file": "batteries/suppress.hpp",
+        "line": 77
+      },
+      "name": "BATT_UNSUPPRESS_IF_CLANG",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "suppress_8hpp_1abca2653d7009b32633f04614d700c708",
+      "static": false,
+      "strong": false,
+      "title": "BATT_UNSUPPRESS_IF_CLANG",
+      "url": "/_autogen/Files/suppress_8hpp/#define-batt-unsuppress-if-clang",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/suppress.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/suppress.hpp",
+    "line": 0
+  },
+  "name": "batteries/suppress.hpp",
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2021 Anthony Paul Astolfi\n//\n#pragma once\n\n#include <batteries/config.hpp>\n\n#define BATT_DO_PRAGMA(x) _Pragma(#x)\n\n// =============================================================================\n// clang-format off\n#define BATT_SUPPRESS(warn_id)                                                                     \\\n    _Pragma(\"GCC diagnostic push\") BATT_DO_PRAGMA(GCC diagnostic ignored warn_id)\n\n// clang-format on\n\n#define BATT_UNSUPPRESS() _Pragma(\"GCC diagnostic pop\")\n\n// =============================================================================\n#if defined(__clang__)\n#define BATT_NO_OPTIMIZE __attribute__((optnone))\n#else\n#define BATT_NO_OPTIMIZE __attribute__((optimize(\"O0\")))\n#endif\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n#if BATT_COMPILER_IS_GCC\n\n#define BATT_SUPPRESS_IF_GCC(warn_id) BATT_SUPPRESS(warn_id)\n#define BATT_UNSUPPRESS_IF_GCC() BATT_UNSUPPRESS()\n\n#else  // BATT_COMPILER_IS_GCC\n\n#define BATT_SUPPRESS_IF_GCC(warn_id)\n#define BATT_UNSUPPRESS_IF_GCC()\n\n#endif  // BATT_COMPILER_IS_GCC\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n#if BATT_COMPILER_IS_CLANG\n\n#define BATT_SUPPRESS_IF_CLANG(warn_id) BATT_SUPPRESS(warn_id)\n#define BATT_UNSUPPRESS_IF_CLANG() BATT_UNSUPPRESS()\n\n#else  // BATT_COMPILER_IS_CLANG\n\n#define BATT_SUPPRESS_IF_CLANG(warn_id)\n#define BATT_UNSUPPRESS_IF_CLANG()\n\n#endif  // BATT_COMPILER_IS_CLANG",
+  "refid": "suppress_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/suppress.hpp",
+  "url": "/_autogen/Files/suppress_8hpp/#file-suppress.hpp",
+  "visibility": "public"
+}

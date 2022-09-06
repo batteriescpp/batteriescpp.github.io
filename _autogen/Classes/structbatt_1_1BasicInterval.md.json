@@ -1,0 +1,926 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "brief": "A set of totally ordered values, defined by a lower and upper bound. ",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "details": "Example:\n\n```cpp\n\n#include <batteries/assert.hpp>\n#include <batteries/interval.hpp>\n\nint main()\n{\n    batt::Interval<int> i{3, 7};\n\n    BATT_CHECK_EQ(i.size(), 4);\n    BATT_CHECK(i.contains(3));\n    BATT_CHECK(i.contains(6));\n    BATT_CHECK(!i.contains(2));\n    BATT_CHECK(!i.contains(7));\n    BATT_CHECK((batt::Interval<int>{5, 5}).empty());\n\n    return 0;\n}\n```\n\n_Filename: examples/interval.cpp_",
+  "explicit": false,
+  "friends": [
+    {
+      "abstract": false,
+      "anchor": "#friend-operator==",
+      "argsString": "(const BasicInterval< TraitsL > &l, const BasicInterval< TraitsR > &r)",
+      "category": "friends",
+      "const": false,
+      "default": false,
+      "definition": "bool operator==",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicInterval::operator==",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "friend",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 294,
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 290,
+        "column": 17,
+        "file": "batteries/interval.hpp",
+        "line": 199
+      },
+      "name": "operator==",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [BasicInterval](/_autogen/Classes/structbatt_1_1BasicInterval/)< TraitsL > &",
+          "typePlain": "const BasicInterval< TraitsL > &"
+        },
+        {
+          "name": "r",
+          "type": "const [BasicInterval](/_autogen/Classes/structbatt_1_1BasicInterval/)< TraitsR > &",
+          "typePlain": "const BasicInterval< TraitsR > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1BasicInterval_1a98598b2d27da427dc01680604a6ed878",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename TraitsL",
+          "typePlain": "typename TraitsL"
+        },
+        {
+          "name": "",
+          "type": "typename TraitsR",
+          "typePlain": "typename TraitsR"
+        }
+      ],
+      "title": "operator==",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#friend-operator==",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#friend-operator!=",
+      "argsString": "(const BasicInterval< TraitsL > &l, const BasicInterval< TraitsR > &r)",
+      "category": "friends",
+      "const": false,
+      "default": false,
+      "definition": "bool operator!=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicInterval::operator!=",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "friend",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 300,
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 297,
+        "column": 17,
+        "file": "batteries/interval.hpp",
+        "line": 202
+      },
+      "name": "operator!=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [BasicInterval](/_autogen/Classes/structbatt_1_1BasicInterval/)< TraitsL > &",
+          "typePlain": "const BasicInterval< TraitsL > &"
+        },
+        {
+          "name": "r",
+          "type": "const [BasicInterval](/_autogen/Classes/structbatt_1_1BasicInterval/)< TraitsR > &",
+          "typePlain": "const BasicInterval< TraitsR > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1BasicInterval_1abb900a28536570f0737c757092397e2f",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename TraitsL",
+          "typePlain": "typename TraitsL"
+        },
+        {
+          "name": "",
+          "type": "typename TraitsR",
+          "typePlain": "typename TraitsR"
+        }
+      ],
+      "title": "operator!=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#friend-operator!=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#friend-operator<<",
+      "argsString": "(std::ostream &out, const BasicInterval< TraitsT > &t)",
+      "category": "friends",
+      "const": false,
+      "default": false,
+      "definition": "std::ostream& operator<<",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicInterval::operator<<",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "friend",
+      "language": "cpp",
+      "location": {
+        "column": 12,
+        "file": "batteries/interval.hpp",
+        "line": 205
+      },
+      "name": "operator<<",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        },
+        {
+          "name": "t",
+          "type": "const [BasicInterval](/_autogen/Classes/structbatt_1_1BasicInterval/)< TraitsT > &",
+          "typePlain": "const BasicInterval< TraitsT > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1BasicInterval_1a9182409c35b129e1bfe991dda647ea49",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename TraitsT",
+          "typePlain": "typename TraitsT"
+        }
+      ],
+      "title": "operator<<",
+      "type": "std::ostream &",
+      "typePlain": "std::ostream &",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#friend-operator<<",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "fullname": "batt::BasicInterval",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "<batteries/interval.hpp>",
+  "inline": false,
+  "kind": "struct",
+  "language": "cpp",
+  "location": {
+    "bodyFile": "batteries/interval.hpp",
+    "bodyStart": 33,
+    "column": 1,
+    "file": "batteries/interval.hpp",
+    "line": 33
+  },
+  "name": "batt::BasicInterval",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "publicAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-lower-bound",
+      "category": "attributes",
+      "const": false,
+      "definition": "Traits::lower_bound_type batt::BasicInterval< Traits >::lower_bound",
+      "explicit": false,
+      "fullname": "batt::BasicInterval::lower_bound",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 71,
+        "column": 39,
+        "file": "batteries/interval.hpp",
+        "line": 71
+      },
+      "name": "lower_bound",
+      "override": false,
+      "refid": "structbatt_1_1BasicInterval_1af838bbbc18a1a7a6f9a12b6ecae9a353",
+      "static": false,
+      "strong": false,
+      "title": "lower_bound",
+      "type": "Traits::lower_bound_type",
+      "typePlain": "Traits::lower_bound_type",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#variable-lower-bound",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-upper-bound",
+      "category": "attributes",
+      "const": false,
+      "definition": "Traits::upper_bound_type batt::BasicInterval< Traits >::upper_bound",
+      "explicit": false,
+      "fullname": "batt::BasicInterval::upper_bound",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 72,
+        "column": 39,
+        "file": "batteries/interval.hpp",
+        "line": 72
+      },
+      "name": "upper_bound",
+      "override": false,
+      "refid": "structbatt_1_1BasicInterval_1a269431b0a87375aa6cdfaf4cc4c8452c",
+      "static": false,
+      "strong": false,
+      "title": "upper_bound",
+      "type": "Traits::upper_bound_type",
+      "typePlain": "Traits::upper_bound_type",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#variable-upper-bound",
+      "visibility": "public"
+    }
+  ],
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "Total order that sorts intervals first by lower bound, then by upper bound (i.e., by \"dictionary order\"). ",
+      "category": "classes",
+      "fullname": "batt::BasicInterval::LexicographicalOrder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::BasicInterval::LexicographicalOrder",
+      "refid": "structbatt_1_1BasicInterval_1_1LexicographicalOrder",
+      "summary": "Total order that sorts intervals first by lower bound, then by upper bound (i.e., by \"dictionary order\"). ",
+      "title": "batt::BasicInterval::LexicographicalOrder",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval_1_1LexicographicalOrder/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Partial order on Interval values that corresponds to a strict ordering on a one dimensional number line. ",
+      "category": "classes",
+      "fullname": "batt::BasicInterval::LinearOrder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::BasicInterval::LinearOrder",
+      "refid": "structbatt_1_1BasicInterval_1_1LinearOrder",
+      "summary": "Partial order on Interval values that corresponds to a strict ordering on a one dimensional number line. ",
+      "title": "batt::BasicInterval::LinearOrder",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval_1_1LinearOrder/",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-size",
+      "argsString": "() const",
+      "brief": "Returns the size of the interval as defined by Traits (usually integer difference). ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "auto batt::BasicInterval< Traits >::size",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicInterval::size",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 79,
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 76,
+        "column": 10,
+        "file": "batteries/interval.hpp",
+        "line": 76
+      },
+      "name": "size",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1BasicInterval_1a35b665a1e2d13d5e911bd9b63669b0ce",
+      "static": false,
+      "strong": false,
+      "summary": "Returns the size of the interval as defined by Traits (usually integer difference). ",
+      "title": "size",
+      "type": "auto",
+      "typePlain": "auto",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#function-size",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-empty",
+      "argsString": "() const",
+      "brief": "Returns true iff the interval contains no elements. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "bool batt::BasicInterval< Traits >::empty",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicInterval::empty",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 86,
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 83,
+        "column": 10,
+        "file": "batteries/interval.hpp",
+        "line": 83
+      },
+      "name": "empty",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1BasicInterval_1a1e03388f16b4320d16a18b77a55d9f6d",
+      "static": false,
+      "strong": false,
+      "summary": "Returns true iff the interval contains no elements. ",
+      "title": "empty",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#function-empty",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-contains",
+      "argsString": "(const V &item) const",
+      "brief": "Returns true iff the interval contains the passed item. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "bool batt::BasicInterval< Traits >::contains",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicInterval::contains",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 97,
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 93,
+        "column": 10,
+        "file": "batteries/interval.hpp",
+        "line": 93
+      },
+      "name": "contains",
+      "override": false,
+      "paramList": [
+        {
+          "name": "item",
+          "text": "The value to test for membership. "
+        }
+      ],
+      "params": [
+        {
+          "name": "item",
+          "type": "const V &",
+          "typePlain": "const V &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1BasicInterval_1a045ecba779c5bd7a5873b2f8ee1a3ecd",
+      "static": false,
+      "strong": false,
+      "summary": "Returns true iff the interval contains the passed item. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename V",
+          "typePlain": "typename V"
+        }
+      ],
+      "title": "contains",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#function-contains",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-adjacent-to",
+      "argsString": "(const BasicInterval< ThatTraits > &that) const",
+      "brief": "Returns true iff no non-empty interval can be constructed between `this` and `that`. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "bool batt::BasicInterval< Traits >::adjacent_to",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicInterval::adjacent_to",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 109,
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 102,
+        "column": 10,
+        "file": "batteries/interval.hpp",
+        "line": 102
+      },
+      "name": "adjacent_to",
+      "override": false,
+      "params": [
+        {
+          "name": "that",
+          "type": "const [BasicInterval](/_autogen/Classes/structbatt_1_1BasicInterval/)< ThatTraits > &",
+          "typePlain": "const BasicInterval< ThatTraits > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1BasicInterval_1a9d9881c46271e944822c2c2534370f4e",
+      "static": false,
+      "strong": false,
+      "summary": "Returns true iff no non-empty interval can be constructed between this and that. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename ThatTraits",
+          "typePlain": "typename ThatTraits"
+        }
+      ],
+      "title": "adjacent_to",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#function-adjacent-to",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-union-with",
+      "argsString": "(const BasicInterval< ThatTraits > &that) const",
+      "brief": "Returns the interval representing the set-union between `this`, `that`, and any non-empty interval that can be formed in between. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "BasicInterval batt::BasicInterval< Traits >::union_with",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicInterval::union_with",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 121,
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 115,
+        "column": 19,
+        "file": "batteries/interval.hpp",
+        "line": 115
+      },
+      "name": "union_with",
+      "override": false,
+      "params": [
+        {
+          "name": "that",
+          "type": "const [BasicInterval](/_autogen/Classes/structbatt_1_1BasicInterval/)< ThatTraits > &",
+          "typePlain": "const BasicInterval< ThatTraits > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1BasicInterval_1a2a239e967bd15cb4d8ea078a6b3ada9d",
+      "static": false,
+      "strong": false,
+      "summary": "Returns the interval representing the set-union between this, that, and any non-empty interval that can be formed in between. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename ThatTraits",
+          "typePlain": "typename ThatTraits"
+        }
+      ],
+      "title": "union_with",
+      "type": "[BasicInterval](/_autogen/Classes/structbatt_1_1BasicInterval/)",
+      "typePlain": "BasicInterval",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#function-union-with",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-overlaps",
+      "argsString": "(const BasicInterval< ThatTraits > &that) const",
+      "brief": "Returns true iff the minimal bounding range for `this` and `that` is non-empty. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "bool batt::BasicInterval< Traits >::overlaps",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicInterval::overlaps",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 131,
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 126,
+        "column": 10,
+        "file": "batteries/interval.hpp",
+        "line": 126
+      },
+      "name": "overlaps",
+      "override": false,
+      "params": [
+        {
+          "name": "that",
+          "type": "const [BasicInterval](/_autogen/Classes/structbatt_1_1BasicInterval/)< ThatTraits > &",
+          "typePlain": "const BasicInterval< ThatTraits > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1BasicInterval_1a83e45339eea0c53b20354e40fe163f2e",
+      "static": false,
+      "strong": false,
+      "summary": "Returns true iff the minimal bounding range for this and that is non-empty. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename ThatTraits",
+          "typePlain": "typename ThatTraits"
+        }
+      ],
+      "title": "overlaps",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#function-overlaps",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-intersection-with",
+      "argsString": "(const BasicInterval< ThatTraits > &that) const",
+      "brief": "Returns the interval representing the set of values that are in both `this` and `that`. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "BasicInterval batt::BasicInterval< Traits >::intersection_with",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicInterval::intersection_with",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 148,
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 136,
+        "column": 19,
+        "file": "batteries/interval.hpp",
+        "line": 136
+      },
+      "name": "intersection_with",
+      "override": false,
+      "params": [
+        {
+          "name": "that",
+          "type": "const [BasicInterval](/_autogen/Classes/structbatt_1_1BasicInterval/)< ThatTraits > &",
+          "typePlain": "const BasicInterval< ThatTraits > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1BasicInterval_1a5b512e3e8a6a299747ab79088d40d6ef",
+      "static": false,
+      "strong": false,
+      "summary": "Returns the interval representing the set of values that are in both this and that. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename ThatTraits",
+          "typePlain": "typename ThatTraits"
+        }
+      ],
+      "title": "intersection_with",
+      "type": "[BasicInterval](/_autogen/Classes/structbatt_1_1BasicInterval/)",
+      "typePlain": "BasicInterval",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#function-intersection-with",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-without",
+      "argsString": "(const BasicInterval &that) const",
+      "brief": "Returns the interval representing `this`, with any overlap with `that` removed. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "SmallVec<BasicInterval, 2> batt::BasicInterval< Traits >::without",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicInterval::without",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 174,
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 152,
+        "column": 14,
+        "file": "batteries/interval.hpp",
+        "line": 152
+      },
+      "name": "without",
+      "override": false,
+      "params": [
+        {
+          "name": "that",
+          "type": "const [BasicInterval](/_autogen/Classes/structbatt_1_1BasicInterval/) &",
+          "typePlain": "const BasicInterval &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1BasicInterval_1a8b4af036b46f7e43af4afc8757bf2f2b",
+      "static": false,
+      "strong": false,
+      "summary": "Returns the interval representing this, with any overlap with that removed. ",
+      "title": "without",
+      "type": "SmallVec< [BasicInterval](/_autogen/Classes/structbatt_1_1BasicInterval/), 2 >",
+      "typePlain": "SmallVec< BasicInterval, 2 >",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#function-without",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-shift-up",
+      "argsString": "(const DiffT &d) const",
+      "brief": "Add the given amount to both lower and upper bounds and return the resulting interval. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "BasicInterval batt::BasicInterval< Traits >::shift_up",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicInterval::shift_up",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 185,
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 179,
+        "column": 19,
+        "file": "batteries/interval.hpp",
+        "line": 179
+      },
+      "name": "shift_up",
+      "override": false,
+      "params": [
+        {
+          "name": "d",
+          "type": "const DiffT &",
+          "typePlain": "const DiffT &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1BasicInterval_1a9dacf73e2be8d8ca71aa923ccf79455f",
+      "static": false,
+      "strong": false,
+      "summary": "Add the given amount to both lower and upper bounds and return the resulting interval. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename DiffT",
+          "typePlain": "typename DiffT"
+        }
+      ],
+      "title": "shift_up",
+      "type": "[BasicInterval](/_autogen/Classes/structbatt_1_1BasicInterval/)",
+      "typePlain": "BasicInterval",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#function-shift-up",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-shift-down",
+      "argsString": "(const DiffT &d) const",
+      "brief": "Subtract the given amount from both lower and upper bounds and return the resulting interval. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "BasicInterval batt::BasicInterval< Traits >::shift_down",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BasicInterval::shift_down",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 196,
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 190,
+        "column": 19,
+        "file": "batteries/interval.hpp",
+        "line": 190
+      },
+      "name": "shift_down",
+      "override": false,
+      "params": [
+        {
+          "name": "d",
+          "type": "const DiffT &",
+          "typePlain": "const DiffT &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1BasicInterval_1adbbe36d4c735a5753f3f170dd69e995e",
+      "static": false,
+      "strong": false,
+      "summary": "Subtract the given amount from both lower and upper bounds and return the resulting interval. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename DiffT",
+          "typePlain": "typename DiffT"
+        }
+      ],
+      "title": "shift_down",
+      "type": "[BasicInterval](/_autogen/Classes/structbatt_1_1BasicInterval/)",
+      "typePlain": "BasicInterval",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#function-shift-down",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-traits-type",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::BasicInterval< Traits >::traits_type =  Traits",
+      "explicit": false,
+      "fullname": "batt::BasicInterval::traits_type",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 69,
+        "column": 5,
+        "file": "batteries/interval.hpp",
+        "line": 69
+      },
+      "name": "traits_type",
+      "override": false,
+      "refid": "structbatt_1_1BasicInterval_1a0c943414f9b55789c7fe74fb535ce34c",
+      "static": false,
+      "strong": false,
+      "title": "traits_type",
+      "type": "Traits",
+      "typePlain": "Traits",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#using-traits-type",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-reverselinearorder",
+      "brief": "The reverse of [LinearOrder]() (for max-heaps). ",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::BasicInterval< Traits >::ReverseLinearOrder =  seq::Reverse<LinearOrder>",
+      "explicit": false,
+      "fullname": "batt::BasicInterval::ReverseLinearOrder",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 238,
+        "column": 5,
+        "file": "batteries/interval.hpp",
+        "line": 238
+      },
+      "name": "ReverseLinearOrder",
+      "override": false,
+      "refid": "structbatt_1_1BasicInterval_1ab74ec4093c8cbfea956cb5a9ed47b7b2",
+      "static": false,
+      "strong": false,
+      "summary": "The reverse of LinearOrder (for max-heaps). ",
+      "title": "ReverseLinearOrder",
+      "type": "[seq::Reverse](/_autogen/Classes/structbatt_1_1seq_1_1Reverse/)< [LinearOrder](/_autogen/Classes/structbatt_1_1BasicInterval_1_1LinearOrder/) >",
+      "typePlain": "seq::Reverse< LinearOrder >",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#using-reverselinearorder",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-reverselexicographicalorder",
+      "brief": "Reverse of [LexicographicalOrder](); so max-heap functions can be used to implement a min-heap. ",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::BasicInterval< Traits >::ReverseLexicographicalOrder =  seq::Reverse<LexicographicalOrder>",
+      "explicit": false,
+      "fullname": "batt::BasicInterval::ReverseLexicographicalOrder",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/interval.hpp",
+        "bodyStart": 256,
+        "column": 5,
+        "file": "batteries/interval.hpp",
+        "line": 256
+      },
+      "name": "ReverseLexicographicalOrder",
+      "override": false,
+      "refid": "structbatt_1_1BasicInterval_1aba61a8671eb012207d8c49965dadcbe6",
+      "static": false,
+      "strong": false,
+      "summary": "Reverse of LexicographicalOrder; so max-heap functions can be used to implement a min-heap. ",
+      "title": "ReverseLexicographicalOrder",
+      "type": "[seq::Reverse](/_autogen/Classes/structbatt_1_1seq_1_1Reverse/)< [LexicographicalOrder](/_autogen/Classes/structbatt_1_1BasicInterval_1_1LexicographicalOrder/) >",
+      "typePlain": "seq::Reverse< LexicographicalOrder >",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/#using-reverselexicographicalorder",
+      "visibility": "public"
+    }
+  ],
+  "refid": "structbatt_1_1BasicInterval",
+  "see": [
+    "Interval, CInterval "
+  ],
+  "static": false,
+  "strong": false,
+  "summary": "A set of totally ordered values, defined by a lower and upper bound. ",
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename Traits",
+      "typePlain": "typename Traits"
+    }
+  ],
+  "title": "batt::BasicInterval",
+  "url": "/_autogen/Classes/structbatt_1_1BasicInterval/",
+  "visibility": "public"
+}

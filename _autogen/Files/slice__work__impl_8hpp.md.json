@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-slice-work-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-slice-work-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_SLICE_WORK_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/slice_work_impl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/slice_work_impl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_SLICE_WORK_IMPL_HPP",
+      "override": false,
+      "refid": "slice__work__impl_8hpp_1ac933fc63c2737fa849d57211bfcc8a98",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_SLICE_WORK_IMPL_HPP",
+      "url": "/_autogen/Files/slice__work__impl_8hpp/#define-batteries-async-slice-work-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/slice_work_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/slice_work_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/slice_work_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_SLICE_WORK_IMPL_HPP\n#define BATTERIES_ASYNC_SLICE_WORK_IMPL_HPP\n\n#include <batteries/config.hpp>\n\n#include <batteries/async/slice_work.hpp>\n\n#include <ostream>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL std::ostream& operator<<(std::ostream& out, const WorkSliceParams& t)\n{\n    return out << \"WorkSliceParams{.min_task_size=\" << t.min_task_size << \", .max_tasks=\" << t.max_tasks\n               << \",}\";\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*explicit*/ WorkSlicePlan::WorkSlicePlan(const WorkSliceParams& params,\n                                                           InputSize input_size) noexcept\n    : input_size{input_size}\n    , task_size{get_task_size(params, this->input_size)}\n    , n_tasks{get_task_count(this->input_size, this->task_size)}\n{\n    BATT_CHECK_GE(this->task_size, params.min_task_size) << BATT_INSPECT(*this) << BATT_INSPECT(params);\n    BATT_CHECK_LE(this->n_tasks, params.max_tasks) << BATT_INSPECT(*this) << BATT_INSPECT(params);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename Iter>\nBATT_INLINE_IMPL /*explicit*/ WorkSlicePlan::WorkSlicePlan(const WorkSliceParams& params, const Iter& first,\n                                                           const Iter& last) noexcept\n    : WorkSlicePlan{params, get_input_size(first, last)}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL std::ostream& operator<<(std::ostream& out, const WorkSlicePlan& t)\n{\n    return out << \"WorkSlicePlan{.input_size=\" << t.input_size << \", .task_size=\" << t.task_size\n               << \", .n_tasks=\" << t.n_tasks << \",}\";\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_SLICE_WORK_IMPL_HPP",
+  "refid": "slice__work__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/slice_work_impl.hpp",
+  "url": "/_autogen/Files/slice__work__impl_8hpp/#file-slice-work-impl.hpp",
+  "visibility": "public"
+}

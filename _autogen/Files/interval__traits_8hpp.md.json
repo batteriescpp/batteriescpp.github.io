@@ -1,0 +1,169 @@
+{
+  "abstract": false,
+  "anchor": "#file-interval-traits.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-interval-traits-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_INTERVAL_TRAITS_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/interval_traits.hpp",
+        "bodyStart": 5,
+        "column": 9,
+        "file": "batteries/interval_traits.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_INTERVAL_TRAITS_HPP",
+      "override": false,
+      "refid": "interval__traits_8hpp_1a9c972ddb9a5bd01c65128115107d470e",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_INTERVAL_TRAITS_HPP",
+      "url": "/_autogen/Files/interval__traits_8hpp/#define-batteries-interval-traits-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/interval_traits.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/interval_traits.hpp",
+    "line": 0
+  },
+  "name": "batteries/interval_traits.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_INTERVAL_TRAITS_HPP\n#define BATTERIES_INTERVAL_TRAITS_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/bounds.hpp>\n#include <batteries/seq/natural_equals.hpp>\n#include <batteries/seq/natural_order.hpp>\n\n#include <type_traits>\n\nnamespace batt {\n\ntemplate <typename T, typename U, InclusiveLowerBound kLowerInclusive, InclusiveUpperBound kUpperInclusive,\n          typename OrderFn, typename EqualFn>\nstruct IntervalTraits;\n\ntemplate <typename Derived, typename OrderFn, typename EqualFn>\nstruct IntervalTraitsBase {\n    using Base = IntervalTraitsBase;\n\n    template <typename T0, typename T1>\n    static bool less_than(const T0& left, const T1& right)\n    {\n        return OrderFn{}(left, right);\n    }\n\n    template <typename T0, typename T1>\n    static std::common_type_t<T0, T1> min(const T0& left, const T1& right)\n    {\n        if (Base::less_than(right, left)) {\n            return right;\n        } else {\n            return left;\n        }\n    }\n\n    template <typename T0, typename T1>\n    static std::common_type_t<T0, T1> max(const T0& left, const T1& right)\n    {\n        if (Base::less_than(left, right)) {\n            return right;\n        } else {\n            return left;\n        }\n    }\n\n    template <typename T0, typename T1>\n    static bool equal(const T0& left, const T1& right)\n    {\n        return EqualFn{}(left, right);\n    }\n\n    template <typename T0, typename T1>\n    static bool not_equal(const T0& left, const T1& right)\n    {\n        return !Base::equal(left, right);\n    }\n    template <typename T0, typename T1>\n    static bool greater_than(const T0& left, const T1& right)\n    {\n        return Base::less_than(right, left);\n    }\n    template <typename T0, typename T1>\n    static bool less_or_equal(const T0& left, const T1& right)\n    {\n        return !Base::greater_than(left, right);\n    }\n    template <typename T0, typename T1>\n    static bool greater_or_equal(const T0& left, const T1& right)\n    {\n        return !Base::less_than(left, right);\n    }\n\n    template <typename T0, typename T1>\n    static bool x_included_by_lower(const T0& x, const T1& lower)\n    {\n        return Derived::lower_includes_x(lower, x);\n    }\n    template <typename T0, typename T1>\n    static bool upper_includes_x(const T0& upper, const T1& x)\n    {\n        return Derived::x_included_by_upper(x, upper);\n    }\n    template <typename T0, typename T1>\n    static bool lower_excludes_x(const T0& lower, const T0& x)\n    {\n        return !Derived::lower_includes_x(lower, x);\n    }\n    template <typename T0, typename T1>\n    static bool x_excluded_by_upper(const T0& x, const T1& upper)\n    {\n        return !Derived::x_included_by_upper(x, upper);\n    }\n    template <typename T0, typename T1>\n    static bool x_excluded_by_lower(const T0& x, const T1& lower)\n    {\n        return !Derived::x_included_by_lower(x, lower);\n    }\n    template <typename T0, typename T1>\n    static bool upper_excludes_x(const T0& upper, const T1& x)\n    {\n        return !Derived::upper_includes_x(upper, x);\n    }\n};\n\ntemplate <typename T, typename U, typename OrderFn, typename EqualFn>\nstruct IntervalTraits<T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kFalse, OrderFn, EqualFn>\n    : IntervalTraitsBase<\n          IntervalTraits<T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kFalse, OrderFn, EqualFn>,\n          OrderFn, EqualFn> {\n    //\n    static constexpr InclusiveLowerBound inclusive_lower_bound = InclusiveLowerBound::kTrue;\n    static constexpr InclusiveUpperBound inclusive_upper_bound = InclusiveUpperBound::kFalse;\n\n    using lower_bound_type = T;\n    using upper_bound_type = U;\n    using Self = IntervalTraits;\n\n    static std::ptrdiff_t size(const T& lower, const U& upper)\n    {\n        return upper - lower;\n    }\n    static bool empty(const T& lower, const U& upper)\n    {\n        return Self::less_or_equal(upper, lower);\n    }\n\n    template <typename V>\n    static bool lower_includes_x(const T& lower, const V& x)\n    {\n        return Self::less_or_equal(lower, x);\n    }\n\n    template <typename V>\n    static bool x_included_by_upper(const V& x, const U& upper)\n    {\n        return Self::less_than(x, upper);\n    }\n\n    template <typename T1, typename U1>\n    static bool adjacent(const T& a_lower, const U& a_upper, const T1& b_lower, const U1& b_upper)\n    {\n        return !Self::less_than(a_upper, b_lower) && !Self::less_than(b_upper, a_lower);\n    }\n\n    static char left_bracket()\n    {\n        return '[';\n    }\n\n    static char right_bracket()\n    {\n        return ')';\n    }\n};\n\ntemplate <typename T, typename U, typename OrderFn, typename EqualFn>\nstruct IntervalTraits<T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn>\n    : IntervalTraitsBase<\n          IntervalTraits<T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn>,\n          OrderFn, EqualFn> {\n    //\n    static constexpr InclusiveLowerBound inclusive_lower_bound = InclusiveLowerBound::kTrue;\n    static constexpr InclusiveUpperBound inclusive_upper_bound = InclusiveUpperBound::kTrue;\n\n    using lower_bound_type = T;\n    using upper_bound_type = U;\n    using Self = IntervalTraits;\n\n    static std::ptrdiff_t size(const T& lower, const U& upper)\n    {\n        return upper - lower + 1;\n    }\n\n    static bool empty(const T& lower, const U& upper)\n    {\n        return Self::less_than(upper, lower);\n    }\n\n    template <typename V>\n    static bool lower_includes_x(const T& lower, const V& x)\n    {\n        return Self::less_or_equal(lower, x);\n    }\n\n    template <typename V>\n    static bool x_included_by_upper(const V& x, const U& upper)\n    {\n        return Self::less_or_equal(x, upper);\n    }\n\n    template <typename T1, typename U1>\n    static bool adjacent(const T& a_lower, const U& a_upper, const T1& b_lower, const U1& b_upper)\n    {\n        return Self::lower_includes_x(a_lower, least_upper_bound(b_upper)) &&\n               Self::x_included_by_upper(b_lower, least_upper_bound(a_upper));\n    }\n\n    static char left_bracket()\n    {\n        return '[';\n    }\n\n    static char right_bracket()\n    {\n        return ']';\n    }\n};\n\ntemplate <typename Traits0, typename Traits1>\ninline constexpr bool interval_traits_compatible()\n{\n    return Traits0::inclusive_lower_bound == Traits1::inclusive_lower_bound &&\n           Traits0::inclusive_upper_bound == Traits1::inclusive_upper_bound;\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_INTERVAL_TRAITS_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::IntervalTraits",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IntervalTraits",
+      "refid": "structbatt_1_1IntervalTraits",
+      "title": "batt::IntervalTraits",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraits/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::IntervalTraitsBase",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IntervalTraitsBase",
+      "refid": "structbatt_1_1IntervalTraitsBase",
+      "title": "batt::IntervalTraitsBase",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::IntervalTraitsBase< IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kFalse, OrderFn, EqualFn >, OrderFn, EqualFn >",
+          "refid": "structbatt_1_1IntervalTraitsBase",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kFalse, OrderFn, EqualFn >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kFalse, OrderFn, EqualFn >",
+      "refid": "structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperBf372c7b412dcf8f48278ee8c5dbf848c",
+      "title": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kFalse, OrderFn, EqualFn >",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperBf372c7b412dcf8f48278ee8c5dbf848c/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::IntervalTraitsBase< IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >, OrderFn, EqualFn >",
+          "refid": "structbatt_1_1IntervalTraitsBase",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >",
+      "refid": "structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb",
+      "title": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "interval__traits_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/interval_traits.hpp",
+  "url": "/_autogen/Files/interval__traits_8hpp/#file-interval-traits.hpp",
+  "visibility": "public"
+}
