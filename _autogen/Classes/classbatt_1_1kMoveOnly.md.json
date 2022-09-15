@@ -369,8 +369,8 @@
           "typePlain": "typename Fn"
         },
         {
-          "defval": "EnableIfNoShadow<[SmallFn](/_autogen/Classes/classbatt_1_1SmallFn/), Fn>",
-          "defvalPlain": "EnableIfNoShadow<SmallFn, Fn>",
+          "defval": "EnableIfNoShadow<[self_type](/_autogen/Classes/classbatt_1_1SmallFn/), Fn>",
+          "defvalPlain": "EnableIfNoShadow<self_type, Fn>",
           "name": "",
           "type": "typename",
           "typePlain": "typename"
@@ -477,7 +477,7 @@
       "anchor": "#using-self-type",
       "category": "types",
       "const": false,
-      "definition": "using batt::kMoveOnly< Args, Result, kMaxSize, kMoveOnly >::self_type =  SmallFn",
+      "definition": "using batt::kMoveOnly< Args, Result, kMaxSize, kMoveOnly >::self_type =  SmallFn<auto(Args...)->Result, kMaxSize, kMoveOnly>",
       "explicit": false,
       "fullname": "batt::kMoveOnly::self_type",
       "hasDetails": false,
@@ -493,12 +493,12 @@
       },
       "name": "self_type",
       "override": false,
-      "refid": "classbatt_1_1kMoveOnly_1a19f22dc715074058c5888959b3c3d7fb",
+      "refid": "classbatt_1_1kMoveOnly_1abaeedb44529c429827e6d93344211c52",
       "static": false,
       "strong": false,
       "title": "self_type",
-      "type": "[SmallFn](/_autogen/Classes/classbatt_1_1SmallFn/)",
-      "typePlain": "SmallFn",
+      "type": "[SmallFn](/_autogen/Classes/classbatt_1_1SmallFn/)< auto(Args...) ->Result, kMaxSize, [kMoveOnly](/_autogen/Classes/classbatt_1_1kMoveOnly/) >",
+      "typePlain": "SmallFn< auto(Args...) ->Result, kMaxSize, kMoveOnly >",
       "url": "/_autogen/Classes/classbatt_1_1kMoveOnly/#using-self-type",
       "visibility": "public"
     },
