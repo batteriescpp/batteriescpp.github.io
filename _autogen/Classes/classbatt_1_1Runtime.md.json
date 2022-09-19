@@ -12,12 +12,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 174,
+    "bodyEnd": 168,
     "bodyFile": "batteries/async/runtime.hpp",
-    "bodyStart": 40,
+    "bodyStart": 41,
     "column": 1,
     "file": "batteries/async/runtime.hpp",
-    "line": 41
+    "line": 42
   },
   "name": "batt::Runtime",
   "override": false,
@@ -63,10 +63,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 158,
+        "bodyStart": 154,
         "column": 17,
         "file": "batteries/async/runtime.hpp",
-        "line": 158
+        "line": 154
       },
       "name": "halted_",
       "override": false,
@@ -93,10 +93,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 160,
+        "bodyStart": 156,
         "column": 21,
         "file": "batteries/async/runtime.hpp",
-        "line": 160
+        "line": 156
       },
       "name": "default_scheduler_",
       "override": false,
@@ -123,10 +123,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 162,
+        "bodyStart": 158,
         "column": 17,
         "file": "batteries/async/runtime.hpp",
-        "line": 162
+        "line": 158
       },
       "name": "scheduler_",
       "override": false,
@@ -154,10 +154,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 164,
+        "bodyStart": 160,
         "column": 17,
         "file": "batteries/async/runtime.hpp",
-        "line": 164
+        "line": 160
       },
       "name": "n_weak_notify_slots_",
       "override": false,
@@ -175,29 +175,29 @@
       "anchor": "#variable-weak-notify-slot-",
       "category": "attributes",
       "const": false,
-      "definition": "const std::unique_ptr<batt::Watch<u64>[]> batt::Runtime::weak_notify_slot_",
+      "definition": "const std::unique_ptr<WeakNotifySlot[]> batt::Runtime::weak_notify_slot_",
       "explicit": false,
       "fullname": "batt::Runtime::weak_notify_slot_",
       "hasDetails": false,
-      "initializer": "{\n        [this] {\n            auto* slots = new batt::Watch<u64>[this->n_weak_notify_slots_];\n            for (usize i = 0; i < this->n_weak_notify_slots_; ++i) {\n                slots[i].set_value(0);\n            }\n            return slots;\n        }()\n    }",
+      "initializer": "{[this] {\n        auto* slots = new WeakNotifySlot[this->n_weak_notify_slots_];\n        for (usize i = 0; i < this->n_weak_notify_slots_; ++i) {\n            slots[i].counter.set_value(0);\n        }\n        return slots;\n    }()}",
       "inline": false,
       "kind": "variable",
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 165,
+        "bodyStart": 161,
         "column": 27,
         "file": "batteries/async/runtime.hpp",
-        "line": 165
+        "line": 161
       },
       "name": "weak_notify_slot_",
       "override": false,
-      "refid": "classbatt_1_1Runtime_1a4b4101cb497879eaa1118006a0821f5b",
+      "refid": "classbatt_1_1Runtime_1a1a01c86c3af4d648785768cb812632f4",
       "static": false,
       "strong": false,
       "title": "weak_notify_slot_",
-      "type": "const std::unique_ptr< [batt::Watch](/_autogen/Classes/classbatt_1_1Watch/)< u64 >[]>",
-      "typePlain": "const std::unique_ptr< batt::Watch< u64 >[]>",
+      "type": "const std::unique_ptr< [WeakNotifySlot](/_autogen/Classes/structbatt_1_1Runtime_1_1WeakNotifySlot/)[]>",
+      "typePlain": "const std::unique_ptr< WeakNotifySlot[]>",
       "url": "/_autogen/Classes/classbatt_1_1Runtime/#variable-weak-notify-slot-",
       "visibility": "private"
     }
@@ -219,12 +219,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 153,
+        "bodyEnd": 149,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 150,
+        "bodyStart": 146,
         "column": 5,
         "file": "batteries/async/runtime.hpp",
-        "line": 150
+        "line": 146
       },
       "name": "~Runtime",
       "override": false,
@@ -254,10 +254,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 156,
+        "bodyStart": 152,
         "column": 5,
         "file": "batteries/async/runtime.hpp",
-        "line": 155
+        "line": 151
       },
       "name": "WorkGuard",
       "override": false,
@@ -324,12 +324,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 57,
+        "bodyEnd": 58,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 50,
+        "bodyStart": 51,
         "column": 20,
         "file": "batteries/async/runtime.hpp",
-        "line": 50
+        "line": 51
       },
       "name": "instance",
       "override": false,
@@ -361,12 +361,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 288,
+        "bodyEnd": 282,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 283,
+        "bodyStart": 277,
         "column": 14,
         "file": "batteries/async/runtime.hpp",
-        "line": 59
+        "line": 60
       },
       "name": "Runtime",
       "override": false,
@@ -396,12 +396,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 64,
+        "bodyEnd": 65,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 61,
+        "bodyStart": 62,
         "column": 19,
         "file": "batteries/async/runtime.hpp",
-        "line": 61
+        "line": 62
       },
       "name": "default_scheduler",
       "override": false,
@@ -433,12 +433,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 71,
+        "bodyEnd": 72,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 68,
+        "bodyStart": 69,
         "column": 34,
         "file": "batteries/async/runtime.hpp",
-        "line": 68
+        "line": 69
       },
       "name": "schedule_task",
       "override": false,
@@ -470,12 +470,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 76,
+        "bodyEnd": 77,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 73,
+        "bodyStart": 74,
         "column": 19,
         "file": "batteries/async/runtime.hpp",
-        "line": 73
+        "line": 74
       },
       "name": "exchange_task_scheduler",
       "override": false,
@@ -513,12 +513,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 87,
+        "bodyEnd": 88,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 78,
+        "bodyStart": 79,
         "column": 10,
         "file": "batteries/async/runtime.hpp",
-        "line": 78
+        "line": 79
       },
       "name": "halt",
       "override": false,
@@ -550,12 +550,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 94,
+        "bodyEnd": 95,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 89,
+        "bodyStart": 90,
         "column": 10,
         "file": "batteries/async/runtime.hpp",
-        "line": 89
+        "line": 90
       },
       "name": "join",
       "override": false,
@@ -587,12 +587,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 100,
+        "bodyEnd": 101,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 97,
+        "bodyStart": 98,
         "column": 11,
         "file": "batteries/async/runtime.hpp",
-        "line": 97
+        "line": 98
       },
       "name": "get_weak_notify_slot_index",
       "override": false,
@@ -637,12 +637,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 106,
+        "bodyEnd": 107,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 103,
+        "bodyStart": 104,
         "column": 20,
         "file": "batteries/async/runtime.hpp",
-        "line": 103
+        "line": 104
       },
       "name": "get_weak_notify_slot",
       "override": false,
@@ -674,9 +674,9 @@
     {
       "abstract": false,
       "anchor": "#function-notify",
-      "argsString": "(const Ts &... objs) const",
+      "argsString": "(const Ts &... objs)",
       "category": "functions",
-      "const": true,
+      "const": false,
       "default": false,
       "definition": "void batt::Runtime::notify",
       "deleted": false,
@@ -687,12 +687,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 113,
+        "bodyEnd": 114,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 109,
+        "bodyStart": 110,
         "column": 10,
         "file": "batteries/async/runtime.hpp",
-        "line": 109
+        "line": 110
       },
       "name": "notify",
       "override": false,
@@ -704,7 +704,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1Runtime_1a3978b975f174cbe5ebdc2a3cb91703c7",
+      "refid": "classbatt_1_1Runtime_1a1e2740821b856bc99900bc37c226010d",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -737,12 +737,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 119,
+        "bodyEnd": 120,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 116,
+        "bodyStart": 117,
         "column": 18,
         "file": "batteries/async/runtime.hpp",
-        "line": 116
+        "line": 117
       },
       "name": "lock",
       "override": false,
@@ -774,9 +774,9 @@
     {
       "abstract": false,
       "anchor": "#function-await-condition",
-      "argsString": "(const CheckCondition &check_condition, const Ts &... objs) const",
+      "argsString": "(const CheckCondition &check_condition, const Ts &... objs)",
       "category": "functions",
-      "const": true,
+      "const": false,
       "default": false,
       "definition": "auto batt::Runtime::await_condition",
       "deleted": false,
@@ -787,12 +787,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 147,
+        "bodyEnd": 143,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 122,
+        "bodyStart": 123,
         "column": 10,
         "file": "batteries/async/runtime.hpp",
-        "line": 122
+        "line": 123
       },
       "name": "await_condition",
       "override": false,
@@ -809,7 +809,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1Runtime_1a93bce26a20d5709e0f980749b212b699",
+      "refid": "classbatt_1_1Runtime_1a3f5e19edd626dba1ff5ae7a902e173ac",
       "static": false,
       "strong": false,
       "templateParams": [
