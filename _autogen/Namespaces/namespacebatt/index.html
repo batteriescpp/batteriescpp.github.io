@@ -3290,6 +3290,10 @@
 <td><strong><a href="/_autogen/Classes/classbatt_1_1DefaultHttpClient/">batt::DefaultHttpClient</a></strong></td>
 </tr>
 <tr>
+<td>struct</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1DefaultStatusIsRetryableImpl/">batt::DefaultStatusIsRetryableImpl</a></strong></td>
+</tr>
+<tr>
 <td>class</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1DerivedMetricExporter/">batt::DerivedMetricExporter</a></strong></td>
 </tr>
@@ -4188,8 +4192,8 @@
 <td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-lock-fail-check-mutex">lock_fail_check_mutex</a></strong>()</td>
 </tr>
 <tr>
-<td>template &lt;typename RetryPolicy ,typename ActionFn ,typename Result  =std::invoke_result_t<ActionFn>,typename SleepImpl  =TaskSleepImpl> <br>Result</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-with-retry-policy">with_retry_policy</a></strong>(RetryPolicy &amp;&amp; policy, std::string_view action_name, ActionFn &amp;&amp; action_fn, SleepImpl &amp;&amp; sleep_impl ={})</td>
+<td>template &lt;typename RetryPolicy ,typename ActionFn ,typename Result  =std::invoke_result_t<ActionFn>,typename SleepImpl  =TaskSleepImpl,typename StatusIsRetryableImpl  =DefaultStatusIsRetryableImpl> <br>Result</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-with-retry-policy">with_retry_policy</a></strong>(RetryPolicy &amp;&amp; policy, std::string_view action_name, ActionFn &amp;&amp; action_fn, SleepImpl &amp;&amp; sleep_impl ={}, StatusIsRetryableImpl &amp;&amp; status_is_retryable_impl ={})</td>
 </tr>
 <tr>
 <td>void</td>
@@ -6239,16 +6243,20 @@
 <span class="normal"><a href="#__codelineno-67-7"> 7</a></span>
 <span class="normal"><a href="#__codelineno-67-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-67-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-67-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">RetryPolicy</span><span class="w"> </span><span class="p">,</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-67-10">10</a></span>
+<span class="normal"><a href="#__codelineno-67-11">11</a></span>
+<span class="normal"><a href="#__codelineno-67-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">RetryPolicy</span><span class="w"> </span><span class="p">,</span><span class="w"></span>
 <a id="__codelineno-67-2" name="__codelineno-67-2"></a><span class="k">typename</span><span class="w"> </span><span class="nc">ActionFn</span><span class="w"> </span><span class="p">,</span><span class="w"></span>
 <a id="__codelineno-67-3" name="__codelineno-67-3"></a><span class="k">typename</span><span class="w"> </span><span class="nc">Result</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">invoke_result_t</span><span class="o">&lt;</span><span class="n">ActionFn</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-67-4" name="__codelineno-67-4"></a><span class="k">typename</span><span class="w"> </span><span class="nc">SleepImpl</span><span class="w">  </span><span class="o">=</span><span class="n">TaskSleepImpl</span><span class="o">&gt;</span><span class="w"></span>
-<a id="__codelineno-67-5" name="__codelineno-67-5"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Result</span><span class="w"> </span><span class="n">with_retry_policy</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-67-6" name="__codelineno-67-6"></a><span class="w">    </span><span class="n">RetryPolicy</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-67-7" name="__codelineno-67-7"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">action_name</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-67-8" name="__codelineno-67-8"></a><span class="w">    </span><span class="n">ActionFn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">action_fn</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-67-9" name="__codelineno-67-9"></a><span class="w">    </span><span class="n">SleepImpl</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sleep_impl</span><span class="w"> </span><span class="o">=</span><span class="p">{}</span><span class="w"></span>
-<a id="__codelineno-67-10" name="__codelineno-67-10"></a><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-67-4" name="__codelineno-67-4"></a><span class="k">typename</span><span class="w"> </span><span class="nc">SleepImpl</span><span class="w">  </span><span class="o">=</span><span class="n">TaskSleepImpl</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-67-5" name="__codelineno-67-5"></a><span class="k">typename</span><span class="w"> </span><span class="nc">StatusIsRetryableImpl</span><span class="w">  </span><span class="o">=</span><span class="n">DefaultStatusIsRetryableImpl</span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-67-6" name="__codelineno-67-6"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Result</span><span class="w"> </span><span class="n">with_retry_policy</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-67-7" name="__codelineno-67-7"></a><span class="w">    </span><span class="n">RetryPolicy</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-67-8" name="__codelineno-67-8"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">action_name</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-67-9" name="__codelineno-67-9"></a><span class="w">    </span><span class="n">ActionFn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">action_fn</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-67-10" name="__codelineno-67-10"></a><span class="w">    </span><span class="n">SleepImpl</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sleep_impl</span><span class="w"> </span><span class="o">=</span><span class="p">{},</span><span class="w"></span>
+<a id="__codelineno-67-11" name="__codelineno-67-11"></a><span class="w">    </span><span class="n">StatusIsRetryableImpl</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">status_is_retryable_impl</span><span class="w"> </span><span class="o">=</span><span class="p">{}</span><span class="w"></span>
+<a id="__codelineno-67-12" name="__codelineno-67-12"></a><span class="p">)</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-update_retry_state">function update_retry_state<a class="headerlink" href="#function-update_retry_state" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-68-1">1</a></span>
@@ -9269,7 +9277,7 @@ The unit string may be upper or lower case, and only the first character is cons
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-366-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-366-1" name="__codelineno-366-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">TupleIndexOf_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TupleIndexOf</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">TupleT</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 15 September 2022 at 13:13:12 UTC</p>
+<p>Updated on 19 September 2022 at 13:36:22 UTC</p>
 
 
 

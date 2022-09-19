@@ -732,6 +732,18 @@
     },
     {
       "anchor": "",
+      "category": "classes",
+      "fullname": "batt::DefaultStatusIsRetryableImpl",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::DefaultStatusIsRetryableImpl",
+      "refid": "structbatt_1_1DefaultStatusIsRetryableImpl",
+      "title": "batt::DefaultStatusIsRetryableImpl",
+      "url": "/_autogen/Classes/structbatt_1_1DefaultStatusIsRetryableImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
       "baseClasses": [
         {
           "external": false,
@@ -4306,7 +4318,7 @@
     {
       "abstract": false,
       "anchor": "#function-with-retry-policy",
-      "argsString": "(RetryPolicy &&policy, std::string_view action_name, ActionFn &&action_fn, SleepImpl &&sleep_impl={})",
+      "argsString": "(RetryPolicy &&policy, std::string_view action_name, ActionFn &&action_fn, SleepImpl &&sleep_impl={}, StatusIsRetryableImpl &&status_is_retryable_impl={})",
       "category": "functions",
       "const": false,
       "default": false,
@@ -4319,12 +4331,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 148,
+        "bodyEnd": 160,
         "bodyFile": "batteries/async/backoff.hpp",
-        "bodyStart": 126,
+        "bodyStart": 138,
         "column": 15,
         "file": "batteries/async/backoff.hpp",
-        "line": 126
+        "line": 138
       },
       "name": "with_retry_policy",
       "override": false,
@@ -4350,10 +4362,17 @@
           "name": "sleep_impl",
           "type": "SleepImpl &&",
           "typePlain": "SleepImpl &&"
+        },
+        {
+          "defval": "{}",
+          "defvalPlain": "{}",
+          "name": "status_is_retryable_impl",
+          "type": "StatusIsRetryableImpl &&",
+          "typePlain": "StatusIsRetryableImpl &&"
         }
       ],
       "pureVirtual": false,
-      "refid": "backoff_8hpp_1abab0a05db1c3ff12365192aa7f787c3e",
+      "refid": "backoff_8hpp_1acb9cfae24d2bf2fc797187a39f0f3e7e",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -4380,6 +4399,13 @@
           "name": "",
           "type": "typename SleepImpl",
           "typePlain": "typename SleepImpl"
+        },
+        {
+          "defval": "DefaultStatusIsRetryableImpl",
+          "defvalPlain": "DefaultStatusIsRetryableImpl",
+          "name": "",
+          "type": "typename StatusIsRetryableImpl",
+          "typePlain": "typename StatusIsRetryableImpl"
         }
       ],
       "title": "with_retry_policy",
@@ -4405,12 +4431,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 110,
+        "bodyEnd": 111,
         "bodyFile": "batteries/async/backoff.hpp",
-        "bodyStart": 94,
+        "bodyStart": 95,
         "column": 13,
         "file": "batteries/async/backoff.hpp",
-        "line": 94
+        "line": 95
       },
       "name": "update_retry_state",
       "override": false,

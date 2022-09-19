@@ -549,8 +549,29 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#function-get_weak_notify_slot_index" class="md-nav__link">
+    function get_weak_notify_slot_index
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-get_weak_notify_slot" class="md-nav__link">
+    function get_weak_notify_slot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-notify" class="md-nav__link">
     function notify
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-lock" class="md-nav__link">
+    function lock
   </a>
   
 </li>
@@ -595,6 +616,10 @@
 <td>class</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Runtime_1_1DefaultScheduler/">DefaultScheduler</a></strong></td>
 </tr>
+<tr>
+<td>struct</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1Runtime_1_1WeakNotifySlot/">WeakNotifySlot</a></strong></td>
+</tr>
 </tbody>
 </table>
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&#128279;</a></h2>
@@ -635,8 +660,20 @@
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Runtime/#function-join">join</a></strong>()</td>
 </tr>
 <tr>
+<td>template &lt;typename... Ts> <br>usize</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Runtime/#function-get-weak-notify-slot-index">get_weak_notify_slot_index</a></strong>(const Ts &amp;... objs) const</td>
+</tr>
+<tr>
+<td>template &lt;typename... Ts> <br><a href="/_autogen/Classes/structbatt_1_1Runtime_1_1WeakNotifySlot/">WeakNotifySlot</a> &amp;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Runtime/#function-get-weak-notify-slot">get_weak_notify_slot</a></strong>(const Ts &amp;... objs)</td>
+</tr>
+<tr>
 <td>template &lt;typename... Ts> <br>void</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Runtime/#function-notify">notify</a></strong>(const Ts &amp;... objs) const</td>
+</tr>
+<tr>
+<td>template &lt;typename... Ts> <br><a href="/_autogen/Classes/classbatt_1_1Mutex/">Mutex</a>&lt; <a href="/_autogen/Classes/structbatt_1_1NoneType/">NoneType</a> &gt;::Lock</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Runtime/#function-lock">lock</a></strong>(const Ts &amp;... objs)</td>
 </tr>
 <tr>
 <td>template &lt;typename CheckCondition ,typename... Ts> <br>auto</td>
@@ -670,30 +707,57 @@
 <h3 id="function-join">function join<a class="headerlink" href="#function-join" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">join</span><span class="p">()</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-notify">function notify<a class="headerlink" href="#function-notify" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-get_weak_notify_slot_index">function get_weak_notify_slot_index<a class="headerlink" href="#function-get_weak_notify_slot_index" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
 <span class="normal"><a href="#__codelineno-7-3">3</a></span>
 <span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">notify</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kr">inline</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">get_weak_notify_slot_index</span><span class="p">(</span><span class="w"></span>
 <a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Ts</span><span class="w"> </span><span class="o">&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">objs</span><span class="w"></span>
 <a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-await_condition">function await_condition<a class="headerlink" href="#function-await_condition" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-get_weak_notify_slot">function get_weak_notify_slot<a class="headerlink" href="#function-get_weak_notify_slot" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
 <span class="normal"><a href="#__codelineno-8-2">2</a></span>
 <span class="normal"><a href="#__codelineno-8-3">3</a></span>
-<span class="normal"><a href="#__codelineno-8-4">4</a></span>
-<span class="normal"><a href="#__codelineno-8-5">5</a></span>
-<span class="normal"><a href="#__codelineno-8-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">CheckCondition</span><span class="w"> </span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">await_condition</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">CheckCondition</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">check_condition</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Ts</span><span class="w"> </span><span class="o">&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">objs</span><span class="w"></span>
-<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kr">inline</span><span class="w"> </span><span class="n">WeakNotifySlot</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">get_weak_notify_slot</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Ts</span><span class="w"> </span><span class="o">&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">objs</span><span class="w"></span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="p">)</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-notify">function notify<a class="headerlink" href="#function-notify" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">notify</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Ts</span><span class="w"> </span><span class="o">&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">objs</span><span class="w"></span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-lock">function lock<a class="headerlink" href="#function-lock" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Mutex</span><span class="o">&lt;</span><span class="w"> </span><span class="n">NoneType</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Ts</span><span class="w"> </span><span class="o">&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">objs</span><span class="w"></span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="p">)</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-await_condition">function await_condition<a class="headerlink" href="#function-await_condition" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span>
+<span class="normal"><a href="#__codelineno-11-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">CheckCondition</span><span class="w"> </span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">await_condition</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">CheckCondition</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">check_condition</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Ts</span><span class="w"> </span><span class="o">&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">objs</span><span class="w"></span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 15 September 2022 at 13:13:13 UTC</p>
+<p>Updated on 19 September 2022 at 13:36:22 UTC</p>
 
 
 
