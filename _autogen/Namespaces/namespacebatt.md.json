@@ -2187,6 +2187,18 @@
     {
       "anchor": "",
       "category": "classes",
+      "fullname": "batt::ScopedWorkerThreadPool",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::ScopedWorkerThreadPool",
+      "refid": "classbatt_1_1ScopedWorkerThreadPool",
+      "title": "batt::ScopedWorkerThreadPool",
+      "url": "/_autogen/Classes/classbatt_1_1ScopedWorkerThreadPool/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
       "fullname": "batt::SeqBufferSource",
       "kind": "class",
       "language": "cpp",
@@ -10644,6 +10656,56 @@
     },
     {
       "abstract": false,
+      "anchor": "#function-pin-thread-to-cpu-set",
+      "argsString": "(const IntRange &cpu_i_set)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Status batt::pin_thread_to_cpu_set",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::pin_thread_to_cpu_set",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 211,
+        "bodyFile": "batteries/cpu_align.hpp",
+        "bodyStart": 198,
+        "column": 15,
+        "file": "batteries/cpu_align.hpp",
+        "line": 198
+      },
+      "name": "pin_thread_to_cpu_set",
+      "override": false,
+      "params": [
+        {
+          "name": "cpu_i_set",
+          "type": "const IntRange &",
+          "typePlain": "const IntRange &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "cpu__align_8hpp_1a4417028743796d402675fc496956bbd9",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename IntRange",
+          "typePlain": "typename IntRange"
+        }
+      ],
+      "title": "pin_thread_to_cpu_set",
+      "type": "[Status](/_autogen/Classes/classbatt_1_1Status/)",
+      "typePlain": "Status",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-pin-thread-to-cpu-set",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#function-do-nothing",
       "argsString": "(Args &&...)",
       "category": "functions",
@@ -16325,12 +16387,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 712,
+        "bodyEnd": 717,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 709,
+        "bodyStart": 714,
         "column": 13,
         "file": "batteries/status.hpp",
-        "line": 709
+        "line": 714
       },
       "name": "operator==",
       "override": false,
@@ -16392,12 +16454,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 721,
+        "bodyEnd": 726,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 718,
+        "bodyStart": 723,
         "column": 13,
         "file": "batteries/status.hpp",
-        "line": 718
+        "line": 723
       },
       "name": "operator==",
       "override": false,
@@ -16466,12 +16528,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 727,
+        "bodyEnd": 732,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 724,
+        "bodyStart": 729,
         "column": 13,
         "file": "batteries/status.hpp",
-        "line": 724
+        "line": 729
       },
       "name": "operator!=",
       "override": false,
@@ -16526,12 +16588,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 763,
+        "bodyEnd": 768,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 760,
+        "bodyStart": 765,
         "column": 13,
         "file": "batteries/status.hpp",
-        "line": 760
+        "line": 765
       },
       "name": "is_ok_status",
       "override": false,
@@ -16569,12 +16631,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 769,
+        "bodyEnd": 774,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 766,
+        "bodyStart": 771,
         "column": 6,
         "file": "batteries/status.hpp",
-        "line": 766
+        "line": 771
       },
       "name": "is_ok_status",
       "override": false,
@@ -16619,12 +16681,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 777,
+        "bodyEnd": 782,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 773,
+        "bodyStart": 778,
         "column": 20,
         "file": "batteries/status.hpp",
-        "line": 773
+        "line": 778
       },
       "name": "require_fail_global_default_log_level",
       "override": false,
@@ -16656,12 +16718,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 783,
+        "bodyEnd": 788,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 779,
+        "bodyStart": 784,
         "column": 17,
         "file": "batteries/status.hpp",
-        "line": 779
+        "line": 784
       },
       "name": "require_fail_thread_default_log_level",
       "override": false,
@@ -16693,12 +16755,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 891,
+        "bodyEnd": 896,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 888,
+        "bodyStart": 893,
         "column": 17,
         "file": "batteries/status.hpp",
-        "line": 888
+        "line": 893
       },
       "name": "to_status",
       "override": false,
@@ -16750,12 +16812,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 900,
+        "bodyEnd": 905,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 897,
+        "bodyStart": 902,
         "column": 17,
         "file": "batteries/status.hpp",
-        "line": 897
+        "line": 902
       },
       "name": "to_status",
       "override": false,
@@ -16814,12 +16876,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 913,
+        "bodyEnd": 918,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 906,
+        "bodyStart": 911,
         "column": 15,
         "file": "batteries/status.hpp",
-        "line": 906
+        "line": 911
       },
       "name": "to_status",
       "override": false,
@@ -16885,12 +16947,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 954,
+        "bodyEnd": 959,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 951,
+        "bodyStart": 956,
         "column": 15,
         "file": "batteries/status.hpp",
-        "line": 951
+        "line": 956
       },
       "name": "status_from_errno",
       "override": false,
@@ -16928,12 +16990,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 963,
+        "bodyEnd": 968,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 957,
+        "bodyStart": 962,
         "column": 15,
         "file": "batteries/status.hpp",
-        "line": 957
+        "line": 962
       },
       "name": "status_from_retval",
       "override": false,
@@ -16978,12 +17040,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 971,
+        "bodyEnd": 976,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 966,
+        "bodyStart": 971,
         "column": 10,
         "file": "batteries/status.hpp",
-        "line": 966
+        "line": 971
       },
       "name": "ok_result_or_panic",
       "override": false,
@@ -17028,12 +17090,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 981,
+        "bodyEnd": 986,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 975,
+        "bodyStart": 980,
         "column": 1,
         "file": "batteries/status.hpp",
-        "line": 975
+        "line": 980
       },
       "name": "operator<<",
       "override": false,
@@ -17090,12 +17152,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 989,
+        "bodyEnd": 994,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 983,
+        "bodyStart": 988,
         "column": 13,
         "file": "batteries/status.hpp",
-        "line": 983
+        "line": 988
       },
       "name": "status_is_retryable",
       "override": false,
@@ -20374,12 +20436,12 @@
       "kind": "enum",
       "language": "cpp",
       "location": {
-        "bodyEnd": 771,
+        "bodyEnd": 776,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 771,
+        "bodyStart": 776,
         "column": 21,
         "file": "batteries/status.hpp",
-        "line": 771
+        "line": 776
       },
       "name": "LogLevel",
       "override": false,
@@ -21810,10 +21872,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 744,
+        "bodyStart": 749,
         "column": 1,
         "file": "batteries/status.hpp",
-        "line": 744
+        "line": 749
       },
       "name": "IsStatusOr",
       "override": false,
@@ -21847,10 +21909,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 756,
+        "bodyStart": 761,
         "column": 1,
         "file": "batteries/status.hpp",
-        "line": 756
+        "line": 761
       },
       "name": "RemoveStatusOr",
       "override": false,

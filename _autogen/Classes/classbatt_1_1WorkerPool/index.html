@@ -514,6 +514,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#function-workerpool_1" class="md-nav__link">
+    function WorkerPool
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-async_run" class="md-nav__link">
     function async_run
   </a>
@@ -549,7 +556,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#function-workerpool_1" class="md-nav__link">
+  <a href="#function-workerpool_2" class="md-nav__link">
     function ~WorkerPool
   </a>
   
@@ -597,6 +604,10 @@
 <td><strong><a href="/_autogen/Classes/classbatt_1_1WorkerPool/#function-workerpool">WorkerPool</a></strong>(usize size, <a href="/_autogen/Classes/classbatt_1_1TaskScheduler/">TaskScheduler</a> &amp; scheduler)</td>
 </tr>
 <tr>
+<td></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WorkerPool/#function-workerpool">WorkerPool</a></strong>(std::vector&lt; std::unique_ptr&lt; <a href="/_autogen/Classes/classbatt_1_1Worker/">Worker</a> &gt;&gt; &amp;&amp; workers)</td>
+</tr>
+<tr>
 <td>template &lt;typename Fn > <br>void</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1WorkerPool/#function-async-run">async_run</a></strong>(Fn &amp;&amp; fn)</td>
 </tr>
@@ -638,36 +649,43 @@
 <a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="n">TaskScheduler</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">scheduler</span><span class="w"></span>
 <a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">)</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-async_run">function async_run<a class="headerlink" href="#function-async_run" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-workerpool_1">function WorkerPool<a class="headerlink" href="#function-workerpool_1" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span>
-<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">async_run</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="w"></span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="p">)</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">WorkerPool</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Worker</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">workers</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">)</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-reset">function reset<a class="headerlink" href="#function-reset" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-async_run">function async_run<a class="headerlink" href="#function-async_run" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
-<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">reset</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">usize</span><span class="w"> </span><span class="n">phase_shift</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="w"></span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">)</span><span class="w"></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">async_run</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="w"></span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="p">)</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-reset">function reset<a class="headerlink" href="#function-reset" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">reset</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="n">usize</span><span class="w"> </span><span class="n">phase_shift</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="w"></span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="p">)</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-size">function size<a class="headerlink" href="#function-size" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-halt">function halt<a class="headerlink" href="#function-halt" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">halt</span><span class="p">()</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">halt</span><span class="p">()</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-join">function join<a class="headerlink" href="#function-join" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">join</span><span class="p">()</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">join</span><span class="p">()</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-workerpool_1">function ~WorkerPool<a class="headerlink" href="#function-workerpool_1" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="o">~</span><span class="n">WorkerPool</span><span class="p">()</span><span class="w"></span>
+<h3 id="function-workerpool_2">function ~WorkerPool<a class="headerlink" href="#function-workerpool_2" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="o">~</span><span class="n">WorkerPool</span><span class="p">()</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 19 September 2022 at 14:24:54 UTC</p>
+<p>Updated on  3 October 2022 at 20:27:03 UTC</p>
 
 
 

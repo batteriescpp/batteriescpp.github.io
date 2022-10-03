@@ -786,7 +786,23 @@
 <span class="normal"><a href="#__codelineno-1-196">196</a></span>
 <span class="normal"><a href="#__codelineno-1-197">197</a></span>
 <span class="normal"><a href="#__codelineno-1-198">198</a></span>
-<span class="normal"><a href="#__codelineno-1-199">199</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
+<span class="normal"><a href="#__codelineno-1-199">199</a></span>
+<span class="normal"><a href="#__codelineno-1-200">200</a></span>
+<span class="normal"><a href="#__codelineno-1-201">201</a></span>
+<span class="normal"><a href="#__codelineno-1-202">202</a></span>
+<span class="normal"><a href="#__codelineno-1-203">203</a></span>
+<span class="normal"><a href="#__codelineno-1-204">204</a></span>
+<span class="normal"><a href="#__codelineno-1-205">205</a></span>
+<span class="normal"><a href="#__codelineno-1-206">206</a></span>
+<span class="normal"><a href="#__codelineno-1-207">207</a></span>
+<span class="normal"><a href="#__codelineno-1-208">208</a></span>
+<span class="normal"><a href="#__codelineno-1-209">209</a></span>
+<span class="normal"><a href="#__codelineno-1-210">210</a></span>
+<span class="normal"><a href="#__codelineno-1-211">211</a></span>
+<span class="normal"><a href="#__codelineno-1-212">212</a></span>
+<span class="normal"><a href="#__codelineno-1-213">213</a></span>
+<span class="normal"><a href="#__codelineno-1-214">214</a></span>
+<span class="normal"><a href="#__codelineno-1-215">215</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// Copyright 2021-2022 Anthony Paul Astolfi</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">//</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="cp">#pragma once</span>
@@ -982,12 +998,28 @@
 <a id="__codelineno-1-194" name="__codelineno-1-194"></a><span class="cp">#endif  </span><span class="c1">//__linux__</span>
 <a id="__codelineno-1-195" name="__codelineno-1-195"></a><span class="p">}</span><span class="w"></span>
 <a id="__codelineno-1-196" name="__codelineno-1-196"></a>
-<a id="__codelineno-1-197" name="__codelineno-1-197"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
-<a id="__codelineno-1-198" name="__codelineno-1-198"></a>
-<a id="__codelineno-1-199" name="__codelineno-1-199"></a><span class="cp">#endif  </span><span class="c1">// BATT_CPU_ALIGN_HPP</span>
+<a id="__codelineno-1-197" name="__codelineno-1-197"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">IntRange</span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-1-198" name="__codelineno-1-198"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="n">pin_thread_to_cpu_set</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">IntRange</span><span class="o">&amp;</span><span class="w"> </span><span class="n">cpu_i_set</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-1-199" name="__codelineno-1-199"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-200" name="__codelineno-1-200"></a><span class="cp">#ifdef __linux__</span>
+<a id="__codelineno-1-201" name="__codelineno-1-201"></a><span class="w">    </span><span class="kt">cpu_set_t</span><span class="w"> </span><span class="n">mask</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-202" name="__codelineno-1-202"></a><span class="w">    </span><span class="n">CPU_ZERO</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mask</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-203" name="__codelineno-1-203"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">usize</span><span class="w"> </span><span class="n">cpu_i</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">cpu_i_set</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-204" name="__codelineno-1-204"></a><span class="w">        </span><span class="n">CPU_SET</span><span class="p">(</span><span class="n">cpu_i</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">mask</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-205" name="__codelineno-1-205"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-206" name="__codelineno-1-206"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">retval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sched_setaffinity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">mask</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-207" name="__codelineno-1-207"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">status_from_retval</span><span class="p">(</span><span class="n">retval</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-208" name="__codelineno-1-208"></a><span class="cp">#else</span>
+<a id="__codelineno-1-209" name="__codelineno-1-209"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">StatusCode</span><span class="o">::</span><span class="n">kUnimplemented</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-210" name="__codelineno-1-210"></a><span class="cp">#endif  </span><span class="c1">//__linux__</span>
+<a id="__codelineno-1-211" name="__codelineno-1-211"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-212" name="__codelineno-1-212"></a>
+<a id="__codelineno-1-213" name="__codelineno-1-213"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
+<a id="__codelineno-1-214" name="__codelineno-1-214"></a>
+<a id="__codelineno-1-215" name="__codelineno-1-215"></a><span class="cp">#endif  </span><span class="c1">// BATT_CPU_ALIGN_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 19 September 2022 at 14:24:54 UTC</p>
+<p>Updated on  3 October 2022 at 20:27:04 UTC</p>
 
 
 
