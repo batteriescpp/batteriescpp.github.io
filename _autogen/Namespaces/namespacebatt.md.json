@@ -9603,12 +9603,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 30,
+        "bodyEnd": 32,
         "bodyFile": "batteries/buffer.hpp",
-        "bodyStart": 27,
+        "bodyStart": 29,
         "column": 10,
         "file": "batteries/buffer.hpp",
-        "line": 27
+        "line": 29
       },
       "name": "make_buffer",
       "override": false,
@@ -9653,12 +9653,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 38,
+        "bodyEnd": 40,
         "bodyFile": "batteries/buffer.hpp",
-        "bodyStart": 35,
+        "bodyStart": 37,
         "column": 20,
         "file": "batteries/buffer.hpp",
-        "line": 35
+        "line": 37
       },
       "name": "buffer_from_struct",
       "override": false,
@@ -9689,6 +9689,104 @@
     },
     {
       "abstract": false,
+      "anchor": "#function-as-str",
+      "argsString": "(const ConstBuffer &buffer)",
+      "brief": "Converts a ConstBuffer into an equivalent std::string_view. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::string_view batt::as_str",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::as_str",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 47,
+        "bodyFile": "batteries/buffer.hpp",
+        "bodyStart": 44,
+        "column": 25,
+        "file": "batteries/buffer.hpp",
+        "line": 44
+      },
+      "name": "as_str",
+      "override": false,
+      "params": [
+        {
+          "name": "buffer",
+          "type": "const ConstBuffer &",
+          "typePlain": "const ConstBuffer &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "buffer_8hpp_1a4716da1b299aab1c6bfd38f994036968",
+      "static": false,
+      "strong": false,
+      "summary": "Converts a ConstBuffer into an equivalent std::string_view. ",
+      "title": "as_str",
+      "type": "std::string_view",
+      "typePlain": "std::string_view",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-as-str",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-bytes-from-struct",
+      "argsString": "(const T &val)",
+      "brief": "Returns a std::string_view with the same size and data address as the passed object, as if the address of `val` had been reinterpret_cast to type `const char*`. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::string_view batt::bytes_from_struct",
+      "deleted": false,
+      "details": "Should only be used for types used to define serialized data layouts. ",
+      "explicit": false,
+      "fullname": "batt::bytes_from_struct",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 58,
+        "bodyFile": "batteries/buffer.hpp",
+        "bodyStart": 55,
+        "column": 25,
+        "file": "batteries/buffer.hpp",
+        "line": 55
+      },
+      "name": "bytes_from_struct",
+      "override": false,
+      "params": [
+        {
+          "name": "val",
+          "type": "const T &",
+          "typePlain": "const T &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "buffer_8hpp_1a877a0a4cb245e341d2749ae895141346",
+      "static": false,
+      "strong": false,
+      "summary": "Returns a std::string_view with the same size and data address as the passed object, as if the address of val had been reinterpret_cast to type const char*. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "bytes_from_struct",
+      "type": "std::string_view",
+      "typePlain": "std::string_view",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-bytes-from-struct",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#function-mutable-buffer-from-struct",
       "argsString": "(T &val)",
       "category": "functions",
@@ -9703,12 +9801,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 44,
+        "bodyEnd": 64,
         "bodyFile": "batteries/buffer.hpp",
-        "bodyStart": 41,
+        "bodyStart": 61,
         "column": 22,
         "file": "batteries/buffer.hpp",
-        "line": 41
+        "line": 61
       },
       "name": "mutable_buffer_from_struct",
       "override": false,
@@ -9753,12 +9851,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 49,
+        "bodyEnd": 69,
         "bodyFile": "batteries/buffer.hpp",
-        "bodyStart": 46,
+        "bodyStart": 66,
         "column": 20,
         "file": "batteries/buffer.hpp",
-        "line": 46
+        "line": 66
       },
       "name": "resize_buffer",
       "override": false,
@@ -9801,12 +9899,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 54,
+        "bodyEnd": 74,
         "bodyFile": "batteries/buffer.hpp",
-        "bodyStart": 51,
+        "bodyStart": 71,
         "column": 22,
         "file": "batteries/buffer.hpp",
-        "line": 51
+        "line": 71
       },
       "name": "resize_buffer",
       "override": false,
@@ -9850,12 +9948,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 85,
+        "bodyEnd": 105,
         "bodyFile": "batteries/buffer.hpp",
-        "bodyStart": 82,
+        "bodyStart": 102,
         "column": 20,
         "file": "batteries/buffer.hpp",
-        "line": 82
+        "line": 102
       },
       "name": "slice_buffer",
       "override": false,
@@ -9917,12 +10015,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 96,
+        "bodyEnd": 116,
         "bodyFile": "batteries/buffer.hpp",
-        "bodyStart": 93,
+        "bodyStart": 113,
         "column": 22,
         "file": "batteries/buffer.hpp",
-        "line": 93
+        "line": 113
       },
       "name": "slice_buffer",
       "override": false,
@@ -9983,12 +10081,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 112,
+        "bodyEnd": 132,
         "bodyFile": "batteries/buffer.hpp",
-        "bodyStart": 99,
+        "bodyStart": 119,
         "column": 13,
         "file": "batteries/buffer.hpp",
-        "line": 99
+        "line": 119
       },
       "name": "consume_buffers",
       "override": false,
@@ -10038,12 +10136,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 134,
+        "bodyEnd": 154,
         "bodyFile": "batteries/buffer.hpp",
-        "bodyStart": 115,
+        "bodyStart": 135,
         "column": 18,
         "file": "batteries/buffer.hpp",
-        "line": 115
+        "line": 135
       },
       "name": "consume_buffers_iter",
       "override": false,
@@ -10098,12 +10196,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 142,
+        "bodyEnd": 162,
         "bodyFile": "batteries/buffer.hpp",
-        "bodyStart": 137,
+        "bodyStart": 157,
         "column": 13,
         "file": "batteries/buffer.hpp",
-        "line": 137
+        "line": 157
       },
       "name": "consume_buffers_copy",
       "override": false,
@@ -10134,6 +10232,120 @@
       "type": "VecT",
       "typePlain": "VecT",
       "url": "/_autogen/Namespaces/namespacebatt/#function-consume-buffers-copy",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-array-from-c-str",
+      "argsString": "(const char(&c_str)[kLength], std::index_sequence< kIndex... >)",
+      "brief": "Converts a compile-time string constant to std::array<char>, automatically inferring the string length (_without_ the null-terminator). ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "constexpr std::array<char, kLength - 1> batt::array_from_c_str",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::array_from_c_str",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 409,
+        "bodyFile": "batteries/buffer.hpp",
+        "bodyStart": 405,
+        "column": 22,
+        "file": "batteries/buffer.hpp",
+        "line": 405
+      },
+      "name": "array_from_c_str",
+      "override": false,
+      "params": [
+        {
+          "name": "c_str[kLength]",
+          "type": "const char(&)",
+          "typePlain": "const char(&)"
+        },
+        {
+          "name": "",
+          "type": "std::index_sequence< kIndex... >",
+          "typePlain": "std::index_sequence< kIndex... >"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "buffer_8hpp_1ae79192e5bafe03425e09c5de8664aaed",
+      "static": false,
+      "strong": false,
+      "summary": "Converts a compile-time string constant to std::array<char>, automatically inferring the string length (without the null-terminator). ",
+      "templateParams": [
+        {
+          "name": "kLength",
+          "type": "usize",
+          "typePlain": "usize"
+        },
+        {
+          "name": "kIndex",
+          "type": "usize...",
+          "typePlain": "usize..."
+        }
+      ],
+      "title": "array_from_c_str",
+      "type": "constexpr std::array< char, kLength - 1 >",
+      "typePlain": "constexpr std::array< char, kLength - 1 >",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-array-from-c-str",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-array-from-c-str",
+      "argsString": "(const char(&c_str)[kLength])",
+      "brief": "Converts a compile-time string constant to std::array<char>, automatically inferring the string length (_without_ the null-terminator). ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "constexpr std::array<char, kLength - 1> batt::array_from_c_str",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::array_from_c_str",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 418,
+        "bodyFile": "batteries/buffer.hpp",
+        "bodyStart": 415,
+        "column": 22,
+        "file": "batteries/buffer.hpp",
+        "line": 415
+      },
+      "name": "array_from_c_str",
+      "override": false,
+      "params": [
+        {
+          "name": "c_str[kLength]",
+          "type": "const char(&)",
+          "typePlain": "const char(&)"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "buffer_8hpp_1a76187db9ccc9320f93adda80658467a6",
+      "static": false,
+      "strong": false,
+      "summary": "Converts a compile-time string constant to std::array<char>, automatically inferring the string length (without the null-terminator). ",
+      "templateParams": [
+        {
+          "name": "kLength",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "title": "array_from_c_str",
+      "type": "constexpr std::array< char, kLength - 1 >",
+      "typePlain": "constexpr std::array< char, kLength - 1 >",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-array-from-c-str",
       "virtual": false,
       "visibility": "public"
     },
@@ -21084,10 +21296,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/buffer.hpp",
-        "bodyStart": 23,
+        "bodyStart": 25,
         "column": 1,
         "file": "batteries/buffer.hpp",
-        "line": 23
+        "line": 25
       },
       "name": "ConstBuffer",
       "override": false,
@@ -21114,10 +21326,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/buffer.hpp",
-        "bodyStart": 24,
+        "bodyStart": 26,
         "column": 1,
         "file": "batteries/buffer.hpp",
-        "line": 24
+        "line": 26
       },
       "name": "MutableBuffer",
       "override": false,
