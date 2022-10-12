@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.1">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
     
     
       
@@ -17,13 +17,14 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.69437709.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.20d9efc8.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
+
     
     
     
@@ -42,6 +43,7 @@
     
       
 
+    
     
     
   </head>
@@ -115,7 +117,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -533,10 +535,11 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="batteriesbufferhpp">batteries/buffer.hpp<a class="headerlink" href="#batteriesbufferhpp" title="Permanent link">&#128279;</a></h1>
@@ -1001,7 +1004,67 @@
 <span class="normal"><a href="#__codelineno-1-396">396</a></span>
 <span class="normal"><a href="#__codelineno-1-397">397</a></span>
 <span class="normal"><a href="#__codelineno-1-398">398</a></span>
-<span class="normal"><a href="#__codelineno-1-399">399</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
+<span class="normal"><a href="#__codelineno-1-399">399</a></span>
+<span class="normal"><a href="#__codelineno-1-400">400</a></span>
+<span class="normal"><a href="#__codelineno-1-401">401</a></span>
+<span class="normal"><a href="#__codelineno-1-402">402</a></span>
+<span class="normal"><a href="#__codelineno-1-403">403</a></span>
+<span class="normal"><a href="#__codelineno-1-404">404</a></span>
+<span class="normal"><a href="#__codelineno-1-405">405</a></span>
+<span class="normal"><a href="#__codelineno-1-406">406</a></span>
+<span class="normal"><a href="#__codelineno-1-407">407</a></span>
+<span class="normal"><a href="#__codelineno-1-408">408</a></span>
+<span class="normal"><a href="#__codelineno-1-409">409</a></span>
+<span class="normal"><a href="#__codelineno-1-410">410</a></span>
+<span class="normal"><a href="#__codelineno-1-411">411</a></span>
+<span class="normal"><a href="#__codelineno-1-412">412</a></span>
+<span class="normal"><a href="#__codelineno-1-413">413</a></span>
+<span class="normal"><a href="#__codelineno-1-414">414</a></span>
+<span class="normal"><a href="#__codelineno-1-415">415</a></span>
+<span class="normal"><a href="#__codelineno-1-416">416</a></span>
+<span class="normal"><a href="#__codelineno-1-417">417</a></span>
+<span class="normal"><a href="#__codelineno-1-418">418</a></span>
+<span class="normal"><a href="#__codelineno-1-419">419</a></span>
+<span class="normal"><a href="#__codelineno-1-420">420</a></span>
+<span class="normal"><a href="#__codelineno-1-421">421</a></span>
+<span class="normal"><a href="#__codelineno-1-422">422</a></span>
+<span class="normal"><a href="#__codelineno-1-423">423</a></span>
+<span class="normal"><a href="#__codelineno-1-424">424</a></span>
+<span class="normal"><a href="#__codelineno-1-425">425</a></span>
+<span class="normal"><a href="#__codelineno-1-426">426</a></span>
+<span class="normal"><a href="#__codelineno-1-427">427</a></span>
+<span class="normal"><a href="#__codelineno-1-428">428</a></span>
+<span class="normal"><a href="#__codelineno-1-429">429</a></span>
+<span class="normal"><a href="#__codelineno-1-430">430</a></span>
+<span class="normal"><a href="#__codelineno-1-431">431</a></span>
+<span class="normal"><a href="#__codelineno-1-432">432</a></span>
+<span class="normal"><a href="#__codelineno-1-433">433</a></span>
+<span class="normal"><a href="#__codelineno-1-434">434</a></span>
+<span class="normal"><a href="#__codelineno-1-435">435</a></span>
+<span class="normal"><a href="#__codelineno-1-436">436</a></span>
+<span class="normal"><a href="#__codelineno-1-437">437</a></span>
+<span class="normal"><a href="#__codelineno-1-438">438</a></span>
+<span class="normal"><a href="#__codelineno-1-439">439</a></span>
+<span class="normal"><a href="#__codelineno-1-440">440</a></span>
+<span class="normal"><a href="#__codelineno-1-441">441</a></span>
+<span class="normal"><a href="#__codelineno-1-442">442</a></span>
+<span class="normal"><a href="#__codelineno-1-443">443</a></span>
+<span class="normal"><a href="#__codelineno-1-444">444</a></span>
+<span class="normal"><a href="#__codelineno-1-445">445</a></span>
+<span class="normal"><a href="#__codelineno-1-446">446</a></span>
+<span class="normal"><a href="#__codelineno-1-447">447</a></span>
+<span class="normal"><a href="#__codelineno-1-448">448</a></span>
+<span class="normal"><a href="#__codelineno-1-449">449</a></span>
+<span class="normal"><a href="#__codelineno-1-450">450</a></span>
+<span class="normal"><a href="#__codelineno-1-451">451</a></span>
+<span class="normal"><a href="#__codelineno-1-452">452</a></span>
+<span class="normal"><a href="#__codelineno-1-453">453</a></span>
+<span class="normal"><a href="#__codelineno-1-454">454</a></span>
+<span class="normal"><a href="#__codelineno-1-455">455</a></span>
+<span class="normal"><a href="#__codelineno-1-456">456</a></span>
+<span class="normal"><a href="#__codelineno-1-457">457</a></span>
+<span class="normal"><a href="#__codelineno-1-458">458</a></span>
+<span class="normal"><a href="#__codelineno-1-459">459</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// Copyright 2021-2022 Anthony Paul Astolfi</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">//</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="cp">#pragma once</span>
@@ -1397,20 +1460,82 @@
 <a id="__codelineno-1-394" name="__codelineno-1-394"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">array_from_c_str</span><span class="p">(</span><span class="n">c_str</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_index_sequence</span><span class="o">&lt;</span><span class="n">kLength</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="p">());</span><span class="w"></span>
 <a id="__codelineno-1-395" name="__codelineno-1-395"></a><span class="p">}</span><span class="w"></span>
 <a id="__codelineno-1-396" name="__codelineno-1-396"></a>
-<a id="__codelineno-1-397" name="__codelineno-1-397"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
+<a id="__codelineno-1-397" name="__codelineno-1-397"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
 <a id="__codelineno-1-398" name="__codelineno-1-398"></a>
-<a id="__codelineno-1-399" name="__codelineno-1-399"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_BUFFER_HPP</span>
+<a id="__codelineno-1-399" name="__codelineno-1-399"></a><span class="kr">inline</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="w"> </span><span class="n">as_const_buffer</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">buffer</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-1-400" name="__codelineno-1-400"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-401" name="__codelineno-1-401"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">buffer</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-402" name="__codelineno-1-402"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-403" name="__codelineno-1-403"></a>
+<a id="__codelineno-1-404" name="__codelineno-1-404"></a><span class="kr">inline</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="w"> </span><span class="n">as_const_buffer</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">MutableBuffer</span><span class="o">&amp;</span><span class="w"> </span><span class="n">buffer</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-1-405" name="__codelineno-1-405"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-406" name="__codelineno-1-406"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">buffer</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-407" name="__codelineno-1-407"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-408" name="__codelineno-1-408"></a>
+<a id="__codelineno-1-409" name="__codelineno-1-409"></a><span class="kr">inline</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="w"> </span><span class="n">as_const_buffer</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-1-410" name="__codelineno-1-410"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-411" name="__codelineno-1-411"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="p">{</span><span class="n">str</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">()};</span><span class="w"></span>
+<a id="__codelineno-1-412" name="__codelineno-1-412"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-413" name="__codelineno-1-413"></a>
+<a id="__codelineno-1-414" name="__codelineno-1-414"></a><span class="kr">inline</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="w"> </span><span class="n">as_const_buffer</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">str</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-1-415" name="__codelineno-1-415"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-416" name="__codelineno-1-416"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="p">{</span><span class="n">str</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">size</span><span class="p">()};</span><span class="w"></span>
+<a id="__codelineno-1-417" name="__codelineno-1-417"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-418" name="__codelineno-1-418"></a>
+<a id="__codelineno-1-419" name="__codelineno-1-419"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">usize</span><span class="w"> </span><span class="n">kSize</span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-1-420" name="__codelineno-1-420"></a><span class="kr">inline</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="w"> </span><span class="n">as_const_buffer</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span><span class="w"> </span><span class="n">kSize</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-1-421" name="__codelineno-1-421"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-422" name="__codelineno-1-422"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="p">{</span><span class="n">arr</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">()};</span><span class="w"></span>
+<a id="__codelineno-1-423" name="__codelineno-1-423"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-424" name="__codelineno-1-424"></a>
+<a id="__codelineno-1-425" name="__codelineno-1-425"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">usize</span><span class="w"> </span><span class="n">kSize</span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-1-426" name="__codelineno-1-426"></a><span class="kr">inline</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="w"> </span><span class="n">as_const_buffer</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">u8</span><span class="p">,</span><span class="w"> </span><span class="n">kSize</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-1-427" name="__codelineno-1-427"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-428" name="__codelineno-1-428"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="p">{</span><span class="n">arr</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">()};</span><span class="w"></span>
+<a id="__codelineno-1-429" name="__codelineno-1-429"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-430" name="__codelineno-1-430"></a>
+<a id="__codelineno-1-431" name="__codelineno-1-431"></a><span class="kr">inline</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="w"> </span><span class="n">as_const_buffer</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">vec</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-1-432" name="__codelineno-1-432"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-433" name="__codelineno-1-433"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="p">{</span><span class="n">vec</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">size</span><span class="p">()};</span><span class="w"></span>
+<a id="__codelineno-1-434" name="__codelineno-1-434"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-435" name="__codelineno-1-435"></a>
+<a id="__codelineno-1-436" name="__codelineno-1-436"></a><span class="kr">inline</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="w"> </span><span class="n">as_const_buffer</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">u8</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">vec</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-1-437" name="__codelineno-1-437"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-438" name="__codelineno-1-438"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="p">{</span><span class="n">vec</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">size</span><span class="p">()};</span><span class="w"></span>
+<a id="__codelineno-1-439" name="__codelineno-1-439"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-440" name="__codelineno-1-440"></a>
+<a id="__codelineno-1-441" name="__codelineno-1-441"></a><span class="kr">inline</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="w"> </span><span class="n">as_const_buffer</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SmallVecBase</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">vec</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-1-442" name="__codelineno-1-442"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-443" name="__codelineno-1-443"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="p">{</span><span class="n">vec</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">size</span><span class="p">()};</span><span class="w"></span>
+<a id="__codelineno-1-444" name="__codelineno-1-444"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-445" name="__codelineno-1-445"></a>
+<a id="__codelineno-1-446" name="__codelineno-1-446"></a><span class="kr">inline</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="w"> </span><span class="n">as_const_buffer</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SmallVecBase</span><span class="o">&lt;</span><span class="n">u8</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">vec</span><span class="p">)</span><span class="w"></span>
+<a id="__codelineno-1-447" name="__codelineno-1-447"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-448" name="__codelineno-1-448"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="p">{</span><span class="n">vec</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">size</span><span class="p">()};</span><span class="w"></span>
+<a id="__codelineno-1-449" name="__codelineno-1-449"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-450" name="__codelineno-1-450"></a>
+<a id="__codelineno-1-451" name="__codelineno-1-451"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">usize</span><span class="w"> </span><span class="n">kLength</span><span class="o">&gt;</span><span class="w"></span>
+<a id="__codelineno-1-452" name="__codelineno-1-452"></a><span class="kr">inline</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="w"> </span><span class="n">as_const_buffer</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">c_str</span><span class="p">)[</span><span class="n">kLength</span><span class="p">])</span><span class="w"></span>
+<a id="__codelineno-1-453" name="__codelineno-1-453"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-454" name="__codelineno-1-454"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="p">{</span><span class="o">&amp;</span><span class="n">c_str</span><span class="p">,</span><span class="w"> </span><span class="n">kLength</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-1-455" name="__codelineno-1-455"></a><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-456" name="__codelineno-1-456"></a>
+<a id="__codelineno-1-457" name="__codelineno-1-457"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
+<a id="__codelineno-1-458" name="__codelineno-1-458"></a>
+<a id="__codelineno-1-459" name="__codelineno-1-459"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_BUFFER_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on  7 October 2022 at 18:26:06 UTC</p>
+<p>Updated on 12 October 2022 at 16:32:42 UTC</p>
 
 
 
 
-              
-            </article>
-            
-          </div>
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
@@ -1438,10 +1563,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.078830c0.min.js"></script>
       
     
   </body>
