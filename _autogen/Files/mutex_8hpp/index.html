@@ -785,7 +785,8 @@
 <span class="normal"><a href="#__codelineno-1-184">184</a></span>
 <span class="normal"><a href="#__codelineno-1-185">185</a></span>
 <span class="normal"><a href="#__codelineno-1-186">186</a></span>
-<span class="normal"><a href="#__codelineno-1-187">187</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
+<span class="normal"><a href="#__codelineno-1-187">187</a></span>
+<span class="normal"><a href="#__codelineno-1-188">188</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// Copyright 2021-2022 Anthony Paul Astolfi</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">//</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="cp">#pragma once</span>
@@ -948,33 +949,34 @@
 <a id="__codelineno-1-161" name="__codelineno-1-161"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-1-162" name="__codelineno-1-162"></a><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">u64</span><span class="w"> </span><span class="n">my_ticket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next_ticket_</span><span class="p">.</span><span class="n">fetch_add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
 <a id="__codelineno-1-163" name="__codelineno-1-163"></a><span class="w">        </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="n">u64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">latest_ticket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current_ticket_</span><span class="p">.</span><span class="n">get_value</span><span class="p">();</span><span class="w"></span>
-<a id="__codelineno-1-164" name="__codelineno-1-164"></a>
-<a id="__codelineno-1-165" name="__codelineno-1-165"></a><span class="w">        </span><span class="c1">// This is OK since it will probably take something like 100 years to wrap.  We should be so lucky!</span>
-<a id="__codelineno-1-166" name="__codelineno-1-166"></a><span class="w">        </span><span class="c1">//</span>
-<a id="__codelineno-1-167" name="__codelineno-1-167"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">latest_ticket</span><span class="p">.</span><span class="n">ok</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">*</span><span class="n">latest_ticket</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">my_ticket</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-1-168" name="__codelineno-1-168"></a><span class="w">            </span><span class="n">latest_ticket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current_ticket_</span><span class="p">.</span><span class="n">await_not_equal</span><span class="p">(</span><span class="o">*</span><span class="n">latest_ticket</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-1-169" name="__codelineno-1-169"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-1-170" name="__codelineno-1-170"></a><span class="w">        </span><span class="n">BATT_CHECK_EQ</span><span class="p">(</span><span class="o">*</span><span class="n">latest_ticket</span><span class="p">,</span><span class="w"> </span><span class="n">my_ticket</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-1-171" name="__codelineno-1-171"></a>
-<a id="__codelineno-1-172" name="__codelineno-1-172"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-1-173" name="__codelineno-1-173"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-1-174" name="__codelineno-1-174"></a>
-<a id="__codelineno-1-175" name="__codelineno-1-175"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">release</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
-<a id="__codelineno-1-176" name="__codelineno-1-176"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-1-177" name="__codelineno-1-177"></a><span class="w">        </span><span class="n">current_ticket_</span><span class="p">.</span><span class="n">fetch_add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<a id="__codelineno-1-178" name="__codelineno-1-178"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
-<a id="__codelineno-1-179" name="__codelineno-1-179"></a>
-<a id="__codelineno-1-180" name="__codelineno-1-180"></a><span class="w">    </span><span class="k">mutable</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="n">u64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">next_ticket_</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
-<a id="__codelineno-1-181" name="__codelineno-1-181"></a><span class="w">    </span><span class="k">mutable</span><span class="w"> </span><span class="n">Watch</span><span class="o">&lt;</span><span class="n">u64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">current_ticket_</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
-<a id="__codelineno-1-182" name="__codelineno-1-182"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span><span class="w"></span>
-<a id="__codelineno-1-183" name="__codelineno-1-183"></a><span class="p">};</span><span class="w"></span>
-<a id="__codelineno-1-184" name="__codelineno-1-184"></a>
-<a id="__codelineno-1-185" name="__codelineno-1-185"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
-<a id="__codelineno-1-186" name="__codelineno-1-186"></a>
-<a id="__codelineno-1-187" name="__codelineno-1-187"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_MUTEX_HPP</span>
+<a id="__codelineno-1-164" name="__codelineno-1-164"></a><span class="w">        </span><span class="n">BATT_CHECK_OK</span><span class="p">(</span><span class="n">latest_ticket</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-165" name="__codelineno-1-165"></a>
+<a id="__codelineno-1-166" name="__codelineno-1-166"></a><span class="w">        </span><span class="c1">// This is OK since it will probably take something like 100 years to wrap.  We should be so lucky!</span>
+<a id="__codelineno-1-167" name="__codelineno-1-167"></a><span class="w">        </span><span class="c1">//</span>
+<a id="__codelineno-1-168" name="__codelineno-1-168"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">latest_ticket</span><span class="p">.</span><span class="n">ok</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">*</span><span class="n">latest_ticket</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">my_ticket</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-169" name="__codelineno-1-169"></a><span class="w">            </span><span class="n">latest_ticket</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current_ticket_</span><span class="p">.</span><span class="n">await_not_equal</span><span class="p">(</span><span class="o">*</span><span class="n">latest_ticket</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-170" name="__codelineno-1-170"></a><span class="w">        </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-171" name="__codelineno-1-171"></a><span class="w">        </span><span class="n">BATT_CHECK_EQ</span><span class="p">(</span><span class="o">*</span><span class="n">latest_ticket</span><span class="p">,</span><span class="w"> </span><span class="n">my_ticket</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-172" name="__codelineno-1-172"></a>
+<a id="__codelineno-1-173" name="__codelineno-1-173"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-174" name="__codelineno-1-174"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-175" name="__codelineno-1-175"></a>
+<a id="__codelineno-1-176" name="__codelineno-1-176"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">release</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<a id="__codelineno-1-177" name="__codelineno-1-177"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-178" name="__codelineno-1-178"></a><span class="w">        </span><span class="n">current_ticket_</span><span class="p">.</span><span class="n">fetch_add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-1-179" name="__codelineno-1-179"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-180" name="__codelineno-1-180"></a>
+<a id="__codelineno-1-181" name="__codelineno-1-181"></a><span class="w">    </span><span class="k">mutable</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="n">u64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">next_ticket_</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-1-182" name="__codelineno-1-182"></a><span class="w">    </span><span class="k">mutable</span><span class="w"> </span><span class="n">Watch</span><span class="o">&lt;</span><span class="n">u64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">current_ticket_</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-1-183" name="__codelineno-1-183"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-1-184" name="__codelineno-1-184"></a><span class="p">};</span><span class="w"></span>
+<a id="__codelineno-1-185" name="__codelineno-1-185"></a>
+<a id="__codelineno-1-186" name="__codelineno-1-186"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
+<a id="__codelineno-1-187" name="__codelineno-1-187"></a>
+<a id="__codelineno-1-188" name="__codelineno-1-188"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_MUTEX_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 12 October 2022 at 16:59:39 UTC</p>
+<p>Updated on 19 October 2022 at 13:55:29 UTC</p>
 
 
 

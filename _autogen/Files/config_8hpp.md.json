@@ -134,10 +134,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/config.hpp",
-        "bodyStart": 40,
-        "column": 10,
+        "bodyStart": 47,
+        "column": 9,
         "file": "batteries/config.hpp",
-        "line": 40
+        "line": 47
       },
       "name": "BATT_COMPILER_IS_GCC",
       "override": false,
@@ -162,10 +162,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/config.hpp",
-        "bodyStart": 41,
+        "bodyStart": 48,
         "column": 9,
         "file": "batteries/config.hpp",
-        "line": 41
+        "line": 48
       },
       "name": "BATT_IF_GCC",
       "override": false,
@@ -198,10 +198,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/config.hpp",
-        "bodyStart": 48,
+        "bodyStart": 56,
         "column": 10,
         "file": "batteries/config.hpp",
-        "line": 48
+        "line": 56
       },
       "name": "BATT_COMPILER_IS_CLANG",
       "override": false,
@@ -226,10 +226,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/config.hpp",
-        "bodyStart": 49,
+        "bodyStart": 57,
         "column": 9,
         "file": "batteries/config.hpp",
-        "line": 49
+        "line": 57
       },
       "name": "BATT_IF_CLANG",
       "override": false,
@@ -303,7 +303,7 @@
       "visibility": "public"
     }
   ],
-  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_CONFIG_HPP\n#define BATTERIES_CONFIG_HPP\n\n#if __cplusplus < 201703L\n#error Batteries requires C++17 or later!\n#endif\n\nnamespace batt {\n\n#ifndef BATT_HEADER_ONLY\n#define BATT_HEADER_ONLY 1\n#endif\n\n#define BATT_SEQ_SPECIALIZE_ALGORITHMS 0\n\n#if BATT_HEADER_ONLY\n#define BATT_INLINE_IMPL inline\n#else\n#define BATT_INLINE_IMPL\n#endif\n\n// Define this preprocessor symbol to enable optional support for Google Log (GLOG).\n//\n//#define BATT_GLOG_AVAILABLE\n\n// Define this preprocessor symbol to enable optional support for Google Protocol Buffers (protobuf).\n//\n//#define BATT_PROTOBUF_AVAILABLE\n\n}  // namespace batt\n\n#if defined(__GNUC__) && !defined(__clang__)\n#define BATT_COMPILER_IS_GCC 1\n#define BATT_IF_GCC(expr) expr\n#else\n#define BATT_COMPILER_IS_GCC 0\n#define BATT_IF_GCC(expr)\n#endif\n\n#if defined(__clang__)\n#define BATT_COMPILER_IS_CLANG 1\n#define BATT_IF_CLANG(expr) expr\n#else\n#define BATT_COMPILER_IS_CLANG 0\n#define BATT_IF_CLANG(expr)\n#endif\n\n#endif  // BATTERIES_CONFIG_HPP",
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_CONFIG_HPP\n#define BATTERIES_CONFIG_HPP\n\n#if __cplusplus < 201703L\n#error Batteries requires C++17 or later!\n#endif\n\nnamespace batt {\n\n#ifndef BATT_HEADER_ONLY\n#define BATT_HEADER_ONLY 1\n#endif\n\n#define BATT_SEQ_SPECIALIZE_ALGORITHMS 0\n\n#if BATT_HEADER_ONLY\n#define BATT_INLINE_IMPL inline\n#else\n#define BATT_INLINE_IMPL\n#endif\n\n// Define this preprocessor symbol to enable optional support for Google Log (GLOG).\n//\n//#define BATT_GLOG_AVAILABLE\n\n// Define this preprocessor symbol to enable optional support for Google Protocol Buffers (protobuf).\n//\n//#define BATT_PROTOBUF_AVAILABLE\n\n}  // namespace batt\n\n#if defined(__GNUC__) && !defined(__clang__)\n\n#define BATT_COMPILER_IS_GCC 1\n#define BATT_IF_GCC(expr) expr\n\n// This causes a lot of false positives, so disable.\n//\n#pragma GCC diagnostic ignored \"-Wmaybe-uninitialized\"\n\n#else\n\n#define BATT_COMPILER_IS_GCC 0\n#define BATT_IF_GCC(expr)\n\n#endif\n\n#if defined(__clang__)\n#define BATT_COMPILER_IS_CLANG 1\n#define BATT_IF_CLANG(expr) expr\n#else\n#define BATT_COMPILER_IS_CLANG 0\n#define BATT_IF_CLANG(expr)\n#endif\n\n#endif  // BATTERIES_CONFIG_HPP",
   "refid": "config_8hpp",
   "static": false,
   "strong": false,
