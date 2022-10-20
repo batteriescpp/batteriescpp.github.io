@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -494,6 +494,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#additional-inherited-members" class="md-nav__link">
+    Additional inherited members
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#detailed-description" class="md-nav__link">
     Detailed Description
   </a>
@@ -564,6 +571,7 @@
 
 <h1 id="battdetailcopyfnimpl">batt::detail::CopyFnImpl<a class="headerlink" href="#battdetailcopyfnimpl" title="Permanent link">&#128279;</a></h1>
 <p><a href="#detailed-description">More...</a></p>
+<p>Inherits from <a href="/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/">batt::detail::MoveFnImpl&lt; Fn, false, Result, Args... &gt;</a>, AbstractFn&lt; kMoveOnly, Result, Args... &gt;</p>
 <h2 id="public-types">Public Types<a class="headerlink" href="#public-types" title="Permanent link">&#128279;</a></h2>
 <table>
 <thead>
@@ -595,6 +603,45 @@
 <tr>
 <td>AbstractFn&lt; true, Result, Args... &gt; *</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1CopyFnImpl/#function-copy-to-move-only">copy_to_move_only</a></strong>(void * memory, usize size) const override</td>
+</tr>
+</tbody>
+</table>
+<h2 id="additional-inherited-members">Additional inherited members<a class="headerlink" href="#additional-inherited-members" title="Permanent link">&#128279;</a></h2>
+<p><strong>Public Functions inherited from <a href="/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/">batt::detail::MoveFnImpl&lt; Fn, false, Result, Args... &gt;</a></strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>template &lt;typename FnRef > <br></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/#function-movefnimpl">MoveFnImpl</a></strong>(FnRef &amp;&amp; ref)</td>
+</tr>
+<tr>
+<td>Result</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/#function-invoke">invoke</a></strong>(Args... args) override</td>
+</tr>
+<tr>
+<td>AbstractFn&lt; <a href="/_autogen/Classes/classbatt_1_1kMoveOnly/">kMoveOnly</a>, Result, Args... &gt; *</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/#function-move">move</a></strong>(void * memory, usize size) override</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Protected Attributes inherited from <a href="/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/">batt::detail::MoveFnImpl&lt; Fn, false, Result, Args... &gt;</a></strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fn</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/#variable-fn-">fn_</a></strong></td>
 </tr>
 </tbody>
 </table>
@@ -631,7 +678,7 @@
 <a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 20 October 2022 at 13:54:46 UTC</p>
+<p>Updated on 20 October 2022 at 18:22:25 UTC</p>
 
 
 

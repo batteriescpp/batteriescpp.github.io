@@ -14,10 +14,10 @@
   "location": {
     "bodyEnd": 187,
     "bodyFile": "batteries/async/buffer_source.hpp",
-    "bodyStart": 136,
+    "bodyStart": 137,
     "column": 1,
     "file": "batteries/async/buffer_source.hpp",
-    "line": 137
+    "line": 136
   },
   "name": "batt::BufferSource",
   "override": false,
@@ -82,6 +82,22 @@
   "privateClasses": [
     {
       "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::AbstractValueImpl< BufferSource::AbstractBufferSource, BufferSource::BufferSourceImpl, T >",
+          "refid": "classbatt_1_1AbstractValueImpl",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": true,
+          "name": "AbstractType",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "category": "classes",
       "fullname": "batt::BufferSource::BufferSourceImpl",
       "kind": "class",
@@ -107,6 +123,16 @@
         }
       ],
       "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::AbstractValueImpl< BufferSource::AbstractBufferSource, BufferSource::BufferSourceImpl, T >",
+          "refid": "classbatt_1_1AbstractValueImpl",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "fullname": "batt::BufferSource::AbstractBufferSource",
       "kind": "class",
       "language": "cpp",

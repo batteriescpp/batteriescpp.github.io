@@ -204,20 +204,6 @@
   "publicClasses": [
     {
       "anchor": "",
-      "brief": "A type-erased container for a callable function-like object with a statically bounded maximum size. ",
-      "category": "classes",
-      "fullname": "batt::SmallFn",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::SmallFn",
-      "refid": "classbatt_1_1SmallFn",
-      "summary": "A type-erased container for a callable function-like object with a statically bounded maximum size. ",
-      "title": "batt::SmallFn",
-      "url": "/_autogen/Classes/classbatt_1_1SmallFn/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
       "category": "classes",
       "fullname": "batt::detail::AbstractMoveFn",
       "kind": "class",
@@ -230,6 +216,16 @@
     },
     {
       "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::AbstractMoveFn< false, Result, Args... >",
+          "refid": "classbatt_1_1detail_1_1AbstractMoveFn",
+          "url": "/_autogen/Classes/classbatt_1_1detail_1_1AbstractMoveFn/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "category": "classes",
       "fullname": "batt::detail::AbstractCopyFn",
       "kind": "class",
@@ -242,6 +238,14 @@
     },
     {
       "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "AbstractFn< kMoveOnly, Result, Args... >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "category": "classes",
       "fullname": "batt::detail::MoveFnImpl",
       "kind": "class",
@@ -254,54 +258,22 @@
     },
     {
       "anchor": "",
-      "category": "classes",
-      "fullname": "batt::detail::CopyFnImpl",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::detail::CopyFnImpl",
-      "refid": "classbatt_1_1detail_1_1CopyFnImpl",
-      "title": "batt::detail::CopyFnImpl",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1CopyFnImpl/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::detail::AbstractMoveFn",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::detail::AbstractMoveFn",
-      "refid": "classbatt_1_1detail_1_1AbstractMoveFn",
-      "title": "batt::detail::AbstractMoveFn",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AbstractMoveFn/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::detail::AbstractCopyFn",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::detail::AbstractCopyFn",
-      "refid": "classbatt_1_1detail_1_1AbstractCopyFn",
-      "title": "batt::detail::AbstractCopyFn",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AbstractCopyFn/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::detail::MoveFnImpl",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::detail::MoveFnImpl",
-      "refid": "classbatt_1_1detail_1_1MoveFnImpl",
-      "title": "batt::detail::MoveFnImpl",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::MoveFnImpl< Fn, false, Result, Args... >",
+          "refid": "classbatt_1_1detail_1_1MoveFnImpl",
+          "url": "/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": true,
+          "name": "AbstractFn< kMoveOnly, Result, Args... >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "category": "classes",
       "fullname": "batt::detail::CopyFnImpl",
       "kind": "class",

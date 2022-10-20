@@ -1,9 +1,28 @@
 {
   "abstract": false,
   "anchor": "",
+  "baseClasses": [
+    {
+      "external": true,
+      "name": "RefCounted< Latch< T > >",
+      "refid": null,
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
   "category": "classes",
   "const": false,
   "definition": "",
+  "derivedClasses": [
+    {
+      "external": false,
+      "name": "batt::detail::FutureImpl< T >",
+      "refid": "classbatt_1_1detail_1_1FutureImpl",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1FutureImpl/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
   "explicit": false,
   "fullname": "batt::Latch",
   "hasAdditionalMembers": false,
@@ -12,11 +31,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
+    "bodyEnd": 116,
     "bodyFile": "batteries/async/latch.hpp",
-    "bodyStart": 21,
+    "bodyStart": 29,
     "column": 1,
     "file": "batteries/async/latch.hpp",
-    "line": 21
+    "line": 28
   },
   "name": "batt::Latch",
   "override": false,
@@ -584,7 +604,7 @@
         "bodyEnd": 36,
         "bodyFile": "batteries/async/latch.hpp",
         "bodyStart": 31,
-        "column": 15,
+        "column": 5,
         "file": "batteries/async/latch.hpp",
         "line": 31
       },

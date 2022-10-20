@@ -15,7 +15,7 @@
     "bodyEnd": 71,
     "bodyFile": "batteries/radix_queue.hpp",
     "bodyStart": 57,
-    "column": 15,
+    "column": 5,
     "file": "batteries/radix_queue.hpp",
     "line": 57
   },
@@ -23,6 +23,14 @@
   "override": false,
   "parent": {
     "anchor": "",
+    "baseClasses": [
+      {
+        "external": true,
+        "name": "boost::equality_comparable< RadixQueue< kCapacityInBits > >",
+        "virtual": "non-virtual",
+        "visibility": "public"
+      }
+    ],
     "category": "classes",
     "fullname": "batt::RadixQueue",
     "kind": "class",
@@ -48,6 +56,14 @@
     },
     {
       "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "boost::equality_comparable< RadixQueue< kCapacityInBits > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "category": "classes",
       "fullname": "batt::RadixQueue",
       "kind": "class",

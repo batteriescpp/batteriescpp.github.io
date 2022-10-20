@@ -157,7 +157,7 @@
       "explicit": false,
       "fullname": "BATT_INSPECT_RANGE_PRETTY",
       "hasDetails": false,
-      "initializer": "\" \" << #expr << \" == \" << ::batt::dump_range((expr), ::batt::Pretty::True)",
+      "initializer": "    \" \" << #expr << \" == \" << ::batt::dump_range((expr), ::batt::Pretty::True)",
       "inline": false,
       "kind": "define",
       "language": "cpp",
@@ -193,7 +193,7 @@
       "explicit": false,
       "fullname": "BATT_PRINT_OBJECT_FIELD",
       "hasDetails": false,
-      "initializer": "<< \" .\" << BOOST_PP_STRINGIZE(fieldname) << \"=\" << ::batt::make_printable(obj.fieldname) << \",\"",
+      "initializer": "    << \" .\" << BOOST_PP_STRINGIZE(fieldname) << \"=\" << ::batt::make_printable(obj.fieldname) << \",\"",
       "inline": false,
       "kind": "define",
       "language": "cpp",
@@ -390,18 +390,6 @@
       "summary": "Wrapper around usize (std::size_t) that prints as human-readable sizes. ",
       "title": "batt::SizeDumper",
       "url": "/_autogen/Classes/structbatt_1_1SizeDumper/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::RangeDumper",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::RangeDumper",
-      "refid": "classbatt_1_1RangeDumper",
-      "title": "batt::RangeDumper",
-      "url": "/_autogen/Classes/classbatt_1_1RangeDumper/",
       "visibility": "public"
     },
     {

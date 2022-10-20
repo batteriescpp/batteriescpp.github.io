@@ -14,10 +14,10 @@
   "location": {
     "bodyEnd": 99,
     "bodyFile": "batteries/state_machine_model/exhaustive_model_checker.hpp",
-    "bodyStart": 59,
+    "bodyStart": 60,
     "column": 1,
     "file": "batteries/state_machine_model/exhaustive_model_checker.hpp",
-    "line": 60
+    "line": 59
   },
   "name": "batt::ExhaustiveModelChecker",
   "override": false,
@@ -457,7 +457,7 @@
     {
       "abstract": false,
       "anchor": "#function-strong-typedef-default-value",
-      "argsString": "(BATT_STRONG_TYPEDEF_PASTE_(ForceSend, _TAG) *)",
+      "argsString": "(ForceSend_TAG *)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -482,12 +482,12 @@
       "params": [
         {
           "name": "",
-          "type": "BATT_STRONG_TYPEDEF_PASTE_([ForceSend](/_autogen/Classes/classbatt_1_1StrongType/), _TAG) *",
-          "typePlain": "BATT_STRONG_TYPEDEF_PASTE_(ForceSend, _TAG) *"
+          "type": "ForceSend_TAG *",
+          "typePlain": "ForceSend_TAG *"
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1ExhaustiveModelChecker_1a49f90582a117e881fd123b821c74cb80",
+      "refid": "classbatt_1_1ExhaustiveModelChecker_1a3144b246f9dac8c05c818ad50f23ee87",
       "static": false,
       "strong": false,
       "title": "strong_typedef_default_value",
@@ -885,7 +885,7 @@
       "anchor": "#using-forcesend",
       "category": "types",
       "const": false,
-      "definition": "using batt::ExhaustiveModelChecker< ModelT >::ForceSend =  ::batt::StrongType< bool , BATT_STRONG_TYPEDEF_PASTE_( ForceSend , _TAG)>",
+      "definition": "using batt::ExhaustiveModelChecker< ModelT >::ForceSend =  ::batt::StrongType< bool , ForceSend_TAG >",
       "explicit": false,
       "fullname": "batt::ExhaustiveModelChecker::ForceSend",
       "hasDetails": false,
@@ -895,18 +895,18 @@
       "location": {
         "bodyFile": "batteries/state_machine_model/exhaustive_model_checker.hpp",
         "bodyStart": 70,
-        "column": 93,
+        "column": 95,
         "file": "batteries/state_machine_model/exhaustive_model_checker.hpp",
         "line": 70
       },
       "name": "ForceSend",
       "override": false,
-      "refid": "classbatt_1_1ExhaustiveModelChecker_1aae4c1c9034a3706886cba40c976ed57f",
+      "refid": "classbatt_1_1ExhaustiveModelChecker_1a6284c6509af3e29b859f8128eeeebf6f",
       "static": false,
       "strong": false,
       "title": "ForceSend",
-      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< bool, BATT_STRONG_TYPEDEF_PASTE_([ForceSend](/_autogen/Classes/classbatt_1_1StrongType/), _TAG)>",
-      "typePlain": "::batt::StrongType< bool, BATT_STRONG_TYPEDEF_PASTE_(ForceSend, _TAG)>",
+      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< bool, ForceSend_TAG >",
+      "typePlain": "::batt::StrongType< bool, ForceSend_TAG >",
       "url": "/_autogen/Classes/classbatt_1_1ExhaustiveModelChecker/#using-forcesend",
       "visibility": "public"
     }

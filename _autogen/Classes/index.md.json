@@ -240,6 +240,22 @@
             },
             {
               "anchor": "",
+              "baseClasses": [
+                {
+                  "external": false,
+                  "name": "batt::AbstractValueImpl< AbstractSeq, SeqImpl, T >",
+                  "refid": "classbatt_1_1AbstractValueImpl",
+                  "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
+                  "virtual": "non-virtual",
+                  "visibility": "public"
+                },
+                {
+                  "external": true,
+                  "name": "AbstractType",
+                  "virtual": "non-virtual",
+                  "visibility": "public"
+                }
+              ],
               "category": "classes",
               "fullname": "batt::BoxedSeq::SeqImpl",
               "kind": "class",
@@ -277,6 +293,16 @@
                 }
               ],
               "category": "classes",
+              "derivedClasses": [
+                {
+                  "external": false,
+                  "name": "batt::AbstractValueImpl< BufferSource::AbstractBufferSource, BufferSource::BufferSourceImpl, T >",
+                  "refid": "classbatt_1_1AbstractValueImpl",
+                  "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
+                  "virtual": "non-virtual",
+                  "visibility": "public"
+                }
+              ],
               "fullname": "batt::BufferSource::AbstractBufferSource",
               "kind": "class",
               "language": "cpp",
@@ -288,6 +314,22 @@
             },
             {
               "anchor": "",
+              "baseClasses": [
+                {
+                  "external": false,
+                  "name": "batt::AbstractValueImpl< BufferSource::AbstractBufferSource, BufferSource::BufferSourceImpl, T >",
+                  "refid": "classbatt_1_1AbstractValueImpl",
+                  "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
+                  "virtual": "non-virtual",
+                  "visibility": "public"
+                },
+                {
+                  "external": true,
+                  "name": "AbstractType",
+                  "virtual": "non-virtual",
+                  "visibility": "public"
+                }
+              ],
               "category": "classes",
               "fullname": "batt::BufferSource::BufferSourceImpl",
               "kind": "class",
@@ -545,7 +587,7 @@
           "baseClasses": [
             {
               "external": true,
-              "name": "execution_context",
+              "name": "boost::asio::execution_context",
               "virtual": "non-virtual",
               "visibility": "public"
             }
@@ -615,7 +657,7 @@
           "baseClasses": [
             {
               "external": true,
-              "name": "service",
+              "name": "boost::asio::execution_context::service",
               "virtual": "non-virtual",
               "visibility": "public"
             }
@@ -824,7 +866,7 @@
           "derivedClasses": [
             {
               "external": false,
-              "name": "batt::HandlerMemory< kSize >",
+              "name": "batt::HandlerMemory< kHandlerMemoryBytes >",
               "refid": "classbatt_1_1HandlerMemory",
               "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
               "virtual": "non-virtual",
@@ -832,7 +874,7 @@
             },
             {
               "external": false,
-              "name": "batt::HandlerMemory< kHandlerMemoryBytes >",
+              "name": "batt::HandlerMemory< kSize >",
               "refid": "classbatt_1_1HandlerMemory",
               "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
               "virtual": "non-virtual",
@@ -1201,7 +1243,7 @@
           "baseClasses": [
             {
               "external": true,
-              "name": "false_type",
+              "name": "std::false_type",
               "virtual": "non-virtual",
               "visibility": "public"
             }
@@ -1221,7 +1263,7 @@
           "baseClasses": [
             {
               "external": true,
-              "name": "true_type",
+              "name": "std::true_type",
               "virtual": "non-virtual",
               "visibility": "public"
             }
@@ -1241,7 +1283,7 @@
           "baseClasses": [
             {
               "external": true,
-              "name": "false_type",
+              "name": "std::false_type",
               "virtual": "non-virtual",
               "visibility": "public"
             }
@@ -1261,7 +1303,7 @@
           "baseClasses": [
             {
               "external": true,
-              "name": "true_type",
+              "name": "std::true_type",
               "virtual": "non-virtual",
               "visibility": "public"
             }
@@ -1281,7 +1323,7 @@
           "baseClasses": [
             {
               "external": true,
-              "name": "false_type",
+              "name": "std::false_type",
               "virtual": "non-virtual",
               "visibility": "public"
             }
@@ -1301,7 +1343,7 @@
           "baseClasses": [
             {
               "external": true,
-              "name": "true_type",
+              "name": "std::true_type",
               "virtual": "non-virtual",
               "visibility": "public"
             }
@@ -1318,6 +1360,14 @@
         },
         {
           "anchor": "",
+          "baseClasses": [
+            {
+              "external": true,
+              "name": "RefCounted< Latch< T > >",
+              "virtual": "non-virtual",
+              "visibility": "public"
+            }
+          ],
           "category": "classes",
           "children": [
             {
@@ -1330,6 +1380,16 @@
               "refid": "classbatt_1_1Latch_1_1AsyncGetHandler",
               "title": "batt::Latch::AsyncGetHandler",
               "url": "/_autogen/Classes/classbatt_1_1Latch_1_1AsyncGetHandler/",
+              "visibility": "public"
+            }
+          ],
+          "derivedClasses": [
+            {
+              "external": false,
+              "name": "batt::detail::FutureImpl< T >",
+              "refid": "classbatt_1_1detail_1_1FutureImpl",
+              "url": "/_autogen/Classes/classbatt_1_1detail_1_1FutureImpl/",
+              "virtual": "non-virtual",
               "visibility": "public"
             }
           ],
@@ -1750,14 +1810,6 @@
           "derivedClasses": [
             {
               "external": false,
-              "name": "batt::HttpMessageBase< T >",
-              "refid": "classbatt_1_1HttpMessageBase",
-              "url": "/_autogen/Classes/classbatt_1_1HttpMessageBase/",
-              "virtual": "non-virtual",
-              "visibility": "public"
-            },
-            {
-              "external": false,
               "name": "batt::HttpMessageBase< pico_http::Request >",
               "refid": "classbatt_1_1HttpMessageBase",
               "url": "/_autogen/Classes/classbatt_1_1HttpMessageBase/",
@@ -1767,6 +1819,14 @@
             {
               "external": false,
               "name": "batt::HttpMessageBase< pico_http::Response >",
+              "refid": "classbatt_1_1HttpMessageBase",
+              "url": "/_autogen/Classes/classbatt_1_1HttpMessageBase/",
+              "virtual": "non-virtual",
+              "visibility": "public"
+            },
+            {
+              "external": false,
+              "name": "batt::HttpMessageBase< T >",
               "refid": "classbatt_1_1HttpMessageBase",
               "url": "/_autogen/Classes/classbatt_1_1HttpMessageBase/",
               "virtual": "non-virtual",
@@ -1834,15 +1894,7 @@
           "derivedClasses": [
             {
               "external": false,
-              "name": "batt::Queue< T >",
-              "refid": "classbatt_1_1Queue",
-              "url": "/_autogen/Classes/classbatt_1_1Queue/",
-              "virtual": "non-virtual",
-              "visibility": "public"
-            },
-            {
-              "external": false,
-              "name": "batt::Queue< batt::Pin< batt::HttpResponse > >",
+              "name": "batt::Queue< std::tuple< batt::Pin< batt::HttpRequest >, batt::Pin< batt::HttpResponse > > >",
               "refid": "classbatt_1_1Queue",
               "url": "/_autogen/Classes/classbatt_1_1Queue/",
               "virtual": "non-virtual",
@@ -1858,7 +1910,15 @@
             },
             {
               "external": false,
-              "name": "batt::Queue< std::tuple< batt::Pin< batt::HttpRequest >, batt::Pin< batt::HttpResponse > > >",
+              "name": "batt::Queue< batt::Pin< batt::HttpResponse > >",
+              "refid": "classbatt_1_1Queue",
+              "url": "/_autogen/Classes/classbatt_1_1Queue/",
+              "virtual": "non-virtual",
+              "visibility": "public"
+            },
+            {
+              "external": false,
+              "name": "batt::Queue< T >",
               "refid": "classbatt_1_1Queue",
               "url": "/_autogen/Classes/classbatt_1_1Queue/",
               "virtual": "non-virtual",
@@ -1898,6 +1958,14 @@
         },
         {
           "anchor": "",
+          "baseClasses": [
+            {
+              "external": true,
+              "name": "boost::equality_comparable< RadixQueue< kCapacityInBits > >",
+              "virtual": "non-virtual",
+              "visibility": "public"
+            }
+          ],
           "category": "classes",
           "children": [
             {
@@ -2846,6 +2914,22 @@
           "derivedClasses": [
             {
               "external": false,
+              "name": "batt::TypeErasedStorage< batt::BufferSource::AbstractBufferSource, BufferSourceImpl >",
+              "refid": "classbatt_1_1TypeErasedStorage",
+              "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
+              "virtual": "non-virtual",
+              "visibility": "public"
+            },
+            {
+              "external": false,
+              "name": "batt::TypeErasedStorage< AbstractSeq, SeqImpl >",
+              "refid": "classbatt_1_1TypeErasedStorage",
+              "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
+              "virtual": "non-virtual",
+              "visibility": "public"
+            },
+            {
+              "external": false,
               "name": "batt::TypeErasedStorage< AbstractType, TypedImpl, kReservedSize, kAlignment >",
               "refid": "classbatt_1_1TypeErasedStorage",
               "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
@@ -3326,6 +3410,16 @@
           "children": [
             {
               "anchor": "",
+              "baseClasses": [
+                {
+                  "external": false,
+                  "name": "batt::detail::AbstractMoveFn< false, Result, Args... >",
+                  "refid": "classbatt_1_1detail_1_1AbstractMoveFn",
+                  "url": "/_autogen/Classes/classbatt_1_1detail_1_1AbstractMoveFn/",
+                  "virtual": "non-virtual",
+                  "visibility": "public"
+                }
+              ],
               "category": "classes",
               "fullname": "batt::detail::AbstractCopyFn",
               "kind": "class",
@@ -3350,6 +3444,22 @@
             },
             {
               "anchor": "",
+              "baseClasses": [
+                {
+                  "external": false,
+                  "name": "batt::detail::MoveFnImpl< Fn, false, Result, Args... >",
+                  "refid": "classbatt_1_1detail_1_1MoveFnImpl",
+                  "url": "/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/",
+                  "virtual": "non-virtual",
+                  "visibility": "public"
+                },
+                {
+                  "external": true,
+                  "name": "AbstractFn< kMoveOnly, Result, Args... >",
+                  "virtual": "non-virtual",
+                  "visibility": "public"
+                }
+              ],
               "category": "classes",
               "fullname": "batt::detail::CopyFnImpl",
               "kind": "class",
@@ -3426,6 +3536,22 @@
             },
             {
               "anchor": "",
+              "baseClasses": [
+                {
+                  "external": false,
+                  "name": "batt::Latch< T >",
+                  "refid": "classbatt_1_1Latch",
+                  "url": "/_autogen/Classes/classbatt_1_1Latch/",
+                  "virtual": "non-virtual",
+                  "visibility": "public"
+                },
+                {
+                  "external": true,
+                  "name": "RefCounted< Latch< T > >",
+                  "virtual": "non-virtual",
+                  "visibility": "public"
+                }
+              ],
               "category": "classes",
               "fullname": "batt::detail::FutureImpl",
               "kind": "class",
@@ -3453,7 +3579,7 @@
               "baseClasses": [
                 {
                   "external": true,
-                  "name": "false_type",
+                  "name": "std::false_type",
                   "virtual": "non-virtual",
                   "visibility": "public"
                 }
@@ -3473,7 +3599,7 @@
               "baseClasses": [
                 {
                   "external": true,
-                  "name": "true_type",
+                  "name": "std::true_type",
                   "virtual": "non-virtual",
                   "visibility": "public"
                 }
@@ -3502,6 +3628,14 @@
             },
             {
               "anchor": "",
+              "baseClasses": [
+                {
+                  "external": true,
+                  "name": "AbstractFn< kMoveOnly, Result, Args... >",
+                  "virtual": "non-virtual",
+                  "visibility": "public"
+                }
+              ],
               "category": "classes",
               "fullname": "batt::detail::MoveFnImpl",
               "kind": "class",
@@ -4764,6 +4898,44 @@
       "refid": "namespacebatteries",
       "title": "batteries",
       "url": "/_autogen/Namespaces/namespacebatteries/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "children": [
+        {
+          "anchor": "",
+          "category": "namespaces",
+          "fullname": "boost::asio",
+          "kind": "namespace",
+          "language": "cpp",
+          "name": "boost::asio",
+          "refid": "namespaceboost_1_1asio",
+          "title": "boost::asio",
+          "url": "/_autogen/Namespaces/namespaceboost_1_1asio/",
+          "visibility": "public"
+        },
+        {
+          "anchor": "",
+          "category": "namespaces",
+          "fullname": "boost::intrusive",
+          "kind": "namespace",
+          "language": "cpp",
+          "name": "boost::intrusive",
+          "refid": "namespaceboost_1_1intrusive",
+          "title": "boost::intrusive",
+          "url": "/_autogen/Namespaces/namespaceboost_1_1intrusive/",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "boost",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "boost",
+      "refid": "namespaceboost",
+      "title": "boost",
+      "url": "/_autogen/Namespaces/namespaceboost/",
       "visibility": "public"
     },
     {

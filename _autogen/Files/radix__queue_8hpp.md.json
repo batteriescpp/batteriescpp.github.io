@@ -93,18 +93,14 @@
   "publicClasses": [
     {
       "anchor": "",
-      "category": "classes",
-      "fullname": "batt::RadixQueue",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::RadixQueue",
-      "refid": "classbatt_1_1RadixQueue",
-      "title": "batt::RadixQueue",
-      "url": "/_autogen/Classes/classbatt_1_1RadixQueue/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "boost::equality_comparable< RadixQueue< kCapacityInBits > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "category": "classes",
       "fullname": "batt::RadixQueue",
       "kind": "class",

@@ -12,7 +12,7 @@
   "kind": "namespace",
   "language": "cpp",
   "location": {
-    "column": 14,
+    "column": 1,
     "file": "batteries/algo/parallel_accumulate.hpp",
     "line": 22
   },
@@ -70,36 +70,6 @@
   "override": false,
   "parent": null,
   "publicAttributes": [
-    {
-      "abstract": false,
-      "anchor": "#variable-boost-pp-cat",
-      "category": "attributes",
-      "const": false,
-      "definition": "BATT_MAYBE_UNUSED ::batt::StaticBinaryAssertion<decltype( sizeof(void*) * 3 ), decltype( sizeof(boost::context::stack_context) ), ( sizeof(void*) * 3 ), struct ::batt::Eq, ( sizeof(boost::context::stack_context) ), (( sizeof(void*) * 3 ) == ( sizeof(boost::context::stack_context) ))> batt::BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)",
-      "explicit": false,
-      "fullname": "batt::BOOST_PP_CAT",
-      "hasDetails": false,
-      "inline": false,
-      "kind": "variable",
-      "language": "cpp",
-      "location": {
-        "bodyFile": "batteries/async/continuation.hpp",
-        "bodyStart": 105,
-        "column": 58,
-        "file": "batteries/async/continuation.hpp",
-        "line": 105
-      },
-      "name": "BOOST_PP_CAT",
-      "override": false,
-      "refid": "continuation_8hpp_1af2c082bbcc4b8d5a55ed5c0859185d61",
-      "static": true,
-      "strong": false,
-      "title": "BOOST_PP_CAT",
-      "type": "BATT_MAYBE_UNUSED ::[batt::StaticBinaryAssertion](/_autogen/Classes/structbatt_1_1StaticBinaryAssertion/)< decltype(sizeof(void *) *3), decltype(sizeof(boost::context::stack_context)),(sizeof(void *) *3), struct ::batt::Eq,(sizeof(boost::context::stack_context)),((sizeof(void *) *3)==(sizeof(boost::context::stack_context)))>",
-      "typePlain": "BATT_MAYBE_UNUSED ::batt::StaticBinaryAssertion< decltype(sizeof(void *) *3), decltype(sizeof(boost::context::stack_context)),(sizeof(void *) *3), struct ::batt::Eq,(sizeof(boost::context::stack_context)),((sizeof(void *) *3)==(sizeof(boost::context::stack_context)))>",
-      "url": "/_autogen/Namespaces/namespacebatt/#variable-boost-pp-cat",
-      "visibility": "public"
-    },
     {
       "abstract": false,
       "anchor": "#variable-kminstacksizelog2",
@@ -222,36 +192,6 @@
       "type": "const bool",
       "typePlain": "const bool",
       "url": "/_autogen/Namespaces/namespacebatt/#variable-ktaskdebuginfosegvcallbackinstalled",
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#variable-boost-pp-cat",
-      "category": "attributes",
-      "const": false,
-      "definition": "BATT_MAYBE_UNUSED ::batt::StaticBinaryAssertion<decltype( sizeof(UniqueHandler<>) ), decltype( sizeof(void*) ), ( sizeof(UniqueHandler<>) ), struct ::batt::Eq, ( sizeof(void*) ), (( sizeof(UniqueHandler<>) ) == ( sizeof(void*) ))> batt::BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)",
-      "explicit": false,
-      "fullname": "batt::BOOST_PP_CAT",
-      "hasDetails": false,
-      "inline": false,
-      "kind": "variable",
-      "language": "cpp",
-      "location": {
-        "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 192,
-        "column": 58,
-        "file": "batteries/async/handler.hpp",
-        "line": 192
-      },
-      "name": "BOOST_PP_CAT",
-      "override": false,
-      "refid": "handler_8hpp_1a8e9d44a3c77c13e96b996a6c1cab4e64",
-      "static": true,
-      "strong": false,
-      "title": "BOOST_PP_CAT",
-      "type": "BATT_MAYBE_UNUSED ::[batt::StaticBinaryAssertion](/_autogen/Classes/structbatt_1_1StaticBinaryAssertion/)< decltype(sizeof([UniqueHandler](/_autogen/Classes/classbatt_1_1UniqueHandler/)<>)), decltype(sizeof(void *)),(sizeof([UniqueHandler](/_autogen/Classes/classbatt_1_1UniqueHandler/)<>)), struct ::batt::Eq,(sizeof(void *)),((sizeof([UniqueHandler](/_autogen/Classes/classbatt_1_1UniqueHandler/)<>))==(sizeof(void *)))>",
-      "typePlain": "BATT_MAYBE_UNUSED ::batt::StaticBinaryAssertion< decltype(sizeof(UniqueHandler<>)), decltype(sizeof(void *)),(sizeof(UniqueHandler<>)), struct ::batt::Eq,(sizeof(void *)),((sizeof(UniqueHandler<>))==(sizeof(void *)))>",
-      "url": "/_autogen/Namespaces/namespacebatt/#variable-boost-pp-cat",
       "visibility": "public"
     },
     {
@@ -394,22 +334,146 @@
   "publicClasses": [
     {
       "anchor": "",
-      "baseClasses": [
-        {
-          "external": true,
-          "name": "boost::intrusive::list_base_hook<>",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
       "category": "classes",
-      "fullname": "batt::AbstractHandler",
+      "fullname": "batt::RunningTotal",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::AbstractHandler",
-      "refid": "classbatt_1_1AbstractHandler",
-      "title": "batt::AbstractHandler",
-      "url": "/_autogen/Classes/classbatt_1_1AbstractHandler/",
+      "name": "batt::RunningTotal",
+      "refid": "classbatt_1_1RunningTotal",
+      "title": "batt::RunningTotal",
+      "url": "/_autogen/Classes/classbatt_1_1RunningTotal/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::RetryState",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::RetryState",
+      "refid": "structbatt_1_1RetryState",
+      "title": "batt::RetryState",
+      "url": "/_autogen/Classes/structbatt_1_1RetryState/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::ExponentialBackoff",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::ExponentialBackoff",
+      "refid": "structbatt_1_1ExponentialBackoff",
+      "title": "batt::ExponentialBackoff",
+      "url": "/_autogen/Classes/structbatt_1_1ExponentialBackoff/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::TaskSleepImpl",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::TaskSleepImpl",
+      "refid": "structbatt_1_1TaskSleepImpl",
+      "title": "batt::TaskSleepImpl",
+      "url": "/_autogen/Classes/structbatt_1_1TaskSleepImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::DefaultStatusIsRetryableImpl",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::DefaultStatusIsRetryableImpl",
+      "refid": "structbatt_1_1DefaultStatusIsRetryableImpl",
+      "title": "batt::DefaultStatusIsRetryableImpl",
+      "url": "/_autogen/Classes/structbatt_1_1DefaultStatusIsRetryableImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::BufferSource",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BufferSource",
+      "refid": "classbatt_1_1BufferSource",
+      "title": "batt::BufferSource",
+      "url": "/_autogen/Classes/classbatt_1_1BufferSource/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::SeqBufferSource",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::SeqBufferSource",
+      "refid": "classbatt_1_1SeqBufferSource",
+      "title": "batt::SeqBufferSource",
+      "url": "/_autogen/Classes/classbatt_1_1SeqBufferSource/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::TakeNSource",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::TakeNSource",
+      "refid": "classbatt_1_1TakeNSource",
+      "title": "batt::TakeNSource",
+      "url": "/_autogen/Classes/classbatt_1_1TakeNSource/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::FilterBufferSource",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::FilterBufferSource",
+      "refid": "classbatt_1_1FilterBufferSource",
+      "title": "batt::FilterBufferSource",
+      "url": "/_autogen/Classes/classbatt_1_1FilterBufferSource/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::MapBufferSource",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::MapBufferSource",
+      "refid": "classbatt_1_1MapBufferSource",
+      "title": "batt::MapBufferSource",
+      "url": "/_autogen/Classes/classbatt_1_1MapBufferSource/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::PrependBufferSource",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::PrependBufferSource",
+      "refid": "classbatt_1_1PrependBufferSource",
+      "title": "batt::PrependBufferSource",
+      "url": "/_autogen/Classes/classbatt_1_1PrependBufferSource/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Channel",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Channel",
+      "refid": "classbatt_1_1Channel",
+      "title": "batt::Channel",
+      "url": "/_autogen/Classes/classbatt_1_1Channel/",
       "visibility": "public"
     },
     {
@@ -444,246 +508,42 @@
     },
     {
       "anchor": "",
-      "category": "classes",
-      "derivedClasses": [
+      "baseClasses": [
         {
           "external": false,
-          "name": "batt::AbstractValuePointer< T >",
-          "refid": "classbatt_1_1AbstractValuePointer",
-          "url": "/_autogen/Classes/classbatt_1_1AbstractValuePointer/",
+          "name": "batt::AbstractStackAllocator",
+          "refid": "classbatt_1_1AbstractStackAllocator",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractStackAllocator/",
           "virtual": "non-virtual",
           "visibility": "public"
-        }
-      ],
-      "fullname": "batt::AbstractValue",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::AbstractValue",
-      "refid": "classbatt_1_1AbstractValue",
-      "title": "batt::AbstractValue",
-      "url": "/_autogen/Classes/classbatt_1_1AbstractValue/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
+        },
         {
           "external": true,
-          "name": "AbstractType",
+          "name": "boost::intrusive_ref_counter< AbstractStackAllocator >",
           "virtual": "non-virtual",
           "visibility": "public"
         }
       ],
       "category": "classes",
-      "fullname": "batt::AbstractValueImpl",
+      "fullname": "batt::StackAllocatorImpl",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::AbstractValueImpl",
-      "refid": "classbatt_1_1AbstractValueImpl",
-      "title": "batt::AbstractValueImpl",
-      "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::AbstractValue< T >",
-          "refid": "classbatt_1_1AbstractValue",
-          "url": "/_autogen/Classes/classbatt_1_1AbstractValue/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::AbstractValuePointer",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::AbstractValuePointer",
-      "refid": "classbatt_1_1AbstractValuePointer",
-      "title": "batt::AbstractValuePointer",
-      "url": "/_autogen/Classes/classbatt_1_1AbstractValuePointer/",
+      "name": "batt::StackAllocatorImpl",
+      "refid": "classbatt_1_1StackAllocatorImpl",
+      "title": "batt::StackAllocatorImpl",
+      "url": "/_autogen/Classes/classbatt_1_1StackAllocatorImpl/",
       "visibility": "public"
     },
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::BasicFakeExecutor",
+      "fullname": "batt::StackAllocator",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::BasicFakeExecutor",
-      "refid": "classbatt_1_1BasicFakeExecutor",
-      "title": "batt::BasicFakeExecutor",
-      "url": "/_autogen/Classes/classbatt_1_1BasicFakeExecutor/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "brief": "A set of totally ordered values, defined by a lower and upper bound. ",
-      "category": "classes",
-      "fullname": "batt::BasicInterval",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::BasicInterval",
-      "refid": "structbatt_1_1BasicInterval",
-      "summary": "A set of totally ordered values, defined by a lower and upper bound. ",
-      "title": "batt::BasicInterval",
-      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::BasicRateLimiter",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::BasicRateLimiter",
-      "refid": "classbatt_1_1BasicRateLimiter",
-      "title": "batt::BasicRateLimiter",
-      "url": "/_autogen/Classes/classbatt_1_1BasicRateLimiter/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::BasicStateMachineEntropySource",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::BasicStateMachineEntropySource",
-      "refid": "classbatt_1_1BasicStateMachineEntropySource",
-      "title": "batt::BasicStateMachineEntropySource",
-      "url": "/_autogen/Classes/classbatt_1_1BasicStateMachineEntropySource/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::BoxedSeq",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::BoxedSeq",
-      "refid": "classbatt_1_1BoxedSeq",
-      "title": "batt::BoxedSeq",
-      "url": "/_autogen/Classes/classbatt_1_1BoxedSeq/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::BufferSource",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::BufferSource",
-      "refid": "classbatt_1_1BufferSource",
-      "title": "batt::BufferSource",
-      "url": "/_autogen/Classes/classbatt_1_1BufferSource/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::BufferViewImpl",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::BufferViewImpl",
-      "refid": "classbatt_1_1BufferViewImpl",
-      "title": "batt::BufferViewImpl",
-      "url": "/_autogen/Classes/classbatt_1_1BufferViewImpl/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::CaseOfVisitor",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::CaseOfVisitor",
-      "refid": "classbatt_1_1CaseOfVisitor",
-      "title": "batt::CaseOfVisitor",
-      "url": "/_autogen/Classes/classbatt_1_1CaseOfVisitor/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::Channel",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Channel",
-      "refid": "classbatt_1_1Channel",
-      "title": "batt::Channel",
-      "url": "/_autogen/Classes/classbatt_1_1Channel/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::ConstBufferView",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::ConstBufferView",
-      "refid": "classbatt_1_1ConstBufferView",
-      "title": "batt::ConstBufferView",
-      "url": "/_autogen/Classes/classbatt_1_1ConstBufferView/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::CountMetric",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::CountMetric",
-      "refid": "classbatt_1_1CountMetric",
-      "title": "batt::CountMetric",
-      "url": "/_autogen/Classes/classbatt_1_1CountMetric/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::MetricExporter",
-          "refid": "classbatt_1_1MetricExporter",
-          "url": "/_autogen/Classes/classbatt_1_1MetricExporter/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::CountMetricExporter",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::CountMetricExporter",
-      "refid": "classbatt_1_1CountMetricExporter",
-      "title": "batt::CountMetricExporter",
-      "url": "/_autogen/Classes/classbatt_1_1CountMetricExporter/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::CpuCacheLineIsolated",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::CpuCacheLineIsolated",
-      "refid": "classbatt_1_1CpuCacheLineIsolated",
-      "title": "batt::CpuCacheLineIsolated",
-      "url": "/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::CustomAllocHandler",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::CustomAllocHandler",
-      "refid": "classbatt_1_1CustomAllocHandler",
-      "title": "batt::CustomAllocHandler",
-      "url": "/_autogen/Classes/classbatt_1_1CustomAllocHandler/",
+      "name": "batt::StackAllocator",
+      "refid": "classbatt_1_1StackAllocator",
+      "title": "batt::StackAllocator",
+      "url": "/_autogen/Classes/classbatt_1_1StackAllocator/",
       "visibility": "public"
     },
     {
@@ -700,116 +560,14 @@
     },
     {
       "anchor": "",
-      "baseClasses": [
-        {
-          "external": true,
-          "name": "std::conditional_t< std::is_rvalue_reference_v< T >, std::decay< T >, batt::StaticType< T > >",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
       "category": "classes",
-      "fullname": "batt::DecayRValueRefImpl",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::DecayRValueRefImpl",
-      "refid": "structbatt_1_1DecayRValueRefImpl",
-      "title": "batt::DecayRValueRefImpl",
-      "url": "/_autogen/Classes/structbatt_1_1DecayRValueRefImpl/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::DefaultHttpClient",
+      "fullname": "batt::BasicFakeExecutor",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::DefaultHttpClient",
-      "refid": "classbatt_1_1DefaultHttpClient",
-      "title": "batt::DefaultHttpClient",
-      "url": "/_autogen/Classes/classbatt_1_1DefaultHttpClient/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::DefaultStatusIsRetryableImpl",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::DefaultStatusIsRetryableImpl",
-      "refid": "structbatt_1_1DefaultStatusIsRetryableImpl",
-      "title": "batt::DefaultStatusIsRetryableImpl",
-      "url": "/_autogen/Classes/structbatt_1_1DefaultStatusIsRetryableImpl/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::MetricExporter",
-          "refid": "classbatt_1_1MetricExporter",
-          "url": "/_autogen/Classes/classbatt_1_1MetricExporter/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::DerivedMetricExporter",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::DerivedMetricExporter",
-      "refid": "classbatt_1_1DerivedMetricExporter",
-      "title": "batt::DerivedMetricExporter",
-      "url": "/_autogen/Classes/classbatt_1_1DerivedMetricExporter/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::DoNothing",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::DoNothing",
-      "refid": "structbatt_1_1DoNothing",
-      "title": "batt::DoNothing",
-      "url": "/_autogen/Classes/structbatt_1_1DoNothing/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::EscapedStringLiteral",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::EscapedStringLiteral",
-      "refid": "structbatt_1_1EscapedStringLiteral",
-      "title": "batt::EscapedStringLiteral",
-      "url": "/_autogen/Classes/structbatt_1_1EscapedStringLiteral/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::ExhaustiveModelChecker",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::ExhaustiveModelChecker",
-      "refid": "classbatt_1_1ExhaustiveModelChecker",
-      "title": "batt::ExhaustiveModelChecker",
-      "url": "/_autogen/Classes/classbatt_1_1ExhaustiveModelChecker/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::ExponentialBackoff",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::ExponentialBackoff",
-      "refid": "structbatt_1_1ExponentialBackoff",
-      "title": "batt::ExponentialBackoff",
-      "url": "/_autogen/Classes/structbatt_1_1ExponentialBackoff/",
+      "name": "batt::BasicFakeExecutor",
+      "refid": "classbatt_1_1BasicFakeExecutor",
+      "title": "batt::BasicFakeExecutor",
+      "url": "/_autogen/Classes/classbatt_1_1BasicFakeExecutor/",
       "visibility": "public"
     },
     {
@@ -817,7 +575,7 @@
       "baseClasses": [
         {
           "external": true,
-          "name": "execution_context",
+          "name": "boost::asio::execution_context",
           "virtual": "non-virtual",
           "visibility": "public"
         }
@@ -859,7 +617,7 @@
       "baseClasses": [
         {
           "external": true,
-          "name": "service",
+          "name": "boost::asio::execution_context::service",
           "virtual": "non-virtual",
           "visibility": "public"
         }
@@ -877,30 +635,6 @@
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::FilterBufferSource",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::FilterBufferSource",
-      "refid": "classbatt_1_1FilterBufferSource",
-      "title": "batt::FilterBufferSource",
-      "url": "/_autogen/Classes/classbatt_1_1FilterBufferSource/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::FinalAct",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::FinalAct",
-      "refid": "classbatt_1_1FinalAct",
-      "title": "batt::FinalAct",
-      "url": "/_autogen/Classes/classbatt_1_1FinalAct/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
       "fullname": "batt::Future",
       "kind": "class",
       "language": "cpp",
@@ -908,6 +642,18 @@
       "refid": "classbatt_1_1Future",
       "title": "batt::Future",
       "url": "/_autogen/Classes/classbatt_1_1Future/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Promise",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Promise",
+      "refid": "classbatt_1_1Promise",
+      "title": "batt::Promise",
+      "url": "/_autogen/Classes/classbatt_1_1Promise/",
       "visibility": "public"
     },
     {
@@ -924,38 +670,22 @@
     },
     {
       "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "boost::intrusive::list_base_hook<>",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "category": "classes",
-      "fullname": "batt::GreatestLowerBound",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::GreatestLowerBound",
-      "refid": "structbatt_1_1GreatestLowerBound",
-      "title": "batt::GreatestLowerBound",
-      "url": "/_autogen/Classes/structbatt_1_1GreatestLowerBound/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::HandlerAllocator",
+      "fullname": "batt::AbstractHandler",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::HandlerAllocator",
-      "refid": "classbatt_1_1HandlerAllocator",
-      "title": "batt::HandlerAllocator",
-      "url": "/_autogen/Classes/classbatt_1_1HandlerAllocator/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::HandlerBinder",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::HandlerBinder",
-      "refid": "classbatt_1_1HandlerBinder",
-      "title": "batt::HandlerBinder",
-      "url": "/_autogen/Classes/classbatt_1_1HandlerBinder/",
+      "name": "batt::AbstractHandler",
+      "refid": "classbatt_1_1AbstractHandler",
+      "title": "batt::AbstractHandler",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractHandler/",
       "visibility": "public"
     },
     {
@@ -988,6 +718,60 @@
     },
     {
       "anchor": "",
+      "category": "classes",
+      "fullname": "batt::UniqueHandler",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::UniqueHandler",
+      "refid": "classbatt_1_1UniqueHandler",
+      "title": "batt::UniqueHandler",
+      "url": "/_autogen/Classes/classbatt_1_1UniqueHandler/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::HandlerBinder",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::HandlerBinder",
+      "refid": "classbatt_1_1HandlerBinder",
+      "title": "batt::HandlerBinder",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerBinder/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::HandlerMemory< kHandlerMemoryBytes >",
+          "refid": "classbatt_1_1HandlerMemory",
+          "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::HandlerMemory< kSize >",
+          "refid": "classbatt_1_1HandlerMemory",
+          "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::HandlerMemoryBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::HandlerMemoryBase",
+      "refid": "classbatt_1_1HandlerMemoryBase",
+      "title": "batt::HandlerMemoryBase",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerMemoryBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
       "baseClasses": [
         {
           "external": false,
@@ -1011,43 +795,789 @@
     {
       "anchor": "",
       "category": "classes",
-      "derivedClasses": [
-        {
-          "external": false,
-          "name": "batt::HandlerMemory< kSize >",
-          "refid": "classbatt_1_1HandlerMemory",
-          "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        },
-        {
-          "external": false,
-          "name": "batt::HandlerMemory< kHandlerMemoryBytes >",
-          "refid": "classbatt_1_1HandlerMemory",
-          "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "fullname": "batt::HandlerMemoryBase",
+      "fullname": "batt::HandlerAllocator",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::HandlerMemoryBase",
-      "refid": "classbatt_1_1HandlerMemoryBase",
-      "title": "batt::HandlerMemoryBase",
-      "url": "/_autogen/Classes/classbatt_1_1HandlerMemoryBase/",
+      "name": "batt::HandlerAllocator",
+      "refid": "classbatt_1_1HandlerAllocator",
+      "title": "batt::HandlerAllocator",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerAllocator/",
       "visibility": "public"
     },
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::HexByteDumper",
+      "fullname": "batt::CustomAllocHandler",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::CustomAllocHandler",
+      "refid": "classbatt_1_1CustomAllocHandler",
+      "title": "batt::CustomAllocHandler",
+      "url": "/_autogen/Classes/classbatt_1_1CustomAllocHandler/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::IOResult",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::IOResult",
+      "refid": "classbatt_1_1IOResult",
+      "title": "batt::IOResult",
+      "url": "/_autogen/Classes/classbatt_1_1IOResult/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "RefCounted< Latch< T > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::FutureImpl< T >",
+          "refid": "classbatt_1_1detail_1_1FutureImpl",
+          "url": "/_autogen/Classes/classbatt_1_1detail_1_1FutureImpl/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::Latch",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Latch",
+      "refid": "classbatt_1_1Latch",
+      "title": "batt::Latch",
+      "url": "/_autogen/Classes/classbatt_1_1Latch/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Mutex",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Mutex",
+      "refid": "classbatt_1_1Mutex",
+      "title": "batt::Mutex",
+      "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::HttpMessageBase< pico_http::Request >",
+          "refid": "classbatt_1_1HttpMessageBase",
+          "url": "/_autogen/Classes/classbatt_1_1HttpMessageBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::HttpMessageBase< pico_http::Response >",
+          "refid": "classbatt_1_1HttpMessageBase",
+          "url": "/_autogen/Classes/classbatt_1_1HttpMessageBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::HttpMessageBase< T >",
+          "refid": "classbatt_1_1HttpMessageBase",
+          "url": "/_autogen/Classes/classbatt_1_1HttpMessageBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::Pinnable",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Pinnable",
+      "refid": "classbatt_1_1Pinnable",
+      "title": "batt::Pinnable",
+      "url": "/_autogen/Classes/classbatt_1_1Pinnable/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Pin",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Pin",
+      "refid": "classbatt_1_1Pin",
+      "title": "batt::Pin",
+      "url": "/_autogen/Classes/classbatt_1_1Pin/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::Queue< std::tuple< batt::Pin< batt::HttpRequest >, batt::Pin< batt::HttpResponse > > >",
+          "refid": "classbatt_1_1Queue",
+          "url": "/_autogen/Classes/classbatt_1_1Queue/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::Queue< batt::SmallFn >",
+          "refid": "classbatt_1_1Queue",
+          "url": "/_autogen/Classes/classbatt_1_1Queue/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::Queue< batt::Pin< batt::HttpResponse > >",
+          "refid": "classbatt_1_1Queue",
+          "url": "/_autogen/Classes/classbatt_1_1Queue/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::Queue< T >",
+          "refid": "classbatt_1_1Queue",
+          "url": "/_autogen/Classes/classbatt_1_1Queue/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::QueueBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::QueueBase",
+      "refid": "classbatt_1_1QueueBase",
+      "title": "batt::QueueBase",
+      "url": "/_autogen/Classes/classbatt_1_1QueueBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::QueueBase",
+          "refid": "classbatt_1_1QueueBase",
+          "url": "/_autogen/Classes/classbatt_1_1QueueBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Queue",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Queue",
+      "refid": "classbatt_1_1Queue",
+      "title": "batt::Queue",
+      "url": "/_autogen/Classes/classbatt_1_1Queue/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::BasicRateLimiter",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicRateLimiter",
+      "refid": "classbatt_1_1BasicRateLimiter",
+      "title": "batt::BasicRateLimiter",
+      "url": "/_autogen/Classes/classbatt_1_1BasicRateLimiter/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Runtime",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Runtime",
+      "refid": "classbatt_1_1Runtime",
+      "title": "batt::Runtime",
+      "url": "/_autogen/Classes/classbatt_1_1Runtime/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::WorkSliceParams",
       "kind": "struct",
       "language": "cpp",
-      "name": "batt::HexByteDumper",
-      "refid": "structbatt_1_1HexByteDumper",
-      "title": "batt::HexByteDumper",
-      "url": "/_autogen/Classes/structbatt_1_1HexByteDumper/",
+      "name": "batt::WorkSliceParams",
+      "refid": "structbatt_1_1WorkSliceParams",
+      "title": "batt::WorkSliceParams",
+      "url": "/_autogen/Classes/structbatt_1_1WorkSliceParams/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::WorkSlicePlan",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::WorkSlicePlan",
+      "refid": "structbatt_1_1WorkSlicePlan",
+      "title": "batt::WorkSlicePlan",
+      "url": "/_autogen/Classes/structbatt_1_1WorkSlicePlan/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::StreamBuffer",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::StreamBuffer",
+      "refid": "classbatt_1_1StreamBuffer",
+      "title": "batt::StreamBuffer",
+      "url": "/_autogen/Classes/classbatt_1_1StreamBuffer/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "boost::intrusive::list_base_hook< boost::intrusive::link_mode< boost::intrusive::auto_unlink > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Task",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Task",
+      "refid": "classbatt_1_1Task",
+      "title": "batt::Task",
+      "url": "/_autogen/Classes/classbatt_1_1Task/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::FakeTaskScheduler",
+          "refid": "classbatt_1_1FakeTaskScheduler",
+          "url": "/_autogen/Classes/classbatt_1_1FakeTaskScheduler/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::NullTaskScheduler",
+          "refid": "classbatt_1_1NullTaskScheduler",
+          "url": "/_autogen/Classes/classbatt_1_1NullTaskScheduler/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::Runtime::DefaultScheduler",
+          "refid": "classbatt_1_1Runtime_1_1DefaultScheduler",
+          "url": "/_autogen/Classes/classbatt_1_1Runtime_1_1DefaultScheduler/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::TaskScheduler",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::TaskScheduler",
+      "refid": "classbatt_1_1TaskScheduler",
+      "title": "batt::TaskScheduler",
+      "url": "/_autogen/Classes/classbatt_1_1TaskScheduler/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::TaskScheduler",
+          "refid": "classbatt_1_1TaskScheduler",
+          "url": "/_autogen/Classes/classbatt_1_1TaskScheduler/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::NullTaskScheduler",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::NullTaskScheduler",
+      "refid": "classbatt_1_1NullTaskScheduler",
+      "title": "batt::NullTaskScheduler",
+      "url": "/_autogen/Classes/classbatt_1_1NullTaskScheduler/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Watch",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch",
+      "refid": "classbatt_1_1Watch",
+      "title": "batt::Watch",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::WatchAtomic",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::WatchAtomic",
+      "refid": "classbatt_1_1WatchAtomic",
+      "title": "batt::WatchAtomic",
+      "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< bool >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< bool >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< bool >",
+      "refid": "classbatt_1_1Watch_3_01bool_01_4",
+      "title": "batt::Watch< bool >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01bool_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< i8 >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< i8 >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< i8 >",
+      "refid": "classbatt_1_1Watch_3_01i8_01_4",
+      "title": "batt::Watch< i8 >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01i8_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< i16 >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< i16 >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< i16 >",
+      "refid": "classbatt_1_1Watch_3_01i16_01_4",
+      "title": "batt::Watch< i16 >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01i16_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< i32 >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< i32 >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< i32 >",
+      "refid": "classbatt_1_1Watch_3_01i32_01_4",
+      "title": "batt::Watch< i32 >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01i32_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< i64 >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< i64 >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< i64 >",
+      "refid": "classbatt_1_1Watch_3_01i64_01_4",
+      "title": "batt::Watch< i64 >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01i64_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< u8 >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< u8 >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< u8 >",
+      "refid": "classbatt_1_1Watch_3_01u8_01_4",
+      "title": "batt::Watch< u8 >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01u8_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< u16 >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< u16 >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< u16 >",
+      "refid": "classbatt_1_1Watch_3_01u16_01_4",
+      "title": "batt::Watch< u16 >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01u16_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< u32 >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< u32 >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< u32 >",
+      "refid": "classbatt_1_1Watch_3_01u32_01_4",
+      "title": "batt::Watch< u32 >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01u32_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< u64 >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< u64 >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< u64 >",
+      "refid": "classbatt_1_1Watch_3_01u64_01_4",
+      "title": "batt::Watch< u64 >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01u64_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< void * >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< void * >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< void * >",
+      "refid": "classbatt_1_1Watch_3_01void_01_5_01_4",
+      "title": "batt::Watch< void * >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01void_01_5_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::ScopedWorkContext",
+          "refid": "classbatt_1_1ScopedWorkContext",
+          "url": "/_autogen/Classes/classbatt_1_1ScopedWorkContext/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::WorkContext",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::WorkContext",
+      "refid": "classbatt_1_1WorkContext",
+      "title": "batt::WorkContext",
+      "url": "/_autogen/Classes/classbatt_1_1WorkContext/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WorkContext",
+          "refid": "classbatt_1_1WorkContext",
+          "url": "/_autogen/Classes/classbatt_1_1WorkContext/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::ScopedWorkContext",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::ScopedWorkContext",
+      "refid": "classbatt_1_1ScopedWorkContext",
+      "title": "batt::ScopedWorkContext",
+      "url": "/_autogen/Classes/classbatt_1_1ScopedWorkContext/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Worker",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Worker",
+      "refid": "classbatt_1_1Worker",
+      "title": "batt::Worker",
+      "url": "/_autogen/Classes/classbatt_1_1Worker/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::WorkerPool",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::WorkerPool",
+      "refid": "classbatt_1_1WorkerPool",
+      "title": "batt::WorkerPool",
+      "url": "/_autogen/Classes/classbatt_1_1WorkerPool/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::ScopedWorkerThreadPool",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::ScopedWorkerThreadPool",
+      "refid": "classbatt_1_1ScopedWorkerThreadPool",
+      "title": "batt::ScopedWorkerThreadPool",
+      "url": "/_autogen/Classes/classbatt_1_1ScopedWorkerThreadPool/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::LeastUpperBound",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::LeastUpperBound",
+      "refid": "structbatt_1_1LeastUpperBound",
+      "title": "batt::LeastUpperBound",
+      "url": "/_autogen/Classes/structbatt_1_1LeastUpperBound/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::GreatestLowerBound",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::GreatestLowerBound",
+      "refid": "structbatt_1_1GreatestLowerBound",
+      "title": "batt::GreatestLowerBound",
+      "url": "/_autogen/Classes/structbatt_1_1GreatestLowerBound/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "RefCounted< ManagedBuffer >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::ManagedBuffer",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::ManagedBuffer",
+      "refid": "classbatt_1_1ManagedBuffer",
+      "title": "batt::ManagedBuffer",
+      "url": "/_autogen/Classes/classbatt_1_1ManagedBuffer/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::BufferViewImpl",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BufferViewImpl",
+      "refid": "classbatt_1_1BufferViewImpl",
+      "title": "batt::BufferViewImpl",
+      "url": "/_autogen/Classes/classbatt_1_1BufferViewImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::ConstBufferView",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::ConstBufferView",
+      "refid": "classbatt_1_1ConstBufferView",
+      "title": "batt::ConstBufferView",
+      "url": "/_autogen/Classes/classbatt_1_1ConstBufferView/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::MutableBufferView",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::MutableBufferView",
+      "refid": "classbatt_1_1MutableBufferView",
+      "title": "batt::MutableBufferView",
+      "url": "/_autogen/Classes/classbatt_1_1MutableBufferView/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::CaseOfVisitor",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::CaseOfVisitor",
+      "refid": "classbatt_1_1CaseOfVisitor",
+      "title": "batt::CaseOfVisitor",
+      "url": "/_autogen/Classes/classbatt_1_1CaseOfVisitor/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::CpuCacheLineIsolated",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::CpuCacheLineIsolated",
+      "refid": "classbatt_1_1CpuCacheLineIsolated",
+      "title": "batt::CpuCacheLineIsolated",
+      "url": "/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::DoNothing",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::DoNothing",
+      "refid": "structbatt_1_1DoNothing",
+      "title": "batt::DoNothing",
+      "url": "/_autogen/Classes/structbatt_1_1DoNothing/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::FinalAct",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::FinalAct",
+      "refid": "classbatt_1_1FinalAct",
+      "title": "batt::FinalAct",
+      "url": "/_autogen/Classes/classbatt_1_1FinalAct/",
       "visibility": "public"
     },
     {
@@ -1084,6 +1614,18 @@
       "refid": "classbatt_1_1HttpClient",
       "title": "batt::HttpClient",
       "url": "/_autogen/Classes/classbatt_1_1HttpClient/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::DefaultHttpClient",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::DefaultHttpClient",
+      "refid": "classbatt_1_1DefaultHttpClient",
+      "title": "batt::DefaultHttpClient",
+      "url": "/_autogen/Classes/classbatt_1_1DefaultHttpClient/",
       "visibility": "public"
     },
     {
@@ -1241,28 +1783,6 @@
       "baseClasses": [
         {
           "external": false,
-          "name": "batt::IntervalTraits< T, T, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, seq::NaturalOrder, seq::NaturalEquals >",
-          "refid": "structbatt_1_1IntervalTraits",
-          "url": "/_autogen/Classes/structbatt_1_1IntervalTraits/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::IClosed",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::IClosed",
-      "refid": "structbatt_1_1IClosed",
-      "title": "batt::IClosed",
-      "url": "/_autogen/Classes/structbatt_1_1IClosed/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
           "name": "batt::IntervalTraits< T, T, InclusiveLowerBound::kTrue, InclusiveUpperBound::kFalse, seq::NaturalOrder, seq::NaturalEquals >",
           "refid": "structbatt_1_1IntervalTraits",
           "url": "/_autogen/Classes/structbatt_1_1IntervalTraits/",
@@ -1282,14 +1802,38 @@
     },
     {
       "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::IntervalTraits< T, T, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, seq::NaturalOrder, seq::NaturalEquals >",
+          "refid": "structbatt_1_1IntervalTraits",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraits/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "category": "classes",
-      "fullname": "batt::InPlaceInitType",
+      "fullname": "batt::IClosed",
       "kind": "struct",
       "language": "cpp",
-      "name": "batt::InPlaceInitType",
-      "refid": "structbatt_1_1InPlaceInitType",
-      "title": "batt::InPlaceInitType",
-      "url": "/_autogen/Classes/structbatt_1_1InPlaceInitType/",
+      "name": "batt::IClosed",
+      "refid": "structbatt_1_1IClosed",
+      "title": "batt::IClosed",
+      "url": "/_autogen/Classes/structbatt_1_1IClosed/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "A set of totally ordered values, defined by a lower and upper bound. ",
+      "category": "classes",
+      "fullname": "batt::BasicInterval",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::BasicInterval",
+      "refid": "structbatt_1_1BasicInterval",
+      "summary": "A set of totally ordered values, defined by a lower and upper bound. ",
+      "title": "batt::BasicInterval",
+      "url": "/_autogen/Classes/structbatt_1_1BasicInterval/",
       "visibility": "public"
     },
     {
@@ -1302,6 +1846,18 @@
       "refid": "structbatt_1_1IntervalTraits",
       "title": "batt::IntervalTraits",
       "url": "/_autogen/Classes/structbatt_1_1IntervalTraits/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::IntervalTraitsBase",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IntervalTraitsBase",
+      "refid": "structbatt_1_1IntervalTraitsBase",
+      "title": "batt::IntervalTraitsBase",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/",
       "visibility": "public"
     },
     {
@@ -1351,169 +1907,13 @@
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::IntervalTraitsBase",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::IntervalTraitsBase",
-      "refid": "structbatt_1_1IntervalTraitsBase",
-      "title": "batt::IntervalTraitsBase",
-      "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::IOResult",
+      "fullname": "batt::CountMetric",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::IOResult",
-      "refid": "classbatt_1_1IOResult",
-      "title": "batt::IOResult",
-      "url": "/_autogen/Classes/classbatt_1_1IOResult/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": true,
-          "name": "false_type",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::IsBoxedSeq",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::IsBoxedSeq",
-      "refid": "structbatt_1_1IsBoxedSeq",
-      "title": "batt::IsBoxedSeq",
-      "url": "/_autogen/Classes/structbatt_1_1IsBoxedSeq/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": true,
-          "name": "true_type",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::IsBoxedSeq< BoxedSeq< T > >",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::IsBoxedSeq< BoxedSeq< T > >",
-      "refid": "structbatt_1_1IsBoxedSeq_3_01BoxedSeq_3_01T_01_4_01_4",
-      "title": "batt::IsBoxedSeq< BoxedSeq< T > >",
-      "url": "/_autogen/Classes/structbatt_1_1IsBoxedSeq_3_01BoxedSeq_3_01T_01_4_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": true,
-          "name": "false_type",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::IsTuple",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::IsTuple",
-      "refid": "structbatt_1_1IsTuple",
-      "title": "batt::IsTuple",
-      "url": "/_autogen/Classes/structbatt_1_1IsTuple/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": true,
-          "name": "true_type",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::IsTuple< std::tuple< Ts... > >",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::IsTuple< std::tuple< Ts... > >",
-      "refid": "structbatt_1_1IsTuple_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4",
-      "title": "batt::IsTuple< std::tuple< Ts... > >",
-      "url": "/_autogen/Classes/structbatt_1_1IsTuple_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": true,
-          "name": "false_type",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::IsVariant",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::IsVariant",
-      "refid": "structbatt_1_1IsVariant",
-      "title": "batt::IsVariant",
-      "url": "/_autogen/Classes/structbatt_1_1IsVariant/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": true,
-          "name": "true_type",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::IsVariant< std::variant< Ts... > >",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::IsVariant< std::variant< Ts... > >",
-      "refid": "structbatt_1_1IsVariant_3_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4",
-      "title": "batt::IsVariant< std::variant< Ts... > >",
-      "url": "/_autogen/Classes/structbatt_1_1IsVariant_3_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::kMoveOnly",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::kMoveOnly",
-      "refid": "classbatt_1_1kMoveOnly",
-      "title": "batt::kMoveOnly",
-      "url": "/_autogen/Classes/classbatt_1_1kMoveOnly/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::Latch",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Latch",
-      "refid": "classbatt_1_1Latch",
-      "title": "batt::Latch",
-      "url": "/_autogen/Classes/classbatt_1_1Latch/",
+      "name": "batt::CountMetric",
+      "refid": "classbatt_1_1CountMetric",
+      "title": "batt::CountMetric",
+      "url": "/_autogen/Classes/classbatt_1_1CountMetric/",
       "visibility": "public"
     },
     {
@@ -1543,79 +1943,13 @@
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::LeastUpperBound",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::LeastUpperBound",
-      "refid": "structbatt_1_1LeastUpperBound",
-      "title": "batt::LeastUpperBound",
-      "url": "/_autogen/Classes/structbatt_1_1LeastUpperBound/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": true,
-          "name": "RefCounted< ManagedBuffer >",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::ManagedBuffer",
+      "fullname": "batt::RateMetric",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::ManagedBuffer",
-      "refid": "classbatt_1_1ManagedBuffer",
-      "title": "batt::ManagedBuffer",
-      "url": "/_autogen/Classes/classbatt_1_1ManagedBuffer/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::MapBufferSource",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::MapBufferSource",
-      "refid": "classbatt_1_1MapBufferSource",
-      "title": "batt::MapBufferSource",
-      "url": "/_autogen/Classes/classbatt_1_1MapBufferSource/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::MapTuple",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::MapTuple",
-      "refid": "structbatt_1_1MapTuple",
-      "title": "batt::MapTuple",
-      "url": "/_autogen/Classes/structbatt_1_1MapTuple/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::StaticType< std::tuple< PerTypeT< Ts >... > >",
-          "refid": "structbatt_1_1StaticType",
-          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::MapTuple< PerTypeT, std::tuple< Ts... > >",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::MapTuple< PerTypeT, std::tuple< Ts... > >",
-      "refid": "structbatt_1_1MapTuple_3_01PerTypeT_00_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4",
-      "title": "batt::MapTuple< PerTypeT, std::tuple< Ts... > >",
-      "url": "/_autogen/Classes/structbatt_1_1MapTuple_3_01PerTypeT_00_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4/",
+      "name": "batt::RateMetric",
+      "refid": "classbatt_1_1RateMetric",
+      "title": "batt::RateMetric",
+      "url": "/_autogen/Classes/classbatt_1_1RateMetric/",
       "visibility": "public"
     },
     {
@@ -1650,6 +1984,40 @@
       "refid": "classbatt_1_1MetricDumper",
       "title": "batt::MetricDumper",
       "url": "/_autogen/Classes/classbatt_1_1MetricDumper/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::MetricCsvFormatter",
+          "refid": "classbatt_1_1MetricCsvFormatter",
+          "url": "/_autogen/Classes/classbatt_1_1MetricCsvFormatter/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::MetricFormatter",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::MetricFormatter",
+      "refid": "classbatt_1_1MetricFormatter",
+      "title": "batt::MetricFormatter",
+      "url": "/_autogen/Classes/classbatt_1_1MetricFormatter/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::MetricLabel",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::MetricLabel",
+      "refid": "structbatt_1_1MetricLabel",
+      "title": "batt::MetricLabel",
+      "url": "/_autogen/Classes/structbatt_1_1MetricLabel/",
       "visibility": "public"
     },
     {
@@ -1708,36 +2076,112 @@
     },
     {
       "anchor": "",
-      "category": "classes",
-      "derivedClasses": [
+      "baseClasses": [
         {
           "external": false,
-          "name": "batt::MetricCsvFormatter",
-          "refid": "classbatt_1_1MetricCsvFormatter",
-          "url": "/_autogen/Classes/classbatt_1_1MetricCsvFormatter/",
+          "name": "batt::MetricExporter",
+          "refid": "classbatt_1_1MetricExporter",
+          "url": "/_autogen/Classes/classbatt_1_1MetricExporter/",
           "virtual": "non-virtual",
           "visibility": "public"
         }
       ],
-      "fullname": "batt::MetricFormatter",
+      "category": "classes",
+      "fullname": "batt::CountMetricExporter",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::MetricFormatter",
-      "refid": "classbatt_1_1MetricFormatter",
-      "title": "batt::MetricFormatter",
-      "url": "/_autogen/Classes/classbatt_1_1MetricFormatter/",
+      "name": "batt::CountMetricExporter",
+      "refid": "classbatt_1_1CountMetricExporter",
+      "title": "batt::CountMetricExporter",
+      "url": "/_autogen/Classes/classbatt_1_1CountMetricExporter/",
       "visibility": "public"
     },
     {
       "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::MetricExporter",
+          "refid": "classbatt_1_1MetricExporter",
+          "url": "/_autogen/Classes/classbatt_1_1MetricExporter/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "category": "classes",
-      "fullname": "batt::MetricLabel",
-      "kind": "struct",
+      "fullname": "batt::DerivedMetricExporter",
+      "kind": "class",
       "language": "cpp",
-      "name": "batt::MetricLabel",
-      "refid": "structbatt_1_1MetricLabel",
-      "title": "batt::MetricLabel",
-      "url": "/_autogen/Classes/structbatt_1_1MetricLabel/",
+      "name": "batt::DerivedMetricExporter",
+      "refid": "classbatt_1_1DerivedMetricExporter",
+      "title": "batt::DerivedMetricExporter",
+      "url": "/_autogen/Classes/classbatt_1_1DerivedMetricExporter/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::MetricExporter",
+          "refid": "classbatt_1_1MetricExporter",
+          "url": "/_autogen/Classes/classbatt_1_1MetricExporter/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::VariableExporter",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::VariableExporter",
+      "refid": "classbatt_1_1VariableExporter",
+      "title": "batt::VariableExporter",
+      "url": "/_autogen/Classes/classbatt_1_1VariableExporter/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::MetricExporter",
+          "refid": "classbatt_1_1MetricExporter",
+          "url": "/_autogen/Classes/classbatt_1_1MetricExporter/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::WatchExporter",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::WatchExporter",
+      "refid": "classbatt_1_1WatchExporter",
+      "title": "batt::WatchExporter",
+      "url": "/_autogen/Classes/classbatt_1_1WatchExporter/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::MetricExporter",
+          "refid": "classbatt_1_1MetricExporter",
+          "url": "/_autogen/Classes/classbatt_1_1MetricExporter/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::QueueDepthExporter",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::QueueDepthExporter",
+      "refid": "classbatt_1_1QueueDepthExporter",
+      "title": "batt::QueueDepthExporter",
+      "url": "/_autogen/Classes/classbatt_1_1QueueDepthExporter/",
       "visibility": "public"
     },
     {
@@ -1755,64 +2199,6 @@
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::MorphTuple",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::MorphTuple",
-      "refid": "structbatt_1_1MorphTuple",
-      "title": "batt::MorphTuple",
-      "url": "/_autogen/Classes/structbatt_1_1MorphTuple/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::StaticType< TemplateT< Ts... > >",
-          "refid": "structbatt_1_1StaticType",
-          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::MorphTuple< TemplateT, std::tuple< Ts... > >",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::MorphTuple< TemplateT, std::tuple< Ts... > >",
-      "refid": "structbatt_1_1MorphTuple_3_01TemplateT_00_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4",
-      "title": "batt::MorphTuple< TemplateT, std::tuple< Ts... > >",
-      "url": "/_autogen/Classes/structbatt_1_1MorphTuple_3_01TemplateT_00_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::MutableBufferView",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::MutableBufferView",
-      "refid": "classbatt_1_1MutableBufferView",
-      "title": "batt::MutableBufferView",
-      "url": "/_autogen/Classes/classbatt_1_1MutableBufferView/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::Mutex",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Mutex",
-      "refid": "classbatt_1_1Mutex",
-      "title": "batt::Mutex",
-      "url": "/_autogen/Classes/classbatt_1_1Mutex/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
       "fullname": "batt::NoneType",
       "kind": "struct",
       "language": "cpp",
@@ -1825,35 +2211,13 @@
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::NoopDeleter",
+      "fullname": "batt::InPlaceInitType",
       "kind": "struct",
       "language": "cpp",
-      "name": "batt::NoopDeleter",
-      "refid": "structbatt_1_1NoopDeleter",
-      "title": "batt::NoopDeleter",
-      "url": "/_autogen/Classes/structbatt_1_1NoopDeleter/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::TaskScheduler",
-          "refid": "classbatt_1_1TaskScheduler",
-          "url": "/_autogen/Classes/classbatt_1_1TaskScheduler/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::NullTaskScheduler",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::NullTaskScheduler",
-      "refid": "classbatt_1_1NullTaskScheduler",
-      "title": "batt::NullTaskScheduler",
-      "url": "/_autogen/Classes/classbatt_1_1NullTaskScheduler/",
+      "name": "batt::InPlaceInitType",
+      "refid": "structbatt_1_1InPlaceInitType",
+      "title": "batt::InPlaceInitType",
+      "url": "/_autogen/Classes/structbatt_1_1InPlaceInitType/",
       "visibility": "public"
     },
     {
@@ -1883,169 +2247,25 @@
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::Pin",
-      "kind": "class",
+      "fullname": "batt::NoopDeleter",
+      "kind": "struct",
       "language": "cpp",
-      "name": "batt::Pin",
-      "refid": "classbatt_1_1Pin",
-      "title": "batt::Pin",
-      "url": "/_autogen/Classes/classbatt_1_1Pin/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "derivedClasses": [
-        {
-          "external": false,
-          "name": "batt::HttpMessageBase< T >",
-          "refid": "classbatt_1_1HttpMessageBase",
-          "url": "/_autogen/Classes/classbatt_1_1HttpMessageBase/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        },
-        {
-          "external": false,
-          "name": "batt::HttpMessageBase< pico_http::Request >",
-          "refid": "classbatt_1_1HttpMessageBase",
-          "url": "/_autogen/Classes/classbatt_1_1HttpMessageBase/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        },
-        {
-          "external": false,
-          "name": "batt::HttpMessageBase< pico_http::Response >",
-          "refid": "classbatt_1_1HttpMessageBase",
-          "url": "/_autogen/Classes/classbatt_1_1HttpMessageBase/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "fullname": "batt::Pinnable",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Pinnable",
-      "refid": "classbatt_1_1Pinnable",
-      "title": "batt::Pinnable",
-      "url": "/_autogen/Classes/classbatt_1_1Pinnable/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::PrependBufferSource",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::PrependBufferSource",
-      "refid": "classbatt_1_1PrependBufferSource",
-      "title": "batt::PrependBufferSource",
-      "url": "/_autogen/Classes/classbatt_1_1PrependBufferSource/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::Promise",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Promise",
-      "refid": "classbatt_1_1Promise",
-      "title": "batt::Promise",
-      "url": "/_autogen/Classes/classbatt_1_1Promise/",
+      "name": "batt::NoopDeleter",
+      "refid": "structbatt_1_1NoopDeleter",
+      "title": "batt::NoopDeleter",
+      "url": "/_autogen/Classes/structbatt_1_1NoopDeleter/",
       "visibility": "public"
     },
     {
       "anchor": "",
       "baseClasses": [
         {
-          "external": false,
-          "name": "batt::QueueBase",
-          "refid": "classbatt_1_1QueueBase",
-          "url": "/_autogen/Classes/classbatt_1_1QueueBase/",
+          "external": true,
+          "name": "boost::equality_comparable< RadixQueue< kCapacityInBits > >",
           "virtual": "non-virtual",
           "visibility": "public"
         }
       ],
-      "category": "classes",
-      "fullname": "batt::Queue",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Queue",
-      "refid": "classbatt_1_1Queue",
-      "title": "batt::Queue",
-      "url": "/_autogen/Classes/classbatt_1_1Queue/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "derivedClasses": [
-        {
-          "external": false,
-          "name": "batt::Queue< T >",
-          "refid": "classbatt_1_1Queue",
-          "url": "/_autogen/Classes/classbatt_1_1Queue/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        },
-        {
-          "external": false,
-          "name": "batt::Queue< batt::Pin< batt::HttpResponse > >",
-          "refid": "classbatt_1_1Queue",
-          "url": "/_autogen/Classes/classbatt_1_1Queue/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        },
-        {
-          "external": false,
-          "name": "batt::Queue< batt::SmallFn >",
-          "refid": "classbatt_1_1Queue",
-          "url": "/_autogen/Classes/classbatt_1_1Queue/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        },
-        {
-          "external": false,
-          "name": "batt::Queue< std::tuple< batt::Pin< batt::HttpRequest >, batt::Pin< batt::HttpResponse > > >",
-          "refid": "classbatt_1_1Queue",
-          "url": "/_autogen/Classes/classbatt_1_1Queue/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "fullname": "batt::QueueBase",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::QueueBase",
-      "refid": "classbatt_1_1QueueBase",
-      "title": "batt::QueueBase",
-      "url": "/_autogen/Classes/classbatt_1_1QueueBase/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::MetricExporter",
-          "refid": "classbatt_1_1MetricExporter",
-          "url": "/_autogen/Classes/classbatt_1_1MetricExporter/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::QueueDepthExporter",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::QueueDepthExporter",
-      "refid": "classbatt_1_1QueueDepthExporter",
-      "title": "batt::QueueDepthExporter",
-      "url": "/_autogen/Classes/classbatt_1_1QueueDepthExporter/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
       "category": "classes",
       "fullname": "batt::RadixQueue",
       "kind": "class",
@@ -2054,30 +2274,6 @@
       "refid": "classbatt_1_1RadixQueue",
       "title": "batt::RadixQueue",
       "url": "/_autogen/Classes/classbatt_1_1RadixQueue/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::RangeDumper",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::RangeDumper",
-      "refid": "classbatt_1_1RangeDumper",
-      "title": "batt::RangeDumper",
-      "url": "/_autogen/Classes/classbatt_1_1RangeDumper/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::RateMetric",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::RateMetric",
-      "refid": "classbatt_1_1RateMetric",
-      "title": "batt::RateMetric",
-      "url": "/_autogen/Classes/classbatt_1_1RateMetric/",
       "visibility": "public"
     },
     {
@@ -2095,117 +2291,53 @@
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::RemoveStatusOrImpl",
-      "kind": "struct",
+      "fullname": "batt::BoxedSeq",
+      "kind": "class",
       "language": "cpp",
-      "name": "batt::RemoveStatusOrImpl",
-      "refid": "structbatt_1_1RemoveStatusOrImpl",
-      "title": "batt::RemoveStatusOrImpl",
-      "url": "/_autogen/Classes/structbatt_1_1RemoveStatusOrImpl/",
+      "name": "batt::BoxedSeq",
+      "refid": "classbatt_1_1BoxedSeq",
+      "title": "batt::BoxedSeq",
+      "url": "/_autogen/Classes/classbatt_1_1BoxedSeq/",
       "visibility": "public"
     },
     {
       "anchor": "",
       "baseClasses": [
         {
-          "external": false,
-          "name": "batt::StaticType< T >",
-          "refid": "structbatt_1_1StaticType",
-          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
+          "external": true,
+          "name": "std::false_type",
           "virtual": "non-virtual",
           "visibility": "public"
         }
       ],
       "category": "classes",
-      "fullname": "batt::RemoveStatusOrImpl< StatusOr< T > >",
+      "fullname": "batt::IsBoxedSeq",
       "kind": "struct",
       "language": "cpp",
-      "name": "batt::RemoveStatusOrImpl< StatusOr< T > >",
-      "refid": "structbatt_1_1RemoveStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4",
-      "title": "batt::RemoveStatusOrImpl< StatusOr< T > >",
-      "url": "/_autogen/Classes/structbatt_1_1RemoveStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::RetryState",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::RetryState",
-      "refid": "structbatt_1_1RetryState",
-      "title": "batt::RetryState",
-      "url": "/_autogen/Classes/structbatt_1_1RetryState/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::RunningTotal",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::RunningTotal",
-      "refid": "classbatt_1_1RunningTotal",
-      "title": "batt::RunningTotal",
-      "url": "/_autogen/Classes/classbatt_1_1RunningTotal/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::Runtime",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Runtime",
-      "refid": "classbatt_1_1Runtime",
-      "title": "batt::Runtime",
-      "url": "/_autogen/Classes/classbatt_1_1Runtime/",
+      "name": "batt::IsBoxedSeq",
+      "refid": "structbatt_1_1IsBoxedSeq",
+      "title": "batt::IsBoxedSeq",
+      "url": "/_autogen/Classes/structbatt_1_1IsBoxedSeq/",
       "visibility": "public"
     },
     {
       "anchor": "",
       "baseClasses": [
         {
-          "external": false,
-          "name": "batt::WorkContext",
-          "refid": "classbatt_1_1WorkContext",
-          "url": "/_autogen/Classes/classbatt_1_1WorkContext/",
+          "external": true,
+          "name": "std::true_type",
           "virtual": "non-virtual",
           "visibility": "public"
         }
       ],
       "category": "classes",
-      "fullname": "batt::ScopedWorkContext",
-      "kind": "class",
+      "fullname": "batt::IsBoxedSeq< BoxedSeq< T > >",
+      "kind": "struct",
       "language": "cpp",
-      "name": "batt::ScopedWorkContext",
-      "refid": "classbatt_1_1ScopedWorkContext",
-      "title": "batt::ScopedWorkContext",
-      "url": "/_autogen/Classes/classbatt_1_1ScopedWorkContext/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::ScopedWorkerThreadPool",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::ScopedWorkerThreadPool",
-      "refid": "classbatt_1_1ScopedWorkerThreadPool",
-      "title": "batt::ScopedWorkerThreadPool",
-      "url": "/_autogen/Classes/classbatt_1_1ScopedWorkerThreadPool/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::SeqBufferSource",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::SeqBufferSource",
-      "refid": "classbatt_1_1SeqBufferSource",
-      "title": "batt::SeqBufferSource",
-      "url": "/_autogen/Classes/classbatt_1_1SeqBufferSource/",
+      "name": "batt::IsBoxedSeq< BoxedSeq< T > >",
+      "refid": "structbatt_1_1IsBoxedSeq_3_01BoxedSeq_3_01T_01_4_01_4",
+      "title": "batt::IsBoxedSeq< BoxedSeq< T > >",
+      "url": "/_autogen/Classes/structbatt_1_1IsBoxedSeq_3_01BoxedSeq_3_01T_01_4_01_4/",
       "visibility": "public"
     },
     {
@@ -2218,6 +2350,94 @@
       "refid": "structbatt_1_1SeqItem__Impl",
       "title": "batt::SeqItem_Impl",
       "url": "/_autogen/Classes/structbatt_1_1SeqItem__Impl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::SkipNBinder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::SkipNBinder",
+      "refid": "structbatt_1_1SkipNBinder",
+      "title": "batt::SkipNBinder",
+      "url": "/_autogen/Classes/structbatt_1_1SkipNBinder/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::SkipN",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::SkipN",
+      "refid": "classbatt_1_1SkipN",
+      "title": "batt::SkipN",
+      "url": "/_autogen/Classes/classbatt_1_1SkipN/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::SubRangeSeq",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::SubRangeSeq",
+      "refid": "classbatt_1_1SubRangeSeq",
+      "title": "batt::SubRangeSeq",
+      "url": "/_autogen/Classes/classbatt_1_1SubRangeSeq/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::VecSeq< T >",
+          "refid": "classbatt_1_1VecSeq",
+          "url": "/_autogen/Classes/classbatt_1_1VecSeq/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::VecSeqBase",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::VecSeqBase",
+      "refid": "structbatt_1_1VecSeqBase",
+      "title": "batt::VecSeqBase",
+      "url": "/_autogen/Classes/structbatt_1_1VecSeqBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::VecSeqBase< T >",
+          "refid": "structbatt_1_1VecSeqBase",
+          "url": "/_autogen/Classes/structbatt_1_1VecSeqBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::SubRangeSeq< boost::iterator_range< const T * > >",
+          "refid": "classbatt_1_1SubRangeSeq",
+          "url": "/_autogen/Classes/classbatt_1_1SubRangeSeq/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::VecSeq",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::VecSeq",
+      "refid": "classbatt_1_1VecSeq",
+      "title": "batt::VecSeq",
+      "url": "/_autogen/Classes/classbatt_1_1VecSeq/",
       "visibility": "public"
     },
     {
@@ -2242,44 +2462,6 @@
     },
     {
       "anchor": "",
-      "brief": "Wrapper around `usize` (`std::size_t`) that prints as human-readable sizes. ",
-      "category": "classes",
-      "fullname": "batt::SizeDumper",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::SizeDumper",
-      "refid": "structbatt_1_1SizeDumper",
-      "summary": "Wrapper around usize (std::size_t) that prints as human-readable sizes. ",
-      "title": "batt::SizeDumper",
-      "url": "/_autogen/Classes/structbatt_1_1SizeDumper/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::SkipN",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::SkipN",
-      "refid": "classbatt_1_1SkipN",
-      "title": "batt::SkipN",
-      "url": "/_autogen/Classes/classbatt_1_1SkipN/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::SkipNBinder",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::SkipNBinder",
-      "refid": "structbatt_1_1SkipNBinder",
-      "title": "batt::SkipNBinder",
-      "url": "/_autogen/Classes/structbatt_1_1SkipNBinder/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
       "brief": "A type-erased container for a callable function-like object with a statically bounded maximum size. ",
       "category": "classes",
       "fullname": "batt::SmallFn",
@@ -2295,41 +2477,37 @@
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::StackAllocator",
+      "fullname": "batt::kMoveOnly",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::StackAllocator",
-      "refid": "classbatt_1_1StackAllocator",
-      "title": "batt::StackAllocator",
-      "url": "/_autogen/Classes/classbatt_1_1StackAllocator/",
+      "name": "batt::kMoveOnly",
+      "refid": "classbatt_1_1kMoveOnly",
+      "title": "batt::kMoveOnly",
+      "url": "/_autogen/Classes/classbatt_1_1kMoveOnly/",
       "visibility": "public"
     },
     {
       "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::AbstractStackAllocator",
-          "refid": "classbatt_1_1AbstractStackAllocator",
-          "url": "/_autogen/Classes/classbatt_1_1AbstractStackAllocator/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        },
-        {
-          "external": true,
-          "name": "boost::intrusive_ref_counter< AbstractStackAllocator >",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
       "category": "classes",
-      "fullname": "batt::StackAllocatorImpl",
+      "fullname": "batt::StateMachineModelCheckAdvancedOptions",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::StateMachineModelCheckAdvancedOptions",
+      "refid": "structbatt_1_1StateMachineModelCheckAdvancedOptions",
+      "title": "batt::StateMachineModelCheckAdvancedOptions",
+      "url": "/_autogen/Classes/structbatt_1_1StateMachineModelCheckAdvancedOptions/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::BasicStateMachineEntropySource",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::StackAllocatorImpl",
-      "refid": "classbatt_1_1StackAllocatorImpl",
-      "title": "batt::StackAllocatorImpl",
-      "url": "/_autogen/Classes/classbatt_1_1StackAllocatorImpl/",
+      "name": "batt::BasicStateMachineEntropySource",
+      "refid": "classbatt_1_1BasicStateMachineEntropySource",
+      "title": "batt::BasicStateMachineEntropySource",
+      "url": "/_autogen/Classes/classbatt_1_1BasicStateMachineEntropySource/",
       "visibility": "public"
     },
     {
@@ -2347,25 +2525,13 @@
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::StateMachineModel",
+      "fullname": "batt::ExhaustiveModelChecker",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::StateMachineModel",
-      "refid": "classbatt_1_1StateMachineModel",
-      "title": "batt::StateMachineModel",
-      "url": "/_autogen/Classes/classbatt_1_1StateMachineModel/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::StateMachineModelCheckAdvancedOptions",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::StateMachineModelCheckAdvancedOptions",
-      "refid": "structbatt_1_1StateMachineModelCheckAdvancedOptions",
-      "title": "batt::StateMachineModelCheckAdvancedOptions",
-      "url": "/_autogen/Classes/structbatt_1_1StateMachineModelCheckAdvancedOptions/",
+      "name": "batt::ExhaustiveModelChecker",
+      "refid": "classbatt_1_1ExhaustiveModelChecker",
+      "title": "batt::ExhaustiveModelChecker",
+      "url": "/_autogen/Classes/classbatt_1_1ExhaustiveModelChecker/",
       "visibility": "public"
     },
     {
@@ -2390,6 +2556,30 @@
       "refid": "structbatt_1_1StateMachineTraits",
       "title": "batt::StateMachineTraits",
       "url": "/_autogen/Classes/structbatt_1_1StateMachineTraits/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::StochasticModelChecker",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::StochasticModelChecker",
+      "refid": "classbatt_1_1StochasticModelChecker",
+      "title": "batt::StochasticModelChecker",
+      "url": "/_autogen/Classes/classbatt_1_1StochasticModelChecker/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::StateMachineModel",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::StateMachineModel",
+      "refid": "classbatt_1_1StateMachineModel",
+      "title": "batt::StateMachineModel",
+      "url": "/_autogen/Classes/classbatt_1_1StateMachineModel/",
       "visibility": "public"
     },
     {
@@ -2422,40 +2612,6 @@
       "refid": "structbatt_1_1StaticSameTypeAssertion",
       "title": "batt::StaticSameTypeAssertion",
       "url": "/_autogen/Classes/structbatt_1_1StaticSameTypeAssertion/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "derivedClasses": [
-        {
-          "external": false,
-          "name": "batt::RemoveStatusOrImpl< StatusOr< T > >",
-          "refid": "structbatt_1_1RemoveStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4",
-          "url": "/_autogen/Classes/structbatt_1_1RemoveStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "fullname": "batt::StaticType",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::StaticType",
-      "refid": "structbatt_1_1StaticType",
-      "title": "batt::StaticType",
-      "url": "/_autogen/Classes/structbatt_1_1StaticType/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::StaticValue",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::StaticValue",
-      "refid": "structbatt_1_1StaticValue",
-      "title": "batt::StaticValue",
-      "url": "/_autogen/Classes/structbatt_1_1StaticValue/",
       "visibility": "public"
     },
     {
@@ -2567,25 +2723,85 @@
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::StochasticModelChecker",
-      "kind": "class",
+      "fullname": "batt::RemoveStatusOrImpl",
+      "kind": "struct",
       "language": "cpp",
-      "name": "batt::StochasticModelChecker",
-      "refid": "classbatt_1_1StochasticModelChecker",
-      "title": "batt::StochasticModelChecker",
-      "url": "/_autogen/Classes/classbatt_1_1StochasticModelChecker/",
+      "name": "batt::RemoveStatusOrImpl",
+      "refid": "structbatt_1_1RemoveStatusOrImpl",
+      "title": "batt::RemoveStatusOrImpl",
+      "url": "/_autogen/Classes/structbatt_1_1RemoveStatusOrImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::StaticType< T >",
+          "refid": "structbatt_1_1StaticType",
+          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::RemoveStatusOrImpl< StatusOr< T > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::RemoveStatusOrImpl< StatusOr< T > >",
+      "refid": "structbatt_1_1RemoveStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4",
+      "title": "batt::RemoveStatusOrImpl< StatusOr< T > >",
+      "url": "/_autogen/Classes/structbatt_1_1RemoveStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4/",
       "visibility": "public"
     },
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::StreamBuffer",
+      "fullname": "batt::EscapedStringLiteral",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::EscapedStringLiteral",
+      "refid": "structbatt_1_1EscapedStringLiteral",
+      "title": "batt::EscapedStringLiteral",
+      "url": "/_autogen/Classes/structbatt_1_1EscapedStringLiteral/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::HexByteDumper",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::HexByteDumper",
+      "refid": "structbatt_1_1HexByteDumper",
+      "title": "batt::HexByteDumper",
+      "url": "/_autogen/Classes/structbatt_1_1HexByteDumper/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Wrapper around `usize` (`std::size_t`) that prints as human-readable sizes. ",
+      "category": "classes",
+      "fullname": "batt::SizeDumper",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::SizeDumper",
+      "refid": "structbatt_1_1SizeDumper",
+      "summary": "Wrapper around usize (std::size_t) that prints as human-readable sizes. ",
+      "title": "batt::SizeDumper",
+      "url": "/_autogen/Classes/structbatt_1_1SizeDumper/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::RangeDumper",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::StreamBuffer",
-      "refid": "classbatt_1_1StreamBuffer",
-      "title": "batt::StreamBuffer",
-      "url": "/_autogen/Classes/classbatt_1_1StreamBuffer/",
+      "name": "batt::RangeDumper",
+      "refid": "classbatt_1_1RangeDumper",
+      "title": "batt::RangeDumper",
+      "url": "/_autogen/Classes/classbatt_1_1RangeDumper/",
       "visibility": "public"
     },
     {
@@ -2613,95 +2829,35 @@
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::SubRangeSeq",
-      "kind": "class",
+      "fullname": "batt::MorphTuple",
+      "kind": "struct",
       "language": "cpp",
-      "name": "batt::SubRangeSeq",
-      "refid": "classbatt_1_1SubRangeSeq",
-      "title": "batt::SubRangeSeq",
-      "url": "/_autogen/Classes/classbatt_1_1SubRangeSeq/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::TakeNSource",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::TakeNSource",
-      "refid": "classbatt_1_1TakeNSource",
-      "title": "batt::TakeNSource",
-      "url": "/_autogen/Classes/classbatt_1_1TakeNSource/",
+      "name": "batt::MorphTuple",
+      "refid": "structbatt_1_1MorphTuple",
+      "title": "batt::MorphTuple",
+      "url": "/_autogen/Classes/structbatt_1_1MorphTuple/",
       "visibility": "public"
     },
     {
       "anchor": "",
       "baseClasses": [
         {
-          "external": true,
-          "name": "boost::intrusive::list_base_hook< boost::intrusive::link_mode< boost::intrusive::auto_unlink > >",
+          "external": false,
+          "name": "batt::StaticType< TemplateT< Ts... > >",
+          "refid": "structbatt_1_1StaticType",
+          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
           "virtual": "non-virtual",
           "visibility": "public"
         }
       ],
       "category": "classes",
-      "fullname": "batt::Task",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Task",
-      "refid": "classbatt_1_1Task",
-      "title": "batt::Task",
-      "url": "/_autogen/Classes/classbatt_1_1Task/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "derivedClasses": [
-        {
-          "external": false,
-          "name": "batt::FakeTaskScheduler",
-          "refid": "classbatt_1_1FakeTaskScheduler",
-          "url": "/_autogen/Classes/classbatt_1_1FakeTaskScheduler/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        },
-        {
-          "external": false,
-          "name": "batt::NullTaskScheduler",
-          "refid": "classbatt_1_1NullTaskScheduler",
-          "url": "/_autogen/Classes/classbatt_1_1NullTaskScheduler/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        },
-        {
-          "external": false,
-          "name": "batt::Runtime::DefaultScheduler",
-          "refid": "classbatt_1_1Runtime_1_1DefaultScheduler",
-          "url": "/_autogen/Classes/classbatt_1_1Runtime_1_1DefaultScheduler/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "fullname": "batt::TaskScheduler",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::TaskScheduler",
-      "refid": "classbatt_1_1TaskScheduler",
-      "title": "batt::TaskScheduler",
-      "url": "/_autogen/Classes/classbatt_1_1TaskScheduler/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::TaskSleepImpl",
+      "fullname": "batt::MorphTuple< TemplateT, std::tuple< Ts... > >",
       "kind": "struct",
       "language": "cpp",
-      "name": "batt::TaskSleepImpl",
-      "refid": "structbatt_1_1TaskSleepImpl",
-      "title": "batt::TaskSleepImpl",
-      "url": "/_autogen/Classes/structbatt_1_1TaskSleepImpl/",
+      "name": "batt::MorphTuple< TemplateT, std::tuple< Ts... > >",
+      "refid": "structbatt_1_1MorphTuple_3_01TemplateT_00_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4",
+      "title": "batt::MorphTuple< TemplateT, std::tuple< Ts... > >",
+      "url": "/_autogen/Classes/structbatt_1_1MorphTuple_3_01TemplateT_00_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4/",
       "visibility": "public"
     },
     {
@@ -2714,50 +2870,6 @@
       "refid": "structbatt_1_1TupleIndexOf",
       "title": "batt::TupleIndexOf",
       "url": "/_autogen/Classes/structbatt_1_1TupleIndexOf/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::StaticValue< decltype((1u+TupleIndexOf< std::tuple< Rest... >, T >::value)),((1u+TupleIndexOf< std::tuple< Rest... >, T >::value))>",
-          "refid": "structbatt_1_1StaticValue",
-          "url": "/_autogen/Classes/structbatt_1_1StaticValue/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::TupleIndexOf< std::tuple< First, Rest... >, T >",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::TupleIndexOf< std::tuple< First, Rest... >, T >",
-      "refid": "structbatt_1_1TupleIndexOf_3_01std_1_1tuple_3_01First_00_01Rest_8_8_8_01_4_00_01T_01_4",
-      "title": "batt::TupleIndexOf< std::tuple< First, Rest... >, T >",
-      "url": "/_autogen/Classes/structbatt_1_1TupleIndexOf_3_01std_1_1tuple_3_01First_00_01Rest_8_8_8_01_4_00_01T_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::StaticValue< decltype(0u),(0u)>",
-          "refid": "structbatt_1_1StaticValue",
-          "url": "/_autogen/Classes/structbatt_1_1StaticValue/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::TupleIndexOf< std::tuple< T, Rest... >, T >",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::TupleIndexOf< std::tuple< T, Rest... >, T >",
-      "refid": "structbatt_1_1TupleIndexOf_3_01std_1_1tuple_3_01T_00_01Rest_8_8_8_01_4_00_01T_01_4",
-      "title": "batt::TupleIndexOf< std::tuple< T, Rest... >, T >",
-      "url": "/_autogen/Classes/structbatt_1_1TupleIndexOf_3_01std_1_1tuple_3_01T_00_01Rest_8_8_8_01_4_00_01T_01_4/",
       "visibility": "public"
     },
     {
@@ -2787,27 +2899,143 @@
       "baseClasses": [
         {
           "external": false,
-          "name": "batt::TypeErasedStorageBase< AbstractType, TypedImpl >",
-          "refid": "classbatt_1_1TypeErasedStorageBase",
-          "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorageBase/",
+          "name": "batt::StaticValue< decltype(0u),(0u)>",
+          "refid": "structbatt_1_1StaticValue",
+          "url": "/_autogen/Classes/structbatt_1_1StaticValue/",
           "virtual": "non-virtual",
           "visibility": "public"
         }
       ],
       "category": "classes",
-      "fullname": "batt::TypeErasedStorage",
-      "kind": "class",
+      "fullname": "batt::TupleIndexOf< std::tuple< T, Rest... >, T >",
+      "kind": "struct",
       "language": "cpp",
-      "name": "batt::TypeErasedStorage",
-      "refid": "classbatt_1_1TypeErasedStorage",
-      "title": "batt::TypeErasedStorage",
-      "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
+      "name": "batt::TupleIndexOf< std::tuple< T, Rest... >, T >",
+      "refid": "structbatt_1_1TupleIndexOf_3_01std_1_1tuple_3_01T_00_01Rest_8_8_8_01_4_00_01T_01_4",
+      "title": "batt::TupleIndexOf< std::tuple< T, Rest... >, T >",
+      "url": "/_autogen/Classes/structbatt_1_1TupleIndexOf_3_01std_1_1tuple_3_01T_00_01Rest_8_8_8_01_4_00_01T_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::StaticValue< decltype((1u+TupleIndexOf< std::tuple< Rest... >, T >::value)),((1u+TupleIndexOf< std::tuple< Rest... >, T >::value))>",
+          "refid": "structbatt_1_1StaticValue",
+          "url": "/_autogen/Classes/structbatt_1_1StaticValue/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::TupleIndexOf< std::tuple< First, Rest... >, T >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::TupleIndexOf< std::tuple< First, Rest... >, T >",
+      "refid": "structbatt_1_1TupleIndexOf_3_01std_1_1tuple_3_01First_00_01Rest_8_8_8_01_4_00_01T_01_4",
+      "title": "batt::TupleIndexOf< std::tuple< First, Rest... >, T >",
+      "url": "/_autogen/Classes/structbatt_1_1TupleIndexOf_3_01std_1_1tuple_3_01First_00_01Rest_8_8_8_01_4_00_01T_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::MapTuple",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::MapTuple",
+      "refid": "structbatt_1_1MapTuple",
+      "title": "batt::MapTuple",
+      "url": "/_autogen/Classes/structbatt_1_1MapTuple/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::StaticType< std::tuple< PerTypeT< Ts >... > >",
+          "refid": "structbatt_1_1StaticType",
+          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::MapTuple< PerTypeT, std::tuple< Ts... > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::MapTuple< PerTypeT, std::tuple< Ts... > >",
+      "refid": "structbatt_1_1MapTuple_3_01PerTypeT_00_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4",
+      "title": "batt::MapTuple< PerTypeT, std::tuple< Ts... > >",
+      "url": "/_autogen/Classes/structbatt_1_1MapTuple_3_01PerTypeT_00_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4/",
       "visibility": "public"
     },
     {
       "anchor": "",
       "category": "classes",
       "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::AbstractValuePointer< T >",
+          "refid": "classbatt_1_1AbstractValuePointer",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValuePointer/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::AbstractValue",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::AbstractValue",
+      "refid": "classbatt_1_1AbstractValue",
+      "title": "batt::AbstractValue",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractValue/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::AbstractValue< T >",
+          "refid": "classbatt_1_1AbstractValue",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValue/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::AbstractValuePointer",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::AbstractValuePointer",
+      "refid": "classbatt_1_1AbstractValuePointer",
+      "title": "batt::AbstractValuePointer",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractValuePointer/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::TypeErasedStorage< batt::BufferSource::AbstractBufferSource, BufferSourceImpl >",
+          "refid": "classbatt_1_1TypeErasedStorage",
+          "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::TypeErasedStorage< AbstractSeq, SeqImpl >",
+          "refid": "classbatt_1_1TypeErasedStorage",
+          "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
         {
           "external": false,
           "name": "batt::TypeErasedStorage< AbstractType, TypedImpl, kReservedSize, kAlignment >",
@@ -2828,14 +3056,178 @@
     },
     {
       "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::TypeErasedStorageBase< AbstractType, TypedImpl >",
+          "refid": "classbatt_1_1TypeErasedStorageBase",
+          "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorageBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "category": "classes",
-      "fullname": "batt::UniqueHandler",
+      "fullname": "batt::TypeErasedStorage",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::UniqueHandler",
-      "refid": "classbatt_1_1UniqueHandler",
-      "title": "batt::UniqueHandler",
-      "url": "/_autogen/Classes/classbatt_1_1UniqueHandler/",
+      "name": "batt::TypeErasedStorage",
+      "refid": "classbatt_1_1TypeErasedStorage",
+      "title": "batt::TypeErasedStorage",
+      "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "AbstractType",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::AbstractValueImpl",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::AbstractValueImpl",
+      "refid": "classbatt_1_1AbstractValueImpl",
+      "title": "batt::AbstractValueImpl",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::false_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::IsVariant",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IsVariant",
+      "refid": "structbatt_1_1IsVariant",
+      "title": "batt::IsVariant",
+      "url": "/_autogen/Classes/structbatt_1_1IsVariant/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::true_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::IsVariant< std::variant< Ts... > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IsVariant< std::variant< Ts... > >",
+      "refid": "structbatt_1_1IsVariant_3_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4",
+      "title": "batt::IsVariant< std::variant< Ts... > >",
+      "url": "/_autogen/Classes/structbatt_1_1IsVariant_3_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::false_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::IsTuple",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IsTuple",
+      "refid": "structbatt_1_1IsTuple",
+      "title": "batt::IsTuple",
+      "url": "/_autogen/Classes/structbatt_1_1IsTuple/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::true_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::IsTuple< std::tuple< Ts... > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IsTuple< std::tuple< Ts... > >",
+      "refid": "structbatt_1_1IsTuple_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4",
+      "title": "batt::IsTuple< std::tuple< Ts... > >",
+      "url": "/_autogen/Classes/structbatt_1_1IsTuple_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::RemoveStatusOrImpl< StatusOr< T > >",
+          "refid": "structbatt_1_1RemoveStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4",
+          "url": "/_autogen/Classes/structbatt_1_1RemoveStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::StaticType",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::StaticType",
+      "refid": "structbatt_1_1StaticType",
+      "title": "batt::StaticType",
+      "url": "/_autogen/Classes/structbatt_1_1StaticType/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::StaticValue",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::StaticValue",
+      "refid": "structbatt_1_1StaticValue",
+      "title": "batt::StaticValue",
+      "url": "/_autogen/Classes/structbatt_1_1StaticValue/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::conditional_t< std::is_rvalue_reference_v< T >, std::decay< T >, batt::StaticType< T > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::DecayRValueRefImpl",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::DecayRValueRefImpl",
+      "refid": "structbatt_1_1DecayRValueRefImpl",
+      "title": "batt::DecayRValueRefImpl",
+      "url": "/_autogen/Classes/structbatt_1_1DecayRValueRefImpl/",
       "visibility": "public"
     },
     {
@@ -2852,28 +3244,6 @@
     },
     {
       "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::MetricExporter",
-          "refid": "classbatt_1_1MetricExporter",
-          "url": "/_autogen/Classes/classbatt_1_1MetricExporter/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::VariableExporter",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::VariableExporter",
-      "refid": "classbatt_1_1VariableExporter",
-      "title": "batt::VariableExporter",
-      "url": "/_autogen/Classes/classbatt_1_1VariableExporter/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
       "category": "classes",
       "fullname": "batt::VarSizeArray",
       "kind": "class",
@@ -2882,394 +3252,6 @@
       "refid": "classbatt_1_1VarSizeArray",
       "title": "batt::VarSizeArray",
       "url": "/_autogen/Classes/classbatt_1_1VarSizeArray/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::VecSeqBase< T >",
-          "refid": "structbatt_1_1VecSeqBase",
-          "url": "/_autogen/Classes/structbatt_1_1VecSeqBase/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        },
-        {
-          "external": false,
-          "name": "batt::SubRangeSeq< boost::iterator_range< const T * > >",
-          "refid": "classbatt_1_1SubRangeSeq",
-          "url": "/_autogen/Classes/classbatt_1_1SubRangeSeq/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::VecSeq",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::VecSeq",
-      "refid": "classbatt_1_1VecSeq",
-      "title": "batt::VecSeq",
-      "url": "/_autogen/Classes/classbatt_1_1VecSeq/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "derivedClasses": [
-        {
-          "external": false,
-          "name": "batt::VecSeq< T >",
-          "refid": "classbatt_1_1VecSeq",
-          "url": "/_autogen/Classes/classbatt_1_1VecSeq/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "fullname": "batt::VecSeqBase",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::VecSeqBase",
-      "refid": "structbatt_1_1VecSeqBase",
-      "title": "batt::VecSeqBase",
-      "url": "/_autogen/Classes/structbatt_1_1VecSeqBase/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::Watch",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Watch",
-      "refid": "classbatt_1_1Watch",
-      "title": "batt::Watch",
-      "url": "/_autogen/Classes/classbatt_1_1Watch/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::WatchAtomic< bool >",
-          "refid": "classbatt_1_1WatchAtomic",
-          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::Watch< bool >",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Watch< bool >",
-      "refid": "classbatt_1_1Watch_3_01bool_01_4",
-      "title": "batt::Watch< bool >",
-      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01bool_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::WatchAtomic< i16 >",
-          "refid": "classbatt_1_1WatchAtomic",
-          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::Watch< i16 >",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Watch< i16 >",
-      "refid": "classbatt_1_1Watch_3_01i16_01_4",
-      "title": "batt::Watch< i16 >",
-      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01i16_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::WatchAtomic< i32 >",
-          "refid": "classbatt_1_1WatchAtomic",
-          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::Watch< i32 >",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Watch< i32 >",
-      "refid": "classbatt_1_1Watch_3_01i32_01_4",
-      "title": "batt::Watch< i32 >",
-      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01i32_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::WatchAtomic< i64 >",
-          "refid": "classbatt_1_1WatchAtomic",
-          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::Watch< i64 >",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Watch< i64 >",
-      "refid": "classbatt_1_1Watch_3_01i64_01_4",
-      "title": "batt::Watch< i64 >",
-      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01i64_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::WatchAtomic< i8 >",
-          "refid": "classbatt_1_1WatchAtomic",
-          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::Watch< i8 >",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Watch< i8 >",
-      "refid": "classbatt_1_1Watch_3_01i8_01_4",
-      "title": "batt::Watch< i8 >",
-      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01i8_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::WatchAtomic< u16 >",
-          "refid": "classbatt_1_1WatchAtomic",
-          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::Watch< u16 >",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Watch< u16 >",
-      "refid": "classbatt_1_1Watch_3_01u16_01_4",
-      "title": "batt::Watch< u16 >",
-      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01u16_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::WatchAtomic< u32 >",
-          "refid": "classbatt_1_1WatchAtomic",
-          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::Watch< u32 >",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Watch< u32 >",
-      "refid": "classbatt_1_1Watch_3_01u32_01_4",
-      "title": "batt::Watch< u32 >",
-      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01u32_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::WatchAtomic< u64 >",
-          "refid": "classbatt_1_1WatchAtomic",
-          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::Watch< u64 >",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Watch< u64 >",
-      "refid": "classbatt_1_1Watch_3_01u64_01_4",
-      "title": "batt::Watch< u64 >",
-      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01u64_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::WatchAtomic< u8 >",
-          "refid": "classbatt_1_1WatchAtomic",
-          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::Watch< u8 >",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Watch< u8 >",
-      "refid": "classbatt_1_1Watch_3_01u8_01_4",
-      "title": "batt::Watch< u8 >",
-      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01u8_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::WatchAtomic< void * >",
-          "refid": "classbatt_1_1WatchAtomic",
-          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::Watch< void * >",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Watch< void * >",
-      "refid": "classbatt_1_1Watch_3_01void_01_5_01_4",
-      "title": "batt::Watch< void * >",
-      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01void_01_5_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::WatchAtomic",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::WatchAtomic",
-      "refid": "classbatt_1_1WatchAtomic",
-      "title": "batt::WatchAtomic",
-      "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::MetricExporter",
-          "refid": "classbatt_1_1MetricExporter",
-          "url": "/_autogen/Classes/classbatt_1_1MetricExporter/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::WatchExporter",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::WatchExporter",
-      "refid": "classbatt_1_1WatchExporter",
-      "title": "batt::WatchExporter",
-      "url": "/_autogen/Classes/classbatt_1_1WatchExporter/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "derivedClasses": [
-        {
-          "external": false,
-          "name": "batt::ScopedWorkContext",
-          "refid": "classbatt_1_1ScopedWorkContext",
-          "url": "/_autogen/Classes/classbatt_1_1ScopedWorkContext/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "fullname": "batt::WorkContext",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::WorkContext",
-      "refid": "classbatt_1_1WorkContext",
-      "title": "batt::WorkContext",
-      "url": "/_autogen/Classes/classbatt_1_1WorkContext/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::Worker",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Worker",
-      "refid": "classbatt_1_1Worker",
-      "title": "batt::Worker",
-      "url": "/_autogen/Classes/classbatt_1_1Worker/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::WorkerPool",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::WorkerPool",
-      "refid": "classbatt_1_1WorkerPool",
-      "title": "batt::WorkerPool",
-      "url": "/_autogen/Classes/classbatt_1_1WorkerPool/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::WorkSliceParams",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::WorkSliceParams",
-      "refid": "structbatt_1_1WorkSliceParams",
-      "title": "batt::WorkSliceParams",
-      "url": "/_autogen/Classes/structbatt_1_1WorkSliceParams/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::WorkSlicePlan",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::WorkSlicePlan",
-      "refid": "structbatt_1_1WorkSlicePlan",
-      "title": "batt::WorkSlicePlan",
-      "url": "/_autogen/Classes/structbatt_1_1WorkSlicePlan/",
       "visibility": "public"
     }
   ],
@@ -3999,7 +3981,7 @@
     {
       "abstract": false,
       "anchor": "#function-strong-typedef-default-value",
-      "argsString": "(BATT_STRONG_TYPEDEF_PASTE_(PartsCount, _TAG) *)",
+      "argsString": "(PartsCount_TAG *)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -4024,12 +4006,12 @@
       "params": [
         {
           "name": "",
-          "type": "BATT_STRONG_TYPEDEF_PASTE_([PartsCount](/_autogen/Classes/classbatt_1_1StrongType/), _TAG) *",
-          "typePlain": "BATT_STRONG_TYPEDEF_PASTE_(PartsCount, _TAG) *"
+          "type": "PartsCount_TAG *",
+          "typePlain": "PartsCount_TAG *"
         }
       ],
       "pureVirtual": false,
-      "refid": "running__total_8hpp_1a3dfc4f6fd119ce7ac8ba176db88c011e",
+      "refid": "running__total_8hpp_1a51b60dbdea6e3f565d49f32ab2a50882",
       "static": false,
       "strong": false,
       "title": "strong_typedef_default_value",
@@ -4042,7 +4024,7 @@
     {
       "abstract": false,
       "anchor": "#function-strong-typedef-default-value",
-      "argsString": "(BATT_STRONG_TYPEDEF_PASTE_(PartSize, _TAG) *)",
+      "argsString": "(PartSize_TAG *)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -4067,12 +4049,12 @@
       "params": [
         {
           "name": "",
-          "type": "BATT_STRONG_TYPEDEF_PASTE_([PartSize](/_autogen/Classes/classbatt_1_1StrongType/), _TAG) *",
-          "typePlain": "BATT_STRONG_TYPEDEF_PASTE_(PartSize, _TAG) *"
+          "type": "PartSize_TAG *",
+          "typePlain": "PartSize_TAG *"
         }
       ],
       "pureVirtual": false,
-      "refid": "running__total_8hpp_1a86f6431068632efa12d55ffe9cda7c31",
+      "refid": "running__total_8hpp_1a98b976c4f865a3f9366aaf8231192e45",
       "static": false,
       "strong": false,
       "title": "strong_typedef_default_value",
@@ -5099,8 +5081,53 @@
     },
     {
       "abstract": false,
+      "anchor": "#function-boost-pp-cat",
+      "argsString": "(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static BATT_MAYBE_UNUSED ::batt::StaticBinaryAssertion<decltype( sizeof(void*) * 3 ), decltype( sizeof(boost::context::stack_context) ), ( sizeof(void*) * 3 ), struct ::batt::Eq, ( sizeof(boost::context::stack_context) ), (( sizeof(void*) * 3 ) == ( sizeof(boost::context::stack_context) ))> batt::BOOST_PP_CAT",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BOOST_PP_CAT",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 58,
+        "file": "batteries/async/continuation.hpp",
+        "line": 105
+      },
+      "name": "BOOST_PP_CAT",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__)",
+          "typePlain": "BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__)"
+        },
+        {
+          "name": "",
+          "type": "__COUNTER__",
+          "typePlain": "__COUNTER__"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "continuation_8hpp_1a942eaef502f9da71432d34617b48a9eb",
+      "static": true,
+      "strong": false,
+      "title": "BOOST_PP_CAT",
+      "type": "BATT_MAYBE_UNUSED ::[batt::StaticBinaryAssertion](/_autogen/Classes/structbatt_1_1StaticBinaryAssertion/)< decltype(sizeof(void *) *3), decltype(sizeof(boost::context::stack_context)),(sizeof(void *) *3), struct ::batt::Eq,(sizeof(boost::context::stack_context)),((sizeof(void *) *3)==(sizeof(boost::context::stack_context)))>",
+      "typePlain": "BATT_MAYBE_UNUSED ::batt::StaticBinaryAssertion< decltype(sizeof(void *) *3), decltype(sizeof(boost::context::stack_context)),(sizeof(void *) *3), struct ::batt::Eq,(sizeof(boost::context::stack_context)),((sizeof(void *) *3)==(sizeof(boost::context::stack_context)))>",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-boost-pp-cat",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#function-strong-typedef-default-value",
-      "argsString": "(BATT_STRONG_TYPEDEF_PASTE_(StackSize, _TAG) *)",
+      "argsString": "(StackSize_TAG *)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -5125,12 +5152,12 @@
       "params": [
         {
           "name": "",
-          "type": "BATT_STRONG_TYPEDEF_PASTE_([StackSize](/_autogen/Classes/classbatt_1_1StrongType/), _TAG) *",
-          "typePlain": "BATT_STRONG_TYPEDEF_PASTE_(StackSize, _TAG) *"
+          "type": "StackSize_TAG *",
+          "typePlain": "StackSize_TAG *"
         }
       ],
       "pureVirtual": false,
-      "refid": "continuation_8hpp_1ae3e0b9c9a33fe4f8382349e83a95c4ff",
+      "refid": "continuation_8hpp_1a8055558a50b9422869c0c6340382689c",
       "static": false,
       "strong": false,
       "title": "strong_typedef_default_value",
@@ -5720,6 +5747,102 @@
     },
     {
       "abstract": false,
+      "anchor": "#function-operator<=",
+      "argsString": "(const FakeTimeService::TimerInstance &l, const FakeTimeService::TimerInstance &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator<=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator<=",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 139,
+        "bodyFile": "batteries/async/fake_time_service_decl.hpp",
+        "bodyStart": 139,
+        "column": 68,
+        "file": "batteries/async/fake_time_service_decl.hpp",
+        "line": 139
+      },
+      "name": "operator<=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [FakeTimeService::TimerInstance](/_autogen/Classes/structbatt_1_1FakeTimeService_1_1TimerInstance/) &",
+          "typePlain": "const FakeTimeService::TimerInstance &"
+        },
+        {
+          "name": "r",
+          "type": "const [FakeTimeService::TimerInstance](/_autogen/Classes/structbatt_1_1FakeTimeService_1_1TimerInstance/) &",
+          "typePlain": "const FakeTimeService::TimerInstance &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "fake__time__service__decl_8hpp_1a525eeb166fefbffead93b84eadade80e",
+      "static": false,
+      "strong": false,
+      "title": "operator<=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator<=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator>=",
+      "argsString": "(const FakeTimeService::TimerInstance &l, const FakeTimeService::TimerInstance &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator>=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator>=",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 139,
+        "bodyFile": "batteries/async/fake_time_service_decl.hpp",
+        "bodyStart": 139,
+        "column": 135,
+        "file": "batteries/async/fake_time_service_decl.hpp",
+        "line": 139
+      },
+      "name": "operator>=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [FakeTimeService::TimerInstance](/_autogen/Classes/structbatt_1_1FakeTimeService_1_1TimerInstance/) &",
+          "typePlain": "const FakeTimeService::TimerInstance &"
+        },
+        {
+          "name": "r",
+          "type": "const [FakeTimeService::TimerInstance](/_autogen/Classes/structbatt_1_1FakeTimeService_1_1TimerInstance/) &",
+          "typePlain": "const FakeTimeService::TimerInstance &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "fake__time__service__decl_8hpp_1ac7504afc81e13923916f295973724930",
+      "static": false,
+      "strong": false,
+      "title": "operator>=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator>=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#function-get-future",
       "argsString": "(const Promise< T > &promise)",
       "category": "functions",
@@ -5813,6 +5936,51 @@
       "type": "std::ostream &",
       "typePlain": "std::ostream &",
       "url": "/_autogen/Namespaces/namespacebatt/#function-operator<<",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-boost-pp-cat",
+      "argsString": "(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static BATT_MAYBE_UNUSED ::batt::StaticBinaryAssertion<decltype( sizeof(UniqueHandler<>) ), decltype( sizeof(void*) ), ( sizeof(UniqueHandler<>) ), struct ::batt::Eq, ( sizeof(void*) ), (( sizeof(UniqueHandler<>) ) == ( sizeof(void*) ))> batt::BOOST_PP_CAT",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BOOST_PP_CAT",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 58,
+        "file": "batteries/async/handler.hpp",
+        "line": 192
+      },
+      "name": "BOOST_PP_CAT",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__)",
+          "typePlain": "BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__)"
+        },
+        {
+          "name": "",
+          "type": "__COUNTER__",
+          "typePlain": "__COUNTER__"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "handler_8hpp_1a2a2cce7c31680885489952e1d53922f5",
+      "static": true,
+      "strong": false,
+      "title": "BOOST_PP_CAT",
+      "type": "BATT_MAYBE_UNUSED ::[batt::StaticBinaryAssertion](/_autogen/Classes/structbatt_1_1StaticBinaryAssertion/)< decltype(sizeof([UniqueHandler](/_autogen/Classes/classbatt_1_1UniqueHandler/)<>)), decltype(sizeof(void *)),(sizeof([UniqueHandler](/_autogen/Classes/classbatt_1_1UniqueHandler/)<>)), struct ::batt::Eq,(sizeof(void *)),((sizeof([UniqueHandler](/_autogen/Classes/classbatt_1_1UniqueHandler/)<>))==(sizeof(void *)))>",
+      "typePlain": "BATT_MAYBE_UNUSED ::batt::StaticBinaryAssertion< decltype(sizeof(UniqueHandler<>)), decltype(sizeof(void *)),(sizeof(UniqueHandler<>)), struct ::batt::Eq,(sizeof(void *)),((sizeof(UniqueHandler<>))==(sizeof(void *)))>",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-boost-pp-cat",
       "virtual": false,
       "visibility": "public"
     },
@@ -6742,7 +6910,7 @@
     {
       "abstract": false,
       "anchor": "#function-strong-typedef-default-value",
-      "argsString": "(BATT_STRONG_TYPEDEF_PASTE_(TaskCount, _TAG) *)",
+      "argsString": "(TaskCount_TAG *)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -6767,12 +6935,12 @@
       "params": [
         {
           "name": "",
-          "type": "BATT_STRONG_TYPEDEF_PASTE_([TaskCount](/_autogen/Classes/classbatt_1_1StrongType/), _TAG) *",
-          "typePlain": "BATT_STRONG_TYPEDEF_PASTE_(TaskCount, _TAG) *"
+          "type": "TaskCount_TAG *",
+          "typePlain": "TaskCount_TAG *"
         }
       ],
       "pureVirtual": false,
-      "refid": "slice__work_8hpp_1afb910f8ac915d72ceb3e9a9c1222dc84",
+      "refid": "slice__work_8hpp_1a95c375259c635789d586d0e0a8a84977",
       "static": false,
       "strong": false,
       "title": "strong_typedef_default_value",
@@ -6785,7 +6953,7 @@
     {
       "abstract": false,
       "anchor": "#function-strong-typedef-default-value",
-      "argsString": "(BATT_STRONG_TYPEDEF_PASTE_(InputSize, _TAG) *)",
+      "argsString": "(InputSize_TAG *)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -6810,12 +6978,12 @@
       "params": [
         {
           "name": "",
-          "type": "BATT_STRONG_TYPEDEF_PASTE_([InputSize](/_autogen/Classes/classbatt_1_1StrongType/), _TAG) *",
-          "typePlain": "BATT_STRONG_TYPEDEF_PASTE_(InputSize, _TAG) *"
+          "type": "InputSize_TAG *",
+          "typePlain": "InputSize_TAG *"
         }
       ],
       "pureVirtual": false,
-      "refid": "slice__work_8hpp_1aed086c3e3b827e42c53ccc5335bec805",
+      "refid": "slice__work_8hpp_1ace06c4d3db3c218f73bd4ad0ee532985",
       "static": false,
       "strong": false,
       "title": "strong_typedef_default_value",
@@ -6828,7 +6996,7 @@
     {
       "abstract": false,
       "anchor": "#function-strong-typedef-default-value",
-      "argsString": "(BATT_STRONG_TYPEDEF_PASTE_(TaskSize, _TAG) *)",
+      "argsString": "(TaskSize_TAG *)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -6853,12 +7021,12 @@
       "params": [
         {
           "name": "",
-          "type": "BATT_STRONG_TYPEDEF_PASTE_([TaskSize](/_autogen/Classes/classbatt_1_1StrongType/), _TAG) *",
-          "typePlain": "BATT_STRONG_TYPEDEF_PASTE_(TaskSize, _TAG) *"
+          "type": "TaskSize_TAG *",
+          "typePlain": "TaskSize_TAG *"
         }
       ],
       "pureVirtual": false,
-      "refid": "slice__work_8hpp_1afc74c435f87126e70ed63c222eafb45d",
+      "refid": "slice__work_8hpp_1a01cc4222e7305a4799fe12095376f079",
       "static": false,
       "strong": false,
       "title": "strong_typedef_default_value",
@@ -6871,7 +7039,7 @@
     {
       "abstract": false,
       "anchor": "#function-strong-typedef-default-value",
-      "argsString": "(BATT_STRONG_TYPEDEF_PASTE_(TaskIndex, _TAG) *)",
+      "argsString": "(TaskIndex_TAG *)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -6896,12 +7064,12 @@
       "params": [
         {
           "name": "",
-          "type": "BATT_STRONG_TYPEDEF_PASTE_([TaskIndex](/_autogen/Classes/classbatt_1_1StrongType/), _TAG) *",
-          "typePlain": "BATT_STRONG_TYPEDEF_PASTE_(TaskIndex, _TAG) *"
+          "type": "TaskIndex_TAG *",
+          "typePlain": "TaskIndex_TAG *"
         }
       ],
       "pureVirtual": false,
-      "refid": "slice__work_8hpp_1acae95a76c9015f9b11d5b840b5d75c59",
+      "refid": "slice__work_8hpp_1a7709aaf96ec03aaf931c576c9f02421f",
       "static": false,
       "strong": false,
       "title": "strong_typedef_default_value",
@@ -6914,7 +7082,7 @@
     {
       "abstract": false,
       "anchor": "#function-strong-typedef-default-value",
-      "argsString": "(BATT_STRONG_TYPEDEF_PASTE_(TaskOffset, _TAG) *)",
+      "argsString": "(TaskOffset_TAG *)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -6939,12 +7107,12 @@
       "params": [
         {
           "name": "",
-          "type": "BATT_STRONG_TYPEDEF_PASTE_([TaskOffset](/_autogen/Classes/classbatt_1_1StrongType/), _TAG) *",
-          "typePlain": "BATT_STRONG_TYPEDEF_PASTE_(TaskOffset, _TAG) *"
+          "type": "TaskOffset_TAG *",
+          "typePlain": "TaskOffset_TAG *"
         }
       ],
       "pureVirtual": false,
-      "refid": "slice__work_8hpp_1adae6fee2cfa5790cd6a14e46c324af65",
+      "refid": "slice__work_8hpp_1ac427f9b203759097887eb1ec90021f56",
       "static": false,
       "strong": false,
       "title": "strong_typedef_default_value",
@@ -8547,40 +8715,121 @@
     },
     {
       "abstract": false,
-      "anchor": "#function-batt-unwrap",
-      "argsString": "(template< typename T, typename U > inline) bool operator<",
+      "anchor": "#function-operator<=",
+      "argsString": "(const T &l, const LeastUpperBound< U > &r)",
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "batt::BATT_UNWRAP",
+      "definition": "bool batt::operator<=",
       "deleted": false,
       "explicit": false,
-      "fullname": "batt::BATT_UNWRAP",
-      "hasDetails": false,
-      "initializer": "=(const  LeastUpperBound<T> & l, const  U & r)   {   return !(l > r);   }   BATT_UNWRAP  (template <typename T, typename U> inline)  bool operator>=(const  LeastUpperBound<T> & l, const  U & r)   {   return !(l < r);   }\n template <typename T",
-      "inline": false,
+      "fullname": "batt::operator<=",
+      "hasDetails": true,
+      "inline": true,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "column": 72,
+        "bodyEnd": 115,
+        "bodyFile": "batteries/bounds.hpp",
+        "bodyStart": 115,
+        "column": 96,
         "file": "batteries/bounds.hpp",
         "line": 115
       },
-      "name": "BATT_UNWRAP",
+      "name": "operator<=",
       "override": false,
       "params": [
         {
-          "name": "inline",
-          "type": "template< typename T, typename U >",
-          "typePlain": "template< typename T, typename U >"
+          "name": "l",
+          "type": "const T &",
+          "typePlain": "const T &"
+        },
+        {
+          "name": "r",
+          "type": "const [LeastUpperBound](/_autogen/Classes/structbatt_1_1LeastUpperBound/)< U > &",
+          "typePlain": "const LeastUpperBound< U > &"
         }
       ],
       "pureVirtual": false,
-      "refid": "bounds_8hpp_1a33b48e8eed15af1c62bf4ba486570218",
+      "refid": "bounds_8hpp_1a1cb893350b9a1cd9d716b531b9d882ca",
       "static": false,
       "strong": false,
-      "title": "BATT_UNWRAP",
-      "url": "/_autogen/Namespaces/namespacebatt/#function-batt-unwrap",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "operator<=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator<=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator>=",
+      "argsString": "(const T &l, const LeastUpperBound< U > &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator>=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator>=",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 115,
+        "bodyFile": "batteries/bounds.hpp",
+        "bodyStart": 115,
+        "column": 177,
+        "file": "batteries/bounds.hpp",
+        "line": 115
+      },
+      "name": "operator>=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const T &",
+          "typePlain": "const T &"
+        },
+        {
+          "name": "r",
+          "type": "const [LeastUpperBound](/_autogen/Classes/structbatt_1_1LeastUpperBound/)< U > &",
+          "typePlain": "const LeastUpperBound< U > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bounds_8hpp_1a109a73164d406f3e1940fa5f827e1c91",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "operator>=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator>=",
       "virtual": false,
       "visibility": "public"
     },
@@ -8591,11 +8840,11 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "U bool batt::operator>",
+      "definition": "bool batt::operator>",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::operator>",
-      "hasDetails": false,
+      "hasDetails": true,
       "inline": true,
       "kind": "function",
       "language": "cpp",
@@ -8603,7 +8852,7 @@
         "bodyEnd": 116,
         "bodyFile": "batteries/bounds.hpp",
         "bodyStart": 116,
-        "column": 27,
+        "column": 30,
         "file": "batteries/bounds.hpp",
         "line": 116
       },
@@ -8622,13 +8871,145 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "bounds_8hpp_1a64ca78257a5a50c0e8ad395543f113f0",
+      "refid": "bounds_8hpp_1a7ca14af2dd86e390a802d0e793179ffe",
       "static": false,
       "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
       "title": "operator>",
-      "type": "U bool",
-      "typePlain": "U bool",
+      "type": "bool",
+      "typePlain": "bool",
       "url": "/_autogen/Namespaces/namespacebatt/#function-operator>",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator<=",
+      "argsString": "(const LeastUpperBound< T > &l, const U &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator<=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator<=",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 116,
+        "bodyFile": "batteries/bounds.hpp",
+        "bodyStart": 116,
+        "column": 96,
+        "file": "batteries/bounds.hpp",
+        "line": 116
+      },
+      "name": "operator<=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [LeastUpperBound](/_autogen/Classes/structbatt_1_1LeastUpperBound/)< T > &",
+          "typePlain": "const LeastUpperBound< T > &"
+        },
+        {
+          "name": "r",
+          "type": "const U &",
+          "typePlain": "const U &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bounds_8hpp_1af9d41bd7bc0130ffec57f88a3aea94a5",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "operator<=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator<=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator>=",
+      "argsString": "(const LeastUpperBound< T > &l, const U &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator>=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator>=",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 116,
+        "bodyFile": "batteries/bounds.hpp",
+        "bodyStart": 116,
+        "column": 177,
+        "file": "batteries/bounds.hpp",
+        "line": 116
+      },
+      "name": "operator>=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [LeastUpperBound](/_autogen/Classes/structbatt_1_1LeastUpperBound/)< T > &",
+          "typePlain": "const LeastUpperBound< T > &"
+        },
+        {
+          "name": "r",
+          "type": "const U &",
+          "typePlain": "const U &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bounds_8hpp_1af2f7a4bbffaabc575ceb25e9663b03a1",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "operator>=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator>=",
       "virtual": false,
       "visibility": "public"
     },
@@ -8639,11 +9020,11 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "U bool batt::operator>",
+      "definition": "bool batt::operator>",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::operator>",
-      "hasDetails": false,
+      "hasDetails": true,
       "inline": true,
       "kind": "function",
       "language": "cpp",
@@ -8651,7 +9032,7 @@
         "bodyEnd": 117,
         "bodyFile": "batteries/bounds.hpp",
         "bodyStart": 117,
-        "column": 27,
+        "column": 30,
         "file": "batteries/bounds.hpp",
         "line": 117
       },
@@ -8670,13 +9051,145 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "bounds_8hpp_1a82033ffd68294d0cd3435141d274502e",
+      "refid": "bounds_8hpp_1a92b53efe32ecb5757f26d3ccab8425c4",
       "static": false,
       "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
       "title": "operator>",
-      "type": "U bool",
-      "typePlain": "U bool",
+      "type": "bool",
+      "typePlain": "bool",
       "url": "/_autogen/Namespaces/namespacebatt/#function-operator>",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator<=",
+      "argsString": "(const LeastUpperBound< T > &l, const LeastUpperBound< U > &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator<=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator<=",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 117,
+        "bodyFile": "batteries/bounds.hpp",
+        "bodyStart": 117,
+        "column": 96,
+        "file": "batteries/bounds.hpp",
+        "line": 117
+      },
+      "name": "operator<=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [LeastUpperBound](/_autogen/Classes/structbatt_1_1LeastUpperBound/)< T > &",
+          "typePlain": "const LeastUpperBound< T > &"
+        },
+        {
+          "name": "r",
+          "type": "const [LeastUpperBound](/_autogen/Classes/structbatt_1_1LeastUpperBound/)< U > &",
+          "typePlain": "const LeastUpperBound< U > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bounds_8hpp_1a0104ea1da156590e20af6fcda3036bf0",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "operator<=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator<=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator>=",
+      "argsString": "(const LeastUpperBound< T > &l, const LeastUpperBound< U > &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator>=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator>=",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 117,
+        "bodyFile": "batteries/bounds.hpp",
+        "bodyStart": 117,
+        "column": 177,
+        "file": "batteries/bounds.hpp",
+        "line": 117
+      },
+      "name": "operator>=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [LeastUpperBound](/_autogen/Classes/structbatt_1_1LeastUpperBound/)< T > &",
+          "typePlain": "const LeastUpperBound< T > &"
+        },
+        {
+          "name": "r",
+          "type": "const [LeastUpperBound](/_autogen/Classes/structbatt_1_1LeastUpperBound/)< U > &",
+          "typePlain": "const LeastUpperBound< U > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bounds_8hpp_1afe2f486e7a7e24944d5719273de335e3",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "operator>=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator>=",
       "virtual": false,
       "visibility": "public"
     },
@@ -8687,11 +9200,11 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "U bool batt::operator!=",
+      "definition": "bool batt::operator!=",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::operator!=",
-      "hasDetails": false,
+      "hasDetails": true,
       "inline": true,
       "kind": "function",
       "language": "cpp",
@@ -8699,7 +9212,7 @@
         "bodyEnd": 119,
         "bodyFile": "batteries/bounds.hpp",
         "bodyStart": 119,
-        "column": 27,
+        "column": 30,
         "file": "batteries/bounds.hpp",
         "line": 119
       },
@@ -8718,12 +9231,24 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "bounds_8hpp_1ab60786a091c6359d3246aff0d25f1ca6",
+      "refid": "bounds_8hpp_1ada23b385b9ef351e34518227ca9f3382",
       "static": false,
       "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
       "title": "operator!=",
-      "type": "U bool",
-      "typePlain": "U bool",
+      "type": "bool",
+      "typePlain": "bool",
       "url": "/_autogen/Namespaces/namespacebatt/#function-operator!=",
       "virtual": false,
       "visibility": "public"
@@ -9325,16 +9850,136 @@
     },
     {
       "abstract": false,
+      "anchor": "#function-operator<=",
+      "argsString": "(const T &l, const GreatestLowerBound< U > &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator<=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator<=",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 180,
+        "bodyFile": "batteries/bounds.hpp",
+        "bodyStart": 180,
+        "column": 96,
+        "file": "batteries/bounds.hpp",
+        "line": 180
+      },
+      "name": "operator<=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const T &",
+          "typePlain": "const T &"
+        },
+        {
+          "name": "r",
+          "type": "const [GreatestLowerBound](/_autogen/Classes/structbatt_1_1GreatestLowerBound/)< U > &",
+          "typePlain": "const GreatestLowerBound< U > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bounds_8hpp_1a103cc3f6de2fe511c59af767a703c6a8",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "operator<=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator<=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator>=",
+      "argsString": "(const T &l, const GreatestLowerBound< U > &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator>=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator>=",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 180,
+        "bodyFile": "batteries/bounds.hpp",
+        "bodyStart": 180,
+        "column": 177,
+        "file": "batteries/bounds.hpp",
+        "line": 180
+      },
+      "name": "operator>=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const T &",
+          "typePlain": "const T &"
+        },
+        {
+          "name": "r",
+          "type": "const [GreatestLowerBound](/_autogen/Classes/structbatt_1_1GreatestLowerBound/)< U > &",
+          "typePlain": "const GreatestLowerBound< U > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bounds_8hpp_1adbb3d1c1135b3abdc2765d377ce35ade",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "operator>=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator>=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#function-operator>",
       "argsString": "(const GreatestLowerBound< T > &l, const U &r)",
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "U bool batt::operator>",
+      "definition": "bool batt::operator>",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::operator>",
-      "hasDetails": false,
+      "hasDetails": true,
       "inline": true,
       "kind": "function",
       "language": "cpp",
@@ -9342,7 +9987,7 @@
         "bodyEnd": 181,
         "bodyFile": "batteries/bounds.hpp",
         "bodyStart": 181,
-        "column": 27,
+        "column": 30,
         "file": "batteries/bounds.hpp",
         "line": 181
       },
@@ -9361,13 +10006,145 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "bounds_8hpp_1a729e246c43a3e14d57888b84ab440930",
+      "refid": "bounds_8hpp_1aed1da379b05406ad29fbb798c657d550",
       "static": false,
       "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
       "title": "operator>",
-      "type": "U bool",
-      "typePlain": "U bool",
+      "type": "bool",
+      "typePlain": "bool",
       "url": "/_autogen/Namespaces/namespacebatt/#function-operator>",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator<=",
+      "argsString": "(const GreatestLowerBound< T > &l, const U &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator<=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator<=",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 181,
+        "bodyFile": "batteries/bounds.hpp",
+        "bodyStart": 181,
+        "column": 96,
+        "file": "batteries/bounds.hpp",
+        "line": 181
+      },
+      "name": "operator<=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [GreatestLowerBound](/_autogen/Classes/structbatt_1_1GreatestLowerBound/)< T > &",
+          "typePlain": "const GreatestLowerBound< T > &"
+        },
+        {
+          "name": "r",
+          "type": "const U &",
+          "typePlain": "const U &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bounds_8hpp_1a3e13a8d9e15e3d6217c86ef0ce05b0da",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "operator<=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator<=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator>=",
+      "argsString": "(const GreatestLowerBound< T > &l, const U &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator>=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator>=",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 181,
+        "bodyFile": "batteries/bounds.hpp",
+        "bodyStart": 181,
+        "column": 177,
+        "file": "batteries/bounds.hpp",
+        "line": 181
+      },
+      "name": "operator>=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [GreatestLowerBound](/_autogen/Classes/structbatt_1_1GreatestLowerBound/)< T > &",
+          "typePlain": "const GreatestLowerBound< T > &"
+        },
+        {
+          "name": "r",
+          "type": "const U &",
+          "typePlain": "const U &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bounds_8hpp_1a3ee0b0b43f033a3765aafa63c5da8533",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "operator>=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator>=",
       "virtual": false,
       "visibility": "public"
     },
@@ -9378,11 +10155,11 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "U bool batt::operator>",
+      "definition": "bool batt::operator>",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::operator>",
-      "hasDetails": false,
+      "hasDetails": true,
       "inline": true,
       "kind": "function",
       "language": "cpp",
@@ -9390,7 +10167,7 @@
         "bodyEnd": 182,
         "bodyFile": "batteries/bounds.hpp",
         "bodyStart": 182,
-        "column": 27,
+        "column": 30,
         "file": "batteries/bounds.hpp",
         "line": 182
       },
@@ -9409,13 +10186,145 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "bounds_8hpp_1a7fb9dbc9968fae41223648d134193928",
+      "refid": "bounds_8hpp_1af6007ba6df57c745e0878d18d023723c",
       "static": false,
       "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
       "title": "operator>",
-      "type": "U bool",
-      "typePlain": "U bool",
+      "type": "bool",
+      "typePlain": "bool",
       "url": "/_autogen/Namespaces/namespacebatt/#function-operator>",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator<=",
+      "argsString": "(const GreatestLowerBound< T > &l, const GreatestLowerBound< U > &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator<=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator<=",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 182,
+        "bodyFile": "batteries/bounds.hpp",
+        "bodyStart": 182,
+        "column": 96,
+        "file": "batteries/bounds.hpp",
+        "line": 182
+      },
+      "name": "operator<=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [GreatestLowerBound](/_autogen/Classes/structbatt_1_1GreatestLowerBound/)< T > &",
+          "typePlain": "const GreatestLowerBound< T > &"
+        },
+        {
+          "name": "r",
+          "type": "const [GreatestLowerBound](/_autogen/Classes/structbatt_1_1GreatestLowerBound/)< U > &",
+          "typePlain": "const GreatestLowerBound< U > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bounds_8hpp_1ae4b7283b5544888398b2a52cd46ec897",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "operator<=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator<=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator>=",
+      "argsString": "(const GreatestLowerBound< T > &l, const GreatestLowerBound< U > &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator>=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator>=",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 182,
+        "bodyFile": "batteries/bounds.hpp",
+        "bodyStart": 182,
+        "column": 177,
+        "file": "batteries/bounds.hpp",
+        "line": 182
+      },
+      "name": "operator>=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [GreatestLowerBound](/_autogen/Classes/structbatt_1_1GreatestLowerBound/)< T > &",
+          "typePlain": "const GreatestLowerBound< T > &"
+        },
+        {
+          "name": "r",
+          "type": "const [GreatestLowerBound](/_autogen/Classes/structbatt_1_1GreatestLowerBound/)< U > &",
+          "typePlain": "const GreatestLowerBound< U > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bounds_8hpp_1a29d79840f831a0f3ba511300363564ec",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "operator>=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator>=",
       "virtual": false,
       "visibility": "public"
     },
@@ -9426,11 +10335,11 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "U bool batt::operator!=",
+      "definition": "bool batt::operator!=",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::operator!=",
-      "hasDetails": false,
+      "hasDetails": true,
       "inline": true,
       "kind": "function",
       "language": "cpp",
@@ -9438,7 +10347,7 @@
         "bodyEnd": 184,
         "bodyFile": "batteries/bounds.hpp",
         "bodyStart": 184,
-        "column": 27,
+        "column": 30,
         "file": "batteries/bounds.hpp",
         "line": 184
       },
@@ -9457,12 +10366,24 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "bounds_8hpp_1a98e855eee48933a31be82ead4b554dc9",
+      "refid": "bounds_8hpp_1aeb86505c35a9b40c64b35c997f7a00e7",
       "static": false,
       "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
       "title": "operator!=",
-      "type": "U bool",
-      "typePlain": "U bool",
+      "type": "bool",
+      "typePlain": "bool",
       "url": "/_autogen/Namespaces/namespacebatt/#function-operator!=",
       "virtual": false,
       "visibility": "public"
@@ -12287,7 +13208,7 @@
     {
       "abstract": false,
       "anchor": "#function-strong-typedef-default-value",
-      "argsString": "(BATT_STRONG_TYPEDEF_PASTE_(IncludeHttpTrailer, _TAG) *)",
+      "argsString": "(IncludeHttpTrailer_TAG *)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -12312,12 +13233,12 @@
       "params": [
         {
           "name": "",
-          "type": "BATT_STRONG_TYPEDEF_PASTE_([IncludeHttpTrailer](/_autogen/Classes/classbatt_1_1StrongType/), _TAG) *",
-          "typePlain": "BATT_STRONG_TYPEDEF_PASTE_(IncludeHttpTrailer, _TAG) *"
+          "type": "IncludeHttpTrailer_TAG *",
+          "typePlain": "IncludeHttpTrailer_TAG *"
         }
       ],
       "pureVirtual": false,
-      "refid": "http__data_8hpp_1ab302b58dd590d36764a7bd2ec54610a2",
+      "refid": "http__data_8hpp_1ad27e057a2d8bd9751de7b822d188d032",
       "static": false,
       "strong": false,
       "title": "strong_typedef_default_value",
@@ -20433,7 +21354,7 @@
         "bodyEnd": 115,
         "bodyFile": "batteries/async/continuation.hpp",
         "bodyStart": 110,
-        "column": 22,
+        "column": 1,
         "file": "batteries/async/continuation.hpp",
         "line": 110
       },
@@ -20494,7 +21415,7 @@
         "bodyEnd": 12,
         "bodyFile": "batteries/async/types.hpp",
         "bodyStart": 9,
-        "column": 28,
+        "column": 1,
         "file": "batteries/async/types.hpp",
         "line": 9
       },
@@ -20557,7 +21478,7 @@
         "bodyEnd": 14,
         "bodyFile": "batteries/bounds.hpp",
         "bodyStart": 14,
-        "column": 32,
+        "column": 1,
         "file": "batteries/bounds.hpp",
         "line": 14
       },
@@ -20620,7 +21541,7 @@
         "bodyEnd": 15,
         "bodyFile": "batteries/bounds.hpp",
         "bodyStart": 15,
-        "column": 32,
+        "column": 1,
         "file": "batteries/bounds.hpp",
         "line": 15
       },
@@ -20998,7 +21919,7 @@
         "bodyEnd": 74,
         "bodyFile": "batteries/status.hpp",
         "bodyStart": 47,
-        "column": 22,
+        "column": 1,
         "file": "batteries/status.hpp",
         "line": 47
       },
@@ -21030,7 +21951,7 @@
         "bodyEnd": 76,
         "bodyFile": "batteries/status.hpp",
         "bodyStart": 76,
-        "column": 16,
+        "column": 1,
         "file": "batteries/status.hpp",
         "line": 76
       },
@@ -21145,7 +22066,7 @@
         "bodyEnd": 776,
         "bodyFile": "batteries/status.hpp",
         "bodyStart": 776,
-        "column": 21,
+        "column": 1,
         "file": "batteries/status.hpp",
         "line": 776
       },
@@ -21218,7 +22139,7 @@
         "bodyEnd": 572,
         "bodyFile": "batteries/stream_util.hpp",
         "bodyStart": 572,
-        "column": 19,
+        "column": 1,
         "file": "batteries/stream_util.hpp",
         "line": 572
       },
@@ -21236,7 +22157,7 @@
       "anchor": "#using-partscount",
       "category": "types",
       "const": false,
-      "definition": "using batt::PartsCount = typedef ::batt::StrongType< usize , BATT_STRONG_TYPEDEF_PASTE_( PartsCount , _TAG)>",
+      "definition": "using batt::PartsCount = typedef ::batt::StrongType< usize , PartsCount_TAG >",
       "explicit": false,
       "fullname": "batt::PartsCount",
       "hasDetails": false,
@@ -21246,18 +22167,18 @@
       "location": {
         "bodyFile": "batteries/algo/running_total.hpp",
         "bodyStart": 24,
-        "column": 91,
+        "column": 93,
         "file": "batteries/algo/running_total.hpp",
         "line": 24
       },
       "name": "PartsCount",
       "override": false,
-      "refid": "running__total_8hpp_1a7bbcdc96ea1461a8ec87312ad31bf295",
+      "refid": "running__total_8hpp_1a9100470d8a331ae2f14434a17b7a198b",
       "static": false,
       "strong": false,
       "title": "PartsCount",
-      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< usize, BATT_STRONG_TYPEDEF_PASTE_([PartsCount](/_autogen/Classes/classbatt_1_1StrongType/), _TAG)>",
-      "typePlain": "::batt::StrongType< usize, BATT_STRONG_TYPEDEF_PASTE_(PartsCount, _TAG)>",
+      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< usize, PartsCount_TAG >",
+      "typePlain": "::batt::StrongType< usize, PartsCount_TAG >",
       "url": "/_autogen/Namespaces/namespacebatt/#using-partscount",
       "visibility": "public"
     },
@@ -21266,7 +22187,7 @@
       "anchor": "#using-partsize",
       "category": "types",
       "const": false,
-      "definition": "using batt::PartSize = typedef ::batt::StrongType< usize , BATT_STRONG_TYPEDEF_PASTE_( PartSize , _TAG)>",
+      "definition": "using batt::PartSize = typedef ::batt::StrongType< usize , PartSize_TAG >",
       "explicit": false,
       "fullname": "batt::PartSize",
       "hasDetails": false,
@@ -21276,18 +22197,18 @@
       "location": {
         "bodyFile": "batteries/algo/running_total.hpp",
         "bodyStart": 25,
-        "column": 91,
+        "column": 93,
         "file": "batteries/algo/running_total.hpp",
         "line": 25
       },
       "name": "PartSize",
       "override": false,
-      "refid": "running__total_8hpp_1a7b0f532353b5567e66c5167f49e01f1a",
+      "refid": "running__total_8hpp_1a096a16053e509b5d7b5adb6472f3575b",
       "static": false,
       "strong": false,
       "title": "PartSize",
-      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< usize, BATT_STRONG_TYPEDEF_PASTE_([PartSize](/_autogen/Classes/classbatt_1_1StrongType/), _TAG)>",
-      "typePlain": "::batt::StrongType< usize, BATT_STRONG_TYPEDEF_PASTE_(PartSize, _TAG)>",
+      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< usize, PartSize_TAG >",
+      "typePlain": "::batt::StrongType< usize, PartSize_TAG >",
       "url": "/_autogen/Namespaces/namespacebatt/#using-partsize",
       "visibility": "public"
     },
@@ -21474,7 +22395,7 @@
       "anchor": "#using-stacksize",
       "category": "types",
       "const": false,
-      "definition": "using batt::StackSize = typedef ::batt::StrongType< usize , BATT_STRONG_TYPEDEF_PASTE_( StackSize , _TAG)>",
+      "definition": "using batt::StackSize = typedef ::batt::StrongType< usize , StackSize_TAG >",
       "explicit": false,
       "fullname": "batt::StackSize",
       "hasDetails": false,
@@ -21484,18 +22405,18 @@
       "location": {
         "bodyFile": "batteries/async/continuation.hpp",
         "bodyStart": 117,
-        "column": 91,
+        "column": 93,
         "file": "batteries/async/continuation.hpp",
         "line": 117
       },
       "name": "StackSize",
       "override": false,
-      "refid": "continuation_8hpp_1ab193b8fa5ec7aaf6b4947bf8576d78bc",
+      "refid": "continuation_8hpp_1a700f9a243b7a22fe9f6e791e25469b8e",
       "static": false,
       "strong": false,
       "title": "StackSize",
-      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< usize, BATT_STRONG_TYPEDEF_PASTE_([StackSize](/_autogen/Classes/classbatt_1_1StrongType/), _TAG)>",
-      "typePlain": "::batt::StrongType< usize, BATT_STRONG_TYPEDEF_PASTE_(StackSize, _TAG)>",
+      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< usize, StackSize_TAG >",
+      "typePlain": "::batt::StrongType< usize, StackSize_TAG >",
       "url": "/_autogen/Namespaces/namespacebatt/#using-stacksize",
       "visibility": "public"
     },
@@ -21631,7 +22552,7 @@
       "anchor": "#using-taskcount",
       "category": "types",
       "const": false,
-      "definition": "using batt::TaskCount = typedef ::batt::StrongType< usize , BATT_STRONG_TYPEDEF_PASTE_( TaskCount , _TAG)>",
+      "definition": "using batt::TaskCount = typedef ::batt::StrongType< usize , TaskCount_TAG >",
       "explicit": false,
       "fullname": "batt::TaskCount",
       "hasDetails": false,
@@ -21641,18 +22562,18 @@
       "location": {
         "bodyFile": "batteries/async/slice_work.hpp",
         "bodyStart": 21,
-        "column": 91,
+        "column": 93,
         "file": "batteries/async/slice_work.hpp",
         "line": 21
       },
       "name": "TaskCount",
       "override": false,
-      "refid": "slice__work_8hpp_1aa15f2cc00f75c4d2a22bf72eb99552b4",
+      "refid": "slice__work_8hpp_1a67f57287e4b560a6e088ebdb2aee23b6",
       "static": false,
       "strong": false,
       "title": "TaskCount",
-      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< usize, BATT_STRONG_TYPEDEF_PASTE_([TaskCount](/_autogen/Classes/classbatt_1_1StrongType/), _TAG)>",
-      "typePlain": "::batt::StrongType< usize, BATT_STRONG_TYPEDEF_PASTE_(TaskCount, _TAG)>",
+      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< usize, TaskCount_TAG >",
+      "typePlain": "::batt::StrongType< usize, TaskCount_TAG >",
       "url": "/_autogen/Namespaces/namespacebatt/#using-taskcount",
       "visibility": "public"
     },
@@ -21661,7 +22582,7 @@
       "anchor": "#using-inputsize",
       "category": "types",
       "const": false,
-      "definition": "using batt::InputSize = typedef ::batt::StrongType< usize , BATT_STRONG_TYPEDEF_PASTE_( InputSize , _TAG)>",
+      "definition": "using batt::InputSize = typedef ::batt::StrongType< usize , InputSize_TAG >",
       "explicit": false,
       "fullname": "batt::InputSize",
       "hasDetails": false,
@@ -21671,18 +22592,18 @@
       "location": {
         "bodyFile": "batteries/async/slice_work.hpp",
         "bodyStart": 22,
-        "column": 91,
+        "column": 93,
         "file": "batteries/async/slice_work.hpp",
         "line": 22
       },
       "name": "InputSize",
       "override": false,
-      "refid": "slice__work_8hpp_1adc964c75fb9e92fdc93fac5385d4cfe6",
+      "refid": "slice__work_8hpp_1acba077cc3e778e1b2c3e8a9cbab4b9b3",
       "static": false,
       "strong": false,
       "title": "InputSize",
-      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< usize, BATT_STRONG_TYPEDEF_PASTE_([InputSize](/_autogen/Classes/classbatt_1_1StrongType/), _TAG)>",
-      "typePlain": "::batt::StrongType< usize, BATT_STRONG_TYPEDEF_PASTE_(InputSize, _TAG)>",
+      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< usize, InputSize_TAG >",
+      "typePlain": "::batt::StrongType< usize, InputSize_TAG >",
       "url": "/_autogen/Namespaces/namespacebatt/#using-inputsize",
       "visibility": "public"
     },
@@ -21691,7 +22612,7 @@
       "anchor": "#using-tasksize",
       "category": "types",
       "const": false,
-      "definition": "using batt::TaskSize = typedef ::batt::StrongType< usize , BATT_STRONG_TYPEDEF_PASTE_( TaskSize , _TAG)>",
+      "definition": "using batt::TaskSize = typedef ::batt::StrongType< usize , TaskSize_TAG >",
       "explicit": false,
       "fullname": "batt::TaskSize",
       "hasDetails": false,
@@ -21701,18 +22622,18 @@
       "location": {
         "bodyFile": "batteries/async/slice_work.hpp",
         "bodyStart": 23,
-        "column": 91,
+        "column": 93,
         "file": "batteries/async/slice_work.hpp",
         "line": 23
       },
       "name": "TaskSize",
       "override": false,
-      "refid": "slice__work_8hpp_1a33a43dc1080cc2a6cb3cf528e74e69f9",
+      "refid": "slice__work_8hpp_1ad5a990cbbd7af69573712eecf1a36a3f",
       "static": false,
       "strong": false,
       "title": "TaskSize",
-      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< usize, BATT_STRONG_TYPEDEF_PASTE_([TaskSize](/_autogen/Classes/classbatt_1_1StrongType/), _TAG)>",
-      "typePlain": "::batt::StrongType< usize, BATT_STRONG_TYPEDEF_PASTE_(TaskSize, _TAG)>",
+      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< usize, TaskSize_TAG >",
+      "typePlain": "::batt::StrongType< usize, TaskSize_TAG >",
       "url": "/_autogen/Namespaces/namespacebatt/#using-tasksize",
       "visibility": "public"
     },
@@ -21721,7 +22642,7 @@
       "anchor": "#using-taskindex",
       "category": "types",
       "const": false,
-      "definition": "using batt::TaskIndex = typedef ::batt::StrongType< usize , BATT_STRONG_TYPEDEF_PASTE_( TaskIndex , _TAG)>",
+      "definition": "using batt::TaskIndex = typedef ::batt::StrongType< usize , TaskIndex_TAG >",
       "explicit": false,
       "fullname": "batt::TaskIndex",
       "hasDetails": false,
@@ -21731,18 +22652,18 @@
       "location": {
         "bodyFile": "batteries/async/slice_work.hpp",
         "bodyStart": 24,
-        "column": 91,
+        "column": 93,
         "file": "batteries/async/slice_work.hpp",
         "line": 24
       },
       "name": "TaskIndex",
       "override": false,
-      "refid": "slice__work_8hpp_1ae1949ace2f9c01a6d7b80a2e990f5643",
+      "refid": "slice__work_8hpp_1a44ffcfd29a854ae5efa239377d166ff2",
       "static": false,
       "strong": false,
       "title": "TaskIndex",
-      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< usize, BATT_STRONG_TYPEDEF_PASTE_([TaskIndex](/_autogen/Classes/classbatt_1_1StrongType/), _TAG)>",
-      "typePlain": "::batt::StrongType< usize, BATT_STRONG_TYPEDEF_PASTE_(TaskIndex, _TAG)>",
+      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< usize, TaskIndex_TAG >",
+      "typePlain": "::batt::StrongType< usize, TaskIndex_TAG >",
       "url": "/_autogen/Namespaces/namespacebatt/#using-taskindex",
       "visibility": "public"
     },
@@ -21751,7 +22672,7 @@
       "anchor": "#using-taskoffset",
       "category": "types",
       "const": false,
-      "definition": "using batt::TaskOffset = typedef ::batt::StrongType< isize , BATT_STRONG_TYPEDEF_PASTE_( TaskOffset , _TAG)>",
+      "definition": "using batt::TaskOffset = typedef ::batt::StrongType< isize , TaskOffset_TAG >",
       "explicit": false,
       "fullname": "batt::TaskOffset",
       "hasDetails": false,
@@ -21761,18 +22682,18 @@
       "location": {
         "bodyFile": "batteries/async/slice_work.hpp",
         "bodyStart": 25,
-        "column": 91,
+        "column": 93,
         "file": "batteries/async/slice_work.hpp",
         "line": 25
       },
       "name": "TaskOffset",
       "override": false,
-      "refid": "slice__work_8hpp_1a4ac80f88443bef99d782925b4f0f7622",
+      "refid": "slice__work_8hpp_1abe2c9942bb38ea3cf56df5ecbee19f79",
       "static": false,
       "strong": false,
       "title": "TaskOffset",
-      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< isize, BATT_STRONG_TYPEDEF_PASTE_([TaskOffset](/_autogen/Classes/classbatt_1_1StrongType/), _TAG)>",
-      "typePlain": "::batt::StrongType< isize, BATT_STRONG_TYPEDEF_PASTE_(TaskOffset, _TAG)>",
+      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< isize, TaskOffset_TAG >",
+      "typePlain": "::batt::StrongType< isize, TaskOffset_TAG >",
       "url": "/_autogen/Namespaces/namespacebatt/#using-taskoffset",
       "visibility": "public"
     },
@@ -21841,7 +22762,7 @@
       "anchor": "#using-includehttptrailer",
       "category": "types",
       "const": false,
-      "definition": "using batt::IncludeHttpTrailer = typedef ::batt::StrongType< bool , BATT_STRONG_TYPEDEF_PASTE_( IncludeHttpTrailer , _TAG)>",
+      "definition": "using batt::IncludeHttpTrailer = typedef ::batt::StrongType< bool , IncludeHttpTrailer_TAG >",
       "explicit": false,
       "fullname": "batt::IncludeHttpTrailer",
       "hasDetails": false,
@@ -21851,18 +22772,18 @@
       "location": {
         "bodyFile": "batteries/http/http_data.hpp",
         "bodyStart": 57,
-        "column": 89,
+        "column": 91,
         "file": "batteries/http/http_data.hpp",
         "line": 57
       },
       "name": "IncludeHttpTrailer",
       "override": false,
-      "refid": "http__data_8hpp_1a9ec38ae76f2febba21b1cba8c3f5c7b1",
+      "refid": "http__data_8hpp_1a3a395ed1110e751bafc715c8e567eb15",
       "static": false,
       "strong": false,
       "title": "IncludeHttpTrailer",
-      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< bool, BATT_STRONG_TYPEDEF_PASTE_([IncludeHttpTrailer](/_autogen/Classes/classbatt_1_1StrongType/), _TAG)>",
-      "typePlain": "::batt::StrongType< bool, BATT_STRONG_TYPEDEF_PASTE_(IncludeHttpTrailer, _TAG)>",
+      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< bool, IncludeHttpTrailer_TAG >",
+      "typePlain": "::batt::StrongType< bool, IncludeHttpTrailer_TAG >",
       "url": "/_autogen/Namespaces/namespacebatt/#using-includehttptrailer",
       "visibility": "public"
     },

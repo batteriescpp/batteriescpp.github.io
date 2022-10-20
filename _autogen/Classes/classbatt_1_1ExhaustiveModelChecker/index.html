@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -672,7 +672,7 @@
 <td><strong><a href="/_autogen/Classes/classbatt_1_1ExhaustiveModelChecker/#using-visitresult">VisitResult</a></strong></td>
 </tr>
 <tr>
-<td>using ::<a href="/_autogen/Classes/classbatt_1_1StrongType/">batt::StrongType</a>&lt; bool, BATT_STRONG_TYPEDEF_PASTE_(<a href="/_autogen/Classes/classbatt_1_1StrongType/">ForceSend</a>, _TAG)&gt;</td>
+<td>using ::<a href="/_autogen/Classes/classbatt_1_1StrongType/">batt::StrongType</a>&lt; bool, ForceSend_TAG &gt;</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1ExhaustiveModelChecker/#using-forcesend">ForceSend</a></strong></td>
 </tr>
 </tbody>
@@ -688,7 +688,7 @@
 <tbody>
 <tr>
 <td>constexpr bool</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1ExhaustiveModelChecker/#function-strong-typedef-default-value">strong_typedef_default_value</a></strong>(BATT_STRONG_TYPEDEF_PASTE_(<a href="/_autogen/Classes/classbatt_1_1StrongType/">ForceSend</a>, _TAG) * )</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1ExhaustiveModelChecker/#function-strong-typedef-default-value">strong_typedef_default_value</a></strong>(ForceSend_TAG * )</td>
 </tr>
 <tr>
 <td></td>
@@ -736,14 +736,14 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">ExhaustiveModelChecker</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ModelT</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">VisitResult</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="k">typename</span><span class="w"> </span><span class="nc">StateMachineModel</span><span class="o">::</span><span class="n">VisitResult</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="using-forcesend">using ForceSend<a class="headerlink" href="#using-forcesend" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">ExhaustiveModelChecker</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ModelT</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">ForceSend</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="o">::</span><span class="n">batt</span><span class="o">::</span><span class="n">StrongType</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">BATT_STRONG_TYPEDEF_PASTE_</span><span class="p">(</span><span class="w"> </span><span class="n">ForceSend</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">_TAG</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">ExhaustiveModelChecker</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ModelT</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">ForceSend</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="o">::</span><span class="n">batt</span><span class="o">::</span><span class="n">StrongType</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ForceSend_TAG</span><span class="w"> </span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&#128279;</a></h2>
 <h3 id="function-strong_typedef_default_value">function strong_typedef_default_value<a class="headerlink" href="#function-strong_typedef_default_value" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
 <span class="normal"><a href="#__codelineno-9-2">2</a></span>
 <span class="normal"><a href="#__codelineno-9-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">strong_typedef_default_value</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="n">BATT_STRONG_TYPEDEF_PASTE_</span><span class="p">(</span><span class="n">ForceSend</span><span class="p">,</span><span class="w"> </span><span class="n">_TAG</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="n">ForceSend_TAG</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
 <a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="p">)</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-exhaustivemodelchecker">function ExhaustiveModelChecker<a class="headerlink" href="#function-exhaustivemodelchecker" title="Permanent link">&#128279;</a></h3>
@@ -773,7 +773,7 @@
 <a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="p">)</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 20 October 2022 at 13:54:46 UTC</p>
+<p>Updated on 20 October 2022 at 18:22:25 UTC</p>
 
 
 

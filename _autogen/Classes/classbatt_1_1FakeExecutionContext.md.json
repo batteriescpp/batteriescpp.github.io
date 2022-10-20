@@ -4,7 +4,7 @@
   "baseClasses": [
     {
       "external": true,
-      "name": "execution_context",
+      "name": "boost::asio::execution_context",
       "refid": null,
       "virtual": "non-virtual",
       "visibility": "public"
@@ -39,7 +39,13 @@
       },
       "name": "BasicFakeExecutor",
       "override": false,
-      "params": [],
+      "params": [
+        {
+          "name": "",
+          "type": "[BasicFakeExecutor](/_autogen/Classes/classbatt_1_1BasicFakeExecutor/)",
+          "typePlain": "BasicFakeExecutor"
+        }
+      ],
       "pureVirtual": false,
       "refid": "classbatt_1_1FakeExecutionContext_1aaa4aec80a4a49817a168131b85fe0bf0",
       "static": false,
@@ -68,10 +74,10 @@
   "location": {
     "bodyEnd": 91,
     "bodyFile": "batteries/async/fake_execution_context_decl.hpp",
-    "bodyStart": 30,
+    "bodyStart": 31,
     "column": 1,
     "file": "batteries/async/fake_execution_context_decl.hpp",
-    "line": 31
+    "line": 30
   },
   "name": "batt::FakeExecutionContext",
   "override": false,

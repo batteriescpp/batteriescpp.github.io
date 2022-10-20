@@ -14,16 +14,34 @@
   "location": {
     "bodyEnd": 147,
     "bodyFile": "batteries/async/latch.hpp",
-    "bodyStart": 121,
+    "bodyStart": 122,
     "column": 1,
     "file": "batteries/async/latch.hpp",
-    "line": 122
+    "line": 121
   },
   "name": "batt::Latch::AsyncGetHandler",
   "override": false,
   "parent": {
     "anchor": "",
+    "baseClasses": [
+      {
+        "external": true,
+        "name": "RefCounted< Latch< T > >",
+        "virtual": "non-virtual",
+        "visibility": "public"
+      }
+    ],
     "category": "classes",
+    "derivedClasses": [
+      {
+        "external": false,
+        "name": "batt::detail::FutureImpl< T >",
+        "refid": "classbatt_1_1detail_1_1FutureImpl",
+        "url": "/_autogen/Classes/classbatt_1_1detail_1_1FutureImpl/",
+        "virtual": "non-virtual",
+        "visibility": "public"
+      }
+    ],
     "fullname": "batt::Latch",
     "kind": "class",
     "language": "cpp",
@@ -48,7 +66,25 @@
     },
     {
       "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "RefCounted< Latch< T > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::FutureImpl< T >",
+          "refid": "classbatt_1_1detail_1_1FutureImpl",
+          "url": "/_autogen/Classes/classbatt_1_1detail_1_1FutureImpl/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "fullname": "batt::Latch",
       "kind": "class",
       "language": "cpp",

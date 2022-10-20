@@ -12,7 +12,7 @@
   "kind": "namespace",
   "language": "cpp",
   "location": {
-    "column": 16,
+    "column": 1,
     "file": "batteries/algo/parallel_merge.hpp",
     "line": 18
   },
@@ -112,37 +112,97 @@
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::detail::AbstractCopyFn",
-      "kind": "class",
+      "fullname": "batt::detail::FirstPhase",
+      "kind": "struct",
       "language": "cpp",
-      "name": "batt::detail::AbstractCopyFn",
-      "refid": "classbatt_1_1detail_1_1AbstractCopyFn",
-      "title": "batt::detail::AbstractCopyFn",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AbstractCopyFn/",
+      "name": "batt::detail::FirstPhase",
+      "refid": "structbatt_1_1detail_1_1FirstPhase",
+      "title": "batt::detail::FirstPhase",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1FirstPhase/",
       "visibility": "public"
     },
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::detail::AbstractMoveFn",
-      "kind": "class",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::ThirdPhase",
+          "refid": "structbatt_1_1detail_1_1ThirdPhase",
+          "url": "/_autogen/Classes/structbatt_1_1detail_1_1ThirdPhase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::detail::SecondPhase",
+      "kind": "struct",
       "language": "cpp",
-      "name": "batt::detail::AbstractMoveFn",
-      "refid": "classbatt_1_1detail_1_1AbstractMoveFn",
-      "title": "batt::detail::AbstractMoveFn",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AbstractMoveFn/",
+      "name": "batt::detail::SecondPhase",
+      "refid": "structbatt_1_1detail_1_1SecondPhase",
+      "title": "batt::detail::SecondPhase",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1SecondPhase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::SecondPhase",
+          "refid": "structbatt_1_1detail_1_1SecondPhase",
+          "url": "/_autogen/Classes/structbatt_1_1detail_1_1SecondPhase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::ThirdPhase",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::ThirdPhase",
+      "refid": "structbatt_1_1detail_1_1ThirdPhase",
+      "title": "batt::detail::ThirdPhase",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1ThirdPhase/",
       "visibility": "public"
     },
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::detail::CopyFnImpl",
+      "fullname": "batt::detail::SigInfoHandler",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::detail::CopyFnImpl",
-      "refid": "classbatt_1_1detail_1_1CopyFnImpl",
-      "title": "batt::detail::CopyFnImpl",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1CopyFnImpl/",
+      "name": "batt::detail::SigInfoHandler",
+      "refid": "classbatt_1_1detail_1_1SigInfoHandler",
+      "title": "batt::detail::SigInfoHandler",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1SigInfoHandler/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::Latch< T >",
+          "refid": "classbatt_1_1Latch",
+          "url": "/_autogen/Classes/classbatt_1_1Latch/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": true,
+          "name": "RefCounted< Latch< T > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::FutureImpl",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::FutureImpl",
+      "refid": "classbatt_1_1detail_1_1FutureImpl",
+      "title": "batt::detail::FutureImpl",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1FutureImpl/",
       "visibility": "public"
     },
     {
@@ -200,25 +260,85 @@
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::detail::FirstPhase",
+      "fullname": "batt::detail::VisitorResult",
       "kind": "struct",
       "language": "cpp",
-      "name": "batt::detail::FirstPhase",
-      "refid": "structbatt_1_1detail_1_1FirstPhase",
-      "title": "batt::detail::FirstPhase",
-      "url": "/_autogen/Classes/structbatt_1_1detail_1_1FirstPhase/",
+      "name": "batt::detail::VisitorResult",
+      "refid": "structbatt_1_1detail_1_1VisitorResult",
+      "title": "batt::detail::VisitorResult",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult/",
       "visibility": "public"
     },
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::detail::FutureImpl",
-      "kind": "class",
+      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > >",
+      "kind": "struct",
       "language": "cpp",
-      "name": "batt::detail::FutureImpl",
-      "refid": "classbatt_1_1detail_1_1FutureImpl",
-      "title": "batt::detail::FutureImpl",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1FutureImpl/",
+      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > >",
+      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4",
+      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const >",
+      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_4",
+      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > & >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > & >",
+      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_6_01_4",
+      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > & >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_6_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const & >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const & >",
+      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_6_01_4",
+      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const & >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_6_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > && >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > && >",
+      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_6_6_01_4",
+      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > && >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_6_6_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const && >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const && >",
+      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_6_6_01_4",
+      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const && >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_6_6_01_4/",
       "visibility": "public"
     },
     {
@@ -231,82 +351,6 @@
       "refid": "classbatt_1_1detail_1_1HttpClientRequestContext",
       "title": "batt::detail::HttpClientRequestContext",
       "url": "/_autogen/Classes/classbatt_1_1detail_1_1HttpClientRequestContext/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": true,
-          "name": "false_type",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::detail::IsStatusOrImpl",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::detail::IsStatusOrImpl",
-      "refid": "structbatt_1_1detail_1_1IsStatusOrImpl",
-      "title": "batt::detail::IsStatusOrImpl",
-      "url": "/_autogen/Classes/structbatt_1_1detail_1_1IsStatusOrImpl/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": true,
-          "name": "true_type",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::detail::IsStatusOrImpl< StatusOr< T > >",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::detail::IsStatusOrImpl< StatusOr< T > >",
-      "refid": "structbatt_1_1detail_1_1IsStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4",
-      "title": "batt::detail::IsStatusOrImpl< StatusOr< T > >",
-      "url": "/_autogen/Classes/structbatt_1_1detail_1_1IsStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::detail::ModelCheckShardMetrics",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::detail::ModelCheckShardMetrics",
-      "refid": "structbatt_1_1detail_1_1ModelCheckShardMetrics",
-      "title": "batt::detail::ModelCheckShardMetrics",
-      "url": "/_autogen/Classes/structbatt_1_1detail_1_1ModelCheckShardMetrics/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::detail::MoveFnImpl",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::detail::MoveFnImpl",
-      "refid": "classbatt_1_1detail_1_1MoveFnImpl",
-      "title": "batt::detail::MoveFnImpl",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::detail::NotOkStatusWrapper",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::detail::NotOkStatusWrapper",
-      "refid": "classbatt_1_1detail_1_1NotOkStatusWrapper",
-      "title": "batt::detail::NotOkStatusWrapper",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1NotOkStatusWrapper/",
       "visibility": "public"
     },
     {
@@ -336,18 +380,6 @@
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::detail::NullableImpl< std::shared_ptr< T > >",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::detail::NullableImpl< std::shared_ptr< T > >",
-      "refid": "structbatt_1_1detail_1_1NullableImpl_3_01std_1_1shared__ptr_3_01T_01_4_01_4",
-      "title": "batt::detail::NullableImpl< std::shared_ptr< T > >",
-      "url": "/_autogen/Classes/structbatt_1_1detail_1_1NullableImpl_3_01std_1_1shared__ptr_3_01T_01_4_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
       "fullname": "batt::detail::NullableImpl< std::unique_ptr< T > >",
       "kind": "struct",
       "language": "cpp",
@@ -355,6 +387,18 @@
       "refid": "structbatt_1_1detail_1_1NullableImpl_3_01std_1_1unique__ptr_3_01T_01_4_01_4",
       "title": "batt::detail::NullableImpl< std::unique_ptr< T > >",
       "url": "/_autogen/Classes/structbatt_1_1detail_1_1NullableImpl_3_01std_1_1unique__ptr_3_01T_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::NullableImpl< std::shared_ptr< T > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::NullableImpl< std::shared_ptr< T > >",
+      "refid": "structbatt_1_1detail_1_1NullableImpl_3_01std_1_1shared__ptr_3_01T_01_4_01_4",
+      "title": "batt::detail::NullableImpl< std::shared_ptr< T > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1NullableImpl_3_01std_1_1shared__ptr_3_01T_01_4_01_4/",
       "visibility": "public"
     },
     {
@@ -372,6 +416,100 @@
     {
       "anchor": "",
       "category": "classes",
+      "fullname": "batt::detail::AbstractMoveFn",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::AbstractMoveFn",
+      "refid": "classbatt_1_1detail_1_1AbstractMoveFn",
+      "title": "batt::detail::AbstractMoveFn",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AbstractMoveFn/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::AbstractMoveFn< false, Result, Args... >",
+          "refid": "classbatt_1_1detail_1_1AbstractMoveFn",
+          "url": "/_autogen/Classes/classbatt_1_1detail_1_1AbstractMoveFn/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::AbstractCopyFn",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::AbstractCopyFn",
+      "refid": "classbatt_1_1detail_1_1AbstractCopyFn",
+      "title": "batt::detail::AbstractCopyFn",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AbstractCopyFn/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "AbstractFn< kMoveOnly, Result, Args... >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::MoveFnImpl",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::MoveFnImpl",
+      "refid": "classbatt_1_1detail_1_1MoveFnImpl",
+      "title": "batt::detail::MoveFnImpl",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::MoveFnImpl< Fn, false, Result, Args... >",
+          "refid": "classbatt_1_1detail_1_1MoveFnImpl",
+          "url": "/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": true,
+          "name": "AbstractFn< kMoveOnly, Result, Args... >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::CopyFnImpl",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::CopyFnImpl",
+      "refid": "classbatt_1_1detail_1_1CopyFnImpl",
+      "title": "batt::detail::CopyFnImpl",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1CopyFnImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::ModelCheckShardMetrics",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::ModelCheckShardMetrics",
+      "refid": "structbatt_1_1detail_1_1ModelCheckShardMetrics",
+      "title": "batt::detail::ModelCheckShardMetrics",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1ModelCheckShardMetrics/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
       "fullname": "batt::detail::ParallelModelCheckState",
       "kind": "class",
       "language": "cpp",
@@ -379,40 +517,6 @@
       "refid": "classbatt_1_1detail_1_1ParallelModelCheckState",
       "title": "batt::detail::ParallelModelCheckState",
       "url": "/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "derivedClasses": [
-        {
-          "external": false,
-          "name": "batt::detail::ThirdPhase",
-          "refid": "structbatt_1_1detail_1_1ThirdPhase",
-          "url": "/_autogen/Classes/structbatt_1_1detail_1_1ThirdPhase/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "fullname": "batt::detail::SecondPhase",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::detail::SecondPhase",
-      "refid": "structbatt_1_1detail_1_1SecondPhase",
-      "title": "batt::detail::SecondPhase",
-      "url": "/_autogen/Classes/structbatt_1_1detail_1_1SecondPhase/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::detail::SigInfoHandler",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::detail::SigInfoHandler",
-      "refid": "classbatt_1_1detail_1_1SigInfoHandler",
-      "title": "batt::detail::SigInfoHandler",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1SigInfoHandler/",
       "visibility": "public"
     },
     {
@@ -465,106 +569,52 @@
       "anchor": "",
       "baseClasses": [
         {
-          "external": false,
-          "name": "batt::detail::SecondPhase",
-          "refid": "structbatt_1_1detail_1_1SecondPhase",
-          "url": "/_autogen/Classes/structbatt_1_1detail_1_1SecondPhase/",
+          "external": true,
+          "name": "std::false_type",
           "virtual": "non-virtual",
           "visibility": "public"
         }
       ],
       "category": "classes",
-      "fullname": "batt::detail::ThirdPhase",
+      "fullname": "batt::detail::IsStatusOrImpl",
       "kind": "struct",
       "language": "cpp",
-      "name": "batt::detail::ThirdPhase",
-      "refid": "structbatt_1_1detail_1_1ThirdPhase",
-      "title": "batt::detail::ThirdPhase",
-      "url": "/_autogen/Classes/structbatt_1_1detail_1_1ThirdPhase/",
+      "name": "batt::detail::IsStatusOrImpl",
+      "refid": "structbatt_1_1detail_1_1IsStatusOrImpl",
+      "title": "batt::detail::IsStatusOrImpl",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1IsStatusOrImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::true_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::IsStatusOrImpl< StatusOr< T > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::IsStatusOrImpl< StatusOr< T > >",
+      "refid": "structbatt_1_1detail_1_1IsStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4",
+      "title": "batt::detail::IsStatusOrImpl< StatusOr< T > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1IsStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4/",
       "visibility": "public"
     },
     {
       "anchor": "",
       "category": "classes",
-      "fullname": "batt::detail::VisitorResult",
-      "kind": "struct",
+      "fullname": "batt::detail::NotOkStatusWrapper",
+      "kind": "class",
       "language": "cpp",
-      "name": "batt::detail::VisitorResult",
-      "refid": "structbatt_1_1detail_1_1VisitorResult",
-      "title": "batt::detail::VisitorResult",
-      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > & >",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > & >",
-      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_6_01_4",
-      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > & >",
-      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_6_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > && >",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > && >",
-      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_6_6_01_4",
-      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > && >",
-      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_6_6_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > >",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > >",
-      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4",
-      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > >",
-      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const & >",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const & >",
-      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_6_01_4",
-      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const & >",
-      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_6_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const && >",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const && >",
-      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_6_6_01_4",
-      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const && >",
-      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_6_6_01_4/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const >",
-      "kind": "struct",
-      "language": "cpp",
-      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const >",
-      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_4",
-      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const >",
-      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_4/",
+      "name": "batt::detail::NotOkStatusWrapper",
+      "refid": "classbatt_1_1detail_1_1NotOkStatusWrapper",
+      "title": "batt::detail::NotOkStatusWrapper",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1NotOkStatusWrapper/",
       "visibility": "public"
     }
   ],

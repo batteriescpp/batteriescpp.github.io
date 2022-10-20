@@ -39,7 +39,13 @@
       },
       "name": "DebugInfoFrame",
       "override": false,
-      "params": [],
+      "params": [
+        {
+          "name": "",
+          "type": "[DebugInfoFrame](/_autogen/Classes/classbatt_1_1DebugInfoFrame/)",
+          "typePlain": "DebugInfoFrame"
+        }
+      ],
       "pureVirtual": false,
       "refid": "classbatt_1_1Task_1a1413823a64e1e35412d674568b93e995",
       "static": false,
@@ -109,10 +115,10 @@
   "location": {
     "bodyEnd": 740,
     "bodyFile": "batteries/async/task_decl.hpp",
-    "bodyStart": 71,
+    "bodyStart": 73,
     "column": 1,
     "file": "batteries/async/task_decl.hpp",
-    "line": 73
+    "line": 71
   },
   "name": "batt::Task",
   "override": false,
@@ -1807,7 +1813,7 @@
     {
       "abstract": false,
       "anchor": "#function-strong-typedef-default-value",
-      "argsString": "(BATT_STRONG_TYPEDEF_PASTE_(Priority, _TAG) *)",
+      "argsString": "(Priority_TAG *)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -1832,12 +1838,12 @@
       "params": [
         {
           "name": "",
-          "type": "BATT_STRONG_TYPEDEF_PASTE_([Priority](/_autogen/Classes/classbatt_1_1StrongType/), _TAG) *",
-          "typePlain": "BATT_STRONG_TYPEDEF_PASTE_(Priority, _TAG) *"
+          "type": "Priority_TAG *",
+          "typePlain": "Priority_TAG *"
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1Task_1a2dbb40b12dd8a7524f3b25e23aee024d",
+      "refid": "classbatt_1_1Task_1a9ddb4f01f282fbc049793f0c403c7463",
       "static": false,
       "strong": false,
       "title": "strong_typedef_default_value",
@@ -1850,7 +1856,7 @@
     {
       "abstract": false,
       "anchor": "#function-strong-typedef-default-value",
-      "argsString": "(BATT_STRONG_TYPEDEF_PASTE_(IsDone, _TAG) *)",
+      "argsString": "(IsDone_TAG *)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -1875,12 +1881,12 @@
       "params": [
         {
           "name": "",
-          "type": "BATT_STRONG_TYPEDEF_PASTE_([IsDone](/_autogen/Classes/classbatt_1_1StrongType/), _TAG) *",
-          "typePlain": "BATT_STRONG_TYPEDEF_PASTE_(IsDone, _TAG) *"
+          "type": "IsDone_TAG *",
+          "typePlain": "IsDone_TAG *"
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1Task_1aad7c75c0747ec31137f84a0751415589",
+      "refid": "classbatt_1_1Task_1a1c88c84e8d9aa94a1552caf6c3fb6777",
       "static": false,
       "strong": false,
       "title": "strong_typedef_default_value",
@@ -3857,7 +3863,7 @@
       "anchor": "#using-priority",
       "category": "types",
       "const": false,
-      "definition": "using batt::Task::Priority =  ::batt::StrongType< i32 , BATT_STRONG_TYPEDEF_PASTE_( Priority , _TAG)>",
+      "definition": "using batt::Task::Priority =  ::batt::StrongType< i32 , Priority_TAG >",
       "explicit": false,
       "fullname": "batt::Task::Priority",
       "hasDetails": false,
@@ -3867,18 +3873,18 @@
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
         "bodyStart": 81,
-        "column": 88,
+        "column": 90,
         "file": "batteries/async/task_decl.hpp",
         "line": 81
       },
       "name": "Priority",
       "override": false,
-      "refid": "classbatt_1_1Task_1a78af1f85179140d7e4f42e4f8c1bbef0",
+      "refid": "classbatt_1_1Task_1af1cc2f5a140f14c9af0332da5106bf1a",
       "static": false,
       "strong": false,
       "title": "Priority",
-      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< i32, BATT_STRONG_TYPEDEF_PASTE_([Priority](/_autogen/Classes/classbatt_1_1StrongType/), _TAG)>",
-      "typePlain": "::batt::StrongType< i32, BATT_STRONG_TYPEDEF_PASTE_(Priority, _TAG)>",
+      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< i32, Priority_TAG >",
+      "typePlain": "::batt::StrongType< i32, Priority_TAG >",
       "url": "/_autogen/Classes/classbatt_1_1Task/#using-priority",
       "visibility": "public"
     },
@@ -3887,7 +3893,7 @@
       "anchor": "#using-isdone",
       "category": "types",
       "const": false,
-      "definition": "using batt::Task::IsDone =  ::batt::StrongType< bool , BATT_STRONG_TYPEDEF_PASTE_( IsDone , _TAG)>",
+      "definition": "using batt::Task::IsDone =  ::batt::StrongType< bool , IsDone_TAG >",
       "explicit": false,
       "fullname": "batt::Task::IsDone",
       "hasDetails": false,
@@ -3897,18 +3903,18 @@
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
         "bodyStart": 83,
-        "column": 93,
+        "column": 95,
         "file": "batteries/async/task_decl.hpp",
         "line": 83
       },
       "name": "IsDone",
       "override": false,
-      "refid": "classbatt_1_1Task_1a846b7f49cc1d1177728be6d8882cd6c7",
+      "refid": "classbatt_1_1Task_1ad1fec6142cb1a2311f1e80b4c68cca41",
       "static": false,
       "strong": false,
       "title": "IsDone",
-      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< bool, BATT_STRONG_TYPEDEF_PASTE_([IsDone](/_autogen/Classes/classbatt_1_1StrongType/), _TAG)>",
-      "typePlain": "::batt::StrongType< bool, BATT_STRONG_TYPEDEF_PASTE_(IsDone, _TAG)>",
+      "type": "::[batt::StrongType](/_autogen/Classes/classbatt_1_1StrongType/)< bool, IsDone_TAG >",
+      "typePlain": "::batt::StrongType< bool, IsDone_TAG >",
       "url": "/_autogen/Classes/classbatt_1_1Task/#using-isdone",
       "visibility": "public"
     },

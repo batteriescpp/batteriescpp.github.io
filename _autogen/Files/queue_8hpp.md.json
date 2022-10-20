@@ -109,15 +109,7 @@
       "derivedClasses": [
         {
           "external": false,
-          "name": "batt::Queue< T >",
-          "refid": "classbatt_1_1Queue",
-          "url": "/_autogen/Classes/classbatt_1_1Queue/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        },
-        {
-          "external": false,
-          "name": "batt::Queue< batt::Pin< batt::HttpResponse > >",
+          "name": "batt::Queue< std::tuple< batt::Pin< batt::HttpRequest >, batt::Pin< batt::HttpResponse > > >",
           "refid": "classbatt_1_1Queue",
           "url": "/_autogen/Classes/classbatt_1_1Queue/",
           "virtual": "non-virtual",
@@ -133,7 +125,15 @@
         },
         {
           "external": false,
-          "name": "batt::Queue< std::tuple< batt::Pin< batt::HttpRequest >, batt::Pin< batt::HttpResponse > > >",
+          "name": "batt::Queue< batt::Pin< batt::HttpResponse > >",
+          "refid": "classbatt_1_1Queue",
+          "url": "/_autogen/Classes/classbatt_1_1Queue/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::Queue< T >",
           "refid": "classbatt_1_1Queue",
           "url": "/_autogen/Classes/classbatt_1_1Queue/",
           "virtual": "non-virtual",

@@ -9,7 +9,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.6">
     
     
       
@@ -1074,11 +1074,11 @@
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#using-state-type">state_type</a></strong></td>
 </tr>
 <tr>
-<td>using ::<a href="/_autogen/Classes/classbatt_1_1StrongType/">batt::StrongType</a>&lt; i32, BATT_STRONG_TYPEDEF_PASTE_(<a href="/_autogen/Classes/classbatt_1_1StrongType/">Priority</a>, _TAG)&gt;</td>
+<td>using ::<a href="/_autogen/Classes/classbatt_1_1StrongType/">batt::StrongType</a>&lt; i32, Priority_TAG &gt;</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#using-priority">Priority</a></strong></td>
 </tr>
 <tr>
-<td>using ::<a href="/_autogen/Classes/classbatt_1_1StrongType/">batt::StrongType</a>&lt; bool, BATT_STRONG_TYPEDEF_PASTE_(<a href="/_autogen/Classes/classbatt_1_1StrongType/">IsDone</a>, _TAG)&gt;</td>
+<td>using ::<a href="/_autogen/Classes/classbatt_1_1StrongType/">batt::StrongType</a>&lt; bool, IsDone_TAG &gt;</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#using-isdone">IsDone</a></strong></td>
 </tr>
 <tr>
@@ -1106,11 +1106,11 @@
 <tbody>
 <tr>
 <td>constexpr i32</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#function-strong-typedef-default-value">strong_typedef_default_value</a></strong>(BATT_STRONG_TYPEDEF_PASTE_(<a href="/_autogen/Classes/classbatt_1_1StrongType/">Priority</a>, _TAG) * )</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#function-strong-typedef-default-value">strong_typedef_default_value</a></strong>(Priority_TAG * )</td>
 </tr>
 <tr>
 <td>constexpr bool</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#function-strong-typedef-default-value">strong_typedef_default_value</a></strong>(BATT_STRONG_TYPEDEF_PASTE_(<a href="/_autogen/Classes/classbatt_1_1StrongType/">IsDone</a>, _TAG) * )</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#function-strong-typedef-default-value">strong_typedef_default_value</a></strong>(IsDone_TAG * )</td>
 </tr>
 <tr>
 <td></td>
@@ -1373,10 +1373,10 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">Task</span><span class="o">::</span><span class="n">state_type</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">u32</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="using-priority">using Priority<a class="headerlink" href="#using-priority" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">Task</span><span class="o">::</span><span class="n">Priority</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="o">::</span><span class="n">batt</span><span class="o">::</span><span class="n">StrongType</span><span class="o">&lt;</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">BATT_STRONG_TYPEDEF_PASTE_</span><span class="p">(</span><span class="w"> </span><span class="n">Priority</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">_TAG</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">Task</span><span class="o">::</span><span class="n">Priority</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="o">::</span><span class="n">batt</span><span class="o">::</span><span class="n">StrongType</span><span class="o">&lt;</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Priority_TAG</span><span class="w"> </span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="using-isdone">using IsDone<a class="headerlink" href="#using-isdone" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">Task</span><span class="o">::</span><span class="n">IsDone</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="o">::</span><span class="n">batt</span><span class="o">::</span><span class="n">StrongType</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">BATT_STRONG_TYPEDEF_PASTE_</span><span class="p">(</span><span class="w"> </span><span class="n">IsDone</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">_TAG</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">Task</span><span class="o">::</span><span class="n">IsDone</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="o">::</span><span class="n">batt</span><span class="o">::</span><span class="n">StrongType</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">IsDone_TAG</span><span class="w"> </span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="using-executor_type">using executor_type<a class="headerlink" href="#using-executor_type" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">Task</span><span class="o">::</span><span class="n">executor_type</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">any_io_executor</span><span class="p">;</span><span class="w"></span>
@@ -1392,14 +1392,14 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
 <span class="normal"><a href="#__codelineno-6-2">2</a></span>
 <span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="n">strong_typedef_default_value</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">BATT_STRONG_TYPEDEF_PASTE_</span><span class="p">(</span><span class="n">Priority</span><span class="p">,</span><span class="w"> </span><span class="n">_TAG</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">Priority_TAG</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
 <a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">)</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-strong_typedef_default_value_1">function strong_typedef_default_value<a class="headerlink" href="#function-strong_typedef_default_value_1" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
 <span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">strong_typedef_default_value</span><span class="p">(</span><span class="w"></span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">BATT_STRONG_TYPEDEF_PASTE_</span><span class="p">(</span><span class="n">IsDone</span><span class="p">,</span><span class="w"> </span><span class="n">_TAG</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">IsDone_TAG</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
 <a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="p">)</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-task">function Task<a class="headerlink" href="#function-task" title="Permanent link">&#128279;</a></h3>
@@ -1731,7 +1731,11 @@
 </code></pre></div></td></tr></table></div>
 <h2 id="friends_1">Friends<a class="headerlink" href="#friends_1" title="Permanent link">&#128279;</a></h2>
 <h3 id="friend-debuginfoframe">friend DebugInfoFrame<a class="headerlink" href="#friend-debuginfoframe" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-64-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1"></a><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DebugInfoFrame</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-64-1">1</a></span>
+<span class="normal"><a href="#__codelineno-64-2">2</a></span>
+<span class="normal"><a href="#__codelineno-64-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1"></a><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DebugInfoFrame</span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-64-2" name="__codelineno-64-2"></a><span class="w">    </span><span class="n">DebugInfoFrame</span><span class="w"> </span>
+<a id="__codelineno-64-3" name="__codelineno-64-3"></a><span class="p">);</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <h3 id="friend-print_debug_info">friend print_debug_info<a class="headerlink" href="#friend-print_debug_info" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-65-1">1</a></span>
@@ -1745,7 +1749,7 @@
 <a id="__codelineno-65-5" name="__codelineno-65-5"></a><span class="p">);</span><span class="w"></span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 20 October 2022 at 13:54:46 UTC</p>
+<p>Updated on 20 October 2022 at 18:22:25 UTC</p>
 
 
 

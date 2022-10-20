@@ -129,18 +129,6 @@
     },
     {
       "anchor": "",
-      "category": "classes",
-      "fullname": "batt::BoxedSeq::SeqImpl",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::BoxedSeq::SeqImpl",
-      "refid": "classbatt_1_1BoxedSeq_1_1SeqImpl",
-      "title": "batt::BoxedSeq::SeqImpl",
-      "url": "/_autogen/Classes/classbatt_1_1BoxedSeq_1_1SeqImpl/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
       "baseClasses": [
         {
           "external": false,
@@ -163,6 +151,22 @@
     },
     {
       "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::AbstractValueImpl< AbstractSeq, SeqImpl, T >",
+          "refid": "classbatt_1_1AbstractValueImpl",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": true,
+          "name": "AbstractType",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "category": "classes",
       "fullname": "batt::BoxedSeq::SeqImpl",
       "kind": "class",
@@ -178,7 +182,7 @@
       "baseClasses": [
         {
           "external": true,
-          "name": "false_type",
+          "name": "std::false_type",
           "virtual": "non-virtual",
           "visibility": "public"
         }
@@ -198,7 +202,7 @@
       "baseClasses": [
         {
           "external": true,
-          "name": "true_type",
+          "name": "std::true_type",
           "virtual": "non-virtual",
           "visibility": "public"
         }

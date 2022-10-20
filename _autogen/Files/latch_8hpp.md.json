@@ -105,19 +105,25 @@
   "publicClasses": [
     {
       "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "RefCounted< Latch< T > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "category": "classes",
-      "fullname": "batt::Latch",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::Latch",
-      "refid": "classbatt_1_1Latch",
-      "title": "batt::Latch",
-      "url": "/_autogen/Classes/classbatt_1_1Latch/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
-      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::FutureImpl< T >",
+          "refid": "classbatt_1_1detail_1_1FutureImpl",
+          "url": "/_autogen/Classes/classbatt_1_1detail_1_1FutureImpl/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "fullname": "batt::Latch",
       "kind": "class",
       "language": "cpp",
