@@ -1,4 +1,4 @@
-function handleReleaseNav()
+function handleReleaseNav(event)
 {
     console.log('RELEASE NAV ' + $('#releaseNavSelectBox').val());
 }
@@ -21,7 +21,7 @@ window.addEventListener('load', function() {
     var versionPattern = /^\/[^\/]*/;
     var actualVer = location.pathname.match(versionPattern)[0];
     $('#releaseNavSelectBox option[value="' + actualVer + '"]').prop('selected', 'selected');
-    $('#releaseNavSelectBox').on('select', function() {
-        location.pathname.replace(versionPattern, $('#releaseNavSelectBox').val());
-    });
+    //$('#releaseNavSelectBox').on('select', function() {
+    //    location.pathname.replace(versionPattern, $('#releaseNavSelectBox').val());
+    //});
 });
