@@ -14,6 +14,6 @@ window.addEventListener('load', function() {
     $('#releaseNavSelectBox option[value="' + actualVer + '"]').prop('selected', true);
     $('#releaseNavSelectBox').val(actualVer).change();
     $('#releaseNavSelectBox').change(function() {
-        location.pathname.replace(versionPattern, this.value);
+        location.pathname.replace(versionPattern, $('#releaseNavSelectBox').val());
     });
 });
