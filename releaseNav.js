@@ -11,6 +11,7 @@ window.addEventListener('load', function() {
 
     var versionPattern = /^\/[^\/]*/;
     var actualVer = location.pathname.match(versionPattern)[0];
+    $('#releaseNavSelectBox option[value="' + actualVer + '"]').prop('selected', true);
     $('#releaseNavSelectBox').val(actualVer).change();
     $('#releaseNavSelectBox').change(function() {
         location.pathname.replace(versionPattern, this.value);
