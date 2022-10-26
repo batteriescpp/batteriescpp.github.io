@@ -12,9 +12,8 @@ window.addEventListener('load', function() {
     }
     var navBarElem = $('.md-header nav');
     var releases = [
-        'latest'  //
-        ,
-        'v0.12.1'  //
+        'latest',
+        'v0.12.1',
     ];
 
     var actualRelease = location.pathname.match(releaseNavPathPattern)[0];
