@@ -9,11 +9,8 @@ window.addEventListener('load', function() {
         return;
     }
     var navBarElem = $('.md-header nav');
-
-
-
     navBarElem.append(
-        '<select id="releaseNavSelectBox" name="releaseNav" onchange="handleReleaseNav();">' +
+        '<select id="releaseNavSelectBox" name="releaseNav">' +
         ' <option value="/latest">latest</option>' +
         ' <option value="/v0.12.1">v0.12.1</option>' +
         '</select>');
@@ -21,6 +18,7 @@ window.addEventListener('load', function() {
     var versionPattern = /^\/[^\/]*/;
     var actualVer = location.pathname.match(versionPattern)[0];
     $('#releaseNavSelectBox option[value="' + actualVer + '"]').prop('selected', 'selected');
+    document.getElementById('releaseNavSelectBox').addEventListener('change', handleReleaseNav);
     //$('#releaseNavSelectBox').on('select', function() {
     //    location.pathname.replace(versionPattern, $('#releaseNavSelectBox').val());
     //});
