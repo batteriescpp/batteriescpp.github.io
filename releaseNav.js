@@ -11,12 +11,26 @@ window.addEventListener('load', function() {
         return;
     }
     var navBarElem = $('.md-header nav');
+    var releases = [
+        'latest'  //
+        ,
+        'v0.12.1'  //
+    ];
+
+    var actualRelease = location.pathname.match(releaseNavPathPattern)[0];
+    var i = releases.indexOf(actualRelease.substr(1));
+    var tmp = releases[i];
+    releases[i] = releases[0];
+    releases[0] = tmp;
+
     navBarElem.append(
         '<select id="releaseNavSelectBox" name="releaseNav" onchange="location.pathname.replace(releaseNavPathPattern, this.value)">' +
-        ' <option value="/latest">latest</option>' +
-        ' <option value="/v0.12.1">v0.12.1</option>' +
+        jQuery
+            .map(
+                releases,
+                function(i, ver) {
+                    return '<option value="/' + ver + '">' + ver + '</option>'
+                })
+            .join('') +
         '</select>');
-
-    var actualVer = location.pathname.match(releaseNavPathPattern)[0];
-    $('#releaseNavSelectBox option[value="' + actualVer + '"]').prop('selected', 'selected');
 });
