@@ -18,7 +18,7 @@ window.addEventListener('load', function() {
     releases[0] = tmp;
 
     navBarElem.append(
-        '<select id="releaseNavSelectBox" name="releaseNav" onchange="location.pathname.replace(releaseNavPathPattern, this.value)">' +
+        '<select id="releaseNavSelectBox" name="releaseNav" onchange="location.pathname = location.pathname.replace(releaseNavPathPattern, this.value);">' +
         jQuery
             .map(
                 releases,
