@@ -22,7 +22,7 @@ window.addEventListener('load', function() {
         jQuery
             .map(
                 releases,
-                function(i, ver) {
+                function(ver) {
                     return '<option value="/' + ver + '">' + ver + '</option>'
                 })
             .join('') +
