@@ -1,0 +1,169 @@
+{
+  "abstract": false,
+  "anchor": "#file-buffer.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-buffer-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_BUFFER_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/buffer.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/buffer.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_BUFFER_HPP",
+      "override": false,
+      "refid": "buffer_8hpp_1a7852db5a64b4c388d6e8ff6ec95d6fe7",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_BUFFER_HPP",
+      "url": "/_autogen/Files/buffer_8hpp/#define-batteries-buffer-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/buffer.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/buffer.hpp",
+    "line": 0
+  },
+  "name": "batteries/buffer.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_BUFFER_HPP\n#define BATTERIES_BUFFER_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/checked_cast.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/interval.hpp>\n#include <batteries/shared_ptr.hpp>\n#include <batteries/utility.hpp>\n\n#include <boost/asio/buffer.hpp>\n\n#include <array>\n#include <string_view>\n#include <type_traits>\n\nnamespace batt {\n\nusing ConstBuffer = boost::asio::const_buffer;\nusing MutableBuffer = boost::asio::mutable_buffer;\n\ntemplate <typename... Args>\ndecltype(auto) make_buffer(Args&&... args)\n{\n    return boost::asio::buffer(BATT_FORWARD(args)...);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\ntemplate <typename T>\ninline ConstBuffer buffer_from_struct(const T& val)\n{\n    return ConstBuffer{&val, sizeof(T)};\n}\n\ninline std::string_view as_str(const ConstBuffer& buffer)\n{\n    return std::string_view{static_cast<const char*>(buffer.data()), buffer.size()};\n}\n\ntemplate <typename T>\ninline std::string_view bytes_from_struct(const T& val)\n{\n    return as_str(buffer_from_struct(val));\n}\n\ntemplate <typename T>\ninline MutableBuffer mutable_buffer_from_struct(T& val)\n{\n    return MutableBuffer{&val, sizeof(T)};\n}\n\ninline ConstBuffer resize_buffer(const ConstBuffer& b, usize s)\n{\n    return ConstBuffer{b.data(), std::min(s, b.size())};\n}\n\ninline MutableBuffer resize_buffer(const MutableBuffer& b, usize s)\n{\n    return MutableBuffer{b.data(), std::min(s, b.size())};\n}\n\nnamespace detail {\n\ntemplate <typename BufferT, typename SizeT>\ninline BufferT slice_buffer_impl(const BufferT& buffer, const Interval<SizeT>& slice)\n{\n    using ByteT = std::conditional_t<std::is_same_v<BufferT, ConstBuffer>, const u8, u8>;\n\n    ByteT* const bytes = static_cast<ByteT*>(buffer.data());\n    const SizeT begin_i = std::clamp<SizeT>(slice.lower_bound, 0, static_cast<SizeT>(buffer.size()));\n    const SizeT end_i = std::clamp<SizeT>(slice.upper_bound, 0, static_cast<SizeT>(buffer.size()));\n    ByteT* const first = bytes + begin_i;\n    ByteT* const last = bytes + end_i;\n    if (first < last) {\n        return BufferT{first, BATT_CHECKED_CAST(usize, last - first)};\n    }\n    return BufferT{first, 0};\n}\n\n}  // namespace detail\n\ntemplate <typename SizeT>\ninline ConstBuffer slice_buffer(const ConstBuffer& b, const Interval<SizeT>& slice)\n{\n    return detail::slice_buffer_impl<ConstBuffer>(b, slice);\n}\n\ntemplate <typename SizeT>\ninline MutableBuffer slice_buffer(const MutableBuffer& b, const Interval<SizeT>& slice)\n{\n    return detail::slice_buffer_impl<MutableBuffer>(b, slice);\n}\n\ntemplate <typename VecT>\ninline void consume_buffers(VecT& buffers, usize count)\n{\n    while (count > 0) {\n        BATT_CHECK(!buffers.empty());\n\n        if (buffers.front().size() > count) {\n            buffers.front() += count;\n            break;\n        }\n\n        count -= buffers.front().size();\n        buffers.erase(buffers.begin());\n    }\n}\n\ntemplate <typename Iter>\ninline std::pair<Iter, usize /*offset*/> consume_buffers_iter(const std::pair<Iter, usize /*offset*/>& pos,\n                                                              const Iter& last, usize count)\n{\n    Iter first = pos.first;\n    usize offset = pos.second;\n\n    while (count > 0 && first != last) {\n        ConstBuffer front{*first};\n        front += offset;\n        offset = 0;\n\n        if (front.size() > count) {\n            return std::make_pair(first, count);\n        }\n\n        count -= front.size();\n        ++first;\n    }\n    return std::make_pair(first, 0);\n}\n\ntemplate <typename VecT>\ninline VecT consume_buffers_copy(const VecT& buffers, usize count)\n{\n    VecT copy = buffers;\n    consume_buffers(copy, count);\n    return copy;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\nclass MutableBufferView;\nclass ConstBufferView;\n\nclass ManagedBuffer : public RefCounted<ManagedBuffer>\n{\n   public:\n    static constexpr usize kCapacity = 4096;\n\n    char* data()\n    {\n        return this->storage_.data();\n    }\n\n    const char* data() const\n    {\n        return this->storage_.data();\n    }\n\n    usize size() const\n    {\n        return this->storage_.size();\n    }\n\n   private:\n    std::array<char, ManagedBuffer::kCapacity> storage_;\n};\n\nclass BufferViewImpl\n{\n   public:\n    using Self = BufferViewImpl;\n\n    explicit BufferViewImpl(SharedPtr<ManagedBuffer>&& buffer, usize offset = 0) noexcept\n        : buffer_{std::move(buffer)}\n        , offset_{offset}\n        , length_{this->buffer_->size() - this->offset_}\n    {\n    }\n\n    explicit BufferViewImpl(SharedPtr<ManagedBuffer>&& buffer, usize offset, usize length) noexcept\n        : buffer_{std::move(buffer)}\n        , offset_{offset}\n        , length_{length}\n    {\n    }\n\n    void* data() const\n    {\n        return this->buffer_->data() + this->offset_;\n    }\n\n    usize size() const\n    {\n        return this->length_;\n    }\n\n    Self& operator+=(usize delta)\n    {\n        delta = std::min(delta, this->length_);\n        this->offset_ += delta;\n        this->length_ -= delta;\n        return *this;\n    }\n\n    bool append(Self&& next)\n    {\n        if (this->buffer_ == next.buffer_ && this->offset_ + this->length_ == next.offset_) {\n            this->length_ += next.length_;\n            return true;\n        }\n        return false;\n    }\n\n   private:\n    SharedPtr<ManagedBuffer> buffer_;\n    usize offset_;\n    usize length_;\n};\n\nclass ConstBufferView\n{\n   public:\n    friend class MutableBufferView;\n\n    ConstBufferView(const ConstBufferView&) = default;\n    ConstBufferView& operator=(const ConstBufferView&) = default;\n\n    explicit ConstBufferView(SharedPtr<ManagedBuffer>&& buffer, usize offset = 0) noexcept\n        : impl_{std::move(buffer), offset}\n    {\n    }\n\n    explicit ConstBufferView(SharedPtr<ManagedBuffer>&& buffer, usize offset, usize length) noexcept\n        : impl_{std::move(buffer), offset, length}\n    {\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    ConstBufferView(const MutableBufferView& other) noexcept;\n    ConstBufferView(MutableBufferView&& other) noexcept;\n\n    ConstBufferView& operator=(const MutableBufferView& other);\n    ConstBufferView& operator=(MutableBufferView&& other);\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    operator ConstBuffer() const\n    {\n        return ConstBuffer{this->data(), this->size()};\n    }\n\n    ConstBufferView& operator+=(usize delta)\n    {\n        this->impl_ += delta;\n        return *this;\n    }\n\n    const void* data() const\n    {\n        return this->impl_.data();\n    }\n\n    usize size() const\n    {\n        return this->impl_.size();\n    }\n\n    bool append(ConstBufferView&& next)\n    {\n        return this->impl_.append(std::move(next.impl_));\n    }\n\n    bool append(MutableBufferView&& next);\n\n   private:\n    BufferViewImpl impl_;\n};\n\nclass MutableBufferView\n{\n   public:\n    friend class ConstBufferView;\n\n    MutableBufferView(const MutableBufferView&) = default;\n    MutableBufferView& operator=(const MutableBufferView&) = default;\n\n    explicit MutableBufferView(SharedPtr<ManagedBuffer>&& buffer, usize offset = 0) noexcept\n        : impl_{std::move(buffer), offset}\n    {\n    }\n\n    explicit MutableBufferView(SharedPtr<ManagedBuffer>&& buffer, usize offset, usize length) noexcept\n        : impl_{std::move(buffer), offset, length}\n    {\n    }\n\n    operator MutableBuffer() const\n    {\n        return MutableBuffer{this->data(), this->size()};\n    }\n\n    operator ConstBuffer() const\n    {\n        return ConstBuffer{this->data(), this->size()};\n    }\n\n    MutableBufferView& operator+=(usize delta)\n    {\n        this->impl_ += delta;\n        return *this;\n    }\n\n    void* data() const\n    {\n        return this->impl_.data();\n    }\n\n    usize size() const\n    {\n        return this->impl_.size();\n    }\n\n    bool append(ConstBufferView&& next)\n    {\n        return this->impl_.append(std::move(next.impl_));\n    }\n\n    bool append(MutableBufferView&& next)\n    {\n        return this->impl_.append(std::move(next.impl_));\n    }\n\n   private:\n    BufferViewImpl impl_;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline ConstBufferView::ConstBufferView(const MutableBufferView& other) noexcept : impl_{other.impl_}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline ConstBufferView::ConstBufferView(MutableBufferView&& other) noexcept : impl_{std::move(other.impl_)}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline ConstBufferView& ConstBufferView::operator=(const MutableBufferView& other)\n{\n    this->impl_ = other.impl_;\n    return *this;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline ConstBufferView& ConstBufferView::operator=(MutableBufferView&& other)\n{\n    this->impl_ = std::move(other.impl_);\n    return *this;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline bool ConstBufferView::append(MutableBufferView&& next)\n{\n    return this->impl_.append(std::move(next.impl_));\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\ntemplate <usize kLength, usize... kIndex>\nconstexpr std::array<char, kLength - 1> array_from_c_str(const char (&c_str)[kLength],\n                                                         std::index_sequence<kIndex...>)\n{\n    return {{c_str[kIndex]...}};\n}\n\ntemplate <usize kLength>\nconstexpr std::array<char, kLength - 1> array_from_c_str(const char (&c_str)[kLength])\n{\n    return array_from_c_str(c_str, std::make_index_sequence<kLength - 1>());\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\ninline ConstBuffer as_const_buffer(const ConstBuffer& buffer)\n{\n    return buffer;\n}\n\ninline ConstBuffer as_const_buffer(const MutableBuffer& buffer)\n{\n    return buffer;\n}\n\ninline ConstBuffer as_const_buffer(const std::string_view& str)\n{\n    return ConstBuffer{str.data(), str.size()};\n}\n\ninline ConstBuffer as_const_buffer(const std::string& str)\n{\n    return ConstBuffer{str.data(), str.size()};\n}\n\ntemplate <usize kSize>\ninline ConstBuffer as_const_buffer(const std::array<char, kSize>& arr)\n{\n    return ConstBuffer{arr.data(), arr.size()};\n}\n\ntemplate <usize kSize>\ninline ConstBuffer as_const_buffer(const std::array<u8, kSize>& arr)\n{\n    return ConstBuffer{arr.data(), arr.size()};\n}\n\ninline ConstBuffer as_const_buffer(const std::vector<char>& vec)\n{\n    return ConstBuffer{vec.data(), vec.size()};\n}\n\ninline ConstBuffer as_const_buffer(const std::vector<u8>& vec)\n{\n    return ConstBuffer{vec.data(), vec.size()};\n}\n\ninline ConstBuffer as_const_buffer(const SmallVecBase<char>& vec)\n{\n    return ConstBuffer{vec.data(), vec.size()};\n}\n\ninline ConstBuffer as_const_buffer(const SmallVecBase<u8>& vec)\n{\n    return ConstBuffer{vec.data(), vec.size()};\n}\n\ntemplate <usize kLength>\ninline ConstBuffer as_const_buffer(const char (&c_str)[kLength])\n{\n    return ConstBuffer{&c_str, kLength - 1};\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_BUFFER_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "RefCounted< ManagedBuffer >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::ManagedBuffer",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::ManagedBuffer",
+      "refid": "classbatt_1_1ManagedBuffer",
+      "title": "batt::ManagedBuffer",
+      "url": "/_autogen/Classes/classbatt_1_1ManagedBuffer/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::BufferViewImpl",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BufferViewImpl",
+      "refid": "classbatt_1_1BufferViewImpl",
+      "title": "batt::BufferViewImpl",
+      "url": "/_autogen/Classes/classbatt_1_1BufferViewImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::ConstBufferView",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::ConstBufferView",
+      "refid": "classbatt_1_1ConstBufferView",
+      "title": "batt::ConstBufferView",
+      "url": "/_autogen/Classes/classbatt_1_1ConstBufferView/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::MutableBufferView",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::MutableBufferView",
+      "refid": "classbatt_1_1MutableBufferView",
+      "title": "batt::MutableBufferView",
+      "url": "/_autogen/Classes/classbatt_1_1MutableBufferView/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "buffer_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/buffer.hpp",
+  "url": "/_autogen/Files/buffer_8hpp/#file-buffer.hpp",
+  "visibility": "public"
+}
