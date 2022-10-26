@@ -1,8 +1,3 @@
-function handleReleaseNav(event)
-{
-    console.log('RELEASE NAV ' + $('#releaseNavSelectBox').val());
-}
-
 var releaseNavPathPattern = /^\/[^\/]*/;
 
 window.addEventListener('load', function() {
