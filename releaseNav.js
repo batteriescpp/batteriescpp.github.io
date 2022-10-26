@@ -6,10 +6,7 @@ window.addEventListener('load', function() {
         return;
     }
     var navBarElem = $('.md-header nav');
-    var releases = [
-        'latest',
-        'v0.12.1',
-    ];
+    var releases = releaseNavOptions;
 
     var actualRelease = location.pathname.match(releaseNavPathPattern)[0];
     var i = releases.indexOf(actualRelease.substr(1));
@@ -18,7 +15,8 @@ window.addEventListener('load', function() {
     releases[0] = tmp;
 
     navBarElem.append(
-        '<select id="releaseNavSelectBox" name="releaseNav" onchange="location.pathname = location.pathname.replace(releaseNavPathPattern, this.value);">' +
+        '<select id="releaseNavSelectBox" name="releaseNav"' +
+        ' onchange="location.pathname = location.pathname.replace(releaseNavPathPattern, this.value);">' +
         jQuery
             .map(
                 releases,
