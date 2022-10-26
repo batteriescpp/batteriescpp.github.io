@@ -9,9 +9,10 @@ window.addEventListener('load', function() {
         ' <option value="/v0.12.1">v0.12.1</option>' +
         '</select>');
 
-    var actualVer = location.pathname.match(/^\/[^\/]*/)[1];
+    var versionPattern = /^\/[^\/]*/;
+    var actualVer = location.pathname.match(versionPattern)[0];
     $('#releaseNavSelectBox').val(actualVer).change();
     $('#releaseNavSelectBox').change(function() {
-        location.pathname.replace(/^\/[^\/]*/, this.value);
+        location.pathname.replace(versionPattern, this.value);
     });
 });
