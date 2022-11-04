@@ -1,0 +1,1134 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::Ref",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 103,
+    "bodyFile": "batteries/ref.hpp",
+    "bodyStart": 24,
+    "column": 1,
+    "file": "batteries/ref.hpp",
+    "line": 23
+  },
+  "name": "batt::Ref",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-ptr-",
+      "category": "attributes",
+      "const": false,
+      "definition": "T* batt::Ref< T >::ptr_",
+      "explicit": false,
+      "fullname": "batt::Ref::ptr_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 102,
+        "column": 7,
+        "file": "batteries/ref.hpp",
+        "line": 102
+      },
+      "name": "ptr_",
+      "override": false,
+      "refid": "classbatt_1_1Ref_1ac66f90b133c118ed43dac2ba188936c5",
+      "static": false,
+      "strong": false,
+      "title": "ptr_",
+      "type": "T *",
+      "typePlain": "T *",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#variable-ptr-",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-ref",
+      "argsString": "(U &obj_ref) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::Ref< T >::Ref",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::Ref",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 33,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 31,
+        "column": 6,
+        "file": "batteries/ref.hpp",
+        "line": 31
+      },
+      "name": "Ref",
+      "override": false,
+      "params": [
+        {
+          "name": "obj_ref",
+          "type": "U &",
+          "typePlain": "U &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1a9aff09ba91972e63a1cdafc78e4e8ffe",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        },
+        {
+          "defval": "std::enable_if_t<std::is_constructible_v<T*, U*>>",
+          "defvalPlain": "std::enable_if_t<std::is_constructible_v<T*, U*>>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "Ref",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-ref",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-ref",
+      "argsString": "() noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::Ref< T >::Ref",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::Ref",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 37,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 35,
+        "column": 5,
+        "file": "batteries/ref.hpp",
+        "line": 35
+      },
+      "name": "Ref",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1aa4d0806925f4574dc7922858ee1a1a07",
+      "static": false,
+      "strong": false,
+      "title": "Ref",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-ref",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-ref",
+      "argsString": "(const Ref< U > &that) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::Ref< T >::Ref",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::Ref",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 42,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 40,
+        "column": 5,
+        "file": "batteries/ref.hpp",
+        "line": 40
+      },
+      "name": "Ref",
+      "override": false,
+      "params": [
+        {
+          "name": "that",
+          "type": "const [Ref](/_autogen/Classes/classbatt_1_1Ref/)< U > &",
+          "typePlain": "const Ref< U > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1afa89d3ad4278b18d186fa504a547184e",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        },
+        {
+          "defval": "std::enable_if_t<std::is_constructible_v<T*, U*>>",
+          "defvalPlain": "std::enable_if_t<std::is_constructible_v<T*, U*>>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "Ref",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-ref",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(const Ref< U > &that) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Ref& batt::Ref< T >::operator=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::operator=",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 49,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 45,
+        "column": 9,
+        "file": "batteries/ref.hpp",
+        "line": 45
+      },
+      "name": "operator=",
+      "override": false,
+      "params": [
+        {
+          "name": "that",
+          "type": "const [Ref](/_autogen/Classes/classbatt_1_1Ref/)< U > &",
+          "typePlain": "const Ref< U > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1a75664089b3426ab119a7dd273695b7f9",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        },
+        {
+          "defval": "std::enable_if_t<std::is_constructible_v<T*, U*>>",
+          "defvalPlain": "std::enable_if_t<std::is_constructible_v<T*, U*>>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "operator=",
+      "type": "[Ref](/_autogen/Classes/classbatt_1_1Ref/) &",
+      "typePlain": "Ref &",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is-valid",
+      "argsString": "() const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "bool batt::Ref< T >::is_valid",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::is_valid",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 54,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 51,
+        "column": 10,
+        "file": "batteries/ref.hpp",
+        "line": 51
+      },
+      "name": "is_valid",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1ad6de31b468d486b5124bdde674acf2fc",
+      "static": false,
+      "strong": false,
+      "title": "is_valid",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-is-valid",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get",
+      "argsString": "() const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "T& batt::Ref< T >::get",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::get",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 59,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 56,
+        "column": 7,
+        "file": "batteries/ref.hpp",
+        "line": 56
+      },
+      "name": "get",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1a7b08522d885f72aa6262cf7f5ae80729",
+      "static": false,
+      "strong": false,
+      "title": "get",
+      "type": "T &",
+      "typePlain": "T &",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-get",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-pointer",
+      "argsString": "() const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "T* batt::Ref< T >::pointer",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::pointer",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 64,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 61,
+        "column": 7,
+        "file": "batteries/ref.hpp",
+        "line": 61
+      },
+      "name": "pointer",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1a2b1e98541a60cf5ab4bb65c04d106a30",
+      "static": false,
+      "strong": false,
+      "title": "pointer",
+      "type": "T *",
+      "typePlain": "T *",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-pointer",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator-t&",
+      "argsString": "() const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "batt::Ref< T >::operator T&",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::operator T&",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 69,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 66,
+        "column": 6,
+        "file": "batteries/ref.hpp",
+        "line": 66
+      },
+      "name": "operator T&",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1ac041ff557659c80d47097234dd7bb287",
+      "static": false,
+      "strong": false,
+      "title": "operator T&",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-operator-t&",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator()",
+      "argsString": "(Args &&... args) const noexcept(noexcept((*std::declval< const Ref * >() ->ptr_)(std::forward< decltype(args)>(args)...)))",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "decltype(auto) batt::Ref< T >::operator()",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::operator()",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 77,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 73,
+        "column": 14,
+        "file": "batteries/ref.hpp",
+        "line": 73
+      },
+      "name": "operator()",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1a50af6c7826390633a9ff30f9f20b33f6",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        },
+        {
+          "defval": "std::enable_if_t<!std::is_same_v<std::tuple<std::ostream&>, std::tuple<Args...>>>",
+          "defvalPlain": "std::enable_if_t<!std::is_same_v<std::tuple<std::ostream&>, std::tuple<Args...>>>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "operator()",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-operator()",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-poll",
+      "argsString": "(Args &&... args) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "decltype(auto) batt::Ref< T >::poll",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::poll",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 86,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 86,
+        "column": 29,
+        "file": "batteries/ref.hpp",
+        "line": 86
+      },
+      "name": "poll",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1a6bd29593842cdb108b6636f8600f1dbf",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "poll",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-poll",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-poll",
+      "argsString": "(Args &&... args)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "decltype(auto) batt::Ref< T >::poll",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::poll",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 87,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 87,
+        "column": 29,
+        "file": "batteries/ref.hpp",
+        "line": 87
+      },
+      "name": "poll",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1ae145ef5e9ff6c84f719c69f4ea7fcef2",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "poll",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-poll",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-peek",
+      "argsString": "(Args &&... args) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "decltype(auto) batt::Ref< T >::peek",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::peek",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 88,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 88,
+        "column": 29,
+        "file": "batteries/ref.hpp",
+        "line": 88
+      },
+      "name": "peek",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1a237d1cdfbb0eef8f2054db5a45505f3b",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "peek",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-peek",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-peek",
+      "argsString": "(Args &&... args)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "decltype(auto) batt::Ref< T >::peek",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::peek",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 89,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 89,
+        "column": 29,
+        "file": "batteries/ref.hpp",
+        "line": 89
+      },
+      "name": "peek",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1a7cd454cffebf0d1f1a56a549f2ab1de0",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "peek",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-peek",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-next",
+      "argsString": "(Args &&... args) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "decltype(auto) batt::Ref< T >::next",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::next",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 90,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 90,
+        "column": 29,
+        "file": "batteries/ref.hpp",
+        "line": 90
+      },
+      "name": "next",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1a981e0bc6a5f27c235c51cf6e2903cf2a",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "next",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-next",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-next",
+      "argsString": "(Args &&... args)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "decltype(auto) batt::Ref< T >::next",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::next",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 91,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 91,
+        "column": 29,
+        "file": "batteries/ref.hpp",
+        "line": 91
+      },
+      "name": "next",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1ac2c04ea88496cf6b16f5e3b53def45a8",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "next",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-next",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-push-frame",
+      "argsString": "(Args &&... args) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "decltype(auto) batt::Ref< T >::push_frame",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::push_frame",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 92,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 92,
+        "column": 29,
+        "file": "batteries/ref.hpp",
+        "line": 92
+      },
+      "name": "push_frame",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1ade862c4cf7ff21dc84cfd03fd82e1cde",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "push_frame",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-push-frame",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-await-frame-consumed",
+      "argsString": "(Args &&... args) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "decltype(auto) batt::Ref< T >::await_frame_consumed",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::await_frame_consumed",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 93,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 93,
+        "column": 29,
+        "file": "batteries/ref.hpp",
+        "line": 93
+      },
+      "name": "await_frame_consumed",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1a7111f97a9461e63266fcc0a63932f3d3",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "await_frame_consumed",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-await-frame-consumed",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-update",
+      "argsString": "(Args &&... args) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "decltype(auto) batt::Ref< T >::Update",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::Update",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 94,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 94,
+        "column": 29,
+        "file": "batteries/ref.hpp",
+        "line": 94
+      },
+      "name": "Update",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1a7d281dfa692b9b700f8d60326aeca68e",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "Update",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-update",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-ok",
+      "argsString": "(Args &&... args) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "decltype(auto) batt::Ref< T >::ok",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::ok",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 95,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 95,
+        "column": 29,
+        "file": "batteries/ref.hpp",
+        "line": 95
+      },
+      "name": "ok",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1a1967ba87a2dc8f9f30c64d5326e6b78a",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "ok",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-ok",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-recycle-pages",
+      "argsString": "(Args &&... args) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "decltype(auto) batt::Ref< T >::recycle_pages",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::recycle_pages",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 96,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 96,
+        "column": 29,
+        "file": "batteries/ref.hpp",
+        "line": 96
+      },
+      "name": "recycle_pages",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1a496c1b6a607138e362d2cf292d005d0e",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "recycle_pages",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-recycle-pages",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-await-flush",
+      "argsString": "(Args &&... args) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "decltype(auto) batt::Ref< T >::await_flush",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Ref::await_flush",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 97,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 97,
+        "column": 29,
+        "file": "batteries/ref.hpp",
+        "line": 97
+      },
+      "name": "await_flush",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Ref_1ac30b147076ee4a749487f180c6de203e",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "await_flush",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#function-await-flush",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-item",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::Ref< T >::Item =  typename std::conditional_t<batt::HasSeqRequirements<T>{}, batt::SeqItem_Impl<T>, batt::StaticType<void> >::type",
+      "explicit": false,
+      "fullname": "batt::Ref::Item",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 28,
+        "column": 5,
+        "file": "batteries/ref.hpp",
+        "line": 26
+      },
+      "name": "Item",
+      "override": false,
+      "refid": "classbatt_1_1Ref_1a5aa100ed8aa49559b09f2af67865dc31",
+      "static": false,
+      "strong": false,
+      "title": "Item",
+      "type": "typename std::conditional_t< batt::HasSeqRequirements< T >{}, [batt::SeqItem_Impl](/_autogen/Classes/structbatt_1_1SeqItem__Impl/)< T >, [batt::StaticType](/_autogen/Classes/structbatt_1_1StaticType/)< void > >::type",
+      "typePlain": "typename std::conditional_t< batt::HasSeqRequirements< T >{}, batt::SeqItem_Impl< T >, batt::StaticType< void > >::type",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/#using-item",
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1Ref",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename T",
+      "typePlain": "typename T"
+    }
+  ],
+  "title": "batt::Ref",
+  "url": "/_autogen/Classes/classbatt_1_1Ref/",
+  "visibility": "public"
+}

@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-fake-execution-context-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-fake-execution-context-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_FAKE_EXECUTION_CONTEXT_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/fake_execution_context_impl.hpp",
+        "bodyStart": 5,
+        "column": 9,
+        "file": "batteries/async/fake_execution_context_impl.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_ASYNC_FAKE_EXECUTION_CONTEXT_IMPL_HPP",
+      "override": false,
+      "refid": "fake__execution__context__impl_8hpp_1a323a145f137332bd2587182f9214c940",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_FAKE_EXECUTION_CONTEXT_IMPL_HPP",
+      "url": "/_autogen/Files/fake__execution__context__impl_8hpp/#define-batteries-async-fake-execution-context-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/fake_execution_context_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/fake_execution_context_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/fake_execution_context_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_FAKE_EXECUTION_CONTEXT_IMPL_HPP\n#define BATTERIES_ASYNC_FAKE_EXECUTION_CONTEXT_IMPL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/fake_execution_context_decl.hpp>\n#include <batteries/async/fake_executor.hpp>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL FakeExecutor FakeExecutionContext::get_executor()\n{\n    return FakeExecutor{this};\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL Watch<i64>& FakeExecutionContext::work_count()\n{\n    BATT_CHECK_GE(this->work_count_.get_value(), 0);\n    return this->work_count_;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void FakeExecutionContext::push_ready_handler(UniqueHandler<>&& handler)\n{\n    if (!handler) {\n        return;\n    }\n    {\n        std::unique_lock<std::mutex> lock{this->mutex_};\n        this->ready_to_run_.emplace_back(std::move(handler));\n    }\n    this->push_ready_count_.fetch_add(1);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL UniqueHandler<> FakeExecutionContext::pop_ready_handler(\n    const std::function<usize(usize)>& picker)\n{\n    UniqueHandler<> popped_handler;\n    {\n        std::unique_lock<std::mutex> lock{this->mutex_};\n        if (this->ready_to_run_.empty()) {\n            return UniqueHandler<>{};\n        }\n\n        const usize next_i = picker(this->ready_to_run_.size());\n        BATT_CHECK_LT(next_i, this->ready_to_run_.size());\n\n        popped_handler = std::move(this->ready_to_run_[next_i]);\n        if (next_i != this->ready_to_run_.size() - 1) {\n            this->ready_to_run_[next_i] = std::move(this->ready_to_run_.back());\n        }\n        this->ready_to_run_.pop_back();\n    }\n    this->pop_ready_count_.fetch_add(1);\n\n    return popped_handler;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL bool FakeExecutionContext::poll_one()\n{\n    UniqueHandler<> handler = this->pop_ready_handler([](usize) {\n        return usize{0};\n    });\n    if (!handler) {\n        return false;\n    }\n    handler();\n    return true;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL usize FakeExecutionContext::poll()\n{\n    usize count = 0;\n    while (this->poll_one()) {\n        count += 1;\n    }\n    return count;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL usize FakeExecutionContext::run()\n{\n    BATT_PANIC() << \"TODO [tastolfi 2022-01-19] implement me\";\n    BATT_UNREACHABLE();\n    /*\n    usize count = 0;\n    i64 observed_push_count = this->push_ready_count_.get_value();\n\n    for (;;) {\n\n    }\n    */\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_FAKE_EXECUTION_CONTEXT_IMPL_HPP",
+  "refid": "fake__execution__context__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/fake_execution_context_impl.hpp",
+  "url": "/_autogen/Files/fake__execution__context__impl_8hpp/#file-fake-execution-context-impl.hpp",
+  "visibility": "public"
+}
