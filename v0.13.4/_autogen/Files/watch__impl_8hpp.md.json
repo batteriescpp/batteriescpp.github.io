@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-watch-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-watch-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_WATCH_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/watch_impl.hpp",
+        "bodyStart": 5,
+        "column": 9,
+        "file": "batteries/async/watch_impl.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_ASYNC_WATCH_IMPL_HPP",
+      "override": false,
+      "refid": "watch__impl_8hpp_1af791112c57775f03f43243d0307910b0",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_WATCH_IMPL_HPP",
+      "url": "/_autogen/Files/watch__impl_8hpp/#define-batteries-async-watch-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/watch_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/async/watch_decl.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/watch_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/watch_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2021 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_WATCH_IMPL_HPP\n#define BATTERIES_ASYNC_WATCH_IMPL_HPP\n\n#include <batteries/async/watch_decl.hpp>\n//\n\n#include <batteries/async/debug_info.hpp>\n#include <batteries/async/task.hpp>\n\nnamespace batt {\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n// class Watch\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T>\nBATT_INLINE_IMPL StatusOr<T> Watch<T>::await_not_equal(const T& last_seen)\n{\n    return Task::await<StatusOr<T>>([&](auto&& fn) {\n        this->async_wait(last_seen, BATT_FORWARD(fn));\n    });\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n// class WatchAtomic\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T>\ntemplate <typename Fn>\nBATT_INLINE_IMPL StatusOr<T> WatchAtomic<T>::await_modify(Fn&& fn)\n{\n    T old_value = this->value_.load();\n\n    for (;;) {\n        const Optional<T> new_value = [&] {\n            for (;;) {\n                const Optional<T> modified_value = fn(old_value);\n                if (!modified_value || this->value_.compare_exchange_weak(old_value, *modified_value)) {\n                    return modified_value;\n                }\n            }\n        }();\n\n        if (new_value) {\n            if (*new_value != old_value) {\n                this->notify(*new_value);\n            }\n            break;\n        }\n\n        BATT_DEBUG_INFO(\"[WatchAtomic::await_modify] waiting for update (old_value=\" << old_value << \")\");\n\n        StatusOr<T> updated_value = this->await_not_equal(old_value);\n        BATT_REQUIRE_OK(updated_value);\n\n        old_value = *updated_value;\n    }\n\n    return old_value;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T>\nBATT_INLINE_IMPL StatusOr<T> WatchAtomic<T>::await_not_equal(const T& last_seen) const\n{\n    BATT_DEBUG_INFO(\"WatchAtomic{value=\"\n                    << this->value_ << \" spin_state=\" << std::bitset<8>{this->spin_state_}\n                    << \"(locked=\" << kLocked << \",open=\" << kOpen << \",wait=\" << kWaiting\n                    << \") observers.size()=\" << this->observers_.size() << \" is_closed=\" << this->is_closed()\n                    << \" last_seen=\" << last_seen << \"}\");\n\n    return Task::await<StatusOr<T>>([&](auto&& fn) {\n        this->async_wait(last_seen, BATT_FORWARD(fn));\n    });\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_WATCH_IMPL_HPP",
+  "refid": "watch__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/watch_impl.hpp",
+  "url": "/_autogen/Files/watch__impl_8hpp/#file-watch-impl.hpp",
+  "visibility": "public"
+}
