@@ -1,0 +1,463 @@
+{
+  "abstract": false,
+  "anchor": "#file-require.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-require-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_REQUIRE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/require.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/require.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_REQUIRE_HPP",
+      "override": false,
+      "refid": "require_8hpp_1aecccbd25b39a24b2b2b5ab5408d7ee42",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_REQUIRE_HPP",
+      "url": "/_autogen/Files/require_8hpp/#define-batteries-require-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-require-relation",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_REQUIRE_RELATION",
+      "hasDetails": false,
+      "initializer": "    for (auto values = std::make_tuple((left), (right));                                                     \\\n         !BATT_HINT_TRUE(std::get<0>(values) op std::get<1>(values));)                                       \\\n    return ::batt::detail::NotOkStatusWrapper{__FILE__,                                                      \\\n                                              __LINE__,                                                      \\\n                                              {::batt::StatusCode::kFailedPrecondition},                     \\\n                                              BATT_VLOG_IS_ON(1)}                                            \\\n           << \"\\n\\n  Expected:\\n\\n    \"                                                                      \\\n           << BOOST_PP_STRINGIZE(left) << \" \"                                                                               \\\n                        << BOOST_PP_STRINGIZE(op) << \" \"                                                                    \\\n                                   << BOOST_PP_STRINGIZE(right)                                              \\\n                                          << \"\\n\\n  Actual:\\n\\n    \"                                         \\\n                                          << BOOST_PP_STRINGIZE(left)                                        \\\n                                                 << \" == \" << ::batt::make_printable(std::get<0>(values))    \\\n                                                 << \"\\n\\n    \"                                               \\\n                                                 << BOOST_PP_STRINGIZE(right) << \" == \"                      \\\n                                                                              << ::batt::make_printable(     \\\n                                                                                     std::get<1>(values))    \\\n                                                                              << \"\\n\\n\"",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/require.hpp",
+        "bodyStart": 19,
+        "column": 9,
+        "file": "batteries/require.hpp",
+        "line": 19
+      },
+      "name": "BATT_REQUIRE_RELATION",
+      "override": false,
+      "params": [
+        {
+          "name": "left",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "op",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "right",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "require_8hpp_1a3e7b1496ad3857b6047a2cac807478ce",
+      "static": false,
+      "strong": false,
+      "title": "BATT_REQUIRE_RELATION",
+      "url": "/_autogen/Files/require_8hpp/#define-batt-require-relation",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-require-eq",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_REQUIRE_EQ",
+      "hasDetails": false,
+      "initializer": "BATT_REQUIRE_RELATION(left, ==, right)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/require.hpp",
+        "bodyStart": 39,
+        "column": 9,
+        "file": "batteries/require.hpp",
+        "line": 39
+      },
+      "name": "BATT_REQUIRE_EQ",
+      "override": false,
+      "params": [
+        {
+          "name": "left",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "right",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "require_8hpp_1ad6cbeebdfb8b9250424ec5fa67cd763b",
+      "static": false,
+      "strong": false,
+      "title": "BATT_REQUIRE_EQ",
+      "url": "/_autogen/Files/require_8hpp/#define-batt-require-eq",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-require-ne",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_REQUIRE_NE",
+      "hasDetails": false,
+      "initializer": "BATT_REQUIRE_RELATION(left, !=, right)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/require.hpp",
+        "bodyStart": 40,
+        "column": 9,
+        "file": "batteries/require.hpp",
+        "line": 40
+      },
+      "name": "BATT_REQUIRE_NE",
+      "override": false,
+      "params": [
+        {
+          "name": "left",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "right",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "require_8hpp_1a9c81b52f6cbbca927d39608bcec8269c",
+      "static": false,
+      "strong": false,
+      "title": "BATT_REQUIRE_NE",
+      "url": "/_autogen/Files/require_8hpp/#define-batt-require-ne",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-require-lt",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_REQUIRE_LT",
+      "hasDetails": false,
+      "initializer": "BATT_REQUIRE_RELATION(left, <, right)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/require.hpp",
+        "bodyStart": 41,
+        "column": 9,
+        "file": "batteries/require.hpp",
+        "line": 41
+      },
+      "name": "BATT_REQUIRE_LT",
+      "override": false,
+      "params": [
+        {
+          "name": "left",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "right",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "require_8hpp_1a52db6883e2d7730b870cf1666a1b7e74",
+      "static": false,
+      "strong": false,
+      "title": "BATT_REQUIRE_LT",
+      "url": "/_autogen/Files/require_8hpp/#define-batt-require-lt",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-require-gt",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_REQUIRE_GT",
+      "hasDetails": false,
+      "initializer": "BATT_REQUIRE_RELATION(left, >, right)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/require.hpp",
+        "bodyStart": 42,
+        "column": 9,
+        "file": "batteries/require.hpp",
+        "line": 42
+      },
+      "name": "BATT_REQUIRE_GT",
+      "override": false,
+      "params": [
+        {
+          "name": "left",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "right",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "require_8hpp_1a1bda45c8497c9d8ec56b3f01db4c5bf8",
+      "static": false,
+      "strong": false,
+      "title": "BATT_REQUIRE_GT",
+      "url": "/_autogen/Files/require_8hpp/#define-batt-require-gt",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-require-le",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_REQUIRE_LE",
+      "hasDetails": false,
+      "initializer": "BATT_REQUIRE_RELATION(left, <=, right)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/require.hpp",
+        "bodyStart": 43,
+        "column": 9,
+        "file": "batteries/require.hpp",
+        "line": 43
+      },
+      "name": "BATT_REQUIRE_LE",
+      "override": false,
+      "params": [
+        {
+          "name": "left",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "right",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "require_8hpp_1a9985faa4d05d5582cea5de2bcb3d1385",
+      "static": false,
+      "strong": false,
+      "title": "BATT_REQUIRE_LE",
+      "url": "/_autogen/Files/require_8hpp/#define-batt-require-le",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-require-ge",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_REQUIRE_GE",
+      "hasDetails": false,
+      "initializer": "BATT_REQUIRE_RELATION(left, >=, right)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/require.hpp",
+        "bodyStart": 44,
+        "column": 9,
+        "file": "batteries/require.hpp",
+        "line": 44
+      },
+      "name": "BATT_REQUIRE_GE",
+      "override": false,
+      "params": [
+        {
+          "name": "left",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "right",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "require_8hpp_1ae80e6d2d510f4796b27e93ccb983fedb",
+      "static": false,
+      "strong": false,
+      "title": "BATT_REQUIRE_GE",
+      "url": "/_autogen/Files/require_8hpp/#define-batt-require-ge",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-require-true",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_REQUIRE_TRUE",
+      "hasDetails": false,
+      "initializer": "BATT_REQUIRE_RELATION(bool{(expr)}, ==, true)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/require.hpp",
+        "bodyStart": 46,
+        "column": 9,
+        "file": "batteries/require.hpp",
+        "line": 46
+      },
+      "name": "BATT_REQUIRE_TRUE",
+      "override": false,
+      "params": [
+        {
+          "name": "expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "require_8hpp_1ab324b408f22fce7b1a455154255c5f2b",
+      "static": false,
+      "strong": false,
+      "title": "BATT_REQUIRE_TRUE",
+      "url": "/_autogen/Files/require_8hpp/#define-batt-require-true",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-require-false",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_REQUIRE_FALSE",
+      "hasDetails": false,
+      "initializer": "BATT_REQUIRE_RELATION(bool{(expr)}, ==, false)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/require.hpp",
+        "bodyStart": 47,
+        "column": 9,
+        "file": "batteries/require.hpp",
+        "line": 47
+      },
+      "name": "BATT_REQUIRE_FALSE",
+      "override": false,
+      "params": [
+        {
+          "name": "expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "require_8hpp_1a6e3e74d375e57fd374926940788d7689",
+      "static": false,
+      "strong": false,
+      "title": "BATT_REQUIRE_FALSE",
+      "url": "/_autogen/Files/require_8hpp/#define-batt-require-false",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/require.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/require.hpp",
+    "line": 0
+  },
+  "name": "batteries/require.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_REQUIRE_HPP\n#define BATTERIES_REQUIRE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/status.hpp>\n\n#include <boost/preprocessor/stringize.hpp>\n\n#include <tuple>\n\nnamespace batt {\n\n#define BATT_REQUIRE_RELATION(left, op, right)                                                               \\\n    for (auto values = std::make_tuple((left), (right));                                                     \\\n         !BATT_HINT_TRUE(std::get<0>(values) op std::get<1>(values));)                                       \\\n    return ::batt::detail::NotOkStatusWrapper{__FILE__,                                                      \\\n                                              __LINE__,                                                      \\\n                                              {::batt::StatusCode::kFailedPrecondition},                     \\\n                                              BATT_VLOG_IS_ON(1)}                                            \\\n           << \"\\n\\n  Expected:\\n\\n    \"                                                                      \\\n           << BOOST_PP_STRINGIZE(left) << \" \"                                                                               \\\n                        << BOOST_PP_STRINGIZE(op) << \" \"                                                                    \\\n                                   << BOOST_PP_STRINGIZE(right)                                              \\\n                                          << \"\\n\\n  Actual:\\n\\n    \"                                         \\\n                                          << BOOST_PP_STRINGIZE(left)                                        \\\n                                                 << \" == \" << ::batt::make_printable(std::get<0>(values))    \\\n                                                 << \"\\n\\n    \"                                               \\\n                                                 << BOOST_PP_STRINGIZE(right) << \" == \"                      \\\n                                                                              << ::batt::make_printable(     \\\n                                                                                     std::get<1>(values))    \\\n                                                                              << \"\\n\\n\"\n\n#define BATT_REQUIRE_EQ(left, right) BATT_REQUIRE_RELATION(left, ==, right)\n#define BATT_REQUIRE_NE(left, right) BATT_REQUIRE_RELATION(left, !=, right)\n#define BATT_REQUIRE_LT(left, right) BATT_REQUIRE_RELATION(left, <, right)\n#define BATT_REQUIRE_GT(left, right) BATT_REQUIRE_RELATION(left, >, right)\n#define BATT_REQUIRE_LE(left, right) BATT_REQUIRE_RELATION(left, <=, right)\n#define BATT_REQUIRE_GE(left, right) BATT_REQUIRE_RELATION(left, >=, right)\n\n#define BATT_REQUIRE_TRUE(expr) BATT_REQUIRE_RELATION(bool{(expr)}, ==, true)\n#define BATT_REQUIRE_FALSE(expr) BATT_REQUIRE_RELATION(bool{(expr)}, ==, false)\n\n}  // namespace batt\n\n#endif  // BATTERIES_REQUIRE_HPP",
+  "refid": "require_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/require.hpp",
+  "url": "/_autogen/Files/require_8hpp/#file-require.hpp",
+  "visibility": "public"
+}

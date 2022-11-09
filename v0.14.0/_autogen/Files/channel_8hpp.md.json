@@ -1,0 +1,125 @@
+{
+  "abstract": false,
+  "anchor": "#file-channel.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-channel-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_CHANNEL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/channel.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/channel.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_CHANNEL_HPP",
+      "override": false,
+      "refid": "channel_8hpp_1a975d355c0d32ed179e3ee052ec3434d4",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_CHANNEL_HPP",
+      "url": "/_autogen/Files/channel_8hpp/#define-batteries-async-channel-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/channel.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/channel.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/channel.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_CHANNEL_HPP\n#define BATTERIES_ASYNC_CHANNEL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/watch.hpp>\n\n#include <batteries/optional.hpp>\n#include <batteries/status.hpp>\n\nnamespace batt {\n\n// A Channel<T> is a one-way, unbuffered, SPSC (single-producer, single consumer)\n// communication/synchronization primitive.\n//\ntemplate <typename T>\nclass Channel\n{\n   public:\n    Channel()\n    {\n    }\n\n    Channel(const Channel&) = delete;\n    Channel& operator=(const Channel&) = delete;\n\n    ~Channel()\n    {\n        this->close_for_write();\n        this->read_count_.await_equal(this->write_count_.get_value()).IgnoreError();\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    // Returns true iff there is currently an object available on the channel.\n    //\n    bool is_active() const;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    // Wait for an object to be written to the Channel, then return a reference to that object.  The referred\n    // object will stay valid until `consume()` is called.\n    //\n    StatusOr<T&> read();\n\n    // Release the last value read on the Channel.  Panic if `consume()` is called without a prior successful\n    // call to `read()` (indicating that `this->is_active()` is true).\n    //\n    void consume();\n\n    // Unblock all ongoing calls to write/async_write and cause all future calls to fail with closed error\n    // status.\n    //\n    void close_for_read();\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    // Write a value to the Channel.  Panic if there is currently an ongoing write (single-producer).\n    //\n    // The passed handler is invoked once the value is consumed via `read`/`consume`.\n    //\n    template <typename Handler = void(Status)>\n    void async_write(T& value, Handler&& handler);\n\n    // Blocking (Task::await) version of `async_write`.  This function will not return until the passed value\n    // has been consumed.  The value is guaranteed not to be copied; the consumer will see the same exact\n    // object passed into write.\n    //\n    Status write(T& value);\n\n    // Unblock all ongoing calls to read and cause all future calls to fail with closed error status.\n    //\n    void close_for_write();\n\n   private:\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    Watch<i32> read_count_{0};\n    Watch<i32> write_count_{0};\n    T* value_ = nullptr;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T>\ntemplate <typename Handler>\nvoid Channel<T>::async_write(T& value, Handler&& handler)\n{\n    BATT_CHECK(!this->is_active());\n\n    if (this->write_count_.is_closed()) {\n        handler({StatusCode::kClosed});\n        return;\n    }\n\n    this->value_ = &value;\n\n    const i32 last_seen = this->read_count_.get_value();\n    const i32 target = this->write_count_.fetch_add(1) + 1;\n\n    BATT_CHECK_EQ(last_seen + 1, target);\n\n    this->read_count_.async_wait(\n        last_seen,\n        bind_handler(BATT_FORWARD(handler), [this, target](auto&& handler, StatusOr<i32> observed) {\n            if (observed.ok()) {\n                BATT_CHECK_EQ(target, *observed);\n            }\n            this->value_ = nullptr;\n            handler(observed.status());\n        }));\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T>\ninline bool Channel<T>::is_active() const\n{\n    return (this->write_count_.get_value() - this->read_count_.get_value()) > 0;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T>\ninline StatusOr<T&> Channel<T>::read()\n{\n    StatusOr<i64> result = this->write_count_.await_not_equal(this->read_count_.get_value());\n    BATT_REQUIRE_OK(result);\n\n    return *this->value_;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T>\ninline void Channel<T>::consume()\n{\n    BATT_CHECK(this->is_active());\n    this->value_ = nullptr;\n    this->read_count_.fetch_add(1);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T>\ninline Status Channel<T>::write(T& value)\n{\n    BATT_CHECK(!this->is_active());\n\n    if (this->write_count_.is_closed()) {\n        return {StatusCode::kClosed};\n    }\n\n    this->value_ = &value;\n    const i32 target = this->write_count_.fetch_add(1) + 1;\n\n    Status consumed = this->read_count_.await_equal(target);\n    BATT_REQUIRE_OK(consumed);\n\n    return OkStatus();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T>\ninline void Channel<T>::close_for_read()\n{\n    this->read_count_.close();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T>\ninline void Channel<T>::close_for_write()\n{\n    this->write_count_.close();\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_CHANNEL_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Channel",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Channel",
+      "refid": "classbatt_1_1Channel",
+      "title": "batt::Channel",
+      "url": "/_autogen/Classes/classbatt_1_1Channel/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "channel_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/channel.hpp",
+  "url": "/_autogen/Files/channel_8hpp/#file-channel.hpp",
+  "visibility": "public"
+}
