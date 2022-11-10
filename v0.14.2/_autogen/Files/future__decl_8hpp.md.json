@@ -1,0 +1,153 @@
+{
+  "abstract": false,
+  "anchor": "#file-future-decl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-future-decl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_FUTURE_DECL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/future_decl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/future_decl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_FUTURE_DECL_HPP",
+      "override": false,
+      "refid": "future__decl_8hpp_1a8da9ce5522ec19f4355edc440b63e2a6",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_FUTURE_DECL_HPP",
+      "url": "/_autogen/Files/future__decl_8hpp/#define-batteries-async-future-decl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/future_decl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/future_decl.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/future_decl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_FUTURE_DECL_HPP\n#define BATTERIES_ASYNC_FUTURE_DECL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/shared_ptr.hpp>\n\n#include <memory>\n\nnamespace batt {\n\nnamespace detail {\n\ntemplate <typename T>\nclass FutureImpl;\n\n}  // namespace detail\n\ntemplate <typename T>\nclass Future;\n\ntemplate <typename T>\nclass Promise\n{\n   public:\n    Promise();\n\n    void set_value(T&& value);\n\n    template <typename U>\n    friend Future<U> get_future(const Promise<U>& promise);\n\n   private:\n    boost::intrusive_ptr<detail::FutureImpl<T>> impl_;\n};\n\ntemplate <typename T>\nclass Future\n{\n   public:\n    template <typename Handler>\n    void async_wait(Handler&& handler) const;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    // To retrieve the value of the future, use `StatusOr<T> result = Task::await(future);`\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    template <typename U>\n    friend Future<U> get_future(const Promise<U>& promise);\n\n    bool is_ready() const;\n\n   private:\n    explicit Future(boost::intrusive_ptr<detail::FutureImpl<T>>&& impl) noexcept;\n\n    boost::intrusive_ptr<detail::FutureImpl<T>> impl_;\n};\n\ntemplate <typename T>\nFuture<T> get_future(const Promise<T>& promise);\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_FUTURE_DECL_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "An obligation to provide a value of type T to a [Future](/_autogen/Classes/classbatt_1_1Future/). ",
+      "category": "classes",
+      "fullname": "batt::Promise",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Promise",
+      "refid": "classbatt_1_1Promise",
+      "summary": "An obligation to provide a value of type T to a Future. ",
+      "title": "batt::Promise",
+      "url": "/_autogen/Classes/classbatt_1_1Promise/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "A value of type T that will be provided at some point in the future. ",
+      "category": "classes",
+      "fullname": "batt::Future",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Future",
+      "refid": "classbatt_1_1Future",
+      "summary": "A value of type T that will be provided at some point in the future. ",
+      "title": "batt::Future",
+      "url": "/_autogen/Classes/classbatt_1_1Future/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "future__decl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/future_decl.hpp",
+  "url": "/_autogen/Files/future__decl_8hpp/#file-future-decl.hpp",
+  "visibility": "public"
+}
