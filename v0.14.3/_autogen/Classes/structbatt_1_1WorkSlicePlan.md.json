@@ -1,0 +1,254 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::WorkSlicePlan",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "struct",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 109,
+    "bodyFile": "batteries/async/slice_work.hpp",
+    "bodyStart": 92,
+    "column": 1,
+    "file": "batteries/async/slice_work.hpp",
+    "line": 92
+  },
+  "name": "batt::WorkSlicePlan",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "publicAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-input-size",
+      "category": "attributes",
+      "const": false,
+      "definition": "InputSize batt::WorkSlicePlan::input_size",
+      "explicit": false,
+      "fullname": "batt::WorkSlicePlan::input_size",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/slice_work.hpp",
+        "bodyStart": 100,
+        "column": 15,
+        "file": "batteries/async/slice_work.hpp",
+        "line": 100
+      },
+      "name": "input_size",
+      "override": false,
+      "refid": "structbatt_1_1WorkSlicePlan_1a1e0b2dbab767a87774f19f02d4e8acfd",
+      "static": false,
+      "strong": false,
+      "title": "input_size",
+      "type": "[InputSize](/_autogen/Classes/classbatt_1_1StrongType/)",
+      "typePlain": "InputSize",
+      "url": "/_autogen/Classes/structbatt_1_1WorkSlicePlan/#variable-input-size",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-task-size",
+      "category": "attributes",
+      "const": false,
+      "definition": "TaskSize batt::WorkSlicePlan::task_size",
+      "explicit": false,
+      "fullname": "batt::WorkSlicePlan::task_size",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/slice_work.hpp",
+        "bodyStart": 104,
+        "column": 14,
+        "file": "batteries/async/slice_work.hpp",
+        "line": 104
+      },
+      "name": "task_size",
+      "override": false,
+      "refid": "structbatt_1_1WorkSlicePlan_1a26ceca5294e6d1298733bc16846f9ce1",
+      "static": false,
+      "strong": false,
+      "title": "task_size",
+      "type": "[TaskSize](/_autogen/Classes/classbatt_1_1StrongType/)",
+      "typePlain": "TaskSize",
+      "url": "/_autogen/Classes/structbatt_1_1WorkSlicePlan/#variable-task-size",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-n-tasks",
+      "category": "attributes",
+      "const": false,
+      "definition": "TaskCount batt::WorkSlicePlan::n_tasks",
+      "explicit": false,
+      "fullname": "batt::WorkSlicePlan::n_tasks",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/slice_work.hpp",
+        "bodyStart": 108,
+        "column": 15,
+        "file": "batteries/async/slice_work.hpp",
+        "line": 108
+      },
+      "name": "n_tasks",
+      "override": false,
+      "refid": "structbatt_1_1WorkSlicePlan_1af7dca1908a6665cccb218707f1306f32",
+      "static": false,
+      "strong": false,
+      "title": "n_tasks",
+      "type": "[TaskCount](/_autogen/Classes/classbatt_1_1StrongType/)",
+      "typePlain": "TaskCount",
+      "url": "/_autogen/Classes/structbatt_1_1WorkSlicePlan/#variable-n-tasks",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-worksliceplan",
+      "argsString": "(const WorkSliceParams &params, InputSize input_size) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::WorkSlicePlan::WorkSlicePlan",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::WorkSlicePlan::WorkSlicePlan",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 34,
+        "bodyFile": "batteries/async/slice_work_impl.hpp",
+        "bodyStart": 26,
+        "column": 14,
+        "file": "batteries/async/slice_work.hpp",
+        "line": 93
+      },
+      "name": "WorkSlicePlan",
+      "override": false,
+      "params": [
+        {
+          "name": "params",
+          "type": "const [WorkSliceParams](/_autogen/Classes/structbatt_1_1WorkSliceParams/) &",
+          "typePlain": "const WorkSliceParams &"
+        },
+        {
+          "name": "input_size",
+          "type": "[InputSize](/_autogen/Classes/classbatt_1_1StrongType/)",
+          "typePlain": "InputSize"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1WorkSlicePlan_1a7ab6d3b937bde751e71c72247a321fa1",
+      "static": false,
+      "strong": false,
+      "title": "WorkSlicePlan",
+      "url": "/_autogen/Classes/structbatt_1_1WorkSlicePlan/#function-worksliceplan",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-worksliceplan",
+      "argsString": "(const WorkSliceParams &params, const Iter &first, const Iter &last) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::WorkSlicePlan::WorkSlicePlan",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::WorkSlicePlan::WorkSlicePlan",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 43,
+        "bodyFile": "batteries/async/slice_work_impl.hpp",
+        "bodyStart": 39,
+        "column": 14,
+        "file": "batteries/async/slice_work.hpp",
+        "line": 96
+      },
+      "name": "WorkSlicePlan",
+      "override": false,
+      "params": [
+        {
+          "name": "params",
+          "type": "const [WorkSliceParams](/_autogen/Classes/structbatt_1_1WorkSliceParams/) &",
+          "typePlain": "const WorkSliceParams &"
+        },
+        {
+          "name": "first",
+          "type": "const Iter &",
+          "typePlain": "const Iter &"
+        },
+        {
+          "name": "last",
+          "type": "const Iter &",
+          "typePlain": "const Iter &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1WorkSlicePlan_1ae97d5f86d1d227d472a30149fb7534a1",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Iter",
+          "typePlain": "typename Iter"
+        }
+      ],
+      "title": "WorkSlicePlan",
+      "url": "/_autogen/Classes/structbatt_1_1WorkSlicePlan/#function-worksliceplan",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "structbatt_1_1WorkSlicePlan",
+  "static": false,
+  "strong": false,
+  "title": "batt::WorkSlicePlan",
+  "url": "/_autogen/Classes/structbatt_1_1WorkSlicePlan/",
+  "visibility": "public"
+}
