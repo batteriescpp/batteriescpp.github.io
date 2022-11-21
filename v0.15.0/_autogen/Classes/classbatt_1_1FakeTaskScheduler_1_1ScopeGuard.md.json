@@ -1,0 +1,276 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::FakeTaskScheduler::ScopeGuard",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 80,
+    "bodyFile": "batteries/async/fake_task_scheduler.hpp",
+    "bodyStart": 63,
+    "column": 1,
+    "file": "batteries/async/fake_task_scheduler.hpp",
+    "line": 62
+  },
+  "name": "batt::FakeTaskScheduler::ScopeGuard",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "baseClasses": [
+      {
+        "external": false,
+        "name": "batt::TaskScheduler",
+        "refid": "classbatt_1_1TaskScheduler",
+        "url": "/_autogen/Classes/classbatt_1_1TaskScheduler/",
+        "virtual": "non-virtual",
+        "visibility": "public"
+      }
+    ],
+    "category": "classes",
+    "fullname": "batt::FakeTaskScheduler",
+    "kind": "class",
+    "language": "cpp",
+    "name": "batt::FakeTaskScheduler",
+    "refid": "classbatt_1_1FakeTaskScheduler",
+    "title": "batt::FakeTaskScheduler",
+    "url": "/_autogen/Classes/classbatt_1_1FakeTaskScheduler/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::TaskScheduler",
+          "refid": "classbatt_1_1TaskScheduler",
+          "url": "/_autogen/Classes/classbatt_1_1TaskScheduler/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::FakeTaskScheduler",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::FakeTaskScheduler",
+      "refid": "classbatt_1_1FakeTaskScheduler",
+      "title": "batt::FakeTaskScheduler",
+      "url": "/_autogen/Classes/classbatt_1_1FakeTaskScheduler/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-saved-",
+      "category": "attributes",
+      "const": false,
+      "definition": "TaskScheduler* batt::FakeTaskScheduler::ScopeGuard::saved_",
+      "explicit": false,
+      "fullname": "batt::FakeTaskScheduler::ScopeGuard::saved_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/fake_task_scheduler.hpp",
+        "bodyStart": 79,
+        "column": 19,
+        "file": "batteries/async/fake_task_scheduler.hpp",
+        "line": 79
+      },
+      "name": "saved_",
+      "override": false,
+      "refid": "classbatt_1_1FakeTaskScheduler_1_1ScopeGuard_1a53de9461513b5b70be5b2e47324e594d",
+      "static": false,
+      "strong": false,
+      "title": "saved_",
+      "type": "[TaskScheduler](/_autogen/Classes/classbatt_1_1TaskScheduler/) *",
+      "typePlain": "TaskScheduler *",
+      "url": "/_autogen/Classes/classbatt_1_1FakeTaskScheduler_1_1ScopeGuard/#variable-saved-",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-scopeguard",
+      "argsString": "(const ScopeGuard &)=delete",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::FakeTaskScheduler::ScopeGuard::ScopeGuard",
+      "deleted": true,
+      "explicit": false,
+      "fullname": "batt::FakeTaskScheduler::ScopeGuard::ScopeGuard",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/async/fake_task_scheduler.hpp",
+        "line": 65
+      },
+      "name": "ScopeGuard",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [ScopeGuard](/_autogen/Classes/classbatt_1_1FakeTaskScheduler_1_1ScopeGuard/) &",
+          "typePlain": "const ScopeGuard &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1FakeTaskScheduler_1_1ScopeGuard_1a63a95ded98bd3dcdc0228ec6c0ff6a58",
+      "static": false,
+      "strong": false,
+      "title": "ScopeGuard",
+      "url": "/_autogen/Classes/classbatt_1_1FakeTaskScheduler_1_1ScopeGuard/#function-scopeguard",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(const ScopeGuard &)=delete",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "ScopeGuard& batt::FakeTaskScheduler::ScopeGuard::operator=",
+      "deleted": true,
+      "explicit": false,
+      "fullname": "batt::FakeTaskScheduler::ScopeGuard::operator=",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 16,
+        "file": "batteries/async/fake_task_scheduler.hpp",
+        "line": 66
+      },
+      "name": "operator=",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [ScopeGuard](/_autogen/Classes/classbatt_1_1FakeTaskScheduler_1_1ScopeGuard/) &",
+          "typePlain": "const ScopeGuard &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1FakeTaskScheduler_1_1ScopeGuard_1a066ae22af11c85a34163df71ee24e6d3",
+      "static": false,
+      "strong": false,
+      "title": "operator=",
+      "type": "[ScopeGuard](/_autogen/Classes/classbatt_1_1FakeTaskScheduler_1_1ScopeGuard/) &",
+      "typePlain": "ScopeGuard &",
+      "url": "/_autogen/Classes/classbatt_1_1FakeTaskScheduler_1_1ScopeGuard/#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-scopeguard",
+      "argsString": "(FakeTaskScheduler &scheduler) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::FakeTaskScheduler::ScopeGuard::ScopeGuard",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::FakeTaskScheduler::ScopeGuard::ScopeGuard",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 71,
+        "bodyFile": "batteries/async/fake_task_scheduler.hpp",
+        "bodyStart": 68,
+        "column": 14,
+        "file": "batteries/async/fake_task_scheduler.hpp",
+        "line": 68
+      },
+      "name": "ScopeGuard",
+      "override": false,
+      "params": [
+        {
+          "name": "scheduler",
+          "type": "[FakeTaskScheduler](/_autogen/Classes/classbatt_1_1FakeTaskScheduler/) &",
+          "typePlain": "FakeTaskScheduler &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1FakeTaskScheduler_1_1ScopeGuard_1a03f857b5dce29298c1f800b1323cd6dd",
+      "static": false,
+      "strong": false,
+      "title": "ScopeGuard",
+      "url": "/_autogen/Classes/classbatt_1_1FakeTaskScheduler_1_1ScopeGuard/#function-scopeguard",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-~scopeguard",
+      "argsString": "() noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::FakeTaskScheduler::ScopeGuard::~ScopeGuard",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::FakeTaskScheduler::ScopeGuard::~ScopeGuard",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 76,
+        "bodyFile": "batteries/async/fake_task_scheduler.hpp",
+        "bodyStart": 73,
+        "column": 5,
+        "file": "batteries/async/fake_task_scheduler.hpp",
+        "line": 73
+      },
+      "name": "~ScopeGuard",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1FakeTaskScheduler_1_1ScopeGuard_1a6499bf8c14fd8a3e028ff75b3dfc8a44",
+      "static": false,
+      "strong": false,
+      "title": "~ScopeGuard",
+      "url": "/_autogen/Classes/classbatt_1_1FakeTaskScheduler_1_1ScopeGuard/#function-~scopeguard",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1FakeTaskScheduler_1_1ScopeGuard",
+  "static": false,
+  "strong": false,
+  "title": "batt::FakeTaskScheduler::ScopeGuard",
+  "url": "/_autogen/Classes/classbatt_1_1FakeTaskScheduler_1_1ScopeGuard/",
+  "visibility": "public"
+}
