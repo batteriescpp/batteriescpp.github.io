@@ -1,0 +1,198 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "friends": [
+    {
+      "abstract": false,
+      "anchor": "#friend-operator<<",
+      "argsString": "(std::ostream &out, const Segment &t)",
+      "category": "friends",
+      "const": false,
+      "default": false,
+      "definition": "std::ostream& operator<<",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::RadixQueue::Segment::operator<<",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "friend",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 52,
+        "bodyFile": "batteries/radix_queue.hpp",
+        "bodyStart": 49,
+        "column": 23,
+        "file": "batteries/radix_queue.hpp",
+        "line": 49
+      },
+      "name": "operator<<",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        },
+        {
+          "name": "t",
+          "type": "const [Segment](/_autogen/Classes/structbatt_1_1RadixQueue_1_1Segment/) &",
+          "typePlain": "const Segment &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1RadixQueue_1_1Segment_1aff2b8db9427acba455e1a0d97a85f758",
+      "static": false,
+      "strong": false,
+      "title": "operator<<",
+      "type": "std::ostream &",
+      "typePlain": "std::ostream &",
+      "url": "/_autogen/Classes/structbatt_1_1RadixQueue_1_1Segment/#friend-operator<<",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "fullname": "batt::RadixQueue::Segment",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "struct",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 53,
+    "bodyFile": "batteries/radix_queue.hpp",
+    "bodyStart": 45,
+    "column": 5,
+    "file": "batteries/radix_queue.hpp",
+    "line": 45
+  },
+  "name": "batt::RadixQueue::Segment",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "baseClasses": [
+      {
+        "external": true,
+        "name": "boost::equality_comparable< RadixQueue< kCapacityInBits > >",
+        "virtual": "non-virtual",
+        "visibility": "public"
+      }
+    ],
+    "category": "classes",
+    "fullname": "batt::RadixQueue",
+    "kind": "class",
+    "language": "cpp",
+    "name": "batt::RadixQueue",
+    "refid": "classbatt_1_1RadixQueue",
+    "title": "batt::RadixQueue",
+    "url": "/_autogen/Classes/classbatt_1_1RadixQueue/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "boost::equality_comparable< RadixQueue< kCapacityInBits > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::RadixQueue",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::RadixQueue",
+      "refid": "classbatt_1_1RadixQueue",
+      "title": "batt::RadixQueue",
+      "url": "/_autogen/Classes/classbatt_1_1RadixQueue/",
+      "visibility": "public"
+    }
+  ],
+  "publicAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-radix",
+      "category": "attributes",
+      "const": false,
+      "definition": "u64 batt::RadixQueue< kCapacityInBits >::Segment::radix",
+      "explicit": false,
+      "fullname": "batt::RadixQueue::Segment::radix",
+      "hasDetails": false,
+      "initializer": "= 1",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/radix_queue.hpp",
+        "bodyStart": 46,
+        "column": 13,
+        "file": "batteries/radix_queue.hpp",
+        "line": 46
+      },
+      "name": "radix",
+      "override": false,
+      "refid": "structbatt_1_1RadixQueue_1_1Segment_1a948085b8ac5836087bff04242a9f4032",
+      "static": false,
+      "strong": false,
+      "title": "radix",
+      "type": "u64",
+      "typePlain": "u64",
+      "url": "/_autogen/Classes/structbatt_1_1RadixQueue_1_1Segment/#variable-radix",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-value",
+      "category": "attributes",
+      "const": false,
+      "definition": "u64 batt::RadixQueue< kCapacityInBits >::Segment::value",
+      "explicit": false,
+      "fullname": "batt::RadixQueue::Segment::value",
+      "hasDetails": false,
+      "initializer": "= 0",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/radix_queue.hpp",
+        "bodyStart": 47,
+        "column": 13,
+        "file": "batteries/radix_queue.hpp",
+        "line": 47
+      },
+      "name": "value",
+      "override": false,
+      "refid": "structbatt_1_1RadixQueue_1_1Segment_1a0f8f596ecc64d6339ea23c89f895ab5b",
+      "static": false,
+      "strong": false,
+      "title": "value",
+      "type": "u64",
+      "typePlain": "u64",
+      "url": "/_autogen/Classes/structbatt_1_1RadixQueue_1_1Segment/#variable-value",
+      "visibility": "public"
+    }
+  ],
+  "refid": "structbatt_1_1RadixQueue_1_1Segment",
+  "static": false,
+  "strong": false,
+  "title": "batt::RadixQueue::Segment",
+  "url": "/_autogen/Classes/structbatt_1_1RadixQueue_1_1Segment/",
+  "visibility": "public"
+}
