@@ -1,0 +1,149 @@
+{
+  "abstract": false,
+  "anchor": "#file-parallel-model-check-state.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-state-machine-model-parallel-model-check-state-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_STATE_MACHINE_MODEL_PARALLEL_MODEL_CHECK_STATE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/state_machine_model/parallel_model_check_state.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/state_machine_model/parallel_model_check_state.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_STATE_MACHINE_MODEL_PARALLEL_MODEL_CHECK_STATE_HPP",
+      "override": false,
+      "refid": "parallel__model__check__state_8hpp_1abc2b546935e75b9bec8324cd69828b1d",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_STATE_MACHINE_MODEL_PARALLEL_MODEL_CHECK_STATE_HPP",
+      "url": "/_autogen/Files/parallel__model__check__state_8hpp/#define-batteries-state-machine-model-parallel-model-check-state-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/state_machine_model/parallel_model_check_state.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/state_machine_model/parallel_model_check_state.hpp",
+    "line": 0
+  },
+  "name": "batteries/state_machine_model/parallel_model_check_state.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/state-machine-model",
+    "category": "dirs",
+    "fullname": "batteries/state_machine_model",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/state_machine_model",
+    "refid": "dir_a632bc4ac9c412aedbec832ef7391aeb",
+    "title": "batteries/state_machine_model",
+    "url": "/_autogen/Files/dir_a632bc4ac9c412aedbec832ef7391aeb/#dir-batteries/state-machine-model",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/state-machine-model",
+      "category": "dirs",
+      "fullname": "batteries/state_machine_model",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/state_machine_model",
+      "refid": "dir_a632bc4ac9c412aedbec832ef7391aeb",
+      "title": "batteries/state_machine_model",
+      "url": "/_autogen/Files/dir_a632bc4ac9c412aedbec832ef7391aeb/#dir-batteries/state-machine-model",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_STATE_MACHINE_MODEL_PARALLEL_MODEL_CHECK_STATE_HPP\n#define BATTERIES_STATE_MACHINE_MODEL_PARALLEL_MODEL_CHECK_STATE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/queue.hpp>\n#include <batteries/async/watch.hpp>\n\n#include <batteries/assert.hpp>\n#include <batteries/cpu_align.hpp>\n#include <batteries/int_types.hpp>\n\n#include <memory>\n#include <ostream>\n#include <vector>\n\nnamespace batt {\nnamespace detail {\n\nstruct ModelCheckShardMetrics {\n    i64 stall_count = 0;\n    i64 flush_count = 0;\n    i64 send_count = 0;\n    i64 recv_count = 0;\n};\n\ninline std::ostream& operator<<(std::ostream& out, const ModelCheckShardMetrics& t)\n{\n    return out << \"ShardMetrics{\"                                                           //\n               << \".stall=\" << t.stall_count                                                //\n               << \", .flush=\" << t.flush_count                                              //\n               << \", .send=\" << t.send_count                                                //\n               << \", .recv=\" << t.recv_count                                                //\n               << \", .stall_rate=\" << double(t.stall_count + 1) / double(t.recv_count + 1)  //\n               << \",}\";\n}\n\ntemplate <typename Branch>\nclass ParallelModelCheckState\n{\n   public:\n    static constexpr u64 kStallEpochUnit = u64{1} << 32;\n    static constexpr u64 kStallCountMask = kStallEpochUnit - 1;\n    static constexpr u64 kStallEpochMask = ~kStallCountMask;\n\n    using ShardMetrics = ModelCheckShardMetrics;\n\n    explicit ParallelModelCheckState(usize n_shards)\n        : shard_count{n_shards}\n        , stalled(this->shard_count)\n        , recv_queues(this->shard_count)\n        , send_queues(this->shard_count)\n        , shard_metrics(this->shard_count)\n        , local_consume_count(this->shard_count)\n    {\n        BATT_CHECK_EQ(this->stalled.size(), this->shard_count);\n        BATT_CHECK_EQ(this->local_consume_count.size(), this->shard_count);\n        BATT_CHECK_EQ(this->recv_queues.size(), this->shard_count);\n        BATT_CHECK_EQ(this->send_queues.size(), this->shard_count);\n        BATT_CHECK_EQ(this->shard_metrics.size(), this->shard_count);\n\n        for (std::unique_ptr<std::atomic<bool>[]>& stalled_per_other : this->stalled) {\n            stalled_per_other.reset(new std::atomic<bool>[this->shard_count]);\n            for (usize i = 0; i < this->shard_count; ++i) {\n                stalled_per_other[i].store(false);\n            }\n        }\n\n        for (auto& recv_queues_per_dst : this->recv_queues) {\n            recv_queues_per_dst = std::make_unique<Queue<std::vector<Branch>>>();\n        }\n\n        for (CpuCacheLineIsolated<std::vector<std::vector<Branch>>>&  //\n                 send_queues_per_src : this->send_queues) {\n            send_queues_per_src->resize(this->shard_count);\n        }\n\n        for (auto& count : this->local_consume_count) {\n            *count = 0;\n        }\n    }\n\n    usize find_shard(const Branch& branch) const\n    {\n        const usize branch_hash = hash(branch);\n        const usize branch_shard = branch_hash / this->hash_space_per_shard;\n\n        return branch_shard;\n    }\n\n    void send(usize src_i, usize dst_i, Branch&& branch)\n    {\n        std::vector<std::vector<Branch>>& src_send_queues = *this->send_queues[src_i];\n        std::vector<Branch>& src_dst_send_queue = src_send_queues[dst_i];\n\n        src_dst_send_queue.emplace_back(std::move(branch));\n        this->metrics(src_i).send_count += 1;\n\n        if (this->stalled[src_i][dst_i].load()) {\n            this->queue_push(dst_i, &src_dst_send_queue);\n        }\n    }\n\n    void flush_all(usize src_i)\n    {\n        std::vector<std::vector<Branch>>& src_send_queues = *this->send_queues[src_i];\n        usize dst_i = 0;\n        for (std::vector<Branch>& src_dst_send_queue : src_send_queues) {\n            const auto advance_dst_i = finally([&dst_i] {\n                dst_i += 1;\n            });\n            if (src_dst_send_queue.empty()) {\n                continue;\n            }\n            this->metrics(src_i).flush_count += 1;\n            this->queue_push(dst_i, &src_dst_send_queue);\n        }\n    }\n\n    void queue_push(usize dst_i, std::vector<Branch>* branch)\n    {\n        std::vector<Branch> to_send;\n        std::swap(to_send, *branch);\n        this->total_pending_count->fetch_add(1);\n        const Optional<i64> success = this->recv_queues[dst_i]->push(std::move(to_send));\n        BATT_CHECK(success) << BATT_INSPECT(dst_i) << BATT_INSPECT(this->shard_count);\n        this->queue_push_count.fetch_add(1);\n    }\n\n    StatusOr<usize> recv(usize shard_i, std::deque<Branch>& local_queue)\n    {\n        Queue<std::vector<Branch>>& src_queue = *this->recv_queues[shard_i];\n\n        this->metrics(shard_i).recv_count += 1;\n\n        const auto transfer_batch = [this, &local_queue, shard_i](auto& maybe_next_batch) {\n            std::vector<Branch>& next_batch = *maybe_next_batch;\n            this->queue_pop_count.fetch_add(1);\n\n            usize count = next_batch.size();\n            local_queue.insert(local_queue.end(),                            //\n                               std::make_move_iterator(next_batch.begin()),  //\n                               std::make_move_iterator(next_batch.end()));\n\n            *this->local_consume_count[shard_i] += 1;\n\n            return count;\n        };\n\n        // Try to pop branches without stalling.\n        //\n        {\n            Optional<std::vector<Branch>> next_batch = src_queue.try_pop_next();\n            if (next_batch) {\n                return transfer_batch(next_batch);\n            }\n        }\n\n        this->metrics(shard_i).stall_count += 1;\n\n        // Set \"stalled\" flags for this shard so that other shards know to send queued batches ASAP.\n        //\n        for (usize other_i = 0; other_i < shard_count; ++other_i) {\n            this->stalled[other_i][shard_i].store(true);\n        }\n        const auto reset_stall_flags = finally([&] {\n            // Clear \"stalled\" flags, now that we have a some branches to process, or the entire job is\n            // done.\n            //\n            for (usize other_i = 0; other_i < shard_count; ++other_i) {\n                this->stalled[other_i][shard_i].store(false);\n            }\n        });\n\n        // Because we are about to go to put the current task to sleep awaiting the next batch, flush all\n        // outgoing batches so no other shards are blocked on `shard_i`.\n        //\n        this->flush_all(shard_i);\n\n        // Now that we've flushed all outgoing branches, it is safe to ack the read message timestamp\n        // upper bound for this shard.\n        //\n        i64 n_to_consume = 0;\n        std::swap(n_to_consume, *this->local_consume_count[shard_i]);\n        const i64 old_value = this->total_pending_count->fetch_sub(n_to_consume);\n\n        // Check for deadlock; if all shards are stalled, then the branch-state-space has been fully explored\n        // and we are done!\n        //\n        if (old_value - n_to_consume == 0) {\n            this->close_all(shard_i);\n            //\n            // More than one shard task may call close_all; this is fine!\n        }\n\n        StatusOr<std::vector<Branch>> next_batch = src_queue.await_next();\n        BATT_REQUIRE_OK(next_batch);\n\n        return transfer_batch(next_batch);\n    }\n\n    void close_all(usize shard_i, bool allow_pending = false)\n    {\n        for (usize dst_i = 0; dst_i < this->recv_queues.size(); ++dst_i) {\n            const auto& p_queue = this->recv_queues[dst_i];\n            bool queue_is_empty = p_queue->empty();\n            if (!queue_is_empty) {\n                Task::sleep(boost::posix_time::milliseconds(1200));\n                queue_is_empty = p_queue->empty();\n            }\n            BATT_CHECK(allow_pending || queue_is_empty)\n                << BATT_INSPECT(shard_i) << BATT_INSPECT(dst_i) << BATT_INSPECT(queue_is_empty)\n                << BATT_INSPECT(p_queue->empty()) << BATT_INSPECT(allow_pending)\n                << BATT_INSPECT(p_queue->size()) << BATT_INSPECT(this->shard_count);\n\n            p_queue->close();\n        }\n    }\n\n    void finished(usize shard_i)\n    {\n        this->flush_all(shard_i);\n        this->recv_queues[shard_i]->close();\n        this->queue_pop_count.fetch_add(this->recv_queues[shard_i]->drain());\n    }\n\n    ShardMetrics& metrics(usize shard_i)\n    {\n        return *this->shard_metrics[shard_i];\n    }\n\n    Status wait_for_other_shards()\n    {\n        this->barrier_.fetch_sub(1);\n        return this->barrier_.await_equal(0);\n    }\n\n    const usize shard_count;\n    const usize hash_space_per_shard = std::numeric_limits<usize>::max() / this->shard_count;\n    Watch<usize> barrier_{this->shard_count};\n    std::atomic<i64> queue_push_count{0};\n    std::atomic<i64> queue_pop_count{0};\n\n    std::vector<std::unique_ptr<std::atomic<bool>[]>> stalled;\n    std::vector<std::unique_ptr<Queue<std::vector<Branch>>>> recv_queues;\n    std::vector<CpuCacheLineIsolated<std::vector<std::vector<Branch>>>> send_queues;\n    std::vector<CpuCacheLineIsolated<ShardMetrics>> shard_metrics;\n\n    CpuCacheLineIsolated<std::atomic<i64>> total_pending_count{0};\n    std::vector<CpuCacheLineIsolated<i64>> local_consume_count;\n};\n\n}  // namespace detail\n}  // namespace batt\n\n#endif  // BATTERIES_STATE_MACHINE_MODEL_PARALLEL_MODEL_CHECK_STATE_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::ModelCheckShardMetrics",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::ModelCheckShardMetrics",
+      "refid": "structbatt_1_1detail_1_1ModelCheckShardMetrics",
+      "title": "batt::detail::ModelCheckShardMetrics",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1ModelCheckShardMetrics/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::ParallelModelCheckState",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::ParallelModelCheckState",
+      "refid": "classbatt_1_1detail_1_1ParallelModelCheckState",
+      "title": "batt::detail::ParallelModelCheckState",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "parallel__model__check__state_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/state_machine_model/parallel_model_check_state.hpp",
+  "url": "/_autogen/Files/parallel__model__check__state_8hpp/#file-parallel-model-check-state.hpp",
+  "visibility": "public"
+}
