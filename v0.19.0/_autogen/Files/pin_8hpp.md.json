@@ -1,0 +1,297 @@
+{
+  "abstract": false,
+  "anchor": "#file-pin.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-pin-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_PIN_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/pin.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/pin.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_PIN_HPP",
+      "override": false,
+      "refid": "pin_8hpp_1a26556c7422c5538798982f47970a7c8c",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_PIN_HPP",
+      "url": "/_autogen/Files/pin_8hpp/#define-batteries-async-pin-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/pin.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/pin.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/pin.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_PIN_HPP\n#define BATTERIES_ASYNC_PIN_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/task.hpp>\n\n#include <batteries/assert.hpp>\n#include <batteries/hint.hpp>\n#include <batteries/int_types.hpp>\n\n#include <atomic>\n\n// Top-level functions to increase/decrease the pin count of an object; this must be outside of the `batt`\n// namespace so we can make an unqualified call to `pin_object` in order to utilize ADL (argument-dependent\n// lookup).\n//\ntemplate <typename T>\ninline void batt_pin_object_helper(T* object)\n{\n    pin_object(object);\n}\n\ntemplate <typename T>\ninline void batt_unpin_object_helper(T* object)\n{\n    unpin_object(object);\n}\n\nnamespace batt {\n\n// Base class that implements the PinnableObject requirements.  See Pin<T> for details.\n//\nclass Pinnable\n{\n   public:\n    Pinnable() = default;\n\n    Pinnable(const Pinnable&) = delete;\n    Pinnable& operator=(const Pinnable&) = delete;\n\n    ~Pinnable()\n    {\n        // Release the self-pin before waiting for other pins to be released.\n        //\n        this->unpin();\n\n        // Don't let the current Task continue until all other pins on this object have been released.\n        //\n        while (this->pin_count_.load(std::memory_order_acquire) > 0) {\n            Task::yield();\n        }\n\n        // We can safely assert this is the case because once the pin count goes to 0, it should never\n        // increase again (because of the self-pin acquired at construction time and released at destruction\n        // time).\n        //\n        BATT_CHECK_EQ(this->pin_count_.load(std::memory_order_release), 0);\n    }\n\n    void pin()\n    {\n        this->pin_count_.fetch_add(1, std::memory_order_relaxed);\n    }\n\n    void unpin()\n    {\n        this->pin_count_.fetch_sub(1, std::memory_order_release);\n    }\n\n   private:\n    // The pin count starts out as 1; this way we avoid A/B/A issues where the pin count drops down to zero\n    // then goes back up.\n    //\n    std::atomic<isize> pin_count_{1};\n};\n\n// Default implementation of ADL-enabled pin_object, for `Pinnable`.\n//\ntemplate <typename T>\nvoid pin_object(T* object)\n{\n    object->pin();\n}\n\n// Default implementation of ADL-enabled unpin_object, for `Pinnable`.\n//\ntemplate <typename T>\nvoid unpin_object(T* object)\n{\n    object->unpin();\n}\n\n// A copyable/move-optimized smart pointer to PinnableObject `T` that prevents the pointee from being\n// destructed.  This is an alternative to shared_ptr/intrusive_ptr for the case where application code wishes\n// to avoid the overhead of heap allocation.  The use case is that a unique owner can be identified within the\n// code, but there may be race conditions on destruction of the object.  For example, if one Task creates an\n// object, hands it to another Task, waits for the other Task to be done with it, then the first Task deletes\n// the object. Normally you would need some external synchronization mechanism for this, but Pin<T> allows the\n// object itself to contain the required synchronization.\n//\ntemplate <typename T>\nclass Pin\n{\n   public:\n    Pin() noexcept : ptr_{nullptr}\n    {\n    }\n\n    explicit Pin(std::nullptr_t) noexcept : Pin{}\n    {\n    }\n\n    explicit Pin(T* object) noexcept : ptr_{object}\n    {\n        if (BATT_HINT_TRUE(object != nullptr)) {\n            ::batt_pin_object_helper(object);\n        }\n    }\n\n    Pin(const Pin& other) noexcept : Pin{other.ptr_}\n    {\n    }\n\n    Pin(Pin&& other) noexcept : ptr_{other.ptr_}\n    {\n        other.ptr_ = nullptr;\n    }\n\n    ~Pin() noexcept\n    {\n        this->release();\n    }\n\n    Pin& operator=(const Pin& other)\n    {\n        Pin tmp{other};\n        this->swap(tmp);\n        return *this;\n    }\n\n    Pin& operator=(Pin&& other)\n    {\n        Pin tmp{std::move(other)};\n        this->swap(tmp);\n        return *this;\n    }\n\n    explicit operator bool() const\n    {\n        return this->ptr_ != nullptr;\n    }\n\n    void swap(Pin& other)\n    {\n        std::swap(this->ptr_, other.ptr_);\n    }\n\n    void release()\n    {\n        if (this->ptr_) {\n            ::batt_unpin_object_helper(this->ptr_);\n            this->ptr_ = nullptr;\n        }\n    }\n\n    T* get() const\n    {\n        return this->ptr_;\n    }\n\n    T& operator*() const\n    {\n        return *this->get();\n    }\n\n    T* operator->() const\n    {\n        return this->get();\n    }\n\n   private:\n    T* ptr_;\n};\n\ntemplate <typename T>\ninline Pin<T> make_pin(T* object)\n{\n    return Pin<T>{object};\n}\n\ntemplate <typename T, typename U>\ninline bool operator==(const Pin<T>& l, const Pin<U>& r)\n{\n    return l.get() == r.get();\n}\n\ntemplate <typename T, typename U>\ninline bool operator!=(const Pin<T>& l, const Pin<U>& r)\n{\n    return !(l == r);\n}\n\ntemplate <typename T>\ninline bool operator==(const Pin<T>& l, std::nullptr_t)\n{\n    return l.get() == nullptr;\n}\n\ntemplate <typename T>\ninline bool operator!=(const Pin<T>& l, std::nullptr_t)\n{\n    return !(l == nullptr);\n}\n\ntemplate <typename U>\ninline bool operator==(std::nullptr_t, const Pin<U>& r)\n{\n    return nullptr == r.get();\n}\n\ntemplate <typename U>\ninline bool operator!=(std::nullptr_t, const Pin<U>& r)\n{\n    return !(nullptr == r);\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\ntemplate <typename T>\nclass PinnablePtr : public Pinnable\n{\n   public:\n    explicit PinnablePtr(T* ptr) noexcept : ptr_{ptr}\n    {\n    }\n\n    PinnablePtr() = default;\n\n    T* get() const noexcept\n    {\n        return this->ptr_;\n    }\n\n    explicit operator bool() const noexcept\n    {\n        return this->get() != nullptr;\n    }\n\n    T& operator*() const noexcept\n    {\n        return *this->get();\n    }\n\n    T* operator->() const noexcept\n    {\n        return this->get();\n    }\n\n   private:\n    T* ptr_ = nullptr;\n};\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_PIN_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::HttpMessageBase< pico_http::Request >",
+          "refid": "classbatt_1_1HttpMessageBase",
+          "url": "/_autogen/Classes/classbatt_1_1HttpMessageBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::HttpMessageBase< pico_http::Response >",
+          "refid": "classbatt_1_1HttpMessageBase",
+          "url": "/_autogen/Classes/classbatt_1_1HttpMessageBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::HttpMessageBase< T >",
+          "refid": "classbatt_1_1HttpMessageBase",
+          "url": "/_autogen/Classes/classbatt_1_1HttpMessageBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::PinnablePtr< T >",
+          "refid": "classbatt_1_1PinnablePtr",
+          "url": "/_autogen/Classes/classbatt_1_1PinnablePtr/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::Pinnable",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Pinnable",
+      "refid": "classbatt_1_1Pinnable",
+      "title": "batt::Pinnable",
+      "url": "/_autogen/Classes/classbatt_1_1Pinnable/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Pin",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Pin",
+      "refid": "classbatt_1_1Pin",
+      "title": "batt::Pin",
+      "url": "/_autogen/Classes/classbatt_1_1Pin/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::Pinnable",
+          "refid": "classbatt_1_1Pinnable",
+          "url": "/_autogen/Classes/classbatt_1_1Pinnable/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "A raw pointer augmented to support the [batt::Pinnable](/_autogen/Classes/classbatt_1_1Pinnable/) interface, so that a [batt::Pin](/_autogen/Classes/classbatt_1_1Pin/)<batt::PinnablePtr<T>> can be created to block the destruction of the pointer. ",
+      "category": "classes",
+      "fullname": "batt::PinnablePtr",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::PinnablePtr",
+      "refid": "classbatt_1_1PinnablePtr",
+      "summary": "A raw pointer augmented to support the batt::Pinnable interface, so that a batt::Pin<batt::PinnablePtr<T>> can be created to block the destruction of the pointer. ",
+      "title": "batt::PinnablePtr",
+      "url": "/_autogen/Classes/classbatt_1_1PinnablePtr/",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-batt-pin-object-helper",
+      "argsString": "(T *object)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt_pin_object_helper",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pin.hpp::batt_pin_object_helper",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 26,
+        "bodyFile": "batteries/async/pin.hpp",
+        "bodyStart": 23,
+        "column": 13,
+        "file": "batteries/async/pin.hpp",
+        "line": 23
+      },
+      "name": "batt_pin_object_helper",
+      "override": false,
+      "params": [
+        {
+          "name": "object",
+          "type": "T *",
+          "typePlain": "T *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "pin_8hpp_1a392b59ee57ba6e5a0f7e5db1f910ac70",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "batt_pin_object_helper",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Files/pin_8hpp/#function-batt-pin-object-helper",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-batt-unpin-object-helper",
+      "argsString": "(T *object)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt_unpin_object_helper",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "pin.hpp::batt_unpin_object_helper",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 32,
+        "bodyFile": "batteries/async/pin.hpp",
+        "bodyStart": 29,
+        "column": 13,
+        "file": "batteries/async/pin.hpp",
+        "line": 29
+      },
+      "name": "batt_unpin_object_helper",
+      "override": false,
+      "params": [
+        {
+          "name": "object",
+          "type": "T *",
+          "typePlain": "T *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "pin_8hpp_1a7bf440daedbc9c48e4b8a532c275872a",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "batt_unpin_object_helper",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Files/pin_8hpp/#function-batt-unpin-object-helper",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "pin_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/pin.hpp",
+  "url": "/_autogen/Files/pin_8hpp/#file-pin.hpp",
+  "visibility": "public"
+}
