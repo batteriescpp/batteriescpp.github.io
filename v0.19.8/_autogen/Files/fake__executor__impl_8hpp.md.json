@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-fake-executor-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-fake-executor-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_FAKE_EXECUTOR_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/fake_executor_impl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/fake_executor_impl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_FAKE_EXECUTOR_IMPL_HPP",
+      "override": false,
+      "refid": "fake__executor__impl_8hpp_1a1dd4a845ccb52a101b28f405b9cd135a",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_FAKE_EXECUTOR_IMPL_HPP",
+      "url": "/_autogen/Files/fake__executor__impl_8hpp/#define-batteries-async-fake-executor-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/fake_executor_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/fake_executor_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/fake_executor_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_FAKE_EXECUTOR_IMPL_HPP\n#define BATTERIES_ASYNC_FAKE_EXECUTOR_IMPL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/fake_executor_decl.hpp>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename OutstandingWorkP>\nBATT_INLINE_IMPL FakeExecutionContext& BasicFakeExecutor<OutstandingWorkP>::query(\n    boost::asio::execution::context_t) const noexcept\n{\n    return *this->context_;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename OutstandingWorkP>\nBATT_INLINE_IMPL boost::asio::execution_context& BasicFakeExecutor<OutstandingWorkP>::query(\n    boost::asio::execution::context_as_t<boost::asio::execution_context&>) const noexcept\n{\n    return *this->context_;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename OutstandingWorkP>\nBATT_INLINE_IMPL constexpr std::allocator<void> BasicFakeExecutor<OutstandingWorkP>::query(\n    boost::asio::execution::allocator_t<void>) const noexcept\n{\n    return this->context_->allocator_;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename OutstandingWorkP>\nBATT_INLINE_IMPL void BasicFakeExecutor<OutstandingWorkP>::on_work_started() const\n{\n    if (this->context_ != nullptr) {\n        BATT_CHECK_NE(this->context_->work_count_.fetch_add(1) + 1u, 0u);\n    }\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename OutstandingWorkP>\nBATT_INLINE_IMPL void BasicFakeExecutor<OutstandingWorkP>::on_work_finished() const\n{\n    if (this->context_ != nullptr) {\n        BATT_CHECK_GT(this->context_->work_count_.fetch_sub(1), 0u);\n    }\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename OutstandingWorkP>\nBATT_INLINE_IMPL constexpr bool operator==(const BasicFakeExecutor<OutstandingWorkP>& l,\n                                           const BasicFakeExecutor<OutstandingWorkP>& r) noexcept\n{\n    return &(l.context()) == &(r.context());\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename OutstandingWorkP>\nBATT_INLINE_IMPL constexpr bool operator!=(const BasicFakeExecutor<OutstandingWorkP>& l,\n                                           const BasicFakeExecutor<OutstandingWorkP>& r) noexcept\n{\n    return !(l == r);\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n// Explicit instantiations.\n//\ntemplate class BasicFakeExecutor<boost::asio::execution::outstanding_work_t::tracked_t>;\ntemplate class BasicFakeExecutor<boost::asio::execution::outstanding_work_t::untracked_t>;\n\n//#=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++\n// Type requirement checks.\n\nstatic_assert(std::is_constructible<boost::asio::any_io_executor, FakeExecutor>{},\n              \"If this check fails, hopefully one or more of the following more scoped checks will fail as \"\n              \"well, which will help with debugging!\");\n\nstatic_assert(\n    boost::asio::execution::can_execute<FakeExecutor, boost::asio::execution::invocable_archetype>::value,\n    \"\");\n\nstatic_assert(\n    std::is_same_v<bool, decltype(std::declval<const FakeExecutor>() == std::declval<const FakeExecutor>())>,\n    \"\");\n\nstatic_assert(\n    std::is_same_v<bool, decltype(std::declval<const FakeExecutor>() != std::declval<const FakeExecutor>())>,\n    \"\");\n\nstatic_assert(std::is_nothrow_copy_constructible<FakeExecutor>::value, \"\");\nstatic_assert(std::is_nothrow_destructible<FakeExecutor>::value, \"\");\nstatic_assert(boost::asio::traits::equality_comparable<FakeExecutor>::is_valid, \"\");\nstatic_assert(boost::asio::traits::equality_comparable<FakeExecutor>::is_noexcept, \"\");\n\nstatic_assert(boost::asio::execution::is_executor_v<FakeExecutor>, \"\");\n\nstatic_assert(boost::asio::execution::context_as_t<boost::asio::execution_context&>::is_applicable_property_v<\n                  FakeExecutor>,\n              \"\");\n\nstatic_assert(\n    boost::asio::can_query<FakeExecutor,\n                           boost::asio::execution::context_as_t<boost::asio::execution_context&>>::value ||\n        true,\n    \"\");\n\nstatic_assert(boost::asio::is_applicable_property_v<\n                  FakeExecutor, boost::asio::execution::context_as_t<boost::asio::execution_context&>>,\n              \"\");\n\nstatic_assert(boost::asio::execution::detail::supportable_properties<\n                  0, void(boost::asio::execution::context_as_t<boost::asio::execution_context&>)>::\n                      template is_valid_target<FakeExecutor>::value ||\n                  true,\n              \"\");\n\nstatic_assert(\n    boost::asio::execution::detail::is_valid_target_executor<\n        FakeExecutor, void(boost::asio::execution::context_as_t<boost::asio::execution_context&>)>::value,\n    \"\");\n\nstatic_assert(std::is_same_v<decltype(boost::asio::query(\n                                 std::declval<const FakeExecutor>(),\n                                 boost::asio::execution::context_as<boost::asio::execution_context&>)),\n                             boost::asio::execution_context&>,\n              \"\");\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_FAKE_EXECUTOR_IMPL_HPP",
+  "refid": "fake__executor__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/fake_executor_impl.hpp",
+  "url": "/_autogen/Files/fake__executor__impl_8hpp/#file-fake-executor-impl.hpp",
+  "visibility": "public"
+}
