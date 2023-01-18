@@ -1,0 +1,510 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "friends": [
+    {
+      "abstract": false,
+      "anchor": "#friend-operator<<",
+      "argsString": "(std::ostream &out, const UniqueHandler &t)",
+      "category": "friends",
+      "const": false,
+      "default": false,
+      "definition": "std::ostream& operator<<",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::UniqueHandler::operator<<",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "friend",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 192,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 184,
+        "column": 19,
+        "file": "batteries/async/handler.hpp",
+        "line": 184
+      },
+      "name": "operator<<",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        },
+        {
+          "name": "t",
+          "type": "const [UniqueHandler](/_autogen/Classes/classbatt_1_1UniqueHandler/) &",
+          "typePlain": "const UniqueHandler &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1UniqueHandler_1a2bf8ea399a1f017171edc8162e63f759",
+      "static": false,
+      "strong": false,
+      "title": "operator<<",
+      "type": "std::ostream &",
+      "typePlain": "std::ostream &",
+      "url": "/_autogen/Classes/classbatt_1_1UniqueHandler/#friend-operator<<",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "fullname": "batt::UniqueHandler",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 196,
+    "bodyFile": "batteries/async/handler.hpp",
+    "bodyStart": 150,
+    "column": 1,
+    "file": "batteries/async/handler.hpp",
+    "line": 149
+  },
+  "name": "batt::UniqueHandler",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-handler-",
+      "category": "attributes",
+      "const": false,
+      "definition": "std::unique_ptr<AbstractHandler<Args...>, typename AbstractHandler<Args...>::Deleter> batt::UniqueHandler< Args >::handler_",
+      "explicit": false,
+      "fullname": "batt::UniqueHandler::handler_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 195,
+        "column": 22,
+        "file": "batteries/async/handler.hpp",
+        "line": 195
+      },
+      "name": "handler_",
+      "override": false,
+      "refid": "classbatt_1_1UniqueHandler_1ac81c8a4178d61de6493a814bb183c1f2",
+      "static": false,
+      "strong": false,
+      "title": "handler_",
+      "type": "std::unique_ptr< [AbstractHandler](/_autogen/Classes/classbatt_1_1AbstractHandler/)< Args... >, typename [AbstractHandler](/_autogen/Classes/classbatt_1_1AbstractHandler/)< Args... >::Deleter >",
+      "typePlain": "std::unique_ptr< AbstractHandler< Args... >, typename AbstractHandler< Args... >::Deleter >",
+      "url": "/_autogen/Classes/classbatt_1_1UniqueHandler/#variable-handler-",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-uniquehandler",
+      "argsString": "(Fn &&fn) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::UniqueHandler< Args >::UniqueHandler",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::UniqueHandler::UniqueHandler",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 157,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 154,
+        "column": 14,
+        "file": "batteries/async/handler.hpp",
+        "line": 154
+      },
+      "name": "UniqueHandler",
+      "override": false,
+      "params": [
+        {
+          "name": "fn",
+          "type": "Fn &&",
+          "typePlain": "Fn &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1UniqueHandler_1abbbc0a87e8e1ca448b8d0d5abd5dc8b2",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        },
+        {
+          "defval": "EnableIfNoShadow<[UniqueHandler](/_autogen/Classes/classbatt_1_1UniqueHandler/), Fn>",
+          "defvalPlain": "EnableIfNoShadow<UniqueHandler, Fn>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        },
+        {
+          "defval": "std::enable_if_t<IsCallable<std::decay_t<Fn>, Args...>::value>",
+          "defvalPlain": "std::enable_if_t<IsCallable<std::decay_t<Fn>, Args...>::value>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "UniqueHandler",
+      "url": "/_autogen/Classes/classbatt_1_1UniqueHandler/#function-uniquehandler",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-uniquehandler",
+      "argsString": "()=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::UniqueHandler< Args >::UniqueHandler",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::UniqueHandler::UniqueHandler",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/async/handler.hpp",
+        "line": 159
+      },
+      "name": "UniqueHandler",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1UniqueHandler_1afb20eb3a639d6cc03610063c1a97d0c0",
+      "static": false,
+      "strong": false,
+      "title": "UniqueHandler",
+      "url": "/_autogen/Classes/classbatt_1_1UniqueHandler/#function-uniquehandler",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-uniquehandler",
+      "argsString": "(const UniqueHandler &)=delete",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::UniqueHandler< Args >::UniqueHandler",
+      "deleted": true,
+      "explicit": false,
+      "fullname": "batt::UniqueHandler::UniqueHandler",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/async/handler.hpp",
+        "line": 161
+      },
+      "name": "UniqueHandler",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [UniqueHandler](/_autogen/Classes/classbatt_1_1UniqueHandler/) &",
+          "typePlain": "const UniqueHandler &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1UniqueHandler_1a5853ad9a9fcdb00f6a602a63b8fcadcb",
+      "static": false,
+      "strong": false,
+      "title": "UniqueHandler",
+      "url": "/_autogen/Classes/classbatt_1_1UniqueHandler/#function-uniquehandler",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(const UniqueHandler &)=delete",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "UniqueHandler& batt::UniqueHandler< Args >::operator=",
+      "deleted": true,
+      "explicit": false,
+      "fullname": "batt::UniqueHandler::operator=",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 19,
+        "file": "batteries/async/handler.hpp",
+        "line": 162
+      },
+      "name": "operator=",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [UniqueHandler](/_autogen/Classes/classbatt_1_1UniqueHandler/) &",
+          "typePlain": "const UniqueHandler &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1UniqueHandler_1a7fa8a684b81100da45964b8894b49f9e",
+      "static": false,
+      "strong": false,
+      "title": "operator=",
+      "type": "[UniqueHandler](/_autogen/Classes/classbatt_1_1UniqueHandler/) &",
+      "typePlain": "UniqueHandler &",
+      "url": "/_autogen/Classes/classbatt_1_1UniqueHandler/#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-uniquehandler",
+      "argsString": "(UniqueHandler &&)=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::UniqueHandler< Args >::UniqueHandler",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::UniqueHandler::UniqueHandler",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/async/handler.hpp",
+        "line": 164
+      },
+      "name": "UniqueHandler",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[UniqueHandler](/_autogen/Classes/classbatt_1_1UniqueHandler/) &&",
+          "typePlain": "UniqueHandler &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1UniqueHandler_1acad1cd12ebe58f9f8c0262eb69faf429",
+      "static": false,
+      "strong": false,
+      "title": "UniqueHandler",
+      "url": "/_autogen/Classes/classbatt_1_1UniqueHandler/#function-uniquehandler",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(UniqueHandler &&)=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "UniqueHandler& batt::UniqueHandler< Args >::operator=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::UniqueHandler::operator=",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 19,
+        "file": "batteries/async/handler.hpp",
+        "line": 165
+      },
+      "name": "operator=",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[UniqueHandler](/_autogen/Classes/classbatt_1_1UniqueHandler/) &&",
+          "typePlain": "UniqueHandler &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1UniqueHandler_1a67019da9b531dbf16b279cfba7803609",
+      "static": false,
+      "strong": false,
+      "title": "operator=",
+      "type": "[UniqueHandler](/_autogen/Classes/classbatt_1_1UniqueHandler/) &",
+      "typePlain": "UniqueHandler &",
+      "url": "/_autogen/Classes/classbatt_1_1UniqueHandler/#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-~uniquehandler",
+      "argsString": "() noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::UniqueHandler< Args >::~UniqueHandler",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::UniqueHandler::~UniqueHandler",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 169,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 167,
+        "column": 5,
+        "file": "batteries/async/handler.hpp",
+        "line": 167
+      },
+      "name": "~UniqueHandler",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1UniqueHandler_1a9d2f8df483d5299348cd136aace660c9",
+      "static": false,
+      "strong": false,
+      "title": "~UniqueHandler",
+      "url": "/_autogen/Classes/classbatt_1_1UniqueHandler/#function-~uniquehandler",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator-bool",
+      "argsString": "() const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "batt::UniqueHandler< Args >::operator bool",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::UniqueHandler::operator bool",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 174,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 171,
+        "column": 14,
+        "file": "batteries/async/handler.hpp",
+        "line": 171
+      },
+      "name": "operator bool",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1UniqueHandler_1a024470a8c4f80bc2685fe1a60415bb29",
+      "static": false,
+      "strong": false,
+      "title": "operator bool",
+      "url": "/_autogen/Classes/classbatt_1_1UniqueHandler/#function-operator-bool",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator()",
+      "argsString": "(Args... args)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::UniqueHandler< Args >::operator()",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::UniqueHandler::operator()",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 182,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 176,
+        "column": 10,
+        "file": "batteries/async/handler.hpp",
+        "line": 176
+      },
+      "name": "operator()",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args...",
+          "typePlain": "Args..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1UniqueHandler_1ab09f6de2f5aef3f5a9f722ac6340247c",
+      "static": false,
+      "strong": false,
+      "title": "operator()",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1UniqueHandler/#function-operator()",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1UniqueHandler",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "Args",
+      "type": "typename...",
+      "typePlain": "typename..."
+    }
+  ],
+  "title": "batt::UniqueHandler",
+  "url": "/_autogen/Classes/classbatt_1_1UniqueHandler/",
+  "visibility": "public"
+}
