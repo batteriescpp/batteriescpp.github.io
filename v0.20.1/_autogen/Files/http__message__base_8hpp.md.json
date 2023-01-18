@@ -1,0 +1,135 @@
+{
+  "abstract": false,
+  "anchor": "#file-http-message-base.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-http-http-message-base-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_HTTP_HTTP_MESSAGE_BASE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/http_message_base.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/http/http_message_base.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_HTTP_HTTP_MESSAGE_BASE_HPP",
+      "override": false,
+      "refid": "http__message__base_8hpp_1a179cda5a5756024384c8d09bf75a0537",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_HTTP_HTTP_MESSAGE_BASE_HPP",
+      "url": "/_autogen/Files/http__message__base_8hpp/#define-batteries-http-http-message-base-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/http/http_message_base.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/http/http_message_base.hpp",
+    "line": 0
+  },
+  "name": "batteries/http/http_message_base.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/http",
+    "category": "dirs",
+    "fullname": "batteries/http",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/http",
+    "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+    "title": "batteries/http",
+    "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/http",
+      "category": "dirs",
+      "fullname": "batteries/http",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/http",
+      "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+      "title": "batteries/http",
+      "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_HTTP_HTTP_MESSAGE_BASE_HPP\n#define BATTERIES_HTTP_HTTP_MESSAGE_BASE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/http/http_data.hpp>\n#include <batteries/http/http_header.hpp>\n\n#include <batteries/async/channel.hpp>\n#include <batteries/async/pin.hpp>\n#include <batteries/async/task.hpp>\n#include <batteries/async/watch.hpp>\n\n#include <batteries/optional.hpp>\n#include <batteries/small_vec.hpp>\n#include <batteries/status.hpp>\n\n#include <string_view>\n\nnamespace batt {\n\ntemplate <typename T>\nclass HttpMessageBase : public Pinnable\n{\n   public:\n    using Message = T;\n\n    enum State {\n        kCreated = 0,\n        kInitialized = 1,\n        kConsumed = 2,\n    };\n\n    HttpMessageBase(const HttpMessageBase&) = delete;\n    HttpMessageBase& operator=(const HttpMessageBase&) = delete;\n\n    HttpMessageBase()\n    {\n    }\n\n    ~HttpMessageBase()\n    {\n        this->release_message();\n        this->release_data();\n    }\n\n    Watch<i32>& state()\n    {\n        return this->state_;\n    }\n\n    void update_status(Status status)\n    {\n        this->status_.Update(status);\n    }\n\n    Status get_status() const\n    {\n        return this->status_;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    void async_set_message(Message& message)\n    {\n        this->message_.async_write(message, [](Status status) {\n            status.IgnoreError();\n        });\n    }\n\n    Status await_set_message(Message& message)\n    {\n        return this->message_.write(message);\n    }\n\n    StatusOr<Message&> await_message()\n    {\n        return this->message_.read();\n    }\n\n    Message& await_message_or_panic()\n    {\n        StatusOr<Message&> msg = this->await_message();\n        BATT_CHECK_OK(msg);\n        return *msg;\n    }\n\n    void release_message()\n    {\n        if (this->message_.is_active()) {\n            this->message_.consume();\n        }\n    }\n\n    void async_set_data(HttpData& data)\n    {\n        this->data_.async_write(data, [](Status status) {\n            status.IgnoreError();\n        });\n    }\n\n    Status await_set_data(HttpData& data)\n    {\n        return this->data_.write(data);\n    }\n\n    StatusOr<HttpData&> await_data()\n    {\n        this->release_message();\n        return this->data_.read();\n    }\n\n    void release_data()\n    {\n        if (this->data_.is_active()) {\n            this->data_.consume();\n        }\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    const SmallVecBase<HttpHeader>& headers() const\n    {\n        return this->await_message_or_panic().headers;\n    }\n\n    Optional<std::string_view> find_header(const std::string_view& name) const\n    {\n        return ::batt::find_header(this->headers(), name);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n   protected:\n    Status status_{OkStatus()};\n\n    Watch<i32> state_{kCreated};\n\n    Channel<Message> message_;\n\n    Channel<HttpData> data_;\n};\n\n}  // namespace batt\n\n#endif  // BATTERIES_HTTP_HTTP_MESSAGE_BASE_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::Pinnable",
+          "refid": "classbatt_1_1Pinnable",
+          "url": "/_autogen/Classes/classbatt_1_1Pinnable/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::HttpMessageBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::HttpMessageBase",
+      "refid": "classbatt_1_1HttpMessageBase",
+      "title": "batt::HttpMessageBase",
+      "url": "/_autogen/Classes/classbatt_1_1HttpMessageBase/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "http__message__base_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/http/http_message_base.hpp",
+  "url": "/_autogen/Files/http__message__base_8hpp/#file-http-message-base.hpp",
+  "visibility": "public"
+}

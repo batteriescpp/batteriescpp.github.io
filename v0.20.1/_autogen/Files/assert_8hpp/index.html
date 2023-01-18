@@ -1,0 +1,1435 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.3">
+    
+    
+      
+        <title>batteries/assert.hpp - Batteries C++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6b71719e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#namespaces" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Batteries C++" class="md-header__button md-logo" aria-label="Batteries C++" data-md-component="logo">
+      <img width="100px" src="/images/BatteriesLogo.png">
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/releaseNavOptions.js" type="application/javascript"></script>
+<script src="/releaseNav.js" type="application/javascript"></script>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Batteries C++
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              batteries/assert.hpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Batteries C++" class="md-nav__button md-logo" aria-label="Batteries C++" data-md-component="logo">
+      <img width="100px" src="/images/BatteriesLogo.png">
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/releaseNavOptions.js" type="application/javascript"></script>
+<script src="/releaseNav.js" type="application/javascript"></script>
+    </a>
+    Batteries C++
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gitlab.com/batteriescpp/batteries/" class="md-nav__link">
+        GitLab Repo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" tabindex="0" aria-expanded="false">
+          Headers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Headers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Headers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../assert.hpp" class="md-nav__link">
+        batteries/assert.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../async" class="md-nav__link">
+        batteries/async/*
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_of.hpp" class="md-nav__link">
+        batteries/case_of.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cpu_align.hpp" class="md-nav__link">
+        batteries/cpu_align.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../seq" class="md-nav__link">
+        batteries/seq.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../status.hpp" class="md-nav__link">
+        batteries/status.hpp
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" tabindex="0" aria-expanded="false">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Classes/" class="md-nav__link">
+        Classes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release_notes" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" tabindex="0" aria-expanded="false">
+          Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Developers" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../coding_style" class="md-nav__link">
+        Coding Style
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../how-to/configure-ci-pipelines" class="md-nav__link">
+        Configuring CI Pipelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../how-to/write-the-docs" class="md-nav__link">
+        Writing Documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#namespaces" class="md-nav__link">
+    Namespaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defines" class="md-nav__link">
+    Defines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macro-documentation" class="md-nav__link">
+    Macro Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Macro Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_fail_check_out" class="md-nav__link">
+     define BATT_FAIL_CHECK_OUT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_fail_check_message" class="md-nav__link">
+     define BATT_FAIL_CHECK_MESSAGE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_noreturn" class="md-nav__link">
+     define BATT_NORETURN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_unreachable" class="md-nav__link">
+     define BATT_UNREACHABLE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_check_relation" class="md-nav__link">
+     define BATT_CHECK_RELATION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_check_implies" class="md-nav__link">
+     define BATT_CHECK_IMPLIES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_check" class="md-nav__link">
+     define BATT_CHECK
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_check_eq" class="md-nav__link">
+     define BATT_CHECK_EQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_check_ne" class="md-nav__link">
+     define BATT_CHECK_NE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_check_ge" class="md-nav__link">
+     define BATT_CHECK_GE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_check_gt" class="md-nav__link">
+     define BATT_CHECK_GT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_check_le" class="md-nav__link">
+     define BATT_CHECK_LE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_check_lt" class="md-nav__link">
+     define BATT_CHECK_LT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_check_fail" class="md-nav__link">
+     define BATT_CHECK_FAIL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_check_in_range" class="md-nav__link">
+     define BATT_CHECK_IN_RANGE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_assert_disabled" class="md-nav__link">
+     define BATT_ASSERT_DISABLED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_assert" class="md-nav__link">
+     define BATT_ASSERT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_assert_eq" class="md-nav__link">
+     define BATT_ASSERT_EQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_assert_ne" class="md-nav__link">
+     define BATT_ASSERT_NE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_assert_ge" class="md-nav__link">
+     define BATT_ASSERT_GE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_assert_gt" class="md-nav__link">
+     define BATT_ASSERT_GT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_assert_le" class="md-nav__link">
+     define BATT_ASSERT_LE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_assert_lt" class="md-nav__link">
+     define BATT_ASSERT_LT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_assert_implies" class="md-nav__link">
+     define BATT_ASSERT_IMPLIES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_assert_in_range" class="md-nav__link">
+     define BATT_ASSERT_IN_RANGE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_assert_not_nullptr" class="md-nav__link">
+     define BATT_ASSERT_NOT_NULLPTR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_check_not_nullptr" class="md-nav__link">
+     define BATT_CHECK_NOT_NULLPTR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_panic" class="md-nav__link">
+     define BATT_PANIC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_inspect" class="md-nav__link">
+     define BATT_INSPECT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_untested_line" class="md-nav__link">
+     define BATT_UNTESTED_LINE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_untested_cond" class="md-nav__link">
+     define BATT_UNTESTED_COND
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>batteries/assert.hpp</h1>
+
+<h1 id="batteriesasserthpp">batteries/assert.hpp<a class="headerlink" href="#batteriesasserthpp" title="Permanent link">&#128279;</a></h1>
+<h2 id="namespaces">Namespaces<a class="headerlink" href="#namespaces" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/">batt</a></strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="defines">Defines<a class="headerlink" href="#defines" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-fail-check-out">BATT_FAIL_CHECK_OUT</a></strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-fail-check-message">BATT_FAIL_CHECK_MESSAGE</a></strong>(left_str, left_val, op_str, right_str, right_val, file, line, fn_name)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-noreturn">BATT_NORETURN</a></strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-unreachable">BATT_UNREACHABLE</a></strong>()</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-check-relation">BATT_CHECK_RELATION</a></strong>(left, op, right)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-check-implies">BATT_CHECK_IMPLIES</a></strong>(p, q)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-check">BATT_CHECK</a></strong>(x) <br>This is only a test...</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-check-eq">BATT_CHECK_EQ</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-check-ne">BATT_CHECK_NE</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-check-ge">BATT_CHECK_GE</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-check-gt">BATT_CHECK_GT</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-check-le">BATT_CHECK_LE</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-check-lt">BATT_CHECK_LT</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-check-fail">BATT_CHECK_FAIL</a></strong>()</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-check-in-range">BATT_CHECK_IN_RANGE</a></strong>(low, x, high)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-assert-disabled">BATT_ASSERT_DISABLED</a></strong>(ignored_inputs)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-assert">BATT_ASSERT</a></strong>(x)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-assert-eq">BATT_ASSERT_EQ</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-assert-ne">BATT_ASSERT_NE</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-assert-ge">BATT_ASSERT_GE</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-assert-gt">BATT_ASSERT_GT</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-assert-le">BATT_ASSERT_LE</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-assert-lt">BATT_ASSERT_LT</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-assert-implies">BATT_ASSERT_IMPLIES</a></strong>(p, q)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-assert-in-range">BATT_ASSERT_IN_RANGE</a></strong>(low, x, high)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-assert-not-nullptr">BATT_ASSERT_NOT_NULLPTR</a></strong>(x)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-check-not-nullptr">BATT_CHECK_NOT_NULLPTR</a></strong>(x)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-panic">BATT_PANIC</a></strong>()</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-inspect">BATT_INSPECT</a></strong>(expr)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-untested-line">BATT_UNTESTED_LINE</a></strong>()</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/assert_8hpp/#define-batt-untested-cond">BATT_UNTESTED_COND</a></strong>(x)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="macro-documentation">Macro Documentation<a class="headerlink" href="#macro-documentation" title="Permanent link">&#128279;</a></h2>
+<h3 id="define-batt_fail_check_out"><a name="BATT_FAIL_CHECK_OUT"></a> define BATT_FAIL_CHECK_OUT<a class="headerlink" href="#define-batt_fail_check_out" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#define BATT_FAIL_CHECK_OUT()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_fail_check_message"><a name="BATT_FAIL_CHECK_MESSAGE"></a> define BATT_FAIL_CHECK_MESSAGE<a class="headerlink" href="#define-batt_fail_check_message" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#define BATT_FAIL_CHECK_MESSAGE(left_str, left_val, op_str, right_str, right_val, file, line, fn_name)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_noreturn"><a name="BATT_NORETURN"></a> define BATT_NORETURN<a class="headerlink" href="#define-batt_noreturn" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#define BATT_NORETURN()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_unreachable"><a name="BATT_UNREACHABLE"></a> define BATT_UNREACHABLE<a class="headerlink" href="#define-batt_unreachable" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#define BATT_UNREACHABLE()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_check_relation"><a name="BATT_CHECK_RELATION"></a> define BATT_CHECK_RELATION<a class="headerlink" href="#define-batt_check_relation" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#define BATT_CHECK_RELATION(left, op, right)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_check_implies"><a name="BATT_CHECK_IMPLIES"></a> define BATT_CHECK_IMPLIES<a class="headerlink" href="#define-batt_check_implies" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">#define BATT_CHECK_IMPLIES(p, q)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_check"><a name="BATT_CHECK"></a> define BATT_CHECK<a class="headerlink" href="#define-batt_check" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">#define BATT_CHECK(x)</span>
+</code></pre></div></td></tr></table></div>
+<p>This is only a test... </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>x</strong> The expression to test. </li>
+</ul>
+<h3 id="define-batt_check_eq"><a name="BATT_CHECK_EQ"></a> define BATT_CHECK_EQ<a class="headerlink" href="#define-batt_check_eq" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">#define BATT_CHECK_EQ(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_check_ne"><a name="BATT_CHECK_NE"></a> define BATT_CHECK_NE<a class="headerlink" href="#define-batt_check_ne" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cp">#define BATT_CHECK_NE(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_check_ge"><a name="BATT_CHECK_GE"></a> define BATT_CHECK_GE<a class="headerlink" href="#define-batt_check_ge" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">#define BATT_CHECK_GE(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_check_gt"><a name="BATT_CHECK_GT"></a> define BATT_CHECK_GT<a class="headerlink" href="#define-batt_check_gt" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#define BATT_CHECK_GT(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_check_le"><a name="BATT_CHECK_LE"></a> define BATT_CHECK_LE<a class="headerlink" href="#define-batt_check_le" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#define BATT_CHECK_LE(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_check_lt"><a name="BATT_CHECK_LT"></a> define BATT_CHECK_LT<a class="headerlink" href="#define-batt_check_lt" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">#define BATT_CHECK_LT(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_check_fail"><a name="BATT_CHECK_FAIL"></a> define BATT_CHECK_FAIL<a class="headerlink" href="#define-batt_check_fail" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">#define BATT_CHECK_FAIL()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_check_in_range"><a name="BATT_CHECK_IN_RANGE"></a> define BATT_CHECK_IN_RANGE<a class="headerlink" href="#define-batt_check_in_range" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">#define BATT_CHECK_IN_RANGE(low, x, high)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_assert_disabled"><a name="BATT_ASSERT_DISABLED"></a> define BATT_ASSERT_DISABLED<a class="headerlink" href="#define-batt_assert_disabled" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cp">#define BATT_ASSERT_DISABLED(ignored_inputs)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_assert"><a name="BATT_ASSERT"></a> define BATT_ASSERT<a class="headerlink" href="#define-batt_assert" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">#define BATT_ASSERT(x)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_assert_eq"><a name="BATT_ASSERT_EQ"></a> define BATT_ASSERT_EQ<a class="headerlink" href="#define-batt_assert_eq" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cp">#define BATT_ASSERT_EQ(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_assert_ne"><a name="BATT_ASSERT_NE"></a> define BATT_ASSERT_NE<a class="headerlink" href="#define-batt_assert_ne" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="cp">#define BATT_ASSERT_NE(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_assert_ge"><a name="BATT_ASSERT_GE"></a> define BATT_ASSERT_GE<a class="headerlink" href="#define-batt_assert_ge" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="cp">#define BATT_ASSERT_GE(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_assert_gt"><a name="BATT_ASSERT_GT"></a> define BATT_ASSERT_GT<a class="headerlink" href="#define-batt_assert_gt" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="cp">#define BATT_ASSERT_GT(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_assert_le"><a name="BATT_ASSERT_LE"></a> define BATT_ASSERT_LE<a class="headerlink" href="#define-batt_assert_le" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="cp">#define BATT_ASSERT_LE(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_assert_lt"><a name="BATT_ASSERT_LT"></a> define BATT_ASSERT_LT<a class="headerlink" href="#define-batt_assert_lt" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="cp">#define BATT_ASSERT_LT(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_assert_implies"><a name="BATT_ASSERT_IMPLIES"></a> define BATT_ASSERT_IMPLIES<a class="headerlink" href="#define-batt_assert_implies" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="cp">#define BATT_ASSERT_IMPLIES(p, q)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_assert_in_range"><a name="BATT_ASSERT_IN_RANGE"></a> define BATT_ASSERT_IN_RANGE<a class="headerlink" href="#define-batt_assert_in_range" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="cp">#define BATT_ASSERT_IN_RANGE(low, x, high)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_assert_not_nullptr"><a name="BATT_ASSERT_NOT_NULLPTR"></a> define BATT_ASSERT_NOT_NULLPTR<a class="headerlink" href="#define-batt_assert_not_nullptr" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="cp">#define BATT_ASSERT_NOT_NULLPTR(x)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_check_not_nullptr"><a name="BATT_CHECK_NOT_NULLPTR"></a> define BATT_CHECK_NOT_NULLPTR<a class="headerlink" href="#define-batt_check_not_nullptr" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="cp">#define BATT_CHECK_NOT_NULLPTR(x)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_panic"><a name="BATT_PANIC"></a> define BATT_PANIC<a class="headerlink" href="#define-batt_panic" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="cp">#define BATT_PANIC()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_inspect"><a name="BATT_INSPECT"></a> define BATT_INSPECT<a class="headerlink" href="#define-batt_inspect" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="cp">#define BATT_INSPECT(expr)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_untested_line"><a name="BATT_UNTESTED_LINE"></a> define BATT_UNTESTED_LINE<a class="headerlink" href="#define-batt_untested_line" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="cp">#define BATT_UNTESTED_LINE()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_untested_cond"><a name="BATT_UNTESTED_COND"></a> define BATT_UNTESTED_COND<a class="headerlink" href="#define-batt_untested_cond" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="cp">#define BATT_UNTESTED_COND(x)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="source-code">Source code<a class="headerlink" href="#source-code" title="Permanent link">&#128279;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-31-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-31-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-31-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-31-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-31-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-31-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-31-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-31-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-31-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-31-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-31-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-31-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-31-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-31-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-31-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-31-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-31-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-31-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-31-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-31-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-31-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-31-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-31-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-31-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-31-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-31-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-31-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-31-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-31-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-31-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-31-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-31-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-31-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-31-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-31-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-31-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-31-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-31-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-31-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-31-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-31-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-31-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-31-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-31-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-31-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-31-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-31-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-31-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-31-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-31-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-31-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-31-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-31-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-31-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-31-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-31-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-31-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-31-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-31-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-31-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-31-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-31-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-31-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-31-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-31-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-31-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-31-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-31-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-31-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-31-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-31-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-31-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-31-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-31-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-31-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-31-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-31-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-31-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-31-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-31-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-31-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-31-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-31-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-31-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-31-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-31-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-31-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-31-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-31-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-31-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-31-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-31-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-31-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-31-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-31-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-31-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-31-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-31-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-31-100">100</a></span>
+<span class="normal"><a href="#__codelineno-31-101">101</a></span>
+<span class="normal"><a href="#__codelineno-31-102">102</a></span>
+<span class="normal"><a href="#__codelineno-31-103">103</a></span>
+<span class="normal"><a href="#__codelineno-31-104">104</a></span>
+<span class="normal"><a href="#__codelineno-31-105">105</a></span>
+<span class="normal"><a href="#__codelineno-31-106">106</a></span>
+<span class="normal"><a href="#__codelineno-31-107">107</a></span>
+<span class="normal"><a href="#__codelineno-31-108">108</a></span>
+<span class="normal"><a href="#__codelineno-31-109">109</a></span>
+<span class="normal"><a href="#__codelineno-31-110">110</a></span>
+<span class="normal"><a href="#__codelineno-31-111">111</a></span>
+<span class="normal"><a href="#__codelineno-31-112">112</a></span>
+<span class="normal"><a href="#__codelineno-31-113">113</a></span>
+<span class="normal"><a href="#__codelineno-31-114">114</a></span>
+<span class="normal"><a href="#__codelineno-31-115">115</a></span>
+<span class="normal"><a href="#__codelineno-31-116">116</a></span>
+<span class="normal"><a href="#__codelineno-31-117">117</a></span>
+<span class="normal"><a href="#__codelineno-31-118">118</a></span>
+<span class="normal"><a href="#__codelineno-31-119">119</a></span>
+<span class="normal"><a href="#__codelineno-31-120">120</a></span>
+<span class="normal"><a href="#__codelineno-31-121">121</a></span>
+<span class="normal"><a href="#__codelineno-31-122">122</a></span>
+<span class="normal"><a href="#__codelineno-31-123">123</a></span>
+<span class="normal"><a href="#__codelineno-31-124">124</a></span>
+<span class="normal"><a href="#__codelineno-31-125">125</a></span>
+<span class="normal"><a href="#__codelineno-31-126">126</a></span>
+<span class="normal"><a href="#__codelineno-31-127">127</a></span>
+<span class="normal"><a href="#__codelineno-31-128">128</a></span>
+<span class="normal"><a href="#__codelineno-31-129">129</a></span>
+<span class="normal"><a href="#__codelineno-31-130">130</a></span>
+<span class="normal"><a href="#__codelineno-31-131">131</a></span>
+<span class="normal"><a href="#__codelineno-31-132">132</a></span>
+<span class="normal"><a href="#__codelineno-31-133">133</a></span>
+<span class="normal"><a href="#__codelineno-31-134">134</a></span>
+<span class="normal"><a href="#__codelineno-31-135">135</a></span>
+<span class="normal"><a href="#__codelineno-31-136">136</a></span>
+<span class="normal"><a href="#__codelineno-31-137">137</a></span>
+<span class="normal"><a href="#__codelineno-31-138">138</a></span>
+<span class="normal"><a href="#__codelineno-31-139">139</a></span>
+<span class="normal"><a href="#__codelineno-31-140">140</a></span>
+<span class="normal"><a href="#__codelineno-31-141">141</a></span>
+<span class="normal"><a href="#__codelineno-31-142">142</a></span>
+<span class="normal"><a href="#__codelineno-31-143">143</a></span>
+<span class="normal"><a href="#__codelineno-31-144">144</a></span>
+<span class="normal"><a href="#__codelineno-31-145">145</a></span>
+<span class="normal"><a href="#__codelineno-31-146">146</a></span>
+<span class="normal"><a href="#__codelineno-31-147">147</a></span>
+<span class="normal"><a href="#__codelineno-31-148">148</a></span>
+<span class="normal"><a href="#__codelineno-31-149">149</a></span>
+<span class="normal"><a href="#__codelineno-31-150">150</a></span>
+<span class="normal"><a href="#__codelineno-31-151">151</a></span>
+<span class="normal"><a href="#__codelineno-31-152">152</a></span>
+<span class="normal"><a href="#__codelineno-31-153">153</a></span>
+<span class="normal"><a href="#__codelineno-31-154">154</a></span>
+<span class="normal"><a href="#__codelineno-31-155">155</a></span>
+<span class="normal"><a href="#__codelineno-31-156">156</a></span>
+<span class="normal"><a href="#__codelineno-31-157">157</a></span>
+<span class="normal"><a href="#__codelineno-31-158">158</a></span>
+<span class="normal"><a href="#__codelineno-31-159">159</a></span>
+<span class="normal"><a href="#__codelineno-31-160">160</a></span>
+<span class="normal"><a href="#__codelineno-31-161">161</a></span>
+<span class="normal"><a href="#__codelineno-31-162">162</a></span>
+<span class="normal"><a href="#__codelineno-31-163">163</a></span>
+<span class="normal"><a href="#__codelineno-31-164">164</a></span>
+<span class="normal"><a href="#__codelineno-31-165">165</a></span>
+<span class="normal"><a href="#__codelineno-31-166">166</a></span>
+<span class="normal"><a href="#__codelineno-31-167">167</a></span>
+<span class="normal"><a href="#__codelineno-31-168">168</a></span>
+<span class="normal"><a href="#__codelineno-31-169">169</a></span>
+<span class="normal"><a href="#__codelineno-31-170">170</a></span>
+<span class="normal"><a href="#__codelineno-31-171">171</a></span>
+<span class="normal"><a href="#__codelineno-31-172">172</a></span>
+<span class="normal"><a href="#__codelineno-31-173">173</a></span>
+<span class="normal"><a href="#__codelineno-31-174">174</a></span>
+<span class="normal"><a href="#__codelineno-31-175">175</a></span>
+<span class="normal"><a href="#__codelineno-31-176">176</a></span>
+<span class="normal"><a href="#__codelineno-31-177">177</a></span>
+<span class="normal"><a href="#__codelineno-31-178">178</a></span>
+<span class="normal"><a href="#__codelineno-31-179">179</a></span>
+<span class="normal"><a href="#__codelineno-31-180">180</a></span>
+<span class="normal"><a href="#__codelineno-31-181">181</a></span>
+<span class="normal"><a href="#__codelineno-31-182">182</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="c1">// Copyright 2021-2022 Anthony Paul Astolfi</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="c1">//</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="cp">#pragma once</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5"></a>
+<a id="__codelineno-31-6" name="__codelineno-31-6"></a><span class="cp">#ifdef BOOST_STACKTRACE_USE_NOOP</span>
+<a id="__codelineno-31-7" name="__codelineno-31-7"></a><span class="cp">#undef BOOST_STACKTRACE_USE_NOOP</span>
+<a id="__codelineno-31-8" name="__codelineno-31-8"></a><span class="cp">#endif  </span><span class="c1">// BOOST_STACKTRACE_USE_NOOP</span>
+<a id="__codelineno-31-9" name="__codelineno-31-9"></a>
+<a id="__codelineno-31-10" name="__codelineno-31-10"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/config.hpp&gt;</span>
+<a id="__codelineno-31-11" name="__codelineno-31-11"></a><span class="c1">//</span>
+<a id="__codelineno-31-12" name="__codelineno-31-12"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/hint.hpp&gt;</span>
+<a id="__codelineno-31-13" name="__codelineno-31-13"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/int_types.hpp&gt;</span>
+<a id="__codelineno-31-14" name="__codelineno-31-14"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/type_traits.hpp&gt;</span>
+<a id="__codelineno-31-15" name="__codelineno-31-15"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/utility.hpp&gt;</span>
+<a id="__codelineno-31-16" name="__codelineno-31-16"></a>
+<a id="__codelineno-31-17" name="__codelineno-31-17"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;boost/stacktrace.hpp&gt;</span>
+<a id="__codelineno-31-18" name="__codelineno-31-18"></a>
+<a id="__codelineno-31-19" name="__codelineno-31-19"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iomanip&gt;</span>
+<a id="__codelineno-31-20" name="__codelineno-31-20"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-31-21" name="__codelineno-31-21"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;mutex&gt;</span>
+<a id="__codelineno-31-22" name="__codelineno-31-22"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sstream&gt;</span>
+<a id="__codelineno-31-23" name="__codelineno-31-23"></a>
+<a id="__codelineno-31-24" name="__codelineno-31-24"></a><span class="cp">#ifdef BATT_FAIL_CHECK_OUT</span>
+<a id="__codelineno-31-25" name="__codelineno-31-25"></a><span class="cp">#error This macro is deprecated; use BATT_GLOG_AVAILABLE</span>
+<a id="__codelineno-31-26" name="__codelineno-31-26"></a><span class="cp">#endif</span>
+<a id="__codelineno-31-27" name="__codelineno-31-27"></a>
+<a id="__codelineno-31-28" name="__codelineno-31-28"></a><span class="cp">#ifdef BATT_GLOG_AVAILABLE</span>
+<a id="__codelineno-31-29" name="__codelineno-31-29"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;glog/logging.h&gt;</span>
+<a id="__codelineno-31-30" name="__codelineno-31-30"></a><span class="cp">#define BATT_FAIL_CHECK_OUT LOG(ERROR)</span>
+<a id="__codelineno-31-31" name="__codelineno-31-31"></a><span class="cp">#else</span>
+<a id="__codelineno-31-32" name="__codelineno-31-32"></a><span class="cp">#define BATT_FAIL_CHECK_OUT std::cerr</span>
+<a id="__codelineno-31-33" name="__codelineno-31-33"></a><span class="cp">#endif</span>
+<a id="__codelineno-31-34" name="__codelineno-31-34"></a>
+<a id="__codelineno-31-35" name="__codelineno-31-35"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">batt</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-31-36" name="__codelineno-31-36"></a>
+<a id="__codelineno-31-37" name="__codelineno-31-37"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">IsPrintable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{}</span><span class="o">&gt;&gt;</span>
+<a id="__codelineno-31-38" name="__codelineno-31-38"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">make_printable</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span>
+<a id="__codelineno-31-39" name="__codelineno-31-39"></a><span class="p">{</span>
+<a id="__codelineno-31-40" name="__codelineno-31-40"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
+<a id="__codelineno-31-41" name="__codelineno-31-41"></a><span class="p">}</span>
+<a id="__codelineno-31-42" name="__codelineno-31-42"></a>
+<a id="__codelineno-31-43" name="__codelineno-31-43"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;!</span><span class="n">IsPrintable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{}</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">void</span><span class="o">&gt;</span>
+<a id="__codelineno-31-44" name="__codelineno-31-44"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">make_printable</span><span class="p">(</span><span class="n">T</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">obj</span><span class="p">)</span>
+<a id="__codelineno-31-45" name="__codelineno-31-45"></a><span class="p">{</span>
+<a id="__codelineno-31-46" name="__codelineno-31-46"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ostringstream</span><span class="w"> </span><span class="n">oss</span><span class="p">;</span>
+<a id="__codelineno-31-47" name="__codelineno-31-47"></a><span class="w">    </span><span class="n">oss</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;(&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">name_of</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;) &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">hex</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">setfill</span><span class="p">(</span><span class="sc">&#39;0&#39;</span><span class="p">);</span>
+<a id="__codelineno-31-48" name="__codelineno-31-48"></a>
+<a id="__codelineno-31-49" name="__codelineno-31-49"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">u8</span><span class="o">*</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">u8</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">obj</span><span class="p">;</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">u8</span><span class="o">*</span><span class="p">)((</span><span class="o">&amp;</span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"> </span><span class="o">++</span><span class="n">bytes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-31-50" name="__codelineno-31-50"></a><span class="w">        </span><span class="n">oss</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">*</span><span class="n">bytes</span><span class="p">;</span>
+<a id="__codelineno-31-51" name="__codelineno-31-51"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-31-52" name="__codelineno-31-52"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">oss</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
+<a id="__codelineno-31-53" name="__codelineno-31-53"></a><span class="p">}</span>
+<a id="__codelineno-31-54" name="__codelineno-31-54"></a>
+<a id="__codelineno-31-55" name="__codelineno-31-55"></a><span class="c1">// =============================================================================</span>
+<a id="__codelineno-31-56" name="__codelineno-31-56"></a><span class="c1">// ASSERT and CHECK macros with ostream-style message appending, stack trace on</span>
+<a id="__codelineno-31-57" name="__codelineno-31-57"></a><span class="c1">// failure, branch prediction hinting, and human-friendly messages.</span>
+<a id="__codelineno-31-58" name="__codelineno-31-58"></a><span class="c1">//</span>
+<a id="__codelineno-31-59" name="__codelineno-31-59"></a><span class="c1">// BATT_ASSERT* statements are only enabled when NDEBUG is not defined.</span>
+<a id="__codelineno-31-60" name="__codelineno-31-60"></a><span class="c1">// BATT_CHECK* statements are always enabled.</span>
+<a id="__codelineno-31-61" name="__codelineno-31-61"></a><span class="c1">//</span>
+<a id="__codelineno-31-62" name="__codelineno-31-62"></a><span class="cp">#define BATT_FAIL_CHECK_MESSAGE(left_str, left_val, op_str, right_str, right_val, file, line, fn_name)       \</span>
+<a id="__codelineno-31-63" name="__codelineno-31-63"></a><span class="cp">    BATT_FAIL_CHECK_OUT &lt;&lt; &quot;FATAL: &quot; &lt;&lt; file &lt;&lt; &quot;:&quot; &lt;&lt; line &lt;&lt; &quot;: Assertion failed: &quot; &lt;&lt; left_str &lt;&lt; &quot; &quot;     \</span>
+<a id="__codelineno-31-64" name="__codelineno-31-64"></a><span class="cp">                        &lt;&lt; op_str &lt;&lt; &quot; &quot; &lt;&lt; right_str &lt;&lt; &quot;\n (in `&quot; &lt;&lt; fn_name &lt;&lt; &quot;`)\n\n&quot;                   \</span>
+<a id="__codelineno-31-65" name="__codelineno-31-65"></a><span class="cp">                        &lt;&lt; &quot;  &quot; &lt;&lt; left_str &lt;&lt; &quot; == &quot; &lt;&lt; ::batt::make_printable(left_val) &lt;&lt; ::std::endl     \</span>
+<a id="__codelineno-31-66" name="__codelineno-31-66"></a><span class="cp">                        &lt;&lt; ::std::endl                                                                       \</span>
+<a id="__codelineno-31-67" name="__codelineno-31-67"></a><span class="cp">                        &lt;&lt; &quot;  &quot; &lt;&lt; right_str &lt;&lt; &quot; == &quot; &lt;&lt; ::batt::make_printable(right_val) &lt;&lt; ::std::endl   \</span>
+<a id="__codelineno-31-68" name="__codelineno-31-68"></a><span class="cp">                        &lt;&lt; ::std::endl</span>
+<a id="__codelineno-31-69" name="__codelineno-31-69"></a>
+<a id="__codelineno-31-70" name="__codelineno-31-70"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-31-71" name="__codelineno-31-71"></a><span class="cp">#if defined(__GNUC__)</span>
+<a id="__codelineno-31-72" name="__codelineno-31-72"></a><span class="cp">#define BATT_NORETURN __attribute__((noreturn))</span>
+<a id="__codelineno-31-73" name="__codelineno-31-73"></a><span class="cp">#define BATT_UNREACHABLE __builtin_unreachable</span>
+<a id="__codelineno-31-74" name="__codelineno-31-74"></a>
+<a id="__codelineno-31-75" name="__codelineno-31-75"></a><span class="cp">#elif defined(__clang__)</span>
+<a id="__codelineno-31-76" name="__codelineno-31-76"></a><span class="cp">#define BATT_NORETURN _Noreturn</span>
+<a id="__codelineno-31-77" name="__codelineno-31-77"></a><span class="cp">#define BATT_UNREACHABLE __builtin_unreachable</span>
+<a id="__codelineno-31-78" name="__codelineno-31-78"></a>
+<a id="__codelineno-31-79" name="__codelineno-31-79"></a><span class="cp">#else</span>
+<a id="__codelineno-31-80" name="__codelineno-31-80"></a><span class="cp">#define BATT_NORETURN</span>
+<a id="__codelineno-31-81" name="__codelineno-31-81"></a><span class="cp">#define BATT_UNREACHABLE() (void)</span>
+<a id="__codelineno-31-82" name="__codelineno-31-82"></a><span class="cp">#endif</span>
+<a id="__codelineno-31-83" name="__codelineno-31-83"></a><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-31-84" name="__codelineno-31-84"></a>
+<a id="__codelineno-31-85" name="__codelineno-31-85"></a><span class="n">BATT_NORETURN</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">fail_check_exit</span><span class="p">()</span>
+<a id="__codelineno-31-86" name="__codelineno-31-86"></a><span class="p">{</span>
+<a id="__codelineno-31-87" name="__codelineno-31-87"></a><span class="w">    </span><span class="n">BATT_FAIL_CHECK_OUT</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-31-88" name="__codelineno-31-88"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">abort</span><span class="p">();</span>
+<a id="__codelineno-31-89" name="__codelineno-31-89"></a><span class="w">    </span><span class="n">BATT_UNREACHABLE</span><span class="p">();</span>
+<a id="__codelineno-31-90" name="__codelineno-31-90"></a><span class="p">}</span>
+<a id="__codelineno-31-91" name="__codelineno-31-91"></a>
+<a id="__codelineno-31-92" name="__codelineno-31-92"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Ts</span><span class="o">&gt;</span>
+<a id="__codelineno-31-93" name="__codelineno-31-93"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">ignore</span><span class="p">(</span><span class="n">Ts</span><span class="o">&amp;&amp;</span><span class="p">...)</span>
+<a id="__codelineno-31-94" name="__codelineno-31-94"></a><span class="p">{</span>
+<a id="__codelineno-31-95" name="__codelineno-31-95"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<a id="__codelineno-31-96" name="__codelineno-31-96"></a><span class="p">}</span>
+<a id="__codelineno-31-97" name="__codelineno-31-97"></a>
+<a id="__codelineno-31-98" name="__codelineno-31-98"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">lock_fail_check_mutex</span><span class="p">()</span>
+<a id="__codelineno-31-99" name="__codelineno-31-99"></a><span class="p">{</span>
+<a id="__codelineno-31-100" name="__codelineno-31-100"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">aligned_storage_t</span><span class="o">&lt;</span><span class="k">sizeof</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="p">),</span><span class="w"> </span><span class="k">alignof</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">storage_</span><span class="p">;</span>
+<a id="__codelineno-31-101" name="__codelineno-31-101"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">(</span><span class="o">&amp;</span><span class="n">storage_</span><span class="p">)</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="p">{};</span>
+<a id="__codelineno-31-102" name="__codelineno-31-102"></a><span class="w">    </span><span class="n">m</span><span class="o">-&gt;</span><span class="n">lock</span><span class="p">();</span>
+<a id="__codelineno-31-103" name="__codelineno-31-103"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<a id="__codelineno-31-104" name="__codelineno-31-104"></a><span class="p">}</span>
+<a id="__codelineno-31-105" name="__codelineno-31-105"></a>
+<a id="__codelineno-31-106" name="__codelineno-31-106"></a><span class="cp">#define BATT_CHECK_RELATION(left, op, right)                                                                 \</span>
+<a id="__codelineno-31-107" name="__codelineno-31-107"></a><span class="cp">    for (; !BATT_HINT_TRUE((left)op(right)) &amp;&amp; BATT_HINT_TRUE(::batt::lock_fail_check_mutex());              \</span>
+<a id="__codelineno-31-108" name="__codelineno-31-108"></a><span class="cp">         ::batt::fail_check_exit())                                                                          \</span>
+<a id="__codelineno-31-109" name="__codelineno-31-109"></a><span class="cp">    BATT_FAIL_CHECK_MESSAGE(#left, (left), #op, #right, (right), __FILE__, __LINE__, __PRETTY_FUNCTION__)</span>
+<a id="__codelineno-31-110" name="__codelineno-31-110"></a>
+<a id="__codelineno-31-111" name="__codelineno-31-111"></a><span class="cp">#define BATT_CHECK_IMPLIES(p, q)                                                                             \</span>
+<a id="__codelineno-31-112" name="__codelineno-31-112"></a><span class="cp">    for (; !BATT_HINT_TRUE(!(p) || (q)) &amp;&amp; BATT_HINT_TRUE(::batt::lock_fail_check_mutex());                  \</span>
+<a id="__codelineno-31-113" name="__codelineno-31-113"></a><span class="cp">         ::batt::fail_check_exit())                                                                          \</span>
+<a id="__codelineno-31-114" name="__codelineno-31-114"></a><span class="cp">    BATT_FAIL_CHECK_MESSAGE(#p, (p), &quot;implies&quot;, #q, (q), __FILE__, __LINE__, __PRETTY_FUNCTION__)</span>
+<a id="__codelineno-31-115" name="__codelineno-31-115"></a>
+<a id="__codelineno-31-116" name="__codelineno-31-116"></a><span class="cp">#define BATT_CHECK(x) BATT_CHECK_RELATION(bool{x}, ==, true)</span>
+<a id="__codelineno-31-117" name="__codelineno-31-117"></a>
+<a id="__codelineno-31-118" name="__codelineno-31-118"></a><span class="cp">#define BATT_CHECK_EQ(x, y) BATT_CHECK_RELATION(x, ==, y)</span>
+<a id="__codelineno-31-119" name="__codelineno-31-119"></a><span class="cp">#define BATT_CHECK_NE(x, y) BATT_CHECK_RELATION(x, !=, y)</span>
+<a id="__codelineno-31-120" name="__codelineno-31-120"></a><span class="cp">#define BATT_CHECK_GE(x, y) BATT_CHECK_RELATION(x, &gt;=, y)</span>
+<a id="__codelineno-31-121" name="__codelineno-31-121"></a><span class="cp">#define BATT_CHECK_GT(x, y) BATT_CHECK_RELATION(x, &gt;, y)</span>
+<a id="__codelineno-31-122" name="__codelineno-31-122"></a><span class="cp">#define BATT_CHECK_LE(x, y) BATT_CHECK_RELATION(x, &lt;=, y)</span>
+<a id="__codelineno-31-123" name="__codelineno-31-123"></a><span class="cp">#define BATT_CHECK_LT(x, y) BATT_CHECK_RELATION(x, &lt;, y)</span>
+<a id="__codelineno-31-124" name="__codelineno-31-124"></a><span class="cp">#define BATT_CHECK_FAIL() BATT_CHECK(false)</span>
+<a id="__codelineno-31-125" name="__codelineno-31-125"></a>
+<a id="__codelineno-31-126" name="__codelineno-31-126"></a><span class="cp">#define BATT_CHECK_IN_RANGE(low, x, high)                                                                    \</span>
+<a id="__codelineno-31-127" name="__codelineno-31-127"></a><span class="cp">    [&amp;](auto&amp;&amp; Actual_Value) {                                                                               \</span>
+<a id="__codelineno-31-128" name="__codelineno-31-128"></a><span class="cp">        BATT_CHECK_LE(low, Actual_Value)                                                                     \</span>
+<a id="__codelineno-31-129" name="__codelineno-31-129"></a><span class="cp">            &lt;&lt; &quot;Expression &quot; &lt;&lt; #x &lt;&lt; &quot; == &quot; &lt;&lt; Actual_Value &lt;&lt; &quot; is out-of-range&quot;;                          \</span>
+<a id="__codelineno-31-130" name="__codelineno-31-130"></a><span class="cp">        BATT_CHECK_LT(Actual_Value, high)                                                                    \</span>
+<a id="__codelineno-31-131" name="__codelineno-31-131"></a><span class="cp">            &lt;&lt; &quot;Expression &quot; &lt;&lt; #x &lt;&lt; &quot; == &quot; &lt;&lt; Actual_Value &lt;&lt; &quot; is out-of-range&quot;;                          \</span>
+<a id="__codelineno-31-132" name="__codelineno-31-132"></a><span class="cp">    }(x)</span>
+<a id="__codelineno-31-133" name="__codelineno-31-133"></a><span class="cp">#define BATT_ASSERT_DISABLED(ignored_inputs)                                                                 \</span>
+<a id="__codelineno-31-134" name="__codelineno-31-134"></a><span class="cp">    if (false &amp;&amp; ignored_inputs)                                                                             \</span>
+<a id="__codelineno-31-135" name="__codelineno-31-135"></a><span class="cp">    BATT_FAIL_CHECK_OUT &lt;&lt; &quot;&quot;</span>
+<a id="__codelineno-31-136" name="__codelineno-31-136"></a>
+<a id="__codelineno-31-137" name="__codelineno-31-137"></a><span class="cp">#ifndef NDEBUG  </span><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-31-138" name="__codelineno-31-138"></a>
+<a id="__codelineno-31-139" name="__codelineno-31-139"></a><span class="cp">#define BATT_ASSERT(x) BATT_CHECK(x)</span>
+<a id="__codelineno-31-140" name="__codelineno-31-140"></a><span class="cp">#define BATT_ASSERT_EQ(x, y) BATT_CHECK_EQ(x, y)</span>
+<a id="__codelineno-31-141" name="__codelineno-31-141"></a><span class="cp">#define BATT_ASSERT_NE(x, y) BATT_CHECK_NE(x, y)</span>
+<a id="__codelineno-31-142" name="__codelineno-31-142"></a><span class="cp">#define BATT_ASSERT_GE(x, y) BATT_CHECK_GE(x, y)</span>
+<a id="__codelineno-31-143" name="__codelineno-31-143"></a><span class="cp">#define BATT_ASSERT_GT(x, y) BATT_CHECK_GT(x, y)</span>
+<a id="__codelineno-31-144" name="__codelineno-31-144"></a><span class="cp">#define BATT_ASSERT_LE(x, y) BATT_CHECK_LE(x, y)</span>
+<a id="__codelineno-31-145" name="__codelineno-31-145"></a><span class="cp">#define BATT_ASSERT_LT(x, y) BATT_CHECK_LT(x, y)</span>
+<a id="__codelineno-31-146" name="__codelineno-31-146"></a><span class="cp">#define BATT_ASSERT_IMPLIES(p, q) BATT_CHECK_IMPLIES(p, q)</span>
+<a id="__codelineno-31-147" name="__codelineno-31-147"></a><span class="cp">#define BATT_ASSERT_IN_RANGE(low, x, high) BATT_CHECK_IN_RANGE(low, x, high)</span>
+<a id="__codelineno-31-148" name="__codelineno-31-148"></a>
+<a id="__codelineno-31-149" name="__codelineno-31-149"></a><span class="cp">#else  </span><span class="c1">// NDEBUG  ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-31-150" name="__codelineno-31-150"></a>
+<a id="__codelineno-31-151" name="__codelineno-31-151"></a><span class="cp">#define BATT_ASSERT(x) BATT_ASSERT_DISABLED(::batt::ignore((x)))</span>
+<a id="__codelineno-31-152" name="__codelineno-31-152"></a><span class="cp">#define BATT_ASSERT_EQ(x, y) BATT_ASSERT_DISABLED(::batt::ignore((x), (y), (x) == (y)))</span>
+<a id="__codelineno-31-153" name="__codelineno-31-153"></a><span class="cp">#define BATT_ASSERT_NE(x, y) BATT_ASSERT_DISABLED(::batt::ignore((x), (y), (x) != (y)))</span>
+<a id="__codelineno-31-154" name="__codelineno-31-154"></a><span class="cp">#define BATT_ASSERT_GE(x, y) BATT_ASSERT_DISABLED(::batt::ignore((x), (y), (x) &gt;= (y)))</span>
+<a id="__codelineno-31-155" name="__codelineno-31-155"></a><span class="cp">#define BATT_ASSERT_GT(x, y) BATT_ASSERT_DISABLED(::batt::ignore((x), (y), (x) &gt; (y)))</span>
+<a id="__codelineno-31-156" name="__codelineno-31-156"></a><span class="cp">#define BATT_ASSERT_LE(x, y) BATT_ASSERT_DISABLED(::batt::ignore((x), (y), (x) &lt;= (y)))</span>
+<a id="__codelineno-31-157" name="__codelineno-31-157"></a><span class="cp">#define BATT_ASSERT_LT(x, y) BATT_ASSERT_DISABLED(::batt::ignore((x), (y), (x) &lt; (y)))</span>
+<a id="__codelineno-31-158" name="__codelineno-31-158"></a><span class="cp">#define BATT_ASSERT_IMPLIES(p, q) BATT_ASSERT_DISABLED(::batt::ignore((p), (q), !(p), bool(q)))</span>
+<a id="__codelineno-31-159" name="__codelineno-31-159"></a><span class="cp">#define BATT_ASSERT_IN_RANGE(low, x, high)                                                                   \</span>
+<a id="__codelineno-31-160" name="__codelineno-31-160"></a><span class="cp">    BATT_ASSERT_DISABLED(::batt::ignore((low), (x), (high), (low) &lt;= (x), (x) &lt; (high)))</span>
+<a id="__codelineno-31-161" name="__codelineno-31-161"></a>
+<a id="__codelineno-31-162" name="__codelineno-31-162"></a><span class="cp">#endif  </span><span class="c1">// NDEBUG ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-31-163" name="__codelineno-31-163"></a>
+<a id="__codelineno-31-164" name="__codelineno-31-164"></a><span class="cp">#define BATT_ASSERT_NOT_NULLPTR(x) BATT_ASSERT(x != nullptr)</span>
+<a id="__codelineno-31-165" name="__codelineno-31-165"></a><span class="cp">#define BATT_CHECK_NOT_NULLPTR(x) BATT_CHECK(x != nullptr)</span>
+<a id="__codelineno-31-166" name="__codelineno-31-166"></a>
+<a id="__codelineno-31-167" name="__codelineno-31-167"></a><span class="cp">#define BATT_PANIC()                                                                                         \</span>
+<a id="__codelineno-31-168" name="__codelineno-31-168"></a><span class="cp">    for (bool one_time = true; one_time; one_time = false, ::batt::fail_check_exit(), BATT_UNREACHABLE())    \</span>
+<a id="__codelineno-31-169" name="__codelineno-31-169"></a><span class="cp">    BATT_FAIL_CHECK_OUT &lt;&lt; &quot;*** PANIC *** At:&quot; &lt;&lt; __FILE__ &lt;&lt; &quot;:&quot; &lt;&lt; __LINE__ &lt;&lt; &quot;:&quot; &lt;&lt; std::endl</span>
+<a id="__codelineno-31-170" name="__codelineno-31-170"></a>
+<a id="__codelineno-31-171" name="__codelineno-31-171"></a><span class="c1">//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------</span>
+<a id="__codelineno-31-172" name="__codelineno-31-172"></a><span class="c1">// BATT_INSPECT(expr) : expand to debug-friendly stream insertion expression.</span>
+<a id="__codelineno-31-173" name="__codelineno-31-173"></a><span class="c1">// TODO [tastolfi 2021-10-20] Update docs for assert.hpp to include BATT_INSPECT</span>
+<a id="__codelineno-31-174" name="__codelineno-31-174"></a><span class="c1">//</span>
+<a id="__codelineno-31-175" name="__codelineno-31-175"></a><span class="cp">#define BATT_INSPECT(expr) &quot; &quot; &lt;&lt; #expr &lt;&lt; &quot; == &quot; &lt;&lt; (expr)</span>
+<a id="__codelineno-31-176" name="__codelineno-31-176"></a>
+<a id="__codelineno-31-177" name="__codelineno-31-177"></a><span class="cp">#define BATT_UNTESTED_LINE() BATT_PANIC() &lt;&lt; &quot;Add test point!&quot;</span>
+<a id="__codelineno-31-178" name="__codelineno-31-178"></a><span class="cp">#define BATT_UNTESTED_COND(x) BATT_CHECK(!(x)) &lt;&lt; &quot;Add test point!&quot;</span>
+<a id="__codelineno-31-179" name="__codelineno-31-179"></a>
+<a id="__codelineno-31-180" name="__codelineno-31-180"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
+<a id="__codelineno-31-181" name="__codelineno-31-181"></a>
+<a id="__codelineno-31-182" name="__codelineno-31-182"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/segv.hpp&gt;</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<p>Updated on 18 January 2023 at 15:54:25 UTC</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.ba449ae6.min.js"></script>
+      
+    
+  </body>
+</html>

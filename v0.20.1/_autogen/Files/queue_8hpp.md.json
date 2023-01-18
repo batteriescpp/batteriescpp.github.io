@@ -1,0 +1,185 @@
+{
+  "abstract": false,
+  "anchor": "#file-queue.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-queue-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_QUEUE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/queue.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/queue.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_QUEUE_HPP",
+      "override": false,
+      "refid": "queue_8hpp_1a04fd0283600d1c56111d283989f27eb0",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_QUEUE_HPP",
+      "url": "/_autogen/Files/queue_8hpp/#define-batteries-async-queue-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/queue.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/queue.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/queue.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_QUEUE_HPP\n#define BATTERIES_ASYNC_QUEUE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/async/mutex.hpp>\n#include <batteries/async/watch.hpp>\n#include <batteries/finally.hpp>\n#include <batteries/status.hpp>\n#include <batteries/utility.hpp>\n\n#include <deque>\n\nnamespace batt {\n\nclass QueueBase\n{\n   public:\n    bool is_open() const\n    {\n        return !this->pending_count_.is_closed();\n    }\n\n    bool is_closed() const\n    {\n        return !this->is_open();\n    }\n\n    i64 size() const\n    {\n        return this->pending_count_.get_value();\n    }\n\n    bool empty() const\n    {\n        return this->size() == 0;\n    }\n\n    template <typename Predicate = bool(i64)>\n    StatusOr<i64> await_size_is_truly(Predicate&& predicate)\n    {\n        return this->pending_count_.await_true(BATT_FORWARD(predicate));\n    }\n\n    StatusOr<i64> await_empty()\n    {\n        return this->await_size_is_truly([](i64 count) {\n            BATT_ASSERT_GE(count, 0);\n            return count == 0;\n        });\n    }\n\n    void close()\n    {\n        this->pending_count_.close();\n    }\n\n   protected:\n    Status await_one() noexcept\n    {\n        StatusOr<i64> prior_count = this->pending_count_.await_modify(&decrement_if_positive);\n        BATT_REQUIRE_OK(prior_count);\n\n        BATT_CHECK_GT(*prior_count, 0);\n\n        return OkStatus();\n    }\n\n    bool try_acquire() noexcept\n    {\n        Optional<i64> prior_count = this->pending_count_.modify_if(&decrement_if_positive);\n        if (!prior_count) {\n            return false;\n        }\n        BATT_CHECK_GT(*prior_count, 0);\n        return true;\n    }\n\n    void notify(i64 count)\n    {\n        this->pending_count_.fetch_add(count);\n    }\n\n   private:\n    static Optional<i64> decrement_if_positive(i64 n) noexcept\n    {\n        if (n > 0) {\n            return n - 1;\n        }\n        return None;\n    }\n\n    Watch<i64> pending_count_{0};\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\ntemplate <typename T>\nclass Queue : public QueueBase\n{\n   public:\n    template <typename... Args>\n    bool push(Args&&... args)\n    {\n        if (!this->is_open()) {\n            return false;\n        }\n        this->pending_items_.lock()->emplace_back(BATT_FORWARD(args)...);\n        this->notify(1);\n        return true;\n    }\n\n    template <typename FactoryFn>\n    bool push_with_lock(FactoryFn&& factory_fn)\n    {\n        if (!this->is_open()) {\n            return false;\n        }\n        {\n            auto locked = this->pending_items_.lock();\n            locked->emplace_back(BATT_FORWARD(factory_fn)());\n        }\n        this->notify(1);\n        return true;\n    }\n\n    template <typename Items>\n    bool push_all(Items&& items)\n    {\n        if (!this->is_open()) {\n            return false;\n        }\n        const usize count = std::distance(std::begin(items), std::end(items));\n        this->pending_items_.with_lock([&](auto& pending) {\n            pending.insert(pending.end(), std::begin(items), std::end(items));\n        });\n        this->notify(count);\n        return true;\n    }\n\n    StatusOr<T> await_next()\n    {\n        Status acquired = this->await_one();\n        BATT_REQUIRE_OK(acquired);\n\n        return this->pop_next_or_panic();\n    }\n\n    Optional<T> try_pop_next()\n    {\n        if (!this->try_acquire()) {\n            return None;\n        }\n        return this->pop_next_or_panic();\n    }\n\n    T pop_next_or_panic()\n    {\n        auto locked = this->pending_items_.lock();\n        BATT_CHECK(!locked->empty()) << \"pop_next_or_panic FAILED because the queue is empty\";\n\n        auto on_return = batt::finally([&] {\n            locked->pop_front();\n        });\n\n        return std::forward<T>(locked->front());\n    }\n\n    usize drain()\n    {\n        usize count = 0;\n        while (this->try_pop_next()) {\n            ++count;\n        }\n        return count;\n    }\n\n   private:\n    Mutex<std::deque<T>> pending_items_;\n};\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_QUEUE_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "Type-agnostic base class for all [Queue]() types. ",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::Queue< std::tuple< batt::Pin< batt::HttpRequest >, batt::Pin< batt::HttpResponse > > >",
+          "refid": "classbatt_1_1Queue",
+          "url": "/_autogen/Classes/classbatt_1_1Queue/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::Queue< batt::SmallFn >",
+          "refid": "classbatt_1_1Queue",
+          "url": "/_autogen/Classes/classbatt_1_1Queue/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::Queue< batt::Pin< batt::HttpResponse > >",
+          "refid": "classbatt_1_1Queue",
+          "url": "/_autogen/Classes/classbatt_1_1Queue/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::Queue< T >",
+          "refid": "classbatt_1_1Queue",
+          "url": "/_autogen/Classes/classbatt_1_1Queue/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::QueueBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::QueueBase",
+      "refid": "classbatt_1_1QueueBase",
+      "summary": "Type-agnostic base class for all Queue types. ",
+      "title": "batt::QueueBase",
+      "url": "/_autogen/Classes/classbatt_1_1QueueBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::QueueBase",
+          "refid": "classbatt_1_1QueueBase",
+          "url": "/_autogen/Classes/classbatt_1_1QueueBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "Unbounded multi-producer/multi-consumer (MPMC) FIFO queue. ",
+      "category": "classes",
+      "fullname": "batt::Queue",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Queue",
+      "refid": "classbatt_1_1Queue",
+      "summary": "Unbounded multi-producer/multi-consumer (MPMC) FIFO queue. ",
+      "title": "batt::Queue",
+      "url": "/_autogen/Classes/classbatt_1_1Queue/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "queue_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/queue.hpp",
+  "url": "/_autogen/Files/queue_8hpp/#file-queue.hpp",
+  "visibility": "public"
+}
