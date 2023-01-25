@@ -1,0 +1,147 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "namespaces",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "std",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "namespace",
+  "language": "cpp",
+  "location": {
+    "column": 1,
+    "file": "batteries/stream_util.hpp",
+    "line": 27
+  },
+  "name": "std",
+  "override": false,
+  "parent": null,
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-operator<<",
+      "argsString": "(ostream &out, const optional< T > &t)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "ostream& std::operator<<",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "std::operator<<",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 39,
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 33,
+        "column": 8,
+        "file": "batteries/stream_util.hpp",
+        "line": 33
+      },
+      "name": "operator<<",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "ostream &",
+          "typePlain": "ostream &"
+        },
+        {
+          "name": "t",
+          "type": "const optional< T > &",
+          "typePlain": "const optional< T > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "stream__util_8hpp_1a9c5f3012594a3e7af7308b4f82796143",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "operator<<",
+      "type": "ostream &",
+      "typePlain": "ostream &",
+      "url": "/_autogen/Namespaces/namespacestd/#function-operator<<",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator<<",
+      "argsString": "(ostream &out, Fn &&fn)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "ostream& std::operator<<",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "std::operator<<",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 49,
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 45,
+        "column": 8,
+        "file": "batteries/stream_util.hpp",
+        "line": 45
+      },
+      "name": "operator<<",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "ostream &",
+          "typePlain": "ostream &"
+        },
+        {
+          "name": "fn",
+          "type": "Fn &&",
+          "typePlain": "Fn &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "stream__util_8hpp_1a12dc38404a90780b1a0dd7d2a4784828",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        },
+        {
+          "defval": "enable_if_t<::batt::IsCallable<Fn, ostream&>{}>",
+          "defvalPlain": "enable_if_t<::batt::IsCallable<Fn, ostream&>{}>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "operator<<",
+      "type": "ostream &",
+      "typePlain": "ostream &",
+      "url": "/_autogen/Namespaces/namespacestd/#function-operator<<",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "namespacestd",
+  "static": false,
+  "strong": false,
+  "title": "std",
+  "url": "/_autogen/Namespaces/namespacestd/",
+  "visibility": "public"
+}

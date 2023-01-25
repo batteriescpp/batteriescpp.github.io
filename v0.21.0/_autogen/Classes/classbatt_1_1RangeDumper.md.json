@@ -1,0 +1,230 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "friends": [
+    {
+      "abstract": false,
+      "anchor": "#friend-operator<<",
+      "argsString": "(std::ostream &out, const RangeDumper &t) noexcept",
+      "category": "friends",
+      "const": false,
+      "default": false,
+      "definition": "std::ostream& operator<<",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::RangeDumper::operator<<",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "friend",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 687,
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 653,
+        "column": 19,
+        "file": "batteries/stream_util.hpp",
+        "line": 653
+      },
+      "name": "operator<<",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        },
+        {
+          "name": "t",
+          "type": "const [RangeDumper](/_autogen/Classes/classbatt_1_1RangeDumper/) &",
+          "typePlain": "const RangeDumper &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1RangeDumper_1a633cce0cb39cc5a9893ea681da29e3c3",
+      "static": false,
+      "strong": false,
+      "title": "operator<<",
+      "type": "std::ostream &",
+      "typePlain": "std::ostream &",
+      "url": "/_autogen/Classes/classbatt_1_1RangeDumper/#friend-operator<<",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "fullname": "batt::RangeDumper",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 688,
+    "bodyFile": "batteries/stream_util.hpp",
+    "bodyStart": 641,
+    "column": 1,
+    "file": "batteries/stream_util.hpp",
+    "line": 640
+  },
+  "name": "batt::RangeDumper",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-value-",
+      "category": "attributes",
+      "const": false,
+      "definition": "T batt::RangeDumper< T >::value_",
+      "explicit": false,
+      "fullname": "batt::RangeDumper::value_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 643,
+        "column": 7,
+        "file": "batteries/stream_util.hpp",
+        "line": 643
+      },
+      "name": "value_",
+      "override": false,
+      "refid": "classbatt_1_1RangeDumper_1a865247186c1681d4a277efcec41471d2",
+      "static": false,
+      "strong": false,
+      "title": "value_",
+      "type": "T",
+      "typePlain": "T",
+      "url": "/_autogen/Classes/classbatt_1_1RangeDumper/#variable-value-",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-pretty-",
+      "category": "attributes",
+      "const": false,
+      "definition": "Pretty batt::RangeDumper< T >::pretty_",
+      "explicit": false,
+      "fullname": "batt::RangeDumper::pretty_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 644,
+        "column": 12,
+        "file": "batteries/stream_util.hpp",
+        "line": 644
+      },
+      "name": "pretty_",
+      "override": false,
+      "refid": "classbatt_1_1RangeDumper_1a33ea04b696c459686abb67fe16a01628",
+      "static": false,
+      "strong": false,
+      "title": "pretty_",
+      "type": "Pretty",
+      "typePlain": "Pretty",
+      "url": "/_autogen/Classes/classbatt_1_1RangeDumper/#variable-pretty-",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-rangedumper",
+      "argsString": "(Arg &&arg, Pretty pretty) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::RangeDumper< T >::RangeDumper",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::RangeDumper::RangeDumper",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 651,
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 648,
+        "column": 14,
+        "file": "batteries/stream_util.hpp",
+        "line": 648
+      },
+      "name": "RangeDumper",
+      "override": false,
+      "params": [
+        {
+          "name": "arg",
+          "type": "Arg &&",
+          "typePlain": "Arg &&"
+        },
+        {
+          "name": "pretty",
+          "type": "Pretty",
+          "typePlain": "Pretty"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1RangeDumper_1a02a57ca79f4055db0daafe2b5a3ca254",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Arg",
+          "typePlain": "typename Arg"
+        }
+      ],
+      "title": "RangeDumper",
+      "url": "/_autogen/Classes/classbatt_1_1RangeDumper/#function-rangedumper",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1RangeDumper",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename T",
+      "typePlain": "typename T"
+    }
+  ],
+  "title": "batt::RangeDumper",
+  "url": "/_autogen/Classes/classbatt_1_1RangeDumper/",
+  "visibility": "public"
+}

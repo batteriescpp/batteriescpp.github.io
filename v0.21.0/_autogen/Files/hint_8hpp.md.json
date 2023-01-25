@@ -1,0 +1,143 @@
+{
+  "abstract": false,
+  "anchor": "#file-hint.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batt-hint-true",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_HINT_TRUE",
+      "hasDetails": false,
+      "initializer": "__builtin_expect(static_cast<bool>(expr), 1)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/hint.hpp",
+        "bodyStart": 13,
+        "column": 9,
+        "file": "batteries/hint.hpp",
+        "line": 13
+      },
+      "name": "BATT_HINT_TRUE",
+      "override": false,
+      "params": [
+        {
+          "name": "expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "hint_8hpp_1a7ba26eb60ac63ec1d8ca4862acca3c66",
+      "static": false,
+      "strong": false,
+      "title": "BATT_HINT_TRUE",
+      "url": "/_autogen/Files/hint_8hpp/#define-batt-hint-true",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-hint-false",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_HINT_FALSE",
+      "hasDetails": false,
+      "initializer": "__builtin_expect(static_cast<bool>(expr), 0)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/hint.hpp",
+        "bodyStart": 14,
+        "column": 9,
+        "file": "batteries/hint.hpp",
+        "line": 14
+      },
+      "name": "BATT_HINT_FALSE",
+      "override": false,
+      "params": [
+        {
+          "name": "expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "hint_8hpp_1ac6e69df401faa053bb248543d9ccf0fc",
+      "static": false,
+      "strong": false,
+      "title": "BATT_HINT_FALSE",
+      "url": "/_autogen/Files/hint_8hpp/#define-batt-hint-false",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/hint.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/hint.hpp",
+    "line": 0
+  },
+  "name": "batteries/hint.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n\n#include <batteries/config.hpp>\n//\n\nnamespace batt {\n\n// =============================================================================\n// Branch prediction hints.\n//\n#define BATT_HINT_TRUE(expr) __builtin_expect(static_cast<bool>(expr), 1)\n#define BATT_HINT_FALSE(expr) __builtin_expect(static_cast<bool>(expr), 0)\n\n}  // namespace batt",
+  "refid": "hint_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/hint.hpp",
+  "url": "/_autogen/Files/hint_8hpp/#file-hint.hpp",
+  "visibility": "public"
+}
