@@ -1,0 +1,231 @@
+{
+  "abstract": false,
+  "anchor": "#file-utility.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batt-forward",
+      "brief": "Perfectly forward `x`. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "Avoids having to include redundant information in a `std::forward` expression. ",
+      "explicit": false,
+      "fullname": "BATT_FORWARD",
+      "hasDetails": true,
+      "initializer": "std::forward<decltype(x)>(x)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/utility.hpp",
+        "bodyStart": 18,
+        "column": 9,
+        "file": "batteries/utility.hpp",
+        "line": 18
+      },
+      "name": "BATT_FORWARD",
+      "override": false,
+      "params": [
+        {
+          "name": "x",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "utility_8hpp_1a6bf0c1dd8db55adea0e8d79bc6920615",
+      "static": false,
+      "strong": false,
+      "summary": "Perfectly forward x. ",
+      "title": "BATT_FORWARD",
+      "url": "/_autogen/Files/utility_8hpp/#define-batt-forward",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-sink",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_SINK",
+      "hasDetails": false,
+      "initializer": "::batt::sink(BATT_FORWARD(expr))",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/utility.hpp",
+        "bodyStart": 67,
+        "column": 9,
+        "file": "batteries/utility.hpp",
+        "line": 67
+      },
+      "name": "BATT_SINK",
+      "override": false,
+      "params": [
+        {
+          "name": "expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "utility_8hpp_1a0cb7fa504c2f61740dbbf201cafac024",
+      "static": false,
+      "strong": false,
+      "title": "BATT_SINK",
+      "url": "/_autogen/Files/utility_8hpp/#define-batt-sink",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-warn-unused-result",
+      "brief": "Warn/error if a function's return value is ignored: ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "\n\n```cpp\nint fn_returning_status_code() BATT_WARN_UNUSED_RESULT;\n```",
+      "explicit": false,
+      "fullname": "BATT_WARN_UNUSED_RESULT",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/utility.hpp",
+        "bodyStart": 82,
+        "column": 10,
+        "file": "batteries/utility.hpp",
+        "line": 82
+      },
+      "name": "BATT_WARN_UNUSED_RESULT",
+      "override": false,
+      "refid": "utility_8hpp_1a139d803dc173138953de3ea2408e5271",
+      "static": false,
+      "strong": false,
+      "summary": "Warn/error if a function's return value is ignored: ",
+      "title": "BATT_WARN_UNUSED_RESULT",
+      "url": "/_autogen/Files/utility_8hpp/#define-batt-warn-unused-result",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-overloads-of",
+      "brief": "Roughly approximates the ability to treat a named overload set as though it were an actual callable function. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_OVERLOADS_OF",
+      "hasDetails": false,
+      "initializer": "    [](auto&&... args) noexcept(noexcept(name(BATT_FORWARD(args)...))) -> decltype(auto) {                   \\\n        return name(BATT_FORWARD(args)...);                                                                  \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/utility.hpp",
+        "bodyStart": 89,
+        "column": 9,
+        "file": "batteries/utility.hpp",
+        "line": 89
+      },
+      "name": "BATT_OVERLOADS_OF",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "utility_8hpp_1adcefb9449f5d4fff2cbf6192768eb647",
+      "static": false,
+      "strong": false,
+      "summary": "Roughly approximates the ability to treat a named overload set as though it were an actual callable function. ",
+      "title": "BATT_OVERLOADS_OF",
+      "url": "/_autogen/Files/utility_8hpp/#define-batt-overloads-of",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/utility.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/utility.hpp",
+    "line": 0
+  },
+  "name": "batteries/utility.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n\n#include <batteries/config.hpp>\n//\n\n#include <utility>\n\nnamespace batt {\n\n// =============================================================================\n\n#define BATT_FORWARD(x) std::forward<decltype(x)>(x)\n\ntemplate <typename T>\nT make_copy(const T& value)\n{\n    return value;\n}\n\n// BATT_SINK(val) - turns into BATT_FORWARD(val) if val is an rvalue-expression; otherwise, turns into\n// batt::make_copy(val).\n//\ntemplate <typename T, typename = std::enable_if_t<std::is_same_v<T, std::decay_t<T>>>>\nT&& sink(T&& value)\n{\n    return std::forward<T>(value);\n}\n\ntemplate <typename T>\nT sink(const T& value)\n{\n    return make_copy(value);\n}\n\n#define BATT_SINK(expr) ::batt::sink(BATT_FORWARD(expr))\n\n#if defined(__has_attribute) && __has_attribute(nodiscard)\n#define BATT_WARN_UNUSED_RESULT [[nodiscard]]\n\n#elif defined(__has_attribute) && __has_attribute(nodiscard)\n#define BATT_WARN_UNUSED_RESULT __attribute__((warn_unused_result))\n\n#else\n#define BATT_WARN_UNUSED_RESULT\n\n#endif\n\n#define BATT_OVERLOADS_OF(name)                                                                              \\\n    [](auto&&... args) noexcept(noexcept(name(BATT_FORWARD(args)...))) -> decltype(auto) {                   \\\n        return name(BATT_FORWARD(args)...);                                                                  \\\n    }\n\n#ifdef __clang__\n#define BATT_MAYBE_UNUSED __attribute__((unused))\n//#define BATT_MAYBE_UNUSED [[maybe_unused]]\n#elif defined(__GNUC__)\n#define BATT_MAYBE_UNUSED __attribute__((unused))\n#pragma GCC diagnostic ignored \"-Wattributes\"\n#endif\n\ntemplate <typename T, typename = std::enable_if_t<!std::is_same_v<T, void>>>\nT make_default()\n{\n    return T{};\n}\n\ntemplate <typename T, typename = std::enable_if_t<std::is_same_v<T, void>>, typename = void>\nvoid make_default()\n{\n}\n\nstruct DefaultInitialized {\n    template <typename T>\n    /*implicit*/ operator T() const noexcept(noexcept(make_default<T>()))\n    {\n        return make_default<T>();\n    }\n};\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T>\nT&& unwrap_ref(T&& obj)\n{\n    return BATT_FORWARD(obj);\n}\n\ntemplate <typename T>\nT& unwrap_ref(const std::reference_wrapper<T>& wrapper)\n{\n    return wrapper.get();\n}\n\ntemplate <typename T>\nT& unwrap_ref(std::reference_wrapper<T>&& wrapper)\n{\n    return wrapper.get();\n}\n\ntemplate <typename T>\nT& unwrap_ref(std::reference_wrapper<T>& wrapper)\n{\n    return wrapper.get();\n}\n\ntemplate <typename T>\nT& unwrap_ref(const std::reference_wrapper<T>&& wrapper)\n{\n    return wrapper.get();\n}\n\ntemplate <typename T>\nusing UnwrapRefType = decltype(unwrap_ref(std::declval<T>()));\n\n}  // namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "A single type that implicitly converts to any default-constructible type (via batt::make_default()). ",
+      "category": "classes",
+      "fullname": "batt::DefaultInitialized",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::DefaultInitialized",
+      "refid": "structbatt_1_1DefaultInitialized",
+      "summary": "A single type that implicitly converts to any default-constructible type (via batt::make_default()). ",
+      "title": "batt::DefaultInitialized",
+      "url": "/_autogen/Classes/structbatt_1_1DefaultInitialized/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "utility_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/utility.hpp",
+  "url": "/_autogen/Files/utility_8hpp/#file-utility.hpp",
+  "visibility": "public"
+}
