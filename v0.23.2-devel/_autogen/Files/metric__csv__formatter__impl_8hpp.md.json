@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-metric-csv-formatter-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-metrics-metric-csv-formatter-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_METRICS_METRIC_CSV_FORMATTER_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/metrics/metric_csv_formatter_impl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/metrics/metric_csv_formatter_impl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_METRICS_METRIC_CSV_FORMATTER_HPP",
+      "override": false,
+      "refid": "metric__csv__formatter__impl_8hpp_1abc66506c320b5a50760ede009c33b661",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_METRICS_METRIC_CSV_FORMATTER_HPP",
+      "url": "/_autogen/Files/metric__csv__formatter__impl_8hpp/#define-batteries-metrics-metric-csv-formatter-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/metrics/metric_csv_formatter_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/metrics/metric_csv_formatter_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/metrics/metric_csv_formatter_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/metrics",
+    "category": "dirs",
+    "fullname": "batteries/metrics",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/metrics",
+    "refid": "dir_5ba863940ce6067bb787d1b849676df9",
+    "title": "batteries/metrics",
+    "url": "/_autogen/Files/dir_5ba863940ce6067bb787d1b849676df9/#dir-batteries/metrics",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/metrics",
+      "category": "dirs",
+      "fullname": "batteries/metrics",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/metrics",
+      "refid": "dir_5ba863940ce6067bb787d1b849676df9",
+      "title": "batteries/metrics",
+      "url": "/_autogen/Files/dir_5ba863940ce6067bb787d1b849676df9/#dir-batteries/metrics",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_METRICS_METRIC_CSV_FORMATTER_HPP\n#define BATTERIES_METRICS_METRIC_CSV_FORMATTER_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/metrics/metric_csv_formatter.hpp>\n\n#include <batteries/suppress.hpp>\n\nBATT_SUPPRESS_IF_GCC(\"-Wswitch-enum\")\nBATT_SUPPRESS_IF_CLANG(\"-Wdeprecated-declarations\")\n\n#include <boost/date_time/posix_time/posix_time.hpp>\n\nBATT_UNSUPPRESS_IF_CLANG()\nBATT_UNSUPPRESS_IF_GCC()\n\n#include <algorithm>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void MetricCsvFormatter::initialize(MetricRegistry& src, std::ostream& dst)\n{\n    // Build the schema for dumping metric rows.\n    //\n    std::vector<std::string> all_names;\n    src.read_all([&](std::string_view name, double, const MetricLabelSet&) {\n        all_names.emplace_back(name);\n    });\n    std::sort(all_names.begin(), all_names.end());\n\n    dst << \"id,time_usec,date_time\";\n    for (usize i = 0; i < all_names.size(); ++i) {\n        this->index_of_[all_names[i]] = i;\n        dst << \",\" << all_names[i];\n    }\n    dst << \"\\n\";\n\n    this->values_.resize(all_names.size());\n    this->id_ = 0;\n    this->start_time_ = std::chrono::steady_clock::now();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void MetricCsvFormatter::format_values(MetricRegistry& src, std::ostream& dst)\n{\n    this->id_ += 1;\n    const double time_usec = std::chrono::duration_cast<std::chrono::microseconds>(\n                                 std::chrono::steady_clock::now() - this->start_time_)\n                                 .count();\n\n    // Read the registry, reordering the columns according to the schema we built above.\n    //\n    src.read_all([&](std::string_view name, double value, const MetricLabelSet&) {\n        auto iter = this->index_of_.find(std::string(name));\n        if (iter == this->index_of_.end()) {\n            return;\n        }\n        this->values_[iter->second] = value;\n    });\n\n    // First dump id and time_usec.\n    //\n    boost::posix_time::ptime t = boost::posix_time::microsec_clock::universal_time();\n\n    dst << this->id_ << \",\" << time_usec << \",\" << boost::posix_time::to_iso_extended_string(t);\n\n    // Dump metric value columns in order.\n    //\n    for (double v : this->values_) {\n        dst << \",\" << std::setprecision(10) << v;\n    }\n    dst << \"\\n\";  // NOTE: don't flush (let the caller decide when to)\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void MetricCsvFormatter::finished(MetricRegistry& /*src*/, std::ostream& /*dst*/)\n{\n    // Nothing to do for CSV format.\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_METRICS_METRIC_CSV_FORMATTER_HPP",
+  "refid": "metric__csv__formatter__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/metrics/metric_csv_formatter_impl.hpp",
+  "url": "/_autogen/Files/metric__csv__formatter__impl_8hpp/#file-metric-csv-formatter-impl.hpp",
+  "visibility": "public"
+}

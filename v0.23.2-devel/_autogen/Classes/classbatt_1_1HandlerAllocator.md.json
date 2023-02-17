@@ -1,0 +1,450 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "brief": "An allocator associated with a completion handler. ",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "details": "Designed to satisfy the C++11 minimal allocator requirements. ",
+  "explicit": false,
+  "friends": [
+    {
+      "abstract": false,
+      "anchor": "#friend-handlerallocator",
+      "argsString": "",
+      "category": "friends",
+      "const": false,
+      "default": false,
+      "definition": "friend class HandlerAllocator",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HandlerAllocator::HandlerAllocator",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "friend",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 368,
+        "column": 5,
+        "file": "batteries/async/handler.hpp",
+        "line": 368
+      },
+      "name": "HandlerAllocator",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[HandlerAllocator](/_autogen/Classes/classbatt_1_1HandlerAllocator/)",
+          "typePlain": "HandlerAllocator"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HandlerAllocator_1acee75256efb232f7a5f2c43477331435",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "HandlerAllocator",
+      "type": "class",
+      "typePlain": "class",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerAllocator/#friend-handlerallocator",
+      "virtual": false,
+      "visibility": "private"
+    }
+  ],
+  "fullname": "batt::HandlerAllocator",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "<batteries/async/handler.hpp>",
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 373,
+    "bodyFile": "batteries/async/handler.hpp",
+    "bodyStart": 333,
+    "column": 1,
+    "file": "batteries/async/handler.hpp",
+    "line": 332
+  },
+  "name": "batt::HandlerAllocator",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-memory-",
+      "category": "attributes",
+      "const": false,
+      "definition": "HandlerMemoryBase& batt::HandlerAllocator< T >::memory_",
+      "explicit": false,
+      "fullname": "batt::HandlerAllocator::memory_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 372,
+        "column": 23,
+        "file": "batteries/async/handler.hpp",
+        "line": 372
+      },
+      "name": "memory_",
+      "override": false,
+      "refid": "classbatt_1_1HandlerAllocator_1ad69bfb045c70911c26d3b0b264ee50db",
+      "static": false,
+      "strong": false,
+      "title": "memory_",
+      "type": "[HandlerMemoryBase](/_autogen/Classes/classbatt_1_1HandlerMemoryBase/) &",
+      "typePlain": "HandlerMemoryBase &",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerAllocator/#variable-memory-",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-handlerallocator",
+      "argsString": "(HandlerMemoryBase &mem)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::HandlerAllocator< T >::HandlerAllocator",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::HandlerAllocator::HandlerAllocator",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 339,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 337,
+        "column": 14,
+        "file": "batteries/async/handler.hpp",
+        "line": 337
+      },
+      "name": "HandlerAllocator",
+      "override": false,
+      "params": [
+        {
+          "name": "mem",
+          "type": "[HandlerMemoryBase](/_autogen/Classes/classbatt_1_1HandlerMemoryBase/) &",
+          "typePlain": "HandlerMemoryBase &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HandlerAllocator_1a3d99f55ed4e058ec28aed1fedf46dbb8",
+      "static": false,
+      "strong": false,
+      "title": "HandlerAllocator",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerAllocator/#function-handlerallocator",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-handlerallocator",
+      "argsString": "(const HandlerAllocator< U > &that) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::HandlerAllocator< T >::HandlerAllocator",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HandlerAllocator::HandlerAllocator",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 344,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 342,
+        "column": 5,
+        "file": "batteries/async/handler.hpp",
+        "line": 342
+      },
+      "name": "HandlerAllocator",
+      "override": false,
+      "params": [
+        {
+          "name": "that",
+          "type": "const [HandlerAllocator](/_autogen/Classes/classbatt_1_1HandlerAllocator/)< U > &",
+          "typePlain": "const HandlerAllocator< U > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HandlerAllocator_1a2309d3a8afe9119f71117aa6c2738e8c",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "HandlerAllocator",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerAllocator/#function-handlerallocator",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator==",
+      "argsString": "(const HandlerAllocator &that) const noexcept",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "bool batt::HandlerAllocator< T >::operator==",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HandlerAllocator::operator==",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 349,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 346,
+        "column": 10,
+        "file": "batteries/async/handler.hpp",
+        "line": 346
+      },
+      "name": "operator==",
+      "override": false,
+      "params": [
+        {
+          "name": "that",
+          "type": "const [HandlerAllocator](/_autogen/Classes/classbatt_1_1HandlerAllocator/) &",
+          "typePlain": "const HandlerAllocator &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HandlerAllocator_1a92f142620938a3bfa48865e24c886191",
+      "static": false,
+      "strong": false,
+      "title": "operator==",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerAllocator/#function-operator==",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator!=",
+      "argsString": "(const HandlerAllocator &that) const noexcept",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "bool batt::HandlerAllocator< T >::operator!=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HandlerAllocator::operator!=",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 354,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 351,
+        "column": 10,
+        "file": "batteries/async/handler.hpp",
+        "line": 351
+      },
+      "name": "operator!=",
+      "override": false,
+      "params": [
+        {
+          "name": "that",
+          "type": "const [HandlerAllocator](/_autogen/Classes/classbatt_1_1HandlerAllocator/) &",
+          "typePlain": "const HandlerAllocator &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HandlerAllocator_1aacfe97fe1a6f7669a6a85d2fdbb9cb15",
+      "static": false,
+      "strong": false,
+      "title": "operator!=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerAllocator/#function-operator!=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-allocate",
+      "argsString": "(usize n) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "T* batt::HandlerAllocator< T >::allocate",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HandlerAllocator::allocate",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 359,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 356,
+        "column": 7,
+        "file": "batteries/async/handler.hpp",
+        "line": 356
+      },
+      "name": "allocate",
+      "override": false,
+      "params": [
+        {
+          "name": "n",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HandlerAllocator_1a006a2aa79bc6fc912686a9e33c230789",
+      "static": false,
+      "strong": false,
+      "title": "allocate",
+      "type": "T *",
+      "typePlain": "T *",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerAllocator/#function-allocate",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-deallocate",
+      "argsString": "(T *p, usize) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "void batt::HandlerAllocator< T >::deallocate",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HandlerAllocator::deallocate",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 364,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 361,
+        "column": 10,
+        "file": "batteries/async/handler.hpp",
+        "line": 361
+      },
+      "name": "deallocate",
+      "override": false,
+      "params": [
+        {
+          "name": "p",
+          "type": "T *",
+          "typePlain": "T *"
+        },
+        {
+          "name": "",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HandlerAllocator_1a13713ae428492b30e66acd6ca54a1b2c",
+      "static": false,
+      "strong": false,
+      "title": "deallocate",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerAllocator/#function-deallocate",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-value-type",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::HandlerAllocator< T >::value_type =  T",
+      "explicit": false,
+      "fullname": "batt::HandlerAllocator::value_type",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 335,
+        "column": 5,
+        "file": "batteries/async/handler.hpp",
+        "line": 335
+      },
+      "name": "value_type",
+      "override": false,
+      "refid": "classbatt_1_1HandlerAllocator_1a5eb64b6663c482c56d0b9c737b6c7e4c",
+      "static": false,
+      "strong": false,
+      "title": "value_type",
+      "type": "T",
+      "typePlain": "T",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerAllocator/#using-value-type",
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1HandlerAllocator",
+  "static": false,
+  "strong": false,
+  "summary": "An allocator associated with a completion handler. ",
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename T",
+      "typePlain": "typename T"
+    }
+  ],
+  "title": "batt::HandlerAllocator",
+  "url": "/_autogen/Classes/classbatt_1_1HandlerAllocator/",
+  "visibility": "public"
+}
