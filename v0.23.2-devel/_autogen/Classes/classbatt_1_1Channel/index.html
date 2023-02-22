@@ -583,6 +583,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#function-async_wait_inactive" class="md-nav__link">
+    function async_wait_inactive
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-async_read" class="md-nav__link">
     function async_read
   </a>
@@ -699,6 +706,10 @@
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Channel/#function-await-inactive">await_inactive</a></strong>()<br>Blocks the current <a href="">Task</a> until the <a href="/_autogen/Classes/classbatt_1_1Channel/">Channel</a> is inactive.</td>
 </tr>
 <tr>
+<td>template &lt;typename Handler > <br>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Channel/#function-async-wait-inactive">async_wait_inactive</a></strong>(Handler &amp;&amp; handler)</td>
+</tr>
+<tr>
 <td>template &lt;typename Handler  =void(StatusOr<T&>)> <br>void</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Channel/#function-async-read">async_read</a></strong>(Handler &amp;&amp; handler)<br>Start a new read and invoke the passed handler when the next value is written to the channel.</td>
 </tr>
@@ -799,14 +810,23 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">await_inactive</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Blocks the current <a href="">Task</a> until the <a href="/_autogen/Classes/classbatt_1_1Channel/">Channel</a> is inactive. </p>
-<h3 id="function-async_read">function async_read<a class="headerlink" href="#function-async_read" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-async_wait_inactive">function async_wait_inactive<a class="headerlink" href="#function-async_wait_inactive" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
 <span class="normal"><a href="#__codelineno-9-2">2</a></span>
 <span class="normal"><a href="#__codelineno-9-3">3</a></span>
-<span class="normal"><a href="#__codelineno-9-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Handler</span><span class="w">  </span><span class="o">=</span><span class="kt">void</span><span class="p">(</span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&amp;&gt;</span><span class="p">)</span><span class="o">&gt;</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">async_read</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Handler</span><span class="w"> </span><span class="o">&gt;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">async_wait_inactive</span><span class="p">(</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="n">Handler</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">handler</span>
 <a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-async_read">function async_read<a class="headerlink" href="#function-async_read" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Handler</span><span class="w">  </span><span class="o">=</span><span class="kt">void</span><span class="p">(</span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&amp;&gt;</span><span class="p">)</span><span class="o">&gt;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">async_read</span><span class="p">(</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="n">Handler</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">handler</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Start a new read and invoke the passed handler when the next value is written to the channel. </p>
 <p>Will invoke the handler immediately with batt::StatusCode::kClosed if either:</p>
@@ -815,48 +835,48 @@
 <li>The channel is closed for write, before or after the call to async_read </li>
 </ul>
 <h3 id="function-read">function read<a class="headerlink" href="#function-read" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">read</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">read</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Wait for an object to be written to the <a href="/_autogen/Classes/classbatt_1_1Channel/">Channel</a>, then return a reference to that object. </p>
 <p>The referred object will stay valid until <a href="/_autogen/Classes/classbatt_1_1Channel/#function-consume">Channel::consume</a> is called. </p>
 <h3 id="function-consume">function consume<a class="headerlink" href="#function-consume" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">consume</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">consume</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Release the last value read on the <a href="/_autogen/Classes/classbatt_1_1Channel/">Channel</a>. </p>
 <p>Panic if <a href="/_autogen/Classes/classbatt_1_1Channel/#function-consume">consume()</a> is called without a prior successful call to <a href="/_autogen/Classes/classbatt_1_1Channel/#function-read">read()</a> (indicating that this-&gt;<a href="/_autogen/Classes/classbatt_1_1Channel/#function-is-active">is_active()</a> is true). </p>
 <h3 id="function-close_for_read">function close_for_read<a class="headerlink" href="#function-close_for_read" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">close_for_read</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">close_for_read</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Unblock all ongoing calls to <a href="">Channel::write</a> / <a href="">Channel::async_write</a> and cause all future calls to fail with closed error status. </p>
 <h3 id="function-async_write">function async_write<a class="headerlink" href="#function-async_write" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
-<span class="normal"><a href="#__codelineno-13-2">2</a></span>
-<span class="normal"><a href="#__codelineno-13-3">3</a></span>
-<span class="normal"><a href="#__codelineno-13-4">4</a></span>
-<span class="normal"><a href="#__codelineno-13-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Handler</span><span class="w">  </span><span class="o">=</span><span class="kt">void</span><span class="p">(</span><span class="n">Status</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">async_write</span><span class="p">(</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">,</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="n">Handler</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">handler</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Handler</span><span class="w">  </span><span class="o">=</span><span class="kt">void</span><span class="p">(</span><span class="n">Status</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="p">)</span><span class="o">&gt;</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">async_write</span><span class="p">(</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">,</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="w">    </span><span class="n">Handler</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">handler</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Write a value to the <a href="/_autogen/Classes/classbatt_1_1Channel/">Channel</a>. </p>
 <p>Panic if there is currently an ongoing write (single-producer).</p>
 <p>The passed handler is invoked once the value is consumed via this-&gt;<a href="/_autogen/Classes/classbatt_1_1Channel/#function-read">read()</a> / this-&gt;<a href="/_autogen/Classes/classbatt_1_1Channel/#function-consume">consume()</a>. </p>
 <h3 id="function-write">function write<a class="headerlink" href="#function-write" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
-<span class="normal"><a href="#__codelineno-14-2">2</a></span>
-<span class="normal"><a href="#__codelineno-14-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="n">write</span><span class="p">(</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="n">write</span><span class="p">(</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Blocking (<a href="">Task::await</a>) version of <a href="/_autogen/Classes/classbatt_1_1Channel/#function-async-write">Channel::async_write</a>. </p>
 <p>This function will not return until the passed value has been consumed. The value is guaranteed not to be copied; the consumer will see the same exact object passed into write. </p>
 <h3 id="function-close_for_write">function close_for_write<a class="headerlink" href="#function-close_for_write" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">close_for_write</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">close_for_write</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Unblock all ongoing calls to <a href="/_autogen/Classes/classbatt_1_1Channel/#function-read">read()</a> and cause all future calls to fail with closed error status. </p>
 <hr />
-<p>Updated on 19 February 2023 at 21:21:12 UTC</p>
+<p>Updated on 22 February 2023 at 22:21:57 UTC</p>
 
 
 

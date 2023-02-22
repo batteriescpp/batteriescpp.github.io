@@ -12,7 +12,7 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 125,
+    "bodyEnd": 133,
     "bodyFile": "batteries/async/buffered_channel.hpp",
     "bodyStart": 21,
     "column": 1,
@@ -62,10 +62,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/buffered_channel.hpp",
-        "bodyStart": 123,
+        "bodyStart": 130,
         "column": 13,
         "file": "batteries/async/buffered_channel.hpp",
-        "line": 123
+        "line": 130
       },
       "name": "channel_",
       "override": false,
@@ -80,60 +80,90 @@
     },
     {
       "abstract": false,
-      "anchor": "#variable-storage-",
+      "anchor": "#variable-buffer-",
       "category": "attributes",
       "const": false,
-      "definition": "std::aligned_storage_t<sizeof(T), alignof(T)> batt::BufferedChannel< T >::storage_",
+      "definition": "Optional<T> batt::BufferedChannel< T >::buffer_",
       "explicit": false,
-      "fullname": "batt::BufferedChannel::storage_",
+      "fullname": "batt::BufferedChannel::buffer_",
       "hasDetails": false,
       "inline": false,
       "kind": "variable",
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/buffered_channel.hpp",
-        "bodyStart": 124,
-        "column": 28,
+        "bodyStart": 131,
+        "column": 14,
         "file": "batteries/async/buffered_channel.hpp",
-        "line": 124
+        "line": 131
       },
-      "name": "storage_",
+      "name": "buffer_",
       "override": false,
-      "refid": "classbatt_1_1BufferedChannel_1a24ccf81ddb9fca4a5a1b1053081e70aa",
+      "refid": "classbatt_1_1BufferedChannel_1aed5ea25eb498f69eeb55ecb915313537",
       "static": false,
       "strong": false,
-      "title": "storage_",
-      "type": "std::aligned_storage_t< sizeof(T), alignof(T)>",
-      "typePlain": "std::aligned_storage_t< sizeof(T), alignof(T)>",
-      "url": "/_autogen/Classes/classbatt_1_1BufferedChannel/#variable-storage-",
+      "title": "buffer_",
+      "type": "[Optional](/_autogen/Classes/classbatt_1_1Optional/)< T >",
+      "typePlain": "Optional< T >",
+      "url": "/_autogen/Classes/classbatt_1_1BufferedChannel/#variable-buffer-",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-last-status-",
+      "category": "attributes",
+      "const": false,
+      "definition": "Status batt::BufferedChannel< T >::last_status_",
+      "explicit": false,
+      "fullname": "batt::BufferedChannel::last_status_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/buffered_channel.hpp",
+        "bodyStart": 132,
+        "column": 12,
+        "file": "batteries/async/buffered_channel.hpp",
+        "line": 132
+      },
+      "name": "last_status_",
+      "override": false,
+      "refid": "classbatt_1_1BufferedChannel_1a980d87abf2c9c8dc6bd7a52445af9a6c",
+      "static": false,
+      "strong": false,
+      "title": "last_status_",
+      "type": "[Status](/_autogen/Classes/classbatt_1_1Status/)",
+      "typePlain": "Status",
+      "url": "/_autogen/Classes/classbatt_1_1BufferedChannel/#variable-last-status-",
       "visibility": "private"
     }
   ],
   "privateFunctions": [
     {
       "abstract": false,
-      "anchor": "#function-emplace",
-      "argsString": "(Args &&... args) noexcept(noexcept(T(std::forward< decltype(args)>(args)...)))",
+      "anchor": "#function-write-assuming-inactive",
+      "argsString": "(Args &&... args)",
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "T& batt::BufferedChannel< T >::emplace",
+      "definition": "Status batt::BufferedChannel< T >::write_assuming_inactive",
       "deleted": false,
       "explicit": false,
-      "fullname": "batt::BufferedChannel::emplace",
+      "fullname": "batt::BufferedChannel::write_assuming_inactive",
       "hasDetails": true,
       "inline": true,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 121,
+        "bodyEnd": 110,
         "bodyFile": "batteries/async/buffered_channel.hpp",
-        "bodyStart": 115,
-        "column": 7,
+        "bodyStart": 98,
+        "column": 12,
         "file": "batteries/async/buffered_channel.hpp",
-        "line": 115
+        "line": 98
       },
-      "name": "emplace",
+      "name": "write_assuming_inactive",
       "override": false,
       "params": [
         {
@@ -143,7 +173,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1BufferedChannel_1a40db464979f5c5660b5b810481568a4e",
+      "refid": "classbatt_1_1BufferedChannel_1a763e3c95a777a83fbc21fa36ae1043fc",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -153,10 +183,70 @@
           "typePlain": "typename..."
         }
       ],
-      "title": "emplace",
-      "type": "T &",
-      "typePlain": "T &",
-      "url": "/_autogen/Classes/classbatt_1_1BufferedChannel/#function-emplace",
+      "title": "write_assuming_inactive",
+      "type": "[Status](/_autogen/Classes/classbatt_1_1Status/)",
+      "typePlain": "Status",
+      "url": "/_autogen/Classes/classbatt_1_1BufferedChannel/#function-write-assuming-inactive",
+      "virtual": false,
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-async-write-impl",
+      "argsString": "(Handler &&handler, Args &&... args)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::BufferedChannel< T >::async_write_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BufferedChannel::async_write_impl",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 126,
+        "bodyFile": "batteries/async/buffered_channel.hpp",
+        "bodyStart": 113,
+        "column": 10,
+        "file": "batteries/async/buffered_channel.hpp",
+        "line": 113
+      },
+      "name": "async_write_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "handler",
+          "type": "Handler &&",
+          "typePlain": "Handler &&"
+        },
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1BufferedChannel_1a4c9deff97f63517dd2c71faf12b18e05",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Handler",
+          "typePlain": "typename Handler"
+        },
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "async_write_impl",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1BufferedChannel/#function-async-write-impl",
       "virtual": false,
       "visibility": "private"
     }
@@ -306,6 +396,43 @@
     },
     {
       "abstract": false,
+      "anchor": "#function-get-last-status",
+      "argsString": "() const noexcept",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "Status batt::BufferedChannel< T >::get_last_status",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BufferedChannel::get_last_status",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 35,
+        "bodyFile": "batteries/async/buffered_channel.hpp",
+        "bodyStart": 32,
+        "column": 12,
+        "file": "batteries/async/buffered_channel.hpp",
+        "line": 32
+      },
+      "name": "get_last_status",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1BufferedChannel_1a6db5c787a1522f245eba67c07bca83c8",
+      "static": false,
+      "strong": false,
+      "title": "get_last_status",
+      "type": "[Status](/_autogen/Classes/classbatt_1_1Status/)",
+      "typePlain": "Status",
+      "url": "/_autogen/Classes/classbatt_1_1BufferedChannel/#function-get-last-status",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#function-is-active",
       "argsString": "() const",
       "category": "functions",
@@ -320,12 +447,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 35,
+        "bodyEnd": 40,
         "bodyFile": "batteries/async/buffered_channel.hpp",
-        "bodyStart": 32,
+        "bodyStart": 37,
         "column": 10,
         "file": "batteries/async/buffered_channel.hpp",
-        "line": 32
+        "line": 37
       },
       "name": "is_active",
       "override": false,
@@ -357,12 +484,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 40,
+        "bodyEnd": 45,
         "bodyFile": "batteries/async/buffered_channel.hpp",
-        "bodyStart": 37,
+        "bodyStart": 42,
         "column": 10,
         "file": "batteries/async/buffered_channel.hpp",
-        "line": 37
+        "line": 42
       },
       "name": "await_inactive",
       "override": false,
@@ -394,12 +521,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 46,
+        "bodyEnd": 51,
         "bodyFile": "batteries/async/buffered_channel.hpp",
-        "bodyStart": 43,
+        "bodyStart": 48,
         "column": 10,
         "file": "batteries/async/buffered_channel.hpp",
-        "line": 43
+        "line": 48
       },
       "name": "async_read",
       "override": false,
@@ -446,12 +573,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 51,
+        "bodyEnd": 56,
         "bodyFile": "batteries/async/buffered_channel.hpp",
-        "bodyStart": 48,
+        "bodyStart": 53,
         "column": 14,
         "file": "batteries/async/buffered_channel.hpp",
-        "line": 48
+        "line": 53
       },
       "name": "read",
       "override": false,
@@ -483,12 +610,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 56,
+        "bodyEnd": 61,
         "bodyFile": "batteries/async/buffered_channel.hpp",
-        "bodyStart": 53,
+        "bodyStart": 58,
         "column": 10,
         "file": "batteries/async/buffered_channel.hpp",
-        "line": 53
+        "line": 58
       },
       "name": "consume",
       "override": false,
@@ -520,12 +647,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 61,
+        "bodyEnd": 66,
         "bodyFile": "batteries/async/buffered_channel.hpp",
-        "bodyStart": 58,
+        "bodyStart": 63,
         "column": 10,
         "file": "batteries/async/buffered_channel.hpp",
-        "line": 58
+        "line": 63
       },
       "name": "close_for_read",
       "override": false,
@@ -557,12 +684,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 94,
+        "bodyEnd": 80,
         "bodyFile": "batteries/async/buffered_channel.hpp",
-        "bodyStart": 64,
+        "bodyStart": 69,
         "column": 10,
         "file": "batteries/async/buffered_channel.hpp",
-        "line": 64
+        "line": 69
       },
       "name": "async_write",
       "override": false,
@@ -607,12 +734,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 106,
+        "bodyEnd": 87,
         "bodyFile": "batteries/async/buffered_channel.hpp",
-        "bodyStart": 97,
+        "bodyStart": 83,
         "column": 12,
         "file": "batteries/async/buffered_channel.hpp",
-        "line": 97
+        "line": 83
       },
       "name": "write",
       "override": false,
@@ -657,12 +784,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 111,
+        "bodyEnd": 92,
         "bodyFile": "batteries/async/buffered_channel.hpp",
-        "bodyStart": 108,
+        "bodyStart": 89,
         "column": 10,
         "file": "batteries/async/buffered_channel.hpp",
-        "line": 108
+        "line": 89
       },
       "name": "close_for_write",
       "override": false,

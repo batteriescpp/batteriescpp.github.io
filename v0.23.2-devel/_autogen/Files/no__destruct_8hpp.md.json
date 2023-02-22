@@ -1,0 +1,113 @@
+{
+  "abstract": false,
+  "anchor": "#file-no-destruct.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-no-destruct-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_NO_DESTRUCT_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/no_destruct.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/no_destruct.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_NO_DESTRUCT_HPP",
+      "override": false,
+      "refid": "no__destruct_8hpp_1aab8508d6f2178ed7fe2184837a7368d9",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_NO_DESTRUCT_HPP",
+      "url": "/_autogen/Files/no__destruct_8hpp/#define-batteries-no-destruct-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/no_destruct.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/no_destruct.hpp",
+    "line": 0
+  },
+  "name": "batteries/no_destruct.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_NO_DESTRUCT_HPP\n#define BATTERIES_NO_DESTRUCT_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/type_traits.hpp>\n\nnamespace batt {\n\ntemplate <typename T>\nclass NoDestruct\n{\n   public:\n    explicit NoDestruct() noexcept\n    {\n        new (&this->storage_) T{};\n    }\n\n    template <typename... Args, typename = EnableIfNoShadow<NoDestruct, Args...>>\n    explicit NoDestruct(Args&&... args) noexcept\n    {\n        new (&this->storage_) T(BATT_FORWARD(args)...);\n    }\n\n    NoDestruct(const NoDestruct&) = delete;\n    NoDestruct& operator=(const NoDestruct&) = delete;\n\n    ~NoDestruct() noexcept\n    {\n        // Do nothing!\n    }\n\n    //----- --- -- -  -  -   -\n\n    T* pointer() noexcept\n    {\n        return reinterpret_cast<T*>(&this->storage_);\n    }\n\n    const T* pointer() const noexcept\n    {\n        return reinterpret_cast<T*>(&this->storage_);\n    }\n\n    //----- --- -- -  -  -   -\n\n    T& get() noexcept\n    {\n        return *this->pointer();\n    }\n\n    const T& get() const noexcept\n    {\n        return *this->pointer();\n    }\n\n    //----- --- -- -  -  -   -\n\n    T* operator->() noexcept\n    {\n        return this->pointer();\n    }\n\n    const T* operator->() const noexcept\n    {\n        return this->pointer();\n    }\n\n    //----- --- -- -  -  -   -\n\n    T& operator*() noexcept\n    {\n        return this->get();\n    }\n\n    const T& operator*() const noexcept\n    {\n        return this->get();\n    }\n\n   private:\n    std::aligned_storage_t<sizeof(T), alignof(T)> storage_;\n};\n\n}  // namespace batt\n\n#endif  // BATTERIES_NO_DESTRUCT_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::NoDestruct",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::NoDestruct",
+      "refid": "classbatt_1_1NoDestruct",
+      "title": "batt::NoDestruct",
+      "url": "/_autogen/Classes/classbatt_1_1NoDestruct/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "no__destruct_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/no_destruct.hpp",
+  "url": "/_autogen/Files/no__destruct_8hpp/#file-no-destruct.hpp",
+  "visibility": "public"
+}

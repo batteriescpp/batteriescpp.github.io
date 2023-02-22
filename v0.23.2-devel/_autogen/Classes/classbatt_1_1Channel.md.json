@@ -14,7 +14,7 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 133,
+    "bodyEnd": 157,
     "bodyFile": "batteries/async/channel.hpp",
     "bodyStart": 24,
     "column": 1,
@@ -65,10 +65,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/channel.hpp",
-        "bodyStart": 130,
+        "bodyStart": 154,
         "column": 11,
         "file": "batteries/async/channel.hpp",
-        "line": 130
+        "line": 154
       },
       "name": "read_count_",
       "override": false,
@@ -96,10 +96,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/channel.hpp",
-        "bodyStart": 131,
+        "bodyStart": 155,
         "column": 11,
         "file": "batteries/async/channel.hpp",
-        "line": 131
+        "line": 155
       },
       "name": "write_count_",
       "override": false,
@@ -127,10 +127,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/channel.hpp",
-        "bodyStart": 132,
+        "bodyStart": 156,
         "column": 7,
         "file": "batteries/async/channel.hpp",
-        "line": 132
+        "line": 156
       },
       "name": "value_",
       "override": false,
@@ -141,6 +141,63 @@
       "type": "T *",
       "typePlain": "T *",
       "url": "/_autogen/Classes/classbatt_1_1Channel/#variable-value-",
+      "visibility": "private"
+    }
+  ],
+  "privateFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-async-wait-inactive-impl",
+      "argsString": "(i32 observed_read_count, Handler &&handler) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::Channel< T >::async_wait_inactive_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Channel::async_wait_inactive_impl",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 150,
+        "bodyFile": "batteries/async/channel.hpp",
+        "bodyStart": 139,
+        "column": 10,
+        "file": "batteries/async/channel.hpp",
+        "line": 139
+      },
+      "name": "async_wait_inactive_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "observed_read_count",
+          "type": "i32",
+          "typePlain": "i32"
+        },
+        {
+          "name": "handler",
+          "type": "Handler &&",
+          "typePlain": "Handler &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Channel_1ae6917a7c1ed8ec37dba34a134153ba87",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Handler",
+          "typePlain": "typename Handler"
+        }
+      ],
+      "title": "async_wait_inactive_impl",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1Channel/#function-async-wait-inactive-impl",
+      "virtual": false,
       "visibility": "private"
     }
   ],
@@ -459,9 +516,9 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 209,
+        "bodyEnd": 233,
         "bodyFile": "batteries/async/channel.hpp",
-        "bodyStart": 206,
+        "bodyStart": 230,
         "column": 10,
         "file": "batteries/async/channel.hpp",
         "line": 73
@@ -522,6 +579,56 @@
     },
     {
       "abstract": false,
+      "anchor": "#function-async-wait-inactive",
+      "argsString": "(Handler &&handler) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::Channel< T >::async_wait_inactive",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Channel::async_wait_inactive",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 88,
+        "bodyFile": "batteries/async/channel.hpp",
+        "bodyStart": 83,
+        "column": 10,
+        "file": "batteries/async/channel.hpp",
+        "line": 83
+      },
+      "name": "async_wait_inactive",
+      "override": false,
+      "params": [
+        {
+          "name": "handler",
+          "type": "Handler &&",
+          "typePlain": "Handler &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Channel_1aff0152b6941eebacd00616419cb5c41a",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Handler",
+          "typePlain": "typename Handler"
+        }
+      ],
+      "title": "async_wait_inactive",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1Channel/#function-async-wait-inactive",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#function-async-read",
       "argsString": "(Handler &&handler)",
       "brief": "Start a new read and invoke the passed handler when the next value is written to the channel. ",
@@ -538,12 +645,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 167,
+        "bodyEnd": 191,
         "bodyFile": "batteries/async/channel.hpp",
-        "bodyStart": 141,
+        "bodyStart": 165,
         "column": 10,
         "file": "batteries/async/channel.hpp",
-        "line": 91
+        "line": 99
       },
       "name": "async_read",
       "override": false,
@@ -593,12 +700,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 220,
+        "bodyEnd": 244,
         "bodyFile": "batteries/async/channel.hpp",
-        "bodyStart": 214,
+        "bodyStart": 238,
         "column": 14,
         "file": "batteries/async/channel.hpp",
-        "line": 96
+        "line": 104
       },
       "name": "read",
       "override": false,
@@ -633,12 +740,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 229,
+        "bodyEnd": 253,
         "bodyFile": "batteries/async/channel.hpp",
-        "bodyStart": 225,
+        "bodyStart": 249,
         "column": 10,
         "file": "batteries/async/channel.hpp",
-        "line": 101
+        "line": 109
       },
       "name": "consume",
       "override": false,
@@ -672,12 +779,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 260,
+        "bodyEnd": 284,
         "bodyFile": "batteries/async/channel.hpp",
-        "bodyStart": 257,
+        "bodyStart": 281,
         "column": 10,
         "file": "batteries/async/channel.hpp",
-        "line": 106
+        "line": 114
       },
       "name": "close_for_read",
       "override": false,
@@ -712,12 +819,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 201,
+        "bodyEnd": 225,
         "bodyFile": "batteries/async/channel.hpp",
-        "bodyStart": 173,
+        "bodyStart": 197,
         "column": 10,
         "file": "batteries/async/channel.hpp",
-        "line": 115
+        "line": 123
       },
       "name": "async_write",
       "override": false,
@@ -772,12 +879,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 252,
+        "bodyEnd": 276,
         "bodyFile": "batteries/async/channel.hpp",
-        "bodyStart": 234,
+        "bodyStart": 258,
         "column": 12,
         "file": "batteries/async/channel.hpp",
-        "line": 121
+        "line": 129
       },
       "name": "write",
       "override": false,
@@ -817,12 +924,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 268,
+        "bodyEnd": 292,
         "bodyFile": "batteries/async/channel.hpp",
-        "bodyStart": 265,
+        "bodyStart": 289,
         "column": 10,
         "file": "batteries/async/channel.hpp",
-        "line": 125
+        "line": 133
       },
       "name": "close_for_write",
       "override": false,
