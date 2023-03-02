@@ -12,12 +12,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 370,
+    "bodyEnd": 407,
     "bodyFile": "batteries/optional.hpp",
-    "bodyStart": 320,
+    "bodyStart": 309,
     "column": 1,
     "file": "batteries/optional.hpp",
-    "line": 319
+    "line": 308
   },
   "name": "batt::Optional< T & >",
   "override": false,
@@ -63,10 +63,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 369,
+        "bodyStart": 406,
         "column": 7,
         "file": "batteries/optional.hpp",
-        "line": 369
+        "line": 406
       },
       "name": "ptr_",
       "override": false,
@@ -84,6 +84,41 @@
     {
       "abstract": false,
       "anchor": "#function-optional",
+      "argsString": "() noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::Optional< T & >::Optional",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Optional< T & >::Optional",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 313,
+        "bodyFile": "batteries/optional.hpp",
+        "bodyStart": 311,
+        "column": 5,
+        "file": "batteries/optional.hpp",
+        "line": 311
+      },
+      "name": "Optional",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Optional_3_01T_01_6_01_4_1acf63d3b5914db677889fbe7f38d6675d",
+      "static": false,
+      "strong": false,
+      "title": "Optional",
+      "url": "/_autogen/Classes/classbatt_1_1Optional_3_01T_01_6_01_4/#function-optional",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-optional",
       "argsString": "(NoneType) noexcept",
       "category": "functions",
       "const": false,
@@ -97,12 +132,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 324,
+        "bodyEnd": 317,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 322,
+        "bodyStart": 315,
         "column": 5,
         "file": "batteries/optional.hpp",
-        "line": 322
+        "line": 315
       },
       "name": "Optional",
       "override": false,
@@ -125,6 +160,128 @@
     {
       "abstract": false,
       "anchor": "#function-optional",
+      "argsString": "(InPlaceInitType, Args &&... args) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::Optional< T & >::Optional",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Optional< T & >::Optional",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 325,
+        "bodyFile": "batteries/optional.hpp",
+        "bodyStart": 320,
+        "column": 5,
+        "file": "batteries/optional.hpp",
+        "line": 320
+      },
+      "name": "Optional",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[InPlaceInitType](/_autogen/Classes/structbatt_1_1InPlaceInitType/)",
+          "typePlain": "InPlaceInitType"
+        },
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Optional_3_01T_01_6_01_4_1a02b237c5acb085ec8e6a54660dff8b5f",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        },
+        {
+          "defval": "std::enable_if_t<std::is_constructible_v<T&, Args&&...> >",
+          "defvalPlain": "std::enable_if_t<std::is_constructible_v<T&, Args&&...> >",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "Optional",
+      "url": "/_autogen/Classes/classbatt_1_1Optional_3_01T_01_6_01_4/#function-optional",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-optional",
+      "argsString": "(const Optional< U & > &u) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::Optional< T & >::Optional",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Optional< T & >::Optional",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 333,
+        "bodyFile": "batteries/optional.hpp",
+        "bodyStart": 331,
+        "column": 5,
+        "file": "batteries/optional.hpp",
+        "line": 331
+      },
+      "name": "Optional",
+      "override": false,
+      "params": [
+        {
+          "name": "u",
+          "type": "const [Optional](/_autogen/Classes/classbatt_1_1Optional/)< U & > &",
+          "typePlain": "const Optional< U & > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Optional_3_01T_01_6_01_4_1a264cc28d7857b702d759807c4b4d78f8",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        },
+        {
+          "defval": "std::enable_if_t<std::is_convertible_v<U*, T*> && !std::is_same_v<T, const [Optional](/_autogen/Classes/classbatt_1_1Optional/)<U> > >",
+          "defvalPlain": "std::enable_if_t<std::is_convertible_v<U*, T*> && !std::is_same_v<T, const Optional<U> > >",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        },
+        {
+          "defval": "batt::EnableIfNoShadow<[Optional](/_autogen/Classes/classbatt_1_1Optional/), U>",
+          "defvalPlain": "batt::EnableIfNoShadow<Optional, U>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "Optional",
+      "url": "/_autogen/Classes/classbatt_1_1Optional_3_01T_01_6_01_4/#function-optional",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-optional",
       "argsString": "(T &ref) noexcept",
       "category": "functions",
       "const": false,
@@ -138,12 +295,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 328,
+        "bodyEnd": 337,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 326,
-        "column": 5,
+        "bodyStart": 335,
+        "column": 6,
         "file": "batteries/optional.hpp",
-        "line": 326
+        "line": 335
       },
       "name": "Optional",
       "override": false,
@@ -165,6 +322,84 @@
     },
     {
       "abstract": false,
+      "anchor": "#function-optional",
+      "argsString": "(const Optional &)=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::Optional< T & >::Optional",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Optional< T & >::Optional",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/optional.hpp",
+        "line": 339
+      },
+      "name": "Optional",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [Optional](/_autogen/Classes/classbatt_1_1Optional/) &",
+          "typePlain": "const Optional &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Optional_3_01T_01_6_01_4_1a08b7bae5e93f0643b733c07844dbb530",
+      "static": false,
+      "strong": false,
+      "title": "Optional",
+      "url": "/_autogen/Classes/classbatt_1_1Optional_3_01T_01_6_01_4/#function-optional",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(const Optional &)=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "Optional& batt::Optional< T & >::operator=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Optional< T & >::operator=",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 14,
+        "file": "batteries/optional.hpp",
+        "line": 340
+      },
+      "name": "operator=",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [Optional](/_autogen/Classes/classbatt_1_1Optional/) &",
+          "typePlain": "const Optional &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Optional_3_01T_01_6_01_4_1a06f279f668195b63ea9a5567655ccd25",
+      "static": false,
+      "strong": false,
+      "title": "operator=",
+      "type": "[Optional](/_autogen/Classes/classbatt_1_1Optional/) &",
+      "typePlain": "Optional &",
+      "url": "/_autogen/Classes/classbatt_1_1Optional_3_01T_01_6_01_4/#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#function-~optional",
       "argsString": "() noexcept",
       "category": "functions",
@@ -179,12 +414,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 333,
+        "bodyEnd": 345,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 330,
+        "bodyStart": 342,
         "column": 5,
         "file": "batteries/optional.hpp",
-        "line": 330
+        "line": 342
       },
       "name": "~Optional",
       "override": false,
@@ -214,12 +449,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 342,
+        "bodyEnd": 354,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 336,
+        "bodyStart": 348,
         "column": 14,
         "file": "batteries/optional.hpp",
-        "line": 336
+        "line": 348
       },
       "name": "map",
       "override": false,
@@ -271,12 +506,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 351,
+        "bodyEnd": 363,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 345,
+        "bodyStart": 357,
         "column": 15,
         "file": "batteries/optional.hpp",
-        "line": 345
+        "line": 357
       },
       "name": "flat_map",
       "override": false,
@@ -328,12 +563,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 356,
+        "bodyEnd": 368,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 353,
+        "bodyStart": 365,
         "column": 7,
         "file": "batteries/optional.hpp",
-        "line": 353
+        "line": 365
       },
       "name": "operator*",
       "override": false,
@@ -346,6 +581,43 @@
       "type": "T &",
       "typePlain": "T &",
       "url": "/_autogen/Classes/classbatt_1_1Optional_3_01T_01_6_01_4/#function-operator*",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-has-value",
+      "argsString": "() const noexcept",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "bool batt::Optional< T & >::has_value",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Optional< T & >::has_value",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 373,
+        "bodyFile": "batteries/optional.hpp",
+        "bodyStart": 370,
+        "column": 10,
+        "file": "batteries/optional.hpp",
+        "line": 370
+      },
+      "name": "has_value",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Optional_3_01T_01_6_01_4_1a16b33b3c651c9a1c5bb50fb53469ce01",
+      "static": false,
+      "strong": false,
+      "title": "has_value",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/classbatt_1_1Optional_3_01T_01_6_01_4/#function-has-value",
       "virtual": false,
       "visibility": "public"
     },
@@ -365,12 +637,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 361,
+        "bodyEnd": 378,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 358,
+        "bodyStart": 375,
         "column": 14,
         "file": "batteries/optional.hpp",
-        "line": 358
+        "line": 375
       },
       "name": "operator bool",
       "override": false,
@@ -400,12 +672,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 366,
+        "bodyEnd": 383,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 363,
+        "bodyStart": 380,
         "column": 10,
         "file": "batteries/optional.hpp",
-        "line": 363
+        "line": 380
       },
       "name": "operator!",
       "override": false,
@@ -418,6 +690,135 @@
       "type": "bool",
       "typePlain": "bool",
       "url": "/_autogen/Classes/classbatt_1_1Optional_3_01T_01_6_01_4/#function-operator!",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-emplace",
+      "argsString": "(T &ref) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "T& batt::Optional< T & >::emplace",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Optional< T & >::emplace",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 389,
+        "bodyFile": "batteries/optional.hpp",
+        "bodyStart": 385,
+        "column": 7,
+        "file": "batteries/optional.hpp",
+        "line": 385
+      },
+      "name": "emplace",
+      "override": false,
+      "params": [
+        {
+          "name": "ref",
+          "type": "T &",
+          "typePlain": "T &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Optional_3_01T_01_6_01_4_1afa594d668c4830e57ccfe226ffe426f4",
+      "static": false,
+      "strong": false,
+      "title": "emplace",
+      "type": "T &",
+      "typePlain": "T &",
+      "url": "/_autogen/Classes/classbatt_1_1Optional_3_01T_01_6_01_4/#function-emplace",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(NoneType) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Optional& batt::Optional< T & >::operator=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Optional< T & >::operator=",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 395,
+        "bodyFile": "batteries/optional.hpp",
+        "bodyStart": 391,
+        "column": 14,
+        "file": "batteries/optional.hpp",
+        "line": 391
+      },
+      "name": "operator=",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[NoneType](/_autogen/Classes/structbatt_1_1NoneType/)",
+          "typePlain": "NoneType"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Optional_3_01T_01_6_01_4_1ab6463e1b169dd102698012771c3d49e9",
+      "static": false,
+      "strong": false,
+      "title": "operator=",
+      "type": "[Optional](/_autogen/Classes/classbatt_1_1Optional/) &",
+      "typePlain": "Optional &",
+      "url": "/_autogen/Classes/classbatt_1_1Optional_3_01T_01_6_01_4/#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-value-or",
+      "argsString": "(T &other) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "T& batt::Optional< T & >::value_or",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Optional< T & >::value_or",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 403,
+        "bodyFile": "batteries/optional.hpp",
+        "bodyStart": 397,
+        "column": 7,
+        "file": "batteries/optional.hpp",
+        "line": 397
+      },
+      "name": "value_or",
+      "override": false,
+      "params": [
+        {
+          "name": "other",
+          "type": "T &",
+          "typePlain": "T &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Optional_3_01T_01_6_01_4_1aea8e9f709adf3839f1f0d96a9799c3e7",
+      "static": false,
+      "strong": false,
+      "title": "value_or",
+      "type": "T &",
+      "typePlain": "T &",
+      "url": "/_autogen/Classes/classbatt_1_1Optional_3_01T_01_6_01_4/#function-value-or",
       "virtual": false,
       "visibility": "public"
     }
