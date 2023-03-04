@@ -12,12 +12,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 133,
+    "bodyEnd": 139,
     "bodyFile": "batteries/async/task_decl.hpp",
-    "bodyStart": 113,
+    "bodyStart": 118,
     "column": 5,
     "file": "batteries/async/task_decl.hpp",
-    "line": 112
+    "line": 117
   },
   "name": "batt::Task::ConcurrentTaskList",
   "override": false,
@@ -94,10 +94,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 130,
+        "bodyStart": 135,
         "column": 20,
         "file": "batteries/async/task_decl.hpp",
-        "line": 130
+        "line": 135
       },
       "name": "mutex_",
       "override": false,
@@ -124,10 +124,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 131,
+        "bodyStart": 136,
         "column": 18,
         "file": "batteries/async/task_decl.hpp",
-        "line": 131
+        "line": 136
       },
       "name": "task_list_",
       "override": false,
@@ -142,31 +142,63 @@
     },
     {
       "abstract": false,
-      "anchor": "#variable-unlink-count-",
+      "anchor": "#variable-link-count-",
       "category": "attributes",
       "const": false,
-      "definition": "Watch<i32> batt::Task::ConcurrentTaskList::unlink_count_",
+      "definition": "std::atomic<i64> batt::Task::ConcurrentTaskList::link_count_",
       "explicit": false,
-      "fullname": "batt::Task::ConcurrentTaskList::unlink_count_",
+      "fullname": "batt::Task::ConcurrentTaskList::link_count_",
       "hasDetails": false,
+      "initializer": "{0}",
       "inline": false,
       "kind": "variable",
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 132,
+        "bodyStart": 137,
+        "column": 21,
+        "file": "batteries/async/task_decl.hpp",
+        "line": 137
+      },
+      "name": "link_count_",
+      "override": false,
+      "refid": "classbatt_1_1Task_1_1ConcurrentTaskList_1a56e35cec4058ac792c76e2304fb77f8f",
+      "static": false,
+      "strong": false,
+      "title": "link_count_",
+      "type": "std::atomic< i64 >",
+      "typePlain": "std::atomic< i64 >",
+      "url": "/_autogen/Classes/classbatt_1_1Task_1_1ConcurrentTaskList/#variable-link-count-",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-unlink-count-",
+      "category": "attributes",
+      "const": false,
+      "definition": "Watch<i64> batt::Task::ConcurrentTaskList::unlink_count_",
+      "explicit": false,
+      "fullname": "batt::Task::ConcurrentTaskList::unlink_count_",
+      "hasDetails": false,
+      "initializer": "{0}",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/task_decl.hpp",
+        "bodyStart": 138,
         "column": 15,
         "file": "batteries/async/task_decl.hpp",
-        "line": 132
+        "line": 138
       },
       "name": "unlink_count_",
       "override": false,
-      "refid": "classbatt_1_1Task_1_1ConcurrentTaskList_1a0c510ce4d8274602e9eca789c842c857",
+      "refid": "classbatt_1_1Task_1_1ConcurrentTaskList_1a44784552c6716bccd207f40e49655bba",
       "static": false,
       "strong": false,
       "title": "unlink_count_",
-      "type": "[Watch](/_autogen/Classes/classbatt_1_1Watch/)< i32 >",
-      "typePlain": "Watch< i32 >",
+      "type": "[Watch](/_autogen/Classes/classbatt_1_1Watch/)< i64 >",
+      "typePlain": "Watch< i64 >",
       "url": "/_autogen/Classes/classbatt_1_1Task_1_1ConcurrentTaskList/#variable-unlink-count-",
       "visibility": "private"
     }
@@ -190,7 +222,7 @@
       "location": {
         "column": 9,
         "file": "batteries/async/task_decl.hpp",
-        "line": 115
+        "line": 120
       },
       "name": "ConcurrentTaskList",
       "override": false,
@@ -222,7 +254,7 @@
       "location": {
         "column": 9,
         "file": "batteries/async/task_decl.hpp",
-        "line": 117
+        "line": 122
       },
       "name": "ConcurrentTaskList",
       "override": false,
@@ -260,7 +292,7 @@
       "location": {
         "column": 28,
         "file": "batteries/async/task_decl.hpp",
-        "line": 118
+        "line": 123
       },
       "name": "operator=",
       "override": false,
@@ -298,12 +330,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 647,
+        "bodyEnd": 657,
         "bodyFile": "batteries/async/task_impl.hpp",
-        "bodyStart": 643,
+        "bodyStart": 650,
         "column": 14,
         "file": "batteries/async/task_decl.hpp",
-        "line": 120
+        "line": 125
       },
       "name": "push_back",
       "override": false,
@@ -341,12 +373,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 661,
+        "bodyEnd": 671,
         "bodyFile": "batteries/async/task_impl.hpp",
-        "bodyStart": 651,
+        "bodyStart": 661,
         "column": 14,
         "file": "batteries/async/task_decl.hpp",
-        "line": 122
+        "line": 127
       },
       "name": "unlink",
       "override": false,
@@ -384,12 +416,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 685,
+        "bodyEnd": 691,
         "bodyFile": "batteries/async/task_impl.hpp",
-        "bodyStart": 665,
+        "bodyStart": 675,
         "column": 14,
         "file": "batteries/async/task_decl.hpp",
-        "line": 124
+        "line": 129
       },
       "name": "await_empty",
       "override": false,
@@ -421,12 +453,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1003,
+        "bodyEnd": 1023,
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 999,
+        "bodyStart": 1019,
         "column": 11,
         "file": "batteries/async/task_decl.hpp",
-        "line": 127
+        "line": 132
       },
       "name": "with_lock",
       "override": false,

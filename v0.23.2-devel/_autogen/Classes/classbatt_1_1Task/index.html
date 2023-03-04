@@ -750,13 +750,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#function-spawn" class="md-nav__link">
-    function spawn
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#function-nesting_depth" class="md-nav__link">
     function nesting_depth
   </a>
@@ -794,6 +787,13 @@
           <li class="md-nav__item">
   <a href="#function-current" class="md-nav__link">
     function current
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-spawn" class="md-nav__link">
+    function spawn
   </a>
   
 </li>
@@ -964,6 +964,13 @@
   
     <nav class="md-nav" aria-label="Public Attributes Documentation">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-kdefaultstacksize" class="md-nav__link">
+    variable kDefaultStackSize
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#variable-kmaxnestingdepth" class="md-nav__link">
@@ -1195,11 +1202,11 @@
 </tr>
 <tr>
 <td>template &lt;typename BodyFn  =void()> <br></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#function-task">Task</a></strong>(const boost::asio::any_io_executor &amp; ex, BodyFn &amp;&amp; body_fn, std::string &amp;&amp; name =<a href="/_autogen/Classes/classbatt_1_1Task/#function-default-name">default_name</a>(), <a href="/_autogen/Classes/classbatt_1_1StrongType/">StackSize</a> stack_size =<a href="/_autogen/Classes/classbatt_1_1StrongType/">StackSize</a>{512 *1024}, StackType stack_type =StackType::kFixedSize, <a href="/_autogen/Classes/classbatt_1_1Optional/">Optional</a>&lt; <a href="/_autogen/Classes/classbatt_1_1StrongType/">Priority</a> &gt; priority =None) =default<br>Create a new <a href="/_autogen/Classes/classbatt_1_1Task/">Task</a>, optionally setting name, stack size, stack type, and priority.</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#function-task">Task</a></strong>(const boost::asio::any_io_executor &amp; ex, BodyFn &amp;&amp; body_fn, std::string &amp;&amp; name =<a href="/_autogen/Classes/classbatt_1_1Task/#function-default-name">default_name</a>(), <a href="/_autogen/Classes/classbatt_1_1StrongType/">StackSize</a> stack_size =<a href="/_autogen/Classes/classbatt_1_1Task/#variable-kdefaultstacksize">Task::kDefaultStackSize</a>, StackType stack_type =StackType::kFixedSize, <a href="/_autogen/Classes/classbatt_1_1Optional/">Optional</a>&lt; <a href="/_autogen/Classes/classbatt_1_1StrongType/">Priority</a> &gt; priority =None) =default<br>Create a new <a href="/_autogen/Classes/classbatt_1_1Task/">Task</a>, optionally setting name, stack size, stack type, and priority.</td>
 </tr>
 <tr>
 <td>template &lt;typename BodyFn  =void()> <br></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#function-task">Task</a></strong>(<a href="/_autogen/Classes/classbatt_1_1Task_1_1ConcurrentTaskList/">ConcurrentTaskList</a> &amp; parent_task_list, const boost::asio::any_io_executor &amp; ex, BodyFn &amp;&amp; body_fn, std::string &amp;&amp; name =<a href="/_autogen/Classes/classbatt_1_1Task/#function-default-name">default_name</a>(), <a href="/_autogen/Classes/classbatt_1_1StrongType/">StackSize</a> stack_size =<a href="/_autogen/Classes/classbatt_1_1StrongType/">StackSize</a>{512 *1024}, StackType stack_type =StackType::kFixedSize, <a href="/_autogen/Classes/classbatt_1_1Optional/">Optional</a>&lt; <a href="/_autogen/Classes/classbatt_1_1StrongType/">Priority</a> &gt; priority =None) =default<br>Internal use only.</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#function-task">Task</a></strong>(<a href="/_autogen/Classes/classbatt_1_1Task_1_1ConcurrentTaskList/">ConcurrentTaskList</a> &amp; parent_task_list, const boost::asio::any_io_executor &amp; ex, BodyFn &amp;&amp; body_fn, std::string &amp;&amp; name =<a href="/_autogen/Classes/classbatt_1_1Task/#function-default-name">default_name</a>(), <a href="/_autogen/Classes/classbatt_1_1StrongType/">StackSize</a> stack_size =<a href="/_autogen/Classes/classbatt_1_1Task/#variable-kdefaultstacksize">Task::kDefaultStackSize</a>, StackType stack_type =StackType::kFixedSize, <a href="/_autogen/Classes/classbatt_1_1Optional/">Optional</a>&lt; <a href="/_autogen/Classes/classbatt_1_1StrongType/">Priority</a> &gt; priority =None) =default<br>Internal use only.</td>
 </tr>
 <tr>
 <td></td>
@@ -1254,10 +1261,6 @@
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#function-call-when-done">call_when_done</a></strong>(F &amp;&amp; handler)<br>Attaches a listener callback to the task; this callback will be invoked when the task completes execution.</td>
 </tr>
 <tr>
-<td>template &lt;typename... TaskCtorArgs> <br>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#function-spawn">spawn</a></strong>(TaskCtorArgs &amp;&amp;... task_ctor_args)<br>Launch a <a href="/_autogen/Classes/classbatt_1_1Task/">Task</a> that is a child of this one.</td>
-</tr>
-<tr>
 <td>usize &amp;</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#function-nesting-depth">nesting_depth</a></strong>()<br>Thread-local counter that limits stack growth while running Tasks via <code>dispatch</code>.</td>
 </tr>
@@ -1280,6 +1283,10 @@
 <tr>
 <td><a href="/_autogen/Classes/classbatt_1_1Task/">Task</a> &amp;</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#function-current">current</a></strong>()<br>Returns a reference to the currently running <a href="/_autogen/Classes/classbatt_1_1Task/">Task</a>, if there is one.</td>
+</tr>
+<tr>
+<td>template &lt;typename... CtorArgs> <br>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#function-spawn">spawn</a></strong>(CtorArgs &amp;&amp;... args)<br>Launch a <a href="/_autogen/Classes/classbatt_1_1Task/">Task</a> that is a child of the current one.</td>
 </tr>
 <tr>
 <td>std::string_view</td>
@@ -1380,6 +1387,10 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>constexpr <a href="/_autogen/Classes/classbatt_1_1StrongType/">StackSize</a></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#variable-kdefaultstacksize">kDefaultStackSize</a></strong> <br>The default stack size.</td>
+</tr>
 <tr>
 <td>constexpr usize</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Task/#variable-kmaxnestingdepth">kMaxNestingDepth</a></strong> <br>The upper bound on <a href="">nesting_depth</a>.</td>
@@ -1540,7 +1551,7 @@
 <a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">any_io_executor</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span>
 <a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">    </span><span class="n">BodyFn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">body_fn</span><span class="p">,</span>
 <a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="n">default_name</span><span class="p">(),</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">    </span><span class="n">StackSize</span><span class="w"> </span><span class="n">stack_size</span><span class="w"> </span><span class="o">=</span><span class="n">StackSize</span><span class="p">{</span><span class="mi">512</span><span class="w"> </span><span class="o">*</span><span class="mi">1024</span><span class="p">},</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">    </span><span class="n">StackSize</span><span class="w"> </span><span class="n">stack_size</span><span class="w"> </span><span class="o">=</span><span class="n">Task</span><span class="o">::</span><span class="n">kDefaultStackSize</span><span class="p">,</span>
 <a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="w">    </span><span class="n">StackType</span><span class="w"> </span><span class="n">stack_type</span><span class="w"> </span><span class="o">=</span><span class="n">StackType</span><span class="o">::</span><span class="n">kFixedSize</span><span class="p">,</span>
 <a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Priority</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">priority</span><span class="w"> </span><span class="o">=</span><span class="n">None</span>
 <a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
@@ -1563,7 +1574,7 @@
 <a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">any_io_executor</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">ex</span><span class="p">,</span>
 <a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">    </span><span class="n">BodyFn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">body_fn</span><span class="p">,</span>
 <a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="n">default_name</span><span class="p">(),</span>
-<a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">    </span><span class="n">StackSize</span><span class="w"> </span><span class="n">stack_size</span><span class="w"> </span><span class="o">=</span><span class="n">StackSize</span><span class="p">{</span><span class="mi">512</span><span class="w"> </span><span class="o">*</span><span class="mi">1024</span><span class="p">},</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">    </span><span class="n">StackSize</span><span class="w"> </span><span class="n">stack_size</span><span class="w"> </span><span class="o">=</span><span class="n">Task</span><span class="o">::</span><span class="n">kDefaultStackSize</span><span class="p">,</span>
 <a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">    </span><span class="n">StackType</span><span class="w"> </span><span class="n">stack_type</span><span class="w"> </span><span class="o">=</span><span class="n">StackType</span><span class="o">::</span><span class="n">kFixedSize</span><span class="p">,</span>
 <a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Priority</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">priority</span><span class="w"> </span><span class="o">=</span><span class="n">None</span>
 <a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
@@ -1647,54 +1658,54 @@
 <li><strong>handler</strong> The handler to invoke when the <a href="/_autogen/Classes/classbatt_1_1Task/">Task</a> has finished; should have the signature <code class="highlight"><span class="kt">void</span><span class="p">()</span></code></li>
 </ul>
 <p>This method can be thought of as an asynchronous version of <a href="/_autogen/Classes/classbatt_1_1Task/#function-join">batt::Task::join</a>.</p>
-<h3 id="function-spawn">function spawn<a class="headerlink" href="#function-spawn" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span>
-<span class="normal"><a href="#__codelineno-27-2">2</a></span>
-<span class="normal"><a href="#__codelineno-27-3">3</a></span>
-<span class="normal"><a href="#__codelineno-27-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">TaskCtorArgs</span><span class="o">&gt;</span>
-<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">spawn</span><span class="p">(</span>
-<a id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="w">    </span><span class="n">TaskCtorArgs</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">task_ctor_args</span>
-<a id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<p>Launch a <a href="/_autogen/Classes/classbatt_1_1Task/">Task</a> that is a child of this one. </p>
-<p>The new task will automatically be joined when this <a href="/_autogen/Classes/classbatt_1_1Task/">Task</a> terminates. </p>
 <h3 id="function-nesting_depth">function nesting_depth<a class="headerlink" href="#function-nesting_depth" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">nesting_depth</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">nesting_depth</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Thread-local counter that limits stack growth while running Tasks via <code>dispatch</code>. </p>
 <h3 id="function-is_running_state">function is_running_state<a class="headerlink" href="#function-is_running_state" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
-<span class="normal"><a href="#__codelineno-29-2">2</a></span>
-<span class="normal"><a href="#__codelineno-29-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_running_state</span><span class="p">(</span>
-<a id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="w">    </span><span class="n">state_type</span><span class="w"> </span><span class="n">state</span>
-<a id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
+<span class="normal"><a href="#__codelineno-28-2">2</a></span>
+<span class="normal"><a href="#__codelineno-28-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_running_state</span><span class="p">(</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="w">    </span><span class="n">state_type</span><span class="w"> </span><span class="n">state</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Returns true iff the given state is <em>not</em> a suspended state. </p>
 <h3 id="function-is_ready_state">function is_ready_state<a class="headerlink" href="#function-is_ready_state" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span>
-<span class="normal"><a href="#__codelineno-30-2">2</a></span>
-<span class="normal"><a href="#__codelineno-30-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_ready_state</span><span class="p">(</span>
-<a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="w">    </span><span class="n">state_type</span><span class="w"> </span><span class="n">state</span>
-<a id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
+<span class="normal"><a href="#__codelineno-29-2">2</a></span>
+<span class="normal"><a href="#__codelineno-29-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_ready_state</span><span class="p">(</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="w">    </span><span class="n">state_type</span><span class="w"> </span><span class="n">state</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Returns true iff the task is not currently running, but is ready to be resumed. </p>
 <h3 id="function-is_terminal_state">function is_terminal_state<a class="headerlink" href="#function-is_terminal_state" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span>
-<span class="normal"><a href="#__codelineno-31-2">2</a></span>
-<span class="normal"><a href="#__codelineno-31-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_terminal_state</span><span class="p">(</span>
-<a id="__codelineno-31-2" name="__codelineno-31-2"></a><span class="w">    </span><span class="n">state_type</span><span class="w"> </span><span class="n">state</span>
-<a id="__codelineno-31-3" name="__codelineno-31-3"></a><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span>
+<span class="normal"><a href="#__codelineno-30-2">2</a></span>
+<span class="normal"><a href="#__codelineno-30-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_terminal_state</span><span class="p">(</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="w">    </span><span class="n">state_type</span><span class="w"> </span><span class="n">state</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Returns true if the passed state represents a fully terminated task. </p>
 <h3 id="function-all_tasks">function all_tasks<a class="headerlink" href="#function-all_tasks" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">ConcurrentTaskList</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">all_tasks</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">ConcurrentTaskList</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">all_tasks</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Returns a reference to the global task list. </p>
 <h3 id="function-current">function current<a class="headerlink" href="#function-current" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">current</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">current</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Returns a reference to the currently running <a href="/_autogen/Classes/classbatt_1_1Task/">Task</a>, if there is one. </p>
 <p>WARNING: if this method is called outside of any <a href="/_autogen/Classes/classbatt_1_1Task/">batt::Task</a>, behavior is undefined. </p>
+<h3 id="function-spawn">function spawn<a class="headerlink" href="#function-spawn" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1">1</a></span>
+<span class="normal"><a href="#__codelineno-33-2">2</a></span>
+<span class="normal"><a href="#__codelineno-33-3">3</a></span>
+<span class="normal"><a href="#__codelineno-33-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">CtorArgs</span><span class="o">&gt;</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">spawn</span><span class="p">(</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="w">    </span><span class="n">CtorArgs</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Launch a <a href="/_autogen/Classes/classbatt_1_1Task/">Task</a> that is a child of the current one. </p>
+<p>The new task will automatically be joined when the current <a href="/_autogen/Classes/classbatt_1_1Task/">Task</a> terminates. </p>
 <h3 id="function-current_name">function current_name<a class="headerlink" href="#function-current_name" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">current_name</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -1931,80 +1942,85 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-56-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="w"> </span><span class="n">i64</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">destroy_count</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="public-attributes-documentation">Public Attributes Documentation<a class="headerlink" href="#public-attributes-documentation" title="Permanent link">&#128279;</a></h2>
+<h3 id="variable-kdefaultstacksize">variable kDefaultStackSize<a class="headerlink" href="#variable-kdefaultstacksize" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-57-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">StackSize</span><span class="w"> </span><span class="n">kDefaultStackSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StackSize</span><span class="p">{</span><span class="mi">8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">kMiB</span><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>The default stack size. </p>
+<p>Be generous and let the MMU take care of the rest... </p>
 <h3 id="variable-kmaxnestingdepth">variable kMaxNestingDepth<a class="headerlink" href="#variable-kmaxnestingdepth" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-57-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kMaxNestingDepth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-58-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kMaxNestingDepth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>The upper bound on <a href="">nesting_depth</a>. </p>
 <p>When scheduling a task to run via <code>dispatch</code> would increase the nesting depth on the current thread to greater than <a href="/_autogen/Classes/classbatt_1_1Task/#variable-kmaxnestingdepth">kMaxNestingDepth</a>, <code>post</code> is used instead. </p>
 <h3 id="variable-khandlermemorybytes">variable kHandlerMemoryBytes<a class="headerlink" href="#variable-khandlermemorybytes" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-58-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kHandlerMemoryBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">128</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-59-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kHandlerMemoryBytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">128</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>The number of bytes to statically allocate for handler memory buffers. </p>
 <h3 id="variable-kneedsignal">variable kNeedSignal<a class="headerlink" href="#variable-kneedsignal" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-59-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kNeedSignal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-60-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kNeedSignal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>Set when code within the task requests a signal, because it is awaiting some external async event. </p>
 <h3 id="variable-khavesignal">variable kHaveSignal<a class="headerlink" href="#variable-khavesignal" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-60-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kHaveSignal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-61-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kHaveSignal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>Set when the continuation generated by an <code>await</code> is invoked. </p>
 <h3 id="variable-ksuspended">variable kSuspended<a class="headerlink" href="#variable-ksuspended" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-61-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kSuspended</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-62-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kSuspended</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>Set when the task is not currently running. </p>
 <h3 id="variable-kterminated">variable kTerminated<a class="headerlink" href="#variable-kterminated" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-62-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kTerminated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-63-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kTerminated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>Indicates the task has finished execution. </p>
 <h3 id="variable-kstacktrace">variable kStackTrace<a class="headerlink" href="#variable-kstacktrace" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-63-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kStackTrace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-64-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kStackTrace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>Set to request that the task collect a stack trace the next time it resumes. </p>
 <h3 id="variable-ksleeptimerlock">variable kSleepTimerLock<a class="headerlink" href="#variable-ksleeptimerlock" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-64-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kSleepTimerLock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-65-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kSleepTimerLock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>Spin-lock bit to serialize access to the sleep timer member of the <a href="/_autogen/Classes/classbatt_1_1Task/">Task</a>. </p>
 <h3 id="variable-kcompletionhandlerslock">variable kCompletionHandlersLock<a class="headerlink" href="#variable-kcompletionhandlerslock" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-65-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kCompletionHandlersLock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-66-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kCompletionHandlersLock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>Spin-lock bit to serialize access to the completions handlers list. </p>
 <h3 id="variable-ksleeptimerlocksuspend">variable kSleepTimerLockSuspend<a class="headerlink" href="#variable-ksleeptimerlocksuspend" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-66-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kSleepTimerLockSuspend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-67-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kSleepTimerLockSuspend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>Used to save the value of the <a href="/_autogen/Classes/classbatt_1_1Task/#variable-ksleeptimerlock">kSleepTimerLock</a> bit when the <a href="/_autogen/Classes/classbatt_1_1Task/">Task</a> is suspended (e.g., in <code>await</code> or <code>yield</code>). </p>
 <p>The <a href="/_autogen/Classes/classbatt_1_1Task/">Task</a> should not hold any spinlocks while it is suspended, so we don't deadlock. Rather, the sleep timer lock is temporarily released while suspended and then re-acquired when the task is resumed. </p>
 <h3 id="variable-kcompletionhandlersclosed">variable kCompletionHandlersClosed<a class="headerlink" href="#variable-kcompletionhandlersclosed" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-67-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kCompletionHandlersClosed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-68-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">kCompletionHandlersClosed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state_type</span><span class="p">{</span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>State bit to indicate that completion handlers should not be added to the list, but called immediately. </p>
 <h3 id="variable-knumstateflags">variable kNumStateFlags<a class="headerlink" href="#variable-knumstateflags" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-68-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kNumStateFlags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-69-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kNumStateFlags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>The number of state flags defined above. </p>
 <h3 id="variable-debug_info">variable debug_info<a class="headerlink" href="#variable-debug_info" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-69-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1"></a><span class="n">DebugInfoFrame</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">debug_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-70-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1"></a><span class="n">DebugInfoFrame</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">debug_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="friends_1">Friends<a class="headerlink" href="#friends_1" title="Permanent link">&#128279;</a></h2>
 <h3 id="friend-debuginfoframe">friend DebugInfoFrame<a class="headerlink" href="#friend-debuginfoframe" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-70-1">1</a></span>
-<span class="normal"><a href="#__codelineno-70-2">2</a></span>
-<span class="normal"><a href="#__codelineno-70-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1"></a><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DebugInfoFrame</span><span class="p">(</span>
-<a id="__codelineno-70-2" name="__codelineno-70-2"></a><span class="w">    </span><span class="n">DebugInfoFrame</span><span class="w"> </span>
-<a id="__codelineno-70-3" name="__codelineno-70-3"></a><span class="p">);</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="friend-print_debug_info">friend print_debug_info<a class="headerlink" href="#friend-print_debug_info" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-71-1">1</a></span>
 <span class="normal"><a href="#__codelineno-71-2">2</a></span>
-<span class="normal"><a href="#__codelineno-71-3">3</a></span>
-<span class="normal"><a href="#__codelineno-71-4">4</a></span>
-<span class="normal"><a href="#__codelineno-71-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1"></a><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print_debug_info</span><span class="p">(</span>
-<a id="__codelineno-71-2" name="__codelineno-71-2"></a><span class="w">    </span><span class="n">DebugInfoFrame</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
-<a id="__codelineno-71-3" name="__codelineno-71-3"></a>
-<a id="__codelineno-71-4" name="__codelineno-71-4"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span>
-<a id="__codelineno-71-5" name="__codelineno-71-5"></a><span class="p">);</span>
+<span class="normal"><a href="#__codelineno-71-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1"></a><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">DebugInfoFrame</span><span class="p">(</span>
+<a id="__codelineno-71-2" name="__codelineno-71-2"></a><span class="w">    </span><span class="n">DebugInfoFrame</span><span class="w"> </span>
+<a id="__codelineno-71-3" name="__codelineno-71-3"></a><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="friend-print_debug_info">friend print_debug_info<a class="headerlink" href="#friend-print_debug_info" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-72-1">1</a></span>
+<span class="normal"><a href="#__codelineno-72-2">2</a></span>
+<span class="normal"><a href="#__codelineno-72-3">3</a></span>
+<span class="normal"><a href="#__codelineno-72-4">4</a></span>
+<span class="normal"><a href="#__codelineno-72-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-72-1" name="__codelineno-72-1"></a><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print_debug_info</span><span class="p">(</span>
+<a id="__codelineno-72-2" name="__codelineno-72-2"></a><span class="w">    </span><span class="n">DebugInfoFrame</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
+<a id="__codelineno-72-3" name="__codelineno-72-3"></a>
+<a id="__codelineno-72-4" name="__codelineno-72-4"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span>
+<a id="__codelineno-72-5" name="__codelineno-72-5"></a><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on  2 March 2023 at 21:27:44 UTC</p>
+<p>Updated on  4 March 2023 at 02:05:52 UTC</p>
 
 
 
