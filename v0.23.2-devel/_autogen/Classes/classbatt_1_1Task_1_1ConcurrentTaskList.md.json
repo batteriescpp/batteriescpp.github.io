@@ -1,6 +1,7 @@
 {
   "abstract": false,
   "anchor": "",
+  "brief": "Thread-safe list of tasks. ",
   "category": "classes",
   "const": false,
   "definition": "",
@@ -8,16 +9,17 @@
   "fullname": "batt::Task::ConcurrentTaskList",
   "hasAdditionalMembers": false,
   "hasDetails": false,
+  "includes": "<batteries/async/task_decl.hpp>",
   "inline": false,
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 139,
+    "bodyEnd": 142,
     "bodyFile": "batteries/async/task_decl.hpp",
-    "bodyStart": 118,
+    "bodyStart": 121,
     "column": 5,
     "file": "batteries/async/task_decl.hpp",
-    "line": 117
+    "line": 120
   },
   "name": "batt::Task::ConcurrentTaskList",
   "override": false,
@@ -94,10 +96,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 135,
+        "bodyStart": 138,
         "column": 20,
         "file": "batteries/async/task_decl.hpp",
-        "line": 135
+        "line": 138
       },
       "name": "mutex_",
       "override": false,
@@ -124,10 +126,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 136,
+        "bodyStart": 139,
         "column": 18,
         "file": "batteries/async/task_decl.hpp",
-        "line": 136
+        "line": 139
       },
       "name": "task_list_",
       "override": false,
@@ -155,10 +157,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 137,
+        "bodyStart": 140,
         "column": 21,
         "file": "batteries/async/task_decl.hpp",
-        "line": 137
+        "line": 140
       },
       "name": "link_count_",
       "override": false,
@@ -186,10 +188,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 138,
+        "bodyStart": 141,
         "column": 15,
         "file": "batteries/async/task_decl.hpp",
-        "line": 138
+        "line": 141
       },
       "name": "unlink_count_",
       "override": false,
@@ -222,7 +224,7 @@
       "location": {
         "column": 9,
         "file": "batteries/async/task_decl.hpp",
-        "line": 120
+        "line": 123
       },
       "name": "ConcurrentTaskList",
       "override": false,
@@ -254,7 +256,7 @@
       "location": {
         "column": 9,
         "file": "batteries/async/task_decl.hpp",
-        "line": 122
+        "line": 125
       },
       "name": "ConcurrentTaskList",
       "override": false,
@@ -292,7 +294,7 @@
       "location": {
         "column": 28,
         "file": "batteries/async/task_decl.hpp",
-        "line": 123
+        "line": 126
       },
       "name": "operator=",
       "override": false,
@@ -335,7 +337,7 @@
         "bodyStart": 650,
         "column": 14,
         "file": "batteries/async/task_decl.hpp",
-        "line": 125
+        "line": 128
       },
       "name": "push_back",
       "override": false,
@@ -378,7 +380,7 @@
         "bodyStart": 661,
         "column": 14,
         "file": "batteries/async/task_decl.hpp",
-        "line": 127
+        "line": 130
       },
       "name": "unlink",
       "override": false,
@@ -421,7 +423,7 @@
         "bodyStart": 675,
         "column": 14,
         "file": "batteries/async/task_decl.hpp",
-        "line": 129
+        "line": 132
       },
       "name": "await_empty",
       "override": false,
@@ -453,12 +455,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1023,
+        "bodyEnd": 1264,
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 1019,
+        "bodyStart": 1260,
         "column": 11,
         "file": "batteries/async/task_decl.hpp",
-        "line": 132
+        "line": 135
       },
       "name": "with_lock",
       "override": false,
@@ -498,6 +500,7 @@
   "refid": "classbatt_1_1Task_1_1ConcurrentTaskList",
   "static": false,
   "strong": false,
+  "summary": "Thread-safe list of tasks. ",
   "title": "batt::Task::ConcurrentTaskList",
   "url": "/_autogen/Classes/classbatt_1_1Task_1_1ConcurrentTaskList/",
   "visibility": "public"
