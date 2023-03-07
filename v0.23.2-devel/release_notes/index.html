@@ -509,6 +509,15 @@
 
 <ul>
 <li>
+<p>0.27.0 (2023/03/07)</p>
+<ul>
+<li>Added <code>BATT_CHECK_TYPE(type, expr)</code> to <code>&lt;batteries/static_assert.hpp&gt;</code>:<ul>
+<li>At runtime, evaluates to just <code>expr</code>, but adds a compile-time assertion that the type of <code>expr</code> is <code>type</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
 <p>0.26.0 (2023/03/04)</p>
 <ul>
 <li>Added <code>batt::Task::DeferStart{bool}</code> option to suppress automatic Task starting; also:<ul>
