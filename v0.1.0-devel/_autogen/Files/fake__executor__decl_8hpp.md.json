@@ -1,0 +1,125 @@
+{
+  "abstract": false,
+  "anchor": "#file-fake-executor-decl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-fake-executor-decl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_FAKE_EXECUTOR_DECL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/fake_executor_decl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/fake_executor_decl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_FAKE_EXECUTOR_DECL_HPP",
+      "override": false,
+      "refid": "fake__executor__decl_8hpp_1af69541759eb5588f9a8905c5fc98d312",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_FAKE_EXECUTOR_DECL_HPP",
+      "url": "/_autogen/Files/fake__executor__decl_8hpp/#define-batteries-async-fake-executor-decl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/fake_executor_decl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/fake_executor_decl.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/fake_executor_decl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_FAKE_EXECUTOR_DECL_HPP\n#define BATTERIES_ASYNC_FAKE_EXECUTOR_DECL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/suppress.hpp>\n\nBATT_SUPPRESS_IF_GCC(\"-Wsuggest-override\")\nBATT_SUPPRESS_IF_GCC(\"-Woverloaded-virtual\")\nBATT_SUPPRESS_IF_CLANG(\"-Wsuggest-override\")\nBATT_SUPPRESS_IF_CLANG(\"-Woverloaded-virtual\")\n//\n#include <boost/asio/any_io_executor.hpp>\n//\nBATT_UNSUPPRESS_IF_CLANG()\nBATT_UNSUPPRESS_IF_CLANG()\nBATT_UNSUPPRESS_IF_GCC()\nBATT_UNSUPPRESS_IF_GCC()\n\n#include <memory>\n\nnamespace batt {\n\nclass FakeExecutionContext;\n\ntemplate <typename OutstandingWorkP>\nclass BasicFakeExecutor;\n\nusing FakeExecutor = BasicFakeExecutor<boost::asio::execution::outstanding_work_t::untracked_t>;\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\ntemplate <typename OutstandingWorkP>\nconstexpr bool operator==(const BasicFakeExecutor<OutstandingWorkP>& l,\n                          const BasicFakeExecutor<OutstandingWorkP>& r) noexcept;\n\ntemplate <typename OutstandingWorkP>\nconstexpr bool operator!=(const BasicFakeExecutor<OutstandingWorkP>& l,\n                          const BasicFakeExecutor<OutstandingWorkP>& r) noexcept;\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\n\ntemplate <typename OutstandingWorkP>\nclass BasicFakeExecutor\n{\n   public:\n    using Self = BasicFakeExecutor;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr explicit BasicFakeExecutor() noexcept : context_{nullptr}\n    {\n    }\n\n    constexpr explicit BasicFakeExecutor(FakeExecutionContext* context) noexcept : context_{context}\n    {\n        if (std::is_same_v<OutstandingWorkP, boost::asio::execution::outstanding_work_t::tracked_t>) {\n            this->on_work_started();\n        }\n    }\n\n    constexpr BasicFakeExecutor(const Self& other) noexcept : Self{other.context_}\n    {\n    }\n\n    constexpr BasicFakeExecutor(Self&& other) noexcept : context_{other.context_}\n    {\n        other.context_ = nullptr;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    Self& operator=(const Self& other) noexcept\n    {\n        Self tmp{other};\n        this->swap(tmp);\n        return *this;\n    }\n\n    Self& operator=(Self&& other) noexcept\n    {\n        Self tmp{std::move(other)};\n        this->swap(tmp);\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    ~BasicFakeExecutor() noexcept\n    {\n        if (std::is_same_v<OutstandingWorkP, boost::asio::execution::outstanding_work_t::tracked_t>) {\n            this->on_work_finished();\n        }\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    void swap(Self& other)\n    {\n        std::swap(this->context_, other.context_);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    FakeExecutionContext& context() const\n    {\n        return *this->context_;\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr Self require(boost::asio::execution::blocking_t::possibly_t) const\n    {\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr Self require(boost::asio::execution::blocking_t::never_t) const\n    {\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr Self require(boost::asio::execution::relationship_t::fork_t) const\n    {\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr Self require(boost::asio::execution::relationship_t::continuation_t) const\n    {\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr auto require(boost::asio::execution::outstanding_work_t::tracked_t) const\n    {\n        return BasicFakeExecutor<boost::asio::execution::outstanding_work_t::tracked_t>{this->context_};\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr auto require(boost::asio::execution::outstanding_work_t::untracked_t) const\n    {\n        return BasicFakeExecutor<boost::asio::execution::outstanding_work_t::untracked_t>{this->context_};\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    template <typename OtherAllocator>\n    constexpr Self require(boost::asio::execution::allocator_t<OtherAllocator>) const\n    {\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr Self require(boost::asio::execution::allocator_t<void>) const\n    {\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr Self prefer(boost::asio::execution::blocking_t::possibly_t) const\n    {\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr Self prefer(boost::asio::execution::blocking_t::never_t) const\n    {\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr Self prefer(boost::asio::execution::relationship_t::fork_t) const\n    {\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr Self prefer(boost::asio::execution::relationship_t::continuation_t) const\n    {\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr auto prefer(boost::asio::execution::outstanding_work_t::tracked_t) const\n    {\n        return BasicFakeExecutor<boost::asio::execution::outstanding_work_t::tracked_t>{this->context_};\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr auto prefer(boost::asio::execution::outstanding_work_t::untracked_t) const\n    {\n        return BasicFakeExecutor<boost::asio::execution::outstanding_work_t::untracked_t>{this->context_};\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    template <typename OtherAllocator>\n    constexpr Self prefer(boost::asio::execution::allocator_t<OtherAllocator>) const\n    {\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr Self prefer(boost::asio::execution::allocator_t<void>) const\n    {\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    static constexpr boost::asio::execution::mapping_t query(boost::asio::execution::mapping_t) noexcept\n    {\n        return boost::asio::execution::mapping.thread;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    FakeExecutionContext& query(boost::asio::execution::context_t) const noexcept;\n\n    boost::asio::execution_context& query(\n        boost::asio::execution::context_as_t<boost::asio::execution_context&>) const noexcept;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr boost::asio::execution::blocking_t query(boost::asio::execution::blocking_t) const noexcept\n    {\n        return boost::asio::execution::blocking_t(boost::asio::execution::blocking.never);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr boost::asio::execution::relationship_t query(\n        boost::asio::execution::relationship_t) const noexcept\n    {\n        return boost::asio::execution::relationship_t(boost::asio::execution::relationship.continuation);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    static constexpr boost::asio::execution::outstanding_work_t query(\n        boost::asio::execution::outstanding_work_t) noexcept\n    {\n        return (std::is_same_v<OutstandingWorkP, boost::asio::execution::outstanding_work_t::tracked_t>)\n                   ? boost::asio::execution::outstanding_work_t(\n                         boost::asio::execution::outstanding_work.tracked)\n                   : boost::asio::execution::outstanding_work_t(\n                         boost::asio::execution::outstanding_work.untracked);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    template <typename OtherAllocator>\n    constexpr std::allocator<void> query(boost::asio::execution::allocator_t<OtherAllocator>) const noexcept;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    constexpr std::allocator<void> query(boost::asio::execution::allocator_t<void>) const noexcept;\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    void on_work_started() const;\n\n    void on_work_finished() const;\n\n    template <typename Fn>\n    void execute(Fn&& fn) const;\n\n    template <typename Fn, typename FnAllocator>\n    void dispatch(Fn&& fn, FnAllocator&&) const\n    {\n        this->execute(fn);\n    }\n\n    template <typename Fn, typename FnAllocator>\n    void post(Fn&& fn, FnAllocator&&) const\n    {\n        this->execute(fn);\n    }\n\n    template <typename Fn, typename FnAllocator>\n    void defer(Fn&& fn, FnAllocator&&) const\n    {\n        this->execute(fn);\n    }\n\n   private:\n    FakeExecutionContext* context_;\n};\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_FAKE_EXECUTOR_DECL_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::BasicFakeExecutor",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicFakeExecutor",
+      "refid": "classbatt_1_1BasicFakeExecutor",
+      "title": "batt::BasicFakeExecutor",
+      "url": "/_autogen/Classes/classbatt_1_1BasicFakeExecutor/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "fake__executor__decl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/fake_executor_decl.hpp",
+  "url": "/_autogen/Files/fake__executor__decl_8hpp/#file-fake-executor-decl.hpp",
+  "visibility": "public"
+}

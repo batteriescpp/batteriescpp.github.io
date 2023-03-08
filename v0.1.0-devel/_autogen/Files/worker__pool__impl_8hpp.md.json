@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-worker-pool-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-worker-pool-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_WORKER_POOL_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/worker_pool_impl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/worker_pool_impl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_WORKER_POOL_IMPL_HPP",
+      "override": false,
+      "refid": "worker__pool__impl_8hpp_1a478939119870e008b0bf02249884bf07",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_WORKER_POOL_IMPL_HPP",
+      "url": "/_autogen/Files/worker__pool__impl_8hpp/#define-batteries-async-worker-pool-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/worker_pool_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/worker_pool_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/worker_pool_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_WORKER_POOL_IMPL_HPP\n#define BATTERIES_ASYNC_WORKER_POOL_IMPL_HPP\n\n#include <batteries/config.hpp>\n#include <batteries/logging.hpp>\n\n#include <batteries/async/worker_pool.hpp>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*static*/ WorkerPool& WorkerPool::default_pool()\n{\n    static WorkerPool* pool_ = [] {\n        static const usize cpu_count = std::thread::hardware_concurrency();\n\n        // These are intentionally leaked to prevent shutdown issues.\n        //\n        auto* thread_pool = new std::vector<std::thread>;\n        auto* io = new std::vector<std::unique_ptr<boost::asio::io_context>>;\n        auto* pool = new WorkerPool;\n\n        for (usize i = 0; i < cpu_count / 2; ++i) {\n            io->emplace_back(std::make_unique<boost::asio::io_context>());\n            io->back()->get_executor().on_work_started();\n            thread_pool->emplace_back([p_io = io->back().get(), i] {\n#ifdef __linux__\n                if (cpu_count >= 4) {\n                    cpu_set_t mask;\n                    CPU_ZERO(&mask);\n                    usize c0 = (i / 2) * 4;\n                    for (usize j = c0; j < c0 + 4; ++j) {\n                        CPU_SET(j % cpu_count, &mask);\n                        BATT_VLOG(1) << \"worker[\" << i << \"]: cpu \" << j;\n                    }\n                    BATT_CHECK_EQ(0, sched_setaffinity(0, sizeof(mask), &mask))\n                        << \"cpu=\" << i << \" err=\" << std::strerror(errno);\n                }\n#else\n                (void)i;\n#endif  // __linux__\n                p_io->run();\n            });\n            pool->workers_.emplace_back(std::make_unique<Worker>(io->back()->get_executor()));\n        }\n\n        return pool;\n    }();\n\n    return *pool_;\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_WORKER_POOL_IMPL_HPP",
+  "refid": "worker__pool__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/worker_pool_impl.hpp",
+  "url": "/_autogen/Files/worker__pool__impl_8hpp/#file-worker-pool-impl.hpp",
+  "visibility": "public"
+}

@@ -1,0 +1,1011 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "brief": "A [batt::Watch]() is like a `std::atomic` that you can block on, synchronously and asynchronously; see also [batt::WatchAtomic](/_autogen/Classes/classbatt_1_1WatchAtomic). ",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "details": "Like `std::atomic`, it has methods to atomically get/set/increment/etc. But unlike `std::atomic`, you can also block a task waiting for some condition to be true.\n\nExample:\n\n\n\n```cpp\n#include <batteries/async/watch.hpp>\n#include <batteries/assert.hpp>  // for BATT_CHECK_OK\n#include <batteries/status.hpp>  // for batt::Status\n\nint main() {\n  batt::Watch<bool> done{false};\n\n  // Launch some background task that will do stuff, then set `done`\n  // to `true` when it is finished.\n  //\n  launch_background_task(&done);\n\n  batt::Status status = done.await_equal(true);\n  BATT_CHECK_OK(status);\n\n  return 0;\n}\n```",
+  "explicit": false,
+  "fullname": "batt::Watch",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "<batteries/async/watch_decl.hpp>",
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 271,
+    "bodyFile": "batteries/async/watch_decl.hpp",
+    "bodyStart": 53,
+    "column": 1,
+    "file": "batteries/async/watch_decl.hpp",
+    "line": 52
+  },
+  "name": "batt::Watch",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-mutex-",
+      "category": "attributes",
+      "const": false,
+      "definition": "std::mutex batt::Watch< T >::mutex_",
+      "explicit": false,
+      "fullname": "batt::Watch::mutex_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 267,
+        "column": 24,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 267
+      },
+      "name": "mutex_",
+      "override": false,
+      "refid": "classbatt_1_1Watch_1a867cb7ea2b4c376083d5156a404a0b53",
+      "static": false,
+      "strong": false,
+      "title": "mutex_",
+      "type": "std::mutex",
+      "typePlain": "std::mutex",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#variable-mutex-",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-closed-",
+      "category": "attributes",
+      "const": false,
+      "definition": "bool batt::Watch< T >::closed_",
+      "explicit": false,
+      "fullname": "batt::Watch::closed_",
+      "hasDetails": false,
+      "initializer": "= false",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 268,
+        "column": 10,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 268
+      },
+      "name": "closed_",
+      "override": false,
+      "refid": "classbatt_1_1Watch_1abe2c9a15951ab1f14e4d00112c36e2f1",
+      "static": false,
+      "strong": false,
+      "title": "closed_",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#variable-closed-",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-value-",
+      "category": "attributes",
+      "const": false,
+      "definition": "T batt::Watch< T >::value_",
+      "explicit": false,
+      "fullname": "batt::Watch::value_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 269,
+        "column": 7,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 269
+      },
+      "name": "value_",
+      "override": false,
+      "refid": "classbatt_1_1Watch_1ac4d6c610f582e227c069d8d34269456a",
+      "static": false,
+      "strong": false,
+      "title": "value_",
+      "type": "T",
+      "typePlain": "T",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#variable-value-",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-observers-",
+      "category": "attributes",
+      "const": false,
+      "definition": "HandlerList<StatusOr<T> > batt::Watch< T >::observers_",
+      "explicit": false,
+      "fullname": "batt::Watch::observers_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 270,
+        "column": 17,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 270
+      },
+      "name": "observers_",
+      "override": false,
+      "refid": "classbatt_1_1Watch_1a7e69064551cbcc5b776a573875ecc8be",
+      "static": false,
+      "strong": false,
+      "title": "observers_",
+      "type": "HandlerList< [StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< T > >",
+      "typePlain": "HandlerList< StatusOr< T > >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#variable-observers-",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-watch",
+      "argsString": "(const Watch &)=delete",
+      "brief": "[Watch](/_autogen/Classes/classbatt_1_1Watch/) is not copy-constructible. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::Watch< T >::Watch",
+      "deleted": true,
+      "explicit": false,
+      "fullname": "batt::Watch::Watch",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 57
+      },
+      "name": "Watch",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [Watch](/_autogen/Classes/classbatt_1_1Watch/) &",
+          "typePlain": "const Watch &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1ae99e9f5fb69a7e48b15a222c9d94dd18",
+      "static": false,
+      "strong": false,
+      "summary": "Watch is not copy-constructible. ",
+      "title": "Watch",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-watch",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(const Watch &)=delete",
+      "brief": "[Watch](/_autogen/Classes/classbatt_1_1Watch/) is not copy-assignable. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Watch& batt::Watch< T >::operator=",
+      "deleted": true,
+      "explicit": false,
+      "fullname": "batt::Watch::operator=",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 11,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 61
+      },
+      "name": "operator=",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [Watch](/_autogen/Classes/classbatt_1_1Watch/) &",
+          "typePlain": "const Watch &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1aac6671a63782b8c74fd2f14aadc0b3b1",
+      "static": false,
+      "strong": false,
+      "summary": "Watch is not copy-assignable. ",
+      "title": "operator=",
+      "type": "[Watch](/_autogen/Classes/classbatt_1_1Watch/) &",
+      "typePlain": "Watch &",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-watch",
+      "argsString": "()=default",
+      "brief": "Constructs a [batt::Watch](/_autogen/Classes/classbatt_1_1Watch/) object with a default-initialized value of `T`. ",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::Watch< T >::Watch",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Watch::Watch",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 65
+      },
+      "name": "Watch",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1a22acb3a3f27b58c3ca97f148eed5b625",
+      "static": false,
+      "strong": false,
+      "summary": "Constructs a batt::Watch object with a default-initialized value of T. ",
+      "title": "Watch",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-watch",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-watch",
+      "argsString": "(Init &&init_value) noexcept",
+      "brief": "Constructs a [batt::Watch](/_autogen/Classes/classbatt_1_1Watch/) object with the given initial value. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::Watch< T >::Watch",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::Watch::Watch",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 72,
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 70,
+        "column": 14,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 70
+      },
+      "name": "Watch",
+      "override": false,
+      "params": [
+        {
+          "name": "init_value",
+          "type": "Init &&",
+          "typePlain": "Init &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1ac9776b3db0ec38520416c30f1626db76",
+      "static": false,
+      "strong": false,
+      "summary": "Constructs a batt::Watch object with the given initial value. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Init",
+          "typePlain": "typename Init"
+        },
+        {
+          "defval": "EnableIfNoShadow<[Watch](/_autogen/Classes/classbatt_1_1Watch/), Init>",
+          "defvalPlain": "EnableIfNoShadow<Watch, Init>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "Watch",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-watch",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-~watch",
+      "argsString": "()",
+      "brief": "Destroys the [Watch](/_autogen/Classes/classbatt_1_1Watch/), automatically calling [Watch::close](). ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::Watch< T >::~Watch",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Watch::~Watch",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 79,
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 76,
+        "column": 5,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 76
+      },
+      "name": "~Watch",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1ac9c55860776e65e5792a322a2b943bb7",
+      "static": false,
+      "strong": false,
+      "summary": "Destroys the Watch, automatically calling Watch::close. ",
+      "title": "~Watch",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-~watch",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-close",
+      "argsString": "()",
+      "brief": "Sets the [Watch](/_autogen/Classes/classbatt_1_1Watch/) to the \"closed\" state, which disables all blocking/async synchronization on the [Watch](/_autogen/Classes/classbatt_1_1Watch/), immediately unblocking any currently waiting tasks/threads. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::Watch< T >::close",
+      "deleted": false,
+      "details": "This method is safe to call multiple times. The [Watch](/_autogen/Classes/classbatt_1_1Watch/) value can still be modified and retrieved after it is closed; this only disables the methods in the \"Synchronization\" category (see Summary section above). ",
+      "explicit": false,
+      "fullname": "batt::Watch::close",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 98,
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 88,
+        "column": 10,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 88
+      },
+      "name": "close",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1a8351e2924ac04f97f40be0dae14ead38",
+      "static": false,
+      "strong": false,
+      "summary": "Sets the Watch to the \"closed\" state, which disables all blocking/async synchronization on the Watch, immediately unblocking any currently waiting tasks/threads. ",
+      "title": "close",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-close",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is-closed",
+      "argsString": "() const",
+      "brief": "Tests whether the [Watch](/_autogen/Classes/classbatt_1_1Watch/) is in a \"closed\" state. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "bool batt::Watch< T >::is_closed",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Watch::is_closed",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 106,
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 102,
+        "column": 10,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 102
+      },
+      "name": "is_closed",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1aedb844d5864a73a4b24a8ccc421d5211",
+      "static": false,
+      "strong": false,
+      "summary": "Tests whether the Watch is in a \"closed\" state. ",
+      "title": "is_closed",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-is-closed",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-set-value",
+      "argsString": "(const T &new_value)",
+      "brief": "Atomically set the value of the [Watch](/_autogen/Classes/classbatt_1_1Watch/). ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::Watch< T >::set_value",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Watch::set_value",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 121,
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 110,
+        "column": 10,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 110
+      },
+      "name": "set_value",
+      "override": false,
+      "params": [
+        {
+          "name": "new_value",
+          "type": "const T &",
+          "typePlain": "const T &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1a4be4a8f4a54e75e24b0a7eb6ab8b5cad",
+      "static": false,
+      "strong": false,
+      "summary": "Atomically set the value of the Watch. ",
+      "title": "set_value",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-set-value",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get-value",
+      "argsString": "() const",
+      "brief": "The current value of the [Watch](/_autogen/Classes/classbatt_1_1Watch/). ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "T batt::Watch< T >::get_value",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Watch::get_value",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 129,
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 125,
+        "column": 7,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 125
+      },
+      "name": "get_value",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1a29b19fc9761c0957c5fa955a195d0f2c",
+      "static": false,
+      "strong": false,
+      "summary": "The current value of the Watch. ",
+      "title": "get_value",
+      "type": "T",
+      "typePlain": "T",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-get-value",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-modify",
+      "argsString": "(Fn &&fn)",
+      "brief": "Atomically modifies the [Watch](/_autogen/Classes/classbatt_1_1Watch/) value by applying the passed transform `fn`. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "T batt::Watch< T >::modify",
+      "deleted": false,
+      "details": "`fn`**MUST** be safe to call multiple times within a single call to `modify`. This is because `modify` may be implemented via an atomic compare-and-swap loop.\n\n_NOTE: This behavior is acknowledged to be less than ideal and will be fixed in the future to be consistent, regardless of `T`_",
+      "explicit": false,
+      "fullname": "batt::Watch::modify",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 157,
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 143,
+        "column": 7,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 143
+      },
+      "name": "modify",
+      "override": false,
+      "params": [
+        {
+          "name": "fn",
+          "type": "Fn &&",
+          "typePlain": "Fn &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1a8c265a6245195ebcc78cc6193822521a",
+      "returns": [
+        "if `T` is a primitive integer type (including `bool`), the new value of the [Watch](/_autogen/Classes/classbatt_1_1Watch/); else, the old value of the [Watch](/_autogen/Classes/classbatt_1_1Watch/)"
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Atomically modifies the Watch value by applying the passed transform fn. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        }
+      ],
+      "title": "modify",
+      "type": "T",
+      "typePlain": "T",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-modify",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-async-wait",
+      "argsString": "(const T &last_seen, Handler &&fn)",
+      "brief": "Invokes the passed handler `fn` with the described value as soon as one of the following conditions is true: ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::Watch< T >::async_wait",
+      "deleted": false,
+      "details": "\n\n* When the [Watch](/_autogen/Classes/classbatt_1_1Watch/) value is _not_ equal to the passed value `last_seen`, invoke `fn` with the current value of the [Watch](/_autogen/Classes/classbatt_1_1Watch/).\n* When the [Watch](/_autogen/Classes/classbatt_1_1Watch/) is closed, invoke `fn` with `batt::StatusCode::kClosed`. ",
+      "explicit": false,
+      "fullname": "batt::Watch::async_wait",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 188,
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 166,
+        "column": 10,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 166
+      },
+      "name": "async_wait",
+      "override": false,
+      "params": [
+        {
+          "name": "last_seen",
+          "type": "const T &",
+          "typePlain": "const T &"
+        },
+        {
+          "name": "fn",
+          "type": "Handler &&",
+          "typePlain": "Handler &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1a5972dc3955966739fe7a9ea1f3f9285a",
+      "static": false,
+      "strong": false,
+      "summary": "Invokes the passed handler fn with the described value as soon as one of the following conditions is true: ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Handler",
+          "typePlain": "typename Handler"
+        }
+      ],
+      "title": "async_wait",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-async-wait",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-await-not-equal",
+      "argsString": "(const T &last_seen)",
+      "brief": "Blocks the current task/thread until the [Watch](/_autogen/Classes/classbatt_1_1Watch/) value is _not_ equal to `last_seen`. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "StatusOr< T > batt::Watch< T >::await_not_equal",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Watch::await_not_equal",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 26,
+        "bodyFile": "batteries/async/watch_impl.hpp",
+        "bodyStart": 21,
+        "column": 14,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 196
+      },
+      "name": "await_not_equal",
+      "override": false,
+      "params": [
+        {
+          "name": "last_seen",
+          "type": "const T &",
+          "typePlain": "const T &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1a22e6c018bb6cf01506c3eae2b2a68db5",
+      "returns": [
+        "On success, the current value of the [Watch](/_autogen/Classes/classbatt_1_1Watch/), which is guaranteed to _not_ equal `last_seen`, else `batt::StatusCode::kClosed` if the [Watch](/_autogen/Classes/classbatt_1_1Watch/) was closed before a satisfactory value was observed "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Blocks the current task/thread until the Watch value is not equal to last_seen. ",
+      "title": "await_not_equal",
+      "type": "[StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< T >",
+      "typePlain": "StatusOr< T >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-await-not-equal",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-await-true",
+      "argsString": "(Pred &&pred)",
+      "brief": "Blocks the current task/thread until the passed predicate function returns `true` for the current value of the [Watch](/_autogen/Classes/classbatt_1_1Watch/). ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "StatusOr<T> batt::Watch< T >::await_true",
+      "deleted": false,
+      "details": "This is the most general of [Watch](/_autogen/Classes/classbatt_1_1Watch/)'s blocking getter methods.",
+      "explicit": false,
+      "fullname": "batt::Watch::await_true",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 216,
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 207,
+        "column": 14,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 207
+      },
+      "name": "await_true",
+      "override": false,
+      "params": [
+        {
+          "name": "pred",
+          "type": "Pred &&",
+          "typePlain": "Pred &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1a28d212d07cc42ad7a09cdff89cca278f",
+      "returns": [
+        "On success, the [Watch](/_autogen/Classes/classbatt_1_1Watch/) value for which `pred` returned `true`, else `batt::StatusCode::kClosed` if the [Watch](/_autogen/Classes/classbatt_1_1Watch/) was closed before a satisfactory value was observed "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Blocks the current task/thread until the passed predicate function returns true for the current value of the Watch. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Pred",
+          "typePlain": "typename Pred"
+        }
+      ],
+      "title": "await_true",
+      "type": "[StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< T >",
+      "typePlain": "StatusOr< T >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-await-true",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-clamp-min-value",
+      "argsString": "(const T &lower_bound, OrderFn &&order_fn)",
+      "brief": "Modify the value to be at least `lower_bound`. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::Watch< T >::clamp_min_value",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Watch::clamp_min_value",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 233,
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 225,
+        "column": 10,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 225
+      },
+      "name": "clamp_min_value",
+      "override": false,
+      "paramList": [
+        {
+          "name": "lower_bound",
+          "text": "The (inclusive) lower bound value to enforce "
+        },
+        {
+          "name": "order_fn",
+          "text": "A callable object taking two T values and returning bool that returns true iff the first argument is less-than the second. "
+        }
+      ],
+      "params": [
+        {
+          "name": "lower_bound",
+          "type": "const T &",
+          "typePlain": "const T &"
+        },
+        {
+          "name": "order_fn",
+          "type": "OrderFn &&",
+          "typePlain": "OrderFn &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1a47d6669eac1e104ecdba2ed69ccbd7d1",
+      "static": false,
+      "strong": false,
+      "summary": "Modify the value to be at least lower_bound. ",
+      "templateParams": [
+        {
+          "defval": "bool(const T&, const T&)",
+          "defvalPlain": "bool(const T&, const T&)",
+          "name": "",
+          "type": "typename OrderFn",
+          "typePlain": "typename OrderFn"
+        }
+      ],
+      "title": "clamp_min_value",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-clamp-min-value",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-clamp-max-value",
+      "argsString": "(const T &upper_bound, OrderFn &&order_fn)",
+      "brief": "Modify the value to be at most `upper_bound`. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::Watch< T >::clamp_max_value",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Watch::clamp_max_value",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 250,
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 242,
+        "column": 10,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 242
+      },
+      "name": "clamp_max_value",
+      "override": false,
+      "paramList": [
+        {
+          "name": "upper_bound",
+          "text": "The (inclusive) upper bound value to enforce "
+        },
+        {
+          "name": "order_fn",
+          "text": "A callable object taking two T values and returning bool that returns true iff the first argument is less-than the second. "
+        }
+      ],
+      "params": [
+        {
+          "name": "upper_bound",
+          "type": "const T &",
+          "typePlain": "const T &"
+        },
+        {
+          "name": "order_fn",
+          "type": "OrderFn &&",
+          "typePlain": "OrderFn &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1ad8be2b615d9b602e61671365fb67e681",
+      "static": false,
+      "strong": false,
+      "summary": "Modify the value to be at most upper_bound. ",
+      "templateParams": [
+        {
+          "defval": "bool(const T&, const T&)",
+          "defvalPlain": "bool(const T&, const T&)",
+          "name": "",
+          "type": "typename OrderFn",
+          "typePlain": "typename OrderFn"
+        }
+      ],
+      "title": "clamp_max_value",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-clamp-max-value",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-clamp-min-value",
+      "argsString": "(const T &lower_bound)",
+      "brief": "Modify the value to be at least `lower_bound`, using the default ordering for T. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::Watch< T >::clamp_min_value",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Watch::clamp_min_value",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 257,
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 254,
+        "column": 10,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 254
+      },
+      "name": "clamp_min_value",
+      "override": false,
+      "params": [
+        {
+          "name": "lower_bound",
+          "type": "const T &",
+          "typePlain": "const T &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1a8de1f6cbadb1b9b6dbf3767df8192aed",
+      "static": false,
+      "strong": false,
+      "summary": "Modify the value to be at least lower_bound, using the default ordering for T. ",
+      "title": "clamp_min_value",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-clamp-min-value",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-clamp-max-value",
+      "argsString": "(const T &upper_bound)",
+      "brief": "Modify the value to be at most `upper_bound`, using the default ordering for T. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::Watch< T >::clamp_max_value",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Watch::clamp_max_value",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 264,
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 261,
+        "column": 10,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 261
+      },
+      "name": "clamp_max_value",
+      "override": false,
+      "params": [
+        {
+          "name": "upper_bound",
+          "type": "const T &",
+          "typePlain": "const T &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Watch_1a8fed571c67f183cb098e4183fb5277e2",
+      "static": false,
+      "strong": false,
+      "summary": "Modify the value to be at most upper_bound, using the default ordering for T. ",
+      "title": "clamp_max_value",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/#function-clamp-max-value",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1Watch",
+  "static": false,
+  "strong": false,
+  "summary": "A batt::Watch is like a std::atomic that you can block on, synchronously and asynchronously; see also batt::WatchAtomic. ",
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename T",
+      "typePlain": "typename T"
+    }
+  ],
+  "title": "batt::Watch",
+  "url": "/_autogen/Classes/classbatt_1_1Watch/",
+  "visibility": "public"
+}

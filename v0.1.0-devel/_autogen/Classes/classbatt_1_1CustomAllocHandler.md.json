@@ -1,0 +1,303 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "brief": "Wrapper for an async completion handler type `Handler`. ",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "details": "Provides an associated allocator that allocates from a `[HandlerMemory](/_autogen/Classes/classbatt_1_1HandlerMemory/)` instance. ",
+  "explicit": false,
+  "fullname": "batt::CustomAllocHandler",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "<batteries/async/handler.hpp>",
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 410,
+    "bodyFile": "batteries/async/handler.hpp",
+    "bodyStart": 380,
+    "column": 1,
+    "file": "batteries/async/handler.hpp",
+    "line": 379
+  },
+  "name": "batt::CustomAllocHandler",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-memory-",
+      "category": "attributes",
+      "const": false,
+      "definition": "HandlerMemoryBase& batt::CustomAllocHandler< Handler >::memory_",
+      "explicit": false,
+      "fullname": "batt::CustomAllocHandler::memory_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 405,
+        "column": 23,
+        "file": "batteries/async/handler.hpp",
+        "line": 405
+      },
+      "name": "memory_",
+      "override": false,
+      "refid": "classbatt_1_1CustomAllocHandler_1a5e43ba228763a2729d9116a6a9e53c40",
+      "static": false,
+      "strong": false,
+      "title": "memory_",
+      "type": "[HandlerMemoryBase](/_autogen/Classes/classbatt_1_1HandlerMemoryBase/) &",
+      "typePlain": "HandlerMemoryBase &",
+      "url": "/_autogen/Classes/classbatt_1_1CustomAllocHandler/#variable-memory-",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-handler-",
+      "category": "attributes",
+      "const": false,
+      "definition": "Handler batt::CustomAllocHandler< Handler >::handler_",
+      "explicit": false,
+      "fullname": "batt::CustomAllocHandler::handler_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 409,
+        "column": 13,
+        "file": "batteries/async/handler.hpp",
+        "line": 409
+      },
+      "name": "handler_",
+      "override": false,
+      "refid": "classbatt_1_1CustomAllocHandler_1a3c1a3f5e8eb7bb3cd7dd0bdc5d298c68",
+      "static": false,
+      "strong": false,
+      "title": "handler_",
+      "type": "Handler",
+      "typePlain": "Handler",
+      "url": "/_autogen/Classes/classbatt_1_1CustomAllocHandler/#variable-handler-",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-customallochandler",
+      "argsString": "(HandlerMemoryBase &m, HandlerArg &&h)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::CustomAllocHandler< Handler >::CustomAllocHandler",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CustomAllocHandler::CustomAllocHandler",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 389,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 385,
+        "column": 5,
+        "file": "batteries/async/handler.hpp",
+        "line": 385
+      },
+      "name": "CustomAllocHandler",
+      "override": false,
+      "params": [
+        {
+          "name": "m",
+          "type": "[HandlerMemoryBase](/_autogen/Classes/classbatt_1_1HandlerMemoryBase/) &",
+          "typePlain": "HandlerMemoryBase &"
+        },
+        {
+          "name": "h",
+          "type": "HandlerArg &&",
+          "typePlain": "HandlerArg &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CustomAllocHandler_1a1ab568555a895abdf738216fcadebffe",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename HandlerArg",
+          "typePlain": "typename HandlerArg"
+        }
+      ],
+      "title": "CustomAllocHandler",
+      "url": "/_autogen/Classes/classbatt_1_1CustomAllocHandler/#function-customallochandler",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get-allocator",
+      "argsString": "() const noexcept",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "allocator_type batt::CustomAllocHandler< Handler >::get_allocator",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CustomAllocHandler::get_allocator",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 394,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 391,
+        "column": 20,
+        "file": "batteries/async/handler.hpp",
+        "line": 391
+      },
+      "name": "get_allocator",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CustomAllocHandler_1aabdca5f7ea1d3bf4d67cbbdfa647768d",
+      "static": false,
+      "strong": false,
+      "title": "get_allocator",
+      "type": "[allocator_type](/_autogen/Classes/classbatt_1_1HandlerAllocator/)",
+      "typePlain": "allocator_type",
+      "url": "/_autogen/Classes/classbatt_1_1CustomAllocHandler/#function-get-allocator",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator()",
+      "argsString": "(Args &&... args) noexcept(noexcept(std::declval< Handler & >()(std::declval< Args >()...)))",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::CustomAllocHandler< Handler >::operator()",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CustomAllocHandler::operator()",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 400,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 397,
+        "column": 10,
+        "file": "batteries/async/handler.hpp",
+        "line": 397
+      },
+      "name": "operator()",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CustomAllocHandler_1a57156b50d7e44b158ee657dfa4dc4036",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "operator()",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1CustomAllocHandler/#function-operator()",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-allocator-type",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::CustomAllocHandler< Handler >::allocator_type =  HandlerAllocator<Handler>",
+      "explicit": false,
+      "fullname": "batt::CustomAllocHandler::allocator_type",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 382,
+        "column": 5,
+        "file": "batteries/async/handler.hpp",
+        "line": 382
+      },
+      "name": "allocator_type",
+      "override": false,
+      "refid": "classbatt_1_1CustomAllocHandler_1aaa145a54de71ebbbd9d392be6f6d721f",
+      "static": false,
+      "strong": false,
+      "title": "allocator_type",
+      "type": "[HandlerAllocator](/_autogen/Classes/classbatt_1_1HandlerAllocator/)< Handler >",
+      "typePlain": "HandlerAllocator< Handler >",
+      "url": "/_autogen/Classes/classbatt_1_1CustomAllocHandler/#using-allocator-type",
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1CustomAllocHandler",
+  "static": false,
+  "strong": false,
+  "summary": "Wrapper for an async completion handler type Handler. ",
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename Handler",
+      "typePlain": "typename Handler"
+    }
+  ],
+  "title": "batt::CustomAllocHandler",
+  "url": "/_autogen/Classes/classbatt_1_1CustomAllocHandler/",
+  "visibility": "public"
+}
