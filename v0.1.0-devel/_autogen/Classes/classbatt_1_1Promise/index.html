@@ -547,6 +547,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#function-set_value_1" class="md-nav__link">
+    function set_value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-set_value_2" class="md-nav__link">
+    function set_value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-set_error" class="md-nav__link">
+    function set_error
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-get_future" class="md-nav__link">
+    function get_future
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -591,7 +619,7 @@
   <h1>batt::Promise</h1>
 
 <h1 id="battpromise">batt::Promise<a class="headerlink" href="#battpromise" title="Permanent link">&#128279;</a></h1>
-<p>An obligation to provide a value of type T to a <a href="/_autogen/Classes/classbatt_1_1Future/">Future</a>.  <a href="#detailed-description">More...</a></p>
+<p>An obligation to provide a value of type T to a <a href="">Future</a>.  <a href="#detailed-description">More...</a></p>
 <p><code>#include &lt;batteries/async/future_decl.hpp&gt;</code></p>
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&#128279;</a></h2>
 <table>
@@ -608,7 +636,23 @@
 </tr>
 <tr>
 <td>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1Promise/#function-set-value">set_value</a></strong>(T &amp;&amp; value)<br>Sets the value of the promise, resolving the corresponding <a href="/_autogen/Classes/classbatt_1_1Future/">Future</a> and unblocking any pending calls to await.</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Promise/#function-set-value">set_value</a></strong>(T &amp;&amp; value)<br>Sets the value of the promise, resolving the corresponding <a href="">Future</a> and unblocking any pending calls to await.</td>
+</tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Promise/#function-set-value">set_value</a></strong>(<a href="/_autogen/Classes/classbatt_1_1StatusOr/">StatusOr</a>&lt; T &gt; &amp;&amp; value)<br>Sets the value of the promise, resolving the corresponding <a href="">Future</a> and unblocking any pending calls to await.</td>
+</tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Promise/#function-set-value">set_value</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1StatusOr/">StatusOr</a>&lt; T &gt; &amp; value)<br>Sets the value of the promise, resolving the corresponding <a href="">Future</a> and unblocking any pending calls to await.</td>
+</tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Promise/#function-set-error">set_error</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1Status/">Status</a> &amp; status)<br>Resolves the promise to the given error status.</td>
+</tr>
+<tr>
+<td><a href="/_autogen/Classes/classbatt_1_1Future/">Future</a>&lt; T &gt;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Promise/#function-get-future">get_future</a></strong>() const<br>Same as <code>batt::get_future(*this)</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -632,7 +676,7 @@
 <span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">batt</span><span class="o">::</span><span class="n">Promise</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
-<p>An obligation to provide a value of type T to a <a href="/_autogen/Classes/classbatt_1_1Future/">Future</a>. </p>
+<p>An obligation to provide a value of type T to a <a href="">Future</a>. </p>
 <p><strong>See</strong>: <a href="/_autogen/Classes/classbatt_1_1Future/">batt::Future</a></p>
 <h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&#128279;</a></h2>
 <h3 id="function-promise">function Promise<a class="headerlink" href="#function-promise" title="Permanent link">&#128279;</a></h3>
@@ -646,17 +690,45 @@
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">value</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>Sets the value of the promise, resolving the corresponding <a href="/_autogen/Classes/classbatt_1_1Future/">Future</a> and unblocking any pending calls to await. </p>
-<h2 id="friends_1">Friends<a class="headerlink" href="#friends_1" title="Permanent link">&#128279;</a></h2>
-<h3 id="friend-get_future">friend get_future<a class="headerlink" href="#friend-get_future" title="Permanent link">&#128279;</a></h3>
+<p>Sets the value of the promise, resolving the corresponding <a href="">Future</a> and unblocking any pending calls to await. </p>
+<h3 id="function-set_value_1">function set_value<a class="headerlink" href="#function-set_value_1" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">friend</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_future</span><span class="p">(</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">promise</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">);</span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">set_value</span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">value</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Sets the value of the promise, resolving the corresponding <a href="">Future</a> and unblocking any pending calls to await. </p>
+<h3 id="function-set_value_2">function set_value<a class="headerlink" href="#function-set_value_2" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">set_value</span><span class="p">(</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Sets the value of the promise, resolving the corresponding <a href="">Future</a> and unblocking any pending calls to await. </p>
+<h3 id="function-set_error">function set_error<a class="headerlink" href="#function-set_error" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">set_error</span><span class="p">(</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">status</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Resolves the promise to the given error status. </p>
+<h3 id="function-get_future">function get_future<a class="headerlink" href="#function-get_future" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_future</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</code></pre></div></td></tr></table></div>
+<p>Same as <code>batt::get_future(*this)</code>. </p>
+<h2 id="friends_1">Friends<a class="headerlink" href="#friends_1" title="Permanent link">&#128279;</a></h2>
+<h3 id="friend-get_future">friend get_future<a class="headerlink" href="#friend-get_future" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">friend</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_future</span><span class="p">(</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">promise</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on  8 March 2023 at 17:56:48 UTC</p>
+<p>Updated on 10 March 2023 at 20:20:45 UTC</p>
 
 
 

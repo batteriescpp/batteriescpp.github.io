@@ -26,7 +26,7 @@
       "location": {
         "column": 19,
         "file": "batteries/async/future_decl.hpp",
-        "line": 75
+        "line": 109
       },
       "name": "get_future",
       "override": false,
@@ -64,12 +64,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 85,
+    "bodyEnd": 127,
     "bodyFile": "batteries/async/future_decl.hpp",
-    "bodyStart": 58,
+    "bodyStart": 92,
     "column": 1,
     "file": "batteries/async/future_decl.hpp",
-    "line": 57
+    "line": 91
   },
   "name": "batt::Future",
   "override": false,
@@ -114,10 +114,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/future_decl.hpp",
-        "bodyStart": 84,
+        "bodyStart": 126,
         "column": 26,
         "file": "batteries/async/future_decl.hpp",
-        "line": 84
+        "line": 126
       },
       "name": "impl_",
       "override": false,
@@ -148,12 +148,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 63,
+        "bodyEnd": 85,
         "bodyFile": "batteries/async/future_impl.hpp",
-        "bodyStart": 60,
+        "bodyStart": 82,
         "column": 14,
         "file": "batteries/async/future_decl.hpp",
-        "line": 82
+        "line": 122
       },
       "name": "Future",
       "override": false,
@@ -179,7 +179,7 @@
       "abstract": false,
       "anchor": "#function-async-wait",
       "argsString": "(Handler &&handler) const",
-      "brief": "Registers the passed handler to be invoked once the [Future](/_autogen/Classes/classbatt_1_1Future/) is resolved (via [Promise::set_value]()). ",
+      "brief": "Registers the passed handler to be invoked once the [Future](/_autogen/Classes/classbatt_1_1Future/) is resolved (via [Promise::set_value](/_autogen/Classes/classbatt_1_1Promise/#function-set-value)). ",
       "category": "functions",
       "const": true,
       "default": false,
@@ -193,12 +193,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 55,
+        "bodyEnd": 77,
         "bodyFile": "batteries/async/future_impl.hpp",
-        "bodyStart": 52,
+        "bodyStart": 74,
         "column": 10,
         "file": "batteries/async/future_decl.hpp",
-        "line": 68
+        "line": 102
       },
       "name": "async_wait",
       "override": false,
@@ -251,12 +251,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 79,
+        "bodyEnd": 101,
         "bodyFile": "batteries/async/future_impl.hpp",
-        "bodyStart": 76,
+        "bodyStart": 98,
         "column": 10,
         "file": "batteries/async/future_decl.hpp",
-        "line": 79
+        "line": 113
       },
       "name": "is_ready",
       "override": false,
@@ -270,6 +270,45 @@
       "type": "bool",
       "typePlain": "bool",
       "url": "/_autogen/Classes/classbatt_1_1Future/#function-is-ready",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-await",
+      "argsString": "() const",
+      "brief": "Awaits resolution of the future. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "StatusOr< T > batt::Future< T >::await",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Future::await",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 109,
+        "bodyFile": "batteries/async/future_impl.hpp",
+        "bodyStart": 106,
+        "column": 14,
+        "file": "batteries/async/future_decl.hpp",
+        "line": 117
+      },
+      "name": "await",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Future_1af4d7a52e99ec1710ef600dafca005c19",
+      "static": false,
+      "strong": false,
+      "summary": "Awaits resolution of the future. ",
+      "title": "await",
+      "type": "[StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< T >",
+      "typePlain": "StatusOr< T >",
+      "url": "/_autogen/Classes/classbatt_1_1Future/#function-await",
       "virtual": false,
       "visibility": "public"
     }

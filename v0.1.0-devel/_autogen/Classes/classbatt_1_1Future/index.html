@@ -547,6 +547,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#function-await" class="md-nav__link">
+    function await
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -604,11 +611,15 @@
 <tbody>
 <tr>
 <td>template &lt;typename Handler > <br>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1Future/#function-async-wait">async_wait</a></strong>(Handler &amp;&amp; handler) const<br>Registers the passed handler to be invoked once the <a href="/_autogen/Classes/classbatt_1_1Future/">Future</a> is resolved (via <a href="">Promise::set_value</a>).</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Future/#function-async-wait">async_wait</a></strong>(Handler &amp;&amp; handler) const<br>Registers the passed handler to be invoked once the <a href="/_autogen/Classes/classbatt_1_1Future/">Future</a> is resolved (via <a href="/_autogen/Classes/classbatt_1_1Promise/#function-set-value">Promise::set_value</a>).</td>
 </tr>
 <tr>
 <td>bool</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Future/#function-is-ready">is_ready</a></strong>() const<br>Tests whether the <a href="/_autogen/Classes/classbatt_1_1Future/">Future</a> value is ready to be read.</td>
+</tr>
+<tr>
+<td><a href="/_autogen/Classes/classbatt_1_1StatusOr/">StatusOr</a>&lt; T &gt;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Future/#function-await">await</a></strong>() const<br>Awaits resolution of the future.</td>
 </tr>
 </tbody>
 </table>
@@ -645,7 +656,7 @@
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="n">Handler</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">handler</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
-<p>Registers the passed handler to be invoked once the <a href="/_autogen/Classes/classbatt_1_1Future/">Future</a> is resolved (via <a href="">Promise::set_value</a>). </p>
+<p>Registers the passed handler to be invoked once the <a href="/_autogen/Classes/classbatt_1_1Future/">Future</a> is resolved (via <a href="/_autogen/Classes/classbatt_1_1Promise/#function-set-value">Promise::set_value</a>). </p>
 <p><strong>Parameters</strong>: </p>
 <ul>
 <li><strong>handler</strong> Invoked with the future value; must have signature <code class="highlight"><span class="kt">void</span><span class="p">(</span></code><a href="/_autogen/Classes/classbatt_1_1StatusOr/">StatusOr</a><code class="highlight"><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span></code></li>
@@ -655,16 +666,20 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_ready</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
 <p>Tests whether the <a href="/_autogen/Classes/classbatt_1_1Future/">Future</a> value is ready to be read. </p>
+<h3 id="function-await">function await<a class="headerlink" href="#function-await" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">await</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</code></pre></div></td></tr></table></div>
+<p>Awaits resolution of the future. </p>
 <h2 id="friends_1">Friends<a class="headerlink" href="#friends_1" title="Permanent link">&#128279;</a></h2>
 <h3 id="friend-get_future">friend get_future<a class="headerlink" href="#friend-get_future" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">friend</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_future</span><span class="p">(</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">promise</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">);</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">friend</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_future</span><span class="p">(</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">promise</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on  8 March 2023 at 17:56:48 UTC</p>
+<p>Updated on 10 March 2023 at 20:20:45 UTC</p>
 
 
 
