@@ -841,7 +841,7 @@
 <a id="__codelineno-1-105" name="__codelineno-1-105"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
 <a id="__codelineno-1-106" name="__codelineno-1-106"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">await</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 <a id="__codelineno-1-107" name="__codelineno-1-107"></a><span class="p">{</span>
-<a id="__codelineno-1-108" name="__codelineno-1-108"></a><span class="w">    </span><span class="o">::</span><span class="n">batt</span><span class="o">::</span><span class="n">Task</span><span class="o">::</span><span class="n">await</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
+<a id="__codelineno-1-108" name="__codelineno-1-108"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">::</span><span class="n">batt</span><span class="o">::</span><span class="n">Task</span><span class="o">::</span><span class="n">await</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
 <a id="__codelineno-1-109" name="__codelineno-1-109"></a><span class="p">}</span>
 <a id="__codelineno-1-110" name="__codelineno-1-110"></a>
 <a id="__codelineno-1-111" name="__codelineno-1-111"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
@@ -849,7 +849,7 @@
 <a id="__codelineno-1-113" name="__codelineno-1-113"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_FUTURE_IMPL_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 10 March 2023 at 21:06:57 UTC</p>
+<p>Updated on 13 March 2023 at 18:03:42 UTC</p>
 
 
 
