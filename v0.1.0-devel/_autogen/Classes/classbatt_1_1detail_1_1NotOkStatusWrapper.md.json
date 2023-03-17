@@ -12,7 +12,7 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 1013,
+    "bodyEnd": 1015,
     "bodyFile": "batteries/status.hpp",
     "bodyStart": 914,
     "column": 1,
@@ -159,7 +159,7 @@
       "explicit": false,
       "fullname": "batt::detail::NotOkStatusWrapper::level_",
       "hasDetails": false,
-      "initializer": "{require_fail_thread_default_log_level()}",
+      "initializer": "{require_fail_thread_default_log_level().or_else([] {\n        return require_fail_global_default_log_level().load();\n    })}",
       "inline": false,
       "kind": "variable",
       "language": "cpp",
@@ -195,10 +195,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1012,
+        "bodyStart": 1014,
         "column": 24,
         "file": "batteries/status.hpp",
-        "line": 1012
+        "line": 1014
       },
       "name": "output_",
       "override": false,

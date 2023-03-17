@@ -509,6 +509,13 @@
 
 <ul>
 <li>
+<p>0.28.4 (2023/03/17)</p>
+<ul>
+<li>Added <code>batt::Optional::or_else(Fn)</code> to match <code>std::optional</code>.</li>
+<li>Changed <code>batt::require_fail_thread_default_log_level()</code> to return <code>batt::Optional&lt;batt::LogLevel&gt;&amp;</code> instead of <code>batt::LogLevel&amp;</code>, and made it default to the <em>current</em> global setting when it is <code>batt::None</code>.</li>
+</ul>
+</li>
+<li>
 <p>0.28.3 (2023/03/13)</p>
 <ul>
 <li>Fix bug that prevented the use of <code>batt::Future&lt;T&gt;::await</code>.</li>
