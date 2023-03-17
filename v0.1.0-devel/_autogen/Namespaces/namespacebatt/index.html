@@ -3974,6 +3974,10 @@
 </tr>
 <tr>
 <td>class</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HistogramMetric/">batt::HistogramMetric</a></strong> <br>Collect histogram values for multiple samples.</td>
+</tr>
+<tr>
+<td>class</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1MetricCsvFormatter/">batt::MetricCsvFormatter</a></strong></td>
 </tr>
 <tr>
@@ -5224,7 +5228,7 @@
 </tr>
 <tr>
 <td>template &lt;typename T > <br><a href="/_autogen/Classes/classbatt_1_1Optional/">Optional</a>&lt; T &gt;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-getenv-as">getenv_as</a></strong>(const char * var_name)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-getenv-as">getenv_as</a></strong>(const char * var_name)<br>Parse environment variable as a given type <code>T</code>.</td>
 </tr>
 <tr>
 <td>template &lt;typename Fn > <br>auto</td>
@@ -8537,6 +8541,12 @@
 <a id="__codelineno-223-3" name="__codelineno-223-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">var_name</span>
 <a id="__codelineno-223-4" name="__codelineno-223-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
+<p>Parse environment variable as a given type <code>T</code>. </p>
+<p><strong>Parameters</strong>: </p>
+<ul>
+<li><strong>var_name</strong> The environment variable name</li>
+</ul>
+<p><strong>Return</strong>: The parsed value if <code>var_name</code> is found and it parses correctly, else batt::None. </p>
 <h3 id="function-finally">function finally<a class="headerlink" href="#function-finally" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-224-1">1</a></span>
 <span class="normal"><a href="#__codelineno-224-2">2</a></span>
@@ -10461,7 +10471,7 @@ The unit string may be upper or lower case, and only the first character is cons
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-413-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-413-1" name="__codelineno-413-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">TupleIndexOf_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TupleIndexOf</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">TupleT</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 17 March 2023 at 17:14:13 UTC</p>
+<p>Updated on 17 March 2023 at 19:42:42 UTC</p>
 
 
 

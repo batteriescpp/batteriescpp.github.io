@@ -2110,6 +2110,20 @@
     },
     {
       "anchor": "",
+      "brief": "Collect histogram values for multiple samples. ",
+      "category": "classes",
+      "fullname": "batt::HistogramMetric",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::HistogramMetric",
+      "refid": "classbatt_1_1HistogramMetric",
+      "summary": "Collect histogram values for multiple samples. ",
+      "title": "batt::HistogramMetric",
+      "url": "/_autogen/Classes/classbatt_1_1HistogramMetric/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
       "baseClasses": [
         {
           "external": false,
@@ -12792,6 +12806,7 @@
       "abstract": false,
       "anchor": "#function-getenv-as",
       "argsString": "(const char *var_name)",
+      "brief": "Parse environment variable as a given type `T`. ",
       "category": "functions",
       "const": false,
       "default": false,
@@ -12804,15 +12819,21 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 33,
+        "bodyEnd": 39,
         "bodyFile": "batteries/env.hpp",
-        "bodyStart": 19,
+        "bodyStart": 25,
         "column": 10,
         "file": "batteries/env.hpp",
-        "line": 19
+        "line": 25
       },
       "name": "getenv_as",
       "override": false,
+      "paramList": [
+        {
+          "name": "var_name",
+          "text": "The environment variable name"
+        }
+      ],
       "params": [
         {
           "name": "var_name",
@@ -12822,8 +12843,12 @@
       ],
       "pureVirtual": false,
       "refid": "env_8hpp_1a27fe760a03ced17b0efcca1323fe4dc5",
+      "returns": [
+        "The parsed value if `var_name` is found and it parses correctly, else batt::None. "
+      ],
       "static": false,
       "strong": false,
+      "summary": "Parse environment variable as a given type T. ",
       "templateParams": [
         {
           "name": "",
@@ -14551,12 +14576,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 145,
+        "bodyEnd": 148,
         "bodyFile": "batteries/metrics/metric_collectors.hpp",
-        "bodyStart": 139,
+        "bodyStart": 142,
         "column": 8,
         "file": "batteries/metrics/metric_collectors.hpp",
-        "line": 139
+        "line": 142
       },
       "name": "operator<<",
       "override": false,
@@ -24092,10 +24117,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/metrics/metric_collectors.hpp",
-        "bodyStart": 198,
+        "bodyStart": 201,
         "column": 1,
         "file": "batteries/metrics/metric_collectors.hpp",
-        "line": 198
+        "line": 201
       },
       "name": "DerivedMetric",
       "override": false,

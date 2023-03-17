@@ -1,0 +1,617 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "brief": "Collect histogram values for multiple samples. ",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "details": "Histogram initialization: provide data-range (min, max] and the number of buckets. Histogram calculation: update per observed sample, uses constant memory.\n\nBuckets are evenly spaced, except when the required range/number of buckets ratio would result with a remainder. Each bucket interval is: (lower-bound, upper-bound] with 2 excess buckets to account for out-of-range samples, (which exceed expected maximum or subceed expected minimum values). ",
+  "explicit": false,
+  "fullname": "batt::HistogramMetric",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "<batteries/metrics/metric_collectors.hpp>",
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 481,
+    "bodyFile": "batteries/metrics/metric_collectors.hpp",
+    "bodyStart": 355,
+    "column": 1,
+    "file": "batteries/metrics/metric_collectors.hpp",
+    "line": 354
+  },
+  "name": "batt::HistogramMetric",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-intervals-",
+      "category": "attributes",
+      "const": false,
+      "definition": "std::vector<T> batt::HistogramMetric< T >::intervals_",
+      "explicit": false,
+      "fullname": "batt::HistogramMetric::intervals_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/metrics/metric_collectors.hpp",
+        "bodyStart": 479,
+        "column": 17,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 479
+      },
+      "name": "intervals_",
+      "override": false,
+      "refid": "classbatt_1_1HistogramMetric_1abd3ebaca37d7d7fa310c6ef144c242f2",
+      "static": false,
+      "strong": false,
+      "title": "intervals_",
+      "type": "std::vector< T >",
+      "typePlain": "std::vector< T >",
+      "url": "/_autogen/Classes/classbatt_1_1HistogramMetric/#variable-intervals-",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-buckets-",
+      "category": "attributes",
+      "const": false,
+      "definition": "std::array<StatsMetric<T>, kMaxNumberOfIntervals> batt::HistogramMetric< T >::buckets_",
+      "explicit": false,
+      "fullname": "batt::HistogramMetric::buckets_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/metrics/metric_collectors.hpp",
+        "bodyStart": 480,
+        "column": 16,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 480
+      },
+      "name": "buckets_",
+      "override": false,
+      "refid": "classbatt_1_1HistogramMetric_1aa3e3b1a53f35014c5ab764d0233d1680",
+      "static": false,
+      "strong": false,
+      "title": "buckets_",
+      "type": "std::array< [StatsMetric](/_autogen/Classes/classbatt_1_1StatsMetric/)< T >, [kMaxNumberOfIntervals](/_autogen/Classes/classbatt_1_1HistogramMetric/#variable-kmaxnumberofintervals) >",
+      "typePlain": "std::array< StatsMetric< T >, kMaxNumberOfIntervals >",
+      "url": "/_autogen/Classes/classbatt_1_1HistogramMetric/#variable-buckets-",
+      "visibility": "private"
+    }
+  ],
+  "publicAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-kmaxnumberofintervals",
+      "brief": "The maximum number of intervals allowed in histogram initialization. ",
+      "category": "attributes",
+      "const": false,
+      "definition": "constexpr batt::int_types::i64 batt::HistogramMetric< T >::kMaxNumberOfIntervals",
+      "explicit": false,
+      "fullname": "batt::HistogramMetric::kMaxNumberOfIntervals",
+      "hasDetails": false,
+      "initializer": "=  1 + 16 +  1",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/metrics/metric_collectors.hpp",
+        "bodyStart": 358,
+        "column": 43,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 358
+      },
+      "name": "kMaxNumberOfIntervals",
+      "override": false,
+      "refid": "classbatt_1_1HistogramMetric_1a857f7204c4a32a88472910e875c859b5",
+      "static": true,
+      "strong": false,
+      "summary": "The maximum number of intervals allowed in histogram initialization. ",
+      "title": "kMaxNumberOfIntervals",
+      "type": "constexpr batt::int_types::i64",
+      "typePlain": "constexpr batt::int_types::i64",
+      "url": "/_autogen/Classes/classbatt_1_1HistogramMetric/#variable-kmaxnumberofintervals",
+      "visibility": "public"
+    }
+  ],
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "Represents a single histogram bucket for reporting. ",
+      "category": "classes",
+      "fullname": "batt::HistogramMetric::Bucket",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::HistogramMetric::Bucket",
+      "refid": "structbatt_1_1HistogramMetric_1_1Bucket",
+      "summary": "Represents a single histogram bucket for reporting. ",
+      "title": "batt::HistogramMetric::Bucket",
+      "url": "/_autogen/Classes/structbatt_1_1HistogramMetric_1_1Bucket/",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-histogrammetric",
+      "argsString": "()=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::HistogramMetric< T >::HistogramMetric",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HistogramMetric::HistogramMetric",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 376
+      },
+      "name": "HistogramMetric",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HistogramMetric_1a1db171fc212e684b16a77d6ccbb34232",
+      "static": false,
+      "strong": false,
+      "title": "HistogramMetric",
+      "url": "/_autogen/Classes/classbatt_1_1HistogramMetric/#function-histogrammetric",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-histogrammetric",
+      "argsString": "(const HistogramMetric &)=delete",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::HistogramMetric< T >::HistogramMetric",
+      "deleted": true,
+      "explicit": false,
+      "fullname": "batt::HistogramMetric::HistogramMetric",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 378
+      },
+      "name": "HistogramMetric",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [HistogramMetric](/_autogen/Classes/classbatt_1_1HistogramMetric/) &",
+          "typePlain": "const HistogramMetric &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HistogramMetric_1a5be647bd0d9c097ee72d85b7d9fec1fa",
+      "static": false,
+      "strong": false,
+      "title": "HistogramMetric",
+      "url": "/_autogen/Classes/classbatt_1_1HistogramMetric/#function-histogrammetric",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(const HistogramMetric &)=delete",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "HistogramMetric& batt::HistogramMetric< T >::operator=",
+      "deleted": true,
+      "explicit": false,
+      "fullname": "batt::HistogramMetric::operator=",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 21,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 380
+      },
+      "name": "operator=",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [HistogramMetric](/_autogen/Classes/classbatt_1_1HistogramMetric/) &",
+          "typePlain": "const HistogramMetric &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HistogramMetric_1a83d09cf3af40de983a60eb0ec78b913a",
+      "static": false,
+      "strong": false,
+      "title": "operator=",
+      "type": "[HistogramMetric](/_autogen/Classes/classbatt_1_1HistogramMetric/) &",
+      "typePlain": "HistogramMetric &",
+      "url": "/_autogen/Classes/classbatt_1_1HistogramMetric/#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-histogrammetric",
+      "argsString": "(const batt::int_types::i64 intervals, const T min_val, const T max_val)",
+      "brief": "Initializes an empty histogram with fixed number of buckets. Exits if initialization failed. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::HistogramMetric< T >::HistogramMetric",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HistogramMetric::HistogramMetric",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 390,
+        "bodyFile": "batteries/metrics/metric_collectors.hpp",
+        "bodyStart": 387,
+        "column": 5,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 387
+      },
+      "name": "HistogramMetric",
+      "override": false,
+      "paramList": [
+        {
+          "name": "fixed",
+          "text": "number of buckets. "
+        },
+        {
+          "name": "expected",
+          "text": "minimum value. "
+        },
+        {
+          "name": "expected",
+          "text": "maximum value. "
+        }
+      ],
+      "params": [
+        {
+          "name": "intervals",
+          "type": "const batt::int_types::i64",
+          "typePlain": "const batt::int_types::i64"
+        },
+        {
+          "name": "min_val",
+          "type": "const T",
+          "typePlain": "const T"
+        },
+        {
+          "name": "max_val",
+          "type": "const T",
+          "typePlain": "const T"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HistogramMetric_1a90f48a7a27d196a1c5cfdc71d9739d04",
+      "static": false,
+      "strong": false,
+      "summary": "Initializes an empty histogram with fixed number of buckets. Exits if initialization failed. ",
+      "title": "HistogramMetric",
+      "url": "/_autogen/Classes/classbatt_1_1HistogramMetric/#function-histogrammetric",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-initialize",
+      "argsString": "(const batt::int_types::i64 intervals, const T min_val, const T max_val)",
+      "brief": "Initializes an empty histogram with fixed number of buckets. Should be called in a single threaded context. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::HistogramMetric< T >::initialize",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HistogramMetric::initialize",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 417,
+        "bodyFile": "batteries/metrics/metric_collectors.hpp",
+        "bodyStart": 398,
+        "column": 10,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 398
+      },
+      "name": "initialize",
+      "override": false,
+      "paramList": [
+        {
+          "name": "fixed",
+          "text": "number of buckets. "
+        },
+        {
+          "name": "expected",
+          "text": "minimum value. "
+        },
+        {
+          "name": "expected",
+          "text": "maximum value. "
+        }
+      ],
+      "params": [
+        {
+          "name": "intervals",
+          "type": "const batt::int_types::i64",
+          "typePlain": "const batt::int_types::i64"
+        },
+        {
+          "name": "min_val",
+          "type": "const T",
+          "typePlain": "const T"
+        },
+        {
+          "name": "max_val",
+          "type": "const T",
+          "typePlain": "const T"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HistogramMetric_1a81cf9e0542fe9eee99d42e48c084fefa",
+      "returns": [
+        "True if succeeded. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Initializes an empty histogram with fixed number of buckets. Should be called in a single threaded context. ",
+      "title": "initialize",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/classbatt_1_1HistogramMetric/#function-initialize",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-reset",
+      "argsString": "()",
+      "brief": "Resets metric to empty pre-initialized state. Should be called in a single threaded context. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::HistogramMetric< T >::reset",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HistogramMetric::reset",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 427,
+        "bodyFile": "batteries/metrics/metric_collectors.hpp",
+        "bodyStart": 421,
+        "column": 10,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 421
+      },
+      "name": "reset",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HistogramMetric_1a196ef814c9ee1163dbb2d5b037e73812",
+      "static": false,
+      "strong": false,
+      "summary": "Resets metric to empty pre-initialized state. Should be called in a single threaded context. ",
+      "title": "reset",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1HistogramMetric/#function-reset",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-bucket-index",
+      "argsString": "(T sample) const noexcept",
+      "brief": "Finds index of correponding bucket for a given input sample. Thread-safe read-only access to intervals_ member. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "batt::int_types::usize batt::HistogramMetric< T >::bucket_index",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HistogramMetric::bucket_index",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 453,
+        "bodyFile": "batteries/metrics/metric_collectors.hpp",
+        "bodyStart": 433,
+        "column": 35,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 433
+      },
+      "name": "bucket_index",
+      "override": false,
+      "paramList": [
+        {
+          "name": "sample",
+          "text": "value. "
+        }
+      ],
+      "params": [
+        {
+          "name": "sample",
+          "type": "T",
+          "typePlain": "T"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HistogramMetric_1a1e18ccba3fb0218c9a935d0c82e39a3b",
+      "returns": [
+        "The corresponding bucket: intervals_ index. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Finds index of correponding bucket for a given input sample. Thread-safe read-only access to intervals_ member. ",
+      "title": "bucket_index",
+      "type": "batt::int_types::usize",
+      "typePlain": "batt::int_types::usize",
+      "url": "/_autogen/Classes/classbatt_1_1HistogramMetric/#function-bucket-index",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-update",
+      "argsString": "(T sample)",
+      "brief": "Updates the histogram with a given sample. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::HistogramMetric< T >::update",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HistogramMetric::update",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 463,
+        "bodyFile": "batteries/metrics/metric_collectors.hpp",
+        "bodyStart": 457,
+        "column": 10,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 457
+      },
+      "name": "update",
+      "override": false,
+      "paramList": [
+        {
+          "name": "sample",
+          "text": "value. "
+        }
+      ],
+      "params": [
+        {
+          "name": "sample",
+          "type": "T",
+          "typePlain": "T"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HistogramMetric_1a176a97f73c9b68fd9a5b50d53fb1e525",
+      "static": false,
+      "strong": false,
+      "summary": "Updates the histogram with a given sample. ",
+      "title": "update",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1HistogramMetric/#function-update",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get",
+      "argsString": "() const",
+      "brief": "Gets a snapshot of histogram buckets current value. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "std::vector<HistogramMetric<T>::Bucket> batt::HistogramMetric< T >::get",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HistogramMetric::get",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 475,
+        "bodyFile": "batteries/metrics/metric_collectors.hpp",
+        "bodyStart": 468,
+        "column": 18,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 468
+      },
+      "name": "get",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HistogramMetric_1aee7b076756cfb68dc28f9bd4a9960d45",
+      "returns": [
+        "The buckets vector - each bucket element contains: upper-limit, count and total corresponding values "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Gets a snapshot of histogram buckets current value. ",
+      "title": "get",
+      "type": "std::vector< [HistogramMetric](/_autogen/Classes/classbatt_1_1HistogramMetric/)< T >::[Bucket](/_autogen/Classes/structbatt_1_1HistogramMetric_1_1Bucket/) >",
+      "typePlain": "std::vector< HistogramMetric< T >::Bucket >",
+      "url": "/_autogen/Classes/classbatt_1_1HistogramMetric/#function-get",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1HistogramMetric",
+  "static": false,
+  "strong": false,
+  "summary": "Collect histogram values for multiple samples. ",
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename T",
+      "typePlain": "typename T"
+    }
+  ],
+  "title": "batt::HistogramMetric",
+  "url": "/_autogen/Classes/classbatt_1_1HistogramMetric/",
+  "visibility": "public"
+}
