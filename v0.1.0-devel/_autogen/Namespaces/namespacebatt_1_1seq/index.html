@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#classes" class="md-skip">
+        <a href="#namespaces" class="md-skip">
           Skip to content
         </a>
       
@@ -503,6 +503,13 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#namespaces" class="md-nav__link">
+    Namespaces
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#classes" class="md-nav__link">
@@ -1205,6 +1212,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#function-zip" class="md-nav__link">
+    function zip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-operator_39" class="md-nav__link">
+    function operator|
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-single_item" class="md-nav__link">
     function single_item
   </a>
@@ -1235,6 +1256,19 @@
   <h1>batt::seq</h1>
 
 <h1 id="battseq">batt::seq<a class="headerlink" href="#battseq" title="Permanent link">&#128279;</a></h1>
+<h2 id="namespaces">Namespaces<a class="headerlink" href="#namespaces" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq_1_1detail/">batt::seq::detail</a></strong></td>
+</tr>
+</tbody>
+</table>
 <h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&#128279;</a></h2>
 <table>
 <thead>
@@ -1523,6 +1557,14 @@
 <tr>
 <td>struct</td>
 <td><strong><a href="/_autogen/Classes/structbatt_1_1seq_1_1TakeWhileBinder/">batt::seq::TakeWhileBinder</a></strong></td>
+</tr>
+<tr>
+<td>class</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1seq_1_1Zip/">batt::seq::Zip</a></strong></td>
+</tr>
+<tr>
+<td>struct</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1seq_1_1ZipBinder/">batt::seq::ZipBinder</a></strong></td>
 </tr>
 <tr>
 <td>class</td>
@@ -1924,6 +1966,14 @@
 </tr>
 <tr>
 <td>template &lt;typename Seq ,typename Predicate > <br><a href="/_autogen/Classes/classbatt_1_1seq_1_1TakeWhile/">TakeWhile</a>&lt; Seq, Predicate &gt;</td>
+<td>**[operator</td>
+</tr>
+<tr>
+<td>template &lt;typename... OtherSeqs> <br><a href="/_autogen/Classes/structbatt_1_1seq_1_1ZipBinder/">ZipBinder</a>&lt; OtherSeqs &amp;&amp;... &gt;</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1seq/#function-zip">zip</a></strong>(OtherSeqs &amp;&amp;... other_seqs)</td>
+</tr>
+<tr>
+<td>template &lt;typename Seq ,typename... OtherSeqs> <br><a href="/_autogen/Classes/classbatt_1_1seq_1_1Zip/">Zip</a>&lt; Seq, OtherSeqs... &gt;</td>
 <td>**[operator</td>
 </tr>
 <tr>
@@ -2849,17 +2899,39 @@
 <a id="__codelineno-92-5" name="__codelineno-92-5"></a><span class="w">    </span><span class="n">TakeWhileBinder</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Predicate</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">binder</span>
 <a id="__codelineno-92-6" name="__codelineno-92-6"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-single_item">function single_item<a class="headerlink" href="#function-single_item" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-zip">function zip<a class="headerlink" href="#function-zip" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-93-1">1</a></span>
 <span class="normal"><a href="#__codelineno-93-2">2</a></span>
 <span class="normal"><a href="#__codelineno-93-3">3</a></span>
-<span class="normal"><a href="#__codelineno-93-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-93-1" name="__codelineno-93-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-93-2" name="__codelineno-93-2"></a><span class="n">SingleItem</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">single_item</span><span class="p">(</span>
-<a id="__codelineno-93-3" name="__codelineno-93-3"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">item</span>
+<span class="normal"><a href="#__codelineno-93-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-93-1" name="__codelineno-93-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">OtherSeqs</span><span class="o">&gt;</span>
+<a id="__codelineno-93-2" name="__codelineno-93-2"></a><span class="n">ZipBinder</span><span class="o">&lt;</span><span class="w"> </span><span class="n">OtherSeqs</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">zip</span><span class="p">(</span>
+<a id="__codelineno-93-3" name="__codelineno-93-3"></a><span class="w">    </span><span class="n">OtherSeqs</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">other_seqs</span>
 <a id="__codelineno-93-4" name="__codelineno-93-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="function-operator_39">function operator|<a class="headerlink" href="#function-operator_39" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-94-1">1</a></span>
+<span class="normal"><a href="#__codelineno-94-2">2</a></span>
+<span class="normal"><a href="#__codelineno-94-3">3</a></span>
+<span class="normal"><a href="#__codelineno-94-4">4</a></span>
+<span class="normal"><a href="#__codelineno-94-5">5</a></span>
+<span class="normal"><a href="#__codelineno-94-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-94-1" name="__codelineno-94-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Seq</span><span class="w"> </span><span class="p">,</span>
+<a id="__codelineno-94-2" name="__codelineno-94-2"></a><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">OtherSeqs</span><span class="o">&gt;</span>
+<a id="__codelineno-94-3" name="__codelineno-94-3"></a><span class="n">Zip</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Seq</span><span class="p">,</span><span class="w"> </span><span class="n">OtherSeqs</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">operator</span><span class="o">|</span><span class="p">(</span>
+<a id="__codelineno-94-4" name="__codelineno-94-4"></a><span class="w">    </span><span class="n">Seq</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">seq</span><span class="p">,</span>
+<a id="__codelineno-94-5" name="__codelineno-94-5"></a><span class="w">    </span><span class="n">ZipBinder</span><span class="o">&lt;</span><span class="w"> </span><span class="n">OtherSeqs</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">binder</span>
+<a id="__codelineno-94-6" name="__codelineno-94-6"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-single_item">function single_item<a class="headerlink" href="#function-single_item" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-95-1">1</a></span>
+<span class="normal"><a href="#__codelineno-95-2">2</a></span>
+<span class="normal"><a href="#__codelineno-95-3">3</a></span>
+<span class="normal"><a href="#__codelineno-95-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-95-1" name="__codelineno-95-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
+<a id="__codelineno-95-2" name="__codelineno-95-2"></a><span class="n">SingleItem</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">single_item</span><span class="p">(</span>
+<a id="__codelineno-95-3" name="__codelineno-95-3"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">item</span>
+<a id="__codelineno-95-4" name="__codelineno-95-4"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 17 March 2023 at 19:42:42 UTC</p>
+<p>Updated on 31 March 2023 at 21:44:55 UTC</p>
 
 
 

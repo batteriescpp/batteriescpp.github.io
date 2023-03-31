@@ -17,6 +17,20 @@
     "line": 403
   },
   "name": "batt::seq",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq::detail",
+      "refid": "namespacebatt_1_1seq_1_1detail",
+      "title": "batt::seq::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq_1_1detail/",
+      "visibility": "public"
+    }
+  ],
   "override": false,
   "parent": {
     "anchor": "",
@@ -891,6 +905,30 @@
       "refid": "structbatt_1_1seq_1_1TakeWhileBinder",
       "title": "batt::seq::TakeWhileBinder",
       "url": "/_autogen/Classes/structbatt_1_1seq_1_1TakeWhileBinder/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::Zip",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::seq::Zip",
+      "refid": "classbatt_1_1seq_1_1Zip",
+      "title": "batt::seq::Zip",
+      "url": "/_autogen/Classes/classbatt_1_1seq_1_1Zip/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::ZipBinder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::ZipBinder",
+      "refid": "structbatt_1_1seq_1_1ZipBinder",
+      "title": "batt::seq::ZipBinder",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1ZipBinder/",
       "visibility": "public"
     },
     {
@@ -5763,6 +5801,116 @@
     },
     {
       "abstract": false,
+      "anchor": "#function-zip",
+      "argsString": "(OtherSeqs &&... other_seqs)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "ZipBinder<OtherSeqs&&...> batt::seq::zip",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::seq::zip",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 107,
+        "bodyFile": "batteries/seq/zip.hpp",
+        "bodyStart": 104,
+        "column": 11,
+        "file": "batteries/seq/zip.hpp",
+        "line": 104
+      },
+      "name": "zip",
+      "override": false,
+      "params": [
+        {
+          "name": "other_seqs",
+          "type": "OtherSeqs &&...",
+          "typePlain": "OtherSeqs &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "zip_8hpp_1ae79f9139151d0880a0dd2a67d50fc698",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "OtherSeqs",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "zip",
+      "type": "[ZipBinder](/_autogen/Classes/structbatt_1_1seq_1_1ZipBinder/)< OtherSeqs &&... >",
+      "typePlain": "ZipBinder< OtherSeqs &&... >",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/#function-zip",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator|",
+      "argsString": "(Seq &&seq, ZipBinder< OtherSeqs &&... > &&binder)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Zip<Seq, OtherSeqs...> batt::seq::operator|",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::seq::operator|",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 136,
+        "bodyFile": "batteries/seq/zip.hpp",
+        "bodyStart": 127,
+        "column": 6,
+        "file": "batteries/seq/zip.hpp",
+        "line": 127
+      },
+      "name": "operator|",
+      "override": false,
+      "params": [
+        {
+          "name": "seq",
+          "type": "Seq &&",
+          "typePlain": "Seq &&"
+        },
+        {
+          "name": "binder",
+          "type": "[ZipBinder](/_autogen/Classes/structbatt_1_1seq_1_1ZipBinder/)< OtherSeqs &&... > &&",
+          "typePlain": "ZipBinder< OtherSeqs &&... > &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "zip_8hpp_1adfa7b858bc2a3b8ce307a306cad55cfd",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Seq",
+          "typePlain": "typename Seq"
+        },
+        {
+          "name": "OtherSeqs",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "operator|",
+      "type": "[Zip](/_autogen/Classes/classbatt_1_1seq_1_1Zip/)< Seq, OtherSeqs... >",
+      "typePlain": "Zip< Seq, OtherSeqs... >",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/#function-operator|",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#function-single-item",
       "argsString": "(T &&item)",
       "category": "functions",
@@ -5777,12 +5925,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 203,
+        "bodyEnd": 204,
         "bodyFile": "batteries/seq.hpp",
-        "bodyStart": 200,
+        "bodyStart": 201,
         "column": 13,
         "file": "batteries/seq.hpp",
-        "line": 200
+        "line": 201
       },
       "name": "single_item",
       "override": false,
