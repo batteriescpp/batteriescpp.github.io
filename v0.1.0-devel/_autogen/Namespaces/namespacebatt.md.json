@@ -4498,7 +4498,7 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 117,
+        "bodyEnd": 121,
         "bodyFile": "batteries/assert.hpp",
         "bodyStart": 111,
         "column": 13,
@@ -7973,6 +7973,120 @@
       "type": "i32 &",
       "typePlain": "i32 &",
       "url": "/_autogen/Namespaces/namespacebatt/#function-this-thread-id",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator<<",
+      "argsString": "(std::ostream &out, const Watch< T > &w)",
+      "brief": "Support for printing Watch<T> to ostream. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::ostream& batt::operator<<",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator<<",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 283,
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 280,
+        "column": 8,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 280
+      },
+      "name": "operator<<",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        },
+        {
+          "name": "w",
+          "type": "const [Watch](/_autogen/Classes/classbatt_1_1Watch/)< T > &",
+          "typePlain": "const Watch< T > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "watch__decl_8hpp_1a5d5846ca0fe72050abc6386a84ebfd77",
+      "static": false,
+      "strong": false,
+      "summary": "Support for printing Watch<T> to ostream. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "operator<<",
+      "type": "std::ostream &",
+      "typePlain": "std::ostream &",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator<<",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator<<",
+      "argsString": "(std::ostream &out, const WatchAtomic< T > &w)",
+      "brief": "Support for printing WatchAtomic<T> to ostream. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::ostream& batt::operator<<",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator<<",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 815,
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 812,
+        "column": 8,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 812
+      },
+      "name": "operator<<",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        },
+        {
+          "name": "w",
+          "type": "const [WatchAtomic](/_autogen/Classes/classbatt_1_1WatchAtomic/)< T > &",
+          "typePlain": "const WatchAtomic< T > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "watch__decl_8hpp_1a0ae30b75af661793dcfd40005546131e",
+      "static": false,
+      "strong": false,
+      "summary": "Support for printing WatchAtomic<T> to ostream. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "operator<<",
+      "type": "std::ostream &",
+      "typePlain": "std::ostream &",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator<<",
       "virtual": false,
       "visibility": "public"
     },
@@ -14576,12 +14690,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 148,
+        "bodyEnd": 147,
         "bodyFile": "batteries/metrics/metric_collectors.hpp",
-        "bodyStart": 142,
+        "bodyStart": 141,
         "column": 8,
         "file": "batteries/metrics/metric_collectors.hpp",
-        "line": 142
+        "line": 141
       },
       "name": "operator<<",
       "override": false,
@@ -24117,10 +24231,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/metrics/metric_collectors.hpp",
-        "bodyStart": 201,
+        "bodyStart": 200,
         "column": 1,
         "file": "batteries/metrics/metric_collectors.hpp",
-        "line": 201
+        "line": 200
       },
       "name": "DerivedMetric",
       "override": false,

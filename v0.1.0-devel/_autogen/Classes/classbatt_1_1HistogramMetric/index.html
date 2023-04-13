@@ -526,6 +526,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#friends" class="md-nav__link">
+    Friends
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#detailed-description" class="md-nav__link">
     Detailed Description
   </a>
@@ -583,6 +590,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#function-clear" class="md-nav__link">
+    function clear
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-bucket_index" class="md-nav__link">
     function bucket_index
   </a>
@@ -619,6 +633,26 @@
           <li class="md-nav__item">
   <a href="#variable-kmaxnumberofintervals" class="md-nav__link">
     variable kMaxNumberOfIntervals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#friends_1" class="md-nav__link">
+    Friends
+  </a>
+  
+    <nav class="md-nav" aria-label="Friends">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#friend-metricregistry" class="md-nav__link">
+    friend MetricRegistry
   </a>
   
 </li>
@@ -687,19 +721,23 @@
 </tr>
 <tr>
 <td></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HistogramMetric/#function-histogrammetric">HistogramMetric</a></strong>(const batt::int_types::i64 intervals, const T min_val, const T max_val)<br>Initializes an empty histogram with fixed number of buckets. Exits if initialization failed.</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HistogramMetric/#function-histogrammetric">HistogramMetric</a></strong>(const batt::int_types::usize intervals, const T min_val, const T max_val)<br>Initializes an empty histogram with fixed number of buckets. Exits if initialization failed.</td>
 </tr>
 <tr>
 <td>bool</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HistogramMetric/#function-initialize">initialize</a></strong>(const batt::int_types::i64 intervals, const T min_val, const T max_val)<br>Initializes an empty histogram with fixed number of buckets. Should be called in a single threaded context.</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HistogramMetric/#function-initialize">initialize</a></strong>(const batt::int_types::usize intervals, const T min_val, const T max_val)<br>Initializes an empty histogram with fixed number of buckets. Should be called in a single threaded context.</td>
 </tr>
 <tr>
 <td>void</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1HistogramMetric/#function-reset">reset</a></strong>()<br>Resets metric to empty pre-initialized state. Should be called in a single threaded context.</td>
 </tr>
 <tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HistogramMetric/#function-clear">clear</a></strong>()<br>Clears metric to empty post-initialized state. Should be called in a single threaded context.</td>
+</tr>
+<tr>
 <td>batt::int_types::usize</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HistogramMetric/#function-bucket-index">bucket_index</a></strong>(T sample) const<br>Finds index of correponding bucket for a given input sample. Thread-safe read-only access to intervals_ member.</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HistogramMetric/#function-bucket-index">bucket_index</a></strong>(T sample) const<br>Finds index of correponding bucket for a given input sample. Thread-safe read-only access to scalar data members.</td>
 </tr>
 <tr>
 <td>void</td>
@@ -723,6 +761,21 @@
 <tr>
 <td>constexpr batt::int_types::i64</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1HistogramMetric/#variable-kmaxnumberofintervals">kMaxNumberOfIntervals</a></strong> <br>The maximum number of intervals allowed in histogram initialization.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="friends">Friends<a class="headerlink" href="#friends" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>class</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HistogramMetric/#friend-metricregistry">MetricRegistry</a></strong></td>
 </tr>
 </tbody>
 </table>
@@ -758,7 +811,7 @@
 <span class="normal"><a href="#__codelineno-4-3">3</a></span>
 <span class="normal"><a href="#__codelineno-4-4">4</a></span>
 <span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">HistogramMetric</span><span class="p">(</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">int_types</span><span class="o">::</span><span class="n">i64</span><span class="w"> </span><span class="n">intervals</span><span class="p">,</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">int_types</span><span class="o">::</span><span class="n">usize</span><span class="w"> </span><span class="n">intervals</span><span class="p">,</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">min_val</span><span class="p">,</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">max_val</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="p">)</span>
@@ -766,9 +819,9 @@
 <p>Initializes an empty histogram with fixed number of buckets. Exits if initialization failed. </p>
 <p><strong>Parameters</strong>: </p>
 <ul>
-<li><strong>fixed</strong> number of buckets. </li>
-<li><strong>expected</strong> minimum value. </li>
-<li><strong>expected</strong> maximum value. </li>
+<li><strong>intervals</strong> The fixed number of buckets. </li>
+<li><strong>min_val</strong> The expected minimum value. </li>
+<li><strong>max_val</strong> The expected maximum value. </li>
 </ul>
 <h3 id="function-initialize">function initialize<a class="headerlink" href="#function-initialize" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
@@ -776,7 +829,7 @@
 <span class="normal"><a href="#__codelineno-5-3">3</a></span>
 <span class="normal"><a href="#__codelineno-5-4">4</a></span>
 <span class="normal"><a href="#__codelineno-5-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">initialize</span><span class="p">(</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">int_types</span><span class="o">::</span><span class="n">i64</span><span class="w"> </span><span class="n">intervals</span><span class="p">,</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">int_types</span><span class="o">::</span><span class="n">usize</span><span class="w"> </span><span class="n">intervals</span><span class="p">,</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">min_val</span><span class="p">,</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">max_val</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="p">)</span>
@@ -784,34 +837,38 @@
 <p>Initializes an empty histogram with fixed number of buckets. Should be called in a single threaded context. </p>
 <p><strong>Parameters</strong>: </p>
 <ul>
-<li><strong>fixed</strong> number of buckets. </li>
-<li><strong>expected</strong> minimum value. </li>
-<li><strong>expected</strong> maximum value. </li>
+<li><strong>intervals</strong> The fixed number of buckets. </li>
+<li><strong>min_val</strong> The expected minimum value. </li>
+<li><strong>max_val</strong> The expected maximum value. </li>
 </ul>
 <p><strong>Return</strong>: True if succeeded. </p>
 <h3 id="function-reset">function reset<a class="headerlink" href="#function-reset" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">reset</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Resets metric to empty pre-initialized state. Should be called in a single threaded context. </p>
-<h3 id="function-bucket_index">function bucket_index<a class="headerlink" href="#function-bucket_index" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span>
-<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">int_types</span><span class="o">::</span><span class="n">usize</span><span class="w"> </span><span class="n">bucket_index</span><span class="p">(</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">sample</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<h3 id="function-clear">function clear<a class="headerlink" href="#function-clear" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">clear</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
-<p>Finds index of correponding bucket for a given input sample. Thread-safe read-only access to intervals_ member. </p>
+<p>Clears metric to empty post-initialized state. Should be called in a single threaded context. </p>
+<h3 id="function-bucket_index">function bucket_index<a class="headerlink" href="#function-bucket_index" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">int_types</span><span class="o">::</span><span class="n">usize</span><span class="w"> </span><span class="n">bucket_index</span><span class="p">(</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">sample</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+</code></pre></div></td></tr></table></div>
+<p>Finds index of correponding bucket for a given input sample. Thread-safe read-only access to scalar data members. </p>
 <p><strong>Parameters</strong>: </p>
 <ul>
 <li><strong>sample</strong> value. </li>
 </ul>
-<p><strong>Return</strong>: The corresponding bucket: intervals_ index. </p>
+<p><strong>Return</strong>: The corresponding bucket: buckets_ index. </p>
 <h3 id="function-update">function update<a class="headerlink" href="#function-update" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
-<span class="normal"><a href="#__codelineno-8-2">2</a></span>
-<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">update</span><span class="p">(</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">sample</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">update</span><span class="p">(</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">sample</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Updates the histogram with a given sample. </p>
 <p><strong>Parameters</strong>: </p>
@@ -819,17 +876,25 @@
 <li><strong>sample</strong> value. </li>
 </ul>
 <h3 id="function-get">function get<a class="headerlink" href="#function-get" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HistogramMetric</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">Bucket</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HistogramMetric</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">Bucket</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">get</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
 <p>Gets a snapshot of histogram buckets current value. </p>
-<p><strong>Return</strong>: The buckets vector - each bucket element contains: upper-limit, count and total corresponding values </p>
+<p><strong>Return</strong>: The buckets vector - each bucket element contains: upper-limit, count and total corresponding values. Empty vector if histogram was not initialized. </p>
 <h2 id="public-attributes-documentation">Public Attributes Documentation<a class="headerlink" href="#public-attributes-documentation" title="Permanent link">&#128279;</a></h2>
 <h3 id="variable-kmaxnumberofintervals">variable kMaxNumberOfIntervals<a class="headerlink" href="#variable-kmaxnumberofintervals" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">int_types</span><span class="o">::</span><span class="n">i64</span><span class="w"> </span><span class="n">kMaxNumberOfIntervals</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="mi">1</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">int_types</span><span class="o">::</span><span class="n">i64</span><span class="w"> </span><span class="n">kMaxNumberOfIntervals</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="mi">1</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>The maximum number of intervals allowed in histogram initialization. </p>
+<h2 id="friends_1">Friends<a class="headerlink" href="#friends_1" title="Permanent link">&#128279;</a></h2>
+<h3 id="friend-metricregistry">friend MetricRegistry<a class="headerlink" href="#friend-metricregistry" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MetricRegistry</span><span class="p">(</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">    </span><span class="n">MetricRegistry</span><span class="w"> </span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="p">);</span>
+</code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 31 March 2023 at 21:44:55 UTC</p>
+<p>Updated on 13 April 2023 at 15:38:09 UTC</p>
 
 
 

@@ -12,7 +12,7 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 404,
+    "bodyEnd": 441,
     "bodyFile": "batteries/metrics/metric_registry.hpp",
     "bodyStart": 237,
     "column": 1,
@@ -62,10 +62,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/metrics/metric_registry.hpp",
-        "bodyStart": 402,
+        "bodyStart": 439,
         "column": 24,
         "file": "batteries/metrics/metric_registry.hpp",
-        "line": 402
+        "line": 439
       },
       "name": "mutex_",
       "override": false,
@@ -92,10 +92,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/metrics/metric_registry.hpp",
-        "bodyStart": 403,
+        "bodyStart": 440,
         "column": 29,
         "file": "batteries/metrics/metric_registry.hpp",
-        "line": 403
+        "line": 440
       },
       "name": "metrics_",
       "override": false,
@@ -407,6 +407,68 @@
     {
       "abstract": false,
       "anchor": "#function-add",
+      "argsString": "(std::string_view name, HistogramMetric< T > &histogram, MetricLabelSet &&labels=MetricLabelSet{})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::add",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::add",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 335,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 313,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 313
+      },
+      "name": "add",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "histogram",
+          "type": "[HistogramMetric](/_autogen/Classes/classbatt_1_1HistogramMetric/)< T > &",
+          "typePlain": "HistogramMetric< T > &"
+        },
+        {
+          "defval": "MetricLabelSet{}",
+          "defvalPlain": "MetricLabelSet{}",
+          "name": "labels",
+          "type": "MetricLabelSet &&",
+          "typePlain": "MetricLabelSet &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1ab808dca8be2b637286809f01814ecd00",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "add",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-add",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-add",
       "argsString": "(std::string_view name, Watch< T > &watch, MetricLabelSet &&labels=MetricLabelSet{})",
       "category": "functions",
       "const": false,
@@ -420,12 +482,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 317,
+        "bodyEnd": 342,
         "bodyFile": "batteries/metrics/metric_registry.hpp",
-        "bodyStart": 313,
+        "bodyStart": 338,
         "column": 20,
         "file": "batteries/metrics/metric_registry.hpp",
-        "line": 313
+        "line": 338
       },
       "name": "add",
       "override": false,
@@ -482,12 +544,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 324,
+        "bodyEnd": 349,
         "bodyFile": "batteries/metrics/metric_registry.hpp",
-        "bodyStart": 319,
+        "bodyStart": 344,
         "column": 20,
         "file": "batteries/metrics/metric_registry.hpp",
-        "line": 319
+        "line": 344
       },
       "name": "add",
       "override": false,
@@ -537,12 +599,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 332,
+        "bodyEnd": 357,
         "bodyFile": "batteries/metrics/metric_registry.hpp",
-        "bodyStart": 327,
+        "bodyStart": 352,
         "column": 20,
         "file": "batteries/metrics/metric_registry.hpp",
-        "line": 327
+        "line": 352
       },
       "name": "add",
       "override": false,
@@ -599,12 +661,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 338,
+        "bodyEnd": 363,
         "bodyFile": "batteries/metrics/metric_registry.hpp",
-        "bodyStart": 334,
+        "bodyStart": 359,
         "column": 20,
         "file": "batteries/metrics/metric_registry.hpp",
-        "line": 334
+        "line": 359
       },
       "name": "add",
       "override": false,
@@ -654,12 +716,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 344,
+        "bodyEnd": 369,
         "bodyFile": "batteries/metrics/metric_registry.hpp",
-        "bodyStart": 340,
+        "bodyStart": 365,
         "column": 20,
         "file": "batteries/metrics/metric_registry.hpp",
-        "line": 340
+        "line": 365
       },
       "name": "add",
       "override": false,
@@ -709,12 +771,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 350,
+        "bodyEnd": 375,
         "bodyFile": "batteries/metrics/metric_registry.hpp",
-        "bodyStart": 346,
+        "bodyStart": 371,
         "column": 20,
         "file": "batteries/metrics/metric_registry.hpp",
-        "line": 346
+        "line": 371
       },
       "name": "add",
       "override": false,
@@ -764,12 +826,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 376,
+        "bodyEnd": 401,
         "bodyFile": "batteries/metrics/metric_registry.hpp",
-        "bodyStart": 354,
+        "bodyStart": 379,
         "column": 10,
         "file": "batteries/metrics/metric_registry.hpp",
-        "line": 354
+        "line": 379
       },
       "name": "read_all",
       "override": false,
@@ -807,12 +869,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 386,
+        "bodyEnd": 411,
         "bodyFile": "batteries/metrics/metric_registry.hpp",
-        "bodyStart": 381,
+        "bodyStart": 406,
         "column": 20,
         "file": "batteries/metrics/metric_registry.hpp",
-        "line": 381
+        "line": 406
       },
       "name": "remove",
       "override": false,
@@ -825,6 +887,56 @@
       ],
       "pureVirtual": false,
       "refid": "classbatt_1_1MetricRegistry_1a020e8ae51cc6e93c8885cc11b2c6a351",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "remove",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-remove",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-remove",
+      "argsString": "(HistogramMetric< T > &histogram)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::remove",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::remove",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 423,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 416,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 416
+      },
+      "name": "remove",
+      "override": false,
+      "params": [
+        {
+          "name": "histogram",
+          "type": "[HistogramMetric](/_autogen/Classes/classbatt_1_1HistogramMetric/)< T > &",
+          "typePlain": "HistogramMetric< T > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1a927220cf2590589e2dad49aeebc40877",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -857,12 +969,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 399,
+        "bodyEnd": 436,
         "bodyFile": "batteries/metrics/metric_registry.hpp",
-        "bodyStart": 393,
+        "bodyStart": 430,
         "column": 10,
         "file": "batteries/metrics/metric_registry.hpp",
-        "line": 393
+        "line": 430
       },
       "name": "scoped_add",
       "override": false,
