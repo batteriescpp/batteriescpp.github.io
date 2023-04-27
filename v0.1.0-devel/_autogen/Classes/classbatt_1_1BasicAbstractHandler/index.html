@@ -15,7 +15,7 @@
     
     
       
-        <title>batt::AbstractHandler - Batteries C++</title>
+        <title>batt::BasicAbstractHandler - Batteries C++</title>
       
     
     
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              batt::AbstractHandler
+              batt::BasicAbstractHandler
             
           </span>
         </div>
@@ -512,6 +512,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#public-types" class="md-nav__link">
+    Public Types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#public-functions" class="md-nav__link">
     Public Functions
   </a>
@@ -533,6 +540,26 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#public-types-documentation" class="md-nav__link">
+    Public Types Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Types Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-self" class="md-nav__link">
+    using Self
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#public-functions-documentation" class="md-nav__link">
     Public Functions Documentation
   </a>
@@ -541,8 +568,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#function-abstracthandler" class="md-nav__link">
-    function AbstractHandler
+  <a href="#function-basicabstracthandler" class="md-nav__link">
+    function BasicAbstractHandler
   </a>
   
 </li>
@@ -589,15 +616,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#function-abstracthandler_1" class="md-nav__link">
-    function AbstractHandler
+  <a href="#function-basicabstracthandler_1" class="md-nav__link">
+    function BasicAbstractHandler
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#function-abstracthandler_2" class="md-nav__link">
-    function ~AbstractHandler
+  <a href="#function-basicabstracthandler_2" class="md-nav__link">
+    function ~BasicAbstractHandler
   </a>
   
 </li>
@@ -623,12 +650,12 @@
 
 
 
-  <h1>batt::AbstractHandler</h1>
+  <h1>batt::BasicAbstractHandler</h1>
 
-<h1 id="battabstracthandler">batt::AbstractHandler<a class="headerlink" href="#battabstracthandler" title="Permanent link">&#128279;</a></h1>
+<h1 id="battbasicabstracthandler">batt::BasicAbstractHandler<a class="headerlink" href="#battbasicabstracthandler" title="Permanent link">&#128279;</a></h1>
 <p>A type-erased async completion handler with linked list pointers.  <a href="#detailed-description">More...</a></p>
 <p><code>#include &lt;batteries/async/handler.hpp&gt;</code></p>
-<p>Inherits from boost::intrusive::list_base_hook&lt;&gt;</p>
+<p>Inherits from Base</p>
 <h2 id="public-classes">Public Classes<a class="headerlink" href="#public-classes" title="Permanent link">&#128279;</a></h2>
 <table>
 <thead>
@@ -640,7 +667,22 @@
 <tbody>
 <tr>
 <td>struct</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1AbstractHandler_1_1Deleter/">Deleter</a></strong> <br><a href="">Deleter</a> for use in std::unique_ptr.</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicAbstractHandler_1_1Deleter/">Deleter</a></strong> <br><a href="">Deleter</a> for use in std::unique_ptr.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-types">Public Types<a class="headerlink" href="#public-types" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>using <a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/">BasicAbstractHandler</a></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/#using-self">Self</a></strong></td>
 </tr>
 </tbody>
 </table>
@@ -655,23 +697,23 @@
 <tbody>
 <tr>
 <td></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/#function-abstracthandler">AbstractHandler</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">AbstractHandler</a> &amp; ) =deleted<br><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">AbstractHandler</a> is not copy-constructible.</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/#function-basicabstracthandler">BasicAbstractHandler</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/">Self</a> &amp; ) =deleted<br>AbstractHandler is not copy-constructible.</td>
 </tr>
 <tr>
-<td><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">AbstractHandler</a> &amp;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/#function-operator=">operator=</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">AbstractHandler</a> &amp; ) =deleted<br><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">AbstractHandler</a> is not copy-assignable.</td>
-</tr>
-<tr>
-<td>virtual void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/#function-notify">notify</a></strong>(Args... args) =0<br>Invoke the handler; notify should delete <code>this</code> as a side-effect.</td>
+<td><a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/">Self</a> &amp;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/#function-operator=">operator=</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/">Self</a> &amp; ) =deleted<br>AbstractHandler is not copy-assignable.</td>
 </tr>
 <tr>
 <td>virtual void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/#function-destroy">destroy</a></strong>() =0<br>Release memory associated with this handler and destroy the implementation object, without invoking it.</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/#function-notify">notify</a></strong>(Args... args) =0<br>Invoke the handler; notify should delete <code>this</code> as a side-effect.</td>
 </tr>
 <tr>
 <td>virtual void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/#function-dump">dump</a></strong>(std::ostream &amp; out) =0<br>Print the type and any other associated information about the handler.</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/#function-destroy">destroy</a></strong>() =0<br>Release memory associated with this handler and destroy the implementation object, without invoking it.</td>
+</tr>
+<tr>
+<td>virtual void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/#function-dump">dump</a></strong>(std::ostream &amp; out) =0<br>Print the type and any other associated information about the handler.</td>
 </tr>
 </tbody>
 </table>
@@ -686,69 +728,75 @@
 <tbody>
 <tr>
 <td></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/#function-abstracthandler">AbstractHandler</a></strong>() =default</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/#function-basicabstracthandler">BasicAbstractHandler</a></strong>() =default</td>
 </tr>
 <tr>
 <td>virtual</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/#function-~abstracthandler">~AbstractHandler</a></strong>() =default</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/#function-~basicabstracthandler">~BasicAbstractHandler</a></strong>() =default</td>
 </tr>
 </tbody>
 </table>
 <h2 id="detailed-description">Detailed Description<a class="headerlink" href="#detailed-description" title="Permanent link">&#128279;</a></h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">batt</span><span class="o">::</span><span class="n">AbstractHandler</span><span class="p">;</span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">batt</span><span class="o">::</span><span class="n">BasicAbstractHandler</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>A type-erased async completion handler with linked list pointers. </p>
-<h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&#128279;</a></h2>
-<h3 id="function-abstracthandler">function AbstractHandler<a class="headerlink" href="#function-abstracthandler" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">AbstractHandler</span><span class="p">(</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">AbstractHandler</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="n">deleted</span>
+<h2 id="public-types-documentation">Public Types Documentation<a class="headerlink" href="#public-types-documentation" title="Permanent link">&#128279;</a></h2>
+<h3 id="using-self">using Self<a class="headerlink" href="#using-self" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">BasicAbstractHandler</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Base</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">Self</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">BasicAbstractHandler</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
-<p><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">AbstractHandler</a> is not copy-constructible. </p>
-<h3 id="function-operator">function operator=<a class="headerlink" href="#function-operator" title="Permanent link">&#128279;</a></h3>
+<h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&#128279;</a></h2>
+<h3 id="function-basicabstracthandler">function BasicAbstractHandler<a class="headerlink" href="#function-basicabstracthandler" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">AbstractHandler</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">AbstractHandler</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">BasicAbstractHandler</span><span class="p">(</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span>
 <a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="n">deleted</span>
 </code></pre></div></td></tr></table></div>
-<p><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">AbstractHandler</a> is not copy-assignable. </p>
-<h3 id="function-notify">function notify<a class="headerlink" href="#function-notify" title="Permanent link">&#128279;</a></h3>
+<p>AbstractHandler is not copy-constructible. </p>
+<h3 id="function-operator">function operator=<a class="headerlink" href="#function-operator" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">notify</span><span class="p">(</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">Args</span><span class="p">...</span><span class="w"> </span><span class="n">args</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">Self</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="n">deleted</span>
+</code></pre></div></td></tr></table></div>
+<p>AbstractHandler is not copy-assignable. </p>
+<h3 id="function-notify">function notify<a class="headerlink" href="#function-notify" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">notify</span><span class="p">(</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">Args</span><span class="p">...</span><span class="w"> </span><span class="n">args</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
 <p>Invoke the handler; notify should delete <code>this</code> as a side-effect. </p>
-<p><strong>Reimplemented by</strong>: <a href="/_autogen/Classes/classbatt_1_1HandlerImpl/#function-notify">batt::HandlerImpl::notify</a></p>
+<p><strong>Reimplemented by</strong>: <a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/#function-notify">batt::BasicHandlerImpl::notify</a></p>
 <h3 id="function-destroy">function destroy<a class="headerlink" href="#function-destroy" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">destroy</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">destroy</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
 <p>Release memory associated with this handler and destroy the implementation object, without invoking it. </p>
-<p><strong>Reimplemented by</strong>: <a href="/_autogen/Classes/classbatt_1_1HandlerImpl/#function-destroy">batt::HandlerImpl::destroy</a></p>
+<p><strong>Reimplemented by</strong>: <a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/#function-destroy">batt::BasicHandlerImpl::destroy</a></p>
 <h3 id="function-dump">function dump<a class="headerlink" href="#function-dump" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">dump</span><span class="p">(</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">dump</span><span class="p">(</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
 <p>Print the type and any other associated information about the handler. </p>
-<p><strong>Reimplemented by</strong>: <a href="/_autogen/Classes/classbatt_1_1HandlerImpl/#function-dump">batt::HandlerImpl::dump</a></p>
+<p><strong>Reimplemented by</strong>: <a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/#function-dump">batt::BasicHandlerImpl::dump</a></p>
 <h2 id="protected-functions-documentation">Protected Functions Documentation<a class="headerlink" href="#protected-functions-documentation" title="Permanent link">&#128279;</a></h2>
-<h3 id="function-abstracthandler_1">function AbstractHandler<a class="headerlink" href="#function-abstracthandler_1" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">AbstractHandler</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
+<h3 id="function-basicabstracthandler_1">function BasicAbstractHandler<a class="headerlink" href="#function-basicabstracthandler_1" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">BasicAbstractHandler</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-abstracthandler_2">function ~AbstractHandler<a class="headerlink" href="#function-abstracthandler_2" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">AbstractHandler</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
+<h3 id="function-basicabstracthandler_2">function ~BasicAbstractHandler<a class="headerlink" href="#function-basicabstracthandler_2" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">virtual</span><span class="w"> </span><span class="o">~</span><span class="n">BasicAbstractHandler</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 13 April 2023 at 15:38:09 UTC</p>
+<p>Updated on 27 April 2023 at 20:26:31 UTC</p>
 
 
 

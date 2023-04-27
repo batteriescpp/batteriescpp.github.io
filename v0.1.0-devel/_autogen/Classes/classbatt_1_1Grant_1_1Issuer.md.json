@@ -58,7 +58,7 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 97,
+    "bodyEnd": 104,
     "bodyFile": "batteries/async/grant_decl.hpp",
     "bodyStart": 36,
     "column": 5,
@@ -125,10 +125,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/grant_decl.hpp",
-        "bodyStart": 95,
+        "bodyStart": 102,
         "column": 15,
         "file": "batteries/async/grant_decl.hpp",
-        "line": 95
+        "line": 102
       },
       "name": "available_",
       "override": false,
@@ -156,10 +156,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/grant_decl.hpp",
-        "bodyStart": 96,
+        "bodyStart": 103,
         "column": 21,
         "file": "batteries/async/grant_decl.hpp",
-        "line": 96
+        "line": 103
       },
       "name": "total_size_",
       "override": false,
@@ -195,7 +195,7 @@
         "bodyStart": 50,
         "column": 14,
         "file": "batteries/async/grant_decl.hpp",
-        "line": 93
+        "line": 100
       },
       "name": "recycle",
       "override": false,
@@ -557,7 +557,7 @@
     {
       "abstract": false,
       "anchor": "#function-available",
-      "argsString": "() const",
+      "argsString": "() const noexcept",
       "brief": "The current count available for allocation via issue_grant. ",
       "category": "functions",
       "const": true,
@@ -582,7 +582,7 @@
       "override": false,
       "params": [],
       "pureVirtual": false,
-      "refid": "classbatt_1_1Grant_1_1Issuer_1a977758aa8cb2a8c9bb8f072f3bd2fc66",
+      "refid": "classbatt_1_1Grant_1_1Issuer_1aa4816e56232346e7b2a52fac06841313",
       "static": false,
       "strong": false,
       "summary": "The current count available for allocation via issue_grant. ",
@@ -590,6 +590,45 @@
       "type": "u64",
       "typePlain": "u64",
       "url": "/_autogen/Classes/classbatt_1_1Grant_1_1Issuer/#function-available",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-total-size",
+      "argsString": "() const noexcept",
+      "brief": "The total count ever added to this pool (initial_count + grow(...)). ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "u64 batt::Grant::Issuer::total_size",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Grant::Issuer::total_size",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 97,
+        "bodyFile": "batteries/async/grant_decl.hpp",
+        "bodyStart": 94,
+        "column": 13,
+        "file": "batteries/async/grant_decl.hpp",
+        "line": 94
+      },
+      "name": "total_size",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Grant_1_1Issuer_1a298b55c612821eb2a6907370081fbe4d",
+      "static": false,
+      "strong": false,
+      "summary": "The total count ever added to this pool (initial_count + grow(...)). ",
+      "title": "total_size",
+      "type": "u64",
+      "typePlain": "u64",
+      "url": "/_autogen/Classes/classbatt_1_1Grant_1_1Issuer/#function-total-size",
       "virtual": false,
       "visibility": "public"
     }

@@ -6,7 +6,7 @@
   "const": false,
   "definition": "",
   "explicit": false,
-  "fullname": "batt::AbstractHandler::Deleter",
+  "fullname": "batt::BasicAbstractHandler::Deleter",
   "hasAdditionalMembers": false,
   "hasDetails": false,
   "includes": "<batteries/async/handler.hpp>",
@@ -14,35 +14,35 @@
   "kind": "struct",
   "language": "cpp",
   "location": {
-    "bodyEnd": 42,
+    "bodyEnd": 44,
     "bodyFile": "batteries/async/handler.hpp",
-    "bodyStart": 35,
+    "bodyStart": 37,
     "column": 5,
     "file": "batteries/async/handler.hpp",
-    "line": 35
+    "line": 37
   },
-  "name": "batt::AbstractHandler::Deleter",
+  "name": "batt::BasicAbstractHandler::Deleter",
   "override": false,
   "parent": {
     "anchor": "",
     "baseClasses": [
       {
         "external": true,
-        "name": "boost::intrusive::list_base_hook<>",
+        "name": "Base",
         "virtual": "non-virtual",
         "visibility": "public"
       }
     ],
     "brief": "A type-erased async completion handler with linked list pointers. ",
     "category": "classes",
-    "fullname": "batt::AbstractHandler",
+    "fullname": "batt::BasicAbstractHandler",
     "kind": "class",
     "language": "cpp",
-    "name": "batt::AbstractHandler",
-    "refid": "classbatt_1_1AbstractHandler",
+    "name": "batt::BasicAbstractHandler",
+    "refid": "classbatt_1_1BasicAbstractHandler",
     "summary": "A type-erased async completion handler with linked list pointers. ",
-    "title": "batt::AbstractHandler",
-    "url": "/_autogen/Classes/classbatt_1_1AbstractHandler/",
+    "title": "batt::BasicAbstractHandler",
+    "url": "/_autogen/Classes/classbatt_1_1BasicAbstractHandler/",
     "visibility": "public"
   },
   "parentBreadcrumbs": [
@@ -63,21 +63,21 @@
       "baseClasses": [
         {
           "external": true,
-          "name": "boost::intrusive::list_base_hook<>",
+          "name": "Base",
           "virtual": "non-virtual",
           "visibility": "public"
         }
       ],
       "brief": "A type-erased async completion handler with linked list pointers. ",
       "category": "classes",
-      "fullname": "batt::AbstractHandler",
+      "fullname": "batt::BasicAbstractHandler",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::AbstractHandler",
-      "refid": "classbatt_1_1AbstractHandler",
+      "name": "batt::BasicAbstractHandler",
+      "refid": "classbatt_1_1BasicAbstractHandler",
       "summary": "A type-erased async completion handler with linked list pointers. ",
-      "title": "batt::AbstractHandler",
-      "url": "/_autogen/Classes/classbatt_1_1AbstractHandler/",
+      "title": "batt::BasicAbstractHandler",
+      "url": "/_autogen/Classes/classbatt_1_1BasicAbstractHandler/",
       "visibility": "public"
     }
   ],
@@ -85,52 +85,52 @@
     {
       "abstract": false,
       "anchor": "#function-operator()",
-      "argsString": "(AbstractHandler *handler) const",
+      "argsString": "(Self *handler) const",
       "category": "functions",
       "const": true,
       "default": false,
-      "definition": "void batt::AbstractHandler< Args >::Deleter::operator()",
+      "definition": "void batt::BasicAbstractHandler< Base, Args >::Deleter::operator()",
       "deleted": false,
       "explicit": false,
-      "fullname": "batt::AbstractHandler::Deleter::operator()",
+      "fullname": "batt::BasicAbstractHandler::Deleter::operator()",
       "hasDetails": false,
       "inline": true,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 41,
+        "bodyEnd": 43,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 36,
+        "bodyStart": 38,
         "column": 14,
         "file": "batteries/async/handler.hpp",
-        "line": 36
+        "line": 38
       },
       "name": "operator()",
       "override": false,
       "params": [
         {
           "name": "handler",
-          "type": "[AbstractHandler](/_autogen/Classes/classbatt_1_1AbstractHandler/) *",
-          "typePlain": "AbstractHandler *"
+          "type": "[Self](/_autogen/Classes/classbatt_1_1BasicAbstractHandler/) *",
+          "typePlain": "Self *"
         }
       ],
       "pureVirtual": false,
-      "refid": "structbatt_1_1AbstractHandler_1_1Deleter_1ac4947f00c1444a257da6bf779205b70d",
+      "refid": "structbatt_1_1BasicAbstractHandler_1_1Deleter_1af6fe17567e4c502a06753ad282150a5e",
       "static": false,
       "strong": false,
       "title": "operator()",
       "type": "void",
       "typePlain": "void",
-      "url": "/_autogen/Classes/structbatt_1_1AbstractHandler_1_1Deleter/#function-operator()",
+      "url": "/_autogen/Classes/structbatt_1_1BasicAbstractHandler_1_1Deleter/#function-operator()",
       "virtual": false,
       "visibility": "public"
     }
   ],
-  "refid": "structbatt_1_1AbstractHandler_1_1Deleter",
+  "refid": "structbatt_1_1BasicAbstractHandler_1_1Deleter",
   "static": false,
   "strong": false,
   "summary": "Deleter for use in std::unique_ptr. ",
-  "title": "batt::AbstractHandler::Deleter",
-  "url": "/_autogen/Classes/structbatt_1_1AbstractHandler_1_1Deleter/",
+  "title": "batt::BasicAbstractHandler::Deleter",
+  "url": "/_autogen/Classes/structbatt_1_1BasicAbstractHandler_1_1Deleter/",
   "visibility": "public"
 }

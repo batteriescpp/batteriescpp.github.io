@@ -15,7 +15,7 @@
     
     
       
-        <title>batt::HandlerImpl - Batteries C++</title>
+        <title>batt::BasicHandlerImpl - Batteries C++</title>
       
     
     
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              batt::HandlerImpl
+              batt::BasicHandlerImpl
             
           </span>
         </div>
@@ -541,6 +541,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#using-self" class="md-nav__link">
+    using Self
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#using-allocator_type" class="md-nav__link">
     using allocator_type
   </a>
@@ -575,8 +582,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#function-handlerimpl" class="md-nav__link">
-    function HandlerImpl
+  <a href="#function-basichandlerimpl" class="md-nav__link">
+    function BasicHandlerImpl
   </a>
   
 </li>
@@ -630,11 +637,11 @@
 
 
 
-  <h1>batt::HandlerImpl</h1>
+  <h1>batt::BasicHandlerImpl</h1>
 
-<h1 id="batthandlerimpl">batt::HandlerImpl<a class="headerlink" href="#batthandlerimpl" title="Permanent link">&#128279;</a></h1>
+<h1 id="battbasichandlerimpl">batt::BasicHandlerImpl<a class="headerlink" href="#battbasichandlerimpl" title="Permanent link">&#128279;</a></h1>
 <p><a href="#detailed-description">More...</a></p>
-<p>Inherits from <a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">batt::AbstractHandler&lt; Args... &gt;</a>, boost::intrusive::list_base_hook&lt;&gt;</p>
+<p>Inherits from <a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/">batt::BasicAbstractHandler&lt; Base, Args... &gt;</a>, Base</p>
 <h2 id="public-types">Public Types<a class="headerlink" href="#public-types" title="Permanent link">&#128279;</a></h2>
 <table>
 <thead>
@@ -645,8 +652,12 @@
 </thead>
 <tbody>
 <tr>
-<td>using typename std::allocator_traits&lt; boost::asio::associated_allocator_t&lt; HandlerFn &gt; &gt;::template rebind_alloc&lt; <a href="/_autogen/Classes/classbatt_1_1HandlerImpl/">HandlerImpl</a> &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HandlerImpl/#using-allocator-type">allocator_type</a></strong></td>
+<td>using <a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/">BasicHandlerImpl</a></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/#using-self">Self</a></strong></td>
+</tr>
+<tr>
+<td>using typename std::allocator_traits&lt; boost::asio::associated_allocator_t&lt; HandlerFn &gt; &gt;::template rebind_alloc&lt; <a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/">Self</a> &gt;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/#using-allocator-type">allocator_type</a></strong></td>
 </tr>
 </tbody>
 </table>
@@ -660,37 +671,37 @@
 </thead>
 <tbody>
 <tr>
-<td>template &lt;typename HandlerFnArg > <br><a href="/_autogen/Classes/classbatt_1_1HandlerImpl/">HandlerImpl</a> *</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HandlerImpl/#function-make-new">make_new</a></strong>(HandlerFnArg &amp;&amp; h)</td>
+<td>template &lt;typename HandlerFnArg > <br><a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/">Self</a> *</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/#function-make-new">make_new</a></strong>(HandlerFnArg &amp;&amp; h)</td>
 </tr>
 <tr>
-<td>template &lt;typename HandlerFnArg > <br><a href="/_autogen/Classes/classbatt_1_1HandlerImpl/">HandlerImpl</a> *</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HandlerImpl/#function-make-new">make_new</a></strong>(HandlerFnArg &amp;&amp; h, usize extra_bytes)</td>
+<td>template &lt;typename HandlerFnArg > <br><a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/">Self</a> *</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/#function-make-new">make_new</a></strong>(HandlerFnArg &amp;&amp; h, usize extra_bytes)</td>
 </tr>
 <tr>
-<td>template &lt;typename HandlerFnArg ,typename  =batt::EnableIfNoShadow<HandlerImpl, HandlerFnArg&&>> <br></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HandlerImpl/#function-handlerimpl">HandlerImpl</a></strong>(HandlerFnArg &amp;&amp; h)</td>
-</tr>
-<tr>
-<td>virtual void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HandlerImpl/#function-notify">notify</a></strong>(Args... args) override<br>Invoke the handler; notify should delete <code>this</code> as a side-effect.</td>
+<td>template &lt;typename HandlerFnArg ,typename  =batt::EnableIfNoShadow<Self, HandlerFnArg&&>> <br></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/#function-basichandlerimpl">BasicHandlerImpl</a></strong>(HandlerFnArg &amp;&amp; h)</td>
 </tr>
 <tr>
 <td>virtual void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HandlerImpl/#function-destroy">destroy</a></strong>() override<br>Release memory associated with this handler and destroy the implementation object, without invoking it.</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/#function-notify">notify</a></strong>(Args... args) override<br>Invoke the handler; notify should delete <code>this</code> as a side-effect.</td>
 </tr>
 <tr>
 <td>virtual void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HandlerImpl/#function-dump">dump</a></strong>(std::ostream &amp; out) override<br>Print the type and any other associated information about the handler.</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/#function-destroy">destroy</a></strong>() override<br>Release memory associated with this handler and destroy the implementation object, without invoking it.</td>
+</tr>
+<tr>
+<td>virtual void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/#function-dump">dump</a></strong>(std::ostream &amp; out) override<br>Print the type and any other associated information about the handler.</td>
 </tr>
 <tr>
 <td>HandlerFn &amp;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HandlerImpl/#function-get-fn">get_fn</a></strong>()</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/#function-get-fn">get_fn</a></strong>()</td>
 </tr>
 </tbody>
 </table>
 <h2 id="additional-inherited-members">Additional inherited members<a class="headerlink" href="#additional-inherited-members" title="Permanent link">&#128279;</a></h2>
-<p><strong>Public Classes inherited from <a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">batt::AbstractHandler&lt; Args... &gt;</a></strong></p>
+<p><strong>Public Classes inherited from <a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/">batt::BasicAbstractHandler&lt; Base, Args... &gt;</a></strong></p>
 <table>
 <thead>
 <tr>
@@ -701,11 +712,11 @@
 <tbody>
 <tr>
 <td>struct</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1AbstractHandler_1_1Deleter/">Deleter</a></strong> <br><a href="">Deleter</a> for use in std::unique_ptr.</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicAbstractHandler_1_1Deleter/">Deleter</a></strong> <br><a href="">Deleter</a> for use in std::unique_ptr.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Public Functions inherited from <a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">batt::AbstractHandler&lt; Args... &gt;</a></strong></p>
+<p><strong>Public Functions inherited from <a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/">batt::BasicAbstractHandler&lt; Base, Args... &gt;</a></strong></p>
 <table>
 <thead>
 <tr>
@@ -716,15 +727,15 @@
 <tbody>
 <tr>
 <td></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/#function-abstracthandler">AbstractHandler</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">AbstractHandler</a> &amp; ) =deleted<br><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">AbstractHandler</a> is not copy-constructible.</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/#function-basicabstracthandler">BasicAbstractHandler</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/">Self</a> &amp; ) =deleted<br>AbstractHandler is not copy-constructible.</td>
 </tr>
 <tr>
-<td><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">AbstractHandler</a> &amp;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/#function-operator=">operator=</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">AbstractHandler</a> &amp; ) =deleted<br><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">AbstractHandler</a> is not copy-assignable.</td>
+<td><a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/">Self</a> &amp;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/#function-operator=">operator=</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/">Self</a> &amp; ) =deleted<br>AbstractHandler is not copy-assignable.</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Protected Functions inherited from <a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">batt::AbstractHandler&lt; Args... &gt;</a></strong></p>
+<p><strong>Protected Functions inherited from <a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/">batt::BasicAbstractHandler&lt; Base, Args... &gt;</a></strong></p>
 <table>
 <thead>
 <tr>
@@ -735,85 +746,90 @@
 <tbody>
 <tr>
 <td></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/#function-abstracthandler">AbstractHandler</a></strong>() =default</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/#function-basicabstracthandler">BasicAbstractHandler</a></strong>() =default</td>
 </tr>
 <tr>
 <td>virtual</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractHandler/#function-~abstracthandler">~AbstractHandler</a></strong>() =default</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/#function-~basicabstracthandler">~BasicAbstractHandler</a></strong>() =default</td>
 </tr>
 </tbody>
 </table>
 <h2 id="detailed-description">Detailed Description<a class="headerlink" href="#detailed-description" title="Permanent link">&#128279;</a></h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">HandlerFn</span><span class="w"> </span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">batt</span><span class="o">::</span><span class="n">HandlerImpl</span><span class="p">;</span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">HandlerFn</span><span class="w"> </span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">typename</span><span class="w"> </span><span class="nc">Base</span><span class="w"> </span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">batt</span><span class="o">::</span><span class="n">BasicHandlerImpl</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="public-types-documentation">Public Types Documentation<a class="headerlink" href="#public-types-documentation" title="Permanent link">&#128279;</a></h2>
+<h3 id="using-self">using Self<a class="headerlink" href="#using-self" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">BasicHandlerImpl</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HandlerFn</span><span class="p">,</span><span class="w"> </span><span class="n">Base</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">Self</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">BasicHandlerImpl</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="using-allocator_type">using allocator_type<a class="headerlink" href="#using-allocator_type" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">HandlerImpl</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HandlerFn</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">allocator_type</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">allocator_traits</span><span class="o">&lt;</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">associated_allocator_t</span><span class="o">&lt;</span><span class="n">HandlerFn</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;::</span><span class="k">template</span><span class="w"> </span><span class="n">rebind_alloc</span><span class="o">&lt;</span><span class="n">HandlerImpl</span><span class="o">&gt;</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">BasicHandlerImpl</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HandlerFn</span><span class="p">,</span><span class="w"> </span><span class="n">Base</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">allocator_type</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="k">typename</span><span class="w"> </span><span class="nc">std</span><span class="o">::</span><span class="n">allocator_traits</span><span class="o">&lt;</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">associated_allocator_t</span><span class="o">&lt;</span><span class="n">HandlerFn</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;::</span><span class="k">template</span><span class="w"> </span><span class="n">rebind_alloc</span><span class="o">&lt;</span><span class="n">Self</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&#128279;</a></h2>
 <h3 id="function-make_new">function make_new<a class="headerlink" href="#function-make_new" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
-<span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span>
-<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">HandlerFnArg</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">HandlerImpl</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">make_new</span><span class="p">(</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="n">HandlerFnArg</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">h</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="function-make_new_1">function make_new<a class="headerlink" href="#function-make_new_1" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
 <span class="normal"><a href="#__codelineno-3-3">3</a></span>
-<span class="normal"><a href="#__codelineno-3-4">4</a></span>
-<span class="normal"><a href="#__codelineno-3-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">HandlerFnArg</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">HandlerImpl</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">make_new</span><span class="p">(</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="n">HandlerFnArg</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">h</span><span class="p">,</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="n">usize</span><span class="w"> </span><span class="n">extra_bytes</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">HandlerFnArg</span><span class="w"> </span><span class="o">&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">make_new</span><span class="p">(</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="n">HandlerFnArg</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">h</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-handlerimpl">function HandlerImpl<a class="headerlink" href="#function-handlerimpl" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-make_new_1">function make_new<a class="headerlink" href="#function-make_new_1" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
 <span class="normal"><a href="#__codelineno-4-3">3</a></span>
 <span class="normal"><a href="#__codelineno-4-4">4</a></span>
-<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">HandlerFnArg</span><span class="w"> </span><span class="p">,</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">batt</span><span class="o">::</span><span class="n">EnableIfNoShadow</span><span class="o">&lt;</span><span class="n">HandlerImpl</span><span class="p">,</span><span class="w"> </span><span class="n">HandlerFnArg</span><span class="o">&amp;&amp;&gt;&gt;</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="kr">inline</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">HandlerImpl</span><span class="p">(</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="n">HandlerFnArg</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">h</span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">HandlerFnArg</span><span class="w"> </span><span class="o">&gt;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">make_new</span><span class="p">(</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="n">HandlerFnArg</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">h</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="n">usize</span><span class="w"> </span><span class="n">extra_bytes</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-notify">function notify<a class="headerlink" href="#function-notify" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-basichandlerimpl">function BasicHandlerImpl<a class="headerlink" href="#function-basichandlerimpl" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">notify</span><span class="p">(</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="n">Args</span><span class="p">...</span><span class="w"> </span><span class="n">args</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="p">)</span><span class="w"> </span><span class="k">override</span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">HandlerFnArg</span><span class="w"> </span><span class="p">,</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">batt</span><span class="o">::</span><span class="n">EnableIfNoShadow</span><span class="o">&lt;</span><span class="n">Self</span><span class="p">,</span><span class="w"> </span><span class="n">HandlerFnArg</span><span class="o">&amp;&amp;&gt;&gt;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kr">inline</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">BasicHandlerImpl</span><span class="p">(</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">    </span><span class="n">HandlerFnArg</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">h</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-notify">function notify<a class="headerlink" href="#function-notify" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">notify</span><span class="p">(</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">Args</span><span class="p">...</span><span class="w"> </span><span class="n">args</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">)</span><span class="w"> </span><span class="k">override</span>
 </code></pre></div></td></tr></table></div>
 <p>Invoke the handler; notify should delete <code>this</code> as a side-effect. </p>
-<p><strong>Reimplements</strong>: <a href="/_autogen/Classes/classbatt_1_1AbstractHandler/#function-notify">batt::AbstractHandler::notify</a></p>
+<p><strong>Reimplements</strong>: <a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/#function-notify">batt::BasicAbstractHandler::notify</a></p>
 <h3 id="function-destroy">function destroy<a class="headerlink" href="#function-destroy" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">destroy</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">destroy</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
 </code></pre></div></td></tr></table></div>
 <p>Release memory associated with this handler and destroy the implementation object, without invoking it. </p>
-<p><strong>Reimplements</strong>: <a href="/_autogen/Classes/classbatt_1_1AbstractHandler/#function-destroy">batt::AbstractHandler::destroy</a></p>
+<p><strong>Reimplements</strong>: <a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/#function-destroy">batt::BasicAbstractHandler::destroy</a></p>
 <h3 id="function-dump">function dump<a class="headerlink" href="#function-dump" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span>
-<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">dump</span><span class="p">(</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="p">)</span><span class="w"> </span><span class="k">override</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">dump</span><span class="p">(</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="p">)</span><span class="w"> </span><span class="k">override</span>
 </code></pre></div></td></tr></table></div>
 <p>Print the type and any other associated information about the handler. </p>
-<p><strong>Reimplements</strong>: <a href="/_autogen/Classes/classbatt_1_1AbstractHandler/#function-dump">batt::AbstractHandler::dump</a></p>
+<p><strong>Reimplements</strong>: <a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/#function-dump">batt::BasicAbstractHandler::dump</a></p>
 <h3 id="function-get_fn">function get_fn<a class="headerlink" href="#function-get_fn" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">HandlerFn</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">get_fn</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">HandlerFn</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">get_fn</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 13 April 2023 at 15:38:09 UTC</p>
+<p>Updated on 27 April 2023 at 20:26:31 UTC</p>
 
 
 

@@ -510,15 +510,16 @@
 <h1 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&#128279;</a></h1>
 <ul>
 <li><strong>namespace <a href="/_autogen/Namespaces/namespacebatt/">batt</a></strong> <ul>
-<li><strong>class <a href="/_autogen/Classes/classbatt_1_1AbstractHandler/">AbstractHandler</a></strong> <br>A type-erased async completion handler with linked list pointers. <ul>
-<li><strong>struct <a href="/_autogen/Classes/structbatt_1_1AbstractHandler_1_1Deleter/">Deleter</a></strong> <br><a href="">Deleter</a> for use in std::unique_ptr. </li>
-</ul>
-</li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1AbstractStackAllocator/">AbstractStackAllocator</a></strong> </li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1AbstractValue/">AbstractValue</a></strong> </li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1AbstractValueImpl/">AbstractValueImpl</a></strong> </li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1AbstractValuePointer/">AbstractValuePointer</a></strong> </li>
+<li><strong>class <a href="/_autogen/Classes/classbatt_1_1BasicAbstractHandler/">BasicAbstractHandler</a></strong> <br>A type-erased async completion handler with linked list pointers. <ul>
+<li><strong>struct <a href="/_autogen/Classes/structbatt_1_1BasicAbstractHandler_1_1Deleter/">Deleter</a></strong> <br><a href="">Deleter</a> for use in std::unique_ptr. </li>
+</ul>
+</li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1BasicFakeExecutor/">BasicFakeExecutor</a></strong> </li>
+<li><strong>class <a href="/_autogen/Classes/classbatt_1_1BasicHandlerImpl/">BasicHandlerImpl</a></strong> </li>
 <li><strong>struct <a href="/_autogen/Classes/structbatt_1_1BasicInterval/">BasicInterval</a></strong> <br>A set of totally ordered values, defined by a lower and upper bound. <ul>
 <li><strong>struct <a href="/_autogen/Classes/structbatt_1_1BasicInterval_1_1LexicographicalOrder/">LexicographicalOrder</a></strong> <br>Total order that sorts intervals first by lower bound, then by upper bound (i.e., by "dictionary order"). </li>
 <li><strong>struct <a href="/_autogen/Classes/structbatt_1_1BasicInterval_1_1LinearOrder/">LinearOrder</a></strong> <br>Partial order on Interval values that corresponds to a strict ordering on a one dimensional number line. </li>
@@ -582,7 +583,6 @@
 <li><strong>struct <a href="/_autogen/Classes/structbatt_1_1GreatestLowerBound/">GreatestLowerBound</a></strong> </li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1HandlerAllocator/">HandlerAllocator</a></strong> <br>An allocator associated with a completion handler. </li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1HandlerBinder/">HandlerBinder</a></strong> </li>
-<li><strong>class <a href="/_autogen/Classes/classbatt_1_1HandlerImpl/">HandlerImpl</a></strong> </li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1HandlerMemory/">HandlerMemory</a></strong> <br>A chunk of memory that can be attached to an async completion handler. </li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1HandlerMemoryBase/">HandlerMemoryBase</a></strong> <br>Abstract base for HandlerMemory<kSize>. </li>
 <li><strong>struct <a href="/_autogen/Classes/structbatt_1_1HexByteDumper/">HexByteDumper</a></strong> </li>
@@ -653,6 +653,7 @@
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1Pinnable/">Pinnable</a></strong> </li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1PinnablePtr/">PinnablePtr</a></strong> <br>A raw pointer augmented to support the <a href="/_autogen/Classes/classbatt_1_1Pinnable/">batt::Pinnable</a> interface, so that a <a href="/_autogen/Classes/classbatt_1_1Pin/">batt::Pin</a><batt::PinnablePtr\<T>> can be created to block the destruction of the pointer. </li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1PrependBufferSource/">PrependBufferSource</a></strong> </li>
+<li><strong>class <a href="/_autogen/Classes/classbatt_1_1PriorityWatch/">PriorityWatch</a></strong> </li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1Promise/">Promise</a></strong> <br>An obligation to provide a value of type T to a <a href="">Future</a>. </li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1Queue/">Queue</a></strong> <br>Unbounded multi-producer/multi-consumer (MPMC) FIFO queue. </li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1QueueBase/">QueueBase</a></strong> <br>Type-agnostic base class for all <a href="">Queue</a> types. </li>
@@ -728,6 +729,7 @@
 </li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1TaskScheduler/">TaskScheduler</a></strong> </li>
 <li><strong>struct <a href="/_autogen/Classes/structbatt_1_1TaskSleepImpl/">TaskSleepImpl</a></strong> </li>
+<li><strong>struct <a href="/_autogen/Classes/structbatt_1_1ThreadPoolConfig/">ThreadPoolConfig</a></strong> </li>
 <li><strong>struct <a href="/_autogen/Classes/structbatt_1_1TupleIndexOf/">TupleIndexOf</a></strong> </li>
 <li><strong>struct <a href="/_autogen/Classes/structbatt_1_1TupleIndexOf_3_01std_1_1tuple_3_01First_00_01Rest_8_8_8_01_4_00_01T_01_4/">TupleIndexOf&lt; std::tuple&lt; First, Rest... &gt;, T &gt;</a></strong> </li>
 <li><strong>struct <a href="/_autogen/Classes/structbatt_1_1TupleIndexOf_3_01std_1_1tuple_3_01T_00_01Rest_8_8_8_01_4_00_01T_01_4/">TupleIndexOf&lt; std::tuple&lt; T, Rest... &gt;, T &gt;</a></strong> </li>
@@ -780,6 +782,9 @@
 <li><strong>struct <a href="/_autogen/Classes/structbatt_1_1detail_1_1NullableImpl_3_01std_1_1shared__ptr_3_01T_01_4_01_4/">NullableImpl&lt; std::shared_ptr&lt; T &gt; &gt;</a></strong> </li>
 <li><strong>struct <a href="/_autogen/Classes/structbatt_1_1detail_1_1NullableImpl_3_01std_1_1unique__ptr_3_01T_01_4_01_4/">NullableImpl&lt; std::unique_ptr&lt; T &gt; &gt;</a></strong> </li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/">ParallelModelCheckState</a></strong> </li>
+<li><strong>class <a href="/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/">PriorityHeap</a></strong> </li>
+<li><strong>class <a href="/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItem/">PriorityHeapItem</a></strong> </li>
+<li><strong>class <a href="/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItemList/">PriorityHeapItemList</a></strong> </li>
 <li><strong>struct <a href="/_autogen/Classes/structbatt_1_1detail_1_1SecondPhase/">SecondPhase</a></strong> </li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1detail_1_1SigInfoHandler/">SigInfoHandler</a></strong> </li>
 <li><strong>class <a href="/_autogen/Classes/classbatt_1_1detail_1_1StatusBase/">StatusBase</a></strong> </li>
@@ -885,7 +890,7 @@
 </li>
 </ul>
 </li>
-<li><strong>namespace <a href="/_autogen/Namespaces/namespacebatt_1_1_0d107/">batt::@107</a></strong> </li>
+<li><strong>namespace <a href="/_autogen/Namespaces/namespacebatt_1_1_0d110/">batt::@110</a></strong> </li>
 <li><strong>namespace <a href="/_autogen/Namespaces/namespacebatteries/">batteries</a></strong> </li>
 <li><strong>namespace <a href="/_autogen/Namespaces/namespaceboost/">boost</a></strong> </li>
 <li><strong>namespace <a href="/_autogen/Namespaces/namespacepico__http/">pico_http</a></strong> <ul>
@@ -897,11 +902,11 @@
 <li><strong>namespace <a href="/_autogen/Namespaces/namespacepico__http_1_1detail/">detail</a></strong> </li>
 </ul>
 </li>
-<li><strong>namespace <a href="/_autogen/Namespaces/namespacepico__http_1_1detail_1_1_0d110/">pico_http::detail::@110</a></strong> </li>
+<li><strong>namespace <a href="/_autogen/Namespaces/namespacepico__http_1_1detail_1_1_0d113/">pico_http::detail::@113</a></strong> </li>
 <li><strong>namespace <a href="/_autogen/Namespaces/namespacestd/">std</a></strong> </li>
 </ul>
 <hr />
-<p>Updated on 13 April 2023 at 15:38:10 UTC</p>
+<p>Updated on 27 April 2023 at 20:26:32 UTC</p>
 
 
 

@@ -168,12 +168,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 301,
+    "bodyEnd": 313,
     "bodyFile": "batteries/async/runtime.hpp",
-    "bodyStart": 196,
+    "bodyStart": 197,
     "column": 1,
     "file": "batteries/async/runtime.hpp",
-    "line": 195
+    "line": 196
   },
   "name": "batt::Runtime::DefaultScheduler",
   "override": false,
@@ -218,6 +218,68 @@
   "privateAttributes": [
     {
       "abstract": false,
+      "anchor": "#variable-deprecated-",
+      "category": "attributes",
+      "const": false,
+      "definition": "const bool batt::Runtime::DefaultScheduler::deprecated_",
+      "explicit": false,
+      "fullname": "batt::Runtime::DefaultScheduler::deprecated_",
+      "hasDetails": false,
+      "initializer": "= getenv_as<bool>(\"BATT_DEFAULT_SCHEDULER_DEPRECATE\").value_or(false)",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/runtime.hpp",
+        "bodyStart": 282,
+        "column": 16,
+        "file": "batteries/async/runtime.hpp",
+        "line": 282
+      },
+      "name": "deprecated_",
+      "override": false,
+      "refid": "classbatt_1_1Runtime_1_1DefaultScheduler_1a68b5cebf5adc65e81caba7d97cd795c3",
+      "static": false,
+      "strong": false,
+      "title": "deprecated_",
+      "type": "const bool",
+      "typePlain": "const bool",
+      "url": "/_autogen/Classes/classbatt_1_1Runtime_1_1DefaultScheduler/#variable-deprecated-",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-disabled-",
+      "category": "attributes",
+      "const": false,
+      "definition": "const bool batt::Runtime::DefaultScheduler::disabled_",
+      "explicit": false,
+      "fullname": "batt::Runtime::DefaultScheduler::disabled_",
+      "hasDetails": false,
+      "initializer": "= getenv_as<bool>(\"BATT_DEFAULT_SCHEDULER_DISABLE\").value_or(false)",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/runtime.hpp",
+        "bodyStart": 283,
+        "column": 16,
+        "file": "batteries/async/runtime.hpp",
+        "line": 283
+      },
+      "name": "disabled_",
+      "override": false,
+      "refid": "classbatt_1_1Runtime_1_1DefaultScheduler_1a7b261cdda4febd1464fd3d9a22eec837",
+      "static": false,
+      "strong": false,
+      "title": "disabled_",
+      "type": "const bool",
+      "typePlain": "const bool",
+      "url": "/_autogen/Classes/classbatt_1_1Runtime_1_1DefaultScheduler/#variable-disabled-",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
       "anchor": "#variable-cpu-count-",
       "category": "attributes",
       "const": false,
@@ -231,10 +293,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 275,
+        "bodyStart": 287,
         "column": 20,
         "file": "batteries/async/runtime.hpp",
-        "line": 275
+        "line": 287
       },
       "name": "cpu_count_",
       "override": false,
@@ -261,10 +323,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 279,
+        "bodyStart": 291,
         "column": 17,
         "file": "batteries/async/runtime.hpp",
-        "line": 279
+        "line": 291
       },
       "name": "io_",
       "override": false,
@@ -291,10 +353,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 284,
+        "bodyStart": 296,
         "column": 17,
         "file": "batteries/async/runtime.hpp",
-        "line": 284
+        "line": 296
       },
       "name": "work_guards_",
       "override": false,
@@ -321,10 +383,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 288,
+        "bodyStart": 300,
         "column": 17,
         "file": "batteries/async/runtime.hpp",
-        "line": 288
+        "line": 300
       },
       "name": "thread_pool_",
       "override": false,
@@ -352,10 +414,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 292,
+        "bodyStart": 304,
         "column": 17,
         "file": "batteries/async/runtime.hpp",
-        "line": 292
+        "line": 304
       },
       "name": "halted_",
       "override": false,
@@ -383,10 +445,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 296,
+        "bodyStart": 308,
         "column": 17,
         "file": "batteries/async/runtime.hpp",
-        "line": 296
+        "line": 308
       },
       "name": "round_robin_",
       "override": false,
@@ -413,10 +475,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 300,
+        "bodyStart": 312,
         "column": 16,
         "file": "batteries/async/runtime.hpp",
-        "line": 300
+        "line": 312
       },
       "name": "join_mutex_",
       "override": false,
@@ -447,12 +509,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 220,
+        "bodyEnd": 221,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 198,
+        "bodyStart": 199,
         "column": 14,
         "file": "batteries/async/runtime.hpp",
-        "line": 198
+        "line": 199
       },
       "name": "DefaultScheduler",
       "override": false,
@@ -482,12 +544,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 226,
+        "bodyEnd": 227,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 222,
+        "bodyStart": 223,
         "column": 5,
         "file": "batteries/async/runtime.hpp",
-        "line": 222
+        "line": 223
       },
       "name": "~DefaultScheduler",
       "override": false,
@@ -517,12 +579,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 236,
+        "bodyEnd": 245,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 228,
+        "bodyStart": 229,
         "column": 34,
         "file": "batteries/async/runtime.hpp",
-        "line": 228
+        "line": 229
       },
       "name": "schedule_task",
       "override": true,
@@ -568,12 +630,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 255,
+        "bodyEnd": 264,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 238,
+        "bodyStart": 247,
         "column": 10,
         "file": "batteries/async/runtime.hpp",
-        "line": 238
+        "line": 247
       },
       "name": "halt",
       "override": true,
@@ -619,12 +681,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 270,
+        "bodyEnd": 279,
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 257,
+        "bodyStart": 266,
         "column": 10,
         "file": "batteries/async/runtime.hpp",
-        "line": 257
+        "line": 266
       },
       "name": "join",
       "override": true,

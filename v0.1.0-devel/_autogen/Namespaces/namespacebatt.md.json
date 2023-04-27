@@ -209,10 +209,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/cpu_align.hpp",
-        "bodyStart": 22,
+        "bodyStart": 24,
         "column": 16,
         "file": "batteries/cpu_align.hpp",
-        "line": 22
+        "line": 24
       },
       "name": "kCpuCacheLineSize",
       "override": false,
@@ -745,21 +745,21 @@
       "baseClasses": [
         {
           "external": true,
-          "name": "boost::intrusive::list_base_hook<>",
+          "name": "Base",
           "virtual": "non-virtual",
           "visibility": "public"
         }
       ],
       "brief": "A type-erased async completion handler with linked list pointers. ",
       "category": "classes",
-      "fullname": "batt::AbstractHandler",
+      "fullname": "batt::BasicAbstractHandler",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::AbstractHandler",
-      "refid": "classbatt_1_1AbstractHandler",
+      "name": "batt::BasicAbstractHandler",
+      "refid": "classbatt_1_1BasicAbstractHandler",
       "summary": "A type-erased async completion handler with linked list pointers. ",
-      "title": "batt::AbstractHandler",
-      "url": "/_autogen/Classes/classbatt_1_1AbstractHandler/",
+      "title": "batt::BasicAbstractHandler",
+      "url": "/_autogen/Classes/classbatt_1_1BasicAbstractHandler/",
       "visibility": "public"
     },
     {
@@ -767,27 +767,27 @@
       "baseClasses": [
         {
           "external": false,
-          "name": "batt::AbstractHandler< Args... >",
-          "refid": "classbatt_1_1AbstractHandler",
-          "url": "/_autogen/Classes/classbatt_1_1AbstractHandler/",
+          "name": "batt::BasicAbstractHandler< Base, Args... >",
+          "refid": "classbatt_1_1BasicAbstractHandler",
+          "url": "/_autogen/Classes/classbatt_1_1BasicAbstractHandler/",
           "virtual": "non-virtual",
           "visibility": "public"
         },
         {
           "external": true,
-          "name": "boost::intrusive::list_base_hook<>",
+          "name": "Base",
           "virtual": "non-virtual",
           "visibility": "public"
         }
       ],
       "category": "classes",
-      "fullname": "batt::HandlerImpl",
+      "fullname": "batt::BasicHandlerImpl",
       "kind": "class",
       "language": "cpp",
-      "name": "batt::HandlerImpl",
-      "refid": "classbatt_1_1HandlerImpl",
-      "title": "batt::HandlerImpl",
-      "url": "/_autogen/Classes/classbatt_1_1HandlerImpl/",
+      "name": "batt::BasicHandlerImpl",
+      "refid": "classbatt_1_1BasicHandlerImpl",
+      "title": "batt::BasicHandlerImpl",
+      "url": "/_autogen/Classes/classbatt_1_1BasicHandlerImpl/",
       "visibility": "public"
     },
     {
@@ -1036,6 +1036,18 @@
       "summary": "A raw pointer augmented to support the batt::Pinnable interface, so that a batt::Pin<batt::PinnablePtr<T>> can be created to block the destruction of the pointer. ",
       "title": "batt::PinnablePtr",
       "url": "/_autogen/Classes/classbatt_1_1PinnablePtr/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::PriorityWatch",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::PriorityWatch",
+      "refid": "classbatt_1_1PriorityWatch",
+      "title": "batt::PriorityWatch",
+      "url": "/_autogen/Classes/classbatt_1_1PriorityWatch/",
       "visibility": "public"
     },
     {
@@ -1682,6 +1694,18 @@
       "refid": "classbatt_1_1CpuCacheLineIsolated",
       "title": "batt::CpuCacheLineIsolated",
       "url": "/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::ThreadPoolConfig",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::ThreadPoolConfig",
+      "refid": "structbatt_1_1ThreadPoolConfig",
+      "title": "batt::ThreadPoolConfig",
+      "url": "/_autogen/Classes/structbatt_1_1ThreadPoolConfig/",
       "visibility": "public"
     },
     {
@@ -6322,12 +6346,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 228,
+        "bodyEnd": 235,
         "bodyFile": "batteries/async/grant_decl.hpp",
-        "bodyStart": 225,
+        "bodyStart": 232,
         "column": 8,
         "file": "batteries/async/grant_decl.hpp",
-        "line": 225
+        "line": 232
       },
       "name": "operator<<",
       "override": false,
@@ -6372,7 +6396,7 @@
       "location": {
         "column": 58,
         "file": "batteries/async/handler.hpp",
-        "line": 198
+        "line": 207
       },
       "name": "BOOST_PP_CAT",
       "override": false,
@@ -6415,12 +6439,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 209,
+        "bodyEnd": 218,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 206,
+        "bodyStart": 215,
         "column": 13,
         "file": "batteries/async/handler.hpp",
-        "line": 206
+        "line": 215
       },
       "name": "push_handler",
       "override": false,
@@ -6475,12 +6499,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 219,
+        "bodyEnd": 228,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 212,
+        "bodyStart": 221,
         "column": 13,
         "file": "batteries/async/handler.hpp",
-        "line": 212
+        "line": 221
       },
       "name": "invoke_all_handlers",
       "override": false,
@@ -6535,12 +6559,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 258,
+        "bodyEnd": 267,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 254,
+        "bodyStart": 263,
         "column": 15,
         "file": "batteries/async/handler.hpp",
-        "line": 254
+        "line": 263
       },
       "name": "bind_handler",
       "override": false,
@@ -6596,12 +6620,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 418,
+        "bodyEnd": 427,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 415,
+        "bodyStart": 424,
         "column": 27,
         "file": "batteries/async/handler.hpp",
-        "line": 415
+        "line": 424
       },
       "name": "make_custom_alloc_handler",
       "override": false,
@@ -12721,6 +12745,102 @@
     {
       "abstract": false,
       "anchor": "#function-operator<<",
+      "argsString": "(std::ostream &out, Order t)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::ostream& batt::operator<<",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator<<",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 41,
+        "bodyFile": "batteries/compare.hpp",
+        "bodyStart": 28,
+        "column": 8,
+        "file": "batteries/compare.hpp",
+        "line": 28
+      },
+      "name": "operator<<",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        },
+        {
+          "name": "t",
+          "type": "Order",
+          "typePlain": "Order"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "compare_8hpp_1ade6c218562cf971b1f6f4f9130f45d8d",
+      "static": false,
+      "strong": false,
+      "title": "operator<<",
+      "type": "std::ostream &",
+      "typePlain": "std::ostream &",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator<<",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-compare",
+      "argsString": "(const std::string_view &a, const std::string_view &b) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Order batt::compare",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::compare",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 60,
+        "bodyFile": "batteries/compare.hpp",
+        "bodyStart": 43,
+        "column": 14,
+        "file": "batteries/compare.hpp",
+        "line": 43
+      },
+      "name": "compare",
+      "override": false,
+      "params": [
+        {
+          "name": "a",
+          "type": "const std::string_view &",
+          "typePlain": "const std::string_view &"
+        },
+        {
+          "name": "b",
+          "type": "const std::string_view &",
+          "typePlain": "const std::string_view &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "compare_8hpp_1af94b281ffe5af1c326d7e78590958e93",
+      "static": false,
+      "strong": false,
+      "title": "compare",
+      "type": "Order",
+      "typePlain": "Order",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-compare",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator<<",
       "argsString": "(std::ostream &out, const CpuCacheLineIsolated< T > &t)",
       "category": "functions",
       "const": false,
@@ -12734,12 +12854,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 180,
+        "bodyEnd": 182,
         "bodyFile": "batteries/cpu_align.hpp",
-        "bodyStart": 177,
+        "bodyStart": 179,
         "column": 8,
         "file": "batteries/cpu_align.hpp",
-        "line": 177
+        "line": 179
       },
       "name": "operator<<",
       "override": false,
@@ -12789,12 +12909,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 196,
+        "bodyEnd": 198,
         "bodyFile": "batteries/cpu_align.hpp",
-        "bodyStart": 184,
+        "bodyStart": 186,
         "column": 15,
         "file": "batteries/cpu_align.hpp",
-        "line": 184
+        "line": 186
       },
       "name": "pin_thread_to_cpu",
       "override": false,
@@ -12832,12 +12952,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 213,
+        "bodyEnd": 215,
         "bodyFile": "batteries/cpu_align.hpp",
-        "bodyStart": 199,
+        "bodyStart": 201,
         "column": 15,
         "file": "batteries/cpu_align.hpp",
-        "line": 199
+        "line": 201
       },
       "name": "pin_thread_to_cpu_set",
       "override": false,
@@ -12863,6 +12983,61 @@
       "type": "[Status](/_autogen/Classes/classbatt_1_1Status/)",
       "typePlain": "Status",
       "url": "/_autogen/Namespaces/namespacebatt/#function-pin-thread-to-cpu-set",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-pin-thread-i-of-config",
+      "argsString": "(usize i, const ThreadPoolConfig &config, const std::string_view &pool_name=\"\")",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Status batt::pin_thread_i_of_config",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::pin_thread_i_of_config",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 259,
+        "bodyFile": "batteries/cpu_align.hpp",
+        "bodyStart": 224,
+        "column": 15,
+        "file": "batteries/cpu_align.hpp",
+        "line": 224
+      },
+      "name": "pin_thread_i_of_config",
+      "override": false,
+      "params": [
+        {
+          "name": "i",
+          "type": "usize",
+          "typePlain": "usize"
+        },
+        {
+          "name": "config",
+          "type": "const [ThreadPoolConfig](/_autogen/Classes/structbatt_1_1ThreadPoolConfig/) &",
+          "typePlain": "const ThreadPoolConfig &"
+        },
+        {
+          "defval": "\"\"",
+          "defvalPlain": "\"\"",
+          "name": "pool_name",
+          "type": "const std::string_view &",
+          "typePlain": "const std::string_view &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "cpu__align_8hpp_1ac56dba70be56a7e44cc12aceed09ad58",
+      "static": false,
+      "strong": false,
+      "title": "pin_thread_i_of_config",
+      "type": "[Status](/_autogen/Classes/classbatt_1_1Status/)",
+      "typePlain": "Status",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-pin-thread-i-of-config",
       "virtual": false,
       "visibility": "public"
     },
@@ -12913,6 +13088,150 @@
       "type": "constexpr void",
       "typePlain": "constexpr void",
       "url": "/_autogen/Namespaces/namespacebatt/#function-do-nothing",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-big-endian-less-than",
+      "argsString": "(BOOST_PP_CAT(u, 16) a, BOOST_PP_CAT(u, 16) b)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::big_endian_less_than",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::big_endian_less_than",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 28,
+        "bodyFile": "batteries/endian.hpp",
+        "bodyStart": 28,
+        "column": 13,
+        "file": "batteries/endian.hpp",
+        "line": 28
+      },
+      "name": "big_endian_less_than",
+      "override": false,
+      "params": [
+        {
+          "name": "a",
+          "type": "BOOST_PP_CAT(u, 16)",
+          "typePlain": "BOOST_PP_CAT(u, 16)"
+        },
+        {
+          "name": "b",
+          "type": "BOOST_PP_CAT(u, 16)",
+          "typePlain": "BOOST_PP_CAT(u, 16)"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "endian_8hpp_1a3229ba1f1551cc838e074bea49b18acc",
+      "static": false,
+      "strong": false,
+      "title": "big_endian_less_than",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-big-endian-less-than",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-big-endian-less-than",
+      "argsString": "(BOOST_PP_CAT(u, 32) a, BOOST_PP_CAT(u, 32) b)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::big_endian_less_than",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::big_endian_less_than",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 29,
+        "bodyFile": "batteries/endian.hpp",
+        "bodyStart": 29,
+        "column": 13,
+        "file": "batteries/endian.hpp",
+        "line": 29
+      },
+      "name": "big_endian_less_than",
+      "override": false,
+      "params": [
+        {
+          "name": "a",
+          "type": "BOOST_PP_CAT(u, 32)",
+          "typePlain": "BOOST_PP_CAT(u, 32)"
+        },
+        {
+          "name": "b",
+          "type": "BOOST_PP_CAT(u, 32)",
+          "typePlain": "BOOST_PP_CAT(u, 32)"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "endian_8hpp_1addd6f29958ace99d61cad9646e7c2f29",
+      "static": false,
+      "strong": false,
+      "title": "big_endian_less_than",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-big-endian-less-than",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-big-endian-less-than",
+      "argsString": "(BOOST_PP_CAT(u, 64) a, BOOST_PP_CAT(u, 64) b)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::big_endian_less_than",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::big_endian_less_than",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 30,
+        "bodyFile": "batteries/endian.hpp",
+        "bodyStart": 30,
+        "column": 13,
+        "file": "batteries/endian.hpp",
+        "line": 30
+      },
+      "name": "big_endian_less_than",
+      "override": false,
+      "params": [
+        {
+          "name": "a",
+          "type": "BOOST_PP_CAT(u, 64)",
+          "typePlain": "BOOST_PP_CAT(u, 64)"
+        },
+        {
+          "name": "b",
+          "type": "BOOST_PP_CAT(u, 64)",
+          "typePlain": "BOOST_PP_CAT(u, 64)"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "endian_8hpp_1a7f226831bb0cb079c8022426b222eff2",
+      "static": false,
+      "strong": false,
+      "title": "big_endian_less_than",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-big-endian-less-than",
       "virtual": false,
       "visibility": "public"
     },
@@ -14614,6 +14933,120 @@
     },
     {
       "abstract": false,
+      "anchor": "#function-round-down-to",
+      "argsString": "(IntT unit, IntT n)",
+      "brief": "Rounds `n` down to the nearest multiple of `unit`. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "constexpr IntT batt::round_down_to",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::round_down_to",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 60,
+        "bodyFile": "batteries/math.hpp",
+        "bodyStart": 57,
+        "column": 23,
+        "file": "batteries/math.hpp",
+        "line": 57
+      },
+      "name": "round_down_to",
+      "override": false,
+      "params": [
+        {
+          "name": "unit",
+          "type": "IntT",
+          "typePlain": "IntT"
+        },
+        {
+          "name": "n",
+          "type": "IntT",
+          "typePlain": "IntT"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "math_8hpp_1aa6d906ff0b94bc73c01994576b2a047e",
+      "static": false,
+      "strong": false,
+      "summary": "Rounds n down to the nearest multiple of unit. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename IntT",
+          "typePlain": "typename IntT"
+        }
+      ],
+      "title": "round_down_to",
+      "type": "constexpr IntT",
+      "typePlain": "constexpr IntT",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-round-down-to",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-round-up-to",
+      "argsString": "(IntT unit, IntT n)",
+      "brief": "Rounds `n` up to the nearest multiple of `unit`. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "constexpr IntT batt::round_up_to",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::round_up_to",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 68,
+        "bodyFile": "batteries/math.hpp",
+        "bodyStart": 65,
+        "column": 23,
+        "file": "batteries/math.hpp",
+        "line": 65
+      },
+      "name": "round_up_to",
+      "override": false,
+      "params": [
+        {
+          "name": "unit",
+          "type": "IntT",
+          "typePlain": "IntT"
+        },
+        {
+          "name": "n",
+          "type": "IntT",
+          "typePlain": "IntT"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "math_8hpp_1a2ce4fe3fae75973541d6104fddcea244",
+      "static": false,
+      "strong": false,
+      "summary": "Rounds n up to the nearest multiple of unit. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename IntT",
+          "typePlain": "typename IntT"
+        }
+      ],
+      "title": "round_up_to",
+      "type": "constexpr IntT",
+      "typePlain": "constexpr IntT",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-round-up-to",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#function-ipow",
       "argsString": "(IntT base, IntT exponent, IntT accumulator=static_cast< IntT >(1))",
       "category": "functions",
@@ -14628,12 +15061,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 61,
+        "bodyEnd": 77,
         "bodyFile": "batteries/math.hpp",
-        "bodyStart": 57,
+        "bodyStart": 73,
         "column": 23,
         "file": "batteries/math.hpp",
-        "line": 57
+        "line": 73
       },
       "name": "ipow",
       "override": false,
@@ -22878,6 +23311,84 @@
     },
     {
       "abstract": false,
+      "anchor": "#enum-order",
+      "category": "types",
+      "const": false,
+      "definition": "",
+      "enumvalues": [
+        {
+          "anchor": "#enumvalue-less",
+          "category": "types",
+          "definition": "",
+          "fullname": "Order::Less",
+          "hasDetails": false,
+          "initializer": "= -1",
+          "kind": "enumvalue",
+          "language": "",
+          "name": "Less",
+          "refid": "compare_8hpp_1ab6b33619e6d083fd40f75ab5f392b747a1cfdf0e8d0c87a228c1f40d9bee7888b",
+          "title": "Less",
+          "url": "/_autogen/Namespaces/namespacebatt/#enumvalue-less",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-equal",
+          "category": "types",
+          "definition": "",
+          "fullname": "Order::Equal",
+          "hasDetails": false,
+          "initializer": "= 0",
+          "kind": "enumvalue",
+          "language": "",
+          "name": "Equal",
+          "refid": "compare_8hpp_1ab6b33619e6d083fd40f75ab5f392b747af5f286e73bda105e538310b3190f75c5",
+          "title": "Equal",
+          "url": "/_autogen/Namespaces/namespacebatt/#enumvalue-equal",
+          "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-greater",
+          "category": "types",
+          "definition": "",
+          "fullname": "Order::Greater",
+          "hasDetails": false,
+          "initializer": "= 1",
+          "kind": "enumvalue",
+          "language": "",
+          "name": "Greater",
+          "refid": "compare_8hpp_1ab6b33619e6d083fd40f75ab5f392b747a8768a6821cd735aea4f5b0df88c1fc6a",
+          "title": "Greater",
+          "url": "/_autogen/Namespaces/namespacebatt/#enumvalue-greater",
+          "visibility": "public"
+        }
+      ],
+      "explicit": false,
+      "fullname": "batt::Order",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "enum",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 26,
+        "bodyFile": "batteries/compare.hpp",
+        "bodyStart": 22,
+        "column": 1,
+        "file": "batteries/compare.hpp",
+        "line": 22
+      },
+      "name": "Order",
+      "override": false,
+      "refid": "compare_8hpp_1ab6b33619e6d083fd40f75ab5f392b747",
+      "static": false,
+      "strong": true,
+      "title": "Order",
+      "type": "i8",
+      "typePlain": "i8",
+      "url": "/_autogen/Namespaces/namespacebatt/#enum-order",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#enum-statuscode",
       "category": "types",
       "const": false,
@@ -23772,6 +24283,85 @@
     },
     {
       "abstract": false,
+      "anchor": "#using-abstracthandler",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::AbstractHandler = typedef BasicAbstractHandler<boost::intrusive::list_base_hook<>, Args...>",
+      "explicit": false,
+      "fullname": "batt::AbstractHandler",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 76,
+        "column": 1,
+        "file": "batteries/async/handler.hpp",
+        "line": 76
+      },
+      "name": "AbstractHandler",
+      "override": false,
+      "refid": "handler_8hpp_1ac1dc46de9607a8fbf2afb801dbdef12d",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "AbstractHandler",
+      "type": "[BasicAbstractHandler](/_autogen/Classes/classbatt_1_1BasicAbstractHandler/)< boost::intrusive::list_base_hook<>, Args... >",
+      "typePlain": "BasicAbstractHandler< boost::intrusive::list_base_hook<>, Args... >",
+      "url": "/_autogen/Namespaces/namespacebatt/#using-abstracthandler",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-handlerimpl",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::HandlerImpl = typedef BasicHandlerImpl<HandlerFn, boost::intrusive::list_base_hook<>, Args...>",
+      "explicit": false,
+      "fullname": "batt::HandlerImpl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 153,
+        "column": 1,
+        "file": "batteries/async/handler.hpp",
+        "line": 153
+      },
+      "name": "HandlerImpl",
+      "override": false,
+      "refid": "handler_8hpp_1a90fa2808f8a85e9e3da7a09be3915763",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename HandlerFn",
+          "typePlain": "typename HandlerFn"
+        },
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "HandlerImpl",
+      "type": "[BasicHandlerImpl](/_autogen/Classes/classbatt_1_1BasicHandlerImpl/)< HandlerFn, boost::intrusive::list_base_hook<>, Args... >",
+      "typePlain": "BasicHandlerImpl< HandlerFn, boost::intrusive::list_base_hook<>, Args... >",
+      "url": "/_autogen/Namespaces/namespacebatt/#using-handlerimpl",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#using-handlerlist",
       "category": "types",
       "const": false,
@@ -23784,10 +24374,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 203,
+        "bodyStart": 212,
         "column": 1,
         "file": "batteries/async/handler.hpp",
-        "line": 203
+        "line": 212
       },
       "name": "HandlerList",
       "override": false,
@@ -23802,7 +24392,7 @@
         }
       ],
       "title": "HandlerList",
-      "type": "boost::intrusive::list< [AbstractHandler](/_autogen/Classes/classbatt_1_1AbstractHandler/)< Args... > >",
+      "type": "boost::intrusive::list< [AbstractHandler](/_autogen/Classes/classbatt_1_1BasicAbstractHandler/)< Args... > >",
       "typePlain": "boost::intrusive::list< AbstractHandler< Args... > >",
       "url": "/_autogen/Namespaces/namespacebatt/#using-handlerlist",
       "visibility": "public"

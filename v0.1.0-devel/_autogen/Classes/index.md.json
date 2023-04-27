@@ -9,44 +9,6 @@
           "baseClasses": [
             {
               "external": true,
-              "name": "boost::intrusive::list_base_hook<>",
-              "virtual": "non-virtual",
-              "visibility": "public"
-            }
-          ],
-          "brief": "A type-erased async completion handler with linked list pointers. ",
-          "category": "classes",
-          "children": [
-            {
-              "anchor": "",
-              "brief": "[Deleter]() for use in std::unique_ptr. ",
-              "category": "classes",
-              "fullname": "batt::AbstractHandler::Deleter",
-              "kind": "struct",
-              "language": "cpp",
-              "name": "batt::AbstractHandler::Deleter",
-              "refid": "structbatt_1_1AbstractHandler_1_1Deleter",
-              "summary": "Deleter for use in std::unique_ptr. ",
-              "title": "batt::AbstractHandler::Deleter",
-              "url": "/_autogen/Classes/structbatt_1_1AbstractHandler_1_1Deleter/",
-              "visibility": "public"
-            }
-          ],
-          "fullname": "batt::AbstractHandler",
-          "kind": "class",
-          "language": "cpp",
-          "name": "batt::AbstractHandler",
-          "refid": "classbatt_1_1AbstractHandler",
-          "summary": "A type-erased async completion handler with linked list pointers. ",
-          "title": "batt::AbstractHandler",
-          "url": "/_autogen/Classes/classbatt_1_1AbstractHandler/",
-          "visibility": "public"
-        },
-        {
-          "anchor": "",
-          "baseClasses": [
-            {
-              "external": true,
               "name": "boost::intrusive_ref_counter< AbstractStackAllocator >",
               "virtual": "non-virtual",
               "visibility": "public"
@@ -138,6 +100,44 @@
         },
         {
           "anchor": "",
+          "baseClasses": [
+            {
+              "external": true,
+              "name": "Base",
+              "virtual": "non-virtual",
+              "visibility": "public"
+            }
+          ],
+          "brief": "A type-erased async completion handler with linked list pointers. ",
+          "category": "classes",
+          "children": [
+            {
+              "anchor": "",
+              "brief": "[Deleter]() for use in std::unique_ptr. ",
+              "category": "classes",
+              "fullname": "batt::BasicAbstractHandler::Deleter",
+              "kind": "struct",
+              "language": "cpp",
+              "name": "batt::BasicAbstractHandler::Deleter",
+              "refid": "structbatt_1_1BasicAbstractHandler_1_1Deleter",
+              "summary": "Deleter for use in std::unique_ptr. ",
+              "title": "batt::BasicAbstractHandler::Deleter",
+              "url": "/_autogen/Classes/structbatt_1_1BasicAbstractHandler_1_1Deleter/",
+              "visibility": "public"
+            }
+          ],
+          "fullname": "batt::BasicAbstractHandler",
+          "kind": "class",
+          "language": "cpp",
+          "name": "batt::BasicAbstractHandler",
+          "refid": "classbatt_1_1BasicAbstractHandler",
+          "summary": "A type-erased async completion handler with linked list pointers. ",
+          "title": "batt::BasicAbstractHandler",
+          "url": "/_autogen/Classes/classbatt_1_1BasicAbstractHandler/",
+          "visibility": "public"
+        },
+        {
+          "anchor": "",
           "category": "classes",
           "fullname": "batt::BasicFakeExecutor",
           "kind": "class",
@@ -146,6 +146,34 @@
           "refid": "classbatt_1_1BasicFakeExecutor",
           "title": "batt::BasicFakeExecutor",
           "url": "/_autogen/Classes/classbatt_1_1BasicFakeExecutor/",
+          "visibility": "public"
+        },
+        {
+          "anchor": "",
+          "baseClasses": [
+            {
+              "external": false,
+              "name": "batt::BasicAbstractHandler< Base, Args... >",
+              "refid": "classbatt_1_1BasicAbstractHandler",
+              "url": "/_autogen/Classes/classbatt_1_1BasicAbstractHandler/",
+              "virtual": "non-virtual",
+              "visibility": "public"
+            },
+            {
+              "external": true,
+              "name": "Base",
+              "virtual": "non-virtual",
+              "visibility": "public"
+            }
+          ],
+          "category": "classes",
+          "fullname": "batt::BasicHandlerImpl",
+          "kind": "class",
+          "language": "cpp",
+          "name": "batt::BasicHandlerImpl",
+          "refid": "classbatt_1_1BasicHandlerImpl",
+          "title": "batt::BasicHandlerImpl",
+          "url": "/_autogen/Classes/classbatt_1_1BasicHandlerImpl/",
           "visibility": "public"
         },
         {
@@ -856,34 +884,6 @@
           "refid": "classbatt_1_1HandlerBinder",
           "title": "batt::HandlerBinder",
           "url": "/_autogen/Classes/classbatt_1_1HandlerBinder/",
-          "visibility": "public"
-        },
-        {
-          "anchor": "",
-          "baseClasses": [
-            {
-              "external": false,
-              "name": "batt::AbstractHandler< Args... >",
-              "refid": "classbatt_1_1AbstractHandler",
-              "url": "/_autogen/Classes/classbatt_1_1AbstractHandler/",
-              "virtual": "non-virtual",
-              "visibility": "public"
-            },
-            {
-              "external": true,
-              "name": "boost::intrusive::list_base_hook<>",
-              "virtual": "non-virtual",
-              "visibility": "public"
-            }
-          ],
-          "category": "classes",
-          "fullname": "batt::HandlerImpl",
-          "kind": "class",
-          "language": "cpp",
-          "name": "batt::HandlerImpl",
-          "refid": "classbatt_1_1HandlerImpl",
-          "title": "batt::HandlerImpl",
-          "url": "/_autogen/Classes/classbatt_1_1HandlerImpl/",
           "visibility": "public"
         },
         {
@@ -1990,6 +1990,18 @@
         },
         {
           "anchor": "",
+          "category": "classes",
+          "fullname": "batt::PriorityWatch",
+          "kind": "class",
+          "language": "cpp",
+          "name": "batt::PriorityWatch",
+          "refid": "classbatt_1_1PriorityWatch",
+          "title": "batt::PriorityWatch",
+          "url": "/_autogen/Classes/classbatt_1_1PriorityWatch/",
+          "visibility": "public"
+        },
+        {
+          "anchor": "",
           "brief": "An obligation to provide a value of type T to a [Future](). ",
           "category": "classes",
           "fullname": "batt::Promise",
@@ -3047,6 +3059,18 @@
         {
           "anchor": "",
           "category": "classes",
+          "fullname": "batt::ThreadPoolConfig",
+          "kind": "struct",
+          "language": "cpp",
+          "name": "batt::ThreadPoolConfig",
+          "refid": "structbatt_1_1ThreadPoolConfig",
+          "title": "batt::ThreadPoolConfig",
+          "url": "/_autogen/Classes/structbatt_1_1ThreadPoolConfig/",
+          "visibility": "public"
+        },
+        {
+          "anchor": "",
+          "category": "classes",
           "fullname": "batt::TupleIndexOf",
           "kind": "struct",
           "language": "cpp",
@@ -3968,6 +3992,42 @@
               "refid": "classbatt_1_1detail_1_1ParallelModelCheckState",
               "title": "batt::detail::ParallelModelCheckState",
               "url": "/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/",
+              "visibility": "public"
+            },
+            {
+              "anchor": "",
+              "category": "classes",
+              "fullname": "batt::detail::PriorityHeap",
+              "kind": "class",
+              "language": "cpp",
+              "name": "batt::detail::PriorityHeap",
+              "refid": "classbatt_1_1detail_1_1PriorityHeap",
+              "title": "batt::detail::PriorityHeap",
+              "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/",
+              "visibility": "public"
+            },
+            {
+              "anchor": "",
+              "category": "classes",
+              "fullname": "batt::detail::PriorityHeapItem",
+              "kind": "class",
+              "language": "cpp",
+              "name": "batt::detail::PriorityHeapItem",
+              "refid": "classbatt_1_1detail_1_1PriorityHeapItem",
+              "title": "batt::detail::PriorityHeapItem",
+              "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItem/",
+              "visibility": "public"
+            },
+            {
+              "anchor": "",
+              "category": "classes",
+              "fullname": "batt::detail::PriorityHeapItemList",
+              "kind": "class",
+              "language": "cpp",
+              "name": "batt::detail::PriorityHeapItemList",
+              "refid": "classbatt_1_1detail_1_1PriorityHeapItemList",
+              "title": "batt::detail::PriorityHeapItemList",
+              "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItemList/",
               "visibility": "public"
             },
             {
@@ -5155,13 +5215,13 @@
     {
       "anchor": "",
       "category": "namespaces",
-      "fullname": "batt::@107",
+      "fullname": "batt::@110",
       "kind": "namespace",
       "language": "cpp",
-      "name": "batt::@107",
-      "refid": "namespacebatt_1_1_0d107",
-      "title": "batt::@107",
-      "url": "/_autogen/Namespaces/namespacebatt_1_1_0d107/",
+      "name": "batt::@110",
+      "refid": "namespacebatt_1_1_0d110",
+      "title": "batt::@110",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1_0d110/",
       "visibility": "public"
     },
     {
@@ -5277,13 +5337,13 @@
     {
       "anchor": "",
       "category": "namespaces",
-      "fullname": "pico_http::detail::@110",
+      "fullname": "pico_http::detail::@113",
       "kind": "namespace",
       "language": "cpp",
-      "name": "pico_http::detail::@110",
-      "refid": "namespacepico__http_1_1detail_1_1_0d110",
-      "title": "pico_http::detail::@110",
-      "url": "/_autogen/Namespaces/namespacepico__http_1_1detail_1_1_0d110/",
+      "name": "pico_http::detail::@113",
+      "refid": "namespacepico__http_1_1detail_1_1_0d113",
+      "title": "pico_http::detail::@113",
+      "url": "/_autogen/Namespaces/namespacepico__http_1_1detail_1_1_0d113/",
       "visibility": "public"
     },
     {

@@ -596,6 +596,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#function-total_size" class="md-nav__link">
+    function total_size
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -687,6 +694,10 @@
 <td>u64</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Grant_1_1Issuer/#function-available">available</a></strong>() const<br>The current count available for allocation via issue_grant.</td>
 </tr>
+<tr>
+<td>u64</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1Grant_1_1Issuer/#function-total-size">total_size</a></strong>() const<br>The total count ever added to this pool (initial_count + grow(...)).</td>
+</tr>
 </tbody>
 </table>
 <h2 id="friends">Friends<a class="headerlink" href="#friends" title="Permanent link">&#128279;</a></h2>
@@ -771,16 +782,20 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">u64</span><span class="w"> </span><span class="n">available</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
 <p>The current count available for allocation via issue_grant. </p>
+<h3 id="function-total_size">function total_size<a class="headerlink" href="#function-total_size" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">u64</span><span class="w"> </span><span class="n">total_size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</code></pre></div></td></tr></table></div>
+<p>The total count ever added to this pool (initial_count + grow(...)). </p>
 <h2 id="friends_1">Friends<a class="headerlink" href="#friends_1" title="Permanent link">&#128279;</a></h2>
 <h3 id="friend-grant">friend Grant<a class="headerlink" href="#friend-grant" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
-<span class="normal"><a href="#__codelineno-10-2">2</a></span>
-<span class="normal"><a href="#__codelineno-10-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Grant</span><span class="p">(</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="n">Grant</span><span class="w"> </span>
-<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="p">);</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Grant</span><span class="p">(</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span><span class="n">Grant</span><span class="w"> </span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 13 April 2023 at 15:38:09 UTC</p>
+<p>Updated on 27 April 2023 at 20:26:31 UTC</p>
 
 
 
