@@ -432,6 +432,20 @@
     },
     {
       "anchor": "",
+      "brief": "Adapts a single ConstBuffer to be a [BufferSource](). ",
+      "category": "classes",
+      "fullname": "batt::SingleBufferSource",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::SingleBufferSource",
+      "refid": "classbatt_1_1SingleBufferSource",
+      "summary": "Adapts a single ConstBuffer to be a BufferSource. ",
+      "title": "batt::SingleBufferSource",
+      "url": "/_autogen/Classes/classbatt_1_1SingleBufferSource/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
       "category": "classes",
       "fullname": "batt::BufferSource",
       "kind": "class",
@@ -2191,6 +2205,14 @@
           "url": "/_autogen/Classes/classbatt_1_1MetricCsvFormatter/",
           "virtual": "non-virtual",
           "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::MetricOpenTelemetryFormatter",
+          "refid": "classbatt_1_1MetricOpenTelemetryFormatter",
+          "url": "/_autogen/Classes/classbatt_1_1MetricOpenTelemetryFormatter/",
+          "virtual": "non-virtual",
+          "visibility": "public"
         }
       ],
       "fullname": "batt::MetricFormatter",
@@ -2200,6 +2222,30 @@
       "refid": "classbatt_1_1MetricFormatter",
       "title": "batt::MetricFormatter",
       "url": "/_autogen/Classes/classbatt_1_1MetricFormatter/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::MetricFormatter",
+          "refid": "classbatt_1_1MetricFormatter",
+          "url": "/_autogen/Classes/classbatt_1_1MetricFormatter/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "Format metrics into OpenTelemetry data format: <metric name>{<label name>=<label value>, ...} <metric value> ",
+      "category": "classes",
+      "fullname": "batt::MetricOpenTelemetryFormatter",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::MetricOpenTelemetryFormatter",
+      "refid": "classbatt_1_1MetricOpenTelemetryFormatter",
+      "summary": "Format metrics into OpenTelemetry data format: <metric name>{<label name>=<label value>, ...} <metric value> ",
+      "title": "batt::MetricOpenTelemetryFormatter",
+      "url": "/_autogen/Classes/classbatt_1_1MetricOpenTelemetryFormatter/",
       "visibility": "public"
     },
     {
@@ -4811,12 +4857,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 290,
+        "bodyEnd": 410,
         "bodyFile": "batteries/async/buffer_source.hpp",
-        "bodyStart": 287,
+        "bodyStart": 407,
         "column": 13,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 287
+        "line": 407
       },
       "name": "operator|",
       "override": false,
@@ -4873,12 +4919,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 300,
+        "bodyEnd": 420,
         "bodyFile": "batteries/async/buffer_source.hpp",
-        "bodyStart": 296,
+        "bodyStart": 416,
         "column": 6,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 296
+        "line": 416
       },
       "name": "operator|",
       "override": false,
@@ -4935,12 +4981,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 352,
+        "bodyEnd": 472,
         "bodyFile": "batteries/async/buffer_source.hpp",
-        "bodyStart": 328,
+        "bodyStart": 448,
         "column": 17,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 328
+        "line": 448
       },
       "name": "operator|",
       "override": false,
@@ -5002,12 +5048,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 372,
+        "bodyEnd": 492,
         "bodyFile": "batteries/async/buffer_source.hpp",
-        "bodyStart": 358,
+        "bodyStart": 478,
         "column": 17,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 358
+        "line": 478
       },
       "name": "operator|",
       "override": false,
@@ -5064,12 +5110,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 384,
+        "bodyEnd": 504,
         "bodyFile": "batteries/async/buffer_source.hpp",
-        "bodyStart": 378,
+        "bodyStart": 498,
         "column": 15,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 378
+        "line": 498
       },
       "name": "operator|",
       "override": false,
@@ -5126,12 +5172,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 399,
+        "bodyEnd": 519,
         "bodyFile": "batteries/async/buffer_source.hpp",
-        "bodyStart": 390,
+        "bodyStart": 510,
         "column": 15,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 390
+        "line": 510
       },
       "name": "operator|",
       "override": false,
@@ -5188,12 +5234,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 441,
+        "bodyEnd": 561,
         "bodyFile": "batteries/async/buffer_source.hpp",
-        "bodyStart": 422,
+        "bodyStart": 542,
         "column": 10,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 422
+        "line": 542
       },
       "name": "operator|",
       "override": false,
@@ -5255,12 +5301,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 561,
+        "bodyEnd": 681,
         "bodyFile": "batteries/async/buffer_source.hpp",
-        "bodyStart": 558,
+        "bodyStart": 678,
         "column": 13,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 558
+        "line": 678
       },
       "name": "operator|",
       "override": false,

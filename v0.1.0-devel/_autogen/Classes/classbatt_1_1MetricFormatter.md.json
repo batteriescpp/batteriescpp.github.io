@@ -12,6 +12,14 @@
       "url": "/_autogen/Classes/classbatt_1_1MetricCsvFormatter/",
       "virtual": "non-virtual",
       "visibility": "public"
+    },
+    {
+      "external": false,
+      "name": "batt::MetricOpenTelemetryFormatter",
+      "refid": "classbatt_1_1MetricOpenTelemetryFormatter",
+      "url": "/_autogen/Classes/classbatt_1_1MetricOpenTelemetryFormatter/",
+      "virtual": "non-virtual",
+      "visibility": "public"
     }
   ],
   "explicit": false,
@@ -22,7 +30,7 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 38,
+    "bodyEnd": 56,
     "bodyFile": "batteries/metrics/metric_formatter.hpp",
     "bodyStart": 17,
     "column": 1,
@@ -87,6 +95,54 @@
       "strong": false,
       "title": "MetricFormatter",
       "url": "/_autogen/Classes/classbatt_1_1MetricFormatter/#function-metricformatter",
+      "virtual": false,
+      "visibility": "protected"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-fully-qualified-name",
+      "argsString": "(std::string_view name, const MetricLabelSet &labels)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::string batt::MetricFormatter::fully_qualified_name",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricFormatter::fully_qualified_name",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 55,
+        "bodyFile": "batteries/metrics/metric_formatter.hpp",
+        "bodyStart": 41,
+        "column": 17,
+        "file": "batteries/metrics/metric_formatter.hpp",
+        "line": 41
+      },
+      "name": "fully_qualified_name",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "labels",
+          "type": "const MetricLabelSet &",
+          "typePlain": "const MetricLabelSet &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricFormatter_1a3381e4eb37799da368b07ec9d44eb432",
+      "static": false,
+      "strong": false,
+      "title": "fully_qualified_name",
+      "type": "std::string",
+      "typePlain": "std::string",
+      "url": "/_autogen/Classes/classbatt_1_1MetricFormatter/#function-fully-qualified-name",
       "virtual": false,
       "visibility": "protected"
     }
@@ -252,6 +308,22 @@
           "url": "/_autogen/Classes/classbatt_1_1MetricCsvFormatter/#function-initialize",
           "virtual": true,
           "visibility": "public"
+        },
+        {
+          "anchor": "#function-initialize",
+          "brief": "Nothing to do for OpenTelemtry format (stateless implementation). ",
+          "category": "functions",
+          "fullname": "batt::MetricOpenTelemetryFormatter::initialize",
+          "kind": "function",
+          "language": "cpp",
+          "name": "initialize",
+          "pureVirtual": false,
+          "refid": "classbatt_1_1MetricOpenTelemetryFormatter_1acf2ae897e57e9551a0a513eaef9e4c01",
+          "summary": "Nothing to do for OpenTelemtry format (stateless implementation). ",
+          "title": "initialize",
+          "url": "/_autogen/Classes/classbatt_1_1MetricOpenTelemetryFormatter/#function-initialize",
+          "virtual": true,
+          "visibility": "public"
         }
       ],
       "static": false,
@@ -313,6 +385,22 @@
           "url": "/_autogen/Classes/classbatt_1_1MetricCsvFormatter/#function-format-values",
           "virtual": true,
           "visibility": "public"
+        },
+        {
+          "anchor": "#function-format-values",
+          "brief": "Format the current metrics and values stored in `src` to `dst`. ",
+          "category": "functions",
+          "fullname": "batt::MetricOpenTelemetryFormatter::format_values",
+          "kind": "function",
+          "language": "cpp",
+          "name": "format_values",
+          "pureVirtual": false,
+          "refid": "classbatt_1_1MetricOpenTelemetryFormatter_1ae01a78c583e61aecae4b643d5941596b",
+          "summary": "Format the current metrics and values stored in src to dst. ",
+          "title": "format_values",
+          "url": "/_autogen/Classes/classbatt_1_1MetricOpenTelemetryFormatter/#function-format-values",
+          "virtual": true,
+          "visibility": "public"
         }
       ],
       "static": false,
@@ -372,6 +460,22 @@
           "refid": "classbatt_1_1MetricCsvFormatter_1ada3dee9c9fe52abc28a79f3c11a6e733",
           "title": "finished",
           "url": "/_autogen/Classes/classbatt_1_1MetricCsvFormatter/#function-finished",
+          "virtual": true,
+          "visibility": "public"
+        },
+        {
+          "anchor": "#function-finished",
+          "brief": "Nothing to do for OpenTelemtry format (stateless implementation). ",
+          "category": "functions",
+          "fullname": "batt::MetricOpenTelemetryFormatter::finished",
+          "kind": "function",
+          "language": "cpp",
+          "name": "finished",
+          "pureVirtual": false,
+          "refid": "classbatt_1_1MetricOpenTelemetryFormatter_1ae3098c52c9e62fc7249960142ec3a5ef",
+          "summary": "Nothing to do for OpenTelemtry format (stateless implementation). ",
+          "title": "finished",
+          "url": "/_autogen/Classes/classbatt_1_1MetricOpenTelemetryFormatter/#function-finished",
           "virtual": true,
           "visibility": "public"
         }

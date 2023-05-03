@@ -588,6 +588,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#function-fully_qualified_name" class="md-nav__link">
+    function fully_qualified_name
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -612,7 +619,7 @@
   <h1>batt::MetricFormatter</h1>
 
 <h1 id="battmetricformatter">batt::MetricFormatter<a class="headerlink" href="#battmetricformatter" title="Permanent link">&#128279;</a></h1>
-<p>Inherited by <a href="/_autogen/Classes/classbatt_1_1MetricCsvFormatter/">batt::MetricCsvFormatter</a></p>
+<p>Inherited by <a href="/_autogen/Classes/classbatt_1_1MetricCsvFormatter/">batt::MetricCsvFormatter</a>, <a href="/_autogen/Classes/classbatt_1_1MetricOpenTelemetryFormatter/">batt::MetricOpenTelemetryFormatter</a></p>
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&#128279;</a></h2>
 <table>
 <thead>
@@ -661,6 +668,10 @@
 <td></td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1MetricFormatter/#function-metricformatter">MetricFormatter</a></strong>() =default</td>
 </tr>
+<tr>
+<td>std::string</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1MetricFormatter/#function-fully-qualified-name">fully_qualified_name</a></strong>(std::string_view name, const MetricLabelSet &amp; labels)</td>
+</tr>
 </tbody>
 </table>
 <h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&#128279;</a></h2>
@@ -690,7 +701,7 @@
 <a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">dst</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
-<p><strong>Reimplemented by</strong>: <a href="/_autogen/Classes/classbatt_1_1MetricCsvFormatter/#function-initialize">batt::MetricCsvFormatter::initialize</a></p>
+<p><strong>Reimplemented by</strong>: <a href="/_autogen/Classes/classbatt_1_1MetricCsvFormatter/#function-initialize">batt::MetricCsvFormatter::initialize</a>, <a href="/_autogen/Classes/classbatt_1_1MetricOpenTelemetryFormatter/#function-initialize">batt::MetricOpenTelemetryFormatter::initialize</a></p>
 <h3 id="function-format_values">function format_values<a class="headerlink" href="#function-format_values" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
@@ -700,7 +711,7 @@
 <a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">dst</span>
 <a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
-<p><strong>Reimplemented by</strong>: <a href="/_autogen/Classes/classbatt_1_1MetricCsvFormatter/#function-format-values">batt::MetricCsvFormatter::format_values</a></p>
+<p><strong>Reimplemented by</strong>: <a href="/_autogen/Classes/classbatt_1_1MetricCsvFormatter/#function-format-values">batt::MetricCsvFormatter::format_values</a>, <a href="/_autogen/Classes/classbatt_1_1MetricOpenTelemetryFormatter/#function-format-values">batt::MetricOpenTelemetryFormatter::format_values</a></p>
 <h3 id="function-finished">function finished<a class="headerlink" href="#function-finished" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
@@ -710,13 +721,22 @@
 <a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">dst</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
-<p><strong>Reimplemented by</strong>: <a href="/_autogen/Classes/classbatt_1_1MetricCsvFormatter/#function-finished">batt::MetricCsvFormatter::finished</a></p>
+<p><strong>Reimplemented by</strong>: <a href="/_autogen/Classes/classbatt_1_1MetricCsvFormatter/#function-finished">batt::MetricCsvFormatter::finished</a>, <a href="/_autogen/Classes/classbatt_1_1MetricOpenTelemetryFormatter/#function-finished">batt::MetricOpenTelemetryFormatter::finished</a></p>
 <h2 id="protected-functions-documentation">Protected Functions Documentation<a class="headerlink" href="#protected-functions-documentation" title="Permanent link">&#128279;</a></h2>
 <h3 id="function-metricformatter_2">function MetricFormatter<a class="headerlink" href="#function-metricformatter_2" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">MetricFormatter</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="function-fully_qualified_name">function fully_qualified_name<a class="headerlink" href="#function-fully_qualified_name" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">fully_qualified_name</span><span class="p">(</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">name</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">MetricLabelSet</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">labels</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 27 April 2023 at 20:26:31 UTC</p>
+<p>Updated on  3 May 2023 at 13:53:18 UTC</p>
 
 
 

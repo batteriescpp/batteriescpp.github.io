@@ -554,6 +554,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#function-size" class="md-nav__link">
+    function size
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-fetch_at_least" class="md-nav__link">
     function fetch_at_least
   </a>
@@ -563,6 +570,13 @@
           <li class="md-nav__item">
   <a href="#function-consume" class="md-nav__link">
     function consume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-close_for_read" class="md-nav__link">
+    function close_for_read
   </a>
   
 </li>
@@ -617,12 +631,20 @@
 </thead>
 <tbody>
 <tr>
+<td>usize</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SeqBufferSource/#function-size">size</a></strong>() const</td>
+</tr>
+<tr>
 <td><a href="/_autogen/Classes/classbatt_1_1StatusOr/">StatusOr</a>&lt; SmallVec&lt; ConstBuffer, 2 &gt; &gt;</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1SeqBufferSource/#function-fetch-at-least">fetch_at_least</a></strong>(i64 min_count)</td>
 </tr>
 <tr>
 <td>void</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1SeqBufferSource/#function-consume">consume</a></strong>(i64 count)</td>
+</tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SeqBufferSource/#function-close-for-read">close_for_read</a></strong>()</td>
 </tr>
 </tbody>
 </table>
@@ -636,22 +658,28 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">SeqBufferSource</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Seq</span><span class="w"> </span><span class="o">&gt;::</span><span class="n">Item</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">ConstBuffer</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&#128279;</a></h2>
-<h3 id="function-fetch_at_least">function fetch_at_least<a class="headerlink" href="#function-fetch_at_least" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
-<span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">SmallVec</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">fetch_at_least</span><span class="p">(</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">i64</span><span class="w"> </span><span class="n">min_count</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">)</span>
+<h3 id="function-size">function size<a class="headerlink" href="#function-size" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-consume">function consume<a class="headerlink" href="#function-consume" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-fetch_at_least">function fetch_at_least<a class="headerlink" href="#function-fetch_at_least" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">consume</span><span class="p">(</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">i64</span><span class="w"> </span><span class="n">count</span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">SmallVec</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">fetch_at_least</span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">i64</span><span class="w"> </span><span class="n">min_count</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
+<h3 id="function-consume">function consume<a class="headerlink" href="#function-consume" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">consume</span><span class="p">(</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">i64</span><span class="w"> </span><span class="n">count</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-close_for_read">function close_for_read<a class="headerlink" href="#function-close_for_read" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">close_for_read</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 27 April 2023 at 20:26:31 UTC</p>
+<p>Updated on  3 May 2023 at 13:53:17 UTC</p>
 
 
 

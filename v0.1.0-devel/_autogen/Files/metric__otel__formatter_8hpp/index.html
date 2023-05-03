@@ -15,7 +15,7 @@
     
     
       
-        <title>batt::@110 - Batteries C++</title>
+        <title>batteries/metrics/metric_otel_formatter.hpp - Batteries C++</title>
       
     
     
@@ -64,6 +64,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#namespaces" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -93,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              batt::@110
+              batteries/metrics/metric_otel_formatter.hpp
             
           </span>
         </div>
@@ -355,7 +360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Files/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Files
       </a>
     </li>
@@ -493,6 +498,62 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#namespaces" class="md-nav__link">
+    Namespaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defines" class="md-nav__link">
+    Defines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macro-documentation" class="md-nav__link">
+    Macro Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Macro Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-batteries_metric_otel_formatter_hpp" class="md-nav__link">
+     define BATTERIES_METRIC_OTEL_FORMATTER_HPP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source code
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -507,9 +568,125 @@
 
 
 
-<h1 id="batt110">batt::@110<a class="headerlink" href="#batt110" title="Permanent link">&#128279;</a></h1>
+  <h1>batteries/metrics/metric_otel_formatter.hpp</h1>
+
+<h1 id="batteriesmetricsmetric_otel_formatterhpp">batteries/metrics/metric_otel_formatter.hpp<a class="headerlink" href="#batteriesmetricsmetric_otel_formatterhpp" title="Permanent link">&#128279;</a></h1>
+<h2 id="namespaces">Namespaces<a class="headerlink" href="#namespaces" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/">batt</a></strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>class</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1MetricOpenTelemetryFormatter/">batt::MetricOpenTelemetryFormatter</a></strong> <br>Format metrics into OpenTelemetry data format: <metric name>{<label name>=<label value>, ...} <metric value></td>
+</tr>
+</tbody>
+</table>
+<h2 id="defines">Defines<a class="headerlink" href="#defines" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/metric__otel__formatter_8hpp/#define-batteries-metric-otel-formatter-hpp">BATTERIES_METRIC_OTEL_FORMATTER_HPP</a></strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="macro-documentation">Macro Documentation<a class="headerlink" href="#macro-documentation" title="Permanent link">&#128279;</a></h2>
+<h3 id="define-batteries_metric_otel_formatter_hpp"><a name="BATTERIES_METRIC_OTEL_FORMATTER_HPP"></a> define BATTERIES_METRIC_OTEL_FORMATTER_HPP<a class="headerlink" href="#define-batteries_metric_otel_formatter_hpp" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#define BATTERIES_METRIC_OTEL_FORMATTER_HPP()</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="source-code">Source code<a class="headerlink" href="#source-code" title="Permanent link">&#128279;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//#############################################################################</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// Copyright 2023 Eitan Steiner</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">//</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="cp">#pragma once</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="cp">#ifndef BATTERIES_METRIC_OTEL_FORMATTER_HPP</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="cp">#define BATTERIES_METRIC_OTEL_FORMATTER_HPP</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/config.hpp&gt;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1">//</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/metrics/metric_formatter.hpp&gt;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/metrics/metric_registry.hpp&gt;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">batt</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="k">class</span><span class="w"> </span><span class="nc">MetricOpenTelemetryFormatter</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">MetricFormatter</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="p">{</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">   </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kMetricValuePrecision</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="cm">/* digits */</span><span class="p">;</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">initialize</span><span class="p">(</span><span class="n">MetricRegistry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dst</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">format_values</span><span class="p">(</span><span class="n">MetricRegistry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dst</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">finished</span><span class="p">(</span><span class="n">MetricRegistry</span><span class="o">&amp;</span><span class="w"> </span><span class="n">src</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">dst</span><span class="p">)</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="p">};</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_METRIC_OTEL_FORMATTER_HPP</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="cp">#if BATT_HEADER_ONLY</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/metrics/metric_otel_formatter_impl.hpp&gt;</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="cp">#endif  </span><span class="c1">// BATT_HEADER_ONLY</span>
+</code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 27 April 2023 at 20:26:31 UTC</p>
+<p>Updated on  3 May 2023 at 13:53:18 UTC</p>
 
 
 

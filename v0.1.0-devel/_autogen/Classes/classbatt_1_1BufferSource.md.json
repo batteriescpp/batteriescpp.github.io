@@ -12,12 +12,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 187,
+    "bodyEnd": 293,
     "bodyFile": "batteries/async/buffer_source.hpp",
-    "bodyStart": 137,
+    "bodyStart": 231,
     "column": 1,
     "file": "batteries/async/buffer_source.hpp",
-    "line": 136
+    "line": 230
   },
   "name": "batt::BufferSource",
   "override": false,
@@ -62,10 +62,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/buffer_source.hpp",
-        "bodyStart": 182,
+        "bodyStart": 288,
         "column": 23,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 186
+        "line": 292
       },
       "name": "impl_",
       "override": false,
@@ -162,7 +162,7 @@
       "location": {
         "column": 5,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 139
+        "line": 233
       },
       "name": "BufferSource",
       "override": false,
@@ -197,7 +197,7 @@
         "bodyStart": 70,
         "column": 6,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 144
+        "line": 238
       },
       "name": "BufferSource",
       "override": false,
@@ -247,6 +247,134 @@
     },
     {
       "abstract": false,
+      "anchor": "#function-buffersource",
+      "argsString": "(const ConstBuffer &buffer) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::BufferSource::BufferSource",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::BufferSource::BufferSource",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 242,
+        "bodyFile": "batteries/async/buffer_source.hpp",
+        "bodyStart": 240,
+        "column": 14,
+        "file": "batteries/async/buffer_source.hpp",
+        "line": 240
+      },
+      "name": "BufferSource",
+      "override": false,
+      "params": [
+        {
+          "name": "buffer",
+          "type": "const ConstBuffer &",
+          "typePlain": "const ConstBuffer &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1BufferSource_1abffd3bcf6f46cc65388fb41be7b599b4",
+      "static": false,
+      "strong": false,
+      "title": "BufferSource",
+      "url": "/_autogen/Classes/classbatt_1_1BufferSource/#function-buffersource",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-buffersource",
+      "argsString": "(const void *ptr, usize size) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::BufferSource::BufferSource",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::BufferSource::BufferSource",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 246,
+        "bodyFile": "batteries/async/buffer_source.hpp",
+        "bodyStart": 244,
+        "column": 14,
+        "file": "batteries/async/buffer_source.hpp",
+        "line": 244
+      },
+      "name": "BufferSource",
+      "override": false,
+      "params": [
+        {
+          "name": "ptr",
+          "type": "const void *",
+          "typePlain": "const void *"
+        },
+        {
+          "name": "size",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1BufferSource_1a42ccb8eecaba6b560c632776f12f21e1",
+      "static": false,
+      "strong": false,
+      "title": "BufferSource",
+      "url": "/_autogen/Classes/classbatt_1_1BufferSource/#function-buffersource",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-buffersource",
+      "argsString": "(const std::string_view &str) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::BufferSource::BufferSource",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::BufferSource::BufferSource",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 250,
+        "bodyFile": "batteries/async/buffer_source.hpp",
+        "bodyStart": 248,
+        "column": 14,
+        "file": "batteries/async/buffer_source.hpp",
+        "line": 248
+      },
+      "name": "BufferSource",
+      "override": false,
+      "params": [
+        {
+          "name": "str",
+          "type": "const std::string_view &",
+          "typePlain": "const std::string_view &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1BufferSource_1ad9f302e2b103b1329511384f23ab52be",
+      "static": false,
+      "strong": false,
+      "title": "BufferSource",
+      "url": "/_autogen/Classes/classbatt_1_1BufferSource/#function-buffersource",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#function-operator-bool",
       "argsString": "() const",
       "category": "functions",
@@ -266,7 +394,7 @@
         "bodyStart": 77,
         "column": 14,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 148
+        "line": 254
       },
       "name": "operator bool",
       "override": false,
@@ -298,7 +426,7 @@
       "location": {
         "column": 10,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 152
+        "line": 258
       },
       "name": "clear",
       "override": false,
@@ -335,7 +463,7 @@
         "bodyStart": 84,
         "column": 11,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 159
+        "line": 265
       },
       "name": "size",
       "override": false,
@@ -372,7 +500,7 @@
         "bodyStart": 91,
         "column": 14,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 166
+        "line": 272
       },
       "name": "fetch_at_least",
       "override": false,
@@ -415,7 +543,7 @@
         "bodyStart": 98,
         "column": 10,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 171
+        "line": 277
       },
       "name": "consume",
       "override": false,
@@ -458,7 +586,7 @@
         "bodyStart": 105,
         "column": 10,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 176
+        "line": 282
       },
       "name": "close_for_read",
       "override": false,

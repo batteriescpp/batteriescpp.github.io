@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-metric-otel-formatter-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-metrics-metric-otel-formatter-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_METRICS_METRIC_OTEL_FORMATTER_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/metrics/metric_otel_formatter_impl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/metrics/metric_otel_formatter_impl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_METRICS_METRIC_OTEL_FORMATTER_HPP",
+      "override": false,
+      "refid": "metric__otel__formatter__impl_8hpp_1acd8d8c313f6fcbb6ab30e456d8cb1a55",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_METRICS_METRIC_OTEL_FORMATTER_HPP",
+      "url": "/_autogen/Files/metric__otel__formatter__impl_8hpp/#define-batteries-metrics-metric-otel-formatter-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/metrics/metric_otel_formatter_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/metrics/metric_otel_formatter_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/metrics/metric_otel_formatter_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/metrics",
+    "category": "dirs",
+    "fullname": "batteries/metrics",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/metrics",
+    "refid": "dir_5ba863940ce6067bb787d1b849676df9",
+    "title": "batteries/metrics",
+    "url": "/_autogen/Files/dir_5ba863940ce6067bb787d1b849676df9/#dir-batteries/metrics",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/metrics",
+      "category": "dirs",
+      "fullname": "batteries/metrics",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/metrics",
+      "refid": "dir_5ba863940ce6067bb787d1b849676df9",
+      "title": "batteries/metrics",
+      "url": "/_autogen/Files/dir_5ba863940ce6067bb787d1b849676df9/#dir-batteries/metrics",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//#############################################################################\n// Copyright 2023 Eitan Steiner\n//\n#pragma once\n#ifndef BATTERIES_METRICS_METRIC_OTEL_FORMATTER_HPP\n#define BATTERIES_METRICS_METRIC_OTEL_FORMATTER_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/metrics/metric_otel_formatter.hpp>\n\n#include <algorithm>\n#include <vector>\n\nnamespace batt {\n\nBATT_INLINE_IMPL void MetricOpenTelemetryFormatter::initialize(MetricRegistry& src, std::ostream& dst)\n{\n    // Nothing to do for OpenTelemtry format (stateless implementation).\n}\n\nBATT_INLINE_IMPL void MetricOpenTelemetryFormatter::format_values(MetricRegistry& src, std::ostream& dst)\n{\n    std::ostringstream buffer;\n    std::vector<std::string> ordered_metrics;\n\n    // Read current metrics in the registry.\n    //\n    src.read_all([&](std::string_view name, double value, const MetricLabelSet& labels) {\n\n        buffer << name << \" \";\n\n        // Format optional labels.\n        if (labels.size() > 0) {\n            buffer << \"{\";\n            for (const auto& label : labels) {\n                buffer << label.key << \"=\\\"\" << label.value << \"\\\",\";\n            }\n            buffer.seekp(-1 /*overwrite last ,*/, std::ios_base::end);\n            buffer << \"}\";\n        }\n\n        buffer << \" \" << std::setprecision(kMetricValuePrecision) << value << \"\\n\";\n\n        ordered_metrics.emplace_back(buffer.str());\n        buffer.str(\"\");\n    });\n\n    std::sort(ordered_metrics.begin(), ordered_metrics.end());\n\n    for (const auto& om : ordered_metrics) {\n        dst << om;\n    }\n}\n\nBATT_INLINE_IMPL void MetricOpenTelemetryFormatter::finished(MetricRegistry& /*src*/, std::ostream& /*dst*/)\n{\n    // Nothing to do for OpenTelemtry format.\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_METRICS_METRIC_OTEL_FORMATTER_HPP",
+  "refid": "metric__otel__formatter__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/metrics/metric_otel_formatter_impl.hpp",
+  "url": "/_autogen/Files/metric__otel__formatter__impl_8hpp/#file-metric-otel-formatter-impl.hpp",
+  "visibility": "public"
+}

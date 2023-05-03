@@ -12,12 +12,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 226,
+    "bodyEnd": 346,
     "bodyFile": "batteries/async/buffer_source.hpp",
-    "bodyStart": 195,
+    "bodyStart": 301,
     "column": 1,
     "file": "batteries/async/buffer_source.hpp",
-    "line": 194
+    "line": 300
   },
   "name": "batt::SeqBufferSource",
   "override": false,
@@ -62,10 +62,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/buffer_source.hpp",
-        "bodyStart": 224,
+        "bodyStart": 344,
         "column": 9,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 224
+        "line": 344
       },
       "name": "seq_",
       "override": false,
@@ -92,10 +92,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/buffer_source.hpp",
-        "bodyStart": 225,
+        "bodyStart": 345,
         "column": 14,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 225
+        "line": 345
       },
       "name": "active_buffers_",
       "override": false,
@@ -112,6 +112,43 @@
   "publicFunctions": [
     {
       "abstract": false,
+      "anchor": "#function-size",
+      "argsString": "() const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "usize batt::SeqBufferSource< Seq >::size",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::SeqBufferSource::size",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 310,
+        "bodyFile": "batteries/async/buffer_source.hpp",
+        "bodyStart": 307,
+        "column": 11,
+        "file": "batteries/async/buffer_source.hpp",
+        "line": 307
+      },
+      "name": "size",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1SeqBufferSource_1a32f416b36bcaae1c35040d12750b0153",
+      "static": false,
+      "strong": false,
+      "title": "size",
+      "type": "usize",
+      "typePlain": "usize",
+      "url": "/_autogen/Classes/classbatt_1_1SeqBufferSource/#function-size",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#function-fetch-at-least",
       "argsString": "(i64 min_count)",
       "category": "functions",
@@ -126,12 +163,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 216,
+        "bodyEnd": 327,
         "bodyFile": "batteries/async/buffer_source.hpp",
-        "bodyStart": 201,
+        "bodyStart": 312,
         "column": 14,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 201
+        "line": 312
       },
       "name": "fetch_at_least",
       "override": false,
@@ -169,12 +206,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 221,
+        "bodyEnd": 332,
         "bodyFile": "batteries/async/buffer_source.hpp",
-        "bodyStart": 218,
+        "bodyStart": 329,
         "column": 10,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 218
+        "line": 329
       },
       "name": "consume",
       "override": false,
@@ -195,6 +232,43 @@
       "url": "/_autogen/Classes/classbatt_1_1SeqBufferSource/#function-consume",
       "virtual": false,
       "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-close-for-read",
+      "argsString": "()",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::SeqBufferSource< Seq >::close_for_read",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::SeqBufferSource::close_for_read",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 341,
+        "bodyFile": "batteries/async/buffer_source.hpp",
+        "bodyStart": 334,
+        "column": 10,
+        "file": "batteries/async/buffer_source.hpp",
+        "line": 334
+      },
+      "name": "close_for_read",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1SeqBufferSource_1a7938a68bc6a6a951e743d55540a9be9c",
+      "static": false,
+      "strong": false,
+      "title": "close_for_read",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1SeqBufferSource/#function-close-for-read",
+      "virtual": false,
+      "visibility": "public"
     }
   ],
   "publicTypes": [
@@ -212,10 +286,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/buffer_source.hpp",
-        "bodyStart": 197,
+        "bodyStart": 303,
         "column": 5,
         "file": "batteries/async/buffer_source.hpp",
-        "line": 197
+        "line": 303
       },
       "name": "Item",
       "override": false,
