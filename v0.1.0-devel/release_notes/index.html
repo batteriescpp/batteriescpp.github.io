@@ -509,6 +509,13 @@
 
 <ul>
 <li>
+<p>0.31.3 (2023/05/03)</p>
+<ul>
+<li>Fixed bug in TakeNSource that causes hang after limit is reached
+  (instead of returning batt::StatusCode::kEndOfStream).</li>
+</ul>
+</li>
+<li>
 <p>0.31.0 (2023/05/03)</p>
 <ul>
 <li>Added <code>batt::SingleBufferSource</code>.</li>
