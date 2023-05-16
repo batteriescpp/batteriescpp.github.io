@@ -1982,7 +1982,7 @@
 <a id="__codelineno-1-687" name="__codelineno-1-687"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">status</span><span class="p">.</span><span class="n">ok</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-688" name="__codelineno-1-688"></a><span class="w">            </span><span class="k">break</span><span class="p">;</span>
 <a id="__codelineno-1-689" name="__codelineno-1-689"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-690" name="__codelineno-1-690"></a><span class="w">        </span><span class="n">BATT_CHECK_GT</span><span class="p">(</span><span class="o">*</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">observed_unlink_count</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;unlink_count should never go backwards!&quot;</span><span class="p">;</span>
+<a id="__codelineno-1-690" name="__codelineno-1-690"></a><span class="w">        </span><span class="n">BATT_CHECK_GE</span><span class="p">(</span><span class="o">*</span><span class="n">status</span><span class="p">,</span><span class="w"> </span><span class="n">observed_unlink_count</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;unlink_count should never go backwards!&quot;</span><span class="p">;</span>
 <a id="__codelineno-1-691" name="__codelineno-1-691"></a><span class="w">        </span><span class="n">observed_unlink_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">status</span><span class="p">;</span>
 <a id="__codelineno-1-692" name="__codelineno-1-692"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-1-693" name="__codelineno-1-693"></a><span class="p">}</span>
@@ -1992,7 +1992,7 @@
 <a id="__codelineno-1-697" name="__codelineno-1-697"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_TASK_IMPL_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on  4 May 2023 at 20:13:21 UTC</p>
+<p>Updated on 16 May 2023 at 22:06:11 UTC</p>
 
 
 
