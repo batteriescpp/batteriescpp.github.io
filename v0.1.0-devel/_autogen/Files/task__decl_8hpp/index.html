@@ -1636,7 +1636,12 @@
 <span class="normal"><a href="#__codelineno-1-1003">1003</a></span>
 <span class="normal"><a href="#__codelineno-1-1004">1004</a></span>
 <span class="normal"><a href="#__codelineno-1-1005">1005</a></span>
-<span class="normal"><a href="#__codelineno-1-1006">1006</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
+<span class="normal"><a href="#__codelineno-1-1006">1006</a></span>
+<span class="normal"><a href="#__codelineno-1-1007">1007</a></span>
+<span class="normal"><a href="#__codelineno-1-1008">1008</a></span>
+<span class="normal"><a href="#__codelineno-1-1009">1009</a></span>
+<span class="normal"><a href="#__codelineno-1-1010">1010</a></span>
+<span class="normal"><a href="#__codelineno-1-1011">1011</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// Copyright 2021-2023 Anthony Paul Astolfi</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">//</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="cp">#pragma once</span>
@@ -2336,315 +2341,320 @@
 <a id="__codelineno-1-698" name="__codelineno-1-698"></a><span class="w">    </span><span class="p">{</span>
 <a id="__codelineno-1-699" name="__codelineno-1-699"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-700" name="__codelineno-1-700"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">is_done</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-701" name="__codelineno-1-701"></a><span class="w">                </span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">handler</span><span class="p">)();</span>
-<a id="__codelineno-1-702" name="__codelineno-1-702"></a><span class="w">                </span><span class="k">return</span><span class="p">;</span>
-<a id="__codelineno-1-703" name="__codelineno-1-703"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-1-704" name="__codelineno-1-704"></a>
-<a id="__codelineno-1-705" name="__codelineno-1-705"></a><span class="w">            </span><span class="n">SpinLockGuard</span><span class="w"> </span><span class="n">lock</span><span class="p">{</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">kCompletionHandlersLock</span><span class="p">};</span>
-<a id="__codelineno-1-706" name="__codelineno-1-706"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Task</span><span class="o">::</span><span class="n">is_terminal_state</span><span class="p">(</span><span class="n">lock</span><span class="p">.</span><span class="n">prior_state</span><span class="p">())</span><span class="w"> </span><span class="o">||</span>
-<a id="__codelineno-1-707" name="__codelineno-1-707"></a><span class="w">                </span><span class="p">(</span><span class="n">lock</span><span class="p">.</span><span class="n">prior_state</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">kCompletionHandlersClosed</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-708" name="__codelineno-1-708"></a><span class="w">                </span><span class="c1">// It&#39;s possible that the completion handlers list was cleared out after the call to</span>
-<a id="__codelineno-1-709" name="__codelineno-1-709"></a><span class="w">                </span><span class="c1">// `is_done()` above, but before we grab the spin lock.  If so, keep retrying until we resolve</span>
-<a id="__codelineno-1-710" name="__codelineno-1-710"></a><span class="w">                </span><span class="c1">// the race.</span>
-<a id="__codelineno-1-711" name="__codelineno-1-711"></a><span class="w">                </span><span class="c1">//</span>
-<a id="__codelineno-1-712" name="__codelineno-1-712"></a><span class="w">                </span><span class="k">continue</span><span class="p">;</span>
-<a id="__codelineno-1-713" name="__codelineno-1-713"></a><span class="w">            </span><span class="p">}</span>
-<a id="__codelineno-1-714" name="__codelineno-1-714"></a><span class="w">            </span><span class="n">push_handler</span><span class="p">(</span><span class="o">&amp;</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">completion_handlers_</span><span class="p">,</span><span class="w"> </span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">handler</span><span class="p">));</span>
-<a id="__codelineno-1-715" name="__codelineno-1-715"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
-<a id="__codelineno-1-716" name="__codelineno-1-716"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-717" name="__codelineno-1-717"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-718" name="__codelineno-1-718"></a>
-<a id="__codelineno-1-719" name="__codelineno-1-719"></a><span class="w">    </span><span class="c1">// =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------</span>
-<a id="__codelineno-1-720" name="__codelineno-1-720"></a>
-<a id="__codelineno-1-721" name="__codelineno-1-721"></a><span class="w">    </span><span class="n">DebugInfoFrame</span><span class="o">*</span><span class="w"> </span><span class="n">debug_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<a id="__codelineno-1-722" name="__codelineno-1-722"></a>
-<a id="__codelineno-1-723" name="__codelineno-1-723"></a><span class="w">    </span><span class="c1">// =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------</span>
-<a id="__codelineno-1-724" name="__codelineno-1-724"></a>
-<a id="__codelineno-1-725" name="__codelineno-1-725"></a><span class="w">   </span><span class="k">private</span><span class="o">:</span>
-<a id="__codelineno-1-726" name="__codelineno-1-726"></a><span class="w">    </span><span class="c1">//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------</span>
-<a id="__codelineno-1-727" name="__codelineno-1-727"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-728" name="__codelineno-1-728"></a><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">SpinLockGuard</span>
-<a id="__codelineno-1-729" name="__codelineno-1-729"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-730" name="__codelineno-1-730"></a><span class="w">       </span><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-1-731" name="__codelineno-1-731"></a><span class="w">        </span><span class="k">explicit</span><span class="w"> </span><span class="n">SpinLockGuard</span><span class="p">(</span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="n">task</span><span class="p">,</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">mask</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">task_</span><span class="p">{</span><span class="n">task</span><span class="p">},</span><span class="w"> </span><span class="n">mask_</span><span class="p">{</span><span class="n">mask</span><span class="p">}</span>
-<a id="__codelineno-1-732" name="__codelineno-1-732"></a><span class="w">        </span><span class="p">{</span>
-<a id="__codelineno-1-733" name="__codelineno-1-733"></a><span class="w">            </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">prior_state_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">task_</span><span class="o">-&gt;</span><span class="n">spin_lock</span><span class="p">(</span><span class="n">mask</span><span class="p">);</span>
-<a id="__codelineno-1-734" name="__codelineno-1-734"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-735" name="__codelineno-1-735"></a>
-<a id="__codelineno-1-736" name="__codelineno-1-736"></a><span class="w">        </span><span class="n">SpinLockGuard</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SpinLockGuard</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
-<a id="__codelineno-1-737" name="__codelineno-1-737"></a><span class="w">        </span><span class="n">SpinLockGuard</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SpinLockGuard</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
-<a id="__codelineno-1-738" name="__codelineno-1-738"></a>
-<a id="__codelineno-1-739" name="__codelineno-1-739"></a><span class="w">        </span><span class="o">~</span><span class="n">SpinLockGuard</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-740" name="__codelineno-1-740"></a><span class="w">        </span><span class="p">{</span>
-<a id="__codelineno-1-741" name="__codelineno-1-741"></a><span class="w">            </span><span class="n">task_</span><span class="o">-&gt;</span><span class="n">spin_unlock</span><span class="p">(</span><span class="n">mask_</span><span class="p">);</span>
-<a id="__codelineno-1-742" name="__codelineno-1-742"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-743" name="__codelineno-1-743"></a>
-<a id="__codelineno-1-744" name="__codelineno-1-744"></a><span class="w">        </span><span class="n">state_type</span><span class="w"> </span><span class="n">prior_state</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-745" name="__codelineno-1-745"></a><span class="w">        </span><span class="p">{</span>
-<a id="__codelineno-1-746" name="__codelineno-1-746"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">prior_state_</span><span class="p">;</span>
-<a id="__codelineno-1-747" name="__codelineno-1-747"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-748" name="__codelineno-1-748"></a>
-<a id="__codelineno-1-749" name="__codelineno-1-749"></a><span class="w">       </span><span class="k">private</span><span class="o">:</span>
-<a id="__codelineno-1-750" name="__codelineno-1-750"></a><span class="w">        </span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">task_</span><span class="p">;</span>
-<a id="__codelineno-1-751" name="__codelineno-1-751"></a><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">mask_</span><span class="p">;</span>
-<a id="__codelineno-1-752" name="__codelineno-1-752"></a><span class="w">        </span><span class="n">state_type</span><span class="w"> </span><span class="n">prior_state_</span><span class="p">;</span>
-<a id="__codelineno-1-753" name="__codelineno-1-753"></a><span class="w">    </span><span class="p">};</span>
-<a id="__codelineno-1-754" name="__codelineno-1-754"></a>
-<a id="__codelineno-1-755" name="__codelineno-1-755"></a><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Trampoline</span>
-<a id="__codelineno-1-756" name="__codelineno-1-756"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-757" name="__codelineno-1-757"></a><span class="w">       </span><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-1-758" name="__codelineno-1-758"></a><span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">activate_task</span><span class="p">(</span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
-<a id="__codelineno-1-759" name="__codelineno-1-759"></a>
-<a id="__codelineno-1-760" name="__codelineno-1-760"></a><span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="nf">get_current_task</span><span class="p">();</span>
-<a id="__codelineno-1-761" name="__codelineno-1-761"></a>
-<a id="__codelineno-1-762" name="__codelineno-1-762"></a><span class="w">       </span><span class="k">private</span><span class="o">:</span>
-<a id="__codelineno-1-763" name="__codelineno-1-763"></a><span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="n">Trampoline</span><span class="o">&amp;</span><span class="w"> </span><span class="n">per_thread_instance</span><span class="p">();</span>
-<a id="__codelineno-1-764" name="__codelineno-1-764"></a>
-<a id="__codelineno-1-765" name="__codelineno-1-765"></a><span class="w">        </span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="n">next_to_run_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<a id="__codelineno-1-766" name="__codelineno-1-766"></a><span class="w">        </span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="n">current_task_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<a id="__codelineno-1-767" name="__codelineno-1-767"></a><span class="w">    </span><span class="p">};</span>
-<a id="__codelineno-1-768" name="__codelineno-1-768"></a>
-<a id="__codelineno-1-769" name="__codelineno-1-769"></a><span class="w">    </span><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-770" name="__codelineno-1-770"></a>
-<a id="__codelineno-1-771" name="__codelineno-1-771"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="nf">next_id</span><span class="p">();</span>
-<a id="__codelineno-1-772" name="__codelineno-1-772"></a>
-<a id="__codelineno-1-773" name="__codelineno-1-773"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="nf">current_ptr</span><span class="p">();</span>
-<a id="__codelineno-1-774" name="__codelineno-1-774"></a>
-<a id="__codelineno-1-775" name="__codelineno-1-775"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">TaskCtorArgs</span><span class="o">&gt;</span>
-<a id="__codelineno-1-776" name="__codelineno-1-776"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">spawn_impl</span><span class="p">(</span><span class="n">ConcurrentTaskList</span><span class="o">&amp;</span><span class="w"> </span><span class="n">parent_task_list</span><span class="p">,</span><span class="w"> </span><span class="n">TaskCtorArgs</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">task_ctor_args</span><span class="p">)</span>
-<a id="__codelineno-1-777" name="__codelineno-1-777"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-778" name="__codelineno-1-778"></a><span class="w">        </span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Task</span><span class="p">{</span><span class="n">parent_task_list</span><span class="p">,</span><span class="w"> </span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">task_ctor_args</span><span class="p">)...};</span>
-<a id="__codelineno-1-779" name="__codelineno-1-779"></a>
-<a id="__codelineno-1-780" name="__codelineno-1-780"></a><span class="w">        </span><span class="n">child</span><span class="o">-&gt;</span><span class="n">call_when_done</span><span class="p">([</span><span class="n">child</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-781" name="__codelineno-1-781"></a><span class="w">            </span><span class="k">delete</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
-<a id="__codelineno-1-782" name="__codelineno-1-782"></a><span class="w">        </span><span class="p">});</span>
-<a id="__codelineno-1-783" name="__codelineno-1-783"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-784" name="__codelineno-1-784"></a>
-<a id="__codelineno-1-785" name="__codelineno-1-785"></a><span class="w">    </span><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-786" name="__codelineno-1-786"></a>
-<a id="__codelineno-1-787" name="__codelineno-1-787"></a><span class="w">    </span><span class="c1">// Invoked in the task&#39;s context prior to entering the task function; yields control back to the parent</span>
-<a id="__codelineno-1-788" name="__codelineno-1-788"></a><span class="w">    </span><span class="c1">// context, ensuring that the task function is invoked via the executor.</span>
-<a id="__codelineno-1-789" name="__codelineno-1-789"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-790" name="__codelineno-1-790"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">pre_body_fn_entry</span><span class="p">(</span><span class="n">Continuation</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">parent</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
-<a id="__codelineno-1-791" name="__codelineno-1-791"></a>
-<a id="__codelineno-1-792" name="__codelineno-1-792"></a><span class="w">    </span><span class="c1">// Invoked in the task&#39;s context after the task function returns.</span>
-<a id="__codelineno-1-793" name="__codelineno-1-793"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-794" name="__codelineno-1-794"></a><span class="w">    </span><span class="n">Continuation</span><span class="w"> </span><span class="nf">post_body_fn_exit</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
-<a id="__codelineno-1-795" name="__codelineno-1-795"></a>
-<a id="__codelineno-1-796" name="__codelineno-1-796"></a><span class="w">    </span><span class="c1">// Suspend the task, resuming the parent context.</span>
-<a id="__codelineno-1-797" name="__codelineno-1-797"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-798" name="__codelineno-1-798"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">yield_impl</span><span class="p">();</span>
-<a id="__codelineno-1-799" name="__codelineno-1-799"></a>
-<a id="__codelineno-1-800" name="__codelineno-1-800"></a><span class="w">    </span><span class="c1">// Set the timer to expire after the given duration, suspending the task in a manner identical to</span>
-<a id="__codelineno-1-801" name="__codelineno-1-801"></a><span class="w">    </span><span class="c1">// `await_impl`.</span>
-<a id="__codelineno-1-802" name="__codelineno-1-802"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-803" name="__codelineno-1-803"></a><span class="w">    </span><span class="n">ErrorCode</span><span class="w"> </span><span class="nf">sleep_impl</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">posix_time</span><span class="o">::</span><span class="n">time_duration</span><span class="o">&amp;</span><span class="w"> </span><span class="n">duration</span><span class="p">);</span>
-<a id="__codelineno-1-804" name="__codelineno-1-804"></a>
-<a id="__codelineno-1-805" name="__codelineno-1-805"></a><span class="w">    </span><span class="c1">// Clears state flags kSuspended|kNeedSignal|kHaveSignal and resumes the task via its executor.  If</span>
-<a id="__codelineno-1-806" name="__codelineno-1-806"></a><span class="w">    </span><span class="c1">// `force_post` is true, the resume is always scheduled via boost::asio::post.  Otherwise, if</span>
-<a id="__codelineno-1-807" name="__codelineno-1-807"></a><span class="w">    </span><span class="c1">// Task::nesting_depth() is below the limit, boost::asio::dispatch is used instead.  `observed_state` is</span>
-<a id="__codelineno-1-808" name="__codelineno-1-808"></a><span class="w">    </span><span class="c1">// the last observed value of `Task::state_`.</span>
-<a id="__codelineno-1-809" name="__codelineno-1-809"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-810" name="__codelineno-1-810"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">schedule_to_run</span><span class="p">(</span><span class="n">state_type</span><span class="w"> </span><span class="n">observed_state</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">force_post</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
-<a id="__codelineno-1-811" name="__codelineno-1-811"></a>
-<a id="__codelineno-1-812" name="__codelineno-1-812"></a><span class="w">    </span><span class="c1">// Resumes execution of the task on the current thread; this is the normal code path, when the task</span>
-<a id="__codelineno-1-813" name="__codelineno-1-813"></a><span class="w">    </span><span class="c1">// receives a signal or is ready to run.  Stack traces collected on the task do not use this method;</span>
-<a id="__codelineno-1-814" name="__codelineno-1-814"></a><span class="w">    </span><span class="c1">// rather they directly call resume_impl after atomically setting the kStackTrace bit (conditional on the</span>
-<a id="__codelineno-1-815" name="__codelineno-1-815"></a><span class="w">    </span><span class="c1">// thread *not* being in a running, ready-to-run, or terminal state).</span>
-<a id="__codelineno-1-816" name="__codelineno-1-816"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-817" name="__codelineno-1-817"></a><span class="w">    </span><span class="n">IsDone</span><span class="w"> </span><span class="nf">run</span><span class="p">();</span>
-<a id="__codelineno-1-818" name="__codelineno-1-818"></a>
-<a id="__codelineno-1-819" name="__codelineno-1-819"></a><span class="w">    </span><span class="c1">// Switch the current thread context to the task and resume execution.</span>
-<a id="__codelineno-1-820" name="__codelineno-1-820"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-821" name="__codelineno-1-821"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">resume_impl</span><span class="p">();</span>
-<a id="__codelineno-1-822" name="__codelineno-1-822"></a>
-<a id="__codelineno-1-823" name="__codelineno-1-823"></a><span class="w">    </span><span class="c1">// `fn` is passed a callable acting as the continutation of the suspended Task.  This continuation may</span>
-<a id="__codelineno-1-824" name="__codelineno-1-824"></a><span class="w">    </span><span class="c1">// receive any set of arguments from which the await operation&#39;s result type `R` can be constructed.</span>
-<a id="__codelineno-1-825" name="__codelineno-1-825"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-826" name="__codelineno-1-826"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">R</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="o">&gt;</span>
-<a id="__codelineno-1-827" name="__codelineno-1-827"></a><span class="w">    </span><span class="n">R</span><span class="w"> </span><span class="n">await_impl</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span>
-<a id="__codelineno-1-828" name="__codelineno-1-828"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-829" name="__codelineno-1-829"></a><span class="w">        </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
-<a id="__codelineno-1-830" name="__codelineno-1-830"></a>
-<a id="__codelineno-1-831" name="__codelineno-1-831"></a><span class="w">        </span><span class="n">HandlerMemory</span><span class="o">&lt;</span><span class="n">kHandlerMemoryBytes</span><span class="o">&gt;</span><span class="w"> </span><span class="n">handler_memory</span><span class="p">;</span>
-<a id="__codelineno-1-832" name="__codelineno-1-832"></a>
-<a id="__codelineno-1-833" name="__codelineno-1-833"></a><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">prior_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">state_</span><span class="p">.</span><span class="n">fetch_or</span><span class="p">(</span><span class="n">kNeedSignal</span><span class="p">);</span>
-<a id="__codelineno-1-834" name="__codelineno-1-834"></a><span class="w">        </span><span class="n">BATT_CHECK_NE</span><span class="p">((</span><span class="n">prior_state</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">kHaveSignal</span><span class="p">),</span><span class="w"> </span><span class="n">kHaveSignal</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;prior_state=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">StateBitset</span><span class="p">{</span><span class="n">prior_state</span><span class="p">};</span>
-<a id="__codelineno-1-835" name="__codelineno-1-835"></a>
-<a id="__codelineno-1-836" name="__codelineno-1-836"></a><span class="w">        </span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
-<a id="__codelineno-1-837" name="__codelineno-1-837"></a><span class="w">        </span><span class="p">(</span><span class="cm">/*callback handler=*/</span><span class="n">make_custom_alloc_handler</span><span class="p">(</span>
-<a id="__codelineno-1-838" name="__codelineno-1-838"></a><span class="w">            </span><span class="n">handler_memory</span><span class="p">,</span>
-<a id="__codelineno-1-839" name="__codelineno-1-839"></a><span class="w">            </span><span class="p">[</span><span class="k">this</span><span class="p">,</span>
-<a id="__codelineno-1-840" name="__codelineno-1-840"></a><span class="w">             </span><span class="o">&amp;</span><span class="n">result</span><span class="p">](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_constructible_v</span><span class="o">&lt;</span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-841" name="__codelineno-1-841"></a><span class="w">                </span><span class="n">result</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
-<a id="__codelineno-1-842" name="__codelineno-1-842"></a>
-<a id="__codelineno-1-843" name="__codelineno-1-843"></a><span class="w">                </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">handle_event</span><span class="p">(</span><span class="n">kHaveSignal</span><span class="p">);</span>
-<a id="__codelineno-1-844" name="__codelineno-1-844"></a><span class="w">            </span><span class="p">}));</span>
-<a id="__codelineno-1-845" name="__codelineno-1-845"></a>
-<a id="__codelineno-1-846" name="__codelineno-1-846"></a><span class="w">        </span><span class="c1">// Suspend this Task.  It will not be in a ready state until the kHaveSignal event has been handled.</span>
-<a id="__codelineno-1-847" name="__codelineno-1-847"></a><span class="w">        </span><span class="c1">//</span>
-<a id="__codelineno-1-848" name="__codelineno-1-848"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">yield_impl</span><span class="p">();</span>
-<a id="__codelineno-1-849" name="__codelineno-1-849"></a>
-<a id="__codelineno-1-850" name="__codelineno-1-850"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="o">*</span><span class="n">result</span><span class="p">);</span>
-<a id="__codelineno-1-851" name="__codelineno-1-851"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-852" name="__codelineno-1-852"></a>
-<a id="__codelineno-1-853" name="__codelineno-1-853"></a><span class="w">    </span><span class="c1">// Tells the task to handle events which may affect its running/suspended state.  This function is safe to</span>
-<a id="__codelineno-1-854" name="__codelineno-1-854"></a><span class="w">    </span><span class="c1">// invoke inside the task or outside.  `event_mask` *must* be one of:</span>
-<a id="__codelineno-1-855" name="__codelineno-1-855"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-856" name="__codelineno-1-856"></a><span class="w">    </span><span class="c1">// - kHaveSignal</span>
-<a id="__codelineno-1-857" name="__codelineno-1-857"></a><span class="w">    </span><span class="c1">// - kSuspended</span>
-<a id="__codelineno-1-858" name="__codelineno-1-858"></a><span class="w">    </span><span class="c1">// - kTerminated</span>
-<a id="__codelineno-1-859" name="__codelineno-1-859"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-860" name="__codelineno-1-860"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">handle_event</span><span class="p">(</span><span class="n">state_type</span><span class="w"> </span><span class="n">event_mask</span><span class="p">);</span>
-<a id="__codelineno-1-861" name="__codelineno-1-861"></a>
-<a id="__codelineno-1-862" name="__codelineno-1-862"></a><span class="w">    </span><span class="c1">// Acquire a spin lock on the given state bit mask.  `lock_mask` must be one of:</span>
-<a id="__codelineno-1-863" name="__codelineno-1-863"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-864" name="__codelineno-1-864"></a><span class="w">    </span><span class="c1">// - kSleepTimerLock</span>
-<a id="__codelineno-1-865" name="__codelineno-1-865"></a><span class="w">    </span><span class="c1">// - kCompletionHandlersLock</span>
-<a id="__codelineno-1-866" name="__codelineno-1-866"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-867" name="__codelineno-1-867"></a><span class="w">    </span><span class="c1">// Locks acquired via this function are not recursive.</span>
-<a id="__codelineno-1-868" name="__codelineno-1-868"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-869" name="__codelineno-1-869"></a><span class="w">    </span><span class="n">state_type</span><span class="w"> </span><span class="nf">spin_lock</span><span class="p">(</span><span class="n">state_type</span><span class="w"> </span><span class="n">lock_mask</span><span class="p">);</span>
-<a id="__codelineno-1-870" name="__codelineno-1-870"></a>
-<a id="__codelineno-1-871" name="__codelineno-1-871"></a><span class="w">    </span><span class="c1">// Same as `spin_lock`, except only try once to acquire the lock.  Returns `true` iff the lock was</span>
-<a id="__codelineno-1-872" name="__codelineno-1-872"></a><span class="w">    </span><span class="c1">// acquired. Sets `prior_state` equal to the last observed value of `state_`.</span>
-<a id="__codelineno-1-873" name="__codelineno-1-873"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-874" name="__codelineno-1-874"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">try_spin_lock</span><span class="p">(</span><span class="n">state_type</span><span class="w"> </span><span class="n">lock_mask</span><span class="p">,</span><span class="w"> </span><span class="n">state_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">prior_state</span><span class="p">);</span>
-<a id="__codelineno-1-875" name="__codelineno-1-875"></a>
-<a id="__codelineno-1-876" name="__codelineno-1-876"></a><span class="w">    </span><span class="c1">// Release the given spin lock bit.  `lock_mask` must be a legal value passed to</span>
-<a id="__codelineno-1-877" name="__codelineno-1-877"></a><span class="w">    </span><span class="c1">// `spin_lock`/`try_spin_lock`, and the calling thread must currently hold a lock on the given bit</span>
-<a id="__codelineno-1-878" name="__codelineno-1-878"></a><span class="w">    </span><span class="c1">// (acquired via `spin_lock`/`try_spin_lock`).</span>
-<a id="__codelineno-1-879" name="__codelineno-1-879"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-880" name="__codelineno-1-880"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">spin_unlock</span><span class="p">(</span><span class="n">state_type</span><span class="w"> </span><span class="n">lock_mask</span><span class="p">);</span>
-<a id="__codelineno-1-881" name="__codelineno-1-881"></a>
-<a id="__codelineno-1-882" name="__codelineno-1-882"></a><span class="w">    </span><span class="c1">// Attempt to collect a stack trace from the task, dumping it to stderr if successful.  This will fail if</span>
-<a id="__codelineno-1-883" name="__codelineno-1-883"></a><span class="w">    </span><span class="c1">// the task is running, ready-to-run, or terminated.  Returns true iff successful.</span>
-<a id="__codelineno-1-884" name="__codelineno-1-884"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-885" name="__codelineno-1-885"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">try_dump_stack_trace</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">force</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="p">);</span>
-<a id="__codelineno-1-886" name="__codelineno-1-886"></a>
-<a id="__codelineno-1-887" name="__codelineno-1-887"></a><span class="w">    </span><span class="c1">// Activate this task via boost::asio::post.</span>
-<a id="__codelineno-1-888" name="__codelineno-1-888"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-889" name="__codelineno-1-889"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">activate_via_post</span><span class="p">();</span>
-<a id="__codelineno-1-890" name="__codelineno-1-890"></a>
-<a id="__codelineno-1-891" name="__codelineno-1-891"></a><span class="w">    </span><span class="c1">// Activate this task via boost::asio::dispatch.</span>
-<a id="__codelineno-1-892" name="__codelineno-1-892"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-893" name="__codelineno-1-893"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">activate_via_dispatch</span><span class="p">();</span>
-<a id="__codelineno-1-894" name="__codelineno-1-894"></a>
-<a id="__codelineno-1-895" name="__codelineno-1-895"></a><span class="w">    </span><span class="c1">// Create an activation completion handler for use inside `activate_via_post`, `activate_via_dispatch`,</span>
-<a id="__codelineno-1-896" name="__codelineno-1-896"></a><span class="w">    </span><span class="c1">// etc.</span>
-<a id="__codelineno-1-897" name="__codelineno-1-897"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-898" name="__codelineno-1-898"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">make_activation_handler</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">via_post</span><span class="p">);</span>
-<a id="__codelineno-1-899" name="__codelineno-1-899"></a>
-<a id="__codelineno-1-900" name="__codelineno-1-900"></a><span class="w">    </span><span class="c1">// Joins to all child tasks.</span>
-<a id="__codelineno-1-901" name="__codelineno-1-901"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-902" name="__codelineno-1-902"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">join_child_tasks</span><span class="p">();</span>
-<a id="__codelineno-1-903" name="__codelineno-1-903"></a>
-<a id="__codelineno-1-904" name="__codelineno-1-904"></a><span class="w">    </span><span class="c1">// Unconditionally removes completion handlers from `this` and runs them on the current thread/task.</span>
-<a id="__codelineno-1-905" name="__codelineno-1-905"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-906" name="__codelineno-1-906"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">run_completion_handlers</span><span class="p">();</span>
-<a id="__codelineno-1-907" name="__codelineno-1-907"></a>
-<a id="__codelineno-1-908" name="__codelineno-1-908"></a><span class="w">    </span><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-909" name="__codelineno-1-909"></a>
-<a id="__codelineno-1-910" name="__codelineno-1-910"></a><span class="w">    </span><span class="c1">// Process-unique serial id number for this Task; automatically assigned at construction time.</span>
-<a id="__codelineno-1-911" name="__codelineno-1-911"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-912" name="__codelineno-1-912"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="n">id_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next_id</span><span class="p">();</span>
-<a id="__codelineno-1-913" name="__codelineno-1-913"></a>
-<a id="__codelineno-1-914" name="__codelineno-1-914"></a><span class="w">    </span><span class="c1">// Human-readable (non-unique) name for this Task; passed in at construction time.</span>
-<a id="__codelineno-1-915" name="__codelineno-1-915"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-916" name="__codelineno-1-916"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name_</span><span class="p">;</span>
-<a id="__codelineno-1-917" name="__codelineno-1-917"></a>
-<a id="__codelineno-1-918" name="__codelineno-1-918"></a><span class="w">    </span><span class="c1">// The (Boost.Async) Executor used to activate/schedule this task.</span>
-<a id="__codelineno-1-919" name="__codelineno-1-919"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-920" name="__codelineno-1-920"></a><span class="w">    </span><span class="n">executor_type</span><span class="w"> </span><span class="n">ex_</span><span class="p">;</span>
-<a id="__codelineno-1-921" name="__codelineno-1-921"></a>
-<a id="__codelineno-1-922" name="__codelineno-1-922"></a><span class="w">    </span><span class="c1">// The most recent context from which this Task was activated/scheduled.  If this is non-empty, then the</span>
-<a id="__codelineno-1-923" name="__codelineno-1-923"></a><span class="w">    </span><span class="c1">// task is active/running.  At most one of `scheduler_` and `self_` are non-empty at any given time.</span>
+<a id="__codelineno-1-701" name="__codelineno-1-701"></a><span class="w">                </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">wait_for_run_completion_handlers</span><span class="p">();</span>
+<a id="__codelineno-1-702" name="__codelineno-1-702"></a><span class="w">                </span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">handler</span><span class="p">)();</span>
+<a id="__codelineno-1-703" name="__codelineno-1-703"></a><span class="w">                </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-1-704" name="__codelineno-1-704"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-1-705" name="__codelineno-1-705"></a>
+<a id="__codelineno-1-706" name="__codelineno-1-706"></a><span class="w">            </span><span class="n">SpinLockGuard</span><span class="w"> </span><span class="n">lock</span><span class="p">{</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="n">kCompletionHandlersLock</span><span class="p">};</span>
+<a id="__codelineno-1-707" name="__codelineno-1-707"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Task</span><span class="o">::</span><span class="n">is_terminal_state</span><span class="p">(</span><span class="n">lock</span><span class="p">.</span><span class="n">prior_state</span><span class="p">())</span><span class="w"> </span><span class="o">||</span>
+<a id="__codelineno-1-708" name="__codelineno-1-708"></a><span class="w">                </span><span class="p">(</span><span class="n">lock</span><span class="p">.</span><span class="n">prior_state</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">kCompletionHandlersClosed</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-709" name="__codelineno-1-709"></a><span class="w">                </span><span class="c1">// It&#39;s possible that the completion handlers list was cleared out after the call to</span>
+<a id="__codelineno-1-710" name="__codelineno-1-710"></a><span class="w">                </span><span class="c1">// `is_done()` above, but before we grab the spin lock.  If so, keep retrying until we resolve</span>
+<a id="__codelineno-1-711" name="__codelineno-1-711"></a><span class="w">                </span><span class="c1">// the race.</span>
+<a id="__codelineno-1-712" name="__codelineno-1-712"></a><span class="w">                </span><span class="c1">//</span>
+<a id="__codelineno-1-713" name="__codelineno-1-713"></a><span class="w">                </span><span class="k">continue</span><span class="p">;</span>
+<a id="__codelineno-1-714" name="__codelineno-1-714"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-1-715" name="__codelineno-1-715"></a><span class="w">            </span><span class="n">push_handler</span><span class="p">(</span><span class="o">&amp;</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">completion_handlers_</span><span class="p">,</span><span class="w"> </span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">handler</span><span class="p">));</span>
+<a id="__codelineno-1-716" name="__codelineno-1-716"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-1-717" name="__codelineno-1-717"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-718" name="__codelineno-1-718"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-719" name="__codelineno-1-719"></a>
+<a id="__codelineno-1-720" name="__codelineno-1-720"></a><span class="w">    </span><span class="c1">// =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------</span>
+<a id="__codelineno-1-721" name="__codelineno-1-721"></a>
+<a id="__codelineno-1-722" name="__codelineno-1-722"></a><span class="w">    </span><span class="n">DebugInfoFrame</span><span class="o">*</span><span class="w"> </span><span class="n">debug_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<a id="__codelineno-1-723" name="__codelineno-1-723"></a>
+<a id="__codelineno-1-724" name="__codelineno-1-724"></a><span class="w">    </span><span class="c1">// =#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------</span>
+<a id="__codelineno-1-725" name="__codelineno-1-725"></a>
+<a id="__codelineno-1-726" name="__codelineno-1-726"></a><span class="w">   </span><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-1-727" name="__codelineno-1-727"></a><span class="w">    </span><span class="c1">//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------</span>
+<a id="__codelineno-1-728" name="__codelineno-1-728"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-729" name="__codelineno-1-729"></a><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">SpinLockGuard</span>
+<a id="__codelineno-1-730" name="__codelineno-1-730"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-731" name="__codelineno-1-731"></a><span class="w">       </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-1-732" name="__codelineno-1-732"></a><span class="w">        </span><span class="k">explicit</span><span class="w"> </span><span class="n">SpinLockGuard</span><span class="p">(</span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="n">task</span><span class="p">,</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">mask</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">task_</span><span class="p">{</span><span class="n">task</span><span class="p">},</span><span class="w"> </span><span class="n">mask_</span><span class="p">{</span><span class="n">mask</span><span class="p">}</span>
+<a id="__codelineno-1-733" name="__codelineno-1-733"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-1-734" name="__codelineno-1-734"></a><span class="w">            </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">prior_state_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">task_</span><span class="o">-&gt;</span><span class="n">spin_lock</span><span class="p">(</span><span class="n">mask</span><span class="p">);</span>
+<a id="__codelineno-1-735" name="__codelineno-1-735"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-736" name="__codelineno-1-736"></a>
+<a id="__codelineno-1-737" name="__codelineno-1-737"></a><span class="w">        </span><span class="n">SpinLockGuard</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SpinLockGuard</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<a id="__codelineno-1-738" name="__codelineno-1-738"></a><span class="w">        </span><span class="n">SpinLockGuard</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SpinLockGuard</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<a id="__codelineno-1-739" name="__codelineno-1-739"></a>
+<a id="__codelineno-1-740" name="__codelineno-1-740"></a><span class="w">        </span><span class="o">~</span><span class="n">SpinLockGuard</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span>
+<a id="__codelineno-1-741" name="__codelineno-1-741"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-1-742" name="__codelineno-1-742"></a><span class="w">            </span><span class="n">task_</span><span class="o">-&gt;</span><span class="n">spin_unlock</span><span class="p">(</span><span class="n">mask_</span><span class="p">);</span>
+<a id="__codelineno-1-743" name="__codelineno-1-743"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-744" name="__codelineno-1-744"></a>
+<a id="__codelineno-1-745" name="__codelineno-1-745"></a><span class="w">        </span><span class="n">state_type</span><span class="w"> </span><span class="n">prior_state</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<a id="__codelineno-1-746" name="__codelineno-1-746"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-1-747" name="__codelineno-1-747"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">prior_state_</span><span class="p">;</span>
+<a id="__codelineno-1-748" name="__codelineno-1-748"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-749" name="__codelineno-1-749"></a>
+<a id="__codelineno-1-750" name="__codelineno-1-750"></a><span class="w">       </span><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-1-751" name="__codelineno-1-751"></a><span class="w">        </span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">task_</span><span class="p">;</span>
+<a id="__codelineno-1-752" name="__codelineno-1-752"></a><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">mask_</span><span class="p">;</span>
+<a id="__codelineno-1-753" name="__codelineno-1-753"></a><span class="w">        </span><span class="n">state_type</span><span class="w"> </span><span class="n">prior_state_</span><span class="p">;</span>
+<a id="__codelineno-1-754" name="__codelineno-1-754"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-1-755" name="__codelineno-1-755"></a>
+<a id="__codelineno-1-756" name="__codelineno-1-756"></a><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Trampoline</span>
+<a id="__codelineno-1-757" name="__codelineno-1-757"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-758" name="__codelineno-1-758"></a><span class="w">       </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-1-759" name="__codelineno-1-759"></a><span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">activate_task</span><span class="p">(</span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+<a id="__codelineno-1-760" name="__codelineno-1-760"></a>
+<a id="__codelineno-1-761" name="__codelineno-1-761"></a><span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="nf">get_current_task</span><span class="p">();</span>
+<a id="__codelineno-1-762" name="__codelineno-1-762"></a>
+<a id="__codelineno-1-763" name="__codelineno-1-763"></a><span class="w">       </span><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-1-764" name="__codelineno-1-764"></a><span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="n">Trampoline</span><span class="o">&amp;</span><span class="w"> </span><span class="n">per_thread_instance</span><span class="p">();</span>
+<a id="__codelineno-1-765" name="__codelineno-1-765"></a>
+<a id="__codelineno-1-766" name="__codelineno-1-766"></a><span class="w">        </span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="n">next_to_run_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<a id="__codelineno-1-767" name="__codelineno-1-767"></a><span class="w">        </span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="n">current_task_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<a id="__codelineno-1-768" name="__codelineno-1-768"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-1-769" name="__codelineno-1-769"></a>
+<a id="__codelineno-1-770" name="__codelineno-1-770"></a><span class="w">    </span><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-771" name="__codelineno-1-771"></a>
+<a id="__codelineno-1-772" name="__codelineno-1-772"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="nf">next_id</span><span class="p">();</span>
+<a id="__codelineno-1-773" name="__codelineno-1-773"></a>
+<a id="__codelineno-1-774" name="__codelineno-1-774"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="nf">current_ptr</span><span class="p">();</span>
+<a id="__codelineno-1-775" name="__codelineno-1-775"></a>
+<a id="__codelineno-1-776" name="__codelineno-1-776"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">TaskCtorArgs</span><span class="o">&gt;</span>
+<a id="__codelineno-1-777" name="__codelineno-1-777"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">spawn_impl</span><span class="p">(</span><span class="n">ConcurrentTaskList</span><span class="o">&amp;</span><span class="w"> </span><span class="n">parent_task_list</span><span class="p">,</span><span class="w"> </span><span class="n">TaskCtorArgs</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">task_ctor_args</span><span class="p">)</span>
+<a id="__codelineno-1-778" name="__codelineno-1-778"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-779" name="__codelineno-1-779"></a><span class="w">        </span><span class="n">Task</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">child</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Task</span><span class="p">{</span><span class="n">parent_task_list</span><span class="p">,</span><span class="w"> </span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">task_ctor_args</span><span class="p">)...};</span>
+<a id="__codelineno-1-780" name="__codelineno-1-780"></a>
+<a id="__codelineno-1-781" name="__codelineno-1-781"></a><span class="w">        </span><span class="n">child</span><span class="o">-&gt;</span><span class="n">call_when_done</span><span class="p">([</span><span class="n">child</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-782" name="__codelineno-1-782"></a><span class="w">            </span><span class="k">delete</span><span class="w"> </span><span class="n">child</span><span class="p">;</span>
+<a id="__codelineno-1-783" name="__codelineno-1-783"></a><span class="w">        </span><span class="p">});</span>
+<a id="__codelineno-1-784" name="__codelineno-1-784"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-785" name="__codelineno-1-785"></a>
+<a id="__codelineno-1-786" name="__codelineno-1-786"></a><span class="w">    </span><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-787" name="__codelineno-1-787"></a>
+<a id="__codelineno-1-788" name="__codelineno-1-788"></a><span class="w">    </span><span class="c1">// Invoked in the task&#39;s context prior to entering the task function; yields control back to the parent</span>
+<a id="__codelineno-1-789" name="__codelineno-1-789"></a><span class="w">    </span><span class="c1">// context, ensuring that the task function is invoked via the executor.</span>
+<a id="__codelineno-1-790" name="__codelineno-1-790"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-791" name="__codelineno-1-791"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">pre_body_fn_entry</span><span class="p">(</span><span class="n">Continuation</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">parent</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+<a id="__codelineno-1-792" name="__codelineno-1-792"></a>
+<a id="__codelineno-1-793" name="__codelineno-1-793"></a><span class="w">    </span><span class="c1">// Invoked in the task&#39;s context after the task function returns.</span>
+<a id="__codelineno-1-794" name="__codelineno-1-794"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-795" name="__codelineno-1-795"></a><span class="w">    </span><span class="n">Continuation</span><span class="w"> </span><span class="nf">post_body_fn_exit</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+<a id="__codelineno-1-796" name="__codelineno-1-796"></a>
+<a id="__codelineno-1-797" name="__codelineno-1-797"></a><span class="w">    </span><span class="c1">// Suspend the task, resuming the parent context.</span>
+<a id="__codelineno-1-798" name="__codelineno-1-798"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-799" name="__codelineno-1-799"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">yield_impl</span><span class="p">();</span>
+<a id="__codelineno-1-800" name="__codelineno-1-800"></a>
+<a id="__codelineno-1-801" name="__codelineno-1-801"></a><span class="w">    </span><span class="c1">// Set the timer to expire after the given duration, suspending the task in a manner identical to</span>
+<a id="__codelineno-1-802" name="__codelineno-1-802"></a><span class="w">    </span><span class="c1">// `await_impl`.</span>
+<a id="__codelineno-1-803" name="__codelineno-1-803"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-804" name="__codelineno-1-804"></a><span class="w">    </span><span class="n">ErrorCode</span><span class="w"> </span><span class="nf">sleep_impl</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">posix_time</span><span class="o">::</span><span class="n">time_duration</span><span class="o">&amp;</span><span class="w"> </span><span class="n">duration</span><span class="p">);</span>
+<a id="__codelineno-1-805" name="__codelineno-1-805"></a>
+<a id="__codelineno-1-806" name="__codelineno-1-806"></a><span class="w">    </span><span class="c1">// Clears state flags kSuspended|kNeedSignal|kHaveSignal and resumes the task via its executor.  If</span>
+<a id="__codelineno-1-807" name="__codelineno-1-807"></a><span class="w">    </span><span class="c1">// `force_post` is true, the resume is always scheduled via boost::asio::post.  Otherwise, if</span>
+<a id="__codelineno-1-808" name="__codelineno-1-808"></a><span class="w">    </span><span class="c1">// Task::nesting_depth() is below the limit, boost::asio::dispatch is used instead.  `observed_state` is</span>
+<a id="__codelineno-1-809" name="__codelineno-1-809"></a><span class="w">    </span><span class="c1">// the last observed value of `Task::state_`.</span>
+<a id="__codelineno-1-810" name="__codelineno-1-810"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-811" name="__codelineno-1-811"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">schedule_to_run</span><span class="p">(</span><span class="n">state_type</span><span class="w"> </span><span class="n">observed_state</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">force_post</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<a id="__codelineno-1-812" name="__codelineno-1-812"></a>
+<a id="__codelineno-1-813" name="__codelineno-1-813"></a><span class="w">    </span><span class="c1">// Resumes execution of the task on the current thread; this is the normal code path, when the task</span>
+<a id="__codelineno-1-814" name="__codelineno-1-814"></a><span class="w">    </span><span class="c1">// receives a signal or is ready to run.  Stack traces collected on the task do not use this method;</span>
+<a id="__codelineno-1-815" name="__codelineno-1-815"></a><span class="w">    </span><span class="c1">// rather they directly call resume_impl after atomically setting the kStackTrace bit (conditional on the</span>
+<a id="__codelineno-1-816" name="__codelineno-1-816"></a><span class="w">    </span><span class="c1">// thread *not* being in a running, ready-to-run, or terminal state).</span>
+<a id="__codelineno-1-817" name="__codelineno-1-817"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-818" name="__codelineno-1-818"></a><span class="w">    </span><span class="n">IsDone</span><span class="w"> </span><span class="nf">run</span><span class="p">();</span>
+<a id="__codelineno-1-819" name="__codelineno-1-819"></a>
+<a id="__codelineno-1-820" name="__codelineno-1-820"></a><span class="w">    </span><span class="c1">// Switch the current thread context to the task and resume execution.</span>
+<a id="__codelineno-1-821" name="__codelineno-1-821"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-822" name="__codelineno-1-822"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">resume_impl</span><span class="p">();</span>
+<a id="__codelineno-1-823" name="__codelineno-1-823"></a>
+<a id="__codelineno-1-824" name="__codelineno-1-824"></a><span class="w">    </span><span class="c1">// `fn` is passed a callable acting as the continutation of the suspended Task.  This continuation may</span>
+<a id="__codelineno-1-825" name="__codelineno-1-825"></a><span class="w">    </span><span class="c1">// receive any set of arguments from which the await operation&#39;s result type `R` can be constructed.</span>
+<a id="__codelineno-1-826" name="__codelineno-1-826"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-827" name="__codelineno-1-827"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">R</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="o">&gt;</span>
+<a id="__codelineno-1-828" name="__codelineno-1-828"></a><span class="w">    </span><span class="n">R</span><span class="w"> </span><span class="n">await_impl</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span>
+<a id="__codelineno-1-829" name="__codelineno-1-829"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-830" name="__codelineno-1-830"></a><span class="w">        </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<a id="__codelineno-1-831" name="__codelineno-1-831"></a>
+<a id="__codelineno-1-832" name="__codelineno-1-832"></a><span class="w">        </span><span class="n">HandlerMemory</span><span class="o">&lt;</span><span class="n">kHandlerMemoryBytes</span><span class="o">&gt;</span><span class="w"> </span><span class="n">handler_memory</span><span class="p">;</span>
+<a id="__codelineno-1-833" name="__codelineno-1-833"></a>
+<a id="__codelineno-1-834" name="__codelineno-1-834"></a><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">state_type</span><span class="w"> </span><span class="n">prior_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">state_</span><span class="p">.</span><span class="n">fetch_or</span><span class="p">(</span><span class="n">kNeedSignal</span><span class="p">);</span>
+<a id="__codelineno-1-835" name="__codelineno-1-835"></a><span class="w">        </span><span class="n">BATT_CHECK_NE</span><span class="p">((</span><span class="n">prior_state</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">kHaveSignal</span><span class="p">),</span><span class="w"> </span><span class="n">kHaveSignal</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;prior_state=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">StateBitset</span><span class="p">{</span><span class="n">prior_state</span><span class="p">};</span>
+<a id="__codelineno-1-836" name="__codelineno-1-836"></a>
+<a id="__codelineno-1-837" name="__codelineno-1-837"></a><span class="w">        </span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+<a id="__codelineno-1-838" name="__codelineno-1-838"></a><span class="w">        </span><span class="p">(</span><span class="cm">/*callback handler=*/</span><span class="n">make_custom_alloc_handler</span><span class="p">(</span>
+<a id="__codelineno-1-839" name="__codelineno-1-839"></a><span class="w">            </span><span class="n">handler_memory</span><span class="p">,</span>
+<a id="__codelineno-1-840" name="__codelineno-1-840"></a><span class="w">            </span><span class="p">[</span><span class="k">this</span><span class="p">,</span>
+<a id="__codelineno-1-841" name="__codelineno-1-841"></a><span class="w">             </span><span class="o">&amp;</span><span class="n">result</span><span class="p">](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_constructible_v</span><span class="o">&lt;</span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-842" name="__codelineno-1-842"></a><span class="w">                </span><span class="n">result</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
+<a id="__codelineno-1-843" name="__codelineno-1-843"></a>
+<a id="__codelineno-1-844" name="__codelineno-1-844"></a><span class="w">                </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">handle_event</span><span class="p">(</span><span class="n">kHaveSignal</span><span class="p">);</span>
+<a id="__codelineno-1-845" name="__codelineno-1-845"></a><span class="w">            </span><span class="p">}));</span>
+<a id="__codelineno-1-846" name="__codelineno-1-846"></a>
+<a id="__codelineno-1-847" name="__codelineno-1-847"></a><span class="w">        </span><span class="c1">// Suspend this Task.  It will not be in a ready state until the kHaveSignal event has been handled.</span>
+<a id="__codelineno-1-848" name="__codelineno-1-848"></a><span class="w">        </span><span class="c1">//</span>
+<a id="__codelineno-1-849" name="__codelineno-1-849"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">yield_impl</span><span class="p">();</span>
+<a id="__codelineno-1-850" name="__codelineno-1-850"></a>
+<a id="__codelineno-1-851" name="__codelineno-1-851"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="o">*</span><span class="n">result</span><span class="p">);</span>
+<a id="__codelineno-1-852" name="__codelineno-1-852"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-853" name="__codelineno-1-853"></a>
+<a id="__codelineno-1-854" name="__codelineno-1-854"></a><span class="w">    </span><span class="c1">// Tells the task to handle events which may affect its running/suspended state.  This function is safe to</span>
+<a id="__codelineno-1-855" name="__codelineno-1-855"></a><span class="w">    </span><span class="c1">// invoke inside the task or outside.  `event_mask` *must* be one of:</span>
+<a id="__codelineno-1-856" name="__codelineno-1-856"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-857" name="__codelineno-1-857"></a><span class="w">    </span><span class="c1">// - kHaveSignal</span>
+<a id="__codelineno-1-858" name="__codelineno-1-858"></a><span class="w">    </span><span class="c1">// - kSuspended</span>
+<a id="__codelineno-1-859" name="__codelineno-1-859"></a><span class="w">    </span><span class="c1">// - kTerminated</span>
+<a id="__codelineno-1-860" name="__codelineno-1-860"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-861" name="__codelineno-1-861"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">handle_event</span><span class="p">(</span><span class="n">state_type</span><span class="w"> </span><span class="n">event_mask</span><span class="p">);</span>
+<a id="__codelineno-1-862" name="__codelineno-1-862"></a>
+<a id="__codelineno-1-863" name="__codelineno-1-863"></a><span class="w">    </span><span class="c1">// Acquire a spin lock on the given state bit mask.  `lock_mask` must be one of:</span>
+<a id="__codelineno-1-864" name="__codelineno-1-864"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-865" name="__codelineno-1-865"></a><span class="w">    </span><span class="c1">// - kSleepTimerLock</span>
+<a id="__codelineno-1-866" name="__codelineno-1-866"></a><span class="w">    </span><span class="c1">// - kCompletionHandlersLock</span>
+<a id="__codelineno-1-867" name="__codelineno-1-867"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-868" name="__codelineno-1-868"></a><span class="w">    </span><span class="c1">// Locks acquired via this function are not recursive.</span>
+<a id="__codelineno-1-869" name="__codelineno-1-869"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-870" name="__codelineno-1-870"></a><span class="w">    </span><span class="n">state_type</span><span class="w"> </span><span class="nf">spin_lock</span><span class="p">(</span><span class="n">state_type</span><span class="w"> </span><span class="n">lock_mask</span><span class="p">);</span>
+<a id="__codelineno-1-871" name="__codelineno-1-871"></a>
+<a id="__codelineno-1-872" name="__codelineno-1-872"></a><span class="w">    </span><span class="c1">// Same as `spin_lock`, except only try once to acquire the lock.  Returns `true` iff the lock was</span>
+<a id="__codelineno-1-873" name="__codelineno-1-873"></a><span class="w">    </span><span class="c1">// acquired. Sets `prior_state` equal to the last observed value of `state_`.</span>
+<a id="__codelineno-1-874" name="__codelineno-1-874"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-875" name="__codelineno-1-875"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">try_spin_lock</span><span class="p">(</span><span class="n">state_type</span><span class="w"> </span><span class="n">lock_mask</span><span class="p">,</span><span class="w"> </span><span class="n">state_type</span><span class="o">&amp;</span><span class="w"> </span><span class="n">prior_state</span><span class="p">);</span>
+<a id="__codelineno-1-876" name="__codelineno-1-876"></a>
+<a id="__codelineno-1-877" name="__codelineno-1-877"></a><span class="w">    </span><span class="c1">// Release the given spin lock bit.  `lock_mask` must be a legal value passed to</span>
+<a id="__codelineno-1-878" name="__codelineno-1-878"></a><span class="w">    </span><span class="c1">// `spin_lock`/`try_spin_lock`, and the calling thread must currently hold a lock on the given bit</span>
+<a id="__codelineno-1-879" name="__codelineno-1-879"></a><span class="w">    </span><span class="c1">// (acquired via `spin_lock`/`try_spin_lock`).</span>
+<a id="__codelineno-1-880" name="__codelineno-1-880"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-881" name="__codelineno-1-881"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">spin_unlock</span><span class="p">(</span><span class="n">state_type</span><span class="w"> </span><span class="n">lock_mask</span><span class="p">);</span>
+<a id="__codelineno-1-882" name="__codelineno-1-882"></a>
+<a id="__codelineno-1-883" name="__codelineno-1-883"></a><span class="w">    </span><span class="c1">// Attempt to collect a stack trace from the task, dumping it to stderr if successful.  This will fail if</span>
+<a id="__codelineno-1-884" name="__codelineno-1-884"></a><span class="w">    </span><span class="c1">// the task is running, ready-to-run, or terminated.  Returns true iff successful.</span>
+<a id="__codelineno-1-885" name="__codelineno-1-885"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-886" name="__codelineno-1-886"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">try_dump_stack_trace</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">force</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="p">);</span>
+<a id="__codelineno-1-887" name="__codelineno-1-887"></a>
+<a id="__codelineno-1-888" name="__codelineno-1-888"></a><span class="w">    </span><span class="c1">// Activate this task via boost::asio::post.</span>
+<a id="__codelineno-1-889" name="__codelineno-1-889"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-890" name="__codelineno-1-890"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">activate_via_post</span><span class="p">();</span>
+<a id="__codelineno-1-891" name="__codelineno-1-891"></a>
+<a id="__codelineno-1-892" name="__codelineno-1-892"></a><span class="w">    </span><span class="c1">// Activate this task via boost::asio::dispatch.</span>
+<a id="__codelineno-1-893" name="__codelineno-1-893"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-894" name="__codelineno-1-894"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">activate_via_dispatch</span><span class="p">();</span>
+<a id="__codelineno-1-895" name="__codelineno-1-895"></a>
+<a id="__codelineno-1-896" name="__codelineno-1-896"></a><span class="w">    </span><span class="c1">// Create an activation completion handler for use inside `activate_via_post`, `activate_via_dispatch`,</span>
+<a id="__codelineno-1-897" name="__codelineno-1-897"></a><span class="w">    </span><span class="c1">// etc.</span>
+<a id="__codelineno-1-898" name="__codelineno-1-898"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-899" name="__codelineno-1-899"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">make_activation_handler</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">via_post</span><span class="p">);</span>
+<a id="__codelineno-1-900" name="__codelineno-1-900"></a>
+<a id="__codelineno-1-901" name="__codelineno-1-901"></a><span class="w">    </span><span class="c1">// Joins to all child tasks.</span>
+<a id="__codelineno-1-902" name="__codelineno-1-902"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-903" name="__codelineno-1-903"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">join_child_tasks</span><span class="p">();</span>
+<a id="__codelineno-1-904" name="__codelineno-1-904"></a>
+<a id="__codelineno-1-905" name="__codelineno-1-905"></a><span class="w">    </span><span class="c1">// Unconditionally removes completion handlers from `this` and runs them on the current thread/task.</span>
+<a id="__codelineno-1-906" name="__codelineno-1-906"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-907" name="__codelineno-1-907"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">run_completion_handlers</span><span class="p">();</span>
+<a id="__codelineno-1-908" name="__codelineno-1-908"></a>
+<a id="__codelineno-1-909" name="__codelineno-1-909"></a><span class="w">    </span><span class="c1">// Waits for run_completion_handlers to run; must only be called *after* this-&gt;is_done() returns true.</span>
+<a id="__codelineno-1-910" name="__codelineno-1-910"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-911" name="__codelineno-1-911"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">wait_for_run_completion_handlers</span><span class="p">();</span>
+<a id="__codelineno-1-912" name="__codelineno-1-912"></a>
+<a id="__codelineno-1-913" name="__codelineno-1-913"></a><span class="w">    </span><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-914" name="__codelineno-1-914"></a>
+<a id="__codelineno-1-915" name="__codelineno-1-915"></a><span class="w">    </span><span class="c1">// Process-unique serial id number for this Task; automatically assigned at construction time.</span>
+<a id="__codelineno-1-916" name="__codelineno-1-916"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-917" name="__codelineno-1-917"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="n">id_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">next_id</span><span class="p">();</span>
+<a id="__codelineno-1-918" name="__codelineno-1-918"></a>
+<a id="__codelineno-1-919" name="__codelineno-1-919"></a><span class="w">    </span><span class="c1">// Human-readable (non-unique) name for this Task; passed in at construction time.</span>
+<a id="__codelineno-1-920" name="__codelineno-1-920"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-921" name="__codelineno-1-921"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name_</span><span class="p">;</span>
+<a id="__codelineno-1-922" name="__codelineno-1-922"></a>
+<a id="__codelineno-1-923" name="__codelineno-1-923"></a><span class="w">    </span><span class="c1">// The (Boost.Async) Executor used to activate/schedule this task.</span>
 <a id="__codelineno-1-924" name="__codelineno-1-924"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-925" name="__codelineno-1-925"></a><span class="w">    </span><span class="n">Continuation</span><span class="w"> </span><span class="n">scheduler_</span><span class="p">;</span>
+<a id="__codelineno-1-925" name="__codelineno-1-925"></a><span class="w">    </span><span class="n">executor_type</span><span class="w"> </span><span class="n">ex_</span><span class="p">;</span>
 <a id="__codelineno-1-926" name="__codelineno-1-926"></a>
-<a id="__codelineno-1-927" name="__codelineno-1-927"></a><span class="w">    </span><span class="c1">// The current (suspended) context of this Task.  If this is non-copy, then the task is suspended/waiting.</span>
-<a id="__codelineno-1-928" name="__codelineno-1-928"></a><span class="w">    </span><span class="c1">// At most one of `scheduler_` and `self_` are non-empty at any given time.</span>
+<a id="__codelineno-1-927" name="__codelineno-1-927"></a><span class="w">    </span><span class="c1">// The most recent context from which this Task was activated/scheduled.  If this is non-empty, then the</span>
+<a id="__codelineno-1-928" name="__codelineno-1-928"></a><span class="w">    </span><span class="c1">// task is active/running.  At most one of `scheduler_` and `self_` are non-empty at any given time.</span>
 <a id="__codelineno-1-929" name="__codelineno-1-929"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-930" name="__codelineno-1-930"></a><span class="w">    </span><span class="n">Continuation</span><span class="w"> </span><span class="n">self_</span><span class="p">;</span>
+<a id="__codelineno-1-930" name="__codelineno-1-930"></a><span class="w">    </span><span class="n">Continuation</span><span class="w"> </span><span class="n">scheduler_</span><span class="p">;</span>
 <a id="__codelineno-1-931" name="__codelineno-1-931"></a>
-<a id="__codelineno-1-932" name="__codelineno-1-932"></a><span class="w">    </span><span class="c1">// Contains all spin lock bits and run-state information for this task.  Initially set to `kNeedSignal`</span>
-<a id="__codelineno-1-933" name="__codelineno-1-933"></a><span class="w">    </span><span class="c1">// because the task must receive the &quot;go&quot; signal before it can enter normal operation.</span>
+<a id="__codelineno-1-932" name="__codelineno-1-932"></a><span class="w">    </span><span class="c1">// The current (suspended) context of this Task.  If this is non-copy, then the task is suspended/waiting.</span>
+<a id="__codelineno-1-933" name="__codelineno-1-933"></a><span class="w">    </span><span class="c1">// At most one of `scheduler_` and `self_` are non-empty at any given time.</span>
 <a id="__codelineno-1-934" name="__codelineno-1-934"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-935" name="__codelineno-1-935"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="n">state_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">state_</span><span class="p">{</span><span class="n">kNeedSignal</span><span class="p">};</span>
+<a id="__codelineno-1-935" name="__codelineno-1-935"></a><span class="w">    </span><span class="n">Continuation</span><span class="w"> </span><span class="n">self_</span><span class="p">;</span>
 <a id="__codelineno-1-936" name="__codelineno-1-936"></a>
-<a id="__codelineno-1-937" name="__codelineno-1-937"></a><span class="w">    </span><span class="c1">// The current advisory priority for this task.  Higher numeric values signify more urgent priority.</span>
-<a id="__codelineno-1-938" name="__codelineno-1-938"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-939" name="__codelineno-1-939"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="n">Priority</span><span class="o">::</span><span class="n">value_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">priority_</span><span class="p">;</span>
-<a id="__codelineno-1-940" name="__codelineno-1-940"></a>
-<a id="__codelineno-1-941" name="__codelineno-1-941"></a><span class="w">    </span><span class="c1">// Used to implement this-&gt;sleep().</span>
-<a id="__codelineno-1-942" name="__codelineno-1-942"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-943" name="__codelineno-1-943"></a><span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">deadline_timer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sleep_timer_</span><span class="p">;</span>
-<a id="__codelineno-1-944" name="__codelineno-1-944"></a>
-<a id="__codelineno-1-945" name="__codelineno-1-945"></a><span class="w">    </span><span class="c1">// When a stack trace is gathered from a task, we must temporarily swap its context in, then capture the</span>
-<a id="__codelineno-1-946" name="__codelineno-1-946"></a><span class="w">    </span><span class="c1">// stack, then swap back; this member stores the stack trace.  TODO [tastolfi 2023-02-21] there could be a</span>
-<a id="__codelineno-1-947" name="__codelineno-1-947"></a><span class="w">    </span><span class="c1">// race condition on this field if two threads attempt to capture a stack trace on the same task</span>
-<a id="__codelineno-1-948" name="__codelineno-1-948"></a><span class="w">    </span><span class="c1">// concurrently!</span>
-<a id="__codelineno-1-949" name="__codelineno-1-949"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-950" name="__codelineno-1-950"></a><span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">boost</span><span class="o">::</span><span class="n">stacktrace</span><span class="o">::</span><span class="n">stacktrace</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack_trace_</span><span class="p">;</span>
-<a id="__codelineno-1-951" name="__codelineno-1-951"></a>
-<a id="__codelineno-1-952" name="__codelineno-1-952"></a><span class="w">    </span><span class="c1">// A linked list of handlers that are waiting for notification when this task finishes/joins.</span>
-<a id="__codelineno-1-953" name="__codelineno-1-953"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-954" name="__codelineno-1-954"></a><span class="w">    </span><span class="n">HandlerList</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">completion_handlers_</span><span class="p">;</span>
-<a id="__codelineno-1-955" name="__codelineno-1-955"></a>
-<a id="__codelineno-1-956" name="__codelineno-1-956"></a><span class="w">    </span><span class="c1">// A handler-attached memory buffer used whenever this task is scheduled via dispatch or post;</span>
-<a id="__codelineno-1-957" name="__codelineno-1-957"></a><span class="w">    </span><span class="c1">// conceptually, this memory is used to store linked-list pointers for the task on some scheduler queue.</span>
+<a id="__codelineno-1-937" name="__codelineno-1-937"></a><span class="w">    </span><span class="c1">// Contains all spin lock bits and run-state information for this task.  Initially set to `kNeedSignal`</span>
+<a id="__codelineno-1-938" name="__codelineno-1-938"></a><span class="w">    </span><span class="c1">// because the task must receive the &quot;go&quot; signal before it can enter normal operation.</span>
+<a id="__codelineno-1-939" name="__codelineno-1-939"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-940" name="__codelineno-1-940"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="n">state_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">state_</span><span class="p">{</span><span class="n">kNeedSignal</span><span class="p">};</span>
+<a id="__codelineno-1-941" name="__codelineno-1-941"></a>
+<a id="__codelineno-1-942" name="__codelineno-1-942"></a><span class="w">    </span><span class="c1">// The current advisory priority for this task.  Higher numeric values signify more urgent priority.</span>
+<a id="__codelineno-1-943" name="__codelineno-1-943"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-944" name="__codelineno-1-944"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="n">Priority</span><span class="o">::</span><span class="n">value_type</span><span class="o">&gt;</span><span class="w"> </span><span class="n">priority_</span><span class="p">;</span>
+<a id="__codelineno-1-945" name="__codelineno-1-945"></a>
+<a id="__codelineno-1-946" name="__codelineno-1-946"></a><span class="w">    </span><span class="c1">// Used to implement this-&gt;sleep().</span>
+<a id="__codelineno-1-947" name="__codelineno-1-947"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-948" name="__codelineno-1-948"></a><span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">deadline_timer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">sleep_timer_</span><span class="p">;</span>
+<a id="__codelineno-1-949" name="__codelineno-1-949"></a>
+<a id="__codelineno-1-950" name="__codelineno-1-950"></a><span class="w">    </span><span class="c1">// When a stack trace is gathered from a task, we must temporarily swap its context in, then capture the</span>
+<a id="__codelineno-1-951" name="__codelineno-1-951"></a><span class="w">    </span><span class="c1">// stack, then swap back; this member stores the stack trace.  TODO [tastolfi 2023-02-21] there could be a</span>
+<a id="__codelineno-1-952" name="__codelineno-1-952"></a><span class="w">    </span><span class="c1">// race condition on this field if two threads attempt to capture a stack trace on the same task</span>
+<a id="__codelineno-1-953" name="__codelineno-1-953"></a><span class="w">    </span><span class="c1">// concurrently!</span>
+<a id="__codelineno-1-954" name="__codelineno-1-954"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-955" name="__codelineno-1-955"></a><span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">boost</span><span class="o">::</span><span class="n">stacktrace</span><span class="o">::</span><span class="n">stacktrace</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stack_trace_</span><span class="p">;</span>
+<a id="__codelineno-1-956" name="__codelineno-1-956"></a>
+<a id="__codelineno-1-957" name="__codelineno-1-957"></a><span class="w">    </span><span class="c1">// A linked list of handlers that are waiting for notification when this task finishes/joins.</span>
 <a id="__codelineno-1-958" name="__codelineno-1-958"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-959" name="__codelineno-1-959"></a><span class="w">    </span><span class="n">HandlerMemory</span><span class="o">&lt;</span><span class="n">kHandlerMemoryBytes</span><span class="o">&gt;</span><span class="w"> </span><span class="n">activate_memory_</span><span class="p">;</span>
+<a id="__codelineno-1-959" name="__codelineno-1-959"></a><span class="w">    </span><span class="n">HandlerList</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">completion_handlers_</span><span class="p">;</span>
 <a id="__codelineno-1-960" name="__codelineno-1-960"></a>
-<a id="__codelineno-1-961" name="__codelineno-1-961"></a><span class="w">    </span><span class="c1">// Set to an address near the base of the stack when the task begins running; used to estimate the current</span>
-<a id="__codelineno-1-962" name="__codelineno-1-962"></a><span class="w">    </span><span class="c1">// stack growth.</span>
+<a id="__codelineno-1-961" name="__codelineno-1-961"></a><span class="w">    </span><span class="c1">// A handler-attached memory buffer used whenever this task is scheduled via dispatch or post;</span>
+<a id="__codelineno-1-962" name="__codelineno-1-962"></a><span class="w">    </span><span class="c1">// conceptually, this memory is used to store linked-list pointers for the task on some scheduler queue.</span>
 <a id="__codelineno-1-963" name="__codelineno-1-963"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-964" name="__codelineno-1-964"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n">u8</span><span class="o">*</span><span class="w"> </span><span class="n">stack_base_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<a id="__codelineno-1-964" name="__codelineno-1-964"></a><span class="w">    </span><span class="n">HandlerMemory</span><span class="o">&lt;</span><span class="n">kHandlerMemoryBytes</span><span class="o">&gt;</span><span class="w"> </span><span class="n">activate_memory_</span><span class="p">;</span>
 <a id="__codelineno-1-965" name="__codelineno-1-965"></a>
-<a id="__codelineno-1-966" name="__codelineno-1-966"></a><span class="w">    </span><span class="c1">// Set to true when this task performs some action that causes a task with higher priority to move into a</span>
-<a id="__codelineno-1-967" name="__codelineno-1-967"></a><span class="w">    </span><span class="c1">// ready state; this causes the current task to be rescheduled via `post()` so that the higher priority</span>
-<a id="__codelineno-1-968" name="__codelineno-1-968"></a><span class="w">    </span><span class="c1">// task can be scheduled immediately, possibly on the same thread, via `dispatch()`.</span>
-<a id="__codelineno-1-969" name="__codelineno-1-969"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-970" name="__codelineno-1-970"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_preempted_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-<a id="__codelineno-1-971" name="__codelineno-1-971"></a>
-<a id="__codelineno-1-972" name="__codelineno-1-972"></a><span class="w">    </span><span class="c1">// Used to prevent deadlock in WorkerPools.</span>
-<a id="__codelineno-1-973" name="__codelineno-1-973"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-974" name="__codelineno-1-974"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_inside_work_fn_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-<a id="__codelineno-1-975" name="__codelineno-1-975"></a>
-<a id="__codelineno-1-976" name="__codelineno-1-976"></a><span class="w">    </span><span class="c1">// Monotonic counter, incremented whenever this task is suspended.</span>
-<a id="__codelineno-1-977" name="__codelineno-1-977"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-978" name="__codelineno-1-978"></a><span class="w">    </span><span class="k">volatile</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">suspend_count_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-1-979" name="__codelineno-1-979"></a>
-<a id="__codelineno-1-980" name="__codelineno-1-980"></a><span class="w">    </span><span class="c1">// Monotonic counter, incremented whenever this task is resumed.</span>
-<a id="__codelineno-1-981" name="__codelineno-1-981"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-982" name="__codelineno-1-982"></a><span class="w">    </span><span class="k">volatile</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">resume_count_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-1-983" name="__codelineno-1-983"></a>
-<a id="__codelineno-1-984" name="__codelineno-1-984"></a><span class="w">    </span><span class="c1">// A list of spawned tasks; will be joined when this terminates.</span>
-<a id="__codelineno-1-985" name="__codelineno-1-985"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-986" name="__codelineno-1-986"></a><span class="w">    </span><span class="n">ConcurrentTaskList</span><span class="w"> </span><span class="n">child_tasks_</span><span class="p">;</span>
-<a id="__codelineno-1-987" name="__codelineno-1-987"></a>
-<a id="__codelineno-1-988" name="__codelineno-1-988"></a><span class="w">    </span><span class="c1">// The list to which this task was added at creation time.</span>
-<a id="__codelineno-1-989" name="__codelineno-1-989"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-990" name="__codelineno-1-990"></a><span class="w">    </span><span class="n">ConcurrentTaskList</span><span class="o">&amp;</span><span class="w"> </span><span class="n">parent_task_list_</span><span class="p">;</span>
-<a id="__codelineno-1-991" name="__codelineno-1-991"></a><span class="p">};</span>
+<a id="__codelineno-1-966" name="__codelineno-1-966"></a><span class="w">    </span><span class="c1">// Set to an address near the base of the stack when the task begins running; used to estimate the current</span>
+<a id="__codelineno-1-967" name="__codelineno-1-967"></a><span class="w">    </span><span class="c1">// stack growth.</span>
+<a id="__codelineno-1-968" name="__codelineno-1-968"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-969" name="__codelineno-1-969"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="k">volatile</span><span class="w"> </span><span class="n">u8</span><span class="o">*</span><span class="w"> </span><span class="n">stack_base_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<a id="__codelineno-1-970" name="__codelineno-1-970"></a>
+<a id="__codelineno-1-971" name="__codelineno-1-971"></a><span class="w">    </span><span class="c1">// Set to true when this task performs some action that causes a task with higher priority to move into a</span>
+<a id="__codelineno-1-972" name="__codelineno-1-972"></a><span class="w">    </span><span class="c1">// ready state; this causes the current task to be rescheduled via `post()` so that the higher priority</span>
+<a id="__codelineno-1-973" name="__codelineno-1-973"></a><span class="w">    </span><span class="c1">// task can be scheduled immediately, possibly on the same thread, via `dispatch()`.</span>
+<a id="__codelineno-1-974" name="__codelineno-1-974"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-975" name="__codelineno-1-975"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_preempted_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<a id="__codelineno-1-976" name="__codelineno-1-976"></a>
+<a id="__codelineno-1-977" name="__codelineno-1-977"></a><span class="w">    </span><span class="c1">// Used to prevent deadlock in WorkerPools.</span>
+<a id="__codelineno-1-978" name="__codelineno-1-978"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-979" name="__codelineno-1-979"></a><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_inside_work_fn_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<a id="__codelineno-1-980" name="__codelineno-1-980"></a>
+<a id="__codelineno-1-981" name="__codelineno-1-981"></a><span class="w">    </span><span class="c1">// Monotonic counter, incremented whenever this task is suspended.</span>
+<a id="__codelineno-1-982" name="__codelineno-1-982"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-983" name="__codelineno-1-983"></a><span class="w">    </span><span class="k">volatile</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">suspend_count_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-984" name="__codelineno-1-984"></a>
+<a id="__codelineno-1-985" name="__codelineno-1-985"></a><span class="w">    </span><span class="c1">// Monotonic counter, incremented whenever this task is resumed.</span>
+<a id="__codelineno-1-986" name="__codelineno-1-986"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-987" name="__codelineno-1-987"></a><span class="w">    </span><span class="k">volatile</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">resume_count_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-988" name="__codelineno-1-988"></a>
+<a id="__codelineno-1-989" name="__codelineno-1-989"></a><span class="w">    </span><span class="c1">// A list of spawned tasks; will be joined when this terminates.</span>
+<a id="__codelineno-1-990" name="__codelineno-1-990"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-991" name="__codelineno-1-991"></a><span class="w">    </span><span class="n">ConcurrentTaskList</span><span class="w"> </span><span class="n">child_tasks_</span><span class="p">;</span>
 <a id="__codelineno-1-992" name="__codelineno-1-992"></a>
-<a id="__codelineno-1-993" name="__codelineno-1-993"></a><span class="c1">//#=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++</span>
-<a id="__codelineno-1-994" name="__codelineno-1-994"></a>
-<a id="__codelineno-1-995" name="__codelineno-1-995"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-996" name="__codelineno-1-996"></a><span class="c1">//</span>
-<a id="__codelineno-1-997" name="__codelineno-1-997"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">R</span><span class="o">&gt;</span>
-<a id="__codelineno-1-998" name="__codelineno-1-998"></a><span class="n">R</span><span class="w"> </span><span class="n">Task</span><span class="o">::</span><span class="n">ConcurrentTaskList</span><span class="o">::</span><span class="n">with_lock</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span>
-<a id="__codelineno-1-999" name="__codelineno-1-999"></a><span class="p">{</span>
-<a id="__codelineno-1-1000" name="__codelineno-1-1000"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unique_lock</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">{</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">mutex_</span><span class="p">};</span>
-<a id="__codelineno-1-1001" name="__codelineno-1-1001"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">fn</span><span class="p">)(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">task_list_</span><span class="p">);</span>
-<a id="__codelineno-1-1002" name="__codelineno-1-1002"></a><span class="p">}</span>
-<a id="__codelineno-1-1003" name="__codelineno-1-1003"></a>
-<a id="__codelineno-1-1004" name="__codelineno-1-1004"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
-<a id="__codelineno-1-1005" name="__codelineno-1-1005"></a>
-<a id="__codelineno-1-1006" name="__codelineno-1-1006"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_TASK_HPP</span>
+<a id="__codelineno-1-993" name="__codelineno-1-993"></a><span class="w">    </span><span class="c1">// The list to which this task was added at creation time.</span>
+<a id="__codelineno-1-994" name="__codelineno-1-994"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-1-995" name="__codelineno-1-995"></a><span class="w">    </span><span class="n">ConcurrentTaskList</span><span class="o">&amp;</span><span class="w"> </span><span class="n">parent_task_list_</span><span class="p">;</span>
+<a id="__codelineno-1-996" name="__codelineno-1-996"></a><span class="p">};</span>
+<a id="__codelineno-1-997" name="__codelineno-1-997"></a>
+<a id="__codelineno-1-998" name="__codelineno-1-998"></a><span class="c1">//#=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++</span>
+<a id="__codelineno-1-999" name="__codelineno-1-999"></a>
+<a id="__codelineno-1-1000" name="__codelineno-1-1000"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-1001" name="__codelineno-1-1001"></a><span class="c1">//</span>
+<a id="__codelineno-1-1002" name="__codelineno-1-1002"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">R</span><span class="o">&gt;</span>
+<a id="__codelineno-1-1003" name="__codelineno-1-1003"></a><span class="n">R</span><span class="w"> </span><span class="n">Task</span><span class="o">::</span><span class="n">ConcurrentTaskList</span><span class="o">::</span><span class="n">with_lock</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span>
+<a id="__codelineno-1-1004" name="__codelineno-1-1004"></a><span class="p">{</span>
+<a id="__codelineno-1-1005" name="__codelineno-1-1005"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">unique_lock</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">{</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">mutex_</span><span class="p">};</span>
+<a id="__codelineno-1-1006" name="__codelineno-1-1006"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">fn</span><span class="p">)(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">task_list_</span><span class="p">);</span>
+<a id="__codelineno-1-1007" name="__codelineno-1-1007"></a><span class="p">}</span>
+<a id="__codelineno-1-1008" name="__codelineno-1-1008"></a>
+<a id="__codelineno-1-1009" name="__codelineno-1-1009"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
+<a id="__codelineno-1-1010" name="__codelineno-1-1010"></a>
+<a id="__codelineno-1-1011" name="__codelineno-1-1011"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_TASK_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 19 May 2023 at 14:54:05 UTC</p>
+<p>Updated on 19 May 2023 at 17:25:41 UTC</p>
 
 
 
