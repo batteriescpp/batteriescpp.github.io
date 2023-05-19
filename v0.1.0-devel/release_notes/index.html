@@ -509,6 +509,50 @@
 
 <ul>
 <li>
+<p>0.33.0 (2023/05/19)</p>
+<ul>
+<li>Added Conan options for build variants that affect ABI:<ul>
+<li><code>header_only</code></li>
+<li><code>glog_support</code></li>
+<li><code>protobuf_support</code></li>
+<li><code>asserts_enabled</code></li>
+<li><code>shared</code></li>
+</ul>
+</li>
+<li>Added <code>&lt;batteries/stacktrace.hpp&gt;</code>, which includes boost
+  stacktrace and suppresses spurious GCC warnings in the boost
+  code.</li>
+<li>Added a runtime check system to <code>&lt;batteries/config.hpp&gt;</code> that
+  computes a "feature [bit-]mask" which captures the build
+  variant; this is done for each compilation unit that includes
+  <code>config.hpp</code> (using static init of a <code>bool</code> in an anonymous
+  namespace) and compared to a global, canonical feature mask.  In
+  this way, we can now detect bugs where different libraries were
+  built with different Batteries feature settings and halt the
+  program before undefined behavior ensues.</li>
+<li>Added new macros to control optimization suppression in the code:<ul>
+<li><code>BATT_GCC_BEGIN_OPTIMIZE(setting)</code> - setting must be a string literal, e.g. "O0"</li>
+<li><code>BATT_GCC_END_OPTIMIZE()</code> - reverts the optimization level set by <code>BATT_GCC_BEGIN_OPTIMIZE</code></li>
+<li><code>BATT_BEGIN_NO_OPTIMIZE()</code> - begins a section in which optimization is completely disabled</li>
+<li><code>BATT_END_NO_OPTIMIZE()</code> - ends a section begun by <code>BATT_BEGIN_NO_OPTIMIZE</code></li>
+</ul>
+</li>
+<li>Enabling <code>BATT_ASSERT</code> statements can now be done independent of
+  the <code>NDEBUG</code> define, using <code>BATT_ASSERTS_ENABLED</code>, which is
+  controlled by the Conan config via the <code>asserts_enabled</code> option,
+  which can be <code>None</code> (default), <code>True</code>, or <code>False</code>.  If
+  <code>BATT_ASSERTS_ENABLED</code> is not defined (i.e., <code>asserts_enabled</code>
+  is <code>None</code>), then asserts are only enabled when <code>NDEBUG</code> is
+  defined, like before.</li>
+<li>Added support for <code>std::ostream operator&lt;&lt;</code> to <code>batt::LogLevel</code> (<code>&lt;batteries/status.hpp&gt;</code>)</li>
+<li>Fixed silent ABI breakage bug in
+  <code>batt::detail::NotOkStatusWrapper</code> that causes aborts at runtime
+  when some libraries are compiled with <code>BATT_GLOG_AVAILABLE</code> and
+  some without.</li>
+<li>Fixed an overly aggressive check in <code>batt::Task</code></li>
+</ul>
+</li>
+<li>
 <p>0.31.3 (2023/05/03)</p>
 <ul>
 <li>Fixed bug in TakeNSource that causes hang after limit is reached

@@ -12,7 +12,7 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 1042,
+    "bodyEnd": 1057,
     "bodyFile": "batteries/status.hpp",
     "bodyStart": 941,
     "column": 1,
@@ -74,10 +74,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1030,
+        "bodyStart": 1034,
         "column": 16,
         "file": "batteries/status.hpp",
-        "line": 1030
+        "line": 1034
       },
       "name": "file_",
       "override": false,
@@ -104,10 +104,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1031,
+        "bodyStart": 1038,
         "column": 9,
         "file": "batteries/status.hpp",
-        "line": 1031
+        "line": 1038
       },
       "name": "line_",
       "override": false,
@@ -134,10 +134,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1032,
+        "bodyStart": 1042,
         "column": 12,
         "file": "batteries/status.hpp",
-        "line": 1032
+        "line": 1042
       },
       "name": "status_",
       "override": false,
@@ -148,6 +148,36 @@
       "type": "[Status](/_autogen/Classes/classbatt_1_1Status/)",
       "typePlain": "Status",
       "url": "/_autogen/Classes/classbatt_1_1detail_1_1NotOkStatusWrapper/#variable-status-",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-vlog-is-on-",
+      "category": "attributes",
+      "const": false,
+      "definition": "bool batt::detail::NotOkStatusWrapper::vlog_is_on_",
+      "explicit": false,
+      "fullname": "batt::detail::NotOkStatusWrapper::vlog_is_on_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/status.hpp",
+        "bodyStart": 1046,
+        "column": 10,
+        "file": "batteries/status.hpp",
+        "line": 1046
+      },
+      "name": "vlog_is_on_",
+      "override": false,
+      "refid": "classbatt_1_1detail_1_1NotOkStatusWrapper_1a76b5379d7e7532f4771fc53339f8d3fa",
+      "static": false,
+      "strong": false,
+      "title": "vlog_is_on_",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1NotOkStatusWrapper/#variable-vlog-is-on-",
       "visibility": "private"
     },
     {
@@ -165,10 +195,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1038,
+        "bodyStart": 1050,
         "column": 14,
         "file": "batteries/status.hpp",
-        "line": 1038
+        "line": 1050
       },
       "name": "level_",
       "override": false,
@@ -195,10 +225,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1041,
+        "bodyStart": 1056,
         "column": 24,
         "file": "batteries/status.hpp",
-        "line": 1041
+        "line": 1056
       },
       "name": "output_",
       "override": false,
@@ -216,7 +246,7 @@
     {
       "abstract": false,
       "anchor": "#function-notokstatuswrapper",
-      "argsString": "(const char *file, int line, Status &&status, bool vlog_is_on) noexcept",
+      "argsString": "(usize this_size, const char *file, int line, Status &&status, bool vlog_is_on=false) noexcept",
       "category": "functions",
       "const": false,
       "default": false,
@@ -240,6 +270,11 @@
       "override": false,
       "params": [
         {
+          "name": "this_size",
+          "type": "usize",
+          "typePlain": "usize"
+        },
+        {
           "name": "file",
           "type": "const char *",
           "typePlain": "const char *"
@@ -255,13 +290,15 @@
           "typePlain": "Status &&"
         },
         {
+          "defval": "false",
+          "defvalPlain": "false",
           "name": "vlog_is_on",
           "type": "bool",
           "typePlain": "bool"
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1detail_1_1NotOkStatusWrapper_1a6a9810a71e5ccd65b556d47e23ec1639",
+      "refid": "classbatt_1_1detail_1_1NotOkStatusWrapper_1a2a10b1a312e927a0bb3243deedec0e78",
       "static": false,
       "strong": false,
       "title": "NotOkStatusWrapper",
@@ -272,7 +309,7 @@
     {
       "abstract": false,
       "anchor": "#function-notokstatuswrapper",
-      "argsString": "(const char *file, int line, const Status &status, bool vlog_is_on) noexcept",
+      "argsString": "(usize this_size, const char *file, int line, const Status &status, bool vlog_is_on=false) noexcept",
       "category": "functions",
       "const": false,
       "default": false,
@@ -285,7 +322,7 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 971,
+        "bodyEnd": 973,
         "bodyFile": "batteries/status.hpp",
         "bodyStart": 958,
         "column": 14,
@@ -295,6 +332,11 @@
       "name": "NotOkStatusWrapper",
       "override": false,
       "params": [
+        {
+          "name": "this_size",
+          "type": "usize",
+          "typePlain": "usize"
+        },
         {
           "name": "file",
           "type": "const char *",
@@ -311,13 +353,15 @@
           "typePlain": "const Status &"
         },
         {
+          "defval": "false",
+          "defvalPlain": "false",
           "name": "vlog_is_on",
           "type": "bool",
           "typePlain": "bool"
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1detail_1_1NotOkStatusWrapper_1a2a5a36af735d173f3c39e07f193fe71f",
+      "refid": "classbatt_1_1detail_1_1NotOkStatusWrapper_1a03d68967f744b182175cf4eb82b04492",
       "static": false,
       "strong": false,
       "title": "NotOkStatusWrapper",
@@ -341,12 +385,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1003,
+        "bodyEnd": 1005,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 973,
+        "bodyStart": 975,
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 973
+        "line": 975
       },
       "name": "~NotOkStatusWrapper",
       "override": false,
@@ -376,12 +420,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1008,
+        "bodyEnd": 1010,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1005,
+        "bodyStart": 1007,
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 1005
+        "line": 1007
       },
       "name": "operator Status",
       "override": false,
@@ -411,12 +455,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1014,
+        "bodyEnd": 1016,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1011,
+        "bodyStart": 1013,
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 1011
+        "line": 1013
       },
       "name": "operator StatusOr< T >",
       "override": false,
@@ -453,12 +497,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1020,
+        "bodyEnd": 1022,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1016,
+        "bodyStart": 1018,
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 1016
+        "line": 1018
       },
       "name": "operator<<",
       "override": false,
@@ -496,12 +540,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1027,
+        "bodyEnd": 1029,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1023,
+        "bodyStart": 1025,
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 1023
+        "line": 1025
       },
       "name": "operator<<",
       "override": false,

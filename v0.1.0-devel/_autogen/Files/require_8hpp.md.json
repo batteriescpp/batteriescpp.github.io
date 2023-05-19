@@ -41,7 +41,7 @@
       "explicit": false,
       "fullname": "BATT_REQUIRE_RELATION",
       "hasDetails": false,
-      "initializer": "    for (auto values = std::make_tuple((left), (right));                                                     \\\n         !BATT_HINT_TRUE(std::get<0>(values) op std::get<1>(values));)                                       \\\n    return ::batt::detail::NotOkStatusWrapper{__FILE__,                                                      \\\n                                              __LINE__,                                                      \\\n                                              {::batt::StatusCode::kFailedPrecondition},                     \\\n                                              BATT_VLOG_IS_ON(1)}                                            \\\n           << \"\\n\\n  Expected:\\n\\n    \"                                                                      \\\n           << BOOST_PP_STRINGIZE(left) << \" \"                                                                               \\\n                        << BOOST_PP_STRINGIZE(op) << \" \"                                                                    \\\n                                   << BOOST_PP_STRINGIZE(right)                                              \\\n                                          << \"\\n\\n  Actual:\\n\\n    \"                                         \\\n                                          << BOOST_PP_STRINGIZE(left)                                        \\\n                                                 << \" == \" << ::batt::make_printable(std::get<0>(values))    \\\n                                                 << \"\\n\\n    \"                                               \\\n                                                 << BOOST_PP_STRINGIZE(right) << \" == \"                      \\\n                                                                              << ::batt::make_printable(     \\\n                                                                                     std::get<1>(values))    \\\n                                                                              << \"\\n\\n\"",
+      "initializer": "    for (auto values = std::make_tuple((left), (right));                                                     \\\n         !BATT_HINT_TRUE(std::get<0>(values) op std::get<1>(values));)                                       \\\n    return ::batt::detail::NotOkStatusWrapper{sizeof(::batt::detail::NotOkStatusWrapper),                    \\\n                                              __FILE__,                                                      \\\n                                              __LINE__,                                                      \\\n                                              {::batt::StatusCode::kFailedPrecondition},                     \\\n                                              BATT_VLOG_IS_ON(1)}                                            \\\n           << \"\\n\\n  Expected:\\n\\n    \"                                                                      \\\n           << BOOST_PP_STRINGIZE(left) << \" \"                                                                               \\\n                        << BOOST_PP_STRINGIZE(op) << \" \"                                                                    \\\n                                   << BOOST_PP_STRINGIZE(right)                                              \\\n                                          << \"\\n\\n  Actual:\\n\\n    \"                                         \\\n                                          << BOOST_PP_STRINGIZE(left)                                        \\\n                                                 << \" == \" << ::batt::make_printable(std::get<0>(values))    \\\n                                                 << \"\\n\\n    \"                                               \\\n                                                 << BOOST_PP_STRINGIZE(right) << \" == \"                      \\\n                                                                              << ::batt::make_printable(     \\\n                                                                                     std::get<1>(values))    \\\n                                                                              << \"\\n\\n\"",
       "inline": false,
       "kind": "define",
       "language": "cpp",
@@ -93,10 +93,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/require.hpp",
-        "bodyStart": 39,
+        "bodyStart": 40,
         "column": 9,
         "file": "batteries/require.hpp",
-        "line": 39
+        "line": 40
       },
       "name": "BATT_REQUIRE_EQ",
       "override": false,
@@ -134,10 +134,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/require.hpp",
-        "bodyStart": 40,
+        "bodyStart": 41,
         "column": 9,
         "file": "batteries/require.hpp",
-        "line": 40
+        "line": 41
       },
       "name": "BATT_REQUIRE_NE",
       "override": false,
@@ -175,10 +175,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/require.hpp",
-        "bodyStart": 41,
+        "bodyStart": 42,
         "column": 9,
         "file": "batteries/require.hpp",
-        "line": 41
+        "line": 42
       },
       "name": "BATT_REQUIRE_LT",
       "override": false,
@@ -216,10 +216,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/require.hpp",
-        "bodyStart": 42,
+        "bodyStart": 43,
         "column": 9,
         "file": "batteries/require.hpp",
-        "line": 42
+        "line": 43
       },
       "name": "BATT_REQUIRE_GT",
       "override": false,
@@ -257,10 +257,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/require.hpp",
-        "bodyStart": 43,
+        "bodyStart": 44,
         "column": 9,
         "file": "batteries/require.hpp",
-        "line": 43
+        "line": 44
       },
       "name": "BATT_REQUIRE_LE",
       "override": false,
@@ -298,10 +298,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/require.hpp",
-        "bodyStart": 44,
+        "bodyStart": 45,
         "column": 9,
         "file": "batteries/require.hpp",
-        "line": 44
+        "line": 45
       },
       "name": "BATT_REQUIRE_GE",
       "override": false,
@@ -339,10 +339,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/require.hpp",
-        "bodyStart": 46,
+        "bodyStart": 47,
         "column": 9,
         "file": "batteries/require.hpp",
-        "line": 46
+        "line": 47
       },
       "name": "BATT_REQUIRE_TRUE",
       "override": false,
@@ -375,10 +375,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/require.hpp",
-        "bodyStart": 47,
+        "bodyStart": 48,
         "column": 9,
         "file": "batteries/require.hpp",
-        "line": 47
+        "line": 48
       },
       "name": "BATT_REQUIRE_FALSE",
       "override": false,
@@ -453,7 +453,7 @@
       "visibility": "public"
     }
   ],
-  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_REQUIRE_HPP\n#define BATTERIES_REQUIRE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/status.hpp>\n\n#include <boost/preprocessor/stringize.hpp>\n\n#include <tuple>\n\nnamespace batt {\n\n#define BATT_REQUIRE_RELATION(left, op, right)                                                               \\\n    for (auto values = std::make_tuple((left), (right));                                                     \\\n         !BATT_HINT_TRUE(std::get<0>(values) op std::get<1>(values));)                                       \\\n    return ::batt::detail::NotOkStatusWrapper{__FILE__,                                                      \\\n                                              __LINE__,                                                      \\\n                                              {::batt::StatusCode::kFailedPrecondition},                     \\\n                                              BATT_VLOG_IS_ON(1)}                                            \\\n           << \"\\n\\n  Expected:\\n\\n    \"                                                                      \\\n           << BOOST_PP_STRINGIZE(left) << \" \"                                                                               \\\n                        << BOOST_PP_STRINGIZE(op) << \" \"                                                                    \\\n                                   << BOOST_PP_STRINGIZE(right)                                              \\\n                                          << \"\\n\\n  Actual:\\n\\n    \"                                         \\\n                                          << BOOST_PP_STRINGIZE(left)                                        \\\n                                                 << \" == \" << ::batt::make_printable(std::get<0>(values))    \\\n                                                 << \"\\n\\n    \"                                               \\\n                                                 << BOOST_PP_STRINGIZE(right) << \" == \"                      \\\n                                                                              << ::batt::make_printable(     \\\n                                                                                     std::get<1>(values))    \\\n                                                                              << \"\\n\\n\"\n\n#define BATT_REQUIRE_EQ(left, right) BATT_REQUIRE_RELATION(left, ==, right)\n#define BATT_REQUIRE_NE(left, right) BATT_REQUIRE_RELATION(left, !=, right)\n#define BATT_REQUIRE_LT(left, right) BATT_REQUIRE_RELATION(left, <, right)\n#define BATT_REQUIRE_GT(left, right) BATT_REQUIRE_RELATION(left, >, right)\n#define BATT_REQUIRE_LE(left, right) BATT_REQUIRE_RELATION(left, <=, right)\n#define BATT_REQUIRE_GE(left, right) BATT_REQUIRE_RELATION(left, >=, right)\n\n#define BATT_REQUIRE_TRUE(expr) BATT_REQUIRE_RELATION(bool{(expr)}, ==, true)\n#define BATT_REQUIRE_FALSE(expr) BATT_REQUIRE_RELATION(bool{(expr)}, ==, false)\n\n}  // namespace batt\n\n#endif  // BATTERIES_REQUIRE_HPP",
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_REQUIRE_HPP\n#define BATTERIES_REQUIRE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/status.hpp>\n\n#include <boost/preprocessor/stringize.hpp>\n\n#include <tuple>\n\nnamespace batt {\n\n#define BATT_REQUIRE_RELATION(left, op, right)                                                               \\\n    for (auto values = std::make_tuple((left), (right));                                                     \\\n         !BATT_HINT_TRUE(std::get<0>(values) op std::get<1>(values));)                                       \\\n    return ::batt::detail::NotOkStatusWrapper{sizeof(::batt::detail::NotOkStatusWrapper),                    \\\n                                              __FILE__,                                                      \\\n                                              __LINE__,                                                      \\\n                                              {::batt::StatusCode::kFailedPrecondition},                     \\\n                                              BATT_VLOG_IS_ON(1)}                                            \\\n           << \"\\n\\n  Expected:\\n\\n    \"                                                                      \\\n           << BOOST_PP_STRINGIZE(left) << \" \"                                                                               \\\n                        << BOOST_PP_STRINGIZE(op) << \" \"                                                                    \\\n                                   << BOOST_PP_STRINGIZE(right)                                              \\\n                                          << \"\\n\\n  Actual:\\n\\n    \"                                         \\\n                                          << BOOST_PP_STRINGIZE(left)                                        \\\n                                                 << \" == \" << ::batt::make_printable(std::get<0>(values))    \\\n                                                 << \"\\n\\n    \"                                               \\\n                                                 << BOOST_PP_STRINGIZE(right) << \" == \"                      \\\n                                                                              << ::batt::make_printable(     \\\n                                                                                     std::get<1>(values))    \\\n                                                                              << \"\\n\\n\"\n\n#define BATT_REQUIRE_EQ(left, right) BATT_REQUIRE_RELATION(left, ==, right)\n#define BATT_REQUIRE_NE(left, right) BATT_REQUIRE_RELATION(left, !=, right)\n#define BATT_REQUIRE_LT(left, right) BATT_REQUIRE_RELATION(left, <, right)\n#define BATT_REQUIRE_GT(left, right) BATT_REQUIRE_RELATION(left, >, right)\n#define BATT_REQUIRE_LE(left, right) BATT_REQUIRE_RELATION(left, <=, right)\n#define BATT_REQUIRE_GE(left, right) BATT_REQUIRE_RELATION(left, >=, right)\n\n#define BATT_REQUIRE_TRUE(expr) BATT_REQUIRE_RELATION(bool{(expr)}, ==, true)\n#define BATT_REQUIRE_FALSE(expr) BATT_REQUIRE_RELATION(bool{(expr)}, ==, false)\n\n}  // namespace batt\n\n#endif  // BATTERIES_REQUIRE_HPP",
   "refid": "require_8hpp",
   "static": false,
   "strong": false,
