@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#public-functions" class="md-skip">
+        <a href="#detailed-description" class="md-skip">
           Skip to content
         </a>
       
@@ -505,64 +505,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#public-functions" class="md-nav__link">
-    Public Functions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#additional-inherited-members" class="md-nav__link">
-    Additional inherited members
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#detailed-description" class="md-nav__link">
     Detailed Description
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#public-functions-documentation" class="md-nav__link">
-    Public Functions Documentation
-  </a>
-  
-    <nav class="md-nav" aria-label="Public Functions Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#function-size" class="md-nav__link">
-    function size
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#function-fetch_at_least" class="md-nav__link">
-    function fetch_at_least
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#function-consume" class="md-nav__link">
-    function consume
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#function-close_for_read" class="md-nav__link">
-    function close_for_read
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -586,101 +531,13 @@
 
 <h1 id="battbuffersourcebuffersourceimpl">batt::BufferSource::BufferSourceImpl<a class="headerlink" href="#battbuffersourcebuffersourceimpl" title="Permanent link">&#128279;</a></h1>
 <p><a href="#detailed-description">More...</a></p>
-<p>Inherits from <a href="/_autogen/Classes/classbatt_1_1AbstractValueImpl/">batt::AbstractValueImpl&lt; BufferSource::AbstractBufferSource, BufferSource::BufferSourceImpl, T &gt;</a>, AbstractType</p>
-<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&#128279;</a></h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>usize</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1BufferSource_1_1BufferSourceImpl/#function-size">size</a></strong>() const override</td>
-</tr>
-<tr>
-<td><a href="/_autogen/Classes/classbatt_1_1StatusOr/">StatusOr</a>&lt; SmallVec&lt; ConstBuffer, 2 &gt; &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1BufferSource_1_1BufferSourceImpl/#function-fetch-at-least">fetch_at_least</a></strong>(i64 min_count) override</td>
-</tr>
-<tr>
-<td>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1BufferSource_1_1BufferSourceImpl/#function-consume">consume</a></strong>(i64 count) override</td>
-</tr>
-<tr>
-<td>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1BufferSource_1_1BufferSourceImpl/#function-close-for-read">close_for_read</a></strong>() override</td>
-</tr>
-</tbody>
-</table>
-<h2 id="additional-inherited-members">Additional inherited members<a class="headerlink" href="#additional-inherited-members" title="Permanent link">&#128279;</a></h2>
-<p><strong>Public Functions inherited from <a href="/_autogen/Classes/classbatt_1_1AbstractValueImpl/">batt::AbstractValueImpl&lt; BufferSource::AbstractBufferSource, BufferSource::BufferSourceImpl, T &gt;</a></strong></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractValueImpl/#function-abstractvalueimpl">AbstractValueImpl</a></strong>(T &amp;&amp; obj)</td>
-</tr>
-<tr>
-<td>AbstractType *</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractValueImpl/#function-copy-to">copy_to</a></strong>(MutableBuffer memory) override</td>
-</tr>
-<tr>
-<td>AbstractType *</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractValueImpl/#function-move-to">move_to</a></strong>(MutableBuffer memory) override</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Protected Attributes inherited from <a href="/_autogen/Classes/classbatt_1_1AbstractValueImpl/">batt::AbstractValueImpl&lt; BufferSource::AbstractBufferSource, BufferSource::BufferSourceImpl, T &gt;</a></strong></p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>T</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1AbstractValueImpl/#variable-obj-">obj_</a></strong></td>
-</tr>
-</tbody>
-</table>
 <h2 id="detailed-description">Detailed Description<a class="headerlink" href="#detailed-description" title="Permanent link">&#128279;</a></h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">batt</span><span class="o">::</span><span class="n">BufferSource</span><span class="o">::</span><span class="n">BufferSourceImpl</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&#128279;</a></h2>
-<h3 id="function-size">function size<a class="headerlink" href="#function-size" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="function-fetch_at_least">function fetch_at_least<a class="headerlink" href="#function-fetch_at_least" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
-<span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">SmallVec</span><span class="o">&lt;</span><span class="w"> </span><span class="n">ConstBuffer</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">fetch_at_least</span><span class="p">(</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">i64</span><span class="w"> </span><span class="n">min_count</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">)</span><span class="w"> </span><span class="k">override</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="function-consume">function consume<a class="headerlink" href="#function-consume" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">consume</span><span class="p">(</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">i64</span><span class="w"> </span><span class="n">count</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">)</span><span class="w"> </span><span class="k">override</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="function-close_for_read">function close_for_read<a class="headerlink" href="#function-close_for_read" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">close_for_read</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
-</code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 19 May 2023 at 17:25:41 UTC</p>
+<p>Updated on 22 May 2023 at 14:54:05 UTC</p>
 
 
 

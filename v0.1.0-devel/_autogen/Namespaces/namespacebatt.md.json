@@ -159,10 +159,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/debug_info_decl.hpp",
-        "bodyStart": 19,
+        "bodyStart": 20,
         "column": 17,
         "file": "batteries/async/debug_info_decl.hpp",
-        "line": 19
+        "line": 20
       },
       "name": "kMaxDebugInfoThreads",
       "override": false,
@@ -970,6 +970,62 @@
     },
     {
       "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::Mutex< std::unordered_map< batt::HostAddress, SharedPtr< batt::HttpClientHostContext >, boost::hash< batt::HostAddress > > >",
+          "refid": "classbatt_1_1Mutex",
+          "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::Mutex< std::deque< T > >",
+          "refid": "classbatt_1_1Mutex",
+          "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::Mutex< batt::NoneType >",
+          "refid": "classbatt_1_1Mutex",
+          "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::Mutex< T >",
+          "refid": "classbatt_1_1Mutex",
+          "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::MutexBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::MutexBase",
+      "refid": "classbatt_1_1MutexBase",
+      "title": "batt::MutexBase",
+      "url": "/_autogen/Classes/classbatt_1_1MutexBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::MutexBase",
+          "refid": "classbatt_1_1MutexBase",
+          "url": "/_autogen/Classes/classbatt_1_1MutexBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "brief": "Provides mutually-exclusive access to an instance of type `T`. ",
       "category": "classes",
       "fullname": "batt::Mutex",
@@ -3300,7 +3356,7 @@
       "derivedClasses": [
         {
           "external": false,
-          "name": "batt::TypeErasedStorage< batt::BufferSource::AbstractBufferSource, BufferSourceImpl >",
+          "name": "batt::TypeErasedStorage< AbstractBufferSource, BufferSourceImpl >",
           "refid": "classbatt_1_1TypeErasedStorage",
           "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
           "virtual": "non-virtual",
@@ -4286,12 +4342,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 24,
+        "bodyEnd": 26,
         "bodyFile": "batteries/algo/running_total.hpp",
-        "bodyStart": 24,
+        "bodyStart": 26,
         "column": 36,
         "file": "batteries/algo/running_total.hpp",
-        "line": 24
+        "line": 26
       },
       "name": "strong_typedef_default_value",
       "override": false,
@@ -4329,12 +4385,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 25,
+        "bodyEnd": 27,
         "bodyFile": "batteries/algo/running_total.hpp",
-        "bodyStart": 25,
+        "bodyStart": 27,
         "column": 36,
         "file": "batteries/algo/running_total.hpp",
-        "line": 25
+        "line": 27
       },
       "name": "strong_typedef_default_value",
       "override": false,
@@ -4358,153 +4414,32 @@
     },
     {
       "abstract": false,
-      "anchor": "#function-make-printable",
-      "argsString": "(T &&obj)",
-      "category": "functions",
-      "const": false,
-      "default": false,
-      "definition": "decltype(auto) batt::make_printable",
-      "deleted": false,
-      "explicit": false,
-      "fullname": "batt::make_printable",
-      "hasDetails": true,
-      "inline": false,
-      "kind": "function",
-      "language": "cpp",
-      "location": {
-        "bodyEnd": 53,
-        "bodyFile": "batteries/assert.hpp",
-        "bodyStart": 50,
-        "column": 10,
-        "file": "batteries/assert.hpp",
-        "line": 50
-      },
-      "name": "make_printable",
-      "override": false,
-      "params": [
-        {
-          "name": "obj",
-          "type": "T &&",
-          "typePlain": "T &&"
-        }
-      ],
-      "pureVirtual": false,
-      "refid": "assert_8hpp_1abe29d76fa7b971c92771d8a050fa02f8",
-      "static": false,
-      "strong": false,
-      "templateParams": [
-        {
-          "name": "",
-          "type": "typename T",
-          "typePlain": "typename T"
-        },
-        {
-          "defval": "std::enable_if_t<IsPrintable<T>{}>",
-          "defvalPlain": "std::enable_if_t<IsPrintable<T>{}>",
-          "name": "",
-          "type": "typename",
-          "typePlain": "typename"
-        }
-      ],
-      "title": "make_printable",
-      "type": "decltype(auto)",
-      "typePlain": "decltype(auto)",
-      "url": "/_autogen/Namespaces/namespacebatt/#function-make-printable",
-      "virtual": false,
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#function-make-printable",
-      "argsString": "(T &&obj)",
-      "category": "functions",
-      "const": false,
-      "default": false,
-      "definition": "std::string batt::make_printable",
-      "deleted": false,
-      "explicit": false,
-      "fullname": "batt::make_printable",
-      "hasDetails": true,
-      "inline": false,
-      "kind": "function",
-      "language": "cpp",
-      "location": {
-        "bodyEnd": 65,
-        "bodyFile": "batteries/assert.hpp",
-        "bodyStart": 56,
-        "column": 13,
-        "file": "batteries/assert.hpp",
-        "line": 56
-      },
-      "name": "make_printable",
-      "override": false,
-      "params": [
-        {
-          "name": "obj",
-          "type": "T &&",
-          "typePlain": "T &&"
-        }
-      ],
-      "pureVirtual": false,
-      "refid": "assert_8hpp_1a33fbd75ffaa38d6be24f8fb9a48b31cf",
-      "static": false,
-      "strong": false,
-      "templateParams": [
-        {
-          "name": "",
-          "type": "typename T",
-          "typePlain": "typename T"
-        },
-        {
-          "defval": "std::enable_if_t<!IsPrintable<T>{}>",
-          "defvalPlain": "std::enable_if_t<!IsPrintable<T>{}>",
-          "name": "",
-          "type": "typename",
-          "typePlain": "typename"
-        },
-        {
-          "defval": "void",
-          "defvalPlain": "void",
-          "name": "",
-          "type": "typename",
-          "typePlain": "typename"
-        }
-      ],
-      "title": "make_printable",
-      "type": "std::string",
-      "typePlain": "std::string",
-      "url": "/_autogen/Namespaces/namespacebatt/#function-make-printable",
-      "virtual": false,
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
       "anchor": "#function-fail-check-exit",
       "argsString": "()",
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "void batt::fail_check_exit",
+      "definition": "BATT_NORETURN BATT_INLINE_IMPL void batt::fail_check_exit",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::fail_check_exit",
       "hasDetails": false,
-      "inline": true,
+      "inline": false,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 102,
-        "bodyFile": "batteries/assert.hpp",
-        "bodyStart": 97,
-        "column": 16,
-        "file": "batteries/assert.hpp",
-        "line": 97
+        "bodyEnd": 16,
+        "bodyFile": "batteries/assert_impl.hpp",
+        "bodyStart": 11,
+        "column": 37,
+        "file": "batteries/assert_impl.hpp",
+        "line": 11
       },
       "name": "fail_check_exit",
       "override": false,
       "params": [],
       "pureVirtual": false,
-      "refid": "assert_8hpp_1a8c5b72d375db196bd67647f0577f23d9",
+      "refid": "assert_8hpp_1aea90a78b5f31ebb2e4eb2f00c23ee390",
       "static": false,
       "strong": false,
       "title": "fail_check_exit",
@@ -4530,12 +4465,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 108,
+        "bodyEnd": 72,
         "bodyFile": "batteries/assert.hpp",
-        "bodyStart": 105,
+        "bodyStart": 69,
         "column": 13,
         "file": "batteries/assert.hpp",
-        "line": 105
+        "line": 69
       },
       "name": "ignore",
       "override": false,
@@ -4571,27 +4506,27 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "bool batt::lock_fail_check_mutex",
+      "definition": "BATT_INLINE_IMPL bool batt::lock_fail_check_mutex",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::lock_fail_check_mutex",
       "hasDetails": false,
-      "inline": true,
+      "inline": false,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 120,
-        "bodyFile": "batteries/assert.hpp",
-        "bodyStart": 110,
-        "column": 13,
-        "file": "batteries/assert.hpp",
-        "line": 110
+        "bodyEnd": 30,
+        "bodyFile": "batteries/assert_impl.hpp",
+        "bodyStart": 20,
+        "column": 23,
+        "file": "batteries/assert_impl.hpp",
+        "line": 20
       },
       "name": "lock_fail_check_mutex",
       "override": false,
       "params": [],
       "pureVirtual": false,
-      "refid": "assert_8hpp_1a52d01a94773df1e3a04fc5a97680cf1a",
+      "refid": "assert_8hpp_1ae329d3075c2a4a122edd304bc17c8bf0",
       "static": false,
       "strong": false,
       "title": "lock_fail_check_mutex",
@@ -4617,12 +4552,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 166,
+        "bodyEnd": 139,
         "bodyFile": "batteries/async/backoff.hpp",
-        "bodyStart": 144,
+        "bodyStart": 117,
         "column": 15,
         "file": "batteries/async/backoff.hpp",
-        "line": 144
+        "line": 117
       },
       "name": "with_retry_policy",
       "override": false,
@@ -4708,21 +4643,21 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "void batt::update_retry_state",
+      "definition": "BATT_INLINE_IMPL void batt::update_retry_state",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::update_retry_state",
       "hasDetails": false,
-      "inline": true,
+      "inline": false,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 117,
-        "bodyFile": "batteries/async/backoff.hpp",
-        "bodyStart": 101,
-        "column": 13,
-        "file": "batteries/async/backoff.hpp",
-        "line": 101
+        "bodyEnd": 40,
+        "bodyFile": "batteries/async/backoff_impl.hpp",
+        "bodyStart": 24,
+        "column": 23,
+        "file": "batteries/async/backoff_impl.hpp",
+        "line": 24
       },
       "name": "update_retry_state",
       "override": false,
@@ -4739,7 +4674,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "backoff_8hpp_1ad300ff7e78cdf5c383c93f979ce41b74",
+      "refid": "backoff_8hpp_1a450d9bc4a5d1dd6abe1703770c9b53b4",
       "static": false,
       "strong": false,
       "title": "update_retry_state",
@@ -5843,16 +5778,13 @@
       "explicit": false,
       "fullname": "batt::operator==",
       "hasDetails": true,
-      "inline": true,
+      "inline": false,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 68,
-        "bodyFile": "batteries/async/fake_executor_impl.hpp",
-        "bodyStart": 64,
-        "column": 25,
-        "file": "batteries/async/fake_executor_impl.hpp",
-        "line": 64
+        "column": 16,
+        "file": "batteries/async/fake_executor_decl.hpp",
+        "line": 27
       },
       "name": "operator==",
       "override": false,
@@ -5898,16 +5830,13 @@
       "explicit": false,
       "fullname": "batt::operator!=",
       "hasDetails": true,
-      "inline": true,
+      "inline": false,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 77,
-        "bodyFile": "batteries/async/fake_executor_impl.hpp",
-        "bodyStart": 73,
-        "column": 25,
-        "file": "batteries/async/fake_executor_impl.hpp",
-        "line": 73
+        "column": 16,
+        "file": "batteries/async/fake_executor_decl.hpp",
+        "line": 31
       },
       "name": "operator!=",
       "override": false,
@@ -6005,12 +5934,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 154,
+        "bodyEnd": 147,
         "bodyFile": "batteries/async/fake_time_service_decl.hpp",
-        "bodyStart": 154,
+        "bodyStart": 147,
         "column": 16,
         "file": "batteries/async/fake_time_service_decl.hpp",
-        "line": 154
+        "line": 147
       },
       "name": "operator>",
       "override": false,
@@ -6053,12 +5982,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 154,
+        "bodyEnd": 147,
         "bodyFile": "batteries/async/fake_time_service_decl.hpp",
-        "bodyStart": 154,
+        "bodyStart": 147,
         "column": 68,
         "file": "batteries/async/fake_time_service_decl.hpp",
-        "line": 154
+        "line": 147
       },
       "name": "operator<=",
       "override": false,
@@ -6101,12 +6030,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 154,
+        "bodyEnd": 147,
         "bodyFile": "batteries/async/fake_time_service_decl.hpp",
-        "bodyStart": 154,
+        "bodyStart": 147,
         "column": 135,
         "file": "batteries/async/fake_time_service_decl.hpp",
-        "line": 154
+        "line": 147
       },
       "name": "operator>=",
       "override": false,
@@ -6151,12 +6080,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 245,
+        "bodyEnd": 247,
         "bodyFile": "batteries/async/fetch.hpp",
-        "bodyStart": 205,
+        "bodyStart": 207,
         "column": 16,
         "file": "batteries/async/fetch.hpp",
-        "line": 205
+        "line": 207
       },
       "name": "fetch_chunk",
       "override": false,
@@ -6221,12 +6150,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 275,
+        "bodyEnd": 277,
         "bodyFile": "batteries/async/fetch.hpp",
-        "bodyStart": 250,
+        "bodyStart": 252,
         "column": 17,
         "file": "batteries/async/fetch.hpp",
-        "line": 250
+        "line": 252
       },
       "name": "transfer_chunked_data",
       "override": false,
@@ -6288,12 +6217,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 292,
+        "bodyEnd": 294,
         "bodyFile": "batteries/async/fetch.hpp",
-        "bodyStart": 288,
+        "bodyStart": 290,
         "column": 17,
         "file": "batteries/async/fetch.hpp",
-        "line": 288
+        "line": 290
       },
       "name": "transfer_chunked_data",
       "override": false,
@@ -7836,12 +7765,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 51,
+        "bodyEnd": 42,
         "bodyFile": "batteries/async/slice_work_impl.hpp",
-        "bodyStart": 47,
+        "bodyStart": 38,
         "column": 10,
         "file": "batteries/async/slice_work_impl.hpp",
-        "line": 47
+        "line": 38
       },
       "name": "operator<<",
       "override": false,
@@ -14745,6 +14674,133 @@
     },
     {
       "abstract": false,
+      "anchor": "#function-make-printable",
+      "argsString": "(T &&obj)",
+      "brief": "Returns a std::ostream-printable representation of the argument, `obj`. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "decltype(auto) batt::make_printable",
+      "deleted": false,
+      "details": "This overload is selected for types that support an overloaded `operator<<` for std::ostream. It simply forwards the argument as the return value. ",
+      "explicit": false,
+      "fullname": "batt::make_printable",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 28,
+        "bodyFile": "batteries/make_printable.hpp",
+        "bodyStart": 25,
+        "column": 10,
+        "file": "batteries/make_printable.hpp",
+        "line": 25
+      },
+      "name": "make_printable",
+      "override": false,
+      "params": [
+        {
+          "name": "obj",
+          "type": "T &&",
+          "typePlain": "T &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "make__printable_8hpp_1abe29d76fa7b971c92771d8a050fa02f8",
+      "static": false,
+      "strong": false,
+      "summary": "Returns a std::ostream-printable representation of the argument, obj. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "defval": "std::enable_if_t<IsPrintable<T>{}>",
+          "defvalPlain": "std::enable_if_t<IsPrintable<T>{}>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "make_printable",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-make-printable",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-make-printable",
+      "argsString": "(T &&obj)",
+      "brief": "Returns a std::ostream-printable representation of the argument, `obj`. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::string batt::make_printable",
+      "deleted": false,
+      "details": "This overload is selected for all types that do _not_ support an overloaded `operator<<` for std::ostream. It prints the name of the type (demangled), and a hex representation of the bytes of the object itself. ",
+      "explicit": false,
+      "fullname": "batt::make_printable",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 45,
+        "bodyFile": "batteries/make_printable.hpp",
+        "bodyStart": 36,
+        "column": 13,
+        "file": "batteries/make_printable.hpp",
+        "line": 36
+      },
+      "name": "make_printable",
+      "override": false,
+      "params": [
+        {
+          "name": "obj",
+          "type": "T &&",
+          "typePlain": "T &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "make__printable_8hpp_1a33fbd75ffaa38d6be24f8fb9a48b31cf",
+      "static": false,
+      "strong": false,
+      "summary": "Returns a std::ostream-printable representation of the argument, obj. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "defval": "std::enable_if_t<!IsPrintable<T>{}>",
+          "defvalPlain": "std::enable_if_t<!IsPrintable<T>{}>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        },
+        {
+          "defval": "void",
+          "defvalPlain": "void",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "make_printable",
+      "type": "std::string",
+      "typePlain": "std::string",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-make-printable",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#function-log2-ceil",
       "argsString": "(u64 i)",
       "category": "functions",
@@ -19016,12 +19072,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 23,
+        "bodyEnd": 172,
         "bodyFile": "batteries/status_impl.hpp",
-        "bodyStart": 20,
+        "bodyStart": 169,
         "column": 10,
         "file": "batteries/status_impl.hpp",
-        "line": 20
+        "line": 169
       },
       "name": "operator<<",
       "override": false,
@@ -19064,12 +19120,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 30,
+        "bodyEnd": 179,
         "bodyFile": "batteries/status_impl.hpp",
-        "bodyStart": 27,
+        "bodyStart": 176,
         "column": 15,
         "file": "batteries/status_impl.hpp",
-        "line": 27
+        "line": 176
       },
       "name": "operator==",
       "override": false,
@@ -19112,12 +19168,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 37,
+        "bodyEnd": 186,
         "bodyFile": "batteries/status_impl.hpp",
-        "bodyStart": 34,
+        "bodyStart": 183,
         "column": 15,
         "file": "batteries/status_impl.hpp",
-        "line": 34
+        "line": 183
       },
       "name": "operator!=",
       "override": false,
@@ -19160,12 +19216,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 44,
+        "bodyEnd": 193,
         "bodyFile": "batteries/status_impl.hpp",
-        "bodyStart": 41,
+        "bodyStart": 190,
         "column": 17,
         "file": "batteries/status_impl.hpp",
-        "line": 41
+        "line": 190
       },
       "name": "OkStatus",
       "override": false,
@@ -19197,12 +19253,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 832,
+        "bodyEnd": 749,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 829,
+        "bodyStart": 746,
         "column": 13,
         "file": "batteries/status.hpp",
-        "line": 829
+        "line": 746
       },
       "name": "operator==",
       "override": false,
@@ -19264,12 +19320,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 841,
+        "bodyEnd": 758,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 838,
+        "bodyStart": 755,
         "column": 13,
         "file": "batteries/status.hpp",
-        "line": 838
+        "line": 755
       },
       "name": "operator==",
       "override": false,
@@ -19338,12 +19394,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 847,
+        "bodyEnd": 764,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 844,
+        "bodyStart": 761,
         "column": 13,
         "file": "batteries/status.hpp",
-        "line": 844
+        "line": 761
       },
       "name": "operator!=",
       "override": false,
@@ -19398,12 +19454,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 883,
-        "bodyFile": "batteries/status.hpp",
-        "bodyStart": 880,
-        "column": 13,
-        "file": "batteries/status.hpp",
-        "line": 880
+        "bodyEnd": 245,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 242,
+        "column": 15,
+        "file": "batteries/status_impl.hpp",
+        "line": 242
       },
       "name": "is_ok_status",
       "override": false,
@@ -19441,12 +19497,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 889,
+        "bodyEnd": 803,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 886,
+        "bodyStart": 800,
         "column": 6,
         "file": "batteries/status.hpp",
-        "line": 886
+        "line": 800
       },
       "name": "is_ok_status",
       "override": false,
@@ -19482,7 +19538,7 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "std::ostream& batt::operator<<",
+      "definition": "std::ostream & batt::operator<<",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::operator<<",
@@ -19491,12 +19547,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 918,
-        "bodyFile": "batteries/status.hpp",
-        "bodyStart": 893,
-        "column": 8,
-        "file": "batteries/status.hpp",
-        "line": 893
+        "bodyEnd": 274,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 249,
+        "column": 10,
+        "file": "batteries/status_impl.hpp",
+        "line": 249
       },
       "name": "operator<<",
       "override": false,
@@ -19513,7 +19569,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "status_8hpp_1ab8bcf6ef45e43c06d7b99aa4964fb962",
+      "refid": "status_8hpp_1a7c270b8204ddc50323376703a58264d9",
       "static": false,
       "strong": false,
       "title": "operator<<",
@@ -19530,7 +19586,7 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "std::atomic<LogLevel>& batt::require_fail_global_default_log_level",
+      "definition": "std::atomic< LogLevel > & batt::require_fail_global_default_log_level",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::require_fail_global_default_log_level",
@@ -19539,18 +19595,18 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 924,
-        "bodyFile": "batteries/status.hpp",
-        "bodyStart": 920,
-        "column": 20,
-        "file": "batteries/status.hpp",
-        "line": 920
+        "bodyEnd": 282,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 278,
+        "column": 22,
+        "file": "batteries/status_impl.hpp",
+        "line": 278
       },
       "name": "require_fail_global_default_log_level",
       "override": false,
       "params": [],
       "pureVirtual": false,
-      "refid": "status_8hpp_1a5037f0c8af91229d721781023484c842",
+      "refid": "status_8hpp_1afb340adde9a14d99f398076722fcb036",
       "static": false,
       "strong": false,
       "title": "require_fail_global_default_log_level",
@@ -19567,7 +19623,7 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "Optional<LogLevel>& batt::require_fail_thread_default_log_level",
+      "definition": "Optional< LogLevel > & batt::require_fail_thread_default_log_level",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::require_fail_thread_default_log_level",
@@ -19576,18 +19632,18 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 930,
-        "bodyFile": "batteries/status.hpp",
-        "bodyStart": 926,
-        "column": 17,
-        "file": "batteries/status.hpp",
-        "line": 926
+        "bodyEnd": 290,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 286,
+        "column": 19,
+        "file": "batteries/status_impl.hpp",
+        "line": 286
       },
       "name": "require_fail_thread_default_log_level",
       "override": false,
       "params": [],
       "pureVirtual": false,
-      "refid": "status_8hpp_1a2c1c0e10b6dd8bc708866fb1027fbbf3",
+      "refid": "status_8hpp_1a33702ca46c77e49b1aed1dcb51b2a5b4",
       "static": false,
       "strong": false,
       "title": "require_fail_thread_default_log_level",
@@ -19613,12 +19669,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1414,
+        "bodyEnd": 1059,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1411,
+        "bodyStart": 1056,
         "column": 15,
         "file": "batteries/status.hpp",
-        "line": 1411
+        "line": 1056
       },
       "name": "status_from_errno",
       "override": false,
@@ -19656,12 +19712,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1070,
+        "bodyEnd": 897,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1067,
+        "bodyStart": 894,
         "column": 17,
         "file": "batteries/status.hpp",
-        "line": 1067
+        "line": 894
       },
       "name": "to_status",
       "override": false,
@@ -19713,12 +19769,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1079,
+        "bodyEnd": 906,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1076,
+        "bodyStart": 903,
         "column": 17,
         "file": "batteries/status.hpp",
-        "line": 1076
+        "line": 903
       },
       "name": "to_status",
       "override": false,
@@ -19778,12 +19834,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1159,
+        "bodyEnd": 969,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1131,
+        "bodyStart": 941,
         "column": 7,
         "file": "batteries/status.hpp",
-        "line": 1131
+        "line": 941
       },
       "name": "register_error_category",
       "override": false,
@@ -19856,12 +19912,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1200,
-        "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1168,
-        "column": 15,
-        "file": "batteries/status.hpp",
-        "line": 1168
+        "bodyEnd": 439,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 407,
+        "column": 17,
+        "file": "batteries/status_impl.hpp",
+        "line": 407
       },
       "name": "status_from_error_category",
       "override": false,
@@ -19910,12 +19966,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1212,
-        "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1209,
-        "column": 15,
-        "file": "batteries/status.hpp",
-        "line": 1209
+        "bodyEnd": 446,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 443,
+        "column": 17,
+        "file": "batteries/status_impl.hpp",
+        "line": 443
       },
       "name": "status_from_error_code",
       "override": false,
@@ -19957,12 +20013,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1223,
+        "bodyEnd": 998,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1216,
+        "bodyStart": 991,
         "column": 15,
         "file": "batteries/status.hpp",
-        "line": 1216
+        "line": 991
       },
       "name": "to_status",
       "override": false,
@@ -20028,6 +20084,49 @@
     },
     {
       "abstract": false,
+      "anchor": "#function-error-code-to-status",
+      "argsString": "(const boost::system::error_code &ec)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Status batt::error_code_to_status",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::error_code_to_status",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 585,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 450,
+        "column": 17,
+        "file": "batteries/status_impl.hpp",
+        "line": 450
+      },
+      "name": "error_code_to_status",
+      "override": false,
+      "params": [
+        {
+          "name": "ec",
+          "type": "const boost::system::error_code &",
+          "typePlain": "const boost::system::error_code &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "status_8hpp_1a18273eae015f03d83bc1e77aaec53330",
+      "static": false,
+      "strong": false,
+      "title": "error_code_to_status",
+      "type": "[Status](/_autogen/Classes/classbatt_1_1Status/)",
+      "typePlain": "Status",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-error-code-to-status",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#function-to-status",
       "argsString": "(const T &ec)",
       "category": "functions",
@@ -20042,12 +20141,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1362,
+        "bodyEnd": 1007,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1227,
+        "bodyStart": 1004,
         "column": 15,
         "file": "batteries/status.hpp",
-        "line": 1227
+        "line": 1004
       },
       "name": "to_status",
       "override": false,
@@ -20113,12 +20212,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1373,
+        "bodyEnd": 1018,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1370,
+        "bodyStart": 1015,
         "column": 15,
         "file": "batteries/status.hpp",
-        "line": 1370
+        "line": 1015
       },
       "name": "to_status",
       "override": false,
@@ -20191,12 +20290,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1423,
+        "bodyEnd": 1068,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1417,
+        "bodyStart": 1062,
         "column": 15,
         "file": "batteries/status.hpp",
-        "line": 1417
+        "line": 1062
       },
       "name": "status_from_retval",
       "override": false,
@@ -20241,12 +20340,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1431,
+        "bodyEnd": 1076,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1426,
+        "bodyStart": 1071,
         "column": 10,
         "file": "batteries/status.hpp",
-        "line": 1426
+        "line": 1071
       },
       "name": "ok_result_or_panic",
       "override": false,
@@ -20291,12 +20390,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1441,
+        "bodyEnd": 1086,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1435,
+        "bodyStart": 1080,
         "column": 1,
         "file": "batteries/status.hpp",
-        "line": 1435
+        "line": 1080
       },
       "name": "operator<<",
       "override": false,
@@ -20353,12 +20452,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1449,
-        "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1443,
-        "column": 13,
-        "file": "batteries/status.hpp",
-        "line": 1443
+        "bodyEnd": 595,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 589,
+        "column": 15,
+        "file": "batteries/status_impl.hpp",
+        "line": 589
       },
       "name": "status_is_retryable",
       "override": false,
@@ -23210,12 +23309,12 @@
       "kind": "enum",
       "language": "cpp",
       "location": {
-        "bodyEnd": 247,
+        "bodyEnd": 249,
         "bodyFile": "batteries/async/fetch.hpp",
-        "bodyStart": 247,
+        "bodyStart": 249,
         "column": 1,
         "file": "batteries/async/fetch.hpp",
-        "line": 247
+        "line": 249
       },
       "name": "TransferStep",
       "override": false,
@@ -24000,12 +24099,12 @@
       "kind": "enum",
       "language": "cpp",
       "location": {
-        "bodyEnd": 891,
+        "bodyEnd": 812,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 891,
+        "bodyStart": 805,
         "column": 1,
         "file": "batteries/status.hpp",
-        "line": 891
+        "line": 805
       },
       "name": "LogLevel",
       "override": false,
@@ -24103,10 +24202,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/algo/running_total.hpp",
-        "bodyStart": 24,
+        "bodyStart": 26,
         "column": 97,
         "file": "batteries/algo/running_total.hpp",
-        "line": 24
+        "line": 26
       },
       "name": "PartsCount",
       "override": false,
@@ -24133,10 +24232,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/algo/running_total.hpp",
-        "bodyStart": 25,
+        "bodyStart": 27,
         "column": 97,
         "file": "batteries/algo/running_total.hpp",
-        "line": 25
+        "line": 27
       },
       "name": "PartSize",
       "override": false,
@@ -24371,10 +24470,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/fake_executor_decl.hpp",
-        "bodyStart": 34,
+        "bodyStart": 22,
         "column": 1,
         "file": "batteries/async/fake_executor_decl.hpp",
-        "line": 34
+        "line": 22
       },
       "name": "FakeExecutor",
       "override": false,
@@ -25593,10 +25692,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 864,
+        "bodyStart": 781,
         "column": 1,
         "file": "batteries/status.hpp",
-        "line": 864
+        "line": 781
       },
       "name": "IsStatusOr",
       "override": false,
@@ -25630,10 +25729,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 876,
+        "bodyStart": 793,
         "column": 1,
         "file": "batteries/status.hpp",
-        "line": 876
+        "line": 793
       },
       "name": "RemoveStatusOr",
       "override": false,

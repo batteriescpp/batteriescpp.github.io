@@ -12,12 +12,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 1057,
+    "bodyEnd": 884,
     "bodyFile": "batteries/status.hpp",
-    "bodyStart": 941,
+    "bodyStart": 823,
     "column": 1,
     "file": "batteries/status.hpp",
-    "line": 940
+    "line": 822
   },
   "name": "batt::detail::NotOkStatusWrapper",
   "override": false,
@@ -74,10 +74,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1034,
+        "bodyStart": 861,
         "column": 16,
         "file": "batteries/status.hpp",
-        "line": 1034
+        "line": 861
       },
       "name": "file_",
       "override": false,
@@ -104,10 +104,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1038,
+        "bodyStart": 865,
         "column": 9,
         "file": "batteries/status.hpp",
-        "line": 1038
+        "line": 865
       },
       "name": "line_",
       "override": false,
@@ -134,10 +134,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1042,
+        "bodyStart": 869,
         "column": 12,
         "file": "batteries/status.hpp",
-        "line": 1042
+        "line": 869
       },
       "name": "status_",
       "override": false,
@@ -164,10 +164,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1046,
+        "bodyStart": 873,
         "column": 10,
         "file": "batteries/status.hpp",
-        "line": 1046
+        "line": 873
       },
       "name": "vlog_is_on_",
       "override": false,
@@ -195,10 +195,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1050,
+        "bodyStart": 877,
         "column": 14,
         "file": "batteries/status.hpp",
-        "line": 1050
+        "line": 877
       },
       "name": "level_",
       "override": false,
@@ -225,10 +225,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1056,
+        "bodyStart": 883,
         "column": 24,
         "file": "batteries/status.hpp",
-        "line": 1056
+        "line": 883
       },
       "name": "output_",
       "override": false,
@@ -246,7 +246,7 @@
     {
       "abstract": false,
       "anchor": "#function-notokstatuswrapper",
-      "argsString": "(usize this_size, const char *file, int line, Status &&status, bool vlog_is_on=false) noexcept",
+      "argsString": "(usize this_size, const char *file, int line, Status &&status, bool vlog_is_on) noexcept",
       "category": "functions",
       "const": false,
       "default": false,
@@ -259,12 +259,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 956,
-        "bodyFile": "batteries/status.hpp",
-        "bodyStart": 943,
+        "bodyEnd": 306,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 296,
         "column": 14,
         "file": "batteries/status.hpp",
-        "line": 943
+        "line": 825
       },
       "name": "NotOkStatusWrapper",
       "override": false,
@@ -290,15 +290,13 @@
           "typePlain": "Status &&"
         },
         {
-          "defval": "false",
-          "defvalPlain": "false",
           "name": "vlog_is_on",
           "type": "bool",
           "typePlain": "bool"
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1detail_1_1NotOkStatusWrapper_1a2a10b1a312e927a0bb3243deedec0e78",
+      "refid": "classbatt_1_1detail_1_1NotOkStatusWrapper_1ae6c15d578722a9c398ebe9c24d9462c5",
       "static": false,
       "strong": false,
       "title": "NotOkStatusWrapper",
@@ -309,7 +307,7 @@
     {
       "abstract": false,
       "anchor": "#function-notokstatuswrapper",
-      "argsString": "(usize this_size, const char *file, int line, const Status &status, bool vlog_is_on=false) noexcept",
+      "argsString": "(usize this_size, const char *file, int line, const Status &status, bool vlog_is_on) noexcept",
       "category": "functions",
       "const": false,
       "default": false,
@@ -322,12 +320,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 973,
-        "bodyFile": "batteries/status.hpp",
-        "bodyStart": 958,
+        "bodyEnd": 322,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 310,
         "column": 14,
         "file": "batteries/status.hpp",
-        "line": 958
+        "line": 832
       },
       "name": "NotOkStatusWrapper",
       "override": false,
@@ -353,15 +351,13 @@
           "typePlain": "const Status &"
         },
         {
-          "defval": "false",
-          "defvalPlain": "false",
           "name": "vlog_is_on",
           "type": "bool",
           "typePlain": "bool"
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1detail_1_1NotOkStatusWrapper_1a03d68967f744b182175cf4eb82b04492",
+      "refid": "classbatt_1_1detail_1_1NotOkStatusWrapper_1ab70ba76bda493fe7722752635229d690",
       "static": false,
       "strong": false,
       "title": "NotOkStatusWrapper",
@@ -385,12 +381,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1005,
-        "bodyFile": "batteries/status.hpp",
-        "bodyStart": 975,
+        "bodyEnd": 352,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 326,
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 975
+        "line": 839
       },
       "name": "~NotOkStatusWrapper",
       "override": false,
@@ -420,12 +416,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1010,
-        "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1007,
+        "bodyEnd": 359,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 356,
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 1007
+        "line": 841
       },
       "name": "operator Status",
       "override": false,
@@ -455,12 +451,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1016,
+        "bodyEnd": 847,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1013,
+        "bodyStart": 844,
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 1013
+        "line": 844
       },
       "name": "operator StatusOr< T >",
       "override": false,
@@ -488,7 +484,7 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "NotOkStatusWrapper& batt::detail::NotOkStatusWrapper::operator<<",
+      "definition": "NotOkStatusWrapper & batt::detail::NotOkStatusWrapper::operator<<",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::detail::NotOkStatusWrapper::operator<<",
@@ -497,12 +493,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1022,
-        "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1018,
+        "bodyEnd": 367,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 363,
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 1018
+        "line": 849
       },
       "name": "operator<<",
       "override": false,
@@ -514,7 +510,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1detail_1_1NotOkStatusWrapper_1af7c2127f5c894f04ff76106f78ba64f7",
+      "refid": "classbatt_1_1detail_1_1NotOkStatusWrapper_1ab64a6c184e4e9bb4cd93972c3d1e5a40",
       "static": false,
       "strong": false,
       "title": "operator<<",
@@ -540,12 +536,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1029,
+        "bodyEnd": 856,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1025,
+        "bodyStart": 852,
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 1025
+        "line": 852
       },
       "name": "operator<<",
       "override": false,

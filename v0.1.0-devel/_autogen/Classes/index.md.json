@@ -328,54 +328,6 @@
           "children": [
             {
               "anchor": "",
-              "baseClasses": [
-                {
-                  "external": false,
-                  "name": "batt::AbstractValue< AbstractBufferSource >",
-                  "refid": "classbatt_1_1AbstractValue",
-                  "url": "/_autogen/Classes/classbatt_1_1AbstractValue/",
-                  "virtual": "non-virtual",
-                  "visibility": "public"
-                }
-              ],
-              "category": "classes",
-              "derivedClasses": [
-                {
-                  "external": false,
-                  "name": "batt::AbstractValueImpl< BufferSource::AbstractBufferSource, BufferSource::BufferSourceImpl, T >",
-                  "refid": "classbatt_1_1AbstractValueImpl",
-                  "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
-                  "virtual": "non-virtual",
-                  "visibility": "public"
-                }
-              ],
-              "fullname": "batt::BufferSource::AbstractBufferSource",
-              "kind": "class",
-              "language": "cpp",
-              "name": "batt::BufferSource::AbstractBufferSource",
-              "refid": "classbatt_1_1BufferSource_1_1AbstractBufferSource",
-              "title": "batt::BufferSource::AbstractBufferSource",
-              "url": "/_autogen/Classes/classbatt_1_1BufferSource_1_1AbstractBufferSource/",
-              "visibility": "public"
-            },
-            {
-              "anchor": "",
-              "baseClasses": [
-                {
-                  "external": false,
-                  "name": "batt::AbstractValueImpl< BufferSource::AbstractBufferSource, BufferSource::BufferSourceImpl, T >",
-                  "refid": "classbatt_1_1AbstractValueImpl",
-                  "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
-                  "virtual": "non-virtual",
-                  "visibility": "public"
-                },
-                {
-                  "external": true,
-                  "name": "AbstractType",
-                  "virtual": "non-virtual",
-                  "visibility": "public"
-                }
-              ],
               "category": "classes",
               "fullname": "batt::BufferSource::BufferSourceImpl",
               "kind": "class",
@@ -1802,6 +1754,16 @@
         },
         {
           "anchor": "",
+          "baseClasses": [
+            {
+              "external": false,
+              "name": "batt::MutexBase",
+              "refid": "classbatt_1_1MutexBase",
+              "url": "/_autogen/Classes/classbatt_1_1MutexBase/",
+              "virtual": "non-virtual",
+              "visibility": "public"
+            }
+          ],
           "brief": "Provides mutually-exclusive access to an instance of type `T`. ",
           "category": "classes",
           "children": [
@@ -1842,6 +1804,52 @@
           "summary": "Provides mutually-exclusive access to an instance of type T. ",
           "title": "batt::Mutex",
           "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+          "visibility": "public"
+        },
+        {
+          "anchor": "",
+          "category": "classes",
+          "derivedClasses": [
+            {
+              "external": false,
+              "name": "batt::Mutex< std::unordered_map< batt::HostAddress, SharedPtr< batt::HttpClientHostContext >, boost::hash< batt::HostAddress > > >",
+              "refid": "classbatt_1_1Mutex",
+              "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+              "virtual": "non-virtual",
+              "visibility": "public"
+            },
+            {
+              "external": false,
+              "name": "batt::Mutex< std::deque< T > >",
+              "refid": "classbatt_1_1Mutex",
+              "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+              "virtual": "non-virtual",
+              "visibility": "public"
+            },
+            {
+              "external": false,
+              "name": "batt::Mutex< batt::NoneType >",
+              "refid": "classbatt_1_1Mutex",
+              "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+              "virtual": "non-virtual",
+              "visibility": "public"
+            },
+            {
+              "external": false,
+              "name": "batt::Mutex< T >",
+              "refid": "classbatt_1_1Mutex",
+              "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+              "virtual": "non-virtual",
+              "visibility": "public"
+            }
+          ],
+          "fullname": "batt::MutexBase",
+          "kind": "class",
+          "language": "cpp",
+          "name": "batt::MutexBase",
+          "refid": "classbatt_1_1MutexBase",
+          "title": "batt::MutexBase",
+          "url": "/_autogen/Classes/classbatt_1_1MutexBase/",
           "visibility": "public"
         },
         {
@@ -3220,7 +3228,7 @@
           "derivedClasses": [
             {
               "external": false,
-              "name": "batt::TypeErasedStorage< batt::BufferSource::AbstractBufferSource, BufferSourceImpl >",
+              "name": "batt::TypeErasedStorage< AbstractBufferSource, BufferSourceImpl >",
               "refid": "classbatt_1_1TypeErasedStorage",
               "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
               "virtual": "non-virtual",
@@ -5289,25 +5297,25 @@
     {
       "anchor": "",
       "category": "namespaces",
-      "fullname": "batt::@112",
+      "fullname": "batt::@146",
       "kind": "namespace",
       "language": "cpp",
-      "name": "batt::@112",
-      "refid": "namespacebatt_1_1_0d112",
-      "title": "batt::@112",
-      "url": "/_autogen/Namespaces/namespacebatt_1_1_0d112/",
+      "name": "batt::@146",
+      "refid": "namespacebatt_1_1_0d146",
+      "title": "batt::@146",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1_0d146/",
       "visibility": "public"
     },
     {
       "anchor": "",
       "category": "namespaces",
-      "fullname": "batt::@65",
+      "fullname": "batt::@92",
       "kind": "namespace",
       "language": "cpp",
-      "name": "batt::@65",
-      "refid": "namespacebatt_1_1_0d65",
-      "title": "batt::@65",
-      "url": "/_autogen/Namespaces/namespacebatt_1_1_0d65/",
+      "name": "batt::@92",
+      "refid": "namespacebatt_1_1_0d92",
+      "title": "batt::@92",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1_0d92/",
       "visibility": "public"
     },
     {
@@ -5423,13 +5431,13 @@
     {
       "anchor": "",
       "category": "namespaces",
-      "fullname": "pico_http::detail::@115",
+      "fullname": "pico_http::detail::@150",
       "kind": "namespace",
       "language": "cpp",
-      "name": "pico_http::detail::@115",
-      "refid": "namespacepico__http_1_1detail_1_1_0d115",
-      "title": "pico_http::detail::@115",
-      "url": "/_autogen/Namespaces/namespacepico__http_1_1detail_1_1_0d115/",
+      "name": "pico_http::detail::@150",
+      "refid": "namespacepico__http_1_1detail_1_1_0d150",
+      "title": "pico_http::detail::@150",
+      "url": "/_autogen/Namespaces/namespacepico__http_1_1detail_1_1_0d150/",
       "visibility": "public"
     },
     {

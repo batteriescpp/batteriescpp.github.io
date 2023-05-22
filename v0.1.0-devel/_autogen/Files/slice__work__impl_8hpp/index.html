@@ -642,17 +642,8 @@
 <span class="normal"><a href="#__codelineno-1-43">43</a></span>
 <span class="normal"><a href="#__codelineno-1-44">44</a></span>
 <span class="normal"><a href="#__codelineno-1-45">45</a></span>
-<span class="normal"><a href="#__codelineno-1-46">46</a></span>
-<span class="normal"><a href="#__codelineno-1-47">47</a></span>
-<span class="normal"><a href="#__codelineno-1-48">48</a></span>
-<span class="normal"><a href="#__codelineno-1-49">49</a></span>
-<span class="normal"><a href="#__codelineno-1-50">50</a></span>
-<span class="normal"><a href="#__codelineno-1-51">51</a></span>
-<span class="normal"><a href="#__codelineno-1-52">52</a></span>
-<span class="normal"><a href="#__codelineno-1-53">53</a></span>
-<span class="normal"><a href="#__codelineno-1-54">54</a></span>
-<span class="normal"><a href="#__codelineno-1-55">55</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// Copyright 2022 Anthony Paul Astolfi</span>
+<span class="normal"><a href="#__codelineno-1-46">46</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// Copyright 2022-2023 Anthony Paul Astolfi</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">//</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="cp">#pragma once</span>
 <a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="cp">#ifndef BATTERIES_ASYNC_SLICE_WORK_IMPL_HPP</span>
@@ -688,27 +679,18 @@
 <a id="__codelineno-1-35" name="__codelineno-1-35"></a>
 <a id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
 <a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="c1">//</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Iter</span><span class="o">&gt;</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="cm">/*explicit*/</span><span class="w"> </span><span class="n">WorkSlicePlan</span><span class="o">::</span><span class="n">WorkSlicePlan</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">WorkSliceParams</span><span class="o">&amp;</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Iter</span><span class="o">&amp;</span><span class="w"> </span><span class="n">first</span><span class="p">,</span>
-<a id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="w">                                                           </span><span class="k">const</span><span class="w"> </span><span class="n">Iter</span><span class="o">&amp;</span><span class="w"> </span><span class="n">last</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">WorkSlicePlan</span><span class="p">{</span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">get_input_size</span><span class="p">(</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">last</span><span class="p">)}</span>
-<a id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="p">{</span>
-<a id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="p">}</span>
-<a id="__codelineno-1-44" name="__codelineno-1-44"></a>
-<a id="__codelineno-1-45" name="__codelineno-1-45"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-46" name="__codelineno-1-46"></a><span class="c1">//</span>
-<a id="__codelineno-1-47" name="__codelineno-1-47"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">WorkSlicePlan</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
-<a id="__codelineno-1-48" name="__codelineno-1-48"></a><span class="p">{</span>
-<a id="__codelineno-1-49" name="__codelineno-1-49"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;WorkSlicePlan{.input_size=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">input_size</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, .task_size=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">task_size</span>
-<a id="__codelineno-1-50" name="__codelineno-1-50"></a><span class="w">               </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, .n_tasks=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">n_tasks</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,}&quot;</span><span class="p">;</span>
-<a id="__codelineno-1-51" name="__codelineno-1-51"></a><span class="p">}</span>
-<a id="__codelineno-1-52" name="__codelineno-1-52"></a>
-<a id="__codelineno-1-53" name="__codelineno-1-53"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
-<a id="__codelineno-1-54" name="__codelineno-1-54"></a>
-<a id="__codelineno-1-55" name="__codelineno-1-55"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_SLICE_WORK_IMPL_HPP</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">WorkSlicePlan</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="p">{</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;WorkSlicePlan{.input_size=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">input_size</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, .task_size=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">task_size</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="w">               </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, .n_tasks=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">n_tasks</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,}&quot;</span><span class="p">;</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="p">}</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43"></a>
+<a id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45"></a>
+<a id="__codelineno-1-46" name="__codelineno-1-46"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_SLICE_WORK_IMPL_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 19 May 2023 at 17:25:41 UTC</p>
+<p>Updated on 22 May 2023 at 14:54:05 UTC</p>
 
 
 

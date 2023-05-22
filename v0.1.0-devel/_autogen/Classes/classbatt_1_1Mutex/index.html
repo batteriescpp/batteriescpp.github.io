@@ -526,6 +526,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#additional-inherited-members" class="md-nav__link">
+    Additional inherited members
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#detailed-description" class="md-nav__link">
     Detailed Description
   </a>
@@ -691,6 +698,7 @@
 <h1 id="battmutex">batt::Mutex<a class="headerlink" href="#battmutex" title="Permanent link">&#128279;</a></h1>
 <p>Provides mutually-exclusive access to an instance of type <code>T</code>.  <a href="#detailed-description">More...</a></p>
 <p><code>#include &lt;batteries/async/mutex.hpp&gt;</code></p>
+<p>Inherits from <a href="/_autogen/Classes/classbatt_1_1MutexBase/">batt::MutexBase</a></p>
 <h2 id="public-classes">Public Classes<a class="headerlink" href="#public-classes" title="Permanent link">&#128279;</a></h2>
 <table>
 <thead>
@@ -793,6 +801,45 @@
 <tr>
 <td>decltype(auto)</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Mutex/#function-no-lock">no_lock</a></strong>() const<br>Accesses the protected object's thread-safe base class by pointer.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="additional-inherited-members">Additional inherited members<a class="headerlink" href="#additional-inherited-members" title="Permanent link">&#128279;</a></h2>
+<p><strong>Protected Functions inherited from <a href="/_autogen/Classes/classbatt_1_1MutexBase/">batt::MutexBase</a></strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1MutexBase/#function-acquire-impl">acquire_impl</a></strong>() const<br>Acquires exclusive access to the protected object via modified Bakery Algorithm.</td>
+</tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1MutexBase/#function-release">release</a></strong>() const<br>Releases the lock via modified Bakery Algorithm by incrementing the current ticket watch.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Protected Attributes inherited from <a href="/_autogen/Classes/classbatt_1_1MutexBase/">batt::MutexBase</a></strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>std::atomic&lt; u64 &gt;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1MutexBase/#variable-next-ticket-">next_ticket_</a></strong></td>
+</tr>
+<tr>
+<td><a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>&lt; u64 &gt;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1MutexBase/#variable-current-ticket-">current_ticket_</a></strong></td>
 </tr>
 </tbody>
 </table>
@@ -928,7 +975,7 @@ This mutex implementation is mostly fair because it uses a modified version of <
 </code></pre></div></td></tr></table></div>
 <p>Accesses the protected object's thread-safe base class by pointer. </p>
 <hr />
-<p>Updated on 19 May 2023 at 17:25:41 UTC</p>
+<p>Updated on 22 May 2023 at 14:54:05 UTC</p>
 
 
 

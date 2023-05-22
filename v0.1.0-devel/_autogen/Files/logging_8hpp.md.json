@@ -47,10 +47,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/logging.hpp",
-        "bodyStart": 37,
+        "bodyStart": 38,
         "column": 9,
         "file": "batteries/logging.hpp",
-        "line": 37
+        "line": 38
       },
       "name": "BATT_LOG_DISABLED",
       "override": false,
@@ -83,10 +83,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/logging.hpp",
-        "bodyStart": 41,
+        "bodyStart": 42,
         "column": 9,
         "file": "batteries/logging.hpp",
-        "line": 41
+        "line": 42
       },
       "name": "BATT_LOG",
       "override": false,
@@ -112,10 +112,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/logging.hpp",
-        "bodyStart": 42,
+        "bodyStart": 43,
         "column": 9,
         "file": "batteries/logging.hpp",
-        "line": 42
+        "line": 43
       },
       "name": "BATT_VLOG",
       "override": false,
@@ -141,10 +141,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/logging.hpp",
-        "bodyStart": 43,
+        "bodyStart": 44,
         "column": 9,
         "file": "batteries/logging.hpp",
-        "line": 43
+        "line": 44
       },
       "name": "BATT_DLOG",
       "override": false,
@@ -170,10 +170,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/logging.hpp",
-        "bodyStart": 44,
+        "bodyStart": 45,
         "column": 9,
         "file": "batteries/logging.hpp",
-        "line": 44
+        "line": 45
       },
       "name": "BATT_DVLOG",
       "override": false,
@@ -182,6 +182,42 @@
       "strong": false,
       "title": "BATT_DVLOG",
       "url": "/_autogen/Files/logging_8hpp/#define-batt-dvlog",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-vlog-is-on",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_VLOG_IS_ON",
+      "hasDetails": false,
+      "initializer": "false",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/logging.hpp",
+        "bodyStart": 46,
+        "column": 9,
+        "file": "batteries/logging.hpp",
+        "line": 46
+      },
+      "name": "BATT_VLOG_IS_ON",
+      "override": false,
+      "params": [
+        {
+          "name": "level",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "logging_8hpp_1a1ec48ffb181e043191ae4f3b83df0249",
+      "static": false,
+      "strong": false,
+      "title": "BATT_VLOG_IS_ON",
+      "url": "/_autogen/Files/logging_8hpp/#define-batt-vlog-is-on",
       "visibility": "public"
     }
   ],
@@ -227,7 +263,7 @@
       "visibility": "public"
     }
   ],
-  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_LOGGING_HPP\n#define BATTERIES_LOGGING_HPP\n\n#include <batteries/config.hpp>\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\n#ifdef BATT_GLOG_AVAILABLE\n\n#include <batteries/suppress.hpp>\n\nBATT_SUPPRESS_IF_GCC(\"-Wsuggest-override\")\nBATT_SUPPRESS_IF_GCC(\"-Woverloaded-virtual\")\nBATT_SUPPRESS_IF_CLANG(\"-Wsuggest-override\")\nBATT_SUPPRESS_IF_CLANG(\"-Woverloaded-virtual\")\n//\n#include <glog/logging.h>\n//\nBATT_UNSUPPRESS_IF_CLANG()\nBATT_UNSUPPRESS_IF_CLANG()\nBATT_UNSUPPRESS_IF_GCC()\nBATT_UNSUPPRESS_IF_GCC()\n\n#define BATT_LOG LOG\n#define BATT_VLOG VLOG\n#define BATT_DLOG DLOG\n#define BATT_DVLOG DLOG\n\n#else  // ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\n#include <iostream>\n\n#define BATT_LOG_DISABLED(...)                                                                               \\\n    if (false)                                                                                               \\\n    std::cerr\n\n#define BATT_LOG BATT_LOG_DISABLED\n#define BATT_VLOG BATT_LOG_DISABLED\n#define BATT_DLOG BATT_LOG_DISABLED\n#define BATT_DVLOG BATT_LOG_DISABLED\n\n#endif  // BATT_GLOG_AVAILABLE\n\n#endif  // BATTERIES_LOGGING_HPP",
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_LOGGING_HPP\n#define BATTERIES_LOGGING_HPP\n\n#include <batteries/config.hpp>\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\n#if BATT_WITH_GLOG\n\n#include <batteries/suppress.hpp>\n\nBATT_SUPPRESS_IF_GCC(\"-Wsuggest-override\")\nBATT_SUPPRESS_IF_GCC(\"-Woverloaded-virtual\")\nBATT_SUPPRESS_IF_CLANG(\"-Wsuggest-override\")\nBATT_SUPPRESS_IF_CLANG(\"-Woverloaded-virtual\")\n//\n#include <glog/logging.h>\n//\nBATT_UNSUPPRESS_IF_CLANG()\nBATT_UNSUPPRESS_IF_CLANG()\nBATT_UNSUPPRESS_IF_GCC()\nBATT_UNSUPPRESS_IF_GCC()\n\n#define BATT_LOG LOG\n#define BATT_VLOG VLOG\n#define BATT_DLOG DLOG\n#define BATT_DVLOG DLOG\n#define BATT_VLOG_IS_ON(level) VLOG_IS_ON(level)\n\n#else  // ==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\n#include <iostream>\n\n#define BATT_LOG_DISABLED(...)                                                                               \\\n    if (false)                                                                                               \\\n    std::cerr\n\n#define BATT_LOG BATT_LOG_DISABLED\n#define BATT_VLOG BATT_LOG_DISABLED\n#define BATT_DLOG BATT_LOG_DISABLED\n#define BATT_DVLOG BATT_LOG_DISABLED\n#define BATT_VLOG_IS_ON(level) false\n\n#endif  // BATT_WITH_GLOG\n\n#endif  // BATTERIES_LOGGING_HPP",
   "refid": "logging_8hpp",
   "static": false,
   "strong": false,

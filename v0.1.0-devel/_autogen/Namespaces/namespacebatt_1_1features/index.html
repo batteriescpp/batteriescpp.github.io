@@ -631,7 +631,7 @@
 <tbody>
 <tr>
 <td>enum</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1features/#enum-feature">Feature</a></strong> { kHeaderOnly = 0, kSeqSpecializeAlgorithms, kGlogSupport, kProtobufSupport, kCompilerGCC, kCompilerClang, kAssertsEnabled, kNumFeatures}<br>The list of build-time features that can potentially affect ABI.</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1features/#enum-feature">Feature</a></strong> { kHeaderOnly = 0, kSeqSpecializeAlgorithms, kWithGlog, kWithProtobuf, kCompilerGCC, kCompilerClang, kWithAsserts, kNumFeatures}<br>The list of build-time features that can potentially affect ABI.</td>
 </tr>
 <tr>
 <td>using unsigned long long</td>
@@ -684,12 +684,12 @@
 <td></td>
 </tr>
 <tr>
-<td>kGlogSupport</td>
+<td>kWithGlog</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
-<td>kProtobufSupport</td>
+<td>kWithProtobuf</td>
 <td></td>
 <td></td>
 </tr>
@@ -704,7 +704,7 @@
 <td></td>
 </tr>
 <tr>
-<td>kAssertsEnabled</td>
+<td>kWithAsserts</td>
 <td></td>
 <td></td>
 </tr>
@@ -734,7 +734,7 @@
 </code></pre></div></td></tr></table></div>
 <p>Returns true if the computed feature mask for the current compilation unit is the same as the global mask; otherwise prints a diagnostic message and panics. </p>
 <hr />
-<p>Updated on 19 May 2023 at 17:25:41 UTC</p>
+<p>Updated on 22 May 2023 at 14:54:05 UTC</p>
 
 
 

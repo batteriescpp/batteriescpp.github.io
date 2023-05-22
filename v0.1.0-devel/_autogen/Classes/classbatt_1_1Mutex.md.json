@@ -1,6 +1,161 @@
 {
   "abstract": false,
   "anchor": "",
+  "baseClasses": [
+    {
+      "external": false,
+      "name": "batt::MutexBase",
+      "protectedAttributes": [
+        {
+          "abstract": false,
+          "anchor": "#variable-next-ticket-",
+          "category": "attributes",
+          "const": false,
+          "definition": "std::atomic<u64> batt::MutexBase::next_ticket_",
+          "explicit": false,
+          "fullname": "batt::MutexBase::next_ticket_",
+          "hasDetails": false,
+          "initializer": "{0}",
+          "inline": false,
+          "kind": "variable",
+          "language": "cpp",
+          "location": {
+            "bodyFile": "batteries/async/mutex.hpp",
+            "bodyStart": 37,
+            "column": 25,
+            "file": "batteries/async/mutex.hpp",
+            "line": 37
+          },
+          "name": "next_ticket_",
+          "override": false,
+          "refid": "classbatt_1_1MutexBase_1add0dca35a9f48c7f62780541d09601c6",
+          "static": false,
+          "strong": false,
+          "title": "next_ticket_",
+          "type": "std::atomic< u64 >",
+          "typePlain": "std::atomic< u64 >",
+          "url": "/_autogen/Classes/classbatt_1_1MutexBase/#variable-next-ticket-",
+          "visibility": "protected"
+        },
+        {
+          "abstract": false,
+          "anchor": "#variable-current-ticket-",
+          "category": "attributes",
+          "const": false,
+          "definition": "Watch<u64> batt::MutexBase::current_ticket_",
+          "explicit": false,
+          "fullname": "batt::MutexBase::current_ticket_",
+          "hasDetails": false,
+          "initializer": "{0}",
+          "inline": false,
+          "kind": "variable",
+          "language": "cpp",
+          "location": {
+            "bodyFile": "batteries/async/mutex.hpp",
+            "bodyStart": 38,
+            "column": 19,
+            "file": "batteries/async/mutex.hpp",
+            "line": 38
+          },
+          "name": "current_ticket_",
+          "override": false,
+          "refid": "classbatt_1_1MutexBase_1a97a31634703849f69e8c654d037e0b8e",
+          "static": false,
+          "strong": false,
+          "title": "current_ticket_",
+          "type": "[Watch](/_autogen/Classes/classbatt_1_1Watch/)< u64 >",
+          "typePlain": "Watch< u64 >",
+          "url": "/_autogen/Classes/classbatt_1_1MutexBase/#variable-current-ticket-",
+          "visibility": "protected"
+        }
+      ],
+      "protectedFunctions": [
+        {
+          "abstract": false,
+          "anchor": "#function-acquire-impl",
+          "argsString": "() const",
+          "brief": "Acquires exclusive access to the protected object via modified Bakery Algorithm. ",
+          "category": "functions",
+          "const": true,
+          "default": false,
+          "definition": "BATT_INLINE_IMPL void batt::MutexBase::acquire_impl",
+          "deleted": false,
+          "details": "\n\n1. Atomically fetch_add to claim the next available \"ticket\"\n2. Wait on the current ticket [Watch](/_autogen/Classes/classbatt_1_1Watch/) until it is equal to the ticket obtained in step 1. ",
+          "explicit": false,
+          "fullname": "batt::MutexBase::acquire_impl",
+          "hasDetails": true,
+          "inline": false,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 24,
+            "bodyFile": "batteries/async/mutex_impl.hpp",
+            "bodyStart": 12,
+            "column": 10,
+            "file": "batteries/async/mutex.hpp",
+            "line": 29
+          },
+          "name": "acquire_impl",
+          "override": false,
+          "params": [],
+          "pureVirtual": false,
+          "refid": "classbatt_1_1MutexBase_1ad1d3197291c8008b17ddcc341e9cafe5",
+          "static": false,
+          "strong": false,
+          "summary": "Acquires exclusive access to the protected object via modified Bakery Algorithm. ",
+          "title": "acquire_impl",
+          "type": "void",
+          "typePlain": "void",
+          "url": "/_autogen/Classes/classbatt_1_1MutexBase/#function-acquire-impl",
+          "virtual": false,
+          "visibility": "protected"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-release",
+          "argsString": "() const",
+          "brief": "Releases the lock via modified Bakery Algorithm by incrementing the current ticket watch. ",
+          "category": "functions",
+          "const": true,
+          "default": false,
+          "definition": "BATT_INLINE_IMPL void batt::MutexBase::release",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::MutexBase::release",
+          "hasDetails": false,
+          "inline": false,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 31,
+            "bodyFile": "batteries/async/mutex_impl.hpp",
+            "bodyStart": 28,
+            "column": 10,
+            "file": "batteries/async/mutex.hpp",
+            "line": 33
+          },
+          "name": "release",
+          "override": false,
+          "params": [],
+          "pureVirtual": false,
+          "refid": "classbatt_1_1MutexBase_1a3b6dc85cb89935a977dd621f37d1f220",
+          "static": false,
+          "strong": false,
+          "summary": "Releases the lock via modified Bakery Algorithm by incrementing the current ticket watch. ",
+          "title": "release",
+          "type": "void",
+          "typePlain": "void",
+          "url": "/_autogen/Classes/classbatt_1_1MutexBase/#function-release",
+          "virtual": false,
+          "visibility": "protected"
+        }
+      ],
+      "refid": "classbatt_1_1MutexBase",
+      "url": "/_autogen/Classes/classbatt_1_1MutexBase/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
   "brief": "Provides mutually-exclusive access to an instance of type `T`. ",
   "category": "classes",
   "const": false,
@@ -8,19 +163,19 @@
   "details": "This class has two advantages over `std::mutex`:\n\n1. It will yield the current [batt::Task](/_autogen/Classes/classbatt_1_1Task/) (if there is one) when blocking to acquire a lock, allowing the current thread to be used by other tasks\n2. By embedding the protected type `T` within the object, there is a much lower chance that state which should be accessed via a mutex will accidentally be accessed directly\nThis mutex implementation is mostly fair because it uses a modified version of [Lamport's Bakery Algorithm]([https://en.wikipedia.org/wiki/Lamport's_bakery_algorithm](https://en.wikipedia.org/wiki/Lamport's_bakery_algorithm)). It is non-recursive, so threads/tasks that attempt to acquire a lock that they already have will deadlock. Also, an attempt to acquire a lock on a [batt::Mutex](/_autogen/Classes/classbatt_1_1Mutex/) can't be cancelled, so it is not possible to set a timeout on lock acquisition. ",
   "explicit": false,
   "fullname": "batt::Mutex",
-  "hasAdditionalMembers": false,
+  "hasAdditionalMembers": true,
   "hasDetails": true,
   "includes": "<batteries/async/mutex.hpp>",
   "inline": false,
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 290,
+    "bodyEnd": 287,
     "bodyFile": "batteries/async/mutex.hpp",
-    "bodyStart": 35,
+    "bodyStart": 57,
     "column": 1,
     "file": "batteries/async/mutex.hpp",
-    "line": 34
+    "line": 56
   },
   "name": "batt::Mutex",
   "override": false,
@@ -53,68 +208,6 @@
   "privateAttributes": [
     {
       "abstract": false,
-      "anchor": "#variable-next-ticket-",
-      "category": "attributes",
-      "const": false,
-      "definition": "std::atomic<u64> batt::Mutex< T >::next_ticket_",
-      "explicit": false,
-      "fullname": "batt::Mutex::next_ticket_",
-      "hasDetails": false,
-      "initializer": "{0}",
-      "inline": false,
-      "kind": "variable",
-      "language": "cpp",
-      "location": {
-        "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 287,
-        "column": 25,
-        "file": "batteries/async/mutex.hpp",
-        "line": 287
-      },
-      "name": "next_ticket_",
-      "override": false,
-      "refid": "classbatt_1_1Mutex_1ae61235f310f54575599bbf5bf6545f4c",
-      "static": false,
-      "strong": false,
-      "title": "next_ticket_",
-      "type": "std::atomic< u64 >",
-      "typePlain": "std::atomic< u64 >",
-      "url": "/_autogen/Classes/classbatt_1_1Mutex/#variable-next-ticket-",
-      "visibility": "private"
-    },
-    {
-      "abstract": false,
-      "anchor": "#variable-current-ticket-",
-      "category": "attributes",
-      "const": false,
-      "definition": "Watch<u64> batt::Mutex< T >::current_ticket_",
-      "explicit": false,
-      "fullname": "batt::Mutex::current_ticket_",
-      "hasDetails": false,
-      "initializer": "{0}",
-      "inline": false,
-      "kind": "variable",
-      "language": "cpp",
-      "location": {
-        "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 288,
-        "column": 19,
-        "file": "batteries/async/mutex.hpp",
-        "line": 288
-      },
-      "name": "current_ticket_",
-      "override": false,
-      "refid": "classbatt_1_1Mutex_1a91ed57e3a0896fca7a5e2b17d3052f43",
-      "static": false,
-      "strong": false,
-      "title": "current_ticket_",
-      "type": "[Watch](/_autogen/Classes/classbatt_1_1Watch/)< u64 >",
-      "typePlain": "Watch< u64 >",
-      "url": "/_autogen/Classes/classbatt_1_1Mutex/#variable-current-ticket-",
-      "visibility": "private"
-    },
-    {
-      "abstract": false,
       "anchor": "#variable-value-",
       "category": "attributes",
       "const": false,
@@ -127,10 +220,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 289,
+        "bodyStart": 286,
         "column": 7,
         "file": "batteries/async/mutex.hpp",
-        "line": 289
+        "line": 286
       },
       "name": "value_",
       "override": false,
@@ -149,26 +242,24 @@
       "abstract": false,
       "anchor": "#function-acquire",
       "argsString": "() const",
-      "brief": "Acquires exclusive access to the protected object via modified Bakery Algorithm. ",
       "category": "functions",
       "const": true,
       "default": false,
       "definition": "const T& batt::Mutex< T >::acquire",
       "deleted": false,
-      "details": "\n\n1. Atomically fetch_add to claim the next available \"ticket\"\n2. Wait on the current ticket [Watch](/_autogen/Classes/classbatt_1_1Watch/) until it is equal to the ticket obtained in step 1. ",
       "explicit": false,
       "fullname": "batt::Mutex::acquire",
-      "hasDetails": true,
+      "hasDetails": false,
       "inline": true,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 276,
+        "bodyEnd": 282,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 262,
+        "bodyStart": 278,
         "column": 13,
         "file": "batteries/async/mutex.hpp",
-        "line": 262
+        "line": 278
       },
       "name": "acquire",
       "override": false,
@@ -177,50 +268,10 @@
       "refid": "classbatt_1_1Mutex_1a054286709b8056fb71571a465ddb4d08",
       "static": false,
       "strong": false,
-      "summary": "Acquires exclusive access to the protected object via modified Bakery Algorithm. ",
       "title": "acquire",
       "type": "const T &",
       "typePlain": "const T &",
       "url": "/_autogen/Classes/classbatt_1_1Mutex/#function-acquire",
-      "virtual": false,
-      "visibility": "private"
-    },
-    {
-      "abstract": false,
-      "anchor": "#function-release",
-      "argsString": "() const",
-      "brief": "Releases the lock via modified Bakery Algorithm by incrementing the current ticket watch. ",
-      "category": "functions",
-      "const": true,
-      "default": false,
-      "definition": "void batt::Mutex< T >::release",
-      "deleted": false,
-      "explicit": false,
-      "fullname": "batt::Mutex::release",
-      "hasDetails": false,
-      "inline": true,
-      "kind": "function",
-      "language": "cpp",
-      "location": {
-        "bodyEnd": 283,
-        "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 280,
-        "column": 10,
-        "file": "batteries/async/mutex.hpp",
-        "line": 280
-      },
-      "name": "release",
-      "override": false,
-      "params": [],
-      "pureVirtual": false,
-      "refid": "classbatt_1_1Mutex_1a154c0d808acbea9129368847416b49ec",
-      "static": false,
-      "strong": false,
-      "summary": "Releases the lock via modified Bakery Algorithm by incrementing the current ticket watch. ",
-      "title": "release",
-      "type": "void",
-      "typePlain": "void",
-      "url": "/_autogen/Classes/classbatt_1_1Mutex/#function-release",
       "virtual": false,
       "visibility": "private"
     }
@@ -273,12 +324,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 160,
+        "bodyEnd": 182,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 157,
+        "bodyStart": 179,
         "column": 17,
         "file": "batteries/async/mutex.hpp",
-        "line": 157
+        "line": 179
       },
       "name": "thread_safe_base",
       "override": false,
@@ -332,12 +383,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 169,
+        "bodyEnd": 191,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 166,
+        "bodyStart": 188,
         "column": 23,
         "file": "batteries/async/mutex.hpp",
-        "line": 166
+        "line": 188
       },
       "name": "thread_safe_base",
       "override": false,
@@ -391,12 +442,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 178,
+        "bodyEnd": 200,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 175,
+        "bodyStart": 197,
         "column": 17,
         "file": "batteries/async/mutex.hpp",
-        "line": 175
+        "line": 197
       },
       "name": "thread_safe_base",
       "override": false,
@@ -457,12 +508,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 186,
+        "bodyEnd": 208,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 183,
+        "bodyStart": 205,
         "column": 47,
         "file": "batteries/async/mutex.hpp",
-        "line": 183
+        "line": 205
       },
       "name": "thread_safe_base",
       "override": false,
@@ -504,7 +555,7 @@
       "location": {
         "column": 5,
         "file": "batteries/async/mutex.hpp",
-        "line": 190
+        "line": 212
       },
       "name": "Mutex",
       "override": false,
@@ -544,7 +595,7 @@
       "location": {
         "column": 11,
         "file": "batteries/async/mutex.hpp",
-        "line": 194
+        "line": 216
       },
       "name": "operator=",
       "override": false,
@@ -586,7 +637,7 @@
       "location": {
         "column": 5,
         "file": "batteries/async/mutex.hpp",
-        "line": 198
+        "line": 220
       },
       "name": "Mutex",
       "override": false,
@@ -618,12 +669,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 205,
+        "bodyEnd": 227,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 203,
+        "bodyStart": 225,
         "column": 14,
         "file": "batteries/async/mutex.hpp",
-        "line": 203
+        "line": 225
       },
       "name": "Mutex",
       "override": false,
@@ -675,12 +726,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 212,
+        "bodyEnd": 234,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 209,
+        "bodyStart": 231,
         "column": 10,
         "file": "batteries/async/mutex.hpp",
-        "line": 209
+        "line": 231
       },
       "name": "lock",
       "override": false,
@@ -714,12 +765,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 219,
+        "bodyEnd": 241,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 216,
+        "bodyStart": 238,
         "column": 15,
         "file": "batteries/async/mutex.hpp",
-        "line": 216
+        "line": 238
       },
       "name": "lock",
       "override": false,
@@ -753,12 +804,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 231,
+        "bodyEnd": 253,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 227,
+        "bodyStart": 249,
         "column": 14,
         "file": "batteries/async/mutex.hpp",
-        "line": 227
+        "line": 249
       },
       "name": "with_lock",
       "override": false,
@@ -808,12 +859,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 238,
+        "bodyEnd": 260,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 235,
+        "bodyStart": 257,
         "column": 10,
         "file": "batteries/async/mutex.hpp",
-        "line": 235
+        "line": 257
       },
       "name": "operator->",
       "override": false,
@@ -847,12 +898,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 245,
+        "bodyEnd": 267,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 242,
+        "bodyStart": 264,
         "column": 14,
         "file": "batteries/async/mutex.hpp",
-        "line": 242
+        "line": 264
       },
       "name": "no_lock",
       "override": false,
@@ -886,12 +937,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 252,
+        "bodyEnd": 274,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 249,
+        "bodyStart": 271,
         "column": 14,
         "file": "batteries/async/mutex.hpp",
-        "line": 249
+        "line": 271
       },
       "name": "no_lock",
       "override": false,
@@ -925,10 +976,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 139,
+        "bodyStart": 161,
         "column": 5,
         "file": "batteries/async/mutex.hpp",
-        "line": 139
+        "line": 161
       },
       "name": "Lock",
       "override": false,
@@ -957,10 +1008,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 143,
+        "bodyStart": 165,
         "column": 5,
         "file": "batteries/async/mutex.hpp",
-        "line": 143
+        "line": 165
       },
       "name": "ConstLock",
       "override": false,

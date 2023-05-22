@@ -272,7 +272,7 @@
     {
       "abstract": false,
       "anchor": "#function-invoke-write-handler",
-      "argsString": "(Handler &&handler, const batt::Status &status, T &value) noexcept(noexcept(std::forward< decltype(handler)>(handler)(status)))",
+      "argsString": "(Handler &&handler, const batt::Status &status, T &) noexcept(noexcept(std::forward< decltype(handler)>(handler)(status)))",
       "category": "functions",
       "const": false,
       "default": false,
@@ -306,13 +306,13 @@
           "typePlain": "const batt::Status &"
         },
         {
-          "name": "value",
+          "name": "",
           "type": "T &",
           "typePlain": "T &"
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1Channel_1a6838700549a912194539c342b4fed783",
+      "refid": "classbatt_1_1Channel_1a133cd9e9103c1cb981e3c6a519fc15fa",
       "static": true,
       "strong": false,
       "templateParams": [

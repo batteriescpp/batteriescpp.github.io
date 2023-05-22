@@ -121,60 +121,66 @@
     },
     {
       "abstract": false,
-      "anchor": "#define-batt-glog-support",
+      "anchor": "#define-batt-with-glog",
+      "brief": "Define this preprocessor symbol to enable optional support for Google Log (GLOG). ",
       "category": "defines",
       "const": false,
       "definition": "",
+      "details": "NOTE: when using Conan to install Batteries in a downstream project, this shouldn't be defined directly; instead add the following to the downstream `conanfile.py`:\n\n```python\n\ndef configure(self):\n    ...\n    self.options[\"batteries\"].with_glog = True\n```",
       "explicit": false,
-      "fullname": "BATT_GLOG_SUPPORT",
-      "hasDetails": false,
+      "fullname": "BATT_WITH_GLOG",
+      "hasDetails": true,
       "initializer": "0",
       "inline": false,
       "kind": "define",
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/config.hpp",
-        "bodyStart": 54,
-        "column": 10,
+        "bodyStart": 50,
+        "column": 9,
         "file": "batteries/config.hpp",
-        "line": 54
+        "line": 50
       },
-      "name": "BATT_GLOG_SUPPORT",
+      "name": "BATT_WITH_GLOG",
       "override": false,
-      "refid": "config_8hpp_1ac9bbaa08871f3104df24533c9648083f",
+      "refid": "config_8hpp_1a7550b42f96d0e2d7e3d60754011f6855",
       "static": false,
       "strong": false,
-      "title": "BATT_GLOG_SUPPORT",
-      "url": "/_autogen/Files/config_8hpp/#define-batt-glog-support",
+      "summary": "Define this preprocessor symbol to enable optional support for Google Log (GLOG). ",
+      "title": "BATT_WITH_GLOG",
+      "url": "/_autogen/Files/config_8hpp/#define-batt-with-glog",
       "visibility": "public"
     },
     {
       "abstract": false,
-      "anchor": "#define-batt-protobuf-support",
+      "anchor": "#define-batt-with-protobuf",
+      "brief": "Define this preprocessor symbol to enable optional support for Google Protocol Buffers (protobuf). ",
       "category": "defines",
       "const": false,
       "definition": "",
+      "details": "NOTE: when using Conan to install Batteries in a downstream project, this shouldn't be defined directly; instead add the following to the downstream `conanfile.py`:\n\n```python\n\ndef configure(self):\n    ...\n    self.options[\"batteries\"].with_protobuf = True\n```",
       "explicit": false,
-      "fullname": "BATT_PROTOBUF_SUPPORT",
-      "hasDetails": false,
+      "fullname": "BATT_WITH_PROTOBUF",
+      "hasDetails": true,
       "initializer": "0",
       "inline": false,
       "kind": "define",
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/config.hpp",
-        "bodyStart": 74,
-        "column": 10,
+        "bodyStart": 66,
+        "column": 9,
         "file": "batteries/config.hpp",
-        "line": 74
+        "line": 66
       },
-      "name": "BATT_PROTOBUF_SUPPORT",
+      "name": "BATT_WITH_PROTOBUF",
       "override": false,
-      "refid": "config_8hpp_1abd2ab8ecbd5a2053ee87c67acab5f9ec",
+      "refid": "config_8hpp_1ad18349f0843941e5a9605efc6ed9a858",
       "static": false,
       "strong": false,
-      "title": "BATT_PROTOBUF_SUPPORT",
-      "url": "/_autogen/Files/config_8hpp/#define-batt-protobuf-support",
+      "summary": "Define this preprocessor symbol to enable optional support for Google Protocol Buffers (protobuf). ",
+      "title": "BATT_WITH_PROTOBUF",
+      "url": "/_autogen/Files/config_8hpp/#define-batt-with-protobuf",
       "visibility": "public"
     },
     {
@@ -192,10 +198,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/config.hpp",
-        "bodyStart": 89,
+        "bodyStart": 81,
         "column": 9,
         "file": "batteries/config.hpp",
-        "line": 89
+        "line": 81
       },
       "name": "BATT_COMPILER_IS_GCC",
       "override": false,
@@ -220,10 +226,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/config.hpp",
-        "bodyStart": 90,
+        "bodyStart": 82,
         "column": 9,
         "file": "batteries/config.hpp",
-        "line": 90
+        "line": 82
       },
       "name": "BATT_IF_GCC",
       "override": false,
@@ -256,10 +262,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/config.hpp",
-        "bodyStart": 102,
+        "bodyStart": 94,
         "column": 9,
         "file": "batteries/config.hpp",
-        "line": 102
+        "line": 94
       },
       "name": "BATT_COMPILER_IS_CLANG",
       "override": false,
@@ -284,10 +290,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/config.hpp",
-        "bodyStart": 103,
+        "bodyStart": 95,
         "column": 9,
         "file": "batteries/config.hpp",
-        "line": 103
+        "line": 95
       },
       "name": "BATT_IF_CLANG",
       "override": false,
@@ -307,31 +313,34 @@
     },
     {
       "abstract": false,
-      "anchor": "#define-batt-asserts-enabled",
+      "anchor": "#define-batt-with-asserts",
+      "brief": "Enables BATT_ASSERTs explicitly (instead of inferring from -DNDEBUG) ",
       "category": "defines",
       "const": false,
       "definition": "",
+      "details": "NOTE: when using Conan to install Batteries in a downstream project, this shouldn't be defined directly; instead add the following to the downstream `conanfile.py`:\n\n```python\n\ndef configure(self):\n    ...\n    self.options[\"batteries\"].with_asserts = True\n```",
       "explicit": false,
-      "fullname": "BATT_ASSERTS_ENABLED",
-      "hasDetails": false,
+      "fullname": "BATT_WITH_ASSERTS",
+      "hasDetails": true,
       "initializer": "1",
       "inline": false,
       "kind": "define",
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/config.hpp",
-        "bodyStart": 125,
-        "column": 10,
+        "bodyStart": 115,
+        "column": 9,
         "file": "batteries/config.hpp",
-        "line": 125
+        "line": 115
       },
-      "name": "BATT_ASSERTS_ENABLED",
+      "name": "BATT_WITH_ASSERTS",
       "override": false,
-      "refid": "config_8hpp_1a2893061c242644aa6c78058a28733c09",
+      "refid": "config_8hpp_1a84b4d7e7bcc5ccde1285ca2f44601821",
       "static": false,
       "strong": false,
-      "title": "BATT_ASSERTS_ENABLED",
-      "url": "/_autogen/Files/config_8hpp/#define-batt-asserts-enabled",
+      "summary": "Enables BATT_ASSERTs explicitly (instead of inferring from -DNDEBUG) ",
+      "title": "BATT_WITH_ASSERTS",
+      "url": "/_autogen/Files/config_8hpp/#define-batt-with-asserts",
       "visibility": "public"
     }
   ],
@@ -403,7 +412,7 @@
       "visibility": "public"
     }
   ],
-  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_CONFIG_HPP\n#define BATTERIES_CONFIG_HPP\n\n//----- --- -- -  -  -   -\n// IMPORTANT: This is the only batteries header that is allowed to be included from config.hpp!\n//\n#include <batteries/stacktrace.hpp>\n//\n//----- --- -- -  -  -   -\n\n#include <bitset>\n#include <exception>\n#include <iostream>\n\n#if __cplusplus < 201703L\n#error Batteries requires C++17 or later!\n#endif\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n#ifndef BATT_HEADER_ONLY\n#define BATT_HEADER_ONLY 1\n#endif\n\n#if BATT_HEADER_ONLY\n#define BATT_INLINE_IMPL inline\n#else\n#define BATT_INLINE_IMPL\n#endif\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n#define BATT_SEQ_SPECIALIZE_ALGORITHMS 0\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// Define this preprocessor symbol to enable optional support for Google Log (GLOG).\n//\n//  NOTE: when using Conan to install Batteries in a downstream project, this shouldn't be defined directly;\n//  instead add the following to the downstream `conanfile.py`:\n//\n//  ```python\n//  def configure(self):\n//      ...\n//      self.options[\"batteries\"].glog_support = True\n//  ```\n//\n//#define BATT_GLOG_AVAILABLE\n\n#ifdef BATT_GLOG_AVAILABLE\n#define BATT_GLOG_SUPPORT 1\n#else\n#define BATT_GLOG_SUPPORT 0\n#endif\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// Define this preprocessor symbol to enable optional support for Google Protocol Buffers (protobuf).\n//\n//  NOTE: when using Conan to install Batteries in a downstream project, this shouldn't be defined directly;\n//  instead add the following to the downstream `conanfile.py`:\n//\n//  ```python\n//  def configure(self):\n//      ...\n//      self.options[\"batteries\"].protobuf_support = True\n//  ```\n//\n//#define BATT_PROTOBUF_AVAILABLE\n\n#ifdef BATT_PROTOBUF_AVAILABLE\n#define BATT_PROTOBUF_SUPPORT 1\n#else\n#define BATT_PROTOBUF_SUPPORT 0\n#endif\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n#if defined(__GNUC__) && !defined(__clang__)\n\n#define BATT_COMPILER_IS_GCC 1\n#define BATT_IF_GCC(expr) expr\n\n// This causes a lot of false positives, so disable.\n//\n#pragma GCC diagnostic ignored \"-Wmaybe-uninitialized\"\n\n#else\n\n#define BATT_COMPILER_IS_GCC 0\n#define BATT_IF_GCC(expr)\n\n#endif\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n#if defined(__clang__)\n\n#define BATT_COMPILER_IS_CLANG 1\n#define BATT_IF_CLANG(expr) expr\n\n#else\n\n#define BATT_COMPILER_IS_CLANG 0\n#define BATT_IF_CLANG(expr)\n\n#endif\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// Enables BATT_ASSERTs explicitly (instead of inferring from -DNDEBUG)\n//\n//  NOTE: when using Conan to install Batteries in a downstream project, this shouldn't be defined directly;\n//  instead add the following to the downstream `conanfile.py`:\n//\n//  ```python\n//  def configure(self):\n//      ...\n//      self.options[\"batteries\"].asserts_enabled = True\n//  ```\n\n//#define BATT_ASSERTS_ENABLED 1\n\n#if !defined(BATT_ASSERTS_ENABLED)\n#if defined(NDEBUG)\n#define BATT_ASSERTS_ENABLED 0\n#else\n#define BATT_ASSERTS_ENABLED 1\n#endif\n#endif\n\n//#=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++\n\nnamespace batt {\n\nnamespace features {\n\nenum Feature {\n    kHeaderOnly = 0,\n    kSeqSpecializeAlgorithms,\n    kGlogSupport,\n    kProtobufSupport,\n    kCompilerGCC,\n    kCompilerClang,\n    kAssertsEnabled,\n\n    // Not a feature - used to check that we have enough bits in the mask int type.\n    //\n    kNumFeatures,\n};\n\nusing mask_type = unsigned long long;\n\n// Make sure that the int type is big enough.\n//\nstatic_assert(features::kNumFeatures <= (sizeof(mask_type) * 8));\n\ninline constexpr mask_type get_feature_mask()\n{\n    constexpr mask_type enabled = 1;\n\n    mask_type mask = 0;\n\n    if (BATT_HEADER_ONLY) {\n        mask |= (enabled << features::kHeaderOnly);\n    }\n    if (BATT_SEQ_SPECIALIZE_ALGORITHMS) {\n        mask |= (enabled << features::kSeqSpecializeAlgorithms);\n    }\n    if (BATT_GLOG_SUPPORT) {\n        mask |= (enabled << features::kGlogSupport);\n    }\n    if (BATT_PROTOBUF_SUPPORT) {\n        mask |= (enabled << features::kProtobufSupport);\n    }\n    if (BATT_COMPILER_IS_GCC) {\n        mask |= (enabled << features::kCompilerGCC);\n    }\n    if (BATT_COMPILER_IS_CLANG) {\n        mask |= (enabled << features::kCompilerClang);\n    }\n    if (BATT_ASSERTS_ENABLED) {\n        mask |= (enabled << features::kAssertsEnabled);\n    }\n\n    return mask;\n}\n\nstruct State {\n    boost::stacktrace::stacktrace init_trace;\n    const mask_type mask = get_feature_mask();\n};\n\ninline const State& get_global_state()\n{\n    static const State state;\n    return state;\n}\n\ninline bool check_local_feature_state()\n{\n    const State& global_state = features::get_global_state();\n\n    if (get_feature_mask() != global_state.mask) {\n        std::cerr << \"FATAL: feature mask does not match!\\n\\nfile:\" << __FILE__\n                  << \", mask=\" << std::bitset<features::kNumFeatures>{features::get_feature_mask()}\n                  << \"\\n\\nglobal mask=\" << std::bitset<features::kNumFeatures>{global_state.mask}\n                  << \"\\n\\nglobal state initialized at: \\n\\n\"\n                  << global_state.init_trace << \"\\n\"\n                  << std::endl;\n\n        std::terminate();\n    }\n    return true;\n}\n\n}  // namespace features\n\nnamespace {\n\n[[maybe_unused]] const bool feature_mask_check_for_module = features::check_local_feature_state();\n\n}  // namespace\n\n}  // namespace batt\n\n#endif  // BATTERIES_CONFIG_HPP",
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_CONFIG_HPP\n#define BATTERIES_CONFIG_HPP\n\n//----- --- -- -  -  -   -\n// IMPORTANT: This is the only batteries header that is allowed to be included from config.hpp!\n//\n#include <batteries/stacktrace.hpp>\n//\n//----- --- -- -  -  -   -\n\n#include <bitset>\n#include <exception>\n#include <iostream>\n\n#if __cplusplus < 201703L\n#error Batteries requires C++17 or later!\n#endif\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n#ifndef BATT_HEADER_ONLY\n#define BATT_HEADER_ONLY 1\n#endif\n\n#if BATT_HEADER_ONLY\n#define BATT_INLINE_IMPL inline\n#else\n#define BATT_INLINE_IMPL\n#endif\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n#define BATT_SEQ_SPECIALIZE_ALGORITHMS 0\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n#ifndef BATT_WITH_GLOG\n#define BATT_WITH_GLOG 0\n#endif  // BATT_WITH_GLOG\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n#ifndef BATT_WITH_PROTOBUF\n#define BATT_WITH_PROTOBUF 0\n#endif  // BATT_WITH_PROTOBUF\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n#if defined(__GNUC__) && !defined(__clang__)\n\n#define BATT_COMPILER_IS_GCC 1\n#define BATT_IF_GCC(expr) expr\n\n// This causes a lot of false positives, so disable.\n//\n#pragma GCC diagnostic ignored \"-Wmaybe-uninitialized\"\n\n#else\n\n#define BATT_COMPILER_IS_GCC 0\n#define BATT_IF_GCC(expr)\n\n#endif\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n#if defined(__clang__)\n\n#define BATT_COMPILER_IS_CLANG 1\n#define BATT_IF_CLANG(expr) expr\n\n#else\n\n#define BATT_COMPILER_IS_CLANG 0\n#define BATT_IF_CLANG(expr)\n\n#endif\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n#ifndef BATT_WITH_ASSERTS\n#ifdef NDEBUG\n#define BATT_WITH_ASSERTS 0\n#else  // NDEBUG\n#define BATT_WITH_ASSERTS 1\n#endif  // NDEBUG\n#endif  // BATT_WITH_ASSERTS\n\n//#=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++\n\nnamespace batt {\n\nnamespace features {\n\nenum Feature {\n    kHeaderOnly = 0,\n    kSeqSpecializeAlgorithms,\n    kWithGlog,\n    kWithProtobuf,\n    kCompilerGCC,\n    kCompilerClang,\n    kWithAsserts,\n\n    // Not a feature - used to check that we have enough bits in the mask int type.\n    //\n    kNumFeatures,\n};\n\nusing mask_type = unsigned long long;\n\n// Make sure that the int type is big enough.\n//\nstatic_assert(features::kNumFeatures <= (sizeof(mask_type) * 8));\n\ninline constexpr mask_type get_feature_mask()\n{\n    constexpr mask_type enabled = 1;\n\n    mask_type mask = 0;\n\n    if (BATT_HEADER_ONLY) {\n        mask |= (enabled << features::kHeaderOnly);\n    }\n    if (BATT_SEQ_SPECIALIZE_ALGORITHMS) {\n        mask |= (enabled << features::kSeqSpecializeAlgorithms);\n    }\n    if (BATT_WITH_GLOG) {\n        mask |= (enabled << features::kWithGlog);\n    }\n    if (BATT_WITH_PROTOBUF) {\n        mask |= (enabled << features::kWithProtobuf);\n    }\n    if (BATT_COMPILER_IS_GCC) {\n        mask |= (enabled << features::kCompilerGCC);\n    }\n    if (BATT_COMPILER_IS_CLANG) {\n        mask |= (enabled << features::kCompilerClang);\n    }\n    if (BATT_WITH_ASSERTS) {\n        mask |= (enabled << features::kWithAsserts);\n    }\n\n    return mask;\n}\n\nstruct State {\n    boost::stacktrace::stacktrace init_trace;\n    const mask_type mask = get_feature_mask();\n};\n\ninline const State& get_global_state()\n{\n    static const State state;\n    return state;\n}\n\ninline bool check_local_feature_state()\n{\n    const State& global_state = features::get_global_state();\n\n    if (get_feature_mask() != global_state.mask) {\n        std::cerr << \"FATAL: feature mask does not match!\\n\\nfile:\" << __FILE__\n                  << \", mask=\" << std::bitset<features::kNumFeatures>{features::get_feature_mask()}\n                  << \"\\n\\nglobal mask=\" << std::bitset<features::kNumFeatures>{global_state.mask}\n                  << \"\\n\\nglobal state initialized at: \\n\\n\"\n                  << global_state.init_trace << \"\\n\"\n                  << std::endl;\n\n        std::terminate();\n    }\n    return true;\n}\n\n}  // namespace features\n\nnamespace {\n\n[[maybe_unused]] const bool feature_mask_check_for_module = features::check_local_feature_state();\n\n}  // namespace\n\n}  // namespace batt\n\n#endif  // BATTERIES_CONFIG_HPP",
   "publicClasses": [
     {
       "anchor": "",

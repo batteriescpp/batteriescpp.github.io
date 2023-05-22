@@ -14,17 +14,27 @@
   "kind": "struct",
   "language": "cpp",
   "location": {
-    "bodyEnd": 150,
+    "bodyEnd": 172,
     "bodyFile": "batteries/async/mutex.hpp",
-    "bodyStart": 149,
+    "bodyStart": 171,
     "column": 5,
     "file": "batteries/async/mutex.hpp",
-    "line": 149
+    "line": 171
   },
   "name": "batt::Mutex::ThreadSafeBaseIsNotSupportedByType",
   "override": false,
   "parent": {
     "anchor": "",
+    "baseClasses": [
+      {
+        "external": false,
+        "name": "batt::MutexBase",
+        "refid": "classbatt_1_1MutexBase",
+        "url": "/_autogen/Classes/classbatt_1_1MutexBase/",
+        "virtual": "non-virtual",
+        "visibility": "public"
+      }
+    ],
     "brief": "Provides mutually-exclusive access to an instance of type `T`. ",
     "category": "classes",
     "fullname": "batt::Mutex",
@@ -52,6 +62,16 @@
     },
     {
       "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::MutexBase",
+          "refid": "classbatt_1_1MutexBase",
+          "url": "/_autogen/Classes/classbatt_1_1MutexBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "brief": "Provides mutually-exclusive access to an instance of type `T`. ",
       "category": "classes",
       "fullname": "batt::Mutex",

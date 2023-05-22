@@ -101,71 +101,7 @@
       "visibility": "public"
     }
   ],
-  "privateClasses": [
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::AbstractValueImpl< BufferSource::AbstractBufferSource, BufferSource::BufferSourceImpl, T >",
-          "refid": "classbatt_1_1AbstractValueImpl",
-          "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        },
-        {
-          "external": true,
-          "name": "AbstractType",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "fullname": "batt::BufferSource::BufferSourceImpl",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::BufferSource::BufferSourceImpl",
-      "refid": "classbatt_1_1BufferSource_1_1BufferSourceImpl",
-      "title": "batt::BufferSource::BufferSourceImpl",
-      "url": "/_autogen/Classes/classbatt_1_1BufferSource_1_1BufferSourceImpl/",
-      "visibility": "private"
-    }
-  ],
-  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_BUFFER_SOURCE_IMPL_HPP\n#define BATTERIES_ASYNC_BUFFER_SOURCE_IMPL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/buffer_source.hpp>\n#include <batteries/utility.hpp>\n\nnamespace batt {\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\nclass BufferSource::AbstractBufferSource : public AbstractValue<AbstractBufferSource>\n{\n   public:\n    virtual usize size() const = 0;\n\n    virtual StatusOr<SmallVec<ConstBuffer, 2>> fetch_at_least(i64 min_count) = 0;\n\n    virtual void consume(i64 count) = 0;\n\n    virtual void close_for_read() = 0;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T>\nclass BufferSource::BufferSourceImpl\n    : public AbstractValueImpl<BufferSource::AbstractBufferSource, BufferSource::BufferSourceImpl, T>\n{\n   public:\n    using AbstractValueImpl<BufferSource::AbstractBufferSource, BufferSource::BufferSourceImpl,\n                            T>::AbstractValueImpl;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    // AbstractBufferSource interface\n\n    usize size() const override\n    {\n        return unwrap_ref(this->obj_).size();\n    }\n\n    StatusOr<SmallVec<ConstBuffer, 2>> fetch_at_least(i64 min_count) override\n    {\n        return unwrap_ref(this->obj_).fetch_at_least(min_count);\n    }\n\n    void consume(i64 count) override\n    {\n        unwrap_ref(this->obj_).consume(count);\n    }\n\n    void close_for_read() override\n    {\n        unwrap_ref(this->obj_).close_for_read();\n    }\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T, typename /*= EnableIfNoShadow<BufferSource, T&&>*/,\n          typename /*= EnableIfBufferSource<UnwrapRefType<T>>*/,\n          typename /*= std::enable_if_t<std::is_same_v<std::decay_t<T>, T>>*/>\nBATT_INLINE_IMPL /*implicit*/ BufferSource::BufferSource(T&& obj) noexcept\n    : impl_{StaticType<T>{}, BATT_FORWARD(obj)}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL BufferSource::operator bool() const\n{\n    return bool{this->impl_};\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL usize BufferSource::size() const\n{\n    return this->impl_->size();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL StatusOr<SmallVec<ConstBuffer, 2>> BufferSource::fetch_at_least(i64 min_count)\n{\n    return this->impl_->fetch_at_least(min_count);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void BufferSource::consume(i64 count)\n{\n    return this->impl_->consume(count);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void BufferSource::close_for_read()\n{\n    return this->impl_->close_for_read();\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_BUFFER_SOURCE_IMPL_HPP",
-  "publicClasses": [
-    {
-      "anchor": "",
-      "baseClasses": [
-        {
-          "external": false,
-          "name": "batt::AbstractValue< AbstractBufferSource >",
-          "refid": "classbatt_1_1AbstractValue",
-          "url": "/_autogen/Classes/classbatt_1_1AbstractValue/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "category": "classes",
-      "derivedClasses": [
-        {
-          "external": false,
-          "name": "batt::AbstractValueImpl< BufferSource::AbstractBufferSource, BufferSource::BufferSourceImpl, T >",
-          "refid": "classbatt_1_1AbstractValueImpl",
-          "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
-          "virtual": "non-virtual",
-          "visibility": "public"
-        }
-      ],
-      "fullname": "batt::BufferSource::AbstractBufferSource",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::BufferSource::AbstractBufferSource",
-      "refid": "classbatt_1_1BufferSource_1_1AbstractBufferSource",
-      "title": "batt::BufferSource::AbstractBufferSource",
-      "url": "/_autogen/Classes/classbatt_1_1BufferSource_1_1AbstractBufferSource/",
-      "visibility": "public"
-    }
-  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_BUFFER_SOURCE_IMPL_HPP\n#define BATTERIES_ASYNC_BUFFER_SOURCE_IMPL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/buffer_source.hpp>\n#include <batteries/utility.hpp>\n\nnamespace batt {\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL BufferSource::operator bool() const\n{\n    return bool{this->impl_};\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL usize BufferSource::size() const\n{\n    return this->impl_->size();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL StatusOr<SmallVec<ConstBuffer, 2>> BufferSource::fetch_at_least(i64 min_count)\n{\n    return this->impl_->fetch_at_least(min_count);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void BufferSource::consume(i64 count)\n{\n    return this->impl_->consume(count);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void BufferSource::close_for_read()\n{\n    return this->impl_->close_for_read();\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_BUFFER_SOURCE_IMPL_HPP",
   "refid": "buffer__source__impl_8hpp",
   "static": false,
   "strong": false,

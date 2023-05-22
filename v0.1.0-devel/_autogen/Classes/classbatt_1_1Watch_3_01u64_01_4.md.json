@@ -1095,19 +1095,16 @@
           "category": "functions",
           "const": false,
           "default": false,
-          "definition": "StatusOr< T > batt::WatchAtomic< T >::await_modify",
+          "definition": "StatusOr<T> batt::WatchAtomic< T >::await_modify",
           "deleted": false,
           "details": "Return the old (pre-modify) value on which `fn` finally succeeded.\n\n`fn` should have the signature (T) -> Optional<T>. Returning None indicates `fn` should not be called again until a new value is available.\n\n`fn`**MUST** be safe to call multiple times within a single call to `await_modify`. This is because `await_modify` may be implemented via an atomic compare-and-swap loop.",
           "explicit": false,
           "fullname": "batt::WatchAtomic::await_modify",
           "hasDetails": true,
-          "inline": true,
+          "inline": false,
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 65,
-            "bodyFile": "batteries/async/watch_impl.hpp",
-            "bodyStart": 35,
             "column": 14,
             "file": "batteries/async/watch_decl.hpp",
             "line": 551
@@ -1122,7 +1119,7 @@
             }
           ],
           "pureVirtual": false,
-          "refid": "classbatt_1_1WatchAtomic_1a163aa3c45047cff9e5d16c647bc6f34e",
+          "refid": "classbatt_1_1WatchAtomic_1a916ca09d46b8b39afa36cce94059e905",
           "returns": [
             "\n\n* If successful, the old (pre-modify) value on which `fn` finally succeeded\n* `batt::StatusCode::kClosed` if the [Watch](/_autogen/Classes/classbatt_1_1Watch/) was closed before `fn` was successful "
           ],
@@ -1269,18 +1266,15 @@
           "category": "functions",
           "const": true,
           "default": false,
-          "definition": "StatusOr< T > batt::WatchAtomic< T >::await_not_equal",
+          "definition": "StatusOr<T> batt::WatchAtomic< T >::await_not_equal",
           "deleted": false,
           "explicit": false,
           "fullname": "batt::WatchAtomic::await_not_equal",
           "hasDetails": true,
-          "inline": true,
+          "inline": false,
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 81,
-            "bodyFile": "batteries/async/watch_impl.hpp",
-            "bodyStart": 70,
             "column": 14,
             "file": "batteries/async/watch_decl.hpp",
             "line": 646
@@ -1295,7 +1289,7 @@
             }
           ],
           "pureVirtual": false,
-          "refid": "classbatt_1_1WatchAtomic_1ac9d1d852078f5dd0f238a87c55d23382",
+          "refid": "classbatt_1_1WatchAtomic_1a80ac3563bfd65b3bda95f88244e3e1d7",
           "returns": [
             "On success, the current value of the [Watch](/_autogen/Classes/classbatt_1_1Watch/), which is guaranteed to _not_ equal `last_seen`, else `batt::StatusCode::kClosed` if the [Watch](/_autogen/Classes/classbatt_1_1Watch/) was closed before a satisfactory value was observed "
           ],

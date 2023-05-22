@@ -719,9 +719,9 @@
 <a id="__codelineno-1-7" name="__codelineno-1-7"></a>
 <a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/config.hpp&gt;</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="cp">#ifndef BATT_PROTOBUF_AVAILABLE</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="cp">#error This header may only be included if BATT_PROTOBUF_AVAILABLE is defined</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="cp">#else</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="cp">#if !BATT_WITH_PROTOBUF</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="cp">#error This header may only be included if BATT_WITH_PROTOBUF == 1</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="cp">#else  </span><span class="c1">// BATT_WITH_PROTOBUF</span>
 <a id="__codelineno-1-13" name="__codelineno-1-13"></a>
 <a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;google/protobuf/io/zero_copy_stream.h&gt;</span>
 <a id="__codelineno-1-15" name="__codelineno-1-15"></a>
@@ -841,12 +841,12 @@
 <a id="__codelineno-1-129" name="__codelineno-1-129"></a>
 <a id="__codelineno-1-130" name="__codelineno-1-130"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
 <a id="__codelineno-1-131" name="__codelineno-1-131"></a>
-<a id="__codelineno-1-132" name="__codelineno-1-132"></a><span class="cp">#endif  </span><span class="c1">// BATT_PROTOBUF_AVAILABLE</span>
+<a id="__codelineno-1-132" name="__codelineno-1-132"></a><span class="cp">#endif  </span><span class="c1">// BATT_WITH_PROTOBUF</span>
 <a id="__codelineno-1-133" name="__codelineno-1-133"></a>
 <a id="__codelineno-1-134" name="__codelineno-1-134"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_PROTOBUF_STREAM_BUFFER_OUTPUT_STREAM_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 19 May 2023 at 17:25:41 UTC</p>
+<p>Updated on 22 May 2023 at 14:54:05 UTC</p>
 
 
 

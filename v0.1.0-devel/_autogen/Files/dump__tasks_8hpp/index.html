@@ -857,7 +857,7 @@
 <a id="__codelineno-1-91" name="__codelineno-1-91"></a><span class="w">        </span><span class="p">}</span>
 <a id="__codelineno-1-92" name="__codelineno-1-92"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-1-93" name="__codelineno-1-93"></a>
-<a id="__codelineno-1-94" name="__codelineno-1-94"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">handle_signal</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">system</span><span class="o">::</span><span class="n">error_code</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ec</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">signal_n</span><span class="p">)</span>
+<a id="__codelineno-1-94" name="__codelineno-1-94"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">handle_signal</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">system</span><span class="o">::</span><span class="n">error_code</span><span class="o">&amp;</span><span class="w"> </span><span class="cm">/*ec*/</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="cm">/*signal_n*/</span><span class="p">)</span>
 <a id="__codelineno-1-95" name="__codelineno-1-95"></a><span class="w">    </span><span class="p">{</span>
 <a id="__codelineno-1-96" name="__codelineno-1-96"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">sig_info_</span><span class="o">-&gt;</span><span class="n">async_wait</span><span class="p">([</span><span class="k">this</span><span class="p">](</span><span class="k">const</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">ErrorCode</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ec</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-97" name="__codelineno-1-97"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ec</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">halted_</span><span class="p">.</span><span class="n">load</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
@@ -909,7 +909,7 @@
 <a id="__codelineno-1-143" name="__codelineno-1-143"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_DUMP_TASKS_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 19 May 2023 at 17:25:41 UTC</p>
+<p>Updated on 22 May 2023 at 14:54:05 UTC</p>
 
 
 

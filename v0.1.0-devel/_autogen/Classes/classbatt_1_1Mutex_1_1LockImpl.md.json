@@ -14,17 +14,27 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 135,
+    "bodyEnd": 157,
     "bodyFile": "batteries/async/mutex.hpp",
-    "bodyStart": 41,
+    "bodyStart": 63,
     "column": 5,
     "file": "batteries/async/mutex.hpp",
-    "line": 40
+    "line": 62
   },
   "name": "batt::Mutex::LockImpl",
   "override": false,
   "parent": {
     "anchor": "",
+    "baseClasses": [
+      {
+        "external": false,
+        "name": "batt::MutexBase",
+        "refid": "classbatt_1_1MutexBase",
+        "url": "/_autogen/Classes/classbatt_1_1MutexBase/",
+        "virtual": "non-virtual",
+        "visibility": "public"
+      }
+    ],
     "brief": "Provides mutually-exclusive access to an instance of type `T`. ",
     "category": "classes",
     "fullname": "batt::Mutex",
@@ -52,6 +62,16 @@
     },
     {
       "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::MutexBase",
+          "refid": "classbatt_1_1MutexBase",
+          "url": "/_autogen/Classes/classbatt_1_1MutexBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "brief": "Provides mutually-exclusive access to an instance of type `T`. ",
       "category": "classes",
       "fullname": "batt::Mutex",
@@ -80,10 +100,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 130,
+        "bodyStart": 152,
         "column": 16,
         "file": "batteries/async/mutex.hpp",
-        "line": 130
+        "line": 152
       },
       "name": "m_",
       "override": false,
@@ -110,10 +130,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 134,
+        "bodyStart": 156,
         "column": 28,
         "file": "batteries/async/mutex.hpp",
-        "line": 134
+        "line": 156
       },
       "name": "val_",
       "override": false,
@@ -145,12 +165,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 47,
+        "bodyEnd": 69,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 45,
+        "bodyStart": 67,
         "column": 18,
         "file": "batteries/async/mutex.hpp",
-        "line": 45
+        "line": 67
       },
       "name": "LockImpl",
       "override": false,
@@ -190,7 +210,7 @@
       "location": {
         "column": 9,
         "file": "batteries/async/mutex.hpp",
-        "line": 51
+        "line": 73
       },
       "name": "LockImpl",
       "override": false,
@@ -230,7 +250,7 @@
       "location": {
         "column": 18,
         "file": "batteries/async/mutex.hpp",
-        "line": 55
+        "line": 77
       },
       "name": "operator=",
       "override": false,
@@ -272,7 +292,7 @@
       "location": {
         "column": 9,
         "file": "batteries/async/mutex.hpp",
-        "line": 59
+        "line": 81
       },
       "name": "LockImpl",
       "override": false,
@@ -312,7 +332,7 @@
       "location": {
         "column": 18,
         "file": "batteries/async/mutex.hpp",
-        "line": 63
+        "line": 85
       },
       "name": "operator=",
       "override": false,
@@ -352,12 +372,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 70,
+        "bodyEnd": 92,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 67,
+        "bodyStart": 89,
         "column": 9,
         "file": "batteries/async/mutex.hpp",
-        "line": 67
+        "line": 89
       },
       "name": "~LockImpl",
       "override": false,
@@ -389,12 +409,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 78,
+        "bodyEnd": 100,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 75,
+        "bodyStart": 97,
         "column": 14,
         "file": "batteries/async/mutex.hpp",
-        "line": 75
+        "line": 97
       },
       "name": "is_held",
       "override": false,
@@ -428,12 +448,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 85,
+        "bodyEnd": 107,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 82,
+        "bodyStart": 104,
         "column": 18,
         "file": "batteries/async/mutex.hpp",
-        "line": 82
+        "line": 104
       },
       "name": "operator bool",
       "override": false,
@@ -466,12 +486,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 92,
+        "bodyEnd": 114,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 89,
+        "bodyStart": 111,
         "column": 11,
         "file": "batteries/async/mutex.hpp",
-        "line": 89
+        "line": 111
       },
       "name": "operator*",
       "override": false,
@@ -505,12 +525,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 99,
+        "bodyEnd": 121,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 96,
+        "bodyStart": 118,
         "column": 11,
         "file": "batteries/async/mutex.hpp",
-        "line": 96
+        "line": 118
       },
       "name": "get",
       "override": false,
@@ -544,12 +564,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 106,
+        "bodyEnd": 128,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 103,
+        "bodyStart": 125,
         "column": 11,
         "file": "batteries/async/mutex.hpp",
-        "line": 103
+        "line": 125
       },
       "name": "value",
       "override": false,
@@ -583,12 +603,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 113,
+        "bodyEnd": 135,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 110,
+        "bodyStart": 132,
         "column": 11,
         "file": "batteries/async/mutex.hpp",
-        "line": 110
+        "line": 132
       },
       "name": "operator->",
       "override": false,
@@ -622,12 +642,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 125,
+        "bodyEnd": 147,
         "bodyFile": "batteries/async/mutex.hpp",
-        "bodyStart": 117,
+        "bodyStart": 139,
         "column": 14,
         "file": "batteries/async/mutex.hpp",
-        "line": 117
+        "line": 139
       },
       "name": "release",
       "override": false,

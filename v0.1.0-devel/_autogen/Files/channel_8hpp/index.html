@@ -908,7 +908,7 @@
 <a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">                                          </span><span class="n">std</span><span class="o">::</span><span class="n">is_invocable_v</span><span class="o">&lt;</span><span class="n">Handler</span><span class="o">&amp;&amp;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Status</span><span class="o">&amp;&gt;&gt;</span><span class="p">,</span>
 <a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="w">              </span><span class="k">typename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">void</span><span class="o">&gt;</span>
 <a id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">invoke_write_handler</span><span class="p">(</span><span class="n">Handler</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">handler</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">Status</span><span class="o">&amp;</span><span class="w"> </span><span class="n">status</span><span class="p">,</span>
-<a id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="w">                                     </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">handler</span><span class="p">)(</span><span class="n">status</span><span class="p">)))</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="w">                                     </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="cm">/*value*/</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">(</span><span class="k">noexcept</span><span class="p">(</span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">handler</span><span class="p">)(</span><span class="n">status</span><span class="p">)))</span>
 <a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="w">    </span><span class="p">{</span>
 <a id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="w">        </span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">handler</span><span class="p">)(</span><span class="n">status</span><span class="p">);</span>
 <a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="w">    </span><span class="p">}</span>
@@ -1130,7 +1130,7 @@
 <a id="__codelineno-1-255" name="__codelineno-1-255"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_CHANNEL_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 19 May 2023 at 17:25:41 UTC</p>
+<p>Updated on 22 May 2023 at 14:54:05 UTC</p>
 
 
 

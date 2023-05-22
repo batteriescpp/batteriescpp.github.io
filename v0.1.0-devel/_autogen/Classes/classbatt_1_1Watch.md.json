@@ -669,18 +669,15 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "StatusOr< T > batt::Watch< T >::await_not_equal",
+      "definition": "StatusOr<T> batt::Watch< T >::await_not_equal",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::Watch::await_not_equal",
       "hasDetails": true,
-      "inline": true,
+      "inline": false,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 26,
-        "bodyFile": "batteries/async/watch_impl.hpp",
-        "bodyStart": 21,
         "column": 14,
         "file": "batteries/async/watch_decl.hpp",
         "line": 200
@@ -695,7 +692,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1Watch_1a22e6c018bb6cf01506c3eae2b2a68db5",
+      "refid": "classbatt_1_1Watch_1ad27b7f98e157965956e04151aa44b330",
       "returns": [
         "On success, the current value of the [Watch](/_autogen/Classes/classbatt_1_1Watch/), which is guaranteed to _not_ equal `last_seen`, else `batt::StatusCode::kClosed` if the [Watch](/_autogen/Classes/classbatt_1_1Watch/) was closed before a satisfactory value was observed "
       ],

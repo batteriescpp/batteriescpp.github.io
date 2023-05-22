@@ -22,10 +22,10 @@
           "language": "cpp",
           "location": {
             "bodyFile": "batteries/status.hpp",
-            "bodyStart": 285,
+            "bodyStart": 230,
             "column": 5,
             "file": "batteries/status.hpp",
-            "line": 285
+            "line": 230
           },
           "name": "detail::StatusBase",
           "override": false,
@@ -65,10 +65,10 @@
           "language": "cpp",
           "location": {
             "bodyFile": "batteries/status.hpp",
-            "bodyStart": 287,
+            "bodyStart": 232,
             "column": 28,
             "file": "batteries/status.hpp",
-            "line": 287
+            "line": 232
           },
           "name": "kMaxGroupCount",
           "override": false,
@@ -96,10 +96,10 @@
           "language": "cpp",
           "location": {
             "bodyFile": "batteries/status.hpp",
-            "bodyStart": 288,
+            "bodyStart": 233,
             "column": 26,
             "file": "batteries/status.hpp",
-            "line": 288
+            "line": 233
           },
           "name": "kMaxCodeNumericRange",
           "override": false,
@@ -127,10 +127,10 @@
           "language": "cpp",
           "location": {
             "bodyFile": "batteries/status.hpp",
-            "bodyStart": 289,
+            "bodyStart": 234,
             "column": 26,
             "file": "batteries/status.hpp",
-            "line": 289
+            "line": 234
           },
           "name": "kLocalMask",
           "override": false,
@@ -158,10 +158,10 @@
           "language": "cpp",
           "location": {
             "bodyFile": "batteries/status.hpp",
-            "bodyStart": 290,
+            "bodyStart": 235,
             "column": 26,
             "file": "batteries/status.hpp",
-            "line": 290
+            "line": 235
           },
           "name": "kGroupMask",
           "override": false,
@@ -188,10 +188,10 @@
           "language": "cpp",
           "location": {
             "bodyFile": "batteries/status.hpp",
-            "bodyStart": 337,
+            "bodyStart": 261,
             "column": 16,
             "file": "batteries/status.hpp",
-            "line": 337
+            "line": 261
           },
           "name": "value_",
           "override": false,
@@ -213,7 +213,7 @@
           "category": "functions",
           "const": false,
           "default": false,
-          "definition": "static usize batt::Status::next_group_index",
+          "definition": "usize batt::Status::next_group_index",
           "deleted": false,
           "explicit": false,
           "fullname": "batt::Status::next_group_index",
@@ -222,18 +222,18 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 300,
-            "bodyFile": "batteries/status.hpp",
-            "bodyStart": 294,
+            "bodyEnd": 137,
+            "bodyFile": "batteries/status_impl.hpp",
+            "bodyStart": 131,
             "column": 18,
             "file": "batteries/status.hpp",
-            "line": 294
+            "line": 239
           },
           "name": "next_group_index",
           "override": false,
           "params": [],
           "pureVirtual": false,
-          "refid": "classbatt_1_1Status_1a4b23b08ff9feaa0749ccf715828ed8be",
+          "refid": "classbatt_1_1Status_1a307acbd0eb524d7399b4c2eb590949c5",
           "static": true,
           "strong": false,
           "title": "next_group_index",
@@ -250,7 +250,7 @@
           "category": "functions",
           "const": false,
           "default": false,
-          "definition": "static std::array<CodeGroup*, kMaxGroupCount>& batt::Status::registered_groups",
+          "definition": "std::array< Status::CodeGroup *, Status::kMaxGroupCount > & batt::Status::registered_groups",
           "deleted": false,
           "explicit": false,
           "fullname": "batt::Status::registered_groups",
@@ -259,18 +259,18 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 311,
-            "bodyFile": "batteries/status.hpp",
-            "bodyStart": 302,
+            "bodyEnd": 151,
+            "bodyFile": "batteries/status_impl.hpp",
+            "bodyStart": 142,
             "column": 23,
             "file": "batteries/status.hpp",
-            "line": 302
+            "line": 241
           },
           "name": "registered_groups",
           "override": false,
           "params": [],
           "pureVirtual": false,
-          "refid": "classbatt_1_1Status_1a5ef62cd140d3119a85795a9aaec225bd",
+          "refid": "classbatt_1_1Status_1a845bc0679e9e7ce7a3b975cb70af1a21",
           "static": true,
           "strong": false,
           "title": "registered_groups",
@@ -296,12 +296,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 318,
+            "bodyEnd": 248,
             "bodyFile": "batteries/status.hpp",
-            "bodyStart": 314,
+            "bodyStart": 244,
             "column": 22,
             "file": "batteries/status.hpp",
-            "line": 314
+            "line": 244
           },
           "name": "code_group_for_type_internal",
           "override": false,
@@ -331,7 +331,7 @@
           "category": "functions",
           "const": false,
           "default": false,
-          "definition": "static usize batt::Status::get_index_of_group",
+          "definition": "usize batt::Status::get_index_of_group",
           "deleted": false,
           "explicit": false,
           "fullname": "batt::Status::get_index_of_group",
@@ -340,12 +340,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 323,
-            "bodyFile": "batteries/status.hpp",
-            "bodyStart": 320,
+            "bodyEnd": 158,
+            "bodyFile": "batteries/status_impl.hpp",
+            "bodyStart": 155,
             "column": 18,
             "file": "batteries/status.hpp",
-            "line": 320
+            "line": 250
           },
           "name": "get_index_of_group",
           "override": false,
@@ -357,7 +357,7 @@
             }
           ],
           "pureVirtual": false,
-          "refid": "classbatt_1_1Status_1a7fdbeaaf34a1ec5faa91392f9ee336bb",
+          "refid": "classbatt_1_1Status_1acf8b51dd9e249d23c658a0117bfee242",
           "static": true,
           "strong": false,
           "title": "get_index_of_group",
@@ -374,7 +374,7 @@
           "category": "functions",
           "const": false,
           "default": false,
-          "definition": "static usize batt::Status::get_index_within_group",
+          "definition": "usize batt::Status::get_index_within_group",
           "deleted": false,
           "explicit": false,
           "fullname": "batt::Status::get_index_within_group",
@@ -383,12 +383,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 328,
-            "bodyFile": "batteries/status.hpp",
-            "bodyStart": 325,
+            "bodyEnd": 165,
+            "bodyFile": "batteries/status_impl.hpp",
+            "bodyStart": 162,
             "column": 18,
             "file": "batteries/status.hpp",
-            "line": 325
+            "line": 252
           },
           "name": "get_index_within_group",
           "override": false,
@@ -400,7 +400,7 @@
             }
           ],
           "pureVirtual": false,
-          "refid": "classbatt_1_1Status_1a50c1d352a9a1cd3203a4e2c80a030ee5",
+          "refid": "classbatt_1_1Status_1af56e437a41bddc999849ef25b74af10e",
           "static": true,
           "strong": false,
           "title": "get_index_within_group",
@@ -426,12 +426,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 1529,
+            "bodyEnd": 1168,
             "bodyFile": "batteries/status.hpp",
-            "bodyStart": 1462,
+            "bodyStart": 1101,
             "column": 17,
             "file": "batteries/status.hpp",
-            "line": 331
+            "line": 255
           },
           "name": "register_codes_internal",
           "override": false,
@@ -613,12 +613,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 146,
+            "bodyEnd": 143,
             "bodyFile": "batteries/status.hpp",
-            "bodyStart": 143,
+            "bodyStart": 140,
             "column": 28,
             "file": "batteries/status.hpp",
-            "line": 143
+            "line": 140
           },
           "name": "code_group_for_type",
           "override": false,
@@ -648,7 +648,7 @@
           "category": "functions",
           "const": false,
           "default": false,
-          "definition": "static const std::string& batt::Status::unknown_enum_value_message",
+          "definition": "const std::string & batt::Status::unknown_enum_value_message",
           "deleted": false,
           "explicit": false,
           "fullname": "batt::Status::unknown_enum_value_message",
@@ -657,18 +657,18 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 152,
-            "bodyFile": "batteries/status.hpp",
-            "bodyStart": 148,
+            "bodyEnd": 31,
+            "bodyFile": "batteries/status_impl.hpp",
+            "bodyStart": 27,
             "column": 30,
             "file": "batteries/status.hpp",
-            "line": 148
+            "line": 145
           },
           "name": "unknown_enum_value_message",
           "override": false,
           "params": [],
           "pureVirtual": false,
-          "refid": "classbatt_1_1Status_1aac5dc5ca7a347586e73c369a7d7ec8e5",
+          "refid": "classbatt_1_1Status_1a32ee49a0c66493cf6e5330f7ce233e50",
           "static": true,
           "strong": false,
           "title": "unknown_enum_value_message",
@@ -694,12 +694,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 1459,
+            "bodyEnd": 1098,
             "bodyFile": "batteries/status.hpp",
-            "bodyStart": 1454,
+            "bodyStart": 1093,
             "column": 17,
             "file": "batteries/status.hpp",
-            "line": 155
+            "line": 148
           },
           "name": "register_codes",
           "override": false,
@@ -735,7 +735,7 @@
           "category": "functions",
           "const": false,
           "default": false,
-          "definition": "static const CodeEntry& batt::Status::get_entry_from_code",
+          "definition": "const Status::CodeEntry & batt::Status::get_entry_from_code",
           "deleted": false,
           "explicit": false,
           "fullname": "batt::Status::get_entry_from_code",
@@ -744,12 +744,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 168,
-            "bodyFile": "batteries/status.hpp",
-            "bodyStart": 157,
+            "bodyEnd": 46,
+            "bodyFile": "batteries/status_impl.hpp",
+            "bodyStart": 35,
             "column": 28,
             "file": "batteries/status.hpp",
-            "line": 157
+            "line": 150
           },
           "name": "get_entry_from_code",
           "override": false,
@@ -761,7 +761,7 @@
             }
           ],
           "pureVirtual": false,
-          "refid": "classbatt_1_1Status_1a47608a68651e9cadb2e384ca9895dc83",
+          "refid": "classbatt_1_1Status_1abd4e0c56ea870492ff210f5b2a3175df",
           "static": true,
           "strong": false,
           "title": "get_entry_from_code",
@@ -778,7 +778,7 @@
           "category": "functions",
           "const": false,
           "default": false,
-          "definition": "static std::string_view batt::Status::message_from_code",
+          "definition": "std::string_view batt::Status::message_from_code",
           "deleted": false,
           "explicit": false,
           "fullname": "batt::Status::message_from_code",
@@ -787,12 +787,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 173,
-            "bodyFile": "batteries/status.hpp",
-            "bodyStart": 170,
+            "bodyEnd": 53,
+            "bodyFile": "batteries/status_impl.hpp",
+            "bodyStart": 50,
             "column": 29,
             "file": "batteries/status.hpp",
-            "line": 170
+            "line": 152
           },
           "name": "message_from_code",
           "override": false,
@@ -804,7 +804,7 @@
             }
           ],
           "pureVirtual": false,
-          "refid": "classbatt_1_1Status_1a52ef98f8ffe5151fa165084eeec3d223",
+          "refid": "classbatt_1_1Status_1a1060b926e9f28322a112012c6de4677b",
           "static": true,
           "strong": false,
           "title": "message_from_code",
@@ -832,7 +832,7 @@
           "location": {
             "column": 12,
             "file": "batteries/status.hpp",
-            "line": 186
+            "line": 162
           },
           "name": "operator=",
           "override": false,
@@ -870,12 +870,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 1558,
-            "bodyFile": "batteries/status.hpp",
-            "bodyStart": 1554,
+            "bodyEnd": 609,
+            "bodyFile": "batteries/status_impl.hpp",
+            "bodyStart": 605,
             "column": 12,
             "file": "batteries/status.hpp",
-            "line": 234
+            "line": 210
           },
           "name": "operator=",
           "override": false,
@@ -913,12 +913,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 239,
-            "bodyFile": "batteries/status.hpp",
-            "bodyStart": 236,
+            "bodyEnd": 66,
+            "bodyFile": "batteries/status_impl.hpp",
+            "bodyStart": 63,
             "column": 10,
             "file": "batteries/status.hpp",
-            "line": 236
+            "line": 212
           },
           "name": "ok",
           "override": false,
@@ -941,7 +941,7 @@
           "category": "functions",
           "const": true,
           "default": false,
-          "definition": "value_type batt::Status::code",
+          "definition": "Status::value_type batt::Status::code",
           "deleted": false,
           "explicit": false,
           "fullname": "batt::Status::code",
@@ -950,18 +950,18 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 244,
-            "bodyFile": "batteries/status.hpp",
-            "bodyStart": 241,
+            "bodyEnd": 73,
+            "bodyFile": "batteries/status_impl.hpp",
+            "bodyStart": 70,
             "column": 16,
             "file": "batteries/status.hpp",
-            "line": 241
+            "line": 214
           },
           "name": "code",
           "override": false,
           "params": [],
           "pureVirtual": false,
-          "refid": "classbatt_1_1Status_1a75e02354a7b29eec3a08031dab3c6a20",
+          "refid": "classbatt_1_1Status_1a8b30c939d9a6c88b697357bc7cee641e",
           "static": false,
           "strong": false,
           "title": "code",
@@ -978,7 +978,7 @@
           "category": "functions",
           "const": true,
           "default": false,
-          "definition": "value_type batt::Status::code_index_within_group",
+          "definition": "Status::value_type batt::Status::code_index_within_group",
           "deleted": false,
           "explicit": false,
           "fullname": "batt::Status::code_index_within_group",
@@ -987,18 +987,18 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 249,
-            "bodyFile": "batteries/status.hpp",
-            "bodyStart": 246,
+            "bodyEnd": 80,
+            "bodyFile": "batteries/status_impl.hpp",
+            "bodyStart": 77,
             "column": 16,
             "file": "batteries/status.hpp",
-            "line": 246
+            "line": 216
           },
           "name": "code_index_within_group",
           "override": false,
           "params": [],
           "pureVirtual": false,
-          "refid": "classbatt_1_1Status_1a51912327d61e0cc19c117ac09b0aa6f6",
+          "refid": "classbatt_1_1Status_1a1fb21e884a43bf9ce95639780e352bfe",
           "static": false,
           "strong": false,
           "title": "code_index_within_group",
@@ -1015,7 +1015,7 @@
           "category": "functions",
           "const": true,
           "default": false,
-          "definition": "const CodeEntry& batt::Status::code_entry",
+          "definition": "const Status::CodeEntry & batt::Status::code_entry",
           "deleted": false,
           "explicit": false,
           "fullname": "batt::Status::code_entry",
@@ -1024,18 +1024,18 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 254,
-            "bodyFile": "batteries/status.hpp",
-            "bodyStart": 251,
+            "bodyEnd": 87,
+            "bodyFile": "batteries/status_impl.hpp",
+            "bodyStart": 84,
             "column": 21,
             "file": "batteries/status.hpp",
-            "line": 251
+            "line": 218
           },
           "name": "code_entry",
           "override": false,
           "params": [],
           "pureVirtual": false,
-          "refid": "classbatt_1_1Status_1aa7eb3ef4fd46f7766897eb17e4ba62a8",
+          "refid": "classbatt_1_1Status_1a3d2938751274bdca2ae9371244e9e8c7",
           "static": false,
           "strong": false,
           "title": "code_entry",
@@ -1061,12 +1061,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 263,
-            "bodyFile": "batteries/status.hpp",
-            "bodyStart": 256,
+            "bodyEnd": 98,
+            "bodyFile": "batteries/status_impl.hpp",
+            "bodyStart": 91,
             "column": 22,
             "file": "batteries/status.hpp",
-            "line": 256
+            "line": 220
           },
           "name": "message",
           "override": false,
@@ -1089,7 +1089,7 @@
           "category": "functions",
           "const": true,
           "default": false,
-          "definition": "const CodeGroup& batt::Status::group",
+          "definition": "const Status::CodeGroup & batt::Status::group",
           "deleted": false,
           "explicit": false,
           "fullname": "batt::Status::group",
@@ -1098,18 +1098,18 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 274,
-            "bodyFile": "batteries/status.hpp",
-            "bodyStart": 265,
+            "bodyEnd": 111,
+            "bodyFile": "batteries/status_impl.hpp",
+            "bodyStart": 102,
             "column": 21,
             "file": "batteries/status.hpp",
-            "line": 265
+            "line": 222
           },
           "name": "group",
           "override": false,
           "params": [],
           "pureVirtual": false,
-          "refid": "classbatt_1_1Status_1a0d2a31e655aea491b4aaae5d18aeb8b5",
+          "refid": "classbatt_1_1Status_1ab17abe6b8d6a2572d61d9ebd890e41da",
           "static": false,
           "strong": false,
           "title": "group",
@@ -1135,12 +1135,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 279,
-            "bodyFile": "batteries/status.hpp",
-            "bodyStart": 276,
+            "bodyEnd": 118,
+            "bodyFile": "batteries/status_impl.hpp",
+            "bodyStart": 115,
             "column": 10,
             "file": "batteries/status.hpp",
-            "line": 276
+            "line": 224
           },
           "name": "IgnoreError",
           "override": false,
@@ -1172,12 +1172,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 365,
-            "bodyFile": "batteries/status.hpp",
-            "bodyStart": 360,
+            "bodyEnd": 127,
+            "bodyFile": "batteries/status_impl.hpp",
+            "bodyStart": 122,
             "column": 10,
             "file": "batteries/status.hpp",
-            "line": 281
+            "line": 226
           },
           "name": "Update",
           "override": false,
@@ -1257,9 +1257,9 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 89,
+            "bodyEnd": 238,
             "bodyFile": "batteries/status_impl.hpp",
-            "bodyStart": 48,
+            "bodyStart": 197,
             "column": 5,
             "file": "batteries/status.hpp",
             "line": 54
@@ -1294,12 +1294,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 802,
+    "bodyEnd": 719,
     "bodyFile": "batteries/status.hpp",
-    "bodyStart": 791,
+    "bodyStart": 708,
     "column": 1,
     "file": "batteries/status.hpp",
-    "line": 790
+    "line": 707
   },
   "name": "batt::StatusOr< Status >",
   "override": false,
@@ -1346,12 +1346,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 797,
+        "bodyEnd": 714,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 795,
+        "bodyStart": 712,
         "column": 6,
         "file": "batteries/status.hpp",
-        "line": 795
+        "line": 712
       },
       "name": "StatusOr",
       "override": false,
@@ -1387,12 +1387,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 801,
+        "bodyEnd": 718,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 799,
+        "bodyStart": 716,
         "column": 6,
         "file": "batteries/status.hpp",
-        "line": 799
+        "line": 716
       },
       "name": "StatusOr",
       "override": false,
@@ -1428,12 +1428,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 181,
-        "bodyFile": "batteries/status.hpp",
-        "bodyStart": 179,
+        "bodyEnd": 59,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 57,
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 793
+        "line": 710
       },
       "name": "Status",
       "override": false,
@@ -1465,7 +1465,7 @@
       "location": {
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 793
+        "line": 710
       },
       "name": "Status",
       "override": false,
@@ -1501,12 +1501,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 210,
+        "bodyEnd": 186,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 192,
+        "bodyStart": 168,
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 793
+        "line": 710
       },
       "name": "Status",
       "override": false,
@@ -1554,12 +1554,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 215,
+        "bodyEnd": 191,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 213,
+        "bodyStart": 189,
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 793
+        "line": 710
       },
       "name": "Status",
       "override": false,
@@ -1609,12 +1609,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1537,
+        "bodyEnd": 1176,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1534,
+        "bodyStart": 1173,
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 793
+        "line": 710
       },
       "name": "Status",
       "override": false,
@@ -1671,12 +1671,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1544,
+        "bodyEnd": 1183,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1542,
+        "bodyStart": 1181,
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 793
+        "line": 710
       },
       "name": "Status",
       "override": false,
@@ -1740,12 +1740,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1550,
-        "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1548,
+        "bodyEnd": 601,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 599,
         "column": 5,
         "file": "batteries/status.hpp",
-        "line": 793
+        "line": 710
       },
       "name": "Status",
       "override": false,

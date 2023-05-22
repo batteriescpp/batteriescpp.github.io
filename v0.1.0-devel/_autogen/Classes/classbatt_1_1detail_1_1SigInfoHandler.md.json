@@ -466,7 +466,7 @@
     {
       "abstract": false,
       "anchor": "#function-handle-signal",
-      "argsString": "(const boost::system::error_code &ec, int signal_n)",
+      "argsString": "(const boost::system::error_code &, int)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -490,18 +490,18 @@
       "override": false,
       "params": [
         {
-          "name": "ec",
+          "name": "",
           "type": "const boost::system::error_code &",
           "typePlain": "const boost::system::error_code &"
         },
         {
-          "name": "signal_n",
+          "name": "",
           "type": "int",
           "typePlain": "int"
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1detail_1_1SigInfoHandler_1ae550e89d038df4ae1a52fb8909043f43",
+      "refid": "classbatt_1_1detail_1_1SigInfoHandler_1af194a59b59ea4933ffbcd839ad1e92a7",
       "static": false,
       "strong": false,
       "title": "handle_signal",
