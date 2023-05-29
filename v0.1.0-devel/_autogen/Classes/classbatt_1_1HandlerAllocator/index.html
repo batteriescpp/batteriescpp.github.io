@@ -575,20 +575,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#function-operator" class="md-nav__link">
-    function operator==
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#function-operator_1" class="md-nav__link">
-    function operator!=
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#function-allocate" class="md-nav__link">
     function allocate
   </a>
@@ -681,14 +667,6 @@
 <td><strong><a href="/_autogen/Classes/classbatt_1_1HandlerAllocator/#function-handlerallocator">HandlerAllocator</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1HandlerAllocator/">HandlerAllocator</a>&lt; U &gt; &amp; that)</td>
 </tr>
 <tr>
-<td>bool</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HandlerAllocator/#function-operator==">operator==</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1HandlerAllocator/">HandlerAllocator</a> &amp; that) const</td>
-</tr>
-<tr>
-<td>bool</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HandlerAllocator/#function-operator!=">operator!=</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1HandlerAllocator/">HandlerAllocator</a> &amp; that) const</td>
-</tr>
-<tr>
 <td>T *</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1HandlerAllocator/#function-allocate">allocate</a></strong>(usize n) const</td>
 </tr>
@@ -741,46 +719,32 @@
 <a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">HandlerAllocator</span><span class="o">&lt;</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-operator">function operator==<a class="headerlink" href="#function-operator" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-allocate">function allocate<a class="headerlink" href="#function-allocate" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
-<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">HandlerAllocator</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">allocate</span><span class="p">(</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">usize</span><span class="w"> </span><span class="n">n</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-operator_1">function operator!=<a class="headerlink" href="#function-operator_1" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-deallocate">function deallocate<a class="headerlink" href="#function-deallocate" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">!=</span><span class="p">(</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">HandlerAllocator</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">that</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="function-allocate">function allocate<a class="headerlink" href="#function-allocate" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">allocate</span><span class="p">(</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">usize</span><span class="w"> </span><span class="n">n</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="function-deallocate">function deallocate<a class="headerlink" href="#function-deallocate" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span>
-<span class="normal"><a href="#__codelineno-7-3">3</a></span>
-<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">deallocate</span><span class="p">(</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="n">usize</span><span class="w"> </span>
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">deallocate</span><span class="p">(</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="n">usize</span><span class="w"> </span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="friends_1">Friends<a class="headerlink" href="#friends_1" title="Permanent link">&#128279;</a></h2>
 <h3 id="friend-handlerallocator">friend HandlerAllocator<a class="headerlink" href="#friend-handlerallocator" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
-<span class="normal"><a href="#__codelineno-8-2">2</a></span>
-<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">HandlerAllocator</span><span class="p">(</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="n">HandlerAllocator</span><span class="w"> </span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="p">);</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">HandlerAllocator</span><span class="p">(</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">HandlerAllocator</span><span class="w"> </span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">);</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 23 May 2023 at 11:17:12 UTC</p>
+<p>Updated on 29 May 2023 at 19:01:21 UTC</p>
 
 
 

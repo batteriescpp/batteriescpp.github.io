@@ -915,7 +915,7 @@
 <a id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Tag</span><span class="o">&gt;</span>
 <a id="__codelineno-7-26" name="__codelineno-7-26"></a><span class="k">class</span><span class="w"> </span><span class="nc">StrongType</span>
 <a id="__codelineno-7-27" name="__codelineno-7-27"></a><span class="p">{</span>
-<a id="__codelineno-7-28" name="__codelineno-7-28"></a><span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{},</span><span class="w"> </span><span class="s">&quot;`T` must be a POD type.&quot;</span><span class="p">);</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28"></a><span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_standard_layout</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_trivial</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{},</span><span class="w"> </span><span class="s">&quot;`T` must be a POD type.&quot;</span><span class="p">);</span>
 <a id="__codelineno-7-29" name="__codelineno-7-29"></a>
 <a id="__codelineno-7-30" name="__codelineno-7-30"></a><span class="w">   </span><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-7-31" name="__codelineno-7-31"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="p">;</span>
@@ -1032,7 +1032,7 @@
 <a id="__codelineno-7-142" name="__codelineno-7-142"></a><span class="cp">#endif  </span><span class="c1">// BATT_STRONG_TYPEDEF_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 23 May 2023 at 11:17:13 UTC</p>
+<p>Updated on 29 May 2023 at 19:01:21 UTC</p>
 
 
 

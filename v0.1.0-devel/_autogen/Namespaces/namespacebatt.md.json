@@ -6592,6 +6592,126 @@
     },
     {
       "abstract": false,
+      "anchor": "#function-operator==",
+      "argsString": "(const HandlerAllocator< T > &left, const HandlerAllocator< U > &right) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator==",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator==",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 393,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 390,
+        "column": 6,
+        "file": "batteries/async/handler.hpp",
+        "line": 390
+      },
+      "name": "operator==",
+      "override": false,
+      "params": [
+        {
+          "name": "left",
+          "type": "const [HandlerAllocator](/_autogen/Classes/classbatt_1_1HandlerAllocator/)< T > &",
+          "typePlain": "const HandlerAllocator< T > &"
+        },
+        {
+          "name": "right",
+          "type": "const [HandlerAllocator](/_autogen/Classes/classbatt_1_1HandlerAllocator/)< U > &",
+          "typePlain": "const HandlerAllocator< U > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "handler_8hpp_1af46664a22c38b8be5b349185a83efb6f",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "operator==",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator==",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator!=",
+      "argsString": "(const HandlerAllocator< T > &left, const HandlerAllocator< U > &right) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator!=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator!=",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 399,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 396,
+        "column": 6,
+        "file": "batteries/async/handler.hpp",
+        "line": 396
+      },
+      "name": "operator!=",
+      "override": false,
+      "params": [
+        {
+          "name": "left",
+          "type": "const [HandlerAllocator](/_autogen/Classes/classbatt_1_1HandlerAllocator/)< T > &",
+          "typePlain": "const HandlerAllocator< T > &"
+        },
+        {
+          "name": "right",
+          "type": "const [HandlerAllocator](/_autogen/Classes/classbatt_1_1HandlerAllocator/)< U > &",
+          "typePlain": "const HandlerAllocator< U > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "handler_8hpp_1a9638ca9c210351a5ebcbbd8f9165a60a",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "operator!=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator!=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#function-make-custom-alloc-handler",
       "argsString": "(HandlerMemoryBase &m, Handler &&h)",
       "brief": "Helper function to wrap a handler object to add custom allocation. ",
@@ -6607,12 +6727,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 427,
+        "bodyEnd": 444,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 424,
+        "bodyStart": 441,
         "column": 27,
         "file": "batteries/async/handler.hpp",
-        "line": 424
+        "line": 441
       },
       "name": "make_custom_alloc_handler",
       "override": false,
