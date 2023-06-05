@@ -5313,7 +5313,7 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "static BATT_MAYBE_UNUSED ::batt::StaticBinaryAssertion<decltype( sizeof(void*) * 3 ), decltype( sizeof(boost::context::stack_context) ), ( sizeof(void*) * 3 ), struct ::batt::Eq, ( sizeof(boost::context::stack_context) ), (( sizeof(void*) * 3 ) == ( sizeof(boost::context::stack_context) ))> batt::BOOST_PP_CAT",
+      "definition": "static BATT_MAYBE_UNUSED ::batt::StaticBinaryAssertion<decltype( sizeof(void*) * 2 ), decltype( sizeof(boost::context::stack_context) ), ( sizeof(void*) * 2 ), struct ::batt::Eq, ( sizeof(boost::context::stack_context) ), (( sizeof(void*) * 2 ) == ( sizeof(boost::context::stack_context) ))> batt::BOOST_PP_CAT",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::BOOST_PP_CAT",
@@ -5324,7 +5324,7 @@
       "location": {
         "column": 58,
         "file": "batteries/async/continuation.hpp",
-        "line": 107
+        "line": 109
       },
       "name": "BOOST_PP_CAT",
       "override": false,
@@ -5341,12 +5341,12 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "continuation_8hpp_1a942eaef502f9da71432d34617b48a9eb",
+      "refid": "continuation_8hpp_1a32e758c75d1cdb153997c95ecb105be4",
       "static": true,
       "strong": false,
       "title": "BOOST_PP_CAT",
-      "type": "BATT_MAYBE_UNUSED ::[batt::StaticBinaryAssertion](/_autogen/Classes/structbatt_1_1StaticBinaryAssertion/)< decltype(sizeof(void *) *3), decltype(sizeof(boost::context::stack_context)),(sizeof(void *) *3), struct ::batt::Eq,(sizeof(boost::context::stack_context)),((sizeof(void *) *3)==(sizeof(boost::context::stack_context)))>",
-      "typePlain": "BATT_MAYBE_UNUSED ::batt::StaticBinaryAssertion< decltype(sizeof(void *) *3), decltype(sizeof(boost::context::stack_context)),(sizeof(void *) *3), struct ::batt::Eq,(sizeof(boost::context::stack_context)),((sizeof(void *) *3)==(sizeof(boost::context::stack_context)))>",
+      "type": "BATT_MAYBE_UNUSED ::[batt::StaticBinaryAssertion](/_autogen/Classes/structbatt_1_1StaticBinaryAssertion/)< decltype(sizeof(void *) *2), decltype(sizeof(boost::context::stack_context)),(sizeof(void *) *2), struct ::batt::Eq,(sizeof(boost::context::stack_context)),((sizeof(void *) *2)==(sizeof(boost::context::stack_context)))>",
+      "typePlain": "BATT_MAYBE_UNUSED ::batt::StaticBinaryAssertion< decltype(sizeof(void *) *2), decltype(sizeof(boost::context::stack_context)),(sizeof(void *) *2), struct ::batt::Eq,(sizeof(boost::context::stack_context)),((sizeof(void *) *2)==(sizeof(boost::context::stack_context)))>",
       "url": "/_autogen/Namespaces/namespacebatt/#function-boost-pp-cat",
       "virtual": false,
       "visibility": "public"
