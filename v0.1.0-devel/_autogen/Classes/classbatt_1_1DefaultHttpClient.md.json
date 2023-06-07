@@ -1,6 +1,7 @@
 {
   "abstract": false,
   "anchor": "",
+  "brief": "A singleton instance of [HttpClient](/_autogen/Classes/classbatt_1_1HttpClient/); contains an io_context and thread pool (size == 1). ",
   "category": "classes",
   "const": false,
   "definition": "",
@@ -8,16 +9,17 @@
   "fullname": "batt::DefaultHttpClient",
   "hasAdditionalMembers": false,
   "hasDetails": false,
+  "includes": "<batteries/http/http_client.hpp>",
   "inline": false,
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 89,
+    "bodyEnd": 161,
     "bodyFile": "batteries/http/http_client.hpp",
-    "bodyStart": 67,
+    "bodyStart": 137,
     "column": 1,
     "file": "batteries/http/http_client.hpp",
-    "line": 66
+    "line": 136
   },
   "name": "batt::DefaultHttpClient",
   "override": false,
@@ -62,10 +64,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_client.hpp",
-        "bodyStart": 79,
+        "bodyStart": 151,
         "column": 29,
         "file": "batteries/http/http_client.hpp",
-        "line": 79
+        "line": 151
       },
       "name": "io_",
       "override": false,
@@ -93,10 +95,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_client.hpp",
-        "bodyStart": 81,
+        "bodyStart": 153,
         "column": 14,
         "file": "batteries/http/http_client.hpp",
-        "line": 81
+        "line": 153
       },
       "name": "work_guard_",
       "override": false,
@@ -124,10 +126,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_client.hpp",
-        "bodyStart": 84,
+        "bodyStart": 156,
         "column": 16,
         "file": "batteries/http/http_client.hpp",
-        "line": 84
+        "line": 156
       },
       "name": "client_",
       "override": false,
@@ -155,10 +157,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_client.hpp",
-        "bodyStart": 86,
+        "bodyStart": 158,
         "column": 17,
         "file": "batteries/http/http_client.hpp",
-        "line": 86
+        "line": 158
       },
       "name": "io_thread_",
       "override": false,
@@ -177,6 +179,7 @@
       "abstract": false,
       "anchor": "#function-get",
       "argsString": "()",
+      "brief": "Returns a reference to the default [HttpClient](/_autogen/Classes/classbatt_1_1HttpClient/) instance. ",
       "category": "functions",
       "const": false,
       "default": false,
@@ -189,12 +192,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 76,
+        "bodyEnd": 148,
         "bodyFile": "batteries/http/http_client.hpp",
-        "bodyStart": 69,
+        "bodyStart": 141,
         "column": 23,
         "file": "batteries/http/http_client.hpp",
-        "line": 69
+        "line": 141
       },
       "name": "get",
       "override": false,
@@ -203,6 +206,7 @@
       "refid": "classbatt_1_1DefaultHttpClient_1a2c1b0e1dbece71ca4205839d3d2c7e8c",
       "static": true,
       "strong": false,
+      "summary": "Returns a reference to the default HttpClient instance. ",
       "title": "get",
       "type": "[HttpClient](/_autogen/Classes/classbatt_1_1HttpClient/) &",
       "typePlain": "HttpClient &",
@@ -214,6 +218,7 @@
   "refid": "classbatt_1_1DefaultHttpClient",
   "static": false,
   "strong": false,
+  "summary": "A singleton instance of HttpClient; contains an io_context and thread pool (size == 1). ",
   "title": "batt::DefaultHttpClient",
   "url": "/_autogen/Classes/classbatt_1_1DefaultHttpClient/",
   "visibility": "public"

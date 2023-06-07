@@ -576,6 +576,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#function-poke" class="md-nav__link">
+    function poke
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-reset" class="md-nav__link">
     function reset
   </a>
@@ -817,6 +824,10 @@
 </tr>
 <tr>
 <td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-poke">poke</a></strong>()<br>Wakes up all observers of this <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>, invoking their handlers with StatusCode::kPoke to indicate they should check their current situation and possibly retry.</td>
+</tr>
+<tr>
+<td>void</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-reset">reset</a></strong>()<br>Resets the 'closed' status of this <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>.</td>
 </tr>
 <tr>
@@ -976,79 +987,83 @@
 </code></pre></div></td></tr></table></div>
 <p>Set the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> to the "closed" state, which disables all blocking/async synchronization on the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>, immediately unblocking any currently waiting tasks/threads. </p>
 <p>This method is safe to call multiple times. The <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value can still be modified and retrieved after it is closed; this only disables the methods in the "Synchronization" category (see Summary section above). </p>
+<h3 id="function-poke">function poke<a class="headerlink" href="#function-poke" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">poke</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>Wakes up all observers of this <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>, invoking their handlers with StatusCode::kPoke to indicate they should check their current situation and possibly retry. </p>
 <h3 id="function-reset">function reset<a class="headerlink" href="#function-reset" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">reset</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">reset</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Resets the 'closed' status of this <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>. </p>
 <h3 id="function-is_closed">function is_closed<a class="headerlink" href="#function-is_closed" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_closed</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_closed</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
 <p>Tests whether the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> is in a "closed" state. </p>
 <h3 id="function-set_value">function set_value<a class="headerlink" href="#function-set_value" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
-<span class="normal"><a href="#__codelineno-9-2">2</a></span>
-<span class="normal"><a href="#__codelineno-9-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">set_value</span><span class="p">(</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">new_value</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">set_value</span><span class="p">(</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">new_value</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Atomically set the value of the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>. </p>
 <h3 id="function-get_value">function get_value<a class="headerlink" href="#function-get_value" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">get_value</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">get_value</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
 <p>The current value of the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>. </p>
 <h3 id="function-fetch_add">function fetch_add<a class="headerlink" href="#function-fetch_add" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
-<span class="normal"><a href="#__codelineno-11-2">2</a></span>
-<span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">fetch_add</span><span class="p">(</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">arg</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<p>Atomically adds the specified amount to the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value, returning the previous value. </p>
-<h3 id="function-fetch_or">function fetch_or<a class="headerlink" href="#function-fetch_or" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
 <span class="normal"><a href="#__codelineno-12-2">2</a></span>
-<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">fetch_or</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">fetch_add</span><span class="p">(</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">arg</span>
 <a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>Atomically sets the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value to the bitwise-or of the current value and the passed <code>arg</code>, returning the previous value. </p>
-<h3 id="function-fetch_sub">function fetch_sub<a class="headerlink" href="#function-fetch_sub" title="Permanent link">&#128279;</a></h3>
+<p>Atomically adds the specified amount to the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value, returning the previous value. </p>
+<h3 id="function-fetch_or">function fetch_or<a class="headerlink" href="#function-fetch_or" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
 <span class="normal"><a href="#__codelineno-13-2">2</a></span>
-<span class="normal"><a href="#__codelineno-13-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">fetch_sub</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">fetch_or</span><span class="p">(</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">arg</span>
 <a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>Atomically subtracts the specified amount from the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value, returning the previous value. </p>
-<h3 id="function-fetch_and">function fetch_and<a class="headerlink" href="#function-fetch_and" title="Permanent link">&#128279;</a></h3>
+<p>Atomically sets the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value to the bitwise-or of the current value and the passed <code>arg</code>, returning the previous value. </p>
+<h3 id="function-fetch_sub">function fetch_sub<a class="headerlink" href="#function-fetch_sub" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
 <span class="normal"><a href="#__codelineno-14-2">2</a></span>
-<span class="normal"><a href="#__codelineno-14-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">fetch_and</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">fetch_sub</span><span class="p">(</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">arg</span>
 <a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>Atomically sets the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value to the bitwise-and of the current value and the passed <code>arg</code>, returning the previous value. </p>
-<h3 id="function-modify">function modify<a class="headerlink" href="#function-modify" title="Permanent link">&#128279;</a></h3>
+<p>Atomically subtracts the specified amount from the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value, returning the previous value. </p>
+<h3 id="function-fetch_and">function fetch_and<a class="headerlink" href="#function-fetch_and" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
 <span class="normal"><a href="#__codelineno-15-2">2</a></span>
-<span class="normal"><a href="#__codelineno-15-3">3</a></span>
-<span class="normal"><a href="#__codelineno-15-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w">  </span><span class="o">=</span><span class="n">T</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">&gt;</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">modify</span><span class="p">(</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">fetch_and</span><span class="p">(</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">arg</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Atomically sets the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value to the bitwise-and of the current value and the passed <code>arg</code>, returning the previous value. </p>
+<h3 id="function-modify">function modify<a class="headerlink" href="#function-modify" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w">  </span><span class="o">=</span><span class="n">T</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">&gt;</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kr">inline</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">modify</span><span class="p">(</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Atomically modifies the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value by applying the passed transform <code>fn</code>. </p>
 <p><strong>Return</strong>: if <code>T</code> is a primitive integer type (including <code>bool</code>), the new value of the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>; else, the old value of the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a></p>
 <p><code>fn</code><strong>MUST</strong> be safe to call multiple times within a single call to <code>modify</code>. This is because <code>modify</code> may be implemented via an atomic compare-and-swap loop.</p>
 <p><em>NOTE: This behavior is acknowledged to be less than ideal and will be fixed in the future to be consistent, regardless of <code>T</code></em></p>
 <h3 id="function-await_modify">function await_modify<a class="headerlink" href="#function-await_modify" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
-<span class="normal"><a href="#__codelineno-16-2">2</a></span>
-<span class="normal"><a href="#__codelineno-16-3">3</a></span>
-<span class="normal"><a href="#__codelineno-16-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w">  </span><span class="o">=</span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">&gt;</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">await_modify</span><span class="p">(</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w">  </span><span class="o">=</span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">&gt;</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">await_modify</span><span class="p">(</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Retries <code>fn</code> on the watch value until it succeeds or the watch is closed. </p>
 <p><strong>Return</strong>: </p>
@@ -1060,13 +1075,13 @@
 <p><code>fn</code> should have the signature (T) -&gt; Optional<T>. Returning None indicates <code>fn</code> should not be called again until a new value is available.</p>
 <p><code>fn</code><strong>MUST</strong> be safe to call multiple times within a single call to <code>await_modify</code>. This is because <code>await_modify</code> may be implemented via an atomic compare-and-swap loop.</p>
 <h3 id="function-modify_if">function modify_if<a class="headerlink" href="#function-modify_if" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
-<span class="normal"><a href="#__codelineno-17-2">2</a></span>
-<span class="normal"><a href="#__codelineno-17-3">3</a></span>
-<span class="normal"><a href="#__codelineno-17-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w">  </span><span class="o">=</span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">&gt;</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">modify_if</span><span class="p">(</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w">  </span><span class="o">=</span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="o">&gt;</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">modify_if</span><span class="p">(</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Conditionally modify the value of the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>. </p>
 <p><strong>Return</strong>: The final value returned by <code>fn</code>, which is either <code>batt::None</code> or the new <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value. </p>
@@ -1082,15 +1097,15 @@
 </ul>
 <p>Unlike batt::Watch::await_modify, this method never puts the current task/thread to sleep; it keeps <em>actively</em> polling the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value until it reaches one of the exit criteria described above.</p>
 <h3 id="function-async_wait">function async_wait<a class="headerlink" href="#function-async_wait" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
-<span class="normal"><a href="#__codelineno-18-2">2</a></span>
-<span class="normal"><a href="#__codelineno-18-3">3</a></span>
-<span class="normal"><a href="#__codelineno-18-4">4</a></span>
-<span class="normal"><a href="#__codelineno-18-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Handler</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">async_wait</span><span class="p">(</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">last_seen</span><span class="p">,</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="w">    </span><span class="n">Handler</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span>
+<span class="normal"><a href="#__codelineno-19-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Handler</span><span class="w"> </span><span class="o">&gt;</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">async_wait</span><span class="p">(</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">last_seen</span><span class="p">,</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">    </span><span class="n">Handler</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
 <p>Invokes the passed handler <code>fn</code> with the described value as soon as one of the following conditions is true: </p>
 <ul>
@@ -1098,32 +1113,32 @@
 <li>When the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> is closed, invoke <code>fn</code> with <code>batt::StatusCode::kClosed</code>. </li>
 </ul>
 <h3 id="function-await_not_equal">function await_not_equal<a class="headerlink" href="#function-await_not_equal" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
-<span class="normal"><a href="#__codelineno-19-2">2</a></span>
-<span class="normal"><a href="#__codelineno-19-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">await_not_equal</span><span class="p">(</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">last_seen</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">await_not_equal</span><span class="p">(</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">last_seen</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
 <p>Blocks the current task/thread until the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value is <em>not</em> equal to <code>last_seen</code>. </p>
 <p><strong>Return</strong>: On success, the current value of the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>, which is guaranteed to <em>not</em> equal <code>last_seen</code>, else <code>batt::StatusCode::kClosed</code> if the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> was closed before a satisfactory value was observed </p>
 <h3 id="function-await_true">function await_true<a class="headerlink" href="#function-await_true" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
-<span class="normal"><a href="#__codelineno-20-2">2</a></span>
-<span class="normal"><a href="#__codelineno-20-3">3</a></span>
-<span class="normal"><a href="#__codelineno-20-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Pred</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">await_true</span><span class="p">(</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="w">    </span><span class="n">Pred</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pred</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Pred</span><span class="w"> </span><span class="o">&gt;</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">await_true</span><span class="p">(</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">    </span><span class="n">Pred</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pred</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
 <p>Blocks the current task/thread until the passed predicate function returns <code>true</code> for the current value of the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>. </p>
 <p><strong>Return</strong>: On success, the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value for which <code>pred</code> returned <code>true</code>, else <code>batt::StatusCode::kClosed</code> if the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> was closed before a satisfactory value was observed </p>
 <p>This is the most general of <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>'s blocking getter methods.</p>
 <h3 id="function-await_equal">function await_equal<a class="headerlink" href="#function-await_equal" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
-<span class="normal"><a href="#__codelineno-21-2">2</a></span>
-<span class="normal"><a href="#__codelineno-21-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="n">await_equal</span><span class="p">(</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">val</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="n">await_equal</span><span class="p">(</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">val</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
 <p>Blocks the current task/thread until the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> contains the specified value. </p>
 <p><strong>Return</strong>: One of the following:</p>
@@ -1132,15 +1147,15 @@
 <li><code>batt::StatusCode::kClosed</code> if the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> was closed before <code>val</code> was observed </li>
 </ul>
 <h3 id="function-clamp_min_value">function clamp_min_value<a class="headerlink" href="#function-clamp_min_value" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
-<span class="normal"><a href="#__codelineno-22-2">2</a></span>
-<span class="normal"><a href="#__codelineno-22-3">3</a></span>
-<span class="normal"><a href="#__codelineno-22-4">4</a></span>
-<span class="normal"><a href="#__codelineno-22-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">OrderFn</span><span class="w">  </span><span class="o">=</span><span class="kt">bool</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="o">&gt;</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">clamp_min_value</span><span class="p">(</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">lower_bound</span><span class="p">,</span>
-<a id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="w">    </span><span class="n">OrderFn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">order_fn</span>
-<a id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
+<span class="normal"><a href="#__codelineno-23-2">2</a></span>
+<span class="normal"><a href="#__codelineno-23-3">3</a></span>
+<span class="normal"><a href="#__codelineno-23-4">4</a></span>
+<span class="normal"><a href="#__codelineno-23-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">OrderFn</span><span class="w">  </span><span class="o">=</span><span class="kt">bool</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="o">&gt;</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">clamp_min_value</span><span class="p">(</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">lower_bound</span><span class="p">,</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="w">    </span><span class="n">OrderFn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">order_fn</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Modify the value to be at least <code>lower_bound</code>. </p>
 <p><strong>Parameters</strong>: </p>
@@ -1149,15 +1164,15 @@
 <li><strong>order_fn</strong> A callable object taking two T values and returning bool that returns true iff the first argument is less-than the second. </li>
 </ul>
 <h3 id="function-clamp_max_value">function clamp_max_value<a class="headerlink" href="#function-clamp_max_value" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
-<span class="normal"><a href="#__codelineno-23-2">2</a></span>
-<span class="normal"><a href="#__codelineno-23-3">3</a></span>
-<span class="normal"><a href="#__codelineno-23-4">4</a></span>
-<span class="normal"><a href="#__codelineno-23-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">OrderFn</span><span class="w">  </span><span class="o">=</span><span class="kt">bool</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="o">&gt;</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">clamp_max_value</span><span class="p">(</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">upper_bound</span><span class="p">,</span>
-<a id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="w">    </span><span class="n">OrderFn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">order_fn</span>
-<a id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
+<span class="normal"><a href="#__codelineno-24-2">2</a></span>
+<span class="normal"><a href="#__codelineno-24-3">3</a></span>
+<span class="normal"><a href="#__codelineno-24-4">4</a></span>
+<span class="normal"><a href="#__codelineno-24-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">OrderFn</span><span class="w">  </span><span class="o">=</span><span class="kt">bool</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="o">&gt;</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">clamp_max_value</span><span class="p">(</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">upper_bound</span><span class="p">,</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="w">    </span><span class="n">OrderFn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">order_fn</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Modify the value to be at most <code>upper_bound</code>. </p>
 <p><strong>Parameters</strong>: </p>
@@ -1166,44 +1181,44 @@
 <li><strong>order_fn</strong> A callable object taking two T values and returning bool that returns true iff the first argument is less-than the second. </li>
 </ul>
 <h3 id="function-clamp_min_value_1">function clamp_min_value<a class="headerlink" href="#function-clamp_min_value_1" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
-<span class="normal"><a href="#__codelineno-24-2">2</a></span>
-<span class="normal"><a href="#__codelineno-24-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">clamp_min_value</span><span class="p">(</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">lower_bound</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span>
+<span class="normal"><a href="#__codelineno-25-2">2</a></span>
+<span class="normal"><a href="#__codelineno-25-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">clamp_min_value</span><span class="p">(</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">lower_bound</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Modify the value to be at least <code>lower_bound</code>, using the default ordering for T. </p>
 <h3 id="function-clamp_max_value_1">function clamp_max_value<a class="headerlink" href="#function-clamp_max_value_1" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span>
-<span class="normal"><a href="#__codelineno-25-2">2</a></span>
-<span class="normal"><a href="#__codelineno-25-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">clamp_max_value</span><span class="p">(</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">upper_bound</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
+<span class="normal"><a href="#__codelineno-26-2">2</a></span>
+<span class="normal"><a href="#__codelineno-26-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">clamp_max_value</span><span class="p">(</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="n">upper_bound</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Modify the value to be at most <code>upper_bound</code>, using the default ordering for T. </p>
 <h2 id="public-attributes-documentation">Public Attributes Documentation<a class="headerlink" href="#public-attributes-documentation" title="Permanent link">&#128279;</a></h2>
 <h3 id="variable-klocked">variable kLocked<a class="headerlink" href="#variable-klocked" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">u32</span><span class="w"> </span><span class="n">kLocked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x01</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">u32</span><span class="w"> </span><span class="n">kLocked</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x01</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>(INTERNAL USE ONLY) spin-lock bit - indicates the state variable is locked. </p>
 <h3 id="variable-kopen">variable kOpen<a class="headerlink" href="#variable-kopen" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">u32</span><span class="w"> </span><span class="n">kOpen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x02</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">u32</span><span class="w"> </span><span class="n">kOpen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x02</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>(INTERNAL USE ONLY) indicates that the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> is not closed. </p>
 <h3 id="variable-kwaiting">variable kWaiting<a class="headerlink" href="#variable-kwaiting" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">u32</span><span class="w"> </span><span class="n">kWaiting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x04</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">u32</span><span class="w"> </span><span class="n">kWaiting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x04</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>(INTERNAL USE ONLY) indicates that one or more handlers are attached to the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>, awaiting change notification. </p>
 <h3 id="variable-kclosedatend">variable kClosedAtEnd<a class="headerlink" href="#variable-kclosedatend" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">u32</span><span class="w"> </span><span class="n">kClosedAtEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x08</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">u32</span><span class="w"> </span><span class="n">kClosedAtEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x08</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>(INTERNAL USE ONLY) indicates the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> was closed with end-of-stream condition true </p>
 <h3 id="variable-kclosedbeforeend">variable kClosedBeforeEnd<a class="headerlink" href="#variable-kclosedbeforeend" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">u32</span><span class="w"> </span><span class="n">kClosedBeforeEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">u32</span><span class="w"> </span><span class="n">kClosedBeforeEnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <p>(INTERNAL USE ONLY) indicates the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> was closed with end-of-stream condition false </p>
 <hr />
-<p>Updated on  5 June 2023 at 14:38:30 UTC</p>
+<p>Updated on  7 June 2023 at 01:25:16 UTC</p>
 
 
 

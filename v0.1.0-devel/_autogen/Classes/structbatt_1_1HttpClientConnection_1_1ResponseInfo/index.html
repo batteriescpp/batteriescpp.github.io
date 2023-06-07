@@ -605,6 +605,8 @@
   <h1>batt::HttpClientConnection::ResponseInfo</h1>
 
 <h1 id="batthttpclientconnectionresponseinfo">batt::HttpClientConnection::ResponseInfo<a class="headerlink" href="#batthttpclientconnectionresponseinfo" title="Permanent link">&#128279;</a></h1>
+<p>A summary of information about a response message that is necessary for the connection to correctly handle it. 
+<code>#include &lt;batteries/http/http_client_connection_decl.hpp&gt;</code></p>
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&#128279;</a></h2>
 <table>
 <thead>
@@ -639,15 +641,15 @@
 <tbody>
 <tr>
 <td><a href="/_autogen/Classes/classbatt_1_1Optional/">Optional</a>&lt; usize &gt;</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1HttpClientConnection_1_1ResponseInfo/#variable-content-length">content_length</a></strong></td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1HttpClientConnection_1_1ResponseInfo/#variable-content-length">content_length</a></strong> <br>Set from the <code>Content-Length</code> header, if present.</td>
 </tr>
 <tr>
 <td>bool</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1HttpClientConnection_1_1ResponseInfo/#variable-keep-alive">keep_alive</a></strong></td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1HttpClientConnection_1_1ResponseInfo/#variable-keep-alive">keep_alive</a></strong> <br>Set to true if <code>Connection: keep-alive</code> was set, or if the HTTP version is 1.1 or later and there is no explicit <code>Connection: close</code> header.</td>
 </tr>
 <tr>
 <td>bool</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1HttpClientConnection_1_1ResponseInfo/#variable-chunked-encoding">chunked_encoding</a></strong></td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1HttpClientConnection_1_1ResponseInfo/#variable-chunked-encoding">chunked_encoding</a></strong> <br>Set to true if <code>Transfer-Encoding: chunked</code> is present.</td>
 </tr>
 </tbody>
 </table>
@@ -655,7 +657,7 @@
 <h3 id="function-responseinfo">function ResponseInfo<a class="headerlink" href="#function-responseinfo" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">explicit</span><span class="w"> </span><span class="n">ResponseInfo</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">ResponseInfo</span><span class="p">(</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">pico_http</span><span class="o">::</span><span class="n">Response</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">response</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -665,7 +667,7 @@
 <h3 id="function-get_data">function get_data<a class="headerlink" href="#function-get_data" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">HttpData</span><span class="w"> </span><span class="n">get_data</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">HttpData</span><span class="w"> </span><span class="n">get_data</span><span class="p">(</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">StreamBuffer</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">input_buffer</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -673,14 +675,17 @@
 <h3 id="variable-content_length">variable content_length<a class="headerlink" href="#variable-content_length" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">Optional</span><span class="o">&lt;</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">content_length</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
+<p>Set from the <code>Content-Length</code> header, if present. </p>
 <h3 id="variable-keep_alive">variable keep_alive<a class="headerlink" href="#variable-keep_alive" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">keep_alive</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
+<p>Set to true if <code>Connection: keep-alive</code> was set, or if the HTTP version is 1.1 or later and there is no explicit <code>Connection: close</code> header. </p>
 <h3 id="variable-chunked_encoding">variable chunked_encoding<a class="headerlink" href="#variable-chunked_encoding" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">chunked_encoding</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
+<p>Set to true if <code>Transfer-Encoding: chunked</code> is present. </p>
 <hr />
-<p>Updated on  5 June 2023 at 14:38:30 UTC</p>
+<p>Updated on  7 June 2023 at 01:25:16 UTC</p>
 
 
 

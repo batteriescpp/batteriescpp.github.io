@@ -21,10 +21,10 @@
           "language": "cpp",
           "location": {
             "bodyFile": "batteries/async/queue.hpp",
-            "bodyStart": 116,
+            "bodyStart": 123,
             "column": 11,
             "file": "batteries/async/queue.hpp",
-            "line": 116
+            "line": 123
           },
           "name": "pending_count_",
           "override": false,
@@ -55,12 +55,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 114,
+            "bodyEnd": 121,
             "bodyFile": "batteries/async/queue.hpp",
-            "bodyStart": 108,
+            "bodyStart": 115,
             "column": 21,
             "file": "batteries/async/queue.hpp",
-            "line": 108
+            "line": 115
           },
           "name": "decrement_if_positive",
           "override": false,
@@ -100,12 +100,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 90,
+            "bodyEnd": 97,
             "bodyFile": "batteries/async/queue.hpp",
-            "bodyStart": 82,
+            "bodyStart": 89,
             "column": 12,
             "file": "batteries/async/queue.hpp",
-            "line": 82
+            "line": 89
           },
           "name": "await_one",
           "override": false,
@@ -137,12 +137,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 100,
+            "bodyEnd": 107,
             "bodyFile": "batteries/async/queue.hpp",
-            "bodyStart": 92,
+            "bodyStart": 99,
             "column": 10,
             "file": "batteries/async/queue.hpp",
-            "line": 92
+            "line": 99
           },
           "name": "try_acquire",
           "override": false,
@@ -174,12 +174,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 105,
+            "bodyEnd": 112,
             "bodyFile": "batteries/async/queue.hpp",
-            "bodyStart": 102,
+            "bodyStart": 109,
             "column": 10,
             "file": "batteries/async/queue.hpp",
-            "line": 102
+            "line": 109
           },
           "name": "notify",
           "override": false,
@@ -490,6 +490,45 @@
           "url": "/_autogen/Classes/classbatt_1_1QueueBase/#function-close",
           "virtual": false,
           "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-poke",
+          "argsString": "()",
+          "brief": "Wakes all waiters with StatusCode::kPoke. ",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "void batt::QueueBase::poke",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::QueueBase::poke",
+          "hasDetails": false,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 86,
+            "bodyFile": "batteries/async/queue.hpp",
+            "bodyStart": 83,
+            "column": 10,
+            "file": "batteries/async/queue.hpp",
+            "line": 83
+          },
+          "name": "poke",
+          "override": false,
+          "params": [],
+          "pureVirtual": false,
+          "refid": "classbatt_1_1QueueBase_1a2cece17672523a9b771da5b6106bcd34",
+          "static": false,
+          "strong": false,
+          "summary": "Wakes all waiters with StatusCode::kPoke. ",
+          "title": "poke",
+          "type": "void",
+          "typePlain": "void",
+          "url": "/_autogen/Classes/classbatt_1_1QueueBase/#function-poke",
+          "virtual": false,
+          "visibility": "public"
         }
       ],
       "refid": "classbatt_1_1QueueBase",
@@ -511,12 +550,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 233,
+    "bodyEnd": 240,
     "bodyFile": "batteries/async/queue.hpp",
-    "bodyStart": 126,
+    "bodyStart": 133,
     "column": 1,
     "file": "batteries/async/queue.hpp",
-    "line": 125
+    "line": 132
   },
   "name": "batt::Queue",
   "override": false,
@@ -561,10 +600,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/queue.hpp",
-        "bodyStart": 232,
+        "bodyStart": 239,
         "column": 11,
         "file": "batteries/async/queue.hpp",
-        "line": 232
+        "line": 239
       },
       "name": "pending_items_",
       "override": false,
@@ -596,12 +635,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 141,
+        "bodyEnd": 148,
         "bodyFile": "batteries/async/queue.hpp",
-        "bodyStart": 133,
+        "bodyStart": 140,
         "column": 10,
         "file": "batteries/async/queue.hpp",
-        "line": 133
+        "line": 140
       },
       "name": "push",
       "override": false,
@@ -651,12 +690,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 157,
+        "bodyEnd": 164,
         "bodyFile": "batteries/async/queue.hpp",
-        "bodyStart": 146,
+        "bodyStart": 153,
         "column": 10,
         "file": "batteries/async/queue.hpp",
-        "line": 146
+        "line": 153
       },
       "name": "push_with_lock",
       "override": false,
@@ -704,12 +743,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 178,
+        "bodyEnd": 185,
         "bodyFile": "batteries/async/queue.hpp",
-        "bodyStart": 167,
+        "bodyStart": 174,
         "column": 10,
         "file": "batteries/async/queue.hpp",
-        "line": 167
+        "line": 174
       },
       "name": "push_all",
       "override": false,
@@ -757,12 +796,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 190,
+        "bodyEnd": 197,
         "bodyFile": "batteries/async/queue.hpp",
-        "bodyStart": 184,
+        "bodyStart": 191,
         "column": 14,
         "file": "batteries/async/queue.hpp",
-        "line": 184
+        "line": 191
       },
       "name": "await_next",
       "override": false,
@@ -796,12 +835,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 202,
+        "bodyEnd": 209,
         "bodyFile": "batteries/async/queue.hpp",
-        "bodyStart": 196,
+        "bodyStart": 203,
         "column": 14,
         "file": "batteries/async/queue.hpp",
-        "line": 196
+        "line": 203
       },
       "name": "try_pop_next",
       "override": false,
@@ -838,12 +877,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 216,
+        "bodyEnd": 223,
         "bodyFile": "batteries/async/queue.hpp",
-        "bodyStart": 206,
+        "bodyStart": 213,
         "column": 7,
         "file": "batteries/async/queue.hpp",
-        "line": 206
+        "line": 213
       },
       "name": "pop_next_or_panic",
       "override": false,
@@ -877,12 +916,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 229,
+        "bodyEnd": 236,
         "bodyFile": "batteries/async/queue.hpp",
-        "bodyStart": 222,
+        "bodyStart": 229,
         "column": 11,
         "file": "batteries/async/queue.hpp",
-        "line": 222
+        "line": 229
       },
       "name": "drain",
       "override": false,

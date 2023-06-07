@@ -314,10 +314,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 98,
+        "bodyStart": 99,
         "column": 16,
         "file": "batteries/status.hpp",
-        "line": 98
+        "line": 99
       },
       "name": "IsStatusEnum",
       "override": false,
@@ -1840,24 +1840,28 @@
     },
     {
       "anchor": "",
+      "brief": "An HTTP/1.1 client implementation. ",
       "category": "classes",
       "fullname": "batt::HttpClient",
       "kind": "class",
       "language": "cpp",
       "name": "batt::HttpClient",
       "refid": "classbatt_1_1HttpClient",
+      "summary": "An HTTP/1.1 client implementation. ",
       "title": "batt::HttpClient",
       "url": "/_autogen/Classes/classbatt_1_1HttpClient/",
       "visibility": "public"
     },
     {
       "anchor": "",
+      "brief": "A singleton instance of [HttpClient](/_autogen/Classes/classbatt_1_1HttpClient/); contains an io_context and thread pool (size == 1). ",
       "category": "classes",
       "fullname": "batt::DefaultHttpClient",
       "kind": "class",
       "language": "cpp",
       "name": "batt::DefaultHttpClient",
       "refid": "classbatt_1_1DefaultHttpClient",
+      "summary": "A singleton instance of HttpClient; contains an io_context and thread pool (size == 1). ",
       "title": "batt::DefaultHttpClient",
       "url": "/_autogen/Classes/classbatt_1_1DefaultHttpClient/",
       "visibility": "public"
@@ -1918,12 +1922,14 @@
           "visibility": "public"
         }
       ],
+      "brief": "The common base type for [HttpRequest]() and [HttpResponse](). ",
       "category": "classes",
       "fullname": "batt::HttpMessageBase",
       "kind": "class",
       "language": "cpp",
       "name": "batt::HttpMessageBase",
       "refid": "classbatt_1_1HttpMessageBase",
+      "summary": "The common base type for HttpRequest and HttpResponse. ",
       "title": "batt::HttpMessageBase",
       "url": "/_autogen/Classes/classbatt_1_1HttpMessageBase/",
       "visibility": "public"
@@ -8181,12 +8187,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 815,
+        "bodyEnd": 831,
         "bodyFile": "batteries/async/watch_decl.hpp",
-        "bodyStart": 812,
+        "bodyStart": 828,
         "column": 8,
         "file": "batteries/async/watch_decl.hpp",
-        "line": 812
+        "line": 828
       },
       "name": "operator<<",
       "override": false,
@@ -14011,11 +14017,13 @@
       "abstract": false,
       "anchor": "#function-http-request",
       "argsString": "(std::string_view method, std::string_view url, Params &&... params)",
+      "brief": "Submits an HTTP request, returning the response object. ",
       "category": "functions",
       "const": false,
       "default": false,
       "definition": "StatusOr<std::unique_ptr<HttpResponse> > batt::http_request",
       "deleted": false,
+      "details": "`params` must be from the following set:\n\n\n\n* HttpHeader: sets a custom Http message header name/value pair\n* [HttpData](/_autogen/Classes/structbatt_1_1HttpData/): (PUT/POST requests) sets a [BufferSource](/_autogen/Classes/classbatt_1_1BufferSource/) containing the message body\n* [HttpClient](/_autogen/Classes/classbatt_1_1HttpClient/): specifies the [HttpClient](/_autogen/Classes/classbatt_1_1HttpClient/) to use (default is [DefaultHttpClient::get()](/_autogen/Classes/classbatt_1_1DefaultHttpClient/#function-get))\n* HttpResponse*: sets the [HttpResponse](/_autogen/Classes/classbatt_1_1HttpResponse/) object to use (default is to allocate a new [HttpResponse](/_autogen/Classes/classbatt_1_1HttpResponse/) object); if this option is set, then this function will return `nullptr` on success.\n* [HttpVersion](/_autogen/Classes/structbatt_1_1HttpVersion/): sets the HTTP protocol version to use. Must be <= 1.1 ",
       "explicit": false,
       "fullname": "batt::http_request",
       "hasDetails": true,
@@ -14023,12 +14031,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 330,
+        "bodyEnd": 413,
         "bodyFile": "batteries/http/http_client.hpp",
-        "bodyStart": 263,
+        "bodyStart": 346,
         "column": 10,
         "file": "batteries/http/http_client.hpp",
-        "line": 263
+        "line": 346
       },
       "name": "http_request",
       "override": false,
@@ -14053,6 +14061,7 @@
       "refid": "http__client_8hpp_1a47210bf87669f8ccaf4d3a26dcfb2867",
       "static": false,
       "strong": false,
+      "summary": "Submits an HTTP request, returning the response object. ",
       "templateParams": [
         {
           "name": "Params",
@@ -14083,12 +14092,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 336,
+        "bodyEnd": 419,
         "bodyFile": "batteries/http/http_client.hpp",
-        "bodyStart": 333,
+        "bodyStart": 416,
         "column": 10,
         "file": "batteries/http/http_client.hpp",
-        "line": 333
+        "line": 416
       },
       "name": "http_get",
       "override": false,
@@ -14138,12 +14147,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 342,
+        "bodyEnd": 425,
         "bodyFile": "batteries/http/http_client.hpp",
-        "bodyStart": 339,
+        "bodyStart": 422,
         "column": 10,
         "file": "batteries/http/http_client.hpp",
-        "line": 339
+        "line": 422
       },
       "name": "http_post",
       "override": false,
@@ -14174,6 +14183,116 @@
       "type": "[StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< std::unique_ptr< [HttpResponse](/_autogen/Classes/classbatt_1_1HttpResponse/) > >",
       "typePlain": "StatusOr< std::unique_ptr< HttpResponse > >",
       "url": "/_autogen/Namespaces/namespacebatt/#function-http-post",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-http-put",
+      "argsString": "(std::string_view url, Params &&... params)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "StatusOr<std::unique_ptr<HttpResponse> > batt::http_put",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::http_put",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 431,
+        "bodyFile": "batteries/http/http_client.hpp",
+        "bodyStart": 428,
+        "column": 10,
+        "file": "batteries/http/http_client.hpp",
+        "line": 428
+      },
+      "name": "http_put",
+      "override": false,
+      "params": [
+        {
+          "name": "url",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "params",
+          "type": "Params &&...",
+          "typePlain": "Params &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "http__client_8hpp_1adecd5eef3c023079135d384d90d64667",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Params",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "http_put",
+      "type": "[StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< std::unique_ptr< [HttpResponse](/_autogen/Classes/classbatt_1_1HttpResponse/) > >",
+      "typePlain": "StatusOr< std::unique_ptr< HttpResponse > >",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-http-put",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-http-delete",
+      "argsString": "(std::string_view url, Params &&... params)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "StatusOr<std::unique_ptr<HttpResponse> > batt::http_delete",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::http_delete",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 437,
+        "bodyFile": "batteries/http/http_client.hpp",
+        "bodyStart": 434,
+        "column": 10,
+        "file": "batteries/http/http_client.hpp",
+        "line": 434
+      },
+      "name": "http_delete",
+      "override": false,
+      "params": [
+        {
+          "name": "url",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "params",
+          "type": "Params &&...",
+          "typePlain": "Params &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "http__client_8hpp_1a5143bd5255201b3fb7c5738892a2bc00",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Params",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "http_delete",
+      "type": "[StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< std::unique_ptr< [HttpResponse](/_autogen/Classes/classbatt_1_1HttpResponse/) > >",
+      "typePlain": "StatusOr< std::unique_ptr< HttpResponse > >",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-http-delete",
       "virtual": false,
       "visibility": "public"
     },
@@ -19523,12 +19642,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 749,
+        "bodyEnd": 750,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 746,
+        "bodyStart": 747,
         "column": 13,
         "file": "batteries/status.hpp",
-        "line": 746
+        "line": 747
       },
       "name": "operator==",
       "override": false,
@@ -19590,12 +19709,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 758,
+        "bodyEnd": 759,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 755,
+        "bodyStart": 756,
         "column": 13,
         "file": "batteries/status.hpp",
-        "line": 755
+        "line": 756
       },
       "name": "operator==",
       "override": false,
@@ -19664,12 +19783,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 764,
+        "bodyEnd": 765,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 761,
+        "bodyStart": 762,
         "column": 13,
         "file": "batteries/status.hpp",
-        "line": 761
+        "line": 762
       },
       "name": "operator!=",
       "override": false,
@@ -19724,12 +19843,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 245,
+        "bodyEnd": 246,
         "bodyFile": "batteries/status_impl.hpp",
-        "bodyStart": 242,
+        "bodyStart": 243,
         "column": 15,
         "file": "batteries/status_impl.hpp",
-        "line": 242
+        "line": 243
       },
       "name": "is_ok_status",
       "override": false,
@@ -19767,12 +19886,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 803,
+        "bodyEnd": 804,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 800,
+        "bodyStart": 801,
         "column": 6,
         "file": "batteries/status.hpp",
-        "line": 800
+        "line": 801
       },
       "name": "is_ok_status",
       "override": false,
@@ -19817,12 +19936,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 274,
+        "bodyEnd": 275,
         "bodyFile": "batteries/status_impl.hpp",
-        "bodyStart": 249,
+        "bodyStart": 250,
         "column": 10,
         "file": "batteries/status_impl.hpp",
-        "line": 249
+        "line": 250
       },
       "name": "operator<<",
       "override": false,
@@ -19865,12 +19984,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 282,
+        "bodyEnd": 283,
         "bodyFile": "batteries/status_impl.hpp",
-        "bodyStart": 278,
+        "bodyStart": 279,
         "column": 22,
         "file": "batteries/status_impl.hpp",
-        "line": 278
+        "line": 279
       },
       "name": "require_fail_global_default_log_level",
       "override": false,
@@ -19902,12 +20021,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 290,
+        "bodyEnd": 291,
         "bodyFile": "batteries/status_impl.hpp",
-        "bodyStart": 286,
+        "bodyStart": 287,
         "column": 19,
         "file": "batteries/status_impl.hpp",
-        "line": 286
+        "line": 287
       },
       "name": "require_fail_thread_default_log_level",
       "override": false,
@@ -19939,12 +20058,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1059,
+        "bodyEnd": 1060,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1056,
+        "bodyStart": 1057,
         "column": 15,
         "file": "batteries/status.hpp",
-        "line": 1056
+        "line": 1057
       },
       "name": "status_from_errno",
       "override": false,
@@ -19982,12 +20101,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 897,
+        "bodyEnd": 898,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 894,
+        "bodyStart": 895,
         "column": 17,
         "file": "batteries/status.hpp",
-        "line": 894
+        "line": 895
       },
       "name": "to_status",
       "override": false,
@@ -20039,12 +20158,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 906,
+        "bodyEnd": 907,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 903,
+        "bodyStart": 904,
         "column": 17,
         "file": "batteries/status.hpp",
-        "line": 903
+        "line": 904
       },
       "name": "to_status",
       "override": false,
@@ -20104,12 +20223,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 969,
+        "bodyEnd": 970,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 941,
+        "bodyStart": 942,
         "column": 7,
         "file": "batteries/status.hpp",
-        "line": 941
+        "line": 942
       },
       "name": "register_error_category",
       "override": false,
@@ -20182,12 +20301,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 439,
+        "bodyEnd": 440,
         "bodyFile": "batteries/status_impl.hpp",
-        "bodyStart": 407,
+        "bodyStart": 408,
         "column": 17,
         "file": "batteries/status_impl.hpp",
-        "line": 407
+        "line": 408
       },
       "name": "status_from_error_category",
       "override": false,
@@ -20236,12 +20355,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 446,
+        "bodyEnd": 447,
         "bodyFile": "batteries/status_impl.hpp",
-        "bodyStart": 443,
+        "bodyStart": 444,
         "column": 17,
         "file": "batteries/status_impl.hpp",
-        "line": 443
+        "line": 444
       },
       "name": "status_from_error_code",
       "override": false,
@@ -20283,12 +20402,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 998,
+        "bodyEnd": 999,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 991,
+        "bodyStart": 992,
         "column": 15,
         "file": "batteries/status.hpp",
-        "line": 991
+        "line": 992
       },
       "name": "to_status",
       "override": false,
@@ -20368,12 +20487,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 585,
+        "bodyEnd": 586,
         "bodyFile": "batteries/status_impl.hpp",
-        "bodyStart": 450,
+        "bodyStart": 451,
         "column": 17,
         "file": "batteries/status_impl.hpp",
-        "line": 450
+        "line": 451
       },
       "name": "error_code_to_status",
       "override": false,
@@ -20411,12 +20530,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1007,
+        "bodyEnd": 1008,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1004,
+        "bodyStart": 1005,
         "column": 15,
         "file": "batteries/status.hpp",
-        "line": 1004
+        "line": 1005
       },
       "name": "to_status",
       "override": false,
@@ -20482,12 +20601,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1018,
+        "bodyEnd": 1019,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1015,
+        "bodyStart": 1016,
         "column": 15,
         "file": "batteries/status.hpp",
-        "line": 1015
+        "line": 1016
       },
       "name": "to_status",
       "override": false,
@@ -20560,12 +20679,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1068,
+        "bodyEnd": 1069,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1062,
+        "bodyStart": 1063,
         "column": 15,
         "file": "batteries/status.hpp",
-        "line": 1062
+        "line": 1063
       },
       "name": "status_from_retval",
       "override": false,
@@ -20610,12 +20729,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1076,
+        "bodyEnd": 1077,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1071,
+        "bodyStart": 1072,
         "column": 10,
         "file": "batteries/status.hpp",
-        "line": 1071
+        "line": 1072
       },
       "name": "ok_result_or_panic",
       "override": false,
@@ -20660,12 +20779,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1086,
+        "bodyEnd": 1087,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 1080,
+        "bodyStart": 1081,
         "column": 1,
         "file": "batteries/status.hpp",
-        "line": 1080
+        "line": 1081
       },
       "name": "operator<<",
       "override": false,
@@ -20722,12 +20841,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 595,
+        "bodyEnd": 597,
         "bodyFile": "batteries/status_impl.hpp",
-        "bodyStart": 589,
+        "bodyStart": 590,
         "column": 15,
         "file": "batteries/status_impl.hpp",
-        "line": 589
+        "line": 590
       },
       "name": "status_is_retryable",
       "override": false,
@@ -24213,6 +24332,21 @@
           "title": "kGrantRevoked",
           "url": "/_autogen/Namespaces/namespacebatt/#enumvalue-kgrantrevoked",
           "visibility": "public"
+        },
+        {
+          "anchor": "#enumvalue-kpoke",
+          "category": "types",
+          "definition": "",
+          "fullname": "StatusCode::kPoke",
+          "hasDetails": false,
+          "initializer": "= 106",
+          "kind": "enumvalue",
+          "language": "",
+          "name": "kPoke",
+          "refid": "status_8hpp_1af894ea90380b800ba4215a019af5bec4a593f405c0dbbaee55ec954c1ff9ddc3a",
+          "title": "kPoke",
+          "url": "/_autogen/Namespaces/namespacebatt/#enumvalue-kpoke",
+          "visibility": "public"
         }
       ],
       "explicit": false,
@@ -24222,7 +24356,7 @@
       "kind": "enum",
       "language": "cpp",
       "location": {
-        "bodyEnd": 88,
+        "bodyEnd": 89,
         "bodyFile": "batteries/status.hpp",
         "bodyStart": 61,
         "column": 1,
@@ -24254,12 +24388,12 @@
       "kind": "enum",
       "language": "cpp",
       "location": {
-        "bodyEnd": 90,
+        "bodyEnd": 91,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 90,
+        "bodyStart": 91,
         "column": 1,
         "file": "batteries/status.hpp",
-        "line": 90
+        "line": 91
       },
       "name": "ErrnoValue",
       "override": false,
@@ -24369,12 +24503,12 @@
       "kind": "enum",
       "language": "cpp",
       "location": {
-        "bodyEnd": 812,
+        "bodyEnd": 813,
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 805,
+        "bodyStart": 806,
         "column": 1,
         "file": "batteries/status.hpp",
-        "line": 805
+        "line": 806
       },
       "name": "LogLevel",
       "override": false,
@@ -25962,10 +26096,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 781,
+        "bodyStart": 782,
         "column": 1,
         "file": "batteries/status.hpp",
-        "line": 781
+        "line": 782
       },
       "name": "IsStatusOr",
       "override": false,
@@ -25999,10 +26133,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/status.hpp",
-        "bodyStart": 793,
+        "bodyStart": 794,
         "column": 1,
         "file": "batteries/status.hpp",
-        "line": 793
+        "line": 794
       },
       "name": "RemoveStatusOr",
       "override": false,

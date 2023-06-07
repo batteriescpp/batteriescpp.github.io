@@ -548,8 +548,43 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#function-set_max_connections" class="md-nav__link">
+    function set_max_connections
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-set_connection_timeout_ms" class="md-nav__link">
+    function set_connection_timeout_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-get_connection_timeout_ms" class="md-nav__link">
+    function get_connection_timeout_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-count_active_connections" class="md-nav__link">
+    function count_active_connections
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-submit_request" class="md-nav__link">
     function submit_request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-halt" class="md-nav__link">
+    function halt
   </a>
   
 </li>
@@ -602,6 +637,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#variable-kdefaultidleconnectiontimeoutms" class="md-nav__link">
+    variable kDefaultIdleConnectionTimeoutMs
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -649,8 +691,28 @@
 <td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClientHostContext/#function-client">client</a></strong>() const</td>
 </tr>
 <tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClientHostContext/#function-set-max-connections">set_max_connections</a></strong>(usize n)</td>
+</tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClientHostContext/#function-set-connection-timeout-ms">set_connection_timeout_ms</a></strong>(i32 timeout_ms)</td>
+</tr>
+<tr>
+<td>i32</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClientHostContext/#function-get-connection-timeout-ms">get_connection_timeout_ms</a></strong>() const</td>
+</tr>
+<tr>
+<td>usize</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClientHostContext/#function-count-active-connections">count_active_connections</a></strong>() const</td>
+</tr>
+<tr>
 <td><a href="/_autogen/Classes/classbatt_1_1Status/">Status</a></td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClientHostContext/#function-submit-request">submit_request</a></strong>(<a href="/_autogen/Classes/classbatt_1_1Pin/">Pin</a>&lt; <a href="/_autogen/Classes/classbatt_1_1HttpRequest/">HttpRequest</a> &gt; &amp;&amp; request, <a href="/_autogen/Classes/classbatt_1_1Pin/">Pin</a>&lt; <a href="/_autogen/Classes/classbatt_1_1HttpResponse/">HttpResponse</a> &gt; &amp;&amp; response)</td>
+</tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClientHostContext/#function-halt">halt</a></strong>()</td>
 </tr>
 <tr>
 <td>void</td>
@@ -683,6 +745,10 @@
 <td>constexpr usize</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClientHostContext/#variable-kdefaultmaxconnections">kDefaultMaxConnections</a></strong></td>
 </tr>
+<tr>
+<td>constexpr usize</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClientHostContext/#variable-kdefaultidleconnectiontimeoutms">kDefaultIdleConnectionTimeoutMs</a></strong></td>
+</tr>
 </tbody>
 </table>
 <h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&#128279;</a></h2>
@@ -699,35 +765,61 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">io_context</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">get_io_context</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-client">function client<a class="headerlink" href="#function-client" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">HttpClient</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">client</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">HttpClient</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">client</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-submit_request">function submit_request<a class="headerlink" href="#function-submit_request" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-set_max_connections">function set_max_connections<a class="headerlink" href="#function-set_max_connections" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span>
-<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="n">submit_request</span><span class="p">(</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">Pin</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HttpRequest</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">request</span><span class="p">,</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="n">Pin</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HttpResponse</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">response</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">set_max_connections</span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">    </span><span class="n">usize</span><span class="w"> </span><span class="n">n</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-set_connection_timeout_ms">function set_connection_timeout_ms<a class="headerlink" href="#function-set_connection_timeout_ms" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">set_connection_timeout_ms</span><span class="p">(</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="n">i32</span><span class="w"> </span><span class="n">timeout_ms</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-get_connection_timeout_ms">function get_connection_timeout_ms<a class="headerlink" href="#function-get_connection_timeout_ms" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="n">get_connection_timeout_ms</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-count_active_connections">function count_active_connections<a class="headerlink" href="#function-count_active_connections" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">count_active_connections</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-submit_request">function submit_request<a class="headerlink" href="#function-submit_request" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="n">submit_request</span><span class="p">(</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="n">Pin</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HttpRequest</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">request</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="n">Pin</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HttpResponse</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">response</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-halt">function halt<a class="headerlink" href="#function-halt" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">halt</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-join">function join<a class="headerlink" href="#function-join" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">join</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">join</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-can_grow">function can_grow<a class="headerlink" href="#function-can_grow" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">can_grow</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">can_grow</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-host_address">function host_address<a class="headerlink" href="#function-host_address" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">HostAddress</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">host_address</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">HostAddress</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">host_address</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-await_next_request">function await_next_request<a class="headerlink" href="#function-await_next_request" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Pin</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HttpRequest</span><span class="w"> </span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Pin</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HttpResponse</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">await_next_request</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Pin</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HttpRequest</span><span class="w"> </span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Pin</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HttpResponse</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">await_next_request</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="public-attributes-documentation">Public Attributes Documentation<a class="headerlink" href="#public-attributes-documentation" title="Permanent link">&#128279;</a></h2>
 <h3 id="variable-kdefaultmaxconnections">variable kDefaultMaxConnections<a class="headerlink" href="#variable-kdefaultmaxconnections" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kDefaultMaxConnections</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kDefaultMaxConnections</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="variable-kdefaultidleconnectiontimeoutms">variable kDefaultIdleConnectionTimeoutMs<a class="headerlink" href="#variable-kdefaultidleconnectiontimeoutms" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kDefaultIdleConnectionTimeoutMs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on  5 June 2023 at 14:38:30 UTC</p>
+<p>Updated on  7 June 2023 at 01:25:16 UTC</p>
 
 
 

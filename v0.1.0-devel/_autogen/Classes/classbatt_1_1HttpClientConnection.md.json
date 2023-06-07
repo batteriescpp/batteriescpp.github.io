@@ -12,12 +12,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 78,
+    "bodyEnd": 122,
     "bodyFile": "batteries/http/http_client_connection_decl.hpp",
-    "bodyStart": 26,
+    "bodyStart": 28,
     "column": 1,
     "file": "batteries/http/http_client_connection_decl.hpp",
-    "line": 25
+    "line": 27
   },
   "name": "batt::HttpClientConnection",
   "override": false,
@@ -47,7 +47,7 @@
       "visibility": "public"
     }
   ],
-  "publicAttributes": [
+  "privateAttributes": [
     {
       "abstract": false,
       "anchor": "#variable-context-",
@@ -62,10 +62,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_client_connection_decl.hpp",
-        "bodyStart": 67,
+        "bodyStart": 107,
         "column": 27,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 67
+        "line": 107
       },
       "name": "context_",
       "override": false,
@@ -76,7 +76,37 @@
       "type": "[HttpClientHostContext](/_autogen/Classes/classbatt_1_1HttpClientHostContext/) &",
       "typePlain": "HttpClientHostContext &",
       "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#variable-context-",
-      "visibility": "public"
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-idle-connection-timeout-ms-",
+      "category": "attributes",
+      "const": false,
+      "definition": "i32 batt::HttpClientConnection::idle_connection_timeout_ms_",
+      "explicit": false,
+      "fullname": "batt::HttpClientConnection::idle_connection_timeout_ms_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/http_client_connection_decl.hpp",
+        "bodyStart": 109,
+        "column": 9,
+        "file": "batteries/http/http_client_connection_decl.hpp",
+        "line": 109
+      },
+      "name": "idle_connection_timeout_ms_",
+      "override": false,
+      "refid": "classbatt_1_1HttpClientConnection_1ab2ef8fee92eb80f151569ce794fc7a7b",
+      "static": false,
+      "strong": false,
+      "title": "idle_connection_timeout_ms_",
+      "type": "i32",
+      "typePlain": "i32",
+      "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#variable-idle-connection-timeout-ms-",
+      "visibility": "private"
     },
     {
       "abstract": false,
@@ -92,10 +122,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_client_connection_decl.hpp",
-        "bodyStart": 69,
+        "bodyStart": 111,
         "column": 34,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 69
+        "line": 111
       },
       "name": "socket_",
       "override": false,
@@ -106,7 +136,37 @@
       "type": "boost::asio::ip::tcp::socket",
       "typePlain": "boost::asio::ip::tcp::socket",
       "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#variable-socket-",
-      "visibility": "public"
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-idle-timer-",
+      "category": "attributes",
+      "const": false,
+      "definition": "boost::asio::deadline_timer batt::HttpClientConnection::idle_timer_",
+      "explicit": false,
+      "fullname": "batt::HttpClientConnection::idle_timer_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/http_client_connection_decl.hpp",
+        "bodyStart": 113,
+        "column": 33,
+        "file": "batteries/http/http_client_connection_decl.hpp",
+        "line": 113
+      },
+      "name": "idle_timer_",
+      "override": false,
+      "refid": "classbatt_1_1HttpClientConnection_1a7d2a001492e4c0ea0dca181ff1cef5fd",
+      "static": false,
+      "strong": false,
+      "title": "idle_timer_",
+      "type": "boost::asio::deadline_timer",
+      "typePlain": "boost::asio::deadline_timer",
+      "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#variable-idle-timer-",
+      "visibility": "private"
     },
     {
       "abstract": false,
@@ -122,10 +182,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_client_connection_decl.hpp",
-        "bodyStart": 71,
+        "bodyStart": 115,
         "column": 11,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 71
+        "line": 115
       },
       "name": "response_queue_",
       "override": false,
@@ -136,7 +196,7 @@
       "type": "[Queue](/_autogen/Classes/classbatt_1_1Queue/)< [Pin](/_autogen/Classes/classbatt_1_1Pin/)< [HttpResponse](/_autogen/Classes/classbatt_1_1HttpResponse/) > >",
       "typePlain": "Queue< Pin< HttpResponse > >",
       "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#variable-response-queue-",
-      "visibility": "public"
+      "visibility": "private"
     },
     {
       "abstract": false,
@@ -153,10 +213,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_client_connection_decl.hpp",
-        "bodyStart": 73,
+        "bodyStart": 117,
         "column": 18,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 73
+        "line": 117
       },
       "name": "input_buffer_",
       "override": false,
@@ -167,54 +227,72 @@
       "type": "[StreamBuffer](/_autogen/Classes/classbatt_1_1StreamBuffer/)",
       "typePlain": "StreamBuffer",
       "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#variable-input-buffer-",
-      "visibility": "public"
+      "visibility": "private"
     },
     {
       "abstract": false,
-      "anchor": "#variable-task-",
+      "anchor": "#variable-response-count-",
       "category": "attributes",
       "const": false,
-      "definition": "Optional<Task> batt::HttpClientConnection::task_",
+      "definition": "Watch<usize> batt::HttpClientConnection::response_count_",
       "explicit": false,
-      "fullname": "batt::HttpClientConnection::task_",
+      "fullname": "batt::HttpClientConnection::response_count_",
       "hasDetails": false,
+      "initializer": "{0}",
       "inline": false,
       "kind": "variable",
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_client_connection_decl.hpp",
-        "bodyStart": 77,
-        "column": 14,
+        "bodyStart": 119,
+        "column": 11,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 77
+        "line": 119
       },
-      "name": "task_",
+      "name": "response_count_",
       "override": false,
-      "refid": "classbatt_1_1HttpClientConnection_1a96e946a5589f104a57c7bb7a2d037908",
+      "refid": "classbatt_1_1HttpClientConnection_1a852f518d3dfc75a86f1868e6fa82d5d9",
       "static": false,
       "strong": false,
-      "title": "task_",
-      "type": "[Optional](/_autogen/Classes/classbatt_1_1Optional/)< [Task](/_autogen/Classes/classbatt_1_1Task/) >",
-      "typePlain": "Optional< Task >",
-      "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#variable-task-",
-      "visibility": "public"
-    }
-  ],
-  "publicClasses": [
+      "title": "response_count_",
+      "type": "[Watch](/_autogen/Classes/classbatt_1_1Watch/)< usize >",
+      "typePlain": "Watch< usize >",
+      "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#variable-response-count-",
+      "visibility": "private"
+    },
     {
-      "anchor": "",
-      "category": "classes",
-      "fullname": "batt::HttpClientConnection::ResponseInfo",
-      "kind": "struct",
+      "abstract": false,
+      "anchor": "#variable-activity-",
+      "category": "attributes",
+      "const": false,
+      "definition": "Watch<u64> batt::HttpClientConnection::activity_",
+      "explicit": false,
+      "fullname": "batt::HttpClientConnection::activity_",
+      "hasDetails": false,
+      "initializer": "{0}",
+      "inline": false,
+      "kind": "variable",
       "language": "cpp",
-      "name": "batt::HttpClientConnection::ResponseInfo",
-      "refid": "structbatt_1_1HttpClientConnection_1_1ResponseInfo",
-      "title": "batt::HttpClientConnection::ResponseInfo",
-      "url": "/_autogen/Classes/structbatt_1_1HttpClientConnection_1_1ResponseInfo/",
-      "visibility": "public"
+      "location": {
+        "bodyFile": "batteries/http/http_client_connection_decl.hpp",
+        "bodyStart": 121,
+        "column": 11,
+        "file": "batteries/http/http_client_connection_decl.hpp",
+        "line": 121
+      },
+      "name": "activity_",
+      "override": false,
+      "refid": "classbatt_1_1HttpClientConnection_1a0d1f3e8aacb04bc6f71377819b62245b",
+      "static": false,
+      "strong": false,
+      "title": "activity_",
+      "type": "[Watch](/_autogen/Classes/classbatt_1_1Watch/)< u64 >",
+      "typePlain": "Watch< u64 >",
+      "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#variable-activity-",
+      "visibility": "private"
     }
   ],
-  "publicFunctions": [
+  "privateFunctions": [
     {
       "abstract": false,
       "anchor": "#function-httpclientconnection",
@@ -231,12 +309,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 23,
+        "bodyEnd": 52,
         "bodyFile": "batteries/http/http_client_connection_impl.hpp",
-        "bodyStart": 18,
+        "bodyStart": 45,
         "column": 14,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 43
+        "line": 81
       },
       "name": "HttpClientConnection",
       "override": false,
@@ -254,115 +332,44 @@
       "title": "HttpClientConnection",
       "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-httpclientconnection",
       "virtual": false,
-      "visibility": "public"
+      "visibility": "private"
     },
     {
       "abstract": false,
-      "anchor": "#function-start",
+      "anchor": "#function-run",
       "argsString": "()",
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "void batt::HttpClientConnection::start",
+      "definition": "void batt::HttpClientConnection::run",
       "deleted": false,
       "explicit": false,
-      "fullname": "batt::HttpClientConnection::start",
+      "fullname": "batt::HttpClientConnection::run",
       "hasDetails": false,
       "inline": true,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 50,
+        "bodyEnd": 121,
         "bodyFile": "batteries/http/http_client_connection_impl.hpp",
-        "bodyStart": 34,
+        "bodyStart": 85,
         "column": 10,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 45
+        "line": 83
       },
-      "name": "start",
+      "name": "run",
       "override": false,
       "params": [],
       "pureVirtual": false,
-      "refid": "classbatt_1_1HttpClientConnection_1aad758e01d590ac538b389cd877ea2999",
+      "refid": "classbatt_1_1HttpClientConnection_1a2e18012a359a50d73534f4b257e31e91",
       "static": false,
       "strong": false,
-      "title": "start",
+      "title": "run",
       "type": "void",
       "typePlain": "void",
-      "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-start",
+      "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-run",
       "virtual": false,
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#function-halt",
-      "argsString": "()",
-      "category": "functions",
-      "const": false,
-      "default": false,
-      "definition": "void batt::HttpClientConnection::halt",
-      "deleted": false,
-      "explicit": false,
-      "fullname": "batt::HttpClientConnection::halt",
-      "hasDetails": false,
-      "inline": false,
-      "kind": "function",
-      "language": "cpp",
-      "location": {
-        "column": 10,
-        "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 47
-      },
-      "name": "halt",
-      "override": false,
-      "params": [],
-      "pureVirtual": false,
-      "refid": "classbatt_1_1HttpClientConnection_1a15f2514960af05f1f011582b62ff1b59",
-      "static": false,
-      "strong": false,
-      "title": "halt",
-      "type": "void",
-      "typePlain": "void",
-      "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-halt",
-      "virtual": false,
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#function-join",
-      "argsString": "()",
-      "category": "functions",
-      "const": false,
-      "default": false,
-      "definition": "void batt::HttpClientConnection::join",
-      "deleted": false,
-      "explicit": false,
-      "fullname": "batt::HttpClientConnection::join",
-      "hasDetails": false,
-      "inline": true,
-      "kind": "function",
-      "language": "cpp",
-      "location": {
-        "bodyEnd": 239,
-        "bodyFile": "batteries/http/http_client_connection_impl.hpp",
-        "bodyStart": 233,
-        "column": 10,
-        "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 49
-      },
-      "name": "join",
-      "override": false,
-      "params": [],
-      "pureVirtual": false,
-      "refid": "classbatt_1_1HttpClientConnection_1a9a3d8494dbdc0274df8da38ef6943bb4",
-      "static": false,
-      "strong": false,
-      "title": "join",
-      "type": "void",
-      "typePlain": "void",
-      "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-join",
-      "virtual": false,
-      "visibility": "public"
+      "visibility": "private"
     },
     {
       "abstract": false,
@@ -380,12 +387,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 119,
+        "bodyEnd": 278,
         "bodyFile": "batteries/http/http_client_connection_impl.hpp",
-        "bodyStart": 72,
+        "bodyStart": 162,
         "column": 12,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 51
+        "line": 85
       },
       "name": "process_requests",
       "override": false,
@@ -399,7 +406,7 @@
       "typePlain": "Status",
       "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-process-requests",
       "virtual": false,
-      "visibility": "public"
+      "visibility": "private"
     },
     {
       "abstract": false,
@@ -417,12 +424,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 146,
+        "bodyEnd": 310,
         "bodyFile": "batteries/http/http_client_connection_impl.hpp",
-        "bodyStart": 123,
+        "bodyStart": 282,
         "column": 12,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 53
+        "line": 87
       },
       "name": "fill_input_buffer",
       "override": false,
@@ -436,7 +443,7 @@
       "typePlain": "Status",
       "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-fill-input-buffer",
       "virtual": false,
-      "visibility": "public"
+      "visibility": "private"
     },
     {
       "abstract": false,
@@ -454,12 +461,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 199,
+        "bodyEnd": 400,
         "bodyFile": "batteries/http/http_client_connection_impl.hpp",
-        "bodyStart": 150,
+        "bodyStart": 314,
         "column": 12,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 55
+        "line": 89
       },
       "name": "process_responses",
       "override": false,
@@ -473,7 +480,7 @@
       "typePlain": "Status",
       "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-process-responses",
       "virtual": false,
-      "visibility": "public"
+      "visibility": "private"
     },
     {
       "abstract": false,
@@ -491,12 +498,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 68,
+        "bodyEnd": 139,
         "bodyFile": "batteries/http/http_client_connection_impl.hpp",
-        "bodyStart": 54,
+        "bodyStart": 125,
         "column": 12,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 57
+        "line": 91
       },
       "name": "open_connection",
       "override": false,
@@ -510,41 +517,44 @@
       "typePlain": "Status",
       "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-open-connection",
       "virtual": false,
-      "visibility": "public"
+      "visibility": "private"
     },
     {
       "abstract": false,
-      "anchor": "#function-close-connection",
-      "argsString": "()",
+      "anchor": "#function-halt",
+      "argsString": "() noexcept",
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "void batt::HttpClientConnection::close_connection",
+      "definition": "void batt::HttpClientConnection::halt",
       "deleted": false,
       "explicit": false,
-      "fullname": "batt::HttpClientConnection::close_connection",
+      "fullname": "batt::HttpClientConnection::halt",
       "hasDetails": false,
-      "inline": false,
+      "inline": true,
       "kind": "function",
       "language": "cpp",
       "location": {
+        "bodyEnd": 158,
+        "bodyFile": "batteries/http/http_client_connection_impl.hpp",
+        "bodyStart": 143,
         "column": 10,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 59
+        "line": 93
       },
-      "name": "close_connection",
+      "name": "halt",
       "override": false,
       "params": [],
       "pureVirtual": false,
-      "refid": "classbatt_1_1HttpClientConnection_1acd87c5f12f399c205b2af2c7e45ff30f",
+      "refid": "classbatt_1_1HttpClientConnection_1a64ecf7bfa5d73ede1f9a4bc883b4a251",
       "static": false,
       "strong": false,
-      "title": "close_connection",
+      "title": "halt",
       "type": "void",
       "typePlain": "void",
-      "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-close-connection",
+      "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-halt",
       "virtual": false,
-      "visibility": "public"
+      "visibility": "private"
     },
     {
       "abstract": false,
@@ -562,12 +572,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 229,
+        "bodyEnd": 433,
         "bodyFile": "batteries/http/http_client_connection_impl.hpp",
-        "bodyStart": 203,
+        "bodyStart": 404,
         "column": 14,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 61
+        "line": 95
       },
       "name": "read_next_response",
       "override": false,
@@ -587,7 +597,7 @@
       "typePlain": "StatusOr< i32 >",
       "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-read-next-response",
       "virtual": false,
-      "visibility": "public"
+      "visibility": "private"
     },
     {
       "abstract": false,
@@ -605,12 +615,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 30,
+        "bodyEnd": 59,
         "bodyFile": "batteries/http/http_client_connection_impl.hpp",
-        "bodyStart": 27,
+        "bodyStart": 56,
         "column": 29,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 63
+        "line": 97
       },
       "name": "get_io_context",
       "override": false,
@@ -623,6 +633,186 @@
       "type": "boost::asio::io_context &",
       "typePlain": "boost::asio::io_context &",
       "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-get-io-context",
+      "virtual": false,
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-local-endpoint",
+      "argsString": "() const noexcept",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "StatusOr< boost::asio::ip::tcp::endpoint > batt::HttpClientConnection::local_endpoint",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HttpClientConnection::local_endpoint",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 70,
+        "bodyFile": "batteries/http/http_client_connection_impl.hpp",
+        "bodyStart": 63,
+        "column": 14,
+        "file": "batteries/http/http_client_connection_decl.hpp",
+        "line": 99
+      },
+      "name": "local_endpoint",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HttpClientConnection_1a725a17b1a9cab2cc8b9e6c8f14c31028",
+      "static": false,
+      "strong": false,
+      "title": "local_endpoint",
+      "type": "[StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< boost::asio::ip::tcp::endpoint >",
+      "typePlain": "StatusOr< boost::asio::ip::tcp::endpoint >",
+      "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-local-endpoint",
+      "virtual": false,
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-remote-endpoint",
+      "argsString": "() const noexcept",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "StatusOr< boost::asio::ip::tcp::endpoint > batt::HttpClientConnection::remote_endpoint",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HttpClientConnection::remote_endpoint",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 81,
+        "bodyFile": "batteries/http/http_client_connection_impl.hpp",
+        "bodyStart": 74,
+        "column": 14,
+        "file": "batteries/http/http_client_connection_decl.hpp",
+        "line": 101
+      },
+      "name": "remote_endpoint",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HttpClientConnection_1a00a2b35f70ca234dfea52a4943dec8d3",
+      "static": false,
+      "strong": false,
+      "title": "remote_endpoint",
+      "type": "[StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< boost::asio::ip::tcp::endpoint >",
+      "typePlain": "StatusOr< boost::asio::ip::tcp::endpoint >",
+      "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-remote-endpoint",
+      "virtual": false,
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-idle-connection-timeout-task-main",
+      "argsString": "()",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::HttpClientConnection::idle_connection_timeout_task_main",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::HttpClientConnection::idle_connection_timeout_task_main",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 546,
+        "bodyFile": "batteries/http/http_client_connection_impl.hpp",
+        "bodyStart": 485,
+        "column": 10,
+        "file": "batteries/http/http_client_connection_decl.hpp",
+        "line": 103
+      },
+      "name": "idle_connection_timeout_task_main",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HttpClientConnection_1a010916d688808877dd2de49988280763",
+      "static": false,
+      "strong": false,
+      "title": "idle_connection_timeout_task_main",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-idle-connection-timeout-task-main",
+      "virtual": false,
+      "visibility": "private"
+    }
+  ],
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "A summary of information about a response message that is necessary for the connection to correctly handle it. ",
+      "category": "classes",
+      "fullname": "batt::HttpClientConnection::ResponseInfo",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::HttpClientConnection::ResponseInfo",
+      "refid": "structbatt_1_1HttpClientConnection_1_1ResponseInfo",
+      "summary": "A summary of information about a response message that is necessary for the connection to correctly handle it. ",
+      "title": "batt::HttpClientConnection::ResponseInfo",
+      "url": "/_autogen/Classes/structbatt_1_1HttpClientConnection_1_1ResponseInfo/",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-spawn",
+      "argsString": "(HttpClientHostContext &context, Watch< usize > &active_connections) noexcept",
+      "brief": "Used to start an [HttpClientConnection](/_autogen/Classes/classbatt_1_1HttpClientConnection/) processing [Task](/_autogen/Classes/classbatt_1_1Task/). ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::HttpClientConnection::spawn",
+      "deleted": false,
+      "details": "The created [Task](/_autogen/Classes/classbatt_1_1Task/) will pull from the request/response pair queue of the passed context until an error occurs or the queue is closed. This function increments `active_connections` by one before returning, and decrements `active_connections` when it exits.\n\nWARNING: Be careful about asserting/assuming that `active_connections` will appear to increase from the caller's perspective! This function guarantees that `active_connections` is incremented before returning, but it does NOT guarantee that `active_connections` is not subsequently decremented \"before\" returning, since that can happen asynchronously on some other thread/task.)\n\nThis function uses [batt::Task::spawn](/_autogen/Classes/classbatt_1_1Task/#function-spawn) internally, so the created [Task](/_autogen/Classes/classbatt_1_1Task/) will be a sub-Task of the currently running [Task](/_autogen/Classes/classbatt_1_1Task/) (this means that the task that calls [HttpClientConnection::spawn](/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-spawn) will automatically join to the sub-Task.\n\nIt is the caller's responsibility to ensure that `context` and `active_connections` do not go out of scope while there are still active connections (as tracked by the passed [Watch](/_autogen/Classes/classbatt_1_1Watch/)). ",
+      "explicit": false,
+      "fullname": "batt::HttpClientConnection::spawn",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 41,
+        "bodyFile": "batteries/http/http_client_connection_impl.hpp",
+        "bodyStart": 20,
+        "column": 17,
+        "file": "batteries/http/http_client_connection_decl.hpp",
+        "line": 77
+      },
+      "name": "spawn",
+      "override": false,
+      "params": [
+        {
+          "name": "context",
+          "type": "[HttpClientHostContext](/_autogen/Classes/classbatt_1_1HttpClientHostContext/) &",
+          "typePlain": "HttpClientHostContext &"
+        },
+        {
+          "name": "active_connections",
+          "type": "[Watch](/_autogen/Classes/classbatt_1_1Watch/)< usize > &",
+          "typePlain": "Watch< usize > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1HttpClientConnection_1a92f10748e67b2367026df86d386a428c",
+      "static": true,
+      "strong": false,
+      "summary": "Used to start an HttpClientConnection processing Task. ",
+      "title": "spawn",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1HttpClientConnection/#function-spawn",
       "virtual": false,
       "visibility": "public"
     }

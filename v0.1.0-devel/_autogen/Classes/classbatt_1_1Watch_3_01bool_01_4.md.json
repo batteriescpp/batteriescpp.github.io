@@ -21,10 +21,10 @@
           "language": "cpp",
           "location": {
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 804,
+            "bodyStart": 820,
             "column": 17,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 804
+            "line": 820
           },
           "name": "value_",
           "override": false,
@@ -52,10 +52,10 @@
           "language": "cpp",
           "location": {
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 805,
+            "bodyStart": 821,
             "column": 25,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 805
+            "line": 821
           },
           "name": "spin_state_",
           "override": false,
@@ -82,10 +82,10 @@
           "language": "cpp",
           "location": {
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 806,
+            "bodyStart": 822,
             "column": 25,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 806
+            "line": 822
           },
           "name": "observers_",
           "override": false,
@@ -116,12 +116,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 748,
+            "bodyEnd": 764,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 732,
+            "bodyStart": 748,
             "column": 12,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 732
+            "line": 748
           },
           "name": "get_final_status",
           "override": false,
@@ -153,12 +153,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 759,
+            "bodyEnd": 775,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 750,
+            "bodyStart": 766,
             "column": 9,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 750
+            "line": 766
           },
           "name": "lock_observers",
           "override": false,
@@ -190,12 +190,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 764,
+            "bodyEnd": 780,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 761,
+            "bodyStart": 777,
             "column": 10,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 761
+            "line": 777
           },
           "name": "unlock_observers",
           "override": false,
@@ -233,12 +233,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 802,
+            "bodyEnd": 818,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 766,
+            "bodyStart": 782,
             "column": 10,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 766
+            "line": 782
           },
           "name": "notify",
           "override": false,
@@ -689,6 +689,45 @@
         },
         {
           "abstract": false,
+          "anchor": "#function-poke",
+          "argsString": "() noexcept",
+          "brief": "Wakes up all observers of this [Watch](/_autogen/Classes/classbatt_1_1Watch/), invoking their handlers with StatusCode::kPoke to indicate they should check their current situation and possibly retry. ",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "void batt::WatchAtomic< T >::poke",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::WatchAtomic::poke",
+          "hasDetails": false,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 406,
+            "bodyFile": "batteries/async/watch_decl.hpp",
+            "bodyStart": 395,
+            "column": 10,
+            "file": "batteries/async/watch_decl.hpp",
+            "line": 395
+          },
+          "name": "poke",
+          "override": false,
+          "params": [],
+          "pureVirtual": false,
+          "refid": "classbatt_1_1WatchAtomic_1a9cab02eed1cdd022ef5acf63365d713a",
+          "static": false,
+          "strong": false,
+          "summary": "Wakes up all observers of this Watch, invoking their handlers with StatusCode::kPoke to indicate they should check their current situation and possibly retry. ",
+          "title": "poke",
+          "type": "void",
+          "typePlain": "void",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/#function-poke",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
           "anchor": "#function-reset",
           "argsString": "()",
           "brief": "Resets the 'closed' status of this [Watch](/_autogen/Classes/classbatt_1_1Watch/). ",
@@ -704,12 +743,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 403,
+            "bodyEnd": 419,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 394,
+            "bodyStart": 410,
             "column": 10,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 394
+            "line": 410
           },
           "name": "reset",
           "override": false,
@@ -743,12 +782,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 410,
+            "bodyEnd": 426,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 407,
+            "bodyStart": 423,
             "column": 10,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 407
+            "line": 423
           },
           "name": "is_closed",
           "override": false,
@@ -782,12 +821,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 424,
+            "bodyEnd": 440,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 414,
+            "bodyStart": 430,
             "column": 7,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 414
+            "line": 430
           },
           "name": "set_value",
           "override": false,
@@ -827,12 +866,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 431,
+            "bodyEnd": 447,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 428,
+            "bodyStart": 444,
             "column": 7,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 428
+            "line": 444
           },
           "name": "get_value",
           "override": false,
@@ -866,12 +905,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 447,
+            "bodyEnd": 463,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 435,
+            "bodyStart": 451,
             "column": 7,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 435
+            "line": 451
           },
           "name": "fetch_add",
           "override": false,
@@ -911,12 +950,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 464,
+            "bodyEnd": 480,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 452,
+            "bodyStart": 468,
             "column": 7,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 452
+            "line": 468
           },
           "name": "fetch_or",
           "override": false,
@@ -956,12 +995,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 480,
+            "bodyEnd": 496,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 468,
+            "bodyStart": 484,
             "column": 7,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 468
+            "line": 484
           },
           "name": "fetch_sub",
           "override": false,
@@ -1001,12 +1040,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 497,
+            "bodyEnd": 513,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 485,
+            "bodyStart": 501,
             "column": 7,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 485
+            "line": 501
           },
           "name": "fetch_and",
           "override": false,
@@ -1047,12 +1086,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 535,
+            "bodyEnd": 551,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 511,
+            "bodyStart": 527,
             "column": 7,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 511
+            "line": 527
           },
           "name": "modify",
           "override": false,
@@ -1107,7 +1146,7 @@
           "location": {
             "column": 14,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 551
+            "line": 567
           },
           "name": "await_modify",
           "override": false,
@@ -1160,12 +1199,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 596,
+            "bodyEnd": 612,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 570,
+            "bodyStart": 586,
             "column": 14,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 570
+            "line": 586
           },
           "name": "modify_if",
           "override": false,
@@ -1218,12 +1257,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 638,
+            "bodyEnd": 654,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 605,
+            "bodyStart": 621,
             "column": 10,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 605
+            "line": 621
           },
           "name": "async_wait",
           "override": false,
@@ -1277,7 +1316,7 @@
           "location": {
             "column": 14,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 646
+            "line": 662
           },
           "name": "await_not_equal",
           "override": false,
@@ -1321,12 +1360,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 666,
+            "bodyEnd": 682,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 657,
+            "bodyStart": 673,
             "column": 14,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 657
+            "line": 673
           },
           "name": "await_true",
           "override": false,
@@ -1376,12 +1415,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 681,
+            "bodyEnd": 697,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 674,
+            "bodyStart": 690,
             "column": 12,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 674
+            "line": 690
           },
           "name": "await_equal",
           "override": false,
@@ -1424,12 +1463,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 698,
+            "bodyEnd": 714,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 690,
+            "bodyStart": 706,
             "column": 10,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 690
+            "line": 706
           },
           "name": "clamp_min_value",
           "override": false,
@@ -1493,12 +1532,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 715,
+            "bodyEnd": 731,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 707,
+            "bodyStart": 723,
             "column": 10,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 707
+            "line": 723
           },
           "name": "clamp_max_value",
           "override": false,
@@ -1562,12 +1601,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 722,
+            "bodyEnd": 738,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 719,
+            "bodyStart": 735,
             "column": 10,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 719
+            "line": 735
           },
           "name": "clamp_min_value",
           "override": false,
@@ -1607,12 +1646,12 @@
           "kind": "function",
           "language": "cpp",
           "location": {
-            "bodyEnd": 729,
+            "bodyEnd": 745,
             "bodyFile": "batteries/async/watch_decl.hpp",
-            "bodyStart": 726,
+            "bodyStart": 742,
             "column": 10,
             "file": "batteries/async/watch_decl.hpp",
-            "line": 726
+            "line": 742
           },
           "name": "clamp_max_value",
           "override": false,
@@ -1653,12 +1692,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 825,
+    "bodyEnd": 841,
     "bodyFile": "batteries/async/watch_decl.hpp",
-    "bodyStart": 825,
+    "bodyStart": 841,
     "column": 11,
     "file": "batteries/async/watch_decl.hpp",
-    "line": 825
+    "line": 841
   },
   "name": "batt::Watch< bool >",
   "override": false,

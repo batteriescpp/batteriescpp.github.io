@@ -1,6 +1,7 @@
 {
   "abstract": false,
   "anchor": "",
+  "brief": "A summary of information about a response message that is necessary for the connection to correctly handle it. ",
   "category": "classes",
   "const": false,
   "definition": "",
@@ -8,16 +9,17 @@
   "fullname": "batt::HttpClientConnection::ResponseInfo",
   "hasAdditionalMembers": false,
   "hasDetails": false,
+  "includes": "<batteries/http/http_client_connection_decl.hpp>",
   "inline": false,
   "kind": "struct",
   "language": "cpp",
   "location": {
-    "bodyEnd": 41,
+    "bodyEnd": 57,
     "bodyFile": "batteries/http/http_client_connection_decl.hpp",
-    "bodyStart": 28,
+    "bodyStart": 33,
     "column": 5,
     "file": "batteries/http/http_client_connection_decl.hpp",
-    "line": 28
+    "line": 33
   },
   "name": "batt::HttpClientConnection::ResponseInfo",
   "override": false,
@@ -63,6 +65,7 @@
     {
       "abstract": false,
       "anchor": "#variable-content-length",
+      "brief": "Set from the `Content-Length` header, if present. ",
       "category": "attributes",
       "const": false,
       "definition": "Optional<usize> batt::HttpClientConnection::ResponseInfo::content_length",
@@ -74,16 +77,17 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_client_connection_decl.hpp",
-        "bodyStart": 38,
+        "bodyStart": 47,
         "column": 18,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 38
+        "line": 47
       },
       "name": "content_length",
       "override": false,
       "refid": "structbatt_1_1HttpClientConnection_1_1ResponseInfo_1a8aa0ad728e7a14d18635e97e561deeda",
       "static": false,
       "strong": false,
+      "summary": "Set from the Content-Length header, if present. ",
       "title": "content_length",
       "type": "[Optional](/_autogen/Classes/classbatt_1_1Optional/)< usize >",
       "typePlain": "Optional< usize >",
@@ -93,6 +97,7 @@
     {
       "abstract": false,
       "anchor": "#variable-keep-alive",
+      "brief": "Set to true if `Connection: keep-alive` was set, or if the HTTP version is 1.1 or later and there is no explicit `Connection: close` header. ",
       "category": "attributes",
       "const": false,
       "definition": "bool batt::HttpClientConnection::ResponseInfo::keep_alive",
@@ -104,16 +109,17 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_client_connection_decl.hpp",
-        "bodyStart": 39,
+        "bodyStart": 52,
         "column": 14,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 39
+        "line": 52
       },
       "name": "keep_alive",
       "override": false,
       "refid": "structbatt_1_1HttpClientConnection_1_1ResponseInfo_1ab7a6e05302014b961e07ca467b20b34d",
       "static": false,
       "strong": false,
+      "summary": "Set to true if Connection: keep-alive was set, or if the HTTP version is 1.1 or later and there is no explicit Connection: close header. ",
       "title": "keep_alive",
       "type": "bool",
       "typePlain": "bool",
@@ -123,6 +129,7 @@
     {
       "abstract": false,
       "anchor": "#variable-chunked-encoding",
+      "brief": "Set to true if `Transfer-Encoding: chunked` is present. ",
       "category": "attributes",
       "const": false,
       "definition": "bool batt::HttpClientConnection::ResponseInfo::chunked_encoding",
@@ -134,16 +141,17 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_client_connection_decl.hpp",
-        "bodyStart": 40,
+        "bodyStart": 56,
         "column": 14,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 40
+        "line": 56
       },
       "name": "chunked_encoding",
       "override": false,
       "refid": "structbatt_1_1HttpClientConnection_1_1ResponseInfo_1a3c14fd4187a2fa9e84fa5e31c49e0d5e",
       "static": false,
       "strong": false,
+      "summary": "Set to true if Transfer-Encoding: chunked is present. ",
       "title": "chunked_encoding",
       "type": "bool",
       "typePlain": "bool",
@@ -164,16 +172,16 @@
       "explicit": true,
       "fullname": "batt::HttpClientConnection::ResponseInfo::ResponseInfo",
       "hasDetails": false,
-      "inline": false,
+      "inline": true,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 259,
+        "bodyEnd": 453,
         "bodyFile": "batteries/http/http_client_connection_impl.hpp",
-        "bodyStart": 243,
+        "bodyStart": 437,
         "column": 18,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 29
+        "line": 34
       },
       "name": "ResponseInfo",
       "override": false,
@@ -209,12 +217,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 34,
+        "bodyEnd": 39,
         "bodyFile": "batteries/http/http_client_connection_decl.hpp",
-        "bodyStart": 31,
+        "bodyStart": 36,
         "column": 14,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 31
+        "line": 36
       },
       "name": "is_valid",
       "override": false,
@@ -242,16 +250,16 @@
       "explicit": false,
       "fullname": "batt::HttpClientConnection::ResponseInfo::get_data",
       "hasDetails": false,
-      "inline": false,
+      "inline": true,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 284,
+        "bodyEnd": 481,
         "bodyFile": "batteries/http/http_client_connection_impl.hpp",
-        "bodyStart": 263,
+        "bodyStart": 457,
         "column": 18,
         "file": "batteries/http/http_client_connection_decl.hpp",
-        "line": 36
+        "line": 41
       },
       "name": "get_data",
       "override": false,
@@ -277,6 +285,7 @@
   "refid": "structbatt_1_1HttpClientConnection_1_1ResponseInfo",
   "static": false,
   "strong": false,
+  "summary": "A summary of information about a response message that is necessary for the connection to correctly handle it. ",
   "title": "batt::HttpClientConnection::ResponseInfo",
   "url": "/_autogen/Classes/structbatt_1_1HttpClientConnection_1_1ResponseInfo/",
   "visibility": "public"

@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#public-functions" class="md-skip">
+        <a href="#public-types" class="md-skip">
           Skip to content
         </a>
       
@@ -505,6 +505,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#public-types" class="md-nav__link">
+    Public Types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#public-functions" class="md-nav__link">
     Public Functions
   </a>
@@ -512,9 +519,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#public-attributes" class="md-nav__link">
-    Public Attributes
+  <a href="#public-types-documentation" class="md-nav__link">
+    Public Types Documentation
   </a>
+  
+    <nav class="md-nav" aria-label="Public Types Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-createifnotfound" class="md-nav__link">
+    using CreateIfNotFound
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -525,6 +545,13 @@
   
     <nav class="md-nav" aria-label="Public Functions Documentation">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-strong_typedef_default_value" class="md-nav__link">
+    function strong_typedef_default_value
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#function-httpclient" class="md-nav__link">
@@ -547,22 +574,51 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#public-attributes-documentation" class="md-nav__link">
-    Public Attributes Documentation
+          <li class="md-nav__item">
+  <a href="#function-get_default_max_connections_per_host" class="md-nav__link">
+    function get_default_max_connections_per_host
   </a>
   
-    <nav class="md-nav" aria-label="Public Attributes Documentation">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
-  <a href="#variable-kdefaultmaxconnectionsperhost" class="md-nav__link">
-    variable kDefaultMaxConnectionsPerHost
+  <a href="#function-set_default_max_connections_per_host" class="md-nav__link">
+    function set_default_max_connections_per_host
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-set_max_connections_per_host" class="md-nav__link">
+    function set_max_connections_per_host
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-get_default_connection_timeout_ms" class="md-nav__link">
+    function get_default_connection_timeout_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-set_default_connection_timeout_ms" class="md-nav__link">
+    function set_default_connection_timeout_ms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-count_active_connections" class="md-nav__link">
+    function count_active_connections
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-count_active_connections_for_host" class="md-nav__link">
+    function count_active_connections_for_host
   </a>
   
 </li>
@@ -591,6 +647,23 @@
   <h1>batt::HttpClient</h1>
 
 <h1 id="batthttpclient">batt::HttpClient<a class="headerlink" href="#batthttpclient" title="Permanent link">&#128279;</a></h1>
+<p>An HTTP/1.1 client implementation. 
+<code>#include &lt;batteries/http/http_client.hpp&gt;</code></p>
+<h2 id="public-types">Public Types<a class="headerlink" href="#public-types" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>using ::<a href="/_autogen/Classes/classbatt_1_1StrongType/">batt::StrongType</a>&lt; bool, CreateIfNotFound_TAG &gt;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClient/#using-createifnotfound">CreateIfNotFound</a></strong></td>
+</tr>
+</tbody>
+</table>
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&#128279;</a></h2>
 <table>
 <thead>
@@ -601,62 +674,140 @@
 </thead>
 <tbody>
 <tr>
+<td>constexpr bool</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClient/#function-strong-typedef-default-value">strong_typedef_default_value</a></strong>(CreateIfNotFound_TAG * )</td>
+</tr>
+<tr>
 <td></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClient/#function-httpclient">HttpClient</a></strong>(boost::asio::io_context &amp; io)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClient/#function-httpclient">HttpClient</a></strong>(boost::asio::io_context &amp; io)<br>Constructs an <a href="/_autogen/Classes/classbatt_1_1HttpClient/">HttpClient</a> that uses the specified io_context to schedule I/O and completions.</td>
 </tr>
 <tr>
 <td>boost::asio::io_context &amp;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClient/#function-get-io-context">get_io_context</a></strong>() const</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClient/#function-get-io-context">get_io_context</a></strong>() const<br>Returns the io_context passed in at construction time.</td>
 </tr>
 <tr>
 <td><a href="/_autogen/Classes/classbatt_1_1Status/">Status</a></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClient/#function-submit-request">submit_request</a></strong>(const <a href="/_autogen/Classes/structbatt_1_1HostAddress/">HostAddress</a> &amp; host_address, <a href="/_autogen/Classes/classbatt_1_1Pin/">Pin</a>&lt; <a href="/_autogen/Classes/classbatt_1_1HttpRequest/">HttpRequest</a> &gt; &amp;&amp; request, <a href="/_autogen/Classes/classbatt_1_1Pin/">Pin</a>&lt; <a href="/_autogen/Classes/classbatt_1_1HttpResponse/">HttpResponse</a> &gt; &amp;&amp; response)</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClient/#function-submit-request">submit_request</a></strong>(const <a href="/_autogen/Classes/structbatt_1_1HostAddress/">HostAddress</a> &amp; host_address, <a href="/_autogen/Classes/classbatt_1_1Pin/">Pin</a>&lt; <a href="/_autogen/Classes/classbatt_1_1HttpRequest/">HttpRequest</a> &gt; &amp;&amp; request, <a href="/_autogen/Classes/classbatt_1_1Pin/">Pin</a>&lt; <a href="/_autogen/Classes/classbatt_1_1HttpResponse/">HttpResponse</a> &gt; &amp;&amp; response)<br>Submits an <a href="">HttpRequest</a> for asynchronous processing.</td>
+</tr>
+<tr>
+<td>usize</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClient/#function-get-default-max-connections-per-host">get_default_max_connections_per_host</a></strong>() const<br>Returns the default maximum TCP connection count per remote endpoint.</td>
+</tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClient/#function-set-default-max-connections-per-host">set_default_max_connections_per_host</a></strong>(usize max_connections)<br>Sets the new default maximum connection count per remote host/port.</td>
+</tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClient/#function-set-max-connections-per-host">set_max_connections_per_host</a></strong>(const <a href="/_autogen/Classes/structbatt_1_1HostAddress/">HostAddress</a> &amp; host_address, usize max_connections)<br>Sets the new maximum connection count for a specific host/port endpoint.</td>
+</tr>
+<tr>
+<td>i32</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClient/#function-get-default-connection-timeout-ms">get_default_connection_timeout_ms</a></strong>() const<br>Returns the default connection idle timeout, in milliseconds.</td>
+</tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClient/#function-set-default-connection-timeout-ms">set_default_connection_timeout_ms</a></strong>(i32 timeout_ms)<br>Sets the default connection idle timeout, in milliseconds.</td>
+</tr>
+<tr>
+<td>usize</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClient/#function-count-active-connections">count_active_connections</a></strong>() const<br>Returns the total number of active connections for this client.</td>
+</tr>
+<tr>
+<td>usize</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClient/#function-count-active-connections-for-host">count_active_connections_for_host</a></strong>(const <a href="/_autogen/Classes/structbatt_1_1HostAddress/">HostAddress</a> &amp; host_address)<br>Returns the total number of active connections in this client for the given host.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="public-attributes">Public Attributes<a class="headerlink" href="#public-attributes" title="Permanent link">&#128279;</a></h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>constexpr usize</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1HttpClient/#variable-kdefaultmaxconnectionsperhost">kDefaultMaxConnectionsPerHost</a></strong></td>
-</tr>
-</tbody>
-</table>
+<h2 id="public-types-documentation">Public Types Documentation<a class="headerlink" href="#public-types-documentation" title="Permanent link">&#128279;</a></h2>
+<h3 id="using-createifnotfound">using CreateIfNotFound<a class="headerlink" href="#using-createifnotfound" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">HttpClient</span><span class="o">::</span><span class="n">CreateIfNotFound</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="o">::</span><span class="n">batt</span><span class="o">::</span><span class="n">StrongType</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">CreateIfNotFound_TAG</span><span class="w"> </span><span class="o">&gt;</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&#128279;</a></h2>
+<h3 id="function-strong_typedef_default_value">function strong_typedef_default_value<a class="headerlink" href="#function-strong_typedef_default_value" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">strong_typedef_default_value</span><span class="p">(</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="n">CreateIfNotFound_TAG</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="function-httpclient">function HttpClient<a class="headerlink" href="#function-httpclient" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">HttpClient</span><span class="p">(</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">io_context</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">io</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="function-get_io_context">function get_io_context<a class="headerlink" href="#function-get_io_context" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">io_context</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">get_io_context</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="function-submit_request">function submit_request<a class="headerlink" href="#function-submit_request" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span>
-<span class="normal"><a href="#__codelineno-2-4">4</a></span>
-<span class="normal"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="n">submit_request</span><span class="p">(</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">HostAddress</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">host_address</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="n">Pin</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HttpRequest</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">request</span><span class="p">,</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">    </span><span class="n">Pin</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HttpResponse</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">response</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">HttpClient</span><span class="p">(</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">io_context</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">io</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="public-attributes-documentation">Public Attributes Documentation<a class="headerlink" href="#public-attributes-documentation" title="Permanent link">&#128279;</a></h2>
-<h3 id="variable-kdefaultmaxconnectionsperhost">variable kDefaultMaxConnectionsPerHost<a class="headerlink" href="#variable-kdefaultmaxconnectionsperhost" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kDefaultMaxConnectionsPerHost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HttpClientHostContext</span><span class="o">::</span><span class="n">kDefaultMaxConnections</span><span class="p">;</span>
+<p>Constructs an <a href="/_autogen/Classes/classbatt_1_1HttpClient/">HttpClient</a> that uses the specified io_context to schedule I/O and completions. </p>
+<h3 id="function-get_io_context">function get_io_context<a class="headerlink" href="#function-get_io_context" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">io_context</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">get_io_context</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
+<p>Returns the io_context passed in at construction time. </p>
+<h3 id="function-submit_request">function submit_request<a class="headerlink" href="#function-submit_request" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="n">submit_request</span><span class="p">(</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">HostAddress</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">host_address</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">    </span><span class="n">Pin</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HttpRequest</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">request</span><span class="p">,</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">    </span><span class="n">Pin</span><span class="o">&lt;</span><span class="w"> </span><span class="n">HttpResponse</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">response</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Submits an <a href="">HttpRequest</a> for asynchronous processing. </p>
+<p>This function returns as soon as the request/response pair has been queued for processing by the <a href="/_autogen/Classes/classbatt_1_1HttpClientHostContext/">HttpClientHostContext</a> associated with the passed host_address. </p>
+<h3 id="function-get_default_max_connections_per_host">function get_default_max_connections_per_host<a class="headerlink" href="#function-get_default_max_connections_per_host" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">get_default_max_connections_per_host</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</code></pre></div></td></tr></table></div>
+<p>Returns the default maximum TCP connection count per remote endpoint. </p>
+<p>This can be changed via set_default_max_connections_per_host (for all hosts) or set_max_connections_per_host (for a specific host). </p>
+<h3 id="function-set_default_max_connections_per_host">function set_default_max_connections_per_host<a class="headerlink" href="#function-set_default_max_connections_per_host" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">set_default_max_connections_per_host</span><span class="p">(</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="n">usize</span><span class="w"> </span><span class="n">max_connections</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Sets the new default maximum connection count per remote host/port. </p>
+<p>This setting only affects <a href="/_autogen/Classes/classbatt_1_1HttpClientHostContext/">HttpClientHostContext</a> objects created after the default is changed. To change this setting for an existing per-host pool of connections, use set_max_connections_per_host. </p>
+<h3 id="function-set_max_connections_per_host">function set_max_connections_per_host<a class="headerlink" href="#function-set_max_connections_per_host" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">set_max_connections_per_host</span><span class="p">(</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">HostAddress</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">host_address</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="n">usize</span><span class="w"> </span><span class="n">max_connections</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Sets the new maximum connection count for a specific host/port endpoint. </p>
+<h3 id="function-get_default_connection_timeout_ms">function get_default_connection_timeout_ms<a class="headerlink" href="#function-get_default_connection_timeout_ms" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">i32</span><span class="w"> </span><span class="n">get_default_connection_timeout_ms</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</code></pre></div></td></tr></table></div>
+<p>Returns the default connection idle timeout, in milliseconds. </p>
+<p>Pooled connections that have not seen activity for more than this amount of time will be automatically closed. </p>
+<h3 id="function-set_default_connection_timeout_ms">function set_default_connection_timeout_ms<a class="headerlink" href="#function-set_default_connection_timeout_ms" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">set_default_connection_timeout_ms</span><span class="p">(</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="n">i32</span><span class="w"> </span><span class="n">timeout_ms</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Sets the default connection idle timeout, in milliseconds. </p>
+<p>Pooled connections that have not seen activity for more than this amount of time will be automatically closed. </p>
+<h3 id="function-count_active_connections">function count_active_connections<a class="headerlink" href="#function-count_active_connections" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">count_active_connections</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</code></pre></div></td></tr></table></div>
+<p>Returns the total number of active connections for this client. </p>
+<h3 id="function-count_active_connections_for_host">function count_active_connections_for_host<a class="headerlink" href="#function-count_active_connections_for_host" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">count_active_connections_for_host</span><span class="p">(</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">HostAddress</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">host_address</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Returns the total number of active connections in this client for the given host. </p>
 <hr />
-<p>Updated on  5 June 2023 at 14:38:30 UTC</p>
+<p>Updated on  7 June 2023 at 01:25:16 UTC</p>
 
 
 

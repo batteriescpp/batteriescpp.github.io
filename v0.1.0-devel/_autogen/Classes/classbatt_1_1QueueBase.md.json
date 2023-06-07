@@ -48,7 +48,7 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 117,
+    "bodyEnd": 124,
     "bodyFile": "batteries/async/queue.hpp",
     "bodyStart": 26,
     "column": 1,
@@ -99,10 +99,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/queue.hpp",
-        "bodyStart": 116,
+        "bodyStart": 123,
         "column": 11,
         "file": "batteries/async/queue.hpp",
-        "line": 116
+        "line": 123
       },
       "name": "pending_count_",
       "override": false,
@@ -133,12 +133,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 114,
+        "bodyEnd": 121,
         "bodyFile": "batteries/async/queue.hpp",
-        "bodyStart": 108,
+        "bodyStart": 115,
         "column": 21,
         "file": "batteries/async/queue.hpp",
-        "line": 108
+        "line": 115
       },
       "name": "decrement_if_positive",
       "override": false,
@@ -178,12 +178,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 90,
+        "bodyEnd": 97,
         "bodyFile": "batteries/async/queue.hpp",
-        "bodyStart": 82,
+        "bodyStart": 89,
         "column": 12,
         "file": "batteries/async/queue.hpp",
-        "line": 82
+        "line": 89
       },
       "name": "await_one",
       "override": false,
@@ -215,12 +215,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 100,
+        "bodyEnd": 107,
         "bodyFile": "batteries/async/queue.hpp",
-        "bodyStart": 92,
+        "bodyStart": 99,
         "column": 10,
         "file": "batteries/async/queue.hpp",
-        "line": 92
+        "line": 99
       },
       "name": "try_acquire",
       "override": false,
@@ -252,12 +252,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 105,
+        "bodyEnd": 112,
         "bodyFile": "batteries/async/queue.hpp",
-        "bodyStart": 102,
+        "bodyStart": 109,
         "column": 10,
         "file": "batteries/async/queue.hpp",
-        "line": 102
+        "line": 109
       },
       "name": "notify",
       "override": false,
@@ -566,6 +566,45 @@
       "type": "void",
       "typePlain": "void",
       "url": "/_autogen/Classes/classbatt_1_1QueueBase/#function-close",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-poke",
+      "argsString": "()",
+      "brief": "Wakes all waiters with StatusCode::kPoke. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::QueueBase::poke",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::QueueBase::poke",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 86,
+        "bodyFile": "batteries/async/queue.hpp",
+        "bodyStart": 83,
+        "column": 10,
+        "file": "batteries/async/queue.hpp",
+        "line": 83
+      },
+      "name": "poke",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1QueueBase_1a2cece17672523a9b771da5b6106bcd34",
+      "static": false,
+      "strong": false,
+      "summary": "Wakes all waiters with StatusCode::kPoke. ",
+      "title": "poke",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1QueueBase/#function-poke",
       "virtual": false,
       "visibility": "public"
     }

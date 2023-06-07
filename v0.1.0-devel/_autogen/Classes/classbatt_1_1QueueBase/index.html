@@ -582,6 +582,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#function-poke" class="md-nav__link">
+    function poke
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -680,6 +687,10 @@
 <td>void</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1QueueBase/#function-close">close</a></strong>()<br>Closes the queue, causing all current/future read operations to fail/unblock immediately.</td>
 </tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1QueueBase/#function-poke">poke</a></strong>()<br>Wakes all waiters with StatusCode::kPoke.</td>
+</tr>
 </tbody>
 </table>
 <h2 id="protected-functions">Protected Functions<a class="headerlink" href="#protected-functions" title="Permanent link">&#128279;</a></h2>
@@ -745,22 +756,26 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Closes the queue, causing all current/future read operations to fail/unblock immediately. </p>
+<h3 id="function-poke">function poke<a class="headerlink" href="#function-poke" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">poke</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>Wakes all waiters with StatusCode::kPoke. </p>
 <h2 id="protected-functions-documentation">Protected Functions Documentation<a class="headerlink" href="#protected-functions-documentation" title="Permanent link">&#128279;</a></h2>
 <h3 id="function-await_one">function await_one<a class="headerlink" href="#function-await_one" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="n">await_one</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Status</span><span class="w"> </span><span class="n">await_one</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-try_acquire">function try_acquire<a class="headerlink" href="#function-try_acquire" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">try_acquire</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">try_acquire</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-notify">function notify<a class="headerlink" href="#function-notify" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
-<span class="normal"><a href="#__codelineno-10-2">2</a></span>
-<span class="normal"><a href="#__codelineno-10-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">notify</span><span class="p">(</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="n">i64</span><span class="w"> </span><span class="n">count</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">notify</span><span class="p">(</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span><span class="n">i64</span><span class="w"> </span><span class="n">count</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on  5 June 2023 at 14:38:30 UTC</p>
+<p>Updated on  7 June 2023 at 01:25:16 UTC</p>
 
 
 
