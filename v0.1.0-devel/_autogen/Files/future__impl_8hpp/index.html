@@ -686,16 +686,7 @@
 <span class="normal"><a href="#__codelineno-1-87">87</a></span>
 <span class="normal"><a href="#__codelineno-1-88">88</a></span>
 <span class="normal"><a href="#__codelineno-1-89">89</a></span>
-<span class="normal"><a href="#__codelineno-1-90">90</a></span>
-<span class="normal"><a href="#__codelineno-1-91">91</a></span>
-<span class="normal"><a href="#__codelineno-1-92">92</a></span>
-<span class="normal"><a href="#__codelineno-1-93">93</a></span>
-<span class="normal"><a href="#__codelineno-1-94">94</a></span>
-<span class="normal"><a href="#__codelineno-1-95">95</a></span>
-<span class="normal"><a href="#__codelineno-1-96">96</a></span>
-<span class="normal"><a href="#__codelineno-1-97">97</a></span>
-<span class="normal"><a href="#__codelineno-1-98">98</a></span>
-<span class="normal"><a href="#__codelineno-1-99">99</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">// Copyright 2021-2023 Anthony Paul Astolfi</span>
+<span class="normal"><a href="#__codelineno-1-90">90</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">// Copyright 2021-2023 Anthony Paul Astolfi</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">//</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="cp">#pragma once</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="cp">#ifndef BATTERIES_ASYNC_FUTURE_IMPL_HPP</span>
@@ -753,50 +744,41 @@
 <a id="__codelineno-1-56" name="__codelineno-1-56"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
 <a id="__codelineno-1-57" name="__codelineno-1-57"></a><span class="c1">//</span>
 <a id="__codelineno-1-58" name="__codelineno-1-58"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-1-59" name="__codelineno-1-59"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Handler</span><span class="o">&gt;</span>
-<a id="__codelineno-1-60" name="__codelineno-1-60"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">async_wait</span><span class="p">(</span><span class="n">Handler</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">handler</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<a id="__codelineno-1-59" name="__codelineno-1-59"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">Future</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">intrusive_ptr</span><span class="o">&lt;</span><span class="n">detail</span><span class="o">::</span><span class="n">FutureImpl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&amp;&amp;</span><span class="w"> </span><span class="n">impl</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
+<a id="__codelineno-1-60" name="__codelineno-1-60"></a><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">impl_</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">impl</span><span class="p">)}</span>
 <a id="__codelineno-1-61" name="__codelineno-1-61"></a><span class="p">{</span>
-<a id="__codelineno-1-62" name="__codelineno-1-62"></a><span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">impl_</span><span class="o">-&gt;</span><span class="n">async_get</span><span class="p">(</span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">handler</span><span class="p">));</span>
-<a id="__codelineno-1-63" name="__codelineno-1-63"></a><span class="p">}</span>
-<a id="__codelineno-1-64" name="__codelineno-1-64"></a>
-<a id="__codelineno-1-65" name="__codelineno-1-65"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-66" name="__codelineno-1-66"></a><span class="c1">//</span>
-<a id="__codelineno-1-67" name="__codelineno-1-67"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-1-68" name="__codelineno-1-68"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">Future</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">intrusive_ptr</span><span class="o">&lt;</span><span class="n">detail</span><span class="o">::</span><span class="n">FutureImpl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&amp;&amp;</span><span class="w"> </span><span class="n">impl</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-69" name="__codelineno-1-69"></a><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">impl_</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">impl</span><span class="p">)}</span>
-<a id="__codelineno-1-70" name="__codelineno-1-70"></a><span class="p">{</span>
-<a id="__codelineno-1-71" name="__codelineno-1-71"></a><span class="p">}</span>
-<a id="__codelineno-1-72" name="__codelineno-1-72"></a>
-<a id="__codelineno-1-73" name="__codelineno-1-73"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-74" name="__codelineno-1-74"></a><span class="c1">//</span>
-<a id="__codelineno-1-75" name="__codelineno-1-75"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-1-76" name="__codelineno-1-76"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_future</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">promise</span><span class="p">)</span>
-<a id="__codelineno-1-77" name="__codelineno-1-77"></a><span class="p">{</span>
-<a id="__codelineno-1-78" name="__codelineno-1-78"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{</span><span class="n">make_copy</span><span class="p">(</span><span class="n">promise</span><span class="p">.</span><span class="n">impl_</span><span class="p">)};</span>
-<a id="__codelineno-1-79" name="__codelineno-1-79"></a><span class="p">}</span>
-<a id="__codelineno-1-80" name="__codelineno-1-80"></a>
-<a id="__codelineno-1-81" name="__codelineno-1-81"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-82" name="__codelineno-1-82"></a><span class="c1">//</span>
-<a id="__codelineno-1-83" name="__codelineno-1-83"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-1-84" name="__codelineno-1-84"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">is_ready</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-85" name="__codelineno-1-85"></a><span class="p">{</span>
-<a id="__codelineno-1-86" name="__codelineno-1-86"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">impl_</span><span class="o">-&gt;</span><span class="n">is_ready</span><span class="p">();</span>
-<a id="__codelineno-1-87" name="__codelineno-1-87"></a><span class="p">}</span>
-<a id="__codelineno-1-88" name="__codelineno-1-88"></a>
-<a id="__codelineno-1-89" name="__codelineno-1-89"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-90" name="__codelineno-1-90"></a><span class="c1">//</span>
-<a id="__codelineno-1-91" name="__codelineno-1-91"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-1-92" name="__codelineno-1-92"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">await</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-93" name="__codelineno-1-93"></a><span class="p">{</span>
-<a id="__codelineno-1-94" name="__codelineno-1-94"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">::</span><span class="n">batt</span><span class="o">::</span><span class="n">Task</span><span class="o">::</span><span class="n">await</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
-<a id="__codelineno-1-95" name="__codelineno-1-95"></a><span class="p">}</span>
-<a id="__codelineno-1-96" name="__codelineno-1-96"></a>
-<a id="__codelineno-1-97" name="__codelineno-1-97"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
-<a id="__codelineno-1-98" name="__codelineno-1-98"></a>
-<a id="__codelineno-1-99" name="__codelineno-1-99"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_FUTURE_IMPL_HPP</span>
+<a id="__codelineno-1-62" name="__codelineno-1-62"></a><span class="p">}</span>
+<a id="__codelineno-1-63" name="__codelineno-1-63"></a>
+<a id="__codelineno-1-64" name="__codelineno-1-64"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-65" name="__codelineno-1-65"></a><span class="c1">//</span>
+<a id="__codelineno-1-66" name="__codelineno-1-66"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<a id="__codelineno-1-67" name="__codelineno-1-67"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_future</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">promise</span><span class="p">)</span>
+<a id="__codelineno-1-68" name="__codelineno-1-68"></a><span class="p">{</span>
+<a id="__codelineno-1-69" name="__codelineno-1-69"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">{</span><span class="n">make_copy</span><span class="p">(</span><span class="n">promise</span><span class="p">.</span><span class="n">impl_</span><span class="p">)};</span>
+<a id="__codelineno-1-70" name="__codelineno-1-70"></a><span class="p">}</span>
+<a id="__codelineno-1-71" name="__codelineno-1-71"></a>
+<a id="__codelineno-1-72" name="__codelineno-1-72"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-73" name="__codelineno-1-73"></a><span class="c1">//</span>
+<a id="__codelineno-1-74" name="__codelineno-1-74"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<a id="__codelineno-1-75" name="__codelineno-1-75"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">is_ready</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<a id="__codelineno-1-76" name="__codelineno-1-76"></a><span class="p">{</span>
+<a id="__codelineno-1-77" name="__codelineno-1-77"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">impl_</span><span class="o">-&gt;</span><span class="n">is_ready</span><span class="p">();</span>
+<a id="__codelineno-1-78" name="__codelineno-1-78"></a><span class="p">}</span>
+<a id="__codelineno-1-79" name="__codelineno-1-79"></a>
+<a id="__codelineno-1-80" name="__codelineno-1-80"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-81" name="__codelineno-1-81"></a><span class="c1">//</span>
+<a id="__codelineno-1-82" name="__codelineno-1-82"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<a id="__codelineno-1-83" name="__codelineno-1-83"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">await</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<a id="__codelineno-1-84" name="__codelineno-1-84"></a><span class="p">{</span>
+<a id="__codelineno-1-85" name="__codelineno-1-85"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">::</span><span class="n">batt</span><span class="o">::</span><span class="n">Task</span><span class="o">::</span><span class="n">await</span><span class="p">(</span><span class="o">*</span><span class="k">this</span><span class="p">);</span>
+<a id="__codelineno-1-86" name="__codelineno-1-86"></a><span class="p">}</span>
+<a id="__codelineno-1-87" name="__codelineno-1-87"></a>
+<a id="__codelineno-1-88" name="__codelineno-1-88"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
+<a id="__codelineno-1-89" name="__codelineno-1-89"></a>
+<a id="__codelineno-1-90" name="__codelineno-1-90"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_FUTURE_IMPL_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on  9 June 2023 at 15:03:08 UTC</p>
+<p>Updated on  9 June 2023 at 15:38:16 UTC</p>
 
 
 

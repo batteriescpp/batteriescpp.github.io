@@ -732,7 +732,18 @@
 <span class="normal"><a href="#__codelineno-1-100">100</a></span>
 <span class="normal"><a href="#__codelineno-1-101">101</a></span>
 <span class="normal"><a href="#__codelineno-1-102">102</a></span>
-<span class="normal"><a href="#__codelineno-1-103">103</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
+<span class="normal"><a href="#__codelineno-1-103">103</a></span>
+<span class="normal"><a href="#__codelineno-1-104">104</a></span>
+<span class="normal"><a href="#__codelineno-1-105">105</a></span>
+<span class="normal"><a href="#__codelineno-1-106">106</a></span>
+<span class="normal"><a href="#__codelineno-1-107">107</a></span>
+<span class="normal"><a href="#__codelineno-1-108">108</a></span>
+<span class="normal"><a href="#__codelineno-1-109">109</a></span>
+<span class="normal"><a href="#__codelineno-1-110">110</a></span>
+<span class="normal"><a href="#__codelineno-1-111">111</a></span>
+<span class="normal"><a href="#__codelineno-1-112">112</a></span>
+<span class="normal"><a href="#__codelineno-1-113">113</a></span>
+<span class="normal"><a href="#__codelineno-1-114">114</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// Copyright 2021-2023 Anthony Paul Astolfi</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">//</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="cp">#pragma once</span>
@@ -832,12 +843,23 @@
 <a id="__codelineno-1-98" name="__codelineno-1-98"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
 <a id="__codelineno-1-99" name="__codelineno-1-99"></a><span class="n">Future</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_future</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Promise</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">promise</span><span class="p">);</span>
 <a id="__codelineno-1-100" name="__codelineno-1-100"></a>
-<a id="__codelineno-1-101" name="__codelineno-1-101"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
+<a id="__codelineno-1-101" name="__codelineno-1-101"></a><span class="c1">//#=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++</span>
 <a id="__codelineno-1-102" name="__codelineno-1-102"></a>
-<a id="__codelineno-1-103" name="__codelineno-1-103"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_FUTURE_DECL_HPP</span>
+<a id="__codelineno-1-103" name="__codelineno-1-103"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-104" name="__codelineno-1-104"></a><span class="c1">//</span>
+<a id="__codelineno-1-105" name="__codelineno-1-105"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<a id="__codelineno-1-106" name="__codelineno-1-106"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Handler</span><span class="o">&gt;</span>
+<a id="__codelineno-1-107" name="__codelineno-1-107"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">async_wait</span><span class="p">(</span><span class="n">Handler</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">handler</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<a id="__codelineno-1-108" name="__codelineno-1-108"></a><span class="p">{</span>
+<a id="__codelineno-1-109" name="__codelineno-1-109"></a><span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">impl_</span><span class="o">-&gt;</span><span class="n">async_get</span><span class="p">(</span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">handler</span><span class="p">));</span>
+<a id="__codelineno-1-110" name="__codelineno-1-110"></a><span class="p">}</span>
+<a id="__codelineno-1-111" name="__codelineno-1-111"></a>
+<a id="__codelineno-1-112" name="__codelineno-1-112"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
+<a id="__codelineno-1-113" name="__codelineno-1-113"></a>
+<a id="__codelineno-1-114" name="__codelineno-1-114"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_FUTURE_DECL_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on  9 June 2023 at 15:03:08 UTC</p>
+<p>Updated on  9 June 2023 at 15:38:16 UTC</p>
 
 
 
