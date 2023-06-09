@@ -18,10 +18,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/backoff_impl.hpp",
-        "bodyStart": 3,
+        "bodyStart": 6,
         "column": 9,
         "file": "batteries/async/backoff_impl.hpp",
-        "line": 3
+        "line": 6
       },
       "name": "BATTERIES_ASYNC_BACKOFF_IMPL_HPP",
       "override": false,
@@ -38,6 +38,7 @@
   "fullname": "batteries/async/backoff_impl.hpp",
   "hasAdditionalMembers": false,
   "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
   "inline": false,
   "kind": "file",
   "language": "cpp",
@@ -100,7 +101,7 @@
       "visibility": "public"
     }
   ],
-  "programlisting": "#pragma once\n#ifndef BATTERIES_ASYNC_BACKOFF_IMPL_HPP\n#define BATTERIES_ASYNC_BACKOFF_IMPL_HPP\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*static*/ ExponentialBackoff ExponentialBackoff::with_default_params()\n{\n    ExponentialBackoff p;\n\n    p.max_attempts = 40;\n    p.initial_delay_usec = 10;\n    p.backoff_factor = 2;\n    p.backoff_divisor = 1;\n    p.max_delay_usec = 250 * 1000;  // 250ms\n\n    return p;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void update_retry_state(RetryState& state, const ExponentialBackoff& policy)\n{\n    if (state.n_attempts >= policy.max_attempts) {\n        state.should_retry = false;\n        return;\n    }\n\n    state.should_retry = true;\n    state.n_attempts += 1;\n    state.prev_delay_usec = state.next_delay_usec;\n    if (state.n_attempts == 1) {\n        state.next_delay_usec = policy.initial_delay_usec;\n    } else {\n        state.next_delay_usec = std::min(\n            policy.max_delay_usec, state.prev_delay_usec * policy.backoff_factor / policy.backoff_divisor);\n    }\n}\n\n}  //namespace batt\n\n#endif  // BATTERIES_ASYNC_BACKOFF_IMPL_HPP",
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_BACKOFF_IMPL_HPP\n#define BATTERIES_ASYNC_BACKOFF_IMPL_HPP\n\n#include <batteries/config.hpp>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*static*/ ExponentialBackoff ExponentialBackoff::with_default_params()\n{\n    ExponentialBackoff p;\n\n    p.max_attempts = 40;\n    p.initial_delay_usec = 10;\n    p.backoff_factor = 2;\n    p.backoff_divisor = 1;\n    p.max_delay_usec = 250 * 1000;  // 250ms\n\n    return p;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void update_retry_state(RetryState& state, const ExponentialBackoff& policy)\n{\n    if (state.n_attempts >= policy.max_attempts) {\n        state.should_retry = false;\n        return;\n    }\n\n    state.should_retry = true;\n    state.n_attempts += 1;\n    state.prev_delay_usec = state.next_delay_usec;\n    if (state.n_attempts == 1) {\n        state.next_delay_usec = policy.initial_delay_usec;\n    } else {\n        state.next_delay_usec = std::min(\n            policy.max_delay_usec, state.prev_delay_usec * policy.backoff_factor / policy.backoff_divisor);\n    }\n}\n\n}  //namespace batt\n\n#endif  // BATTERIES_ASYNC_BACKOFF_IMPL_HPP",
   "refid": "backoff__impl_8hpp",
   "static": false,
   "strong": false,

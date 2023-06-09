@@ -190,10 +190,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/debug_info_impl.hpp",
-        "bodyStart": 120,
+        "bodyStart": 118,
         "column": 21,
         "file": "batteries/async/debug_info_impl.hpp",
-        "line": 120
+        "line": 118
       },
       "name": "kTaskDebugInfoSegvCallbackInstalled",
       "override": false,
@@ -4554,16 +4554,13 @@
       "explicit": false,
       "fullname": "batt::with_retry_policy",
       "hasDetails": true,
-      "inline": true,
+      "inline": false,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 139,
-        "bodyFile": "batteries/async/backoff.hpp",
-        "bodyStart": 117,
-        "column": 15,
-        "file": "batteries/async/backoff.hpp",
-        "line": 117
+        "column": 8,
+        "file": "batteries/async/backoff_decl.hpp",
+        "line": 46
       },
       "name": "with_retry_policy",
       "override": false,
@@ -4599,7 +4596,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "backoff_8hpp_1acb9cfae24d2bf2fc797187a39f0f3e7e",
+      "refid": "backoff__decl_8hpp_1acb9cfae24d2bf2fc797187a39f0f3e7e",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -4649,21 +4646,21 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "BATT_INLINE_IMPL void batt::update_retry_state",
+      "definition": "void batt::update_retry_state",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::update_retry_state",
       "hasDetails": false,
-      "inline": false,
+      "inline": true,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 40,
+        "bodyEnd": 45,
         "bodyFile": "batteries/async/backoff_impl.hpp",
-        "bodyStart": 24,
-        "column": 23,
+        "bodyStart": 29,
+        "column": 15,
         "file": "batteries/async/backoff_impl.hpp",
-        "line": 24
+        "line": 29
       },
       "name": "update_retry_state",
       "override": false,
@@ -4680,7 +4677,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "backoff_8hpp_1a450d9bc4a5d1dd6abe1703770c9b53b4",
+      "refid": "backoff__decl_8hpp_1ad300ff7e78cdf5c383c93f979ce41b74",
       "static": false,
       "strong": false,
       "title": "update_retry_state",
@@ -5574,12 +5571,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 116,
+        "bodyEnd": 114,
         "bodyFile": "batteries/async/debug_info_impl.hpp",
-        "bodyStart": 113,
+        "bodyStart": 111,
         "column": 15,
         "file": "batteries/async/debug_info_impl.hpp",
-        "line": 113
+        "line": 111
       },
       "name": "this_task_debug_info",
       "override": false,
@@ -5617,12 +5614,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 66,
+        "bodyEnd": 64,
         "bodyFile": "batteries/async/debug_info_impl.hpp",
-        "bodyStart": 57,
+        "bodyStart": 55,
         "column": 15,
         "file": "batteries/async/debug_info_impl.hpp",
-        "line": 57
+        "line": 55
       },
       "name": "print_debug_info",
       "override": false,
@@ -5665,12 +5662,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 79,
+        "bodyEnd": 77,
         "bodyFile": "batteries/async/debug_info_impl.hpp",
-        "bodyStart": 70,
+        "bodyStart": 68,
         "column": 15,
         "file": "batteries/async/debug_info_impl.hpp",
-        "line": 70
+        "line": 68
       },
       "name": "print_all_threads_debug_info",
       "override": false,
@@ -5708,12 +5705,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 109,
+        "bodyEnd": 107,
         "bodyFile": "batteries/async/debug_info_impl.hpp",
-        "bodyStart": 83,
+        "bodyStart": 81,
         "column": 21,
         "file": "batteries/async/debug_info_impl.hpp",
-        "line": 83
+        "line": 81
       },
       "name": "shortened_source_file",
       "override": false,
@@ -5892,12 +5889,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 44,
+        "bodyEnd": 35,
         "bodyFile": "batteries/async/fake_time_service_impl.hpp",
-        "bodyStart": 39,
+        "bodyStart": 30,
         "column": 10,
         "file": "batteries/async/fake_time_service_impl.hpp",
-        "line": 39
+        "line": 30
       },
       "name": "operator<",
       "override": false,
@@ -8049,12 +8046,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 28,
+        "bodyEnd": 25,
         "bodyFile": "batteries/async/task_impl.hpp",
-        "bodyStart": 24,
+        "bodyStart": 21,
         "column": 14,
         "file": "batteries/async/task_impl.hpp",
-        "line": 24
+        "line": 21
       },
       "name": "next_thread_id",
       "override": false,
@@ -8088,12 +8085,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 34,
+        "bodyEnd": 31,
         "bodyFile": "batteries/async/task_impl.hpp",
-        "bodyStart": 30,
+        "bodyStart": 27,
         "column": 14,
         "file": "batteries/async/task_impl.hpp",
-        "line": 30
+        "line": 27
       },
       "name": "this_thread_id",
       "override": false,

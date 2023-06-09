@@ -740,11 +740,7 @@
 <span class="normal"><a href="#__codelineno-2-105">105</a></span>
 <span class="normal"><a href="#__codelineno-2-106">106</a></span>
 <span class="normal"><a href="#__codelineno-2-107">107</a></span>
-<span class="normal"><a href="#__codelineno-2-108">108</a></span>
-<span class="normal"><a href="#__codelineno-2-109">109</a></span>
-<span class="normal"><a href="#__codelineno-2-110">110</a></span>
-<span class="normal"><a href="#__codelineno-2-111">111</a></span>
-<span class="normal"><a href="#__codelineno-2-112">112</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
+<span class="normal"><a href="#__codelineno-2-108">108</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1">// Copyright 2021-2023 Anthony Paul Astolfi</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1">//</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="cp">#pragma once</span>
@@ -806,59 +802,55 @@
 <a id="__codelineno-2-60" name="__codelineno-2-60"></a><span class="w">    </span><span class="c1">// should just use the BATT_DEBUG_INFO macro inside a function to create a DebugInfoFrame implicitly.</span>
 <a id="__codelineno-2-61" name="__codelineno-2-61"></a><span class="w">    </span><span class="c1">//</span>
 <a id="__codelineno-2-62" name="__codelineno-2-62"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="o">&gt;</span>
-<a id="__codelineno-2-63" name="__codelineno-2-63"></a><span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">DebugInfoFrame</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">print_info_</span><span class="p">{</span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">fn</span><span class="p">)}</span>
-<a id="__codelineno-2-64" name="__codelineno-2-64"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-2-65" name="__codelineno-2-65"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">prev_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">top</span><span class="p">();</span>
-<a id="__codelineno-2-66" name="__codelineno-2-66"></a><span class="w">        </span><span class="n">top</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">;</span>
-<a id="__codelineno-2-67" name="__codelineno-2-67"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-63" name="__codelineno-2-63"></a><span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">DebugInfoFrame</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+<a id="__codelineno-2-64" name="__codelineno-2-64"></a>
+<a id="__codelineno-2-65" name="__codelineno-2-65"></a><span class="w">    </span><span class="c1">// Pop this frame from the top of the stack, restoring the old top frame.</span>
+<a id="__codelineno-2-66" name="__codelineno-2-66"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-2-67" name="__codelineno-2-67"></a><span class="w">    </span><span class="o">~</span><span class="n">DebugInfoFrame</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
 <a id="__codelineno-2-68" name="__codelineno-2-68"></a>
-<a id="__codelineno-2-69" name="__codelineno-2-69"></a><span class="w">    </span><span class="c1">// Pop this frame from the top of the stack, restoring the old top frame.</span>
+<a id="__codelineno-2-69" name="__codelineno-2-69"></a><span class="w">    </span><span class="c1">// Declare as friend so `print_debug_info` can traverse the chain of `prev_` pointers.</span>
 <a id="__codelineno-2-70" name="__codelineno-2-70"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-2-71" name="__codelineno-2-71"></a><span class="w">    </span><span class="o">~</span><span class="n">DebugInfoFrame</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
+<a id="__codelineno-2-71" name="__codelineno-2-71"></a><span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print_debug_info</span><span class="p">(</span><span class="n">DebugInfoFrame</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">);</span>
 <a id="__codelineno-2-72" name="__codelineno-2-72"></a>
-<a id="__codelineno-2-73" name="__codelineno-2-73"></a><span class="w">    </span><span class="c1">// Declare as friend so `print_debug_info` can traverse the chain of `prev_` pointers.</span>
-<a id="__codelineno-2-74" name="__codelineno-2-74"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-2-75" name="__codelineno-2-75"></a><span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print_debug_info</span><span class="p">(</span><span class="n">DebugInfoFrame</span><span class="o">*</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">);</span>
-<a id="__codelineno-2-76" name="__codelineno-2-76"></a>
-<a id="__codelineno-2-77" name="__codelineno-2-77"></a><span class="w">   </span><span class="k">private</span><span class="o">:</span>
-<a id="__codelineno-2-78" name="__codelineno-2-78"></a><span class="w">    </span><span class="c1">// The diagnostic information emitter function passed in at construction time.</span>
+<a id="__codelineno-2-73" name="__codelineno-2-73"></a><span class="w">   </span><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-2-74" name="__codelineno-2-74"></a><span class="w">    </span><span class="c1">// The diagnostic information emitter function passed in at construction time.</span>
+<a id="__codelineno-2-75" name="__codelineno-2-75"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-2-76" name="__codelineno-2-76"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">print_info_</span><span class="p">;</span>
+<a id="__codelineno-2-77" name="__codelineno-2-77"></a>
+<a id="__codelineno-2-78" name="__codelineno-2-78"></a><span class="w">    </span><span class="c1">// The previous top-of-stack, when this object was created.</span>
 <a id="__codelineno-2-79" name="__codelineno-2-79"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-2-80" name="__codelineno-2-80"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="o">&amp;</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">print_info_</span><span class="p">;</span>
-<a id="__codelineno-2-81" name="__codelineno-2-81"></a>
-<a id="__codelineno-2-82" name="__codelineno-2-82"></a><span class="w">    </span><span class="c1">// The previous top-of-stack, when this object was created.</span>
-<a id="__codelineno-2-83" name="__codelineno-2-83"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-2-84" name="__codelineno-2-84"></a><span class="w">    </span><span class="n">DebugInfoFrame</span><span class="o">*</span><span class="w"> </span><span class="n">prev_</span><span class="p">;</span>
-<a id="__codelineno-2-85" name="__codelineno-2-85"></a><span class="p">};</span>
-<a id="__codelineno-2-86" name="__codelineno-2-86"></a>
-<a id="__codelineno-2-87" name="__codelineno-2-87"></a><span class="c1">// Create a local variable that passively reports human-readable debugging information in response to</span>
-<a id="__codelineno-2-88" name="__codelineno-2-88"></a><span class="c1">// generating a backtrace of all Tasks/threads.</span>
-<a id="__codelineno-2-89" name="__codelineno-2-89"></a><span class="c1">//</span>
-<a id="__codelineno-2-90" name="__codelineno-2-90"></a><span class="c1">// Example:</span>
-<a id="__codelineno-2-91" name="__codelineno-2-91"></a><span class="c1">// ```</span>
-<a id="__codelineno-2-92" name="__codelineno-2-92"></a><span class="c1">// void called_from_a_thread(int n) {</span>
-<a id="__codelineno-2-93" name="__codelineno-2-93"></a><span class="c1">//   for (int i=0; i&lt;n; ++i) {</span>
-<a id="__codelineno-2-94" name="__codelineno-2-94"></a><span class="c1">//     BATT_DEBUG_INFO(&quot;loop iteration &quot; &lt;&lt; i &lt;&lt; &quot; of &quot; &lt;&lt; n);</span>
-<a id="__codelineno-2-95" name="__codelineno-2-95"></a><span class="c1">//   }</span>
-<a id="__codelineno-2-96" name="__codelineno-2-96"></a><span class="c1">// }</span>
-<a id="__codelineno-2-97" name="__codelineno-2-97"></a><span class="c1">// ```</span>
-<a id="__codelineno-2-98" name="__codelineno-2-98"></a><span class="c1">//</span>
-<a id="__codelineno-2-99" name="__codelineno-2-99"></a><span class="cp">#define BATT_DEBUG_INFO(expr)                                                                                \</span>
-<a id="__codelineno-2-100" name="__codelineno-2-100"></a><span class="cp">    ::batt::DebugInfoFrame BOOST_PP_CAT(debug_info_BATTERIES_, __LINE__)                                     \</span>
-<a id="__codelineno-2-101" name="__codelineno-2-101"></a><span class="cp">    {                                                                                                        \</span>
-<a id="__codelineno-2-102" name="__codelineno-2-102"></a><span class="cp">        [&amp;](std::ostream&amp; out, const void* frame) {                                                          \</span>
-<a id="__codelineno-2-103" name="__codelineno-2-103"></a><span class="cp">            out &lt;&lt; &quot; &quot; &lt;&lt; expr &lt;&lt; std::endl                                                                  \</span>
-<a id="__codelineno-2-104" name="__codelineno-2-104"></a><span class="cp">                &lt;&lt; &quot;    at &quot; &lt;&lt; ::batt::shortened_source_file(__FILE__) &lt;&lt; &quot;:&quot; &lt;&lt; __LINE__ &lt;&lt; std::endl      \</span>
-<a id="__codelineno-2-105" name="__codelineno-2-105"></a><span class="cp">                &lt;&lt; &quot;    in &quot; &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; std::endl                                             \</span>
-<a id="__codelineno-2-106" name="__codelineno-2-106"></a><span class="cp">                &lt;&lt; &quot;    stack offset: &quot; &lt;&lt; ::batt::Task::current_stack_pos_of(frame) &lt;&lt; std::endl;           \</span>
-<a id="__codelineno-2-107" name="__codelineno-2-107"></a><span class="cp">        }                                                                                                    \</span>
-<a id="__codelineno-2-108" name="__codelineno-2-108"></a><span class="cp">    }</span>
-<a id="__codelineno-2-109" name="__codelineno-2-109"></a>
-<a id="__codelineno-2-110" name="__codelineno-2-110"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
-<a id="__codelineno-2-111" name="__codelineno-2-111"></a>
-<a id="__codelineno-2-112" name="__codelineno-2-112"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_DEBUG_INFO_DECL_HPP</span>
+<a id="__codelineno-2-80" name="__codelineno-2-80"></a><span class="w">    </span><span class="n">DebugInfoFrame</span><span class="o">*</span><span class="w"> </span><span class="n">prev_</span><span class="p">;</span>
+<a id="__codelineno-2-81" name="__codelineno-2-81"></a><span class="p">};</span>
+<a id="__codelineno-2-82" name="__codelineno-2-82"></a>
+<a id="__codelineno-2-83" name="__codelineno-2-83"></a><span class="c1">// Create a local variable that passively reports human-readable debugging information in response to</span>
+<a id="__codelineno-2-84" name="__codelineno-2-84"></a><span class="c1">// generating a backtrace of all Tasks/threads.</span>
+<a id="__codelineno-2-85" name="__codelineno-2-85"></a><span class="c1">//</span>
+<a id="__codelineno-2-86" name="__codelineno-2-86"></a><span class="c1">// Example:</span>
+<a id="__codelineno-2-87" name="__codelineno-2-87"></a><span class="c1">// ```</span>
+<a id="__codelineno-2-88" name="__codelineno-2-88"></a><span class="c1">// void called_from_a_thread(int n) {</span>
+<a id="__codelineno-2-89" name="__codelineno-2-89"></a><span class="c1">//   for (int i=0; i&lt;n; ++i) {</span>
+<a id="__codelineno-2-90" name="__codelineno-2-90"></a><span class="c1">//     BATT_DEBUG_INFO(&quot;loop iteration &quot; &lt;&lt; i &lt;&lt; &quot; of &quot; &lt;&lt; n);</span>
+<a id="__codelineno-2-91" name="__codelineno-2-91"></a><span class="c1">//   }</span>
+<a id="__codelineno-2-92" name="__codelineno-2-92"></a><span class="c1">// }</span>
+<a id="__codelineno-2-93" name="__codelineno-2-93"></a><span class="c1">// ```</span>
+<a id="__codelineno-2-94" name="__codelineno-2-94"></a><span class="c1">//</span>
+<a id="__codelineno-2-95" name="__codelineno-2-95"></a><span class="cp">#define BATT_DEBUG_INFO(expr)                                                                                \</span>
+<a id="__codelineno-2-96" name="__codelineno-2-96"></a><span class="cp">    ::batt::DebugInfoFrame BOOST_PP_CAT(debug_info_BATTERIES_, __LINE__)                                     \</span>
+<a id="__codelineno-2-97" name="__codelineno-2-97"></a><span class="cp">    {                                                                                                        \</span>
+<a id="__codelineno-2-98" name="__codelineno-2-98"></a><span class="cp">        [&amp;](std::ostream&amp; out, const void* frame) {                                                          \</span>
+<a id="__codelineno-2-99" name="__codelineno-2-99"></a><span class="cp">            out &lt;&lt; &quot; &quot; &lt;&lt; expr &lt;&lt; std::endl                                                                  \</span>
+<a id="__codelineno-2-100" name="__codelineno-2-100"></a><span class="cp">                &lt;&lt; &quot;    at &quot; &lt;&lt; ::batt::shortened_source_file(__FILE__) &lt;&lt; &quot;:&quot; &lt;&lt; __LINE__ &lt;&lt; std::endl      \</span>
+<a id="__codelineno-2-101" name="__codelineno-2-101"></a><span class="cp">                &lt;&lt; &quot;    in &quot; &lt;&lt; __PRETTY_FUNCTION__ &lt;&lt; std::endl                                             \</span>
+<a id="__codelineno-2-102" name="__codelineno-2-102"></a><span class="cp">                &lt;&lt; &quot;    stack offset: &quot; &lt;&lt; ::batt::Task::current_stack_pos_of(frame) &lt;&lt; std::endl;           \</span>
+<a id="__codelineno-2-103" name="__codelineno-2-103"></a><span class="cp">        }                                                                                                    \</span>
+<a id="__codelineno-2-104" name="__codelineno-2-104"></a><span class="cp">    }</span>
+<a id="__codelineno-2-105" name="__codelineno-2-105"></a>
+<a id="__codelineno-2-106" name="__codelineno-2-106"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
+<a id="__codelineno-2-107" name="__codelineno-2-107"></a>
+<a id="__codelineno-2-108" name="__codelineno-2-108"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_DEBUG_INFO_DECL_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on  9 June 2023 at 16:21:31 UTC</p>
+<p>Updated on  9 June 2023 at 19:06:14 UTC</p>
 
 
 

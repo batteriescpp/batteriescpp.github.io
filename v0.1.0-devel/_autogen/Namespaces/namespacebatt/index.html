@@ -7173,7 +7173,7 @@
 <a id="__codelineno-69-3" name="__codelineno-69-3"></a><span class="k">typename</span><span class="w"> </span><span class="nc">Result</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">invoke_result_t</span><span class="o">&lt;</span><span class="n">ActionFn</span><span class="o">&gt;</span><span class="p">,</span>
 <a id="__codelineno-69-4" name="__codelineno-69-4"></a><span class="k">typename</span><span class="w"> </span><span class="nc">SleepImpl</span><span class="w">  </span><span class="o">=</span><span class="n">TaskSleepImpl</span><span class="p">,</span>
 <a id="__codelineno-69-5" name="__codelineno-69-5"></a><span class="k">typename</span><span class="w"> </span><span class="nc">StatusIsRetryableImpl</span><span class="w">  </span><span class="o">=</span><span class="n">DefaultStatusIsRetryableImpl</span><span class="o">&gt;</span>
-<a id="__codelineno-69-6" name="__codelineno-69-6"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Result</span><span class="w"> </span><span class="n">with_retry_policy</span><span class="p">(</span>
+<a id="__codelineno-69-6" name="__codelineno-69-6"></a><span class="n">Result</span><span class="w"> </span><span class="n">with_retry_policy</span><span class="p">(</span>
 <a id="__codelineno-69-7" name="__codelineno-69-7"></a><span class="w">    </span><span class="n">RetryPolicy</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">policy</span><span class="p">,</span>
 <a id="__codelineno-69-8" name="__codelineno-69-8"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">action_name</span><span class="p">,</span>
 <a id="__codelineno-69-9" name="__codelineno-69-9"></a><span class="w">    </span><span class="n">ActionFn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">action_fn</span><span class="p">,</span>
@@ -7185,7 +7185,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-70-1">1</a></span>
 <span class="normal"><a href="#__codelineno-70-2">2</a></span>
 <span class="normal"><a href="#__codelineno-70-3">3</a></span>
-<span class="normal"><a href="#__codelineno-70-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">update_retry_state</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-70-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">update_retry_state</span><span class="p">(</span>
 <a id="__codelineno-70-2" name="__codelineno-70-2"></a><span class="w">    </span><span class="n">RetryState</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">state</span><span class="p">,</span>
 <a id="__codelineno-70-3" name="__codelineno-70-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">ExponentialBackoff</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">policy</span>
 <a id="__codelineno-70-4" name="__codelineno-70-4"></a><span class="p">)</span>
@@ -10988,7 +10988,7 @@ The unit string may be upper or lower case, and only the first character is cons
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-434-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-434-1" name="__codelineno-434-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">TupleIndexOf_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TupleIndexOf</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">TupleT</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on  9 June 2023 at 16:21:31 UTC</p>
+<p>Updated on  9 June 2023 at 19:06:13 UTC</p>
 
 
 

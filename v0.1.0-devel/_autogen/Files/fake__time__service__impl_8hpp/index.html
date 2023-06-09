@@ -676,16 +676,7 @@
 <span class="normal"><a href="#__codelineno-1-77">77</a></span>
 <span class="normal"><a href="#__codelineno-1-78">78</a></span>
 <span class="normal"><a href="#__codelineno-1-79">79</a></span>
-<span class="normal"><a href="#__codelineno-1-80">80</a></span>
-<span class="normal"><a href="#__codelineno-1-81">81</a></span>
-<span class="normal"><a href="#__codelineno-1-82">82</a></span>
-<span class="normal"><a href="#__codelineno-1-83">83</a></span>
-<span class="normal"><a href="#__codelineno-1-84">84</a></span>
-<span class="normal"><a href="#__codelineno-1-85">85</a></span>
-<span class="normal"><a href="#__codelineno-1-86">86</a></span>
-<span class="normal"><a href="#__codelineno-1-87">87</a></span>
-<span class="normal"><a href="#__codelineno-1-88">88</a></span>
-<span class="normal"><a href="#__codelineno-1-89">89</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
+<span class="normal"><a href="#__codelineno-1-80">80</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// Copyright 2022-2023 Anthony Paul Astolfi</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">//</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="cp">#pragma once</span>
@@ -694,89 +685,80 @@
 <a id="__codelineno-1-7" name="__codelineno-1-7"></a>
 <a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/config.hpp&gt;</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1">//</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/async/fake_execution_context.hpp&gt;</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/async/fake_time_service_decl.hpp&gt;</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/suppress.hpp&gt;</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="n">BATT_SUPPRESS_IF_GCC</span><span class="p">(</span><span class="s">&quot;-Wsuggest-override&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="n">BATT_SUPPRESS_IF_CLANG</span><span class="p">(</span><span class="s">&quot;-Wsuggest-override&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="c1">//</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;boost/asio/post.hpp&gt;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/asio/post.hpp&gt;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/async/fake_execution_context.hpp&gt;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;boost/asio/time_traits.hpp&gt;</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">batt</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
 <a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="c1">//</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="n">BATT_UNSUPPRESS_IF_CLANG</span><span class="p">()</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="n">BATT_UNSUPPRESS_IF_GCC</span><span class="p">()</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a>
-<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;boost/asio/time_traits.hpp&gt;</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23"></a>
-<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">batt</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25"></a>
-<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="c1">//</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="cm">/*static*/</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution_context</span><span class="o">::</span><span class="n">id</span><span class="w"> </span><span class="n">FakeTimeService</span><span class="o">::</span><span class="n">id</span><span class="p">;</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29"></a>
-<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="c1">//</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="cm">/*explicit*/</span><span class="w"> </span><span class="nf">FakeTimeService::FakeTimeService</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution_context</span><span class="o">&amp;</span><span class="w"> </span><span class="n">context</span><span class="p">)</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution_context</span><span class="o">::</span><span class="n">service</span><span class="p">{</span><span class="n">context</span><span class="p">}</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="p">{</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="cm">/*static*/</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution_context</span><span class="o">::</span><span class="n">id</span><span class="w"> </span><span class="n">FakeTimeService</span><span class="o">::</span><span class="n">id</span><span class="p">;</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="c1">//</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="cm">/*explicit*/</span><span class="w"> </span><span class="nf">FakeTimeService::FakeTimeService</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution_context</span><span class="o">&amp;</span><span class="w"> </span><span class="n">context</span><span class="p">)</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution_context</span><span class="o">::</span><span class="n">service</span><span class="p">{</span><span class="n">context</span><span class="p">}</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="p">{</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="p">}</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="c1">//</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FakeTimeService</span><span class="o">::</span><span class="n">TimerInstance</span><span class="o">&amp;</span><span class="w"> </span><span class="n">l</span><span class="p">,</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="w">                                </span><span class="k">const</span><span class="w"> </span><span class="n">FakeTimeService</span><span class="o">::</span><span class="n">TimerInstance</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="p">{</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="p">.</span><span class="n">impl</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">impl</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">||</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="w">           </span><span class="p">((</span><span class="n">l</span><span class="p">.</span><span class="n">impl</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">impl</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="p">.</span><span class="n">impl</span><span class="o">-&gt;</span><span class="n">expires_at</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">impl</span><span class="o">-&gt;</span><span class="n">expires_at</span><span class="p">));</span>
 <a id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="p">}</span>
 <a id="__codelineno-1-36" name="__codelineno-1-36"></a>
 <a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
 <a id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="c1">//</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FakeTimeService</span><span class="o">::</span><span class="n">TimerInstance</span><span class="o">&amp;</span><span class="w"> </span><span class="n">l</span><span class="p">,</span>
-<a id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="w">                                </span><span class="k">const</span><span class="w"> </span><span class="n">FakeTimeService</span><span class="o">::</span><span class="n">TimerInstance</span><span class="o">&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span>
-<a id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="p">{</span>
-<a id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="p">.</span><span class="n">impl</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">impl</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">||</span>
-<a id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="w">           </span><span class="p">((</span><span class="n">l</span><span class="p">.</span><span class="n">impl</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">impl</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="p">.</span><span class="n">impl</span><span class="o">-&gt;</span><span class="n">expires_at</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">r</span><span class="p">.</span><span class="n">impl</span><span class="o">-&gt;</span><span class="n">expires_at</span><span class="p">));</span>
-<a id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="p">}</span>
-<a id="__codelineno-1-45" name="__codelineno-1-45"></a>
-<a id="__codelineno-1-46" name="__codelineno-1-46"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-47" name="__codelineno-1-47"></a><span class="c1">//</span>
-<a id="__codelineno-1-48" name="__codelineno-1-48"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="n">FakeTimeService</span><span class="o">::</span><span class="n">State</span><span class="o">::</span><span class="n">State</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">fake_time_</span><span class="p">{</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">time_traits</span><span class="o">&lt;</span><span class="n">TimePoint</span><span class="o">&gt;::</span><span class="n">now</span><span class="p">()}</span>
-<a id="__codelineno-1-49" name="__codelineno-1-49"></a><span class="p">{</span>
-<a id="__codelineno-1-50" name="__codelineno-1-50"></a><span class="p">}</span>
-<a id="__codelineno-1-51" name="__codelineno-1-51"></a>
-<a id="__codelineno-1-52" name="__codelineno-1-52"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-53" name="__codelineno-1-53"></a><span class="c1">//</span>
-<a id="__codelineno-1-54" name="__codelineno-1-54"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">FakeTimeService</span><span class="o">::</span><span class="n">State</span><span class="o">::</span><span class="n">now</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">TimePoint</span>
-<a id="__codelineno-1-55" name="__codelineno-1-55"></a><span class="p">{</span>
-<a id="__codelineno-1-56" name="__codelineno-1-56"></a><span class="w">    </span><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="p">{</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">mutex_</span><span class="p">};</span>
-<a id="__codelineno-1-57" name="__codelineno-1-57"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">fake_time_</span><span class="p">;</span>
-<a id="__codelineno-1-58" name="__codelineno-1-58"></a><span class="p">}</span>
-<a id="__codelineno-1-59" name="__codelineno-1-59"></a>
-<a id="__codelineno-1-60" name="__codelineno-1-60"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-61" name="__codelineno-1-61"></a><span class="c1">//</span>
-<a id="__codelineno-1-62" name="__codelineno-1-62"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">FakeTimeService</span><span class="o">::</span><span class="n">State</span><span class="o">::</span><span class="n">advance_time</span><span class="p">(</span><span class="n">Duration</span><span class="w"> </span><span class="n">delta</span><span class="p">)</span>
-<a id="__codelineno-1-63" name="__codelineno-1-63"></a><span class="p">{</span>
-<a id="__codelineno-1-64" name="__codelineno-1-64"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">TimerInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">expired_timers</span><span class="p">;</span>
-<a id="__codelineno-1-65" name="__codelineno-1-65"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-66" name="__codelineno-1-66"></a><span class="w">        </span><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="p">{</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">mutex_</span><span class="p">};</span>
-<a id="__codelineno-1-67" name="__codelineno-1-67"></a>
-<a id="__codelineno-1-68" name="__codelineno-1-68"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">fake_time_</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">delta</span><span class="p">;</span>
-<a id="__codelineno-1-69" name="__codelineno-1-69"></a>
-<a id="__codelineno-1-70" name="__codelineno-1-70"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">timer_queue_</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">timer_queue_</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">impl</span><span class="o">-&gt;</span><span class="n">expires_at</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">fake_time_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-71" name="__codelineno-1-71"></a><span class="w">            </span><span class="n">expired_timers</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">timer_queue_</span><span class="p">.</span><span class="n">top</span><span class="p">());</span>
-<a id="__codelineno-1-72" name="__codelineno-1-72"></a><span class="w">            </span><span class="n">timer_queue_</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
-<a id="__codelineno-1-73" name="__codelineno-1-73"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-74" name="__codelineno-1-74"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-75" name="__codelineno-1-75"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">TimerInstance</span><span class="o">&amp;</span><span class="w"> </span><span class="n">timer</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">expired_timers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-76" name="__codelineno-1-76"></a><span class="w">        </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">post</span><span class="p">(</span><span class="n">timer</span><span class="p">.</span><span class="n">impl</span><span class="o">-&gt;</span><span class="n">executor</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">timer</span><span class="p">.</span><span class="n">impl</span><span class="o">-&gt;</span><span class="n">handler</span><span class="p">),</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">{}));</span>
-<a id="__codelineno-1-77" name="__codelineno-1-77"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-78" name="__codelineno-1-78"></a><span class="p">}</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="n">FakeTimeService</span><span class="o">::</span><span class="n">State</span><span class="o">::</span><span class="n">State</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">fake_time_</span><span class="p">{</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">time_traits</span><span class="o">&lt;</span><span class="n">TimePoint</span><span class="o">&gt;::</span><span class="n">now</span><span class="p">()}</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="p">{</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="p">}</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42"></a>
+<a id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="c1">//</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">FakeTimeService</span><span class="o">::</span><span class="n">State</span><span class="o">::</span><span class="n">now</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">TimePoint</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46"></a><span class="p">{</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47"></a><span class="w">    </span><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="p">{</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">mutex_</span><span class="p">};</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">fake_time_</span><span class="p">;</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49"></a><span class="p">}</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50"></a>
+<a id="__codelineno-1-51" name="__codelineno-1-51"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-52" name="__codelineno-1-52"></a><span class="c1">//</span>
+<a id="__codelineno-1-53" name="__codelineno-1-53"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">FakeTimeService</span><span class="o">::</span><span class="n">State</span><span class="o">::</span><span class="n">advance_time</span><span class="p">(</span><span class="n">Duration</span><span class="w"> </span><span class="n">delta</span><span class="p">)</span>
+<a id="__codelineno-1-54" name="__codelineno-1-54"></a><span class="p">{</span>
+<a id="__codelineno-1-55" name="__codelineno-1-55"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">TimerInstance</span><span class="o">&gt;</span><span class="w"> </span><span class="n">expired_timers</span><span class="p">;</span>
+<a id="__codelineno-1-56" name="__codelineno-1-56"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-57" name="__codelineno-1-57"></a><span class="w">        </span><span class="n">Lock</span><span class="w"> </span><span class="n">lock</span><span class="p">{</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">mutex_</span><span class="p">};</span>
+<a id="__codelineno-1-58" name="__codelineno-1-58"></a>
+<a id="__codelineno-1-59" name="__codelineno-1-59"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">fake_time_</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">delta</span><span class="p">;</span>
+<a id="__codelineno-1-60" name="__codelineno-1-60"></a>
+<a id="__codelineno-1-61" name="__codelineno-1-61"></a><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">timer_queue_</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">timer_queue_</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">impl</span><span class="o">-&gt;</span><span class="n">expires_at</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">fake_time_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-62" name="__codelineno-1-62"></a><span class="w">            </span><span class="n">expired_timers</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">timer_queue_</span><span class="p">.</span><span class="n">top</span><span class="p">());</span>
+<a id="__codelineno-1-63" name="__codelineno-1-63"></a><span class="w">            </span><span class="n">timer_queue_</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+<a id="__codelineno-1-64" name="__codelineno-1-64"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-65" name="__codelineno-1-65"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-66" name="__codelineno-1-66"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">TimerInstance</span><span class="o">&amp;</span><span class="w"> </span><span class="n">timer</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">expired_timers</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-67" name="__codelineno-1-67"></a><span class="w">        </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">post</span><span class="p">(</span><span class="n">timer</span><span class="p">.</span><span class="n">impl</span><span class="o">-&gt;</span><span class="n">executor</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">bind</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">timer</span><span class="p">.</span><span class="n">impl</span><span class="o">-&gt;</span><span class="n">handler</span><span class="p">),</span><span class="w"> </span><span class="n">ErrorCode</span><span class="p">{}));</span>
+<a id="__codelineno-1-68" name="__codelineno-1-68"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-69" name="__codelineno-1-69"></a><span class="p">}</span>
+<a id="__codelineno-1-70" name="__codelineno-1-70"></a>
+<a id="__codelineno-1-71" name="__codelineno-1-71"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-72" name="__codelineno-1-72"></a><span class="c1">//</span>
+<a id="__codelineno-1-73" name="__codelineno-1-73"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">FakeTimeService</span><span class="o">::</span><span class="n">shutdown</span><span class="p">()</span><span class="w"> </span><span class="cm">/*override*/</span>
+<a id="__codelineno-1-74" name="__codelineno-1-74"></a><span class="p">{</span>
+<a id="__codelineno-1-75" name="__codelineno-1-75"></a><span class="w">    </span><span class="c1">// TODO [tastolfi 2022-01-14] how to cancel timers associated with this?</span>
+<a id="__codelineno-1-76" name="__codelineno-1-76"></a><span class="p">}</span>
+<a id="__codelineno-1-77" name="__codelineno-1-77"></a>
+<a id="__codelineno-1-78" name="__codelineno-1-78"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
 <a id="__codelineno-1-79" name="__codelineno-1-79"></a>
-<a id="__codelineno-1-80" name="__codelineno-1-80"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-81" name="__codelineno-1-81"></a><span class="c1">//</span>
-<a id="__codelineno-1-82" name="__codelineno-1-82"></a><span class="n">BATT_INLINE_IMPL</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">FakeTimeService</span><span class="o">::</span><span class="n">shutdown</span><span class="p">()</span><span class="w"> </span><span class="cm">/*override*/</span>
-<a id="__codelineno-1-83" name="__codelineno-1-83"></a><span class="p">{</span>
-<a id="__codelineno-1-84" name="__codelineno-1-84"></a><span class="w">    </span><span class="c1">// TODO [tastolfi 2022-01-14] how to cancel timers associated with this?</span>
-<a id="__codelineno-1-85" name="__codelineno-1-85"></a><span class="p">}</span>
-<a id="__codelineno-1-86" name="__codelineno-1-86"></a>
-<a id="__codelineno-1-87" name="__codelineno-1-87"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
-<a id="__codelineno-1-88" name="__codelineno-1-88"></a>
-<a id="__codelineno-1-89" name="__codelineno-1-89"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_FAKE_TIME_SERVICE_IMPL_HPP</span>
+<a id="__codelineno-1-80" name="__codelineno-1-80"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_FAKE_TIME_SERVICE_IMPL_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on  9 June 2023 at 16:21:31 UTC</p>
+<p>Updated on  9 June 2023 at 19:06:14 UTC</p>
 
 
 
