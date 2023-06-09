@@ -15,7 +15,7 @@
     
     
       
-        <title>batt::@93 - Batteries C++</title>
+        <title>batteries/async/latch_impl.hpp - Batteries C++</title>
       
     
     
@@ -64,6 +64,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#namespaces" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -93,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              batt::@93
+              batteries/async/latch_impl.hpp
             
           </span>
         </div>
@@ -355,7 +360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Files/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Files
       </a>
     </li>
@@ -493,6 +498,55 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#namespaces" class="md-nav__link">
+    Namespaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defines" class="md-nav__link">
+    Defines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macro-documentation" class="md-nav__link">
+    Macro Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Macro Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-batteries_async_latch_impl_hpp" class="md-nav__link">
+     define BATTERIES_ASYNC_LATCH_IMPL_HPP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source code
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -507,9 +561,66 @@
 
 
 
-<h1 id="batt93">batt::@93<a class="headerlink" href="#batt93" title="Permanent link">&#128279;</a></h1>
+  <h1>batteries/async/latch_impl.hpp</h1>
+
+<h1 id="batteriesasynclatch_implhpp">batteries/async/latch_impl.hpp<a class="headerlink" href="#batteriesasynclatch_implhpp" title="Permanent link">&#128279;</a></h1>
+<h2 id="namespaces">Namespaces<a class="headerlink" href="#namespaces" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/">batt</a></strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="defines">Defines<a class="headerlink" href="#defines" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/latch__impl_8hpp/#define-batteries-async-latch-impl-hpp">BATTERIES_ASYNC_LATCH_IMPL_HPP</a></strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="macro-documentation">Macro Documentation<a class="headerlink" href="#macro-documentation" title="Permanent link">&#128279;</a></h2>
+<h3 id="define-batteries_async_latch_impl_hpp"><a name="BATTERIES_ASYNC_LATCH_IMPL_HPP"></a> define BATTERIES_ASYNC_LATCH_IMPL_HPP<a class="headerlink" href="#define-batteries_async_latch_impl_hpp" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#define BATTERIES_ASYNC_LATCH_IMPL_HPP()</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="source-code">Source code<a class="headerlink" href="#source-code" title="Permanent link">&#128279;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// Copyright 2021-2023 Anthony Paul Astolfi</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">//</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="cp">#pragma once</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="cp">#ifndef BATTERIES_ASYNC_LATCH_IMPL_HPP</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="cp">#define BATTERIES_ASYNC_LATCH_IMPL_HPP</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">batt</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="p">}</span><span class="w">  </span><span class="c1">//namespace batt</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_LATCH_IMPL_HPP</span>
+</code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on  7 June 2023 at 01:25:16 UTC</p>
+<p>Updated on  9 June 2023 at 15:03:08 UTC</p>
 
 
 

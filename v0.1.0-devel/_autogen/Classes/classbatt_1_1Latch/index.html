@@ -676,7 +676,7 @@
 
 <h1 id="battlatch">batt::Latch<a class="headerlink" href="#battlatch" title="Permanent link">&#128279;</a></h1>
 <p>A write-once, single-value synchronized container.  <a href="#detailed-description">More...</a></p>
-<p><code>#include &lt;batteries/async/latch.hpp&gt;</code></p>
+<p><code>#include &lt;batteries/async/latch_decl.hpp&gt;</code></p>
 <p>Inherits from RefCounted&lt; Latch&lt; T &gt; &gt;</p>
 <p>Inherited by <a href="/_autogen/Classes/classbatt_1_1detail_1_1FutureImpl/">batt::detail::FutureImpl&lt; T &gt;</a></p>
 <h2 id="public-classes">Public Classes<a class="headerlink" href="#public-classes" title="Permanent link">&#128279;</a></h2>
@@ -832,7 +832,7 @@
 <h3 id="function-set_error">function set_error<a class="headerlink" href="#function-set_error" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
 <span class="normal"><a href="#__codelineno-4-2">2</a></span>
-<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">set_error</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">set_error</span><span class="p">(</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">Status</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">status</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -843,7 +843,7 @@
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
 <span class="normal"><a href="#__codelineno-5-3">3</a></span>
 <span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">set_value</span><span class="p">(</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kt">bool</span><span class="w"> </span><span class="n">set_value</span><span class="p">(</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span><span class="n">Args</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -851,27 +851,27 @@
 <p><strong>Return</strong>: true if the <a href="/_autogen/Classes/classbatt_1_1Latch/">Latch</a> was not previously set and this call succeeded in setting its value, or false if the value was previously/concurrently set by another thread. </p>
 <p><code>args</code> are used to construct a StatusOr<T>, so you can pass an instance of <code>T</code> to set_value, or a <a href="/_autogen/Classes/classbatt_1_1Status/">Status</a> to indicate an error occurred.</p>
 <h3 id="function-is_ready">function is_ready<a class="headerlink" href="#function-is_ready" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">is_ready</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">is_ready</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
 <p>Returns true iff the latch is in the ready state. </p>
 <h3 id="function-await">function await<a class="headerlink" href="#function-await" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">await</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">await</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Block the current task until the <a href="/_autogen/Classes/classbatt_1_1Latch/">Latch</a> is ready, then return the set value (or <a href="">Status</a>). </p>
 <h3 id="function-await_1">function await<a class="headerlink" href="#function-await_1" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">await</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">await</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Block the current task until the <a href="/_autogen/Classes/classbatt_1_1Latch/">Latch</a> is ready, then return the set value (or <a href="">Status</a>) via move. </p>
 <h3 id="function-poll">function poll<a class="headerlink" href="#function-poll" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">poll</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">poll</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Same as <a href="/_autogen/Classes/classbatt_1_1Latch/#function-await">await()</a>, except this method never blocks; if the <a href="/_autogen/Classes/classbatt_1_1Latch/">Latch</a> isn't ready yet, it immediately returns <code>StatusCode::kUnavailable</code>. </p>
 <h3 id="function-get_ready_value_or_panic">function get_ready_value_or_panic<a class="headerlink" href="#function-get_ready_value_or_panic" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_ready_value_or_panic</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_ready_value_or_panic</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Returns the value of the <a href="/_autogen/Classes/classbatt_1_1Latch/">Latch</a> (non-blocking), panicking if it is not in the ready state. </p>
 <h3 id="function-get_ready_value_or_panic_1">function get_ready_value_or_panic<a class="headerlink" href="#function-get_ready_value_or_panic_1" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_ready_value_or_panic</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_ready_value_or_panic</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Returns the value of the <a href="/_autogen/Classes/classbatt_1_1Latch/">Latch</a> (non-blocking) via move, panicking if it is not in the ready state. </p>
 <h3 id="function-async_get">function async_get<a class="headerlink" href="#function-async_get" title="Permanent link">&#128279;</a></h3>
@@ -879,7 +879,7 @@
 <span class="normal"><a href="#__codelineno-12-2">2</a></span>
 <span class="normal"><a href="#__codelineno-12-3">3</a></span>
 <span class="normal"><a href="#__codelineno-12-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Handler</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">async_get</span><span class="p">(</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">async_get</span><span class="p">(</span>
 <a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">    </span><span class="n">Handler</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">handler</span>
 <a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -889,11 +889,11 @@
 <li><strong>handler</strong> Should have signature <code class="highlight"><span class="kt">void</span><span class="p">(</span></code><a href="/_autogen/Classes/classbatt_1_1StatusOr/">StatusOr</a><code>&lt;T&gt;)</code></li>
 </ul>
 <h3 id="function-invalidate">function invalidate<a class="headerlink" href="#function-invalidate" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">invalidate</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">invalidate</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <p>Force the latch into an invalid state (for testing mostly). </p>
 <hr />
-<p>Updated on  7 June 2023 at 01:25:16 UTC</p>
+<p>Updated on  9 June 2023 at 15:03:08 UTC</p>
 
 
 

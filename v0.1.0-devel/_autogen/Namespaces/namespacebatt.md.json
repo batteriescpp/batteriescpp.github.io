@@ -6288,12 +6288,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 93,
+        "bodyEnd": 79,
         "bodyFile": "batteries/async/future_impl.hpp",
-        "bodyStart": 90,
+        "bodyStart": 76,
         "column": 17,
         "file": "batteries/async/future_impl.hpp",
-        "line": 90
+        "line": 76
       },
       "name": "get_future",
       "override": false,
@@ -16930,61 +16930,11 @@
     {
       "abstract": false,
       "anchor": "#function-unwrap-ref",
-      "argsString": "(const Ref< T > &wrapper)",
-      "category": "functions",
-      "const": false,
-      "default": false,
-      "definition": "T& batt::unwrap_ref",
-      "deleted": false,
-      "explicit": false,
-      "fullname": "batt::unwrap_ref",
-      "hasDetails": true,
-      "inline": false,
-      "kind": "function",
-      "language": "cpp",
-      "location": {
-        "bodyEnd": 139,
-        "bodyFile": "batteries/ref.hpp",
-        "bodyStart": 136,
-        "column": 3,
-        "file": "batteries/ref.hpp",
-        "line": 136
-      },
-      "name": "unwrap_ref",
-      "override": false,
-      "params": [
-        {
-          "name": "wrapper",
-          "type": "const [Ref](/_autogen/Classes/classbatt_1_1Ref/)< T > &",
-          "typePlain": "const Ref< T > &"
-        }
-      ],
-      "pureVirtual": false,
-      "refid": "ref_8hpp_1a4aa31c184f066e2bcf4c4223f2e96ead",
-      "static": false,
-      "strong": false,
-      "templateParams": [
-        {
-          "name": "",
-          "type": "typename T",
-          "typePlain": "typename T"
-        }
-      ],
-      "title": "unwrap_ref",
-      "type": "T &",
-      "typePlain": "T &",
-      "url": "/_autogen/Namespaces/namespacebatt/#function-unwrap-ref",
-      "virtual": false,
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#function-unwrap-ref",
       "argsString": "(Ref< T > &wrapper)",
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "T& batt::unwrap_ref",
+      "definition": "decltype(auto) batt::unwrap_ref",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::unwrap_ref",
@@ -16993,10 +16943,10 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 145,
+        "bodyEnd": 142,
         "bodyFile": "batteries/ref.hpp",
         "bodyStart": 142,
-        "column": 3,
+        "column": 24,
         "file": "batteries/ref.hpp",
         "line": 142
       },
@@ -17010,7 +16960,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "ref_8hpp_1ad2933c1f78153225c340613de2dd145c",
+      "refid": "ref_8hpp_1aab10352aaf1715ec5853ba040f0209e6",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -17021,8 +16971,8 @@
         }
       ],
       "title": "unwrap_ref",
-      "type": "T &",
-      "typePlain": "T &",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
       "url": "/_autogen/Namespaces/namespacebatt/#function-unwrap-ref",
       "virtual": false,
       "visibility": "public"
@@ -17030,11 +16980,11 @@
     {
       "abstract": false,
       "anchor": "#function-unwrap-ref",
-      "argsString": "(const Ref< T > &&wrapper)",
+      "argsString": "(Ref< T > const &wrapper)",
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "T& batt::unwrap_ref",
+      "definition": "decltype(auto) batt::unwrap_ref",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::unwrap_ref",
@@ -17043,24 +16993,24 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 151,
+        "bodyEnd": 143,
         "bodyFile": "batteries/ref.hpp",
-        "bodyStart": 148,
-        "column": 3,
+        "bodyStart": 143,
+        "column": 24,
         "file": "batteries/ref.hpp",
-        "line": 148
+        "line": 143
       },
       "name": "unwrap_ref",
       "override": false,
       "params": [
         {
           "name": "wrapper",
-          "type": "const [Ref](/_autogen/Classes/classbatt_1_1Ref/)< T > &&",
-          "typePlain": "const Ref< T > &&"
+          "type": "[Ref](/_autogen/Classes/classbatt_1_1Ref/)< T > const &",
+          "typePlain": "Ref< T > const &"
         }
       ],
       "pureVirtual": false,
-      "refid": "ref_8hpp_1a1e1324a1154b67bcaf489a53e579d488",
+      "refid": "ref_8hpp_1a7861bca2e827f1aa105de70c8376b437",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -17071,8 +17021,8 @@
         }
       ],
       "title": "unwrap_ref",
-      "type": "T &",
-      "typePlain": "T &",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
       "url": "/_autogen/Namespaces/namespacebatt/#function-unwrap-ref",
       "virtual": false,
       "visibility": "public"
@@ -17084,7 +17034,7 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "T& batt::unwrap_ref",
+      "definition": "decltype(auto) batt::unwrap_ref",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::unwrap_ref",
@@ -17093,12 +17043,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 157,
+        "bodyEnd": 144,
         "bodyFile": "batteries/ref.hpp",
-        "bodyStart": 154,
-        "column": 3,
+        "bodyStart": 144,
+        "column": 24,
         "file": "batteries/ref.hpp",
-        "line": 154
+        "line": 144
       },
       "name": "unwrap_ref",
       "override": false,
@@ -17110,7 +17060,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "ref_8hpp_1a5b468e34ce9f148c7d66b11cf279bdf0",
+      "refid": "ref_8hpp_1ac6f9678095f177791d2b40642ba21e6f",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -17121,8 +17071,58 @@
         }
       ],
       "title": "unwrap_ref",
-      "type": "T &",
-      "typePlain": "T &",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-unwrap-ref",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-unwrap-ref",
+      "argsString": "(Ref< T > const &&wrapper)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "decltype(auto) batt::unwrap_ref",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::unwrap_ref",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 145,
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 145,
+        "column": 24,
+        "file": "batteries/ref.hpp",
+        "line": 145
+      },
+      "name": "unwrap_ref",
+      "override": false,
+      "params": [
+        {
+          "name": "wrapper",
+          "type": "[Ref](/_autogen/Classes/classbatt_1_1Ref/)< T > const &&",
+          "typePlain": "Ref< T > const &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "ref_8hpp_1ae4f46cc9e6bfce798ff461a612f43658",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "unwrap_ref",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
       "url": "/_autogen/Namespaces/namespacebatt/#function-unwrap-ref",
       "virtual": false,
       "visibility": "public"
@@ -23186,7 +23186,7 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "T&& batt::unwrap_ref",
+      "definition": "decltype(auto) batt::unwrap_ref",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::unwrap_ref",
@@ -23198,7 +23198,7 @@
         "bodyEnd": 135,
         "bodyFile": "batteries/utility.hpp",
         "bodyStart": 132,
-        "column": 3,
+        "column": 10,
         "file": "batteries/utility.hpp",
         "line": 132
       },
@@ -23212,7 +23212,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "utility_8hpp_1a9c235dbf8c9fcdd4b7cc9c3a3e9801fe",
+      "refid": "utility_8hpp_1a507a8664ea0cc834304d68af9f91b469",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -23223,108 +23223,8 @@
         }
       ],
       "title": "unwrap_ref",
-      "type": "T &&",
-      "typePlain": "T &&",
-      "url": "/_autogen/Namespaces/namespacebatt/#function-unwrap-ref",
-      "virtual": false,
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#function-unwrap-ref",
-      "argsString": "(const std::reference_wrapper< T > &wrapper)",
-      "category": "functions",
-      "const": false,
-      "default": false,
-      "definition": "T& batt::unwrap_ref",
-      "deleted": false,
-      "explicit": false,
-      "fullname": "batt::unwrap_ref",
-      "hasDetails": true,
-      "inline": false,
-      "kind": "function",
-      "language": "cpp",
-      "location": {
-        "bodyEnd": 141,
-        "bodyFile": "batteries/utility.hpp",
-        "bodyStart": 138,
-        "column": 3,
-        "file": "batteries/utility.hpp",
-        "line": 138
-      },
-      "name": "unwrap_ref",
-      "override": false,
-      "params": [
-        {
-          "name": "wrapper",
-          "type": "const std::reference_wrapper< T > &",
-          "typePlain": "const std::reference_wrapper< T > &"
-        }
-      ],
-      "pureVirtual": false,
-      "refid": "utility_8hpp_1a3c899a9c1f0f4f7f3547aad6f16b4424",
-      "static": false,
-      "strong": false,
-      "templateParams": [
-        {
-          "name": "",
-          "type": "typename T",
-          "typePlain": "typename T"
-        }
-      ],
-      "title": "unwrap_ref",
-      "type": "T &",
-      "typePlain": "T &",
-      "url": "/_autogen/Namespaces/namespacebatt/#function-unwrap-ref",
-      "virtual": false,
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#function-unwrap-ref",
-      "argsString": "(std::reference_wrapper< T > &&wrapper)",
-      "category": "functions",
-      "const": false,
-      "default": false,
-      "definition": "T& batt::unwrap_ref",
-      "deleted": false,
-      "explicit": false,
-      "fullname": "batt::unwrap_ref",
-      "hasDetails": true,
-      "inline": false,
-      "kind": "function",
-      "language": "cpp",
-      "location": {
-        "bodyEnd": 147,
-        "bodyFile": "batteries/utility.hpp",
-        "bodyStart": 144,
-        "column": 3,
-        "file": "batteries/utility.hpp",
-        "line": 144
-      },
-      "name": "unwrap_ref",
-      "override": false,
-      "params": [
-        {
-          "name": "wrapper",
-          "type": "std::reference_wrapper< T > &&",
-          "typePlain": "std::reference_wrapper< T > &&"
-        }
-      ],
-      "pureVirtual": false,
-      "refid": "utility_8hpp_1a221c3ffa24ebd3318c54b84a3caafb03",
-      "static": false,
-      "strong": false,
-      "templateParams": [
-        {
-          "name": "",
-          "type": "typename T",
-          "typePlain": "typename T"
-        }
-      ],
-      "title": "unwrap_ref",
-      "type": "T &",
-      "typePlain": "T &",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
       "url": "/_autogen/Namespaces/namespacebatt/#function-unwrap-ref",
       "virtual": false,
       "visibility": "public"
@@ -23336,7 +23236,7 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "T& batt::unwrap_ref",
+      "definition": "decltype(auto) batt::unwrap_ref",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::unwrap_ref",
@@ -23345,12 +23245,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 153,
+        "bodyEnd": 144,
         "bodyFile": "batteries/utility.hpp",
-        "bodyStart": 150,
-        "column": 3,
+        "bodyStart": 144,
+        "column": 24,
         "file": "batteries/utility.hpp",
-        "line": 150
+        "line": 144
       },
       "name": "unwrap_ref",
       "override": false,
@@ -23362,7 +23262,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "utility_8hpp_1a6e2083693fd400fe6d6db5b4aa4ec7ba",
+      "refid": "utility_8hpp_1a306c7da133de38368509f8a3623d07ac",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -23373,8 +23273,8 @@
         }
       ],
       "title": "unwrap_ref",
-      "type": "T &",
-      "typePlain": "T &",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
       "url": "/_autogen/Namespaces/namespacebatt/#function-unwrap-ref",
       "virtual": false,
       "visibility": "public"
@@ -23382,11 +23282,11 @@
     {
       "abstract": false,
       "anchor": "#function-unwrap-ref",
-      "argsString": "(const std::reference_wrapper< T > &&wrapper)",
+      "argsString": "(std::reference_wrapper< T > const &wrapper)",
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "T& batt::unwrap_ref",
+      "definition": "decltype(auto) batt::unwrap_ref",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::unwrap_ref",
@@ -23395,24 +23295,24 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 159,
+        "bodyEnd": 145,
         "bodyFile": "batteries/utility.hpp",
-        "bodyStart": 156,
-        "column": 3,
+        "bodyStart": 145,
+        "column": 24,
         "file": "batteries/utility.hpp",
-        "line": 156
+        "line": 145
       },
       "name": "unwrap_ref",
       "override": false,
       "params": [
         {
           "name": "wrapper",
-          "type": "const std::reference_wrapper< T > &&",
-          "typePlain": "const std::reference_wrapper< T > &&"
+          "type": "std::reference_wrapper< T > const &",
+          "typePlain": "std::reference_wrapper< T > const &"
         }
       ],
       "pureVirtual": false,
-      "refid": "utility_8hpp_1a23da6d5d301d171d5b9c5989e820dbd3",
+      "refid": "utility_8hpp_1a4e413bfe3df437bb4102fcd5ed0ec277",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -23423,8 +23323,108 @@
         }
       ],
       "title": "unwrap_ref",
-      "type": "T &",
-      "typePlain": "T &",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-unwrap-ref",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-unwrap-ref",
+      "argsString": "(std::reference_wrapper< T > &&wrapper)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "decltype(auto) batt::unwrap_ref",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::unwrap_ref",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 146,
+        "bodyFile": "batteries/utility.hpp",
+        "bodyStart": 146,
+        "column": 24,
+        "file": "batteries/utility.hpp",
+        "line": 146
+      },
+      "name": "unwrap_ref",
+      "override": false,
+      "params": [
+        {
+          "name": "wrapper",
+          "type": "std::reference_wrapper< T > &&",
+          "typePlain": "std::reference_wrapper< T > &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "utility_8hpp_1a9dba41d7ea9aaa97b81f181b3b42ae20",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "unwrap_ref",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-unwrap-ref",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-unwrap-ref",
+      "argsString": "(std::reference_wrapper< T > const &&wrapper)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "decltype(auto) batt::unwrap_ref",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::unwrap_ref",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 147,
+        "bodyFile": "batteries/utility.hpp",
+        "bodyStart": 147,
+        "column": 24,
+        "file": "batteries/utility.hpp",
+        "line": 147
+      },
+      "name": "unwrap_ref",
+      "override": false,
+      "params": [
+        {
+          "name": "wrapper",
+          "type": "std::reference_wrapper< T > const &&",
+          "typePlain": "std::reference_wrapper< T > const &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "utility_8hpp_1ae7f2f8dfdf1ff3be6396ba3709ac61b5",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "unwrap_ref",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
       "url": "/_autogen/Namespaces/namespacebatt/#function-unwrap-ref",
       "virtual": false,
       "visibility": "public"
@@ -23445,12 +23445,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 184,
+        "bodyEnd": 174,
         "bodyFile": "batteries/utility.hpp",
-        "bodyStart": 180,
+        "bodyStart": 170,
         "column": 10,
         "file": "batteries/utility.hpp",
-        "line": 180
+        "line": 170
       },
       "name": "rotate_args_right",
       "override": false,
@@ -23505,12 +23505,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 202,
+        "bodyEnd": 192,
         "bodyFile": "batteries/utility.hpp",
-        "bodyStart": 198,
+        "bodyStart": 188,
         "column": 10,
         "file": "batteries/utility.hpp",
-        "line": 198
+        "line": 188
       },
       "name": "rotate_args_left",
       "override": false,
@@ -26523,10 +26523,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/utility.hpp",
-        "bodyStart": 162,
+        "bodyStart": 152,
         "column": 1,
         "file": "batteries/utility.hpp",
-        "line": 162
+        "line": 152
       },
       "name": "UnwrapRefType",
       "override": false,

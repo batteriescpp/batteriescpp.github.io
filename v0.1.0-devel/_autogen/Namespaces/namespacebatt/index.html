@@ -5716,20 +5716,20 @@
 <td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-into-cref">into_cref</a></strong>(const T * ptr)</td>
 </tr>
 <tr>
-<td>template &lt;typename T > <br>T &amp;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-unwrap-ref">unwrap_ref</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1Ref/">Ref</a>&lt; T &gt; &amp; wrapper)</td>
-</tr>
-<tr>
-<td>template &lt;typename T > <br>T &amp;</td>
+<td>template &lt;typename T > <br>decltype(auto)</td>
 <td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-unwrap-ref">unwrap_ref</a></strong>(<a href="/_autogen/Classes/classbatt_1_1Ref/">Ref</a>&lt; T &gt; &amp; wrapper)</td>
 </tr>
 <tr>
-<td>template &lt;typename T > <br>T &amp;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-unwrap-ref">unwrap_ref</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1Ref/">Ref</a>&lt; T &gt; &amp;&amp; wrapper)</td>
+<td>template &lt;typename T > <br>decltype(auto)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-unwrap-ref">unwrap_ref</a></strong>(<a href="/_autogen/Classes/classbatt_1_1Ref/">Ref</a>&lt; T &gt; const &amp; wrapper)</td>
 </tr>
 <tr>
-<td>template &lt;typename T > <br>T &amp;</td>
+<td>template &lt;typename T > <br>decltype(auto)</td>
 <td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-unwrap-ref">unwrap_ref</a></strong>(<a href="/_autogen/Classes/classbatt_1_1Ref/">Ref</a>&lt; T &gt; &amp;&amp; wrapper)</td>
+</tr>
+<tr>
+<td>template &lt;typename T > <br>decltype(auto)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-unwrap-ref">unwrap_ref</a></strong>(<a href="/_autogen/Classes/classbatt_1_1Ref/">Ref</a>&lt; T &gt; const &amp;&amp; wrapper)</td>
 </tr>
 <tr>
 <td>std::atomic&lt; PrintToStreamFunctionPointer &gt; &amp;</td>
@@ -6188,24 +6188,24 @@
 <td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-make-default">make_default</a></strong>()</td>
 </tr>
 <tr>
-<td>template &lt;typename T > <br>T &amp;&amp;</td>
+<td>template &lt;typename T > <br>decltype(auto)</td>
 <td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-unwrap-ref">unwrap_ref</a></strong>(T &amp;&amp; obj)</td>
 </tr>
 <tr>
-<td>template &lt;typename T > <br>T &amp;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-unwrap-ref">unwrap_ref</a></strong>(const std::reference_wrapper&lt; T &gt; &amp; wrapper)</td>
-</tr>
-<tr>
-<td>template &lt;typename T > <br>T &amp;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-unwrap-ref">unwrap_ref</a></strong>(std::reference_wrapper&lt; T &gt; &amp;&amp; wrapper)</td>
-</tr>
-<tr>
-<td>template &lt;typename T > <br>T &amp;</td>
+<td>template &lt;typename T > <br>decltype(auto)</td>
 <td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-unwrap-ref">unwrap_ref</a></strong>(std::reference_wrapper&lt; T &gt; &amp; wrapper)</td>
 </tr>
 <tr>
-<td>template &lt;typename T > <br>T &amp;</td>
-<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-unwrap-ref">unwrap_ref</a></strong>(const std::reference_wrapper&lt; T &gt; &amp;&amp; wrapper)</td>
+<td>template &lt;typename T > <br>decltype(auto)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-unwrap-ref">unwrap_ref</a></strong>(std::reference_wrapper&lt; T &gt; const &amp; wrapper)</td>
+</tr>
+<tr>
+<td>template &lt;typename T > <br>decltype(auto)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-unwrap-ref">unwrap_ref</a></strong>(std::reference_wrapper&lt; T &gt; &amp;&amp; wrapper)</td>
+</tr>
+<tr>
+<td>template &lt;typename T > <br>decltype(auto)</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-unwrap-ref">unwrap_ref</a></strong>(std::reference_wrapper&lt; T &gt; const &amp;&amp; wrapper)</td>
 </tr>
 <tr>
 <td>template &lt;typename Fn ,typename... Args> <br>decltype(auto)</td>
@@ -9638,8 +9638,8 @@
 <span class="normal"><a href="#__codelineno-300-2">2</a></span>
 <span class="normal"><a href="#__codelineno-300-3">3</a></span>
 <span class="normal"><a href="#__codelineno-300-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-300-1" name="__codelineno-300-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-300-2" name="__codelineno-300-2"></a><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
-<a id="__codelineno-300-3" name="__codelineno-300-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Ref</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">wrapper</span>
+<a id="__codelineno-300-2" name="__codelineno-300-2"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
+<a id="__codelineno-300-3" name="__codelineno-300-3"></a><span class="w">    </span><span class="n">Ref</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">wrapper</span>
 <a id="__codelineno-300-4" name="__codelineno-300-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-unwrap_ref_1">function unwrap_ref<a class="headerlink" href="#function-unwrap_ref_1" title="Permanent link">&#128279;</a></h3>
@@ -9647,8 +9647,8 @@
 <span class="normal"><a href="#__codelineno-301-2">2</a></span>
 <span class="normal"><a href="#__codelineno-301-3">3</a></span>
 <span class="normal"><a href="#__codelineno-301-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-301-1" name="__codelineno-301-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-301-2" name="__codelineno-301-2"></a><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
-<a id="__codelineno-301-3" name="__codelineno-301-3"></a><span class="w">    </span><span class="n">Ref</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">wrapper</span>
+<a id="__codelineno-301-2" name="__codelineno-301-2"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
+<a id="__codelineno-301-3" name="__codelineno-301-3"></a><span class="w">    </span><span class="n">Ref</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">wrapper</span>
 <a id="__codelineno-301-4" name="__codelineno-301-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-unwrap_ref_2">function unwrap_ref<a class="headerlink" href="#function-unwrap_ref_2" title="Permanent link">&#128279;</a></h3>
@@ -9656,8 +9656,8 @@
 <span class="normal"><a href="#__codelineno-302-2">2</a></span>
 <span class="normal"><a href="#__codelineno-302-3">3</a></span>
 <span class="normal"><a href="#__codelineno-302-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-302-1" name="__codelineno-302-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-302-2" name="__codelineno-302-2"></a><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
-<a id="__codelineno-302-3" name="__codelineno-302-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Ref</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wrapper</span>
+<a id="__codelineno-302-2" name="__codelineno-302-2"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
+<a id="__codelineno-302-3" name="__codelineno-302-3"></a><span class="w">    </span><span class="n">Ref</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wrapper</span>
 <a id="__codelineno-302-4" name="__codelineno-302-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-unwrap_ref_3">function unwrap_ref<a class="headerlink" href="#function-unwrap_ref_3" title="Permanent link">&#128279;</a></h3>
@@ -9665,8 +9665,8 @@
 <span class="normal"><a href="#__codelineno-303-2">2</a></span>
 <span class="normal"><a href="#__codelineno-303-3">3</a></span>
 <span class="normal"><a href="#__codelineno-303-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-303-1" name="__codelineno-303-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-303-2" name="__codelineno-303-2"></a><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
-<a id="__codelineno-303-3" name="__codelineno-303-3"></a><span class="w">    </span><span class="n">Ref</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wrapper</span>
+<a id="__codelineno-303-2" name="__codelineno-303-2"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
+<a id="__codelineno-303-3" name="__codelineno-303-3"></a><span class="w">    </span><span class="n">Ref</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wrapper</span>
 <a id="__codelineno-303-4" name="__codelineno-303-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-extra_segv_debug_info_callback">function extra_segv_debug_info_callback<a class="headerlink" href="#function-extra_segv_debug_info_callback" title="Permanent link">&#128279;</a></h3>
@@ -10869,7 +10869,7 @@ The unit string may be upper or lower case, and only the first character is cons
 <span class="normal"><a href="#__codelineno-419-2">2</a></span>
 <span class="normal"><a href="#__codelineno-419-3">3</a></span>
 <span class="normal"><a href="#__codelineno-419-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-419-1" name="__codelineno-419-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-419-2" name="__codelineno-419-2"></a><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
+<a id="__codelineno-419-2" name="__codelineno-419-2"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
 <a id="__codelineno-419-3" name="__codelineno-419-3"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">obj</span>
 <a id="__codelineno-419-4" name="__codelineno-419-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -10878,8 +10878,8 @@ The unit string may be upper or lower case, and only the first character is cons
 <span class="normal"><a href="#__codelineno-420-2">2</a></span>
 <span class="normal"><a href="#__codelineno-420-3">3</a></span>
 <span class="normal"><a href="#__codelineno-420-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-420-1" name="__codelineno-420-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-420-2" name="__codelineno-420-2"></a><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
-<a id="__codelineno-420-3" name="__codelineno-420-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">wrapper</span>
+<a id="__codelineno-420-2" name="__codelineno-420-2"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
+<a id="__codelineno-420-3" name="__codelineno-420-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">wrapper</span>
 <a id="__codelineno-420-4" name="__codelineno-420-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-unwrap_ref_6">function unwrap_ref<a class="headerlink" href="#function-unwrap_ref_6" title="Permanent link">&#128279;</a></h3>
@@ -10887,8 +10887,8 @@ The unit string may be upper or lower case, and only the first character is cons
 <span class="normal"><a href="#__codelineno-421-2">2</a></span>
 <span class="normal"><a href="#__codelineno-421-3">3</a></span>
 <span class="normal"><a href="#__codelineno-421-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-421-1" name="__codelineno-421-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-421-2" name="__codelineno-421-2"></a><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
-<a id="__codelineno-421-3" name="__codelineno-421-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wrapper</span>
+<a id="__codelineno-421-2" name="__codelineno-421-2"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
+<a id="__codelineno-421-3" name="__codelineno-421-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">wrapper</span>
 <a id="__codelineno-421-4" name="__codelineno-421-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-unwrap_ref_7">function unwrap_ref<a class="headerlink" href="#function-unwrap_ref_7" title="Permanent link">&#128279;</a></h3>
@@ -10896,8 +10896,8 @@ The unit string may be upper or lower case, and only the first character is cons
 <span class="normal"><a href="#__codelineno-422-2">2</a></span>
 <span class="normal"><a href="#__codelineno-422-3">3</a></span>
 <span class="normal"><a href="#__codelineno-422-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-422-1" name="__codelineno-422-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-422-2" name="__codelineno-422-2"></a><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
-<a id="__codelineno-422-3" name="__codelineno-422-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">wrapper</span>
+<a id="__codelineno-422-2" name="__codelineno-422-2"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
+<a id="__codelineno-422-3" name="__codelineno-422-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wrapper</span>
 <a id="__codelineno-422-4" name="__codelineno-422-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-unwrap_ref_8">function unwrap_ref<a class="headerlink" href="#function-unwrap_ref_8" title="Permanent link">&#128279;</a></h3>
@@ -10905,8 +10905,8 @@ The unit string may be upper or lower case, and only the first character is cons
 <span class="normal"><a href="#__codelineno-423-2">2</a></span>
 <span class="normal"><a href="#__codelineno-423-3">3</a></span>
 <span class="normal"><a href="#__codelineno-423-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-423-1" name="__codelineno-423-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-423-2" name="__codelineno-423-2"></a><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
-<a id="__codelineno-423-3" name="__codelineno-423-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wrapper</span>
+<a id="__codelineno-423-2" name="__codelineno-423-2"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
+<a id="__codelineno-423-3" name="__codelineno-423-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wrapper</span>
 <a id="__codelineno-423-4" name="__codelineno-423-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-rotate_args_right">function rotate_args_right<a class="headerlink" href="#function-rotate_args_right" title="Permanent link">&#128279;</a></h3>
@@ -10988,7 +10988,7 @@ The unit string may be upper or lower case, and only the first character is cons
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-434-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-434-1" name="__codelineno-434-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">TupleIndexOf_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TupleIndexOf</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">TupleT</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on  7 June 2023 at 01:25:16 UTC</p>
+<p>Updated on  9 June 2023 at 15:03:08 UTC</p>
 
 
 
