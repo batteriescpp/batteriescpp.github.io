@@ -643,6 +643,26 @@
     },
     {
       "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::true_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::IsStatusOrImpl< StatusOr< T & > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::IsStatusOrImpl< StatusOr< T & > >",
+      "refid": "structbatt_1_1detail_1_1IsStatusOrImpl_3_01StatusOr_3_01T_01_6_01_4_01_4",
+      "title": "batt::detail::IsStatusOrImpl< StatusOr< T & > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1IsStatusOrImpl_3_01StatusOr_3_01T_01_6_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
       "category": "classes",
       "fullname": "batt::detail::NotOkStatusWrapper",
       "kind": "class",
@@ -1290,12 +1310,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 27,
+        "bodyEnd": 30,
         "bodyFile": "batteries/segv.hpp",
-        "bodyStart": 25,
+        "bodyStart": 28,
         "column": 13,
         "file": "batteries/segv.hpp",
-        "line": 25
+        "line": 28
       },
       "name": "print_nothing",
       "override": false,
@@ -1333,12 +1353,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 79,
+        "bodyEnd": 90,
         "bodyFile": "batteries/segv.hpp",
-        "bodyStart": 74,
+        "bodyStart": 81,
         "column": 13,
         "file": "batteries/segv.hpp",
-        "line": 74
+        "line": 81
       },
       "name": "handle_segv",
       "override": false,
@@ -1376,12 +1396,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 85,
+        "bodyEnd": 96,
         "bodyFile": "batteries/segv.hpp",
-        "bodyStart": 81,
+        "bodyStart": 92,
         "column": 13,
         "file": "batteries/segv.hpp",
-        "line": 81
+        "line": 92
       },
       "name": "exit_impl",
       "override": false,
@@ -2006,12 +2026,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 381,
+        "bodyEnd": 382,
         "bodyFile": "batteries/status_impl.hpp",
-        "bodyStart": 374,
+        "bodyStart": 375,
         "column": 1,
         "file": "batteries/status_impl.hpp",
-        "line": 374
+        "line": 375
       },
       "name": "thread_local_error_category_status_map",
       "override": false,
@@ -2044,12 +2064,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 390,
+        "bodyEnd": 391,
         "bodyFile": "batteries/status_impl.hpp",
-        "bodyStart": 385,
+        "bodyStart": 386,
         "column": 21,
         "file": "batteries/status_impl.hpp",
-        "line": 385
+        "line": 386
       },
       "name": "global_error_category_status_map_mutex",
       "override": false,
@@ -2083,12 +2103,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 402,
+        "bodyEnd": 403,
         "bodyFile": "batteries/status_impl.hpp",
-        "bodyStart": 396,
+        "bodyStart": 397,
         "column": 1,
         "file": "batteries/status_impl.hpp",
-        "line": 396
+        "line": 397
       },
       "name": "global_error_category_status_map",
       "override": false,
@@ -2657,7 +2677,7 @@
       "location": {
         "column": 16,
         "file": "batteries/type_traits.hpp",
-        "line": 27
+        "line": 29
       },
       "name": "is_callable_impl",
       "override": false,
@@ -2684,8 +2704,8 @@
           "typePlain": "typename..."
         },
         {
-          "defval": "std::result_of_t<Fn(Args...)>",
-          "defvalPlain": "std::result_of_t<Fn(Args...)>",
+          "defval": "std::invoke_result_t<Fn, Args...>",
+          "defvalPlain": "std::invoke_result_t<Fn, Args...>",
           "name": "",
           "type": "typename Result",
           "typePlain": "typename Result"
@@ -2716,7 +2736,7 @@
       "location": {
         "column": 17,
         "file": "batteries/type_traits.hpp",
-        "line": 30
+        "line": 32
       },
       "name": "is_callable_impl",
       "override": false,
@@ -2768,7 +2788,7 @@
       "location": {
         "column": 16,
         "file": "batteries/type_traits.hpp",
-        "line": 43
+        "line": 45
       },
       "name": "is_printable_impl",
       "override": false,
@@ -2822,7 +2842,7 @@
       "location": {
         "column": 17,
         "file": "batteries/type_traits.hpp",
-        "line": 46
+        "line": 48
       },
       "name": "is_printable_impl",
       "override": false,
@@ -2874,7 +2894,7 @@
       "location": {
         "column": 16,
         "file": "batteries/type_traits.hpp",
-        "line": 64
+        "line": 66
       },
       "name": "is_range_impl",
       "override": false,
@@ -2942,7 +2962,7 @@
       "location": {
         "column": 17,
         "file": "batteries/type_traits.hpp",
-        "line": 67
+        "line": 69
       },
       "name": "is_range_impl",
       "override": false,
@@ -2987,12 +3007,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 185,
+        "bodyEnd": 187,
         "bodyFile": "batteries/type_traits.hpp",
-        "bodyStart": 182,
+        "bodyStart": 184,
         "column": 16,
         "file": "batteries/type_traits.hpp",
-        "line": 182
+        "line": 184
       },
       "name": "can_be_eq_compared_helper",
       "override": false,
@@ -3054,12 +3074,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 191,
+        "bodyEnd": 193,
         "bodyFile": "batteries/type_traits.hpp",
-        "bodyStart": 188,
+        "bodyStart": 190,
         "column": 17,
         "file": "batteries/type_traits.hpp",
-        "line": 188
+        "line": 190
       },
       "name": "can_be_eq_compared_helper",
       "override": false,
@@ -3394,12 +3414,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 165,
+        "bodyEnd": 170,
         "bodyFile": "batteries/utility.hpp",
-        "bodyStart": 159,
+        "bodyStart": 164,
         "column": 10,
         "file": "batteries/utility.hpp",
-        "line": 159
+        "line": 164
       },
       "name": "rotate_args_right_impl",
       "override": false,
@@ -3464,12 +3484,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 183,
+        "bodyEnd": 188,
         "bodyFile": "batteries/utility.hpp",
-        "bodyStart": 179,
+        "bodyStart": 184,
         "column": 10,
         "file": "batteries/utility.hpp",
-        "line": 179
+        "line": 184
       },
       "name": "rotate_args_left_impl",
       "override": false,

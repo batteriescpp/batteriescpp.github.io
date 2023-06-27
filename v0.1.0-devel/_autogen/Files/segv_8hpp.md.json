@@ -19,10 +19,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/segv.hpp",
-        "bodyStart": 53,
+        "bodyStart": 60,
         "column": 9,
         "file": "batteries/segv.hpp",
-        "line": 53
+        "line": 60
       },
       "name": "BATT_STACK_TRACE_AT_EXIT",
       "override": false,
@@ -48,10 +48,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/segv.hpp",
-        "bodyStart": 96,
+        "bodyStart": 107,
         "column": 9,
         "file": "batteries/segv.hpp",
-        "line": 96
+        "line": 107
       },
       "name": "BATT_EXIT",
       "override": false,
@@ -138,7 +138,7 @@
       "visibility": "public"
     }
   ],
-  "programlisting": "// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n\n#include <batteries/config.hpp>\n//\n#include <batteries/int_types.hpp>\n#include <batteries/stacktrace.hpp>\n\n#include <atomic>\n#include <iostream>\n\n#include <execinfo.h>\n#include <signal.h>\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <unistd.h>\n\nnamespace batt {\n\nusing PrintToStreamFunctionPointer = void (*)(std::ostream&);\n\nnamespace detail {\ninline void print_nothing(std::ostream&)\n{\n}\n}  // namespace detail\n\ninline std::atomic<PrintToStreamFunctionPointer>& extra_segv_debug_info_callback()\n{\n    static std::atomic<PrintToStreamFunctionPointer> ptr_{&detail::print_nothing};\n    return ptr_;\n}\n\ninline void print_stack_trace()\n{\n    constexpr usize kMaxStackFrames = 64;\n\n    void* frames[kMaxStackFrames];\n    const usize size = backtrace(frames, kMaxStackFrames);\n\n    // print out all the frames to stderr\n    backtrace_symbols_fd(frames, size, STDERR_FILENO);\n    fflush(stderr);\n\n    std::cerr << std::endl << boost::stacktrace::stacktrace{} << std::endl;\n\n    extra_segv_debug_info_callback().load()(std::cerr);\n}\n\n#ifndef BATT_STACK_TRACE_AT_EXIT\n#define BATT_STACK_TRACE_AT_EXIT false\n#endif\n\ninline bool& print_stack_trace_atexit_enabled()\n{\n    static bool b_ = BATT_STACK_TRACE_AT_EXIT;\n    return b_;\n}\n\ninline void print_stack_trace_atexit()\n{\n    if (print_stack_trace_atexit_enabled()) {\n        print_stack_trace();\n    }\n}\n\n// =============================================================================\n// SEGV backtrace handler\n//\nnamespace detail {\n\ninline void handle_segv(int sig)\n{\n    fprintf(stderr, \"FATAL: signal %d (%s):\\n[[raw stack]]\\n\", sig, strsignal(sig));\n    print_stack_trace_atexit_enabled() = true;\n    exit(sig);\n}\n\ninline void exit_impl(int code)\n{\n    print_stack_trace_atexit_enabled() = (code != 0);\n    ::exit(code);\n}\n\n}  // namespace detail\n\ninline const bool kSigSegvHandlerInstalled = [] {\n    signal(SIGSEGV, &detail::handle_segv);\n    signal(SIGABRT, &detail::handle_segv);\n    std::atexit(&print_stack_trace_atexit);\n    return true;\n}();\n\n#define BATT_EXIT(code) ::batt::detail::exit_impl(code)\n\n}  // namespace batt",
+  "programlisting": "// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n\n#include <batteries/config.hpp>\n//\n#include <batteries/int_types.hpp>\n#include <batteries/stacktrace.hpp>\n\n#include <atomic>\n#include <iostream>\n\n#include <signal.h>\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\n#ifndef BATT_PLATFORM_IS_WINDOWS\n#include <execinfo.h>\n#include <unistd.h>\n#endif \n\nnamespace batt {\n\nusing PrintToStreamFunctionPointer = void (*)(std::ostream&);\n\nnamespace detail {\ninline void print_nothing(std::ostream&)\n{\n}\n}  // namespace detail\n\ninline std::atomic<PrintToStreamFunctionPointer>& extra_segv_debug_info_callback()\n{\n    static std::atomic<PrintToStreamFunctionPointer> ptr_{&detail::print_nothing};\n    return ptr_;\n}\n\ninline void print_stack_trace()\n{\n#ifndef BATT_PLATFORM_IS_WINDOWS\n    \n    constexpr usize kMaxStackFrames = 64;\n\n    void* frames[kMaxStackFrames];\n    const usize size = backtrace(frames, kMaxStackFrames);\n\n    // print out all the frames to stderr\n    backtrace_symbols_fd(frames, size, STDERR_FILENO);\n    fflush(stderr);\n\n#endif // !BATT_PLATFORM_IS_WINDOWS\n\n    std::cerr << std::endl << boost::stacktrace::stacktrace{} << std::endl;\n\n    extra_segv_debug_info_callback().load()(std::cerr);\n}\n\n#ifndef BATT_STACK_TRACE_AT_EXIT\n#define BATT_STACK_TRACE_AT_EXIT false\n#endif\n\ninline bool& print_stack_trace_atexit_enabled()\n{\n    static bool b_ = BATT_STACK_TRACE_AT_EXIT;\n    return b_;\n}\n\ninline void print_stack_trace_atexit()\n{\n    if (print_stack_trace_atexit_enabled()) {\n        print_stack_trace();\n    }\n}\n\n// =============================================================================\n// SEGV backtrace handler\n//\nnamespace detail {\n\ninline void handle_segv(int sig)\n{\n#ifdef BATT_PLATFORM_IS_WINDOWS\n    fprintf(stderr, \"FATAL: signal %d:\\n[[raw stack]]\\n\", sig);\n#else\n    fprintf(stderr, \"FATAL: signal %d (%s):\\n[[raw stack]]\\n\", sig, strsignal(sig));\n#endif\n    print_stack_trace_atexit_enabled() = true;\n    exit(sig);\n}\n\ninline void exit_impl(int code)\n{\n    print_stack_trace_atexit_enabled() = (code != 0);\n    ::exit(code);\n}\n\n}  // namespace detail\n\ninline const bool kSigSegvHandlerInstalled = [] {\n    signal(SIGSEGV, &detail::handle_segv);\n    signal(SIGABRT, &detail::handle_segv);\n    std::atexit(&print_stack_trace_atexit);\n    return true;\n}();\n\n#define BATT_EXIT(code) ::batt::detail::exit_impl(code)\n\n}  // namespace batt",
   "refid": "segv_8hpp",
   "static": false,
   "strong": false,

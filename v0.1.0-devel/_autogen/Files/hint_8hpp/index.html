@@ -626,7 +626,13 @@
 <span class="normal"><a href="#__codelineno-2-13">13</a></span>
 <span class="normal"><a href="#__codelineno-2-14">14</a></span>
 <span class="normal"><a href="#__codelineno-2-15">15</a></span>
-<span class="normal"><a href="#__codelineno-2-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1">// Copyright 2021-2022 Anthony Paul Astolfi</span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1">// Copyright 2021-2022 Anthony Paul Astolfi</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1">//</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="cp">#pragma once</span>
 <a id="__codelineno-2-4" name="__codelineno-2-4"></a>
@@ -638,13 +644,19 @@
 <a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="c1">// =============================================================================</span>
 <a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="c1">// Branch prediction hints.</span>
 <a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="c1">//</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="cp">#define BATT_HINT_TRUE(expr) __builtin_expect(static_cast&lt;bool&gt;(expr), 1)</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="cp">#define BATT_HINT_FALSE(expr) __builtin_expect(static_cast&lt;bool&gt;(expr), 0)</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a>
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="cp">#ifdef BATT_PLATFORM_IS_WINDOWS</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="cp">#define BATT_HINT_TRUE(expr) static_cast&lt;bool&gt;(expr)</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="cp">#define BATT_HINT_FALSE(expr) static_cast&lt;bool&gt;(expr)</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="cp">#else</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="cp">#define BATT_HINT_TRUE(expr) __builtin_expect(static_cast&lt;bool&gt;(expr), 1)</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="cp">#define BATT_HINT_FALSE(expr) __builtin_expect(static_cast&lt;bool&gt;(expr), 0)</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="cp">#endif</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 22 June 2023 at 20:39:56 UTC</p>
+<p>Updated on 27 June 2023 at 21:13:23 UTC</p>
 
 
 

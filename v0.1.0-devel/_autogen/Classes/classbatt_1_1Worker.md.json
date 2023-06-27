@@ -12,7 +12,7 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 54,
+    "bodyEnd": 60,
     "bodyFile": "batteries/async/worker.hpp",
     "bodyStart": 23,
     "column": 1,
@@ -62,10 +62,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/worker.hpp",
-        "bodyStart": 52,
+        "bodyStart": 58,
         "column": 17,
         "file": "batteries/async/worker.hpp",
-        "line": 52
+        "line": 58
       },
       "name": "work_queue",
       "override": false,
@@ -92,10 +92,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/worker.hpp",
-        "bodyStart": 53,
+        "bodyStart": 59,
         "column": 16,
         "file": "batteries/async/worker.hpp",
-        "line": 53
+        "line": 59
       },
       "name": "task",
       "override": false,
@@ -126,12 +126,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 50,
+        "bodyEnd": 56,
         "bodyFile": "batteries/async/worker.hpp",
-        "bodyStart": 27,
+        "bodyStart": 33,
         "column": 14,
         "file": "batteries/async/worker.hpp",
-        "line": 27
+        "line": 33
       },
       "name": "Worker",
       "override": false,
@@ -165,7 +165,7 @@
       "anchor": "#using-workfn",
       "category": "types",
       "const": false,
-      "definition": "using batt::Worker::WorkFn =  batt::UniqueSmallFn<void(), 128 - 16>",
+      "definition": "using batt::Worker::WorkFn =  batt::UniqueSmallFn<void(), 256 - 16>",
       "explicit": false,
       "fullname": "batt::Worker::WorkFn",
       "hasDetails": false,
@@ -174,19 +174,19 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/worker.hpp",
-        "bodyStart": 25,
+        "bodyStart": 31,
         "column": 5,
         "file": "batteries/async/worker.hpp",
         "line": 25
       },
       "name": "WorkFn",
       "override": false,
-      "refid": "classbatt_1_1Worker_1af82e8ab1a7d0411891dce6d81118b415",
+      "refid": "classbatt_1_1Worker_1aa86f47a0d289d6d8bd61385834f62679",
       "static": false,
       "strong": false,
       "title": "WorkFn",
-      "type": "[batt::UniqueSmallFn](/_autogen/Classes/classbatt_1_1SmallFn/)< void(), 128 - 16 >",
-      "typePlain": "batt::UniqueSmallFn< void(), 128 - 16 >",
+      "type": "[batt::UniqueSmallFn](/_autogen/Classes/classbatt_1_1SmallFn/)< void(), 256 - 16 >",
+      "typePlain": "batt::UniqueSmallFn< void(), 256 - 16 >",
       "url": "/_autogen/Classes/classbatt_1_1Worker/#using-workfn",
       "visibility": "public"
     }

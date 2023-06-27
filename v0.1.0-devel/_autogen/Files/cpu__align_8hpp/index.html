@@ -1137,7 +1137,7 @@
 <a id="__codelineno-1-250" name="__codelineno-1-250"></a><span class="w">    </span><span class="c1">//</span>
 <a id="__codelineno-1-251" name="__codelineno-1-251"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">cpu_set</span><span class="p">;</span>
 <a id="__codelineno-1-252" name="__codelineno-1-252"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">usize</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">group_first</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">group_last</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-253" name="__codelineno-1-253"></a><span class="w">        </span><span class="n">cpu_set</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">cpu_count</span><span class="p">);</span>
+<a id="__codelineno-1-253" name="__codelineno-1-253"></a><span class="w">        </span><span class="n">cpu_set</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">cpu_count</span><span class="p">));</span>
 <a id="__codelineno-1-254" name="__codelineno-1-254"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-1-255" name="__codelineno-1-255"></a>
 <a id="__codelineno-1-256" name="__codelineno-1-256"></a><span class="w">    </span><span class="n">BATT_VLOG</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">pool_name</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;[&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;]: cpu &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">dump_range</span><span class="p">(</span><span class="n">cpu_set</span><span class="p">);</span>
@@ -1150,7 +1150,7 @@
 <a id="__codelineno-1-263" name="__codelineno-1-263"></a><span class="cp">#endif  </span><span class="c1">// BATT_CPU_ALIGN_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 22 June 2023 at 20:39:56 UTC</p>
+<p>Updated on 27 June 2023 at 21:13:23 UTC</p>
 
 
 

@@ -19,10 +19,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/hint.hpp",
-        "bodyStart": 13,
-        "column": 9,
+        "bodyStart": 18,
+        "column": 10,
         "file": "batteries/hint.hpp",
-        "line": 13
+        "line": 18
       },
       "name": "BATT_HINT_TRUE",
       "override": false,
@@ -55,10 +55,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/hint.hpp",
-        "bodyStart": 14,
+        "bodyStart": 19,
         "column": 9,
         "file": "batteries/hint.hpp",
-        "line": 14
+        "line": 19
       },
       "name": "BATT_HINT_FALSE",
       "override": false,
@@ -133,7 +133,7 @@
       "visibility": "public"
     }
   ],
-  "programlisting": "// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n\n#include <batteries/config.hpp>\n//\n\nnamespace batt {\n\n// =============================================================================\n// Branch prediction hints.\n//\n#define BATT_HINT_TRUE(expr) __builtin_expect(static_cast<bool>(expr), 1)\n#define BATT_HINT_FALSE(expr) __builtin_expect(static_cast<bool>(expr), 0)\n\n}  // namespace batt",
+  "programlisting": "// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n\n#include <batteries/config.hpp>\n//\n\nnamespace batt {\n\n// =============================================================================\n// Branch prediction hints.\n//\n#ifdef BATT_PLATFORM_IS_WINDOWS\n#define BATT_HINT_TRUE(expr) static_cast<bool>(expr)\n#define BATT_HINT_FALSE(expr) static_cast<bool>(expr)\n\n#else\n#define BATT_HINT_TRUE(expr) __builtin_expect(static_cast<bool>(expr), 1)\n#define BATT_HINT_FALSE(expr) __builtin_expect(static_cast<bool>(expr), 0)\n\n#endif\n}  // namespace batt",
   "refid": "hint_8hpp",
   "static": false,
   "strong": false,

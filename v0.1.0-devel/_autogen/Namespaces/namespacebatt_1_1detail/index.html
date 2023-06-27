@@ -1132,6 +1132,10 @@
 <td><strong><a href="/_autogen/Classes/structbatt_1_1detail_1_1IsStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4/">batt::detail::IsStatusOrImpl&lt; StatusOr&lt; T &gt; &gt;</a></strong></td>
 </tr>
 <tr>
+<td>struct</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1detail_1_1IsStatusOrImpl_3_01StatusOr_3_01T_01_6_01_4_01_4/">batt::detail::IsStatusOrImpl&lt; StatusOr&lt; T &amp; &gt; &gt;</a></strong></td>
+</tr>
+<tr>
 <td>class</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1NotOkStatusWrapper/">batt::detail::NotOkStatusWrapper</a></strong></td>
 </tr>
@@ -1310,7 +1314,7 @@
 <td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1detail/#function-dump-item">dump_item</a></strong>(std::ostream &amp; out, const std::pair&lt; FirstT, SecondT &gt; &amp; p)</td>
 </tr>
 <tr>
-<td>template &lt;typename Fn ,typename... Args,typename Result  =std::result_of_t<Fn(Args...)>> <br>std::true_type</td>
+<td>template &lt;typename Fn ,typename... Args,typename Result  =std::invoke_result_t<Fn, Args...>> <br>std::true_type</td>
 <td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1detail/#function-is-callable-impl">is_callable_impl</a></strong>(void * )</td>
 </tr>
 <tr>
@@ -1859,7 +1863,7 @@
 <span class="normal"><a href="#__codelineno-38-5">5</a></span>
 <span class="normal"><a href="#__codelineno-38-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w"> </span><span class="p">,</span>
 <a id="__codelineno-38-2" name="__codelineno-38-2"></a><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="p">,</span>
-<a id="__codelineno-38-3" name="__codelineno-38-3"></a><span class="k">typename</span><span class="w"> </span><span class="nc">Result</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">result_of_t</span><span class="o">&lt;</span><span class="n">Fn</span><span class="p">(</span><span class="n">Args</span><span class="p">...)</span><span class="o">&gt;&gt;</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3"></a><span class="k">typename</span><span class="w"> </span><span class="nc">Result</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">invoke_result_t</span><span class="o">&lt;</span><span class="n">Fn</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;&gt;</span>
 <a id="__codelineno-38-4" name="__codelineno-38-4"></a><span class="n">std</span><span class="o">::</span><span class="n">true_type</span><span class="w"> </span><span class="n">is_callable_impl</span><span class="p">(</span>
 <a id="__codelineno-38-5" name="__codelineno-38-5"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span>
 <a id="__codelineno-38-6" name="__codelineno-38-6"></a><span class="p">)</span>
@@ -2043,7 +2047,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-55-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1"></a><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">isize</span><span class="w"> </span><span class="n">kMaxShards</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 22 June 2023 at 20:39:55 UTC</p>
+<p>Updated on 27 June 2023 at 21:13:23 UTC</p>
 
 
 

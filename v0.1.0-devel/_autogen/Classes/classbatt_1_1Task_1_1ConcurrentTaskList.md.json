@@ -14,7 +14,7 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 135,
+    "bodyEnd": 139,
     "bodyFile": "batteries/async/task_decl.hpp",
     "bodyStart": 114,
     "column": 5,
@@ -96,10 +96,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 131,
+        "bodyStart": 135,
         "column": 20,
         "file": "batteries/async/task_decl.hpp",
-        "line": 131
+        "line": 135
       },
       "name": "mutex_",
       "override": false,
@@ -126,10 +126,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 132,
+        "bodyStart": 136,
         "column": 18,
         "file": "batteries/async/task_decl.hpp",
-        "line": 132
+        "line": 136
       },
       "name": "task_list_",
       "override": false,
@@ -157,10 +157,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 133,
+        "bodyStart": 137,
         "column": 21,
         "file": "batteries/async/task_decl.hpp",
-        "line": 133
+        "line": 137
       },
       "name": "link_count_",
       "override": false,
@@ -188,10 +188,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 134,
+        "bodyStart": 138,
         "column": 15,
         "file": "batteries/async/task_decl.hpp",
-        "line": 134
+        "line": 138
       },
       "name": "unlink_count_",
       "override": false,
@@ -202,6 +202,56 @@
       "type": "[Watch](/_autogen/Classes/classbatt_1_1Watch/)< i64 >",
       "typePlain": "Watch< i64 >",
       "url": "/_autogen/Classes/classbatt_1_1Task_1_1ConcurrentTaskList/#variable-unlink-count-",
+      "visibility": "private"
+    }
+  ],
+  "privateFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-dump-log-info-locked",
+      "argsString": "(std::unique_lock< std::mutex > &, std::string_view label)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::Task::ConcurrentTaskList::dump_log_info_locked",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Task::ConcurrentTaskList::dump_log_info_locked",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 707,
+        "bodyFile": "batteries/async/task_impl.hpp",
+        "bodyStart": 699,
+        "column": 14,
+        "file": "batteries/async/task_decl.hpp",
+        "line": 133
+      },
+      "name": "dump_log_info_locked",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "std::unique_lock< std::mutex > &",
+          "typePlain": "std::unique_lock< std::mutex > &"
+        },
+        {
+          "name": "label",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Task_1_1ConcurrentTaskList_1a93e994636f64d60c469e0533b35a94fb",
+      "static": false,
+      "strong": false,
+      "title": "dump_log_info_locked",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1Task_1_1ConcurrentTaskList/#function-dump-log-info-locked",
+      "virtual": false,
       "visibility": "private"
     }
   ],
@@ -332,9 +382,9 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 698,
+        "bodyEnd": 721,
         "bodyFile": "batteries/async/task_impl.hpp",
-        "bodyStart": 691,
+        "bodyStart": 711,
         "column": 14,
         "file": "batteries/async/task_decl.hpp",
         "line": 121
@@ -375,9 +425,9 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 712,
+        "bodyEnd": 737,
         "bodyFile": "batteries/async/task_impl.hpp",
-        "bodyStart": 702,
+        "bodyStart": 725,
         "column": 14,
         "file": "batteries/async/task_decl.hpp",
         "line": 123
@@ -418,9 +468,9 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 732,
+        "bodyEnd": 757,
         "bodyFile": "batteries/async/task_impl.hpp",
-        "bodyStart": 716,
+        "bodyStart": 741,
         "column": 14,
         "file": "batteries/async/task_decl.hpp",
         "line": 125
@@ -455,9 +505,9 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1269,
+        "bodyEnd": 1273,
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 1265,
+        "bodyStart": 1269,
         "column": 11,
         "file": "batteries/async/task_decl.hpp",
         "line": 128
@@ -493,6 +543,49 @@
       "type": "R",
       "typePlain": "R",
       "url": "/_autogen/Classes/classbatt_1_1Task_1_1ConcurrentTaskList/#function-with-lock",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-dump-log-info",
+      "argsString": "(std::string_view label)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::Task::ConcurrentTaskList::dump_log_info",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Task::ConcurrentTaskList::dump_log_info",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 695,
+        "bodyFile": "batteries/async/task_impl.hpp",
+        "bodyStart": 691,
+        "column": 14,
+        "file": "batteries/async/task_decl.hpp",
+        "line": 130
+      },
+      "name": "dump_log_info",
+      "override": false,
+      "params": [
+        {
+          "name": "label",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Task_1_1ConcurrentTaskList_1aca817f6ce1a7ee65c29af431842401e8",
+      "static": false,
+      "strong": false,
+      "title": "dump_log_info",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1Task_1_1ConcurrentTaskList/#function-dump-log-info",
       "virtual": false,
       "visibility": "public"
     }

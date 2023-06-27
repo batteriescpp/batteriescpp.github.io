@@ -12,12 +12,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 431,
+    "bodyEnd": 432,
     "bodyFile": "batteries/async/priority_watch.hpp",
-    "bodyStart": 105,
+    "bodyStart": 106,
     "column": 1,
     "file": "batteries/async/priority_watch.hpp",
-    "line": 104
+    "line": 105
   },
   "name": "batt::detail::PriorityHeap",
   "override": false,
@@ -75,10 +75,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 428,
+        "bodyStart": 429,
         "column": 10,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 428
+        "line": 429
       },
       "name": "top_",
       "override": false,
@@ -106,10 +106,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 429,
+        "bodyStart": 430,
         "column": 11,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 429
+        "line": 430
       },
       "name": "size_",
       "override": false,
@@ -136,10 +136,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 430,
+        "bodyStart": 431,
         "column": 14,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 430
+        "line": 431
       },
       "name": "min_value_",
       "override": false,
@@ -169,10 +169,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 110,
+        "bodyStart": 111,
         "column": 28,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 110
+        "line": 111
       },
       "name": "kStackSize",
       "override": false,
@@ -184,512 +184,284 @@
       "typePlain": "constexpr usize",
       "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#variable-kstacksize",
       "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#variable-i",
-      "category": "attributes",
-      "const": false,
-      "definition": "usize batt::detail::PriorityHeap< IntT >::i",
-      "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::i",
-      "hasDetails": false,
-      "inline": false,
-      "kind": "variable",
-      "language": "cpp",
-      "location": {
-        "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 115,
-        "column": 29,
-        "file": "batteries/async/priority_watch.hpp",
-        "line": 115
-      },
-      "name": "i",
-      "override": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a8e6be832db890fc3277cc63696b1616f",
-      "static": false,
-      "strong": false,
-      "title": "i",
-      "type": "usize",
-      "typePlain": "usize",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#variable-i",
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#variable-noexcept",
-      "category": "attributes",
-      "const": false,
-      "definition": "Fn &&fn batt::detail::PriorityHeap< IntT >::noexcept",
-      "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::noexcept",
-      "hasDetails": false,
-      "initializer": "{\n        const usize j = i ^ 0x1",
-      "inline": false,
-      "kind": "variable",
-      "language": "cpp",
-      "location": {
-        "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 117,
-        "column": 87,
-        "file": "batteries/async/priority_watch.hpp",
-        "line": 116
-      },
-      "name": "noexcept",
-      "override": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1ac8fc1c3b112d7bf462b1ec08111e5116",
-      "static": false,
-      "strong": false,
-      "title": "noexcept",
-      "type": "usize const std::array< [Item](/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItem/) *, 2 > &children",
-      "typePlain": "usize const std::array< Item *, 2 > &children",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#variable-noexcept",
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#variable-children-",
-      "category": "attributes",
-      "const": false,
-      "definition": "parent batt::detail::PriorityHeap< IntT >::children_",
-      "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::children_",
-      "hasDetails": false,
-      "initializer": "= children[i]->children_",
-      "inline": false,
-      "kind": "variable",
-      "language": "cpp",
-      "location": {
-        "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 120,
-        "column": 11,
-        "file": "batteries/async/priority_watch.hpp",
-        "line": 120
-      },
-      "name": "children_",
-      "override": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a8d3d97fadf19fc5d9b88c6d25cc3dd94",
-      "static": false,
-      "strong": false,
-      "title": "children_",
-      "type": "parent",
-      "typePlain": "parent",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#variable-children-",
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#variable-children-",
-      "category": "attributes",
-      "const": false,
-      "definition": "children [i] batt::detail::PriorityHeap< IntT >::children_[j]",
-      "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::children_",
-      "hasDetails": false,
-      "initializer": "= (*parent)",
-      "inline": false,
-      "kind": "variable",
-      "language": "cpp",
-      "location": {
-        "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 121,
-        "column": 17,
-        "file": "batteries/async/priority_watch.hpp",
-        "line": 121
-      },
-      "name": "children_",
-      "override": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a82a2cdb88dadad428f1f2bad7a5bc625",
-      "static": false,
-      "strong": false,
-      "title": "children_",
-      "type": "children[i]",
-      "typePlain": "children[i]",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#variable-children-",
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#variable-parent",
-      "category": "attributes",
-      "const": false,
-      "definition": "batt::detail::PriorityHeap< IntT >::parent",
-      "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::parent",
-      "hasDetails": false,
-      "initializer": "= children[i]",
-      "inline": false,
-      "kind": "variable",
-      "language": "cpp",
-      "location": {
-        "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 123,
-        "column": 17,
-        "file": "batteries/async/priority_watch.hpp",
-        "line": 122
-      },
-      "name": "parent",
-      "override": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a3f2165e259d0a53ffb876566323c869c",
-      "static": false,
-      "strong": false,
-      "title": "parent",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#variable-parent",
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#variable-children-",
-      "category": "attributes",
-      "const": false,
-      "definition": "return& children [i] batt::detail::PriorityHeap< IntT >::children_[i]",
-      "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::children_",
-      "hasDetails": false,
-      "inline": false,
-      "kind": "variable",
-      "language": "cpp",
-      "location": {
-        "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 125,
-        "column": 24,
-        "file": "batteries/async/priority_watch.hpp",
-        "line": 125
-      },
-      "name": "children_",
-      "override": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a4b6b09cab42f69c8a2bdfaa8a5891f04",
-      "static": false,
-      "strong": false,
-      "title": "children_",
-      "type": "return &children[i]",
-      "typePlain": "return &children[i]",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#variable-children-",
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#variable-noexcept",
-      "category": "attributes",
-      "const": false,
-      "definition": "const std::array<Item*, 2>& children batt::detail::PriorityHeap< IntT >::noexcept",
-      "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::noexcept",
-      "hasDetails": false,
-      "initializer": "{\n        return swap_child(parent, 0, children)",
-      "inline": false,
-      "kind": "variable",
-      "language": "cpp",
-      "location": {
-        "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 130,
-        "column": 86,
-        "file": "batteries/async/priority_watch.hpp",
-        "line": 129
-      },
-      "name": "noexcept",
-      "override": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a93bc282c9f81d9276b264a86404a42af",
-      "static": false,
-      "strong": false,
-      "title": "noexcept",
-      "type": "const std::array< [Item](/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItem/) *, 2 > &children",
-      "typePlain": "const std::array< Item *, 2 > &children",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#variable-noexcept",
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#variable-noexcept",
-      "category": "attributes",
-      "const": false,
-      "definition": "Fn&& fn batt::detail::PriorityHeap< IntT >::noexcept",
-      "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::noexcept",
-      "hasDetails": false,
-      "initializer": "{\n        const usize path = size + 1",
-      "inline": false,
-      "kind": "variable",
-      "language": "cpp",
-      "location": {
-        "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 153,
-        "column": 29,
-        "file": "batteries/async/priority_watch.hpp",
-        "line": 152
-      },
-      "name": "noexcept",
-      "override": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a6a22b9a30a8de9994908f6cd42234a29",
-      "static": false,
-      "strong": false,
-      "title": "noexcept",
-      "type": "Fn &&fn",
-      "typePlain": "Fn &&fn",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#variable-noexcept",
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#variable-top-mask",
-      "category": "attributes",
-      "const": false,
-      "definition": "const usize batt::detail::PriorityHeap< IntT >::top_mask",
-      "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::top_mask",
-      "hasDetails": false,
-      "initializer": "= Self::get_top_mask(path)",
-      "inline": false,
-      "kind": "variable",
-      "language": "cpp",
-      "location": {
-        "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 155,
-        "column": 21,
-        "file": "batteries/async/priority_watch.hpp",
-        "line": 155
-      },
-      "name": "top_mask",
-      "override": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1ab68ffabc6549ecbdf496be50e2fac7e5",
-      "static": false,
-      "strong": false,
-      "title": "top_mask",
-      "type": "const usize",
-      "typePlain": "const usize",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#variable-top-mask",
-      "visibility": "public"
     }
   ],
   "publicFunctions": [
     {
       "abstract": false,
-      "anchor": "#function---attribute--",
-      "argsString": "((always_inline)) static Item **swap_child(Item **parent",
+      "anchor": "#function-swap-child",
+      "argsString": "(Item **parent, usize i, const std::array< Item *, 2 > &children) noexcept",
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "batt::detail::PriorityHeap< IntT >::__attribute__",
+      "definition": "static BATT_ALWAYS_INLINE Item** batt::detail::PriorityHeap< IntT >::swap_child",
       "deleted": false,
       "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::__attribute__",
-      "hasDetails": false,
-      "inline": false,
-      "kind": "function",
-      "language": "cpp",
-      "location": {
-        "column": 5,
-        "file": "batteries/async/priority_watch.hpp",
-        "line": 115
-      },
-      "name": "__attribute__",
-      "override": false,
-      "params": [
-        {
-          "name": "",
-          "type": "(always_inline)",
-          "typePlain": "(always_inline)"
-        }
-      ],
-      "pureVirtual": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1ad976101d9b27bb0b8b6f653d1624f561",
-      "static": false,
-      "strong": false,
-      "title": "__attribute__",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#function---attribute--",
-      "virtual": false,
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#function---attribute--",
-      "argsString": "((always_inline)) static Item **swap_left(Item **parent",
-      "category": "functions",
-      "const": false,
-      "default": false,
-      "definition": "batt::detail::PriorityHeap< IntT >::__attribute__",
-      "deleted": false,
-      "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::__attribute__",
-      "hasDetails": false,
-      "inline": false,
-      "kind": "function",
-      "language": "cpp",
-      "location": {
-        "column": 5,
-        "file": "batteries/async/priority_watch.hpp",
-        "line": 128
-      },
-      "name": "__attribute__",
-      "override": false,
-      "params": [
-        {
-          "name": "",
-          "type": "(always_inline)",
-          "typePlain": "(always_inline)"
-        }
-      ],
-      "pureVirtual": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a6f5f877739d9faf2d9bde263a8b2f3d2",
-      "static": false,
-      "strong": false,
-      "title": "__attribute__",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#function---attribute--",
-      "virtual": false,
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#function---attribute--",
-      "argsString": "((always_inline)) static Item **swap_right(Item **parent",
-      "category": "functions",
-      "const": false,
-      "default": false,
-      "definition": "batt::detail::PriorityHeap< IntT >::__attribute__",
-      "deleted": false,
-      "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::__attribute__",
-      "hasDetails": false,
-      "inline": false,
-      "kind": "function",
-      "language": "cpp",
-      "location": {
-        "column": 5,
-        "file": "batteries/async/priority_watch.hpp",
-        "line": 134
-      },
-      "name": "__attribute__",
-      "override": false,
-      "params": [
-        {
-          "name": "",
-          "type": "(always_inline)",
-          "typePlain": "(always_inline)"
-        }
-      ],
-      "pureVirtual": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a58e1dba6fd4144b05c98a00042e14b93",
-      "static": false,
-      "strong": false,
-      "title": "__attribute__",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#function---attribute--",
-      "virtual": false,
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#function---attribute--",
-      "argsString": "((always_inline)) static i32 depth_upper_bound(usize path) noexcept",
-      "category": "functions",
-      "const": false,
-      "default": false,
-      "definition": "batt::detail::PriorityHeap< IntT >::__attribute__",
-      "deleted": false,
-      "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::__attribute__",
+      "fullname": "batt::detail::PriorityHeap::swap_child",
       "hasDetails": false,
       "inline": true,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 144,
+        "bodyEnd": 127,
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 140,
-        "column": 5,
+        "bodyStart": 116,
+        "column": 36,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 140
+        "line": 116
       },
-      "name": "__attribute__",
+      "name": "swap_child",
       "override": false,
       "params": [
         {
-          "name": "",
-          "type": "(always_inline)",
-          "typePlain": "(always_inline)"
+          "name": "parent",
+          "type": "[Item](/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItem/) **",
+          "typePlain": "Item **"
+        },
+        {
+          "name": "i",
+          "type": "usize",
+          "typePlain": "usize"
+        },
+        {
+          "name": "children",
+          "type": "const std::array< [Item](/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItem/) *, 2 > &",
+          "typePlain": "const std::array< Item *, 2 > &"
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1aa563722aa4724ba8f8c4885599e24134",
-      "static": false,
+      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a8dc36a4161aebcc642baab0dac8f164c",
+      "static": true,
       "strong": false,
-      "title": "__attribute__",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#function---attribute--",
+      "title": "swap_child",
+      "type": "BATT_ALWAYS_INLINE [Item](/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItem/) **",
+      "typePlain": "BATT_ALWAYS_INLINE Item **",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#function-swap-child",
       "virtual": false,
       "visibility": "public"
     },
     {
       "abstract": false,
-      "anchor": "#function---attribute--",
-      "argsString": "((always_inline)) static usize get_top_mask(usize path) noexcept",
+      "anchor": "#function-swap-left",
+      "argsString": "(Item **parent, const std::array< Item *, 2 > &children) noexcept",
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "batt::detail::PriorityHeap< IntT >::__attribute__",
+      "definition": "static BATT_ALWAYS_INLINE Item** batt::detail::PriorityHeap< IntT >::swap_left",
       "deleted": false,
       "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::__attribute__",
+      "fullname": "batt::detail::PriorityHeap::swap_left",
       "hasDetails": false,
       "inline": true,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 149,
+        "bodyEnd": 133,
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 146,
-        "column": 5,
+        "bodyStart": 129,
+        "column": 36,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 146
+        "line": 129
       },
-      "name": "__attribute__",
+      "name": "swap_left",
       "override": false,
       "params": [
         {
-          "name": "",
-          "type": "(always_inline)",
-          "typePlain": "(always_inline)"
+          "name": "parent",
+          "type": "[Item](/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItem/) **",
+          "typePlain": "Item **"
+        },
+        {
+          "name": "children",
+          "type": "const std::array< [Item](/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItem/) *, 2 > &",
+          "typePlain": "const std::array< Item *, 2 > &"
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a8d3b808deaeb6e6250290a02c624e207",
-      "static": false,
+      "refid": "classbatt_1_1detail_1_1PriorityHeap_1aa6b8fc44ab51a31142f73df9946d36e7",
+      "static": true,
       "strong": false,
-      "title": "__attribute__",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#function---attribute--",
+      "title": "swap_left",
+      "type": "BATT_ALWAYS_INLINE [Item](/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItem/) **",
+      "typePlain": "BATT_ALWAYS_INLINE Item **",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#function-swap-left",
       "virtual": false,
       "visibility": "public"
     },
     {
       "abstract": false,
-      "anchor": "#function---attribute--",
-      "argsString": "((always_inline)) static void path_to_bottom(usize size",
+      "anchor": "#function-swap-right",
+      "argsString": "(Item **parent, const std::array< Item *, 2 > &children) noexcept",
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "batt::detail::PriorityHeap< IntT >::__attribute__",
+      "definition": "static BATT_ALWAYS_INLINE Item** batt::detail::PriorityHeap< IntT >::swap_right",
       "deleted": false,
       "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::__attribute__",
+      "fullname": "batt::detail::PriorityHeap::swap_right",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 139,
+        "bodyFile": "batteries/async/priority_watch.hpp",
+        "bodyStart": 135,
+        "column": 36,
+        "file": "batteries/async/priority_watch.hpp",
+        "line": 135
+      },
+      "name": "swap_right",
+      "override": false,
+      "params": [
+        {
+          "name": "parent",
+          "type": "[Item](/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItem/) **",
+          "typePlain": "Item **"
+        },
+        {
+          "name": "children",
+          "type": "const std::array< [Item](/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItem/) *, 2 > &",
+          "typePlain": "const std::array< Item *, 2 > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a77fb64e7d71e2511fe26860c8cb2ebcc",
+      "static": true,
+      "strong": false,
+      "title": "swap_right",
+      "type": "BATT_ALWAYS_INLINE [Item](/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItem/) **",
+      "typePlain": "BATT_ALWAYS_INLINE Item **",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#function-swap-right",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-depth-upper-bound",
+      "argsString": "(usize path) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static BATT_ALWAYS_INLINE i32 batt::detail::PriorityHeap< IntT >::depth_upper_bound",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::PriorityHeap::depth_upper_bound",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 145,
+        "bodyFile": "batteries/async/priority_watch.hpp",
+        "bodyStart": 141,
+        "column": 35,
+        "file": "batteries/async/priority_watch.hpp",
+        "line": 141
+      },
+      "name": "depth_upper_bound",
+      "override": false,
+      "params": [
+        {
+          "name": "path",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a1fbc541a79f03bc3f24d0e164c7ea7a7",
+      "static": true,
+      "strong": false,
+      "title": "depth_upper_bound",
+      "type": "BATT_ALWAYS_INLINE i32",
+      "typePlain": "BATT_ALWAYS_INLINE i32",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#function-depth-upper-bound",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get-top-mask",
+      "argsString": "(usize path) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static BATT_ALWAYS_INLINE usize batt::detail::PriorityHeap< IntT >::get_top_mask",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::PriorityHeap::get_top_mask",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 150,
+        "bodyFile": "batteries/async/priority_watch.hpp",
+        "bodyStart": 147,
+        "column": 37,
+        "file": "batteries/async/priority_watch.hpp",
+        "line": 147
+      },
+      "name": "get_top_mask",
+      "override": false,
+      "params": [
+        {
+          "name": "path",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1PriorityHeap_1ac725eaabd59cd053614809ce2518e774",
+      "static": true,
+      "strong": false,
+      "title": "get_top_mask",
+      "type": "BATT_ALWAYS_INLINE usize",
+      "typePlain": "BATT_ALWAYS_INLINE usize",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#function-get-top-mask",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-path-to-bottom",
+      "argsString": "(usize size, Fn &&fn) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static BATT_ALWAYS_INLINE void batt::detail::PriorityHeap< IntT >::path_to_bottom",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::PriorityHeap::path_to_bottom",
       "hasDetails": true,
-      "inline": false,
+      "inline": true,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "column": 5,
+        "bodyEnd": 162,
+        "bodyFile": "batteries/async/priority_watch.hpp",
+        "bodyStart": 153,
+        "column": 36,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 152
+        "line": 153
       },
-      "name": "__attribute__",
+      "name": "path_to_bottom",
       "override": false,
       "params": [
         {
-          "name": "",
-          "type": "(always_inline)",
-          "typePlain": "(always_inline)"
+          "name": "size",
+          "type": "usize",
+          "typePlain": "usize"
+        },
+        {
+          "name": "fn",
+          "type": "Fn &&",
+          "typePlain": "Fn &&"
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a2841d8bd3f3db278bbce169edb899d08",
-      "static": false,
+      "refid": "classbatt_1_1detail_1_1PriorityHeap_1aada0fec4c0ffa911ed355ba134ca041e",
+      "static": true,
       "strong": false,
       "templateParams": [
         {
@@ -698,86 +470,53 @@
           "typePlain": "typename Fn"
         }
       ],
-      "title": "__attribute__",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#function---attribute--",
+      "title": "path_to_bottom",
+      "type": "BATT_ALWAYS_INLINE void",
+      "typePlain": "BATT_ALWAYS_INLINE void",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#function-path-to-bottom",
       "virtual": false,
       "visibility": "public"
     },
     {
       "abstract": false,
-      "anchor": "#function-for",
-      "argsString": "(usize mask=top_mask >> 1;mask !=0;mask >>=1)",
+      "anchor": "#function-path-from-bottom",
+      "argsString": "(usize size, Fn &&fn) noexcept",
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "batt::detail::PriorityHeap< IntT >::for",
+      "definition": "static BATT_ALWAYS_INLINE void batt::detail::PriorityHeap< IntT >::path_from_bottom",
       "deleted": false,
       "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::for",
-      "hasDetails": false,
+      "fullname": "batt::detail::PriorityHeap::path_from_bottom",
+      "hasDetails": true,
       "inline": true,
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 160,
+        "bodyEnd": 176,
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 157,
-        "column": 9,
+        "bodyStart": 165,
+        "column": 36,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 157
+        "line": 165
       },
-      "name": "for",
+      "name": "path_from_bottom",
       "override": false,
       "params": [
         {
-          "defval": "top_mask >> 1;mask !=0;mask >>=1",
-          "defvalPlain": "top_mask >> 1;mask !=0;mask >>=1",
-          "name": "mask",
+          "name": "size",
           "type": "usize",
           "typePlain": "usize"
-        }
-      ],
-      "pureVirtual": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a7f76c990a4eb46c860db0d8c762806fb",
-      "static": false,
-      "strong": false,
-      "title": "for",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#function-for",
-      "virtual": false,
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#function---attribute--",
-      "argsString": "((always_inline)) static void path_from_bottom(usize size",
-      "category": "functions",
-      "const": false,
-      "default": false,
-      "definition": "batt::detail::PriorityHeap< IntT >::__attribute__",
-      "deleted": false,
-      "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::__attribute__",
-      "hasDetails": true,
-      "inline": false,
-      "kind": "function",
-      "language": "cpp",
-      "location": {
-        "column": 5,
-        "file": "batteries/async/priority_watch.hpp",
-        "line": 164
-      },
-      "name": "__attribute__",
-      "override": false,
-      "params": [
+        },
         {
-          "name": "",
-          "type": "(always_inline)",
-          "typePlain": "(always_inline)"
+          "name": "fn",
+          "type": "Fn &&",
+          "typePlain": "Fn &&"
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a8420aace9bbef0e30ae3eaa6af298056",
-      "static": false,
+      "refid": "classbatt_1_1detail_1_1PriorityHeap_1a20abbdef3ab262e0219d8958e2035915",
+      "static": true,
       "strong": false,
       "templateParams": [
         {
@@ -786,51 +525,10 @@
           "typePlain": "typename Fn"
         }
       ],
-      "title": "__attribute__",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#function---attribute--",
-      "virtual": false,
-      "visibility": "public"
-    },
-    {
-      "abstract": false,
-      "anchor": "#function-for",
-      "argsString": "(usize mask=1;mask !=top_mask;mask<<=1)",
-      "category": "functions",
-      "const": false,
-      "default": false,
-      "definition": "batt::detail::PriorityHeap< IntT >::for",
-      "deleted": false,
-      "explicit": false,
-      "fullname": "batt::detail::PriorityHeap::for",
-      "hasDetails": false,
-      "inline": true,
-      "kind": "function",
-      "language": "cpp",
-      "location": {
-        "bodyEnd": 174,
-        "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 169,
-        "column": 9,
-        "file": "batteries/async/priority_watch.hpp",
-        "line": 169
-      },
-      "name": "for",
-      "override": false,
-      "params": [
-        {
-          "defval": "1;mask !=top_mask;mask<<=1",
-          "defvalPlain": "1;mask !=top_mask;mask<<=1",
-          "name": "mask",
-          "type": "usize",
-          "typePlain": "usize"
-        }
-      ],
-      "pureVirtual": false,
-      "refid": "classbatt_1_1detail_1_1PriorityHeap_1aa0ab04d017de0dbf32263239b43c7020",
-      "static": false,
-      "strong": false,
-      "title": "for",
-      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#function-for",
+      "title": "path_from_bottom",
+      "type": "BATT_ALWAYS_INLINE void",
+      "typePlain": "BATT_ALWAYS_INLINE void",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/#function-path-from-bottom",
       "virtual": false,
       "visibility": "public"
     },
@@ -852,7 +550,7 @@
       "location": {
         "column": 5,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 179
+        "line": 180
       },
       "name": "PriorityHeap",
       "override": false,
@@ -884,7 +582,7 @@
       "location": {
         "column": 5,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 180
+        "line": 181
       },
       "name": "PriorityHeap",
       "override": false,
@@ -922,7 +620,7 @@
       "location": {
         "column": 18,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 181
+        "line": 182
       },
       "name": "operator=",
       "override": false,
@@ -962,7 +660,7 @@
       "location": {
         "column": 5,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 182
+        "line": 183
       },
       "name": "~PriorityHeap",
       "override": false,
@@ -992,12 +690,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 192,
+        "bodyEnd": 193,
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 184,
+        "bodyStart": 185,
         "column": 5,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 184
+        "line": 185
       },
       "name": "PriorityHeap",
       "override": false,
@@ -1033,12 +731,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 199,
+        "bodyEnd": 200,
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 196,
+        "bodyStart": 197,
         "column": 10,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 196
+        "line": 197
       },
       "name": "empty",
       "override": false,
@@ -1070,12 +768,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 204,
+        "bodyEnd": 205,
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 201,
+        "bodyStart": 202,
         "column": 11,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 201
+        "line": 202
       },
       "name": "size",
       "override": false,
@@ -1107,12 +805,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 209,
+        "bodyEnd": 210,
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 206,
+        "bodyStart": 207,
         "column": 20,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 206
+        "line": 207
       },
       "name": "min_value",
       "override": false,
@@ -1144,12 +842,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 214,
+        "bodyEnd": 215,
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 211,
+        "bodyStart": 212,
         "column": 16,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 211
+        "line": 212
       },
       "name": "top",
       "override": false,
@@ -1181,12 +879,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 271,
+        "bodyEnd": 272,
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 216,
+        "bodyStart": 217,
         "column": 10,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 216
+        "line": 217
       },
       "name": "insert",
       "override": false,
@@ -1224,12 +922,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 356,
+        "bodyEnd": 357,
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 273,
+        "bodyStart": 274,
         "column": 10,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 273
+        "line": 274
       },
       "name": "remove",
       "override": false,
@@ -1261,12 +959,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 408,
+        "bodyEnd": 409,
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 358,
+        "bodyStart": 359,
         "column": 11,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 358
+        "line": 359
       },
       "name": "check_invariants",
       "override": false,
@@ -1311,12 +1009,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 425,
+        "bodyEnd": 426,
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 410,
+        "bodyStart": 411,
         "column": 10,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 410
+        "line": 411
       },
       "name": "dump",
       "override": false,
@@ -1368,10 +1066,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 107,
+        "bodyStart": 108,
         "column": 5,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 107
+        "line": 108
       },
       "name": "Self",
       "override": false,
@@ -1398,10 +1096,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 108,
+        "bodyStart": 109,
         "column": 5,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 108
+        "line": 109
       },
       "name": "Item",
       "override": false,
@@ -1428,10 +1126,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/priority_watch.hpp",
-        "bodyStart": 111,
+        "bodyStart": 112,
         "column": 5,
         "file": "batteries/async/priority_watch.hpp",
-        "line": 111
+        "line": 112
       },
       "name": "StackVec",
       "override": false,

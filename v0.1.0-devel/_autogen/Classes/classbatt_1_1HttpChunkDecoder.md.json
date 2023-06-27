@@ -1,6 +1,7 @@
 {
   "abstract": false,
   "anchor": "",
+  "brief": "[BufferSource](/_autogen/Classes/classbatt_1_1BufferSource/) transformer that decodes HTTP chunked content fetched from `Src`. ",
   "category": "classes",
   "const": false,
   "definition": "",
@@ -8,16 +9,17 @@
   "fullname": "batt::HttpChunkDecoder",
   "hasAdditionalMembers": false,
   "hasDetails": true,
+  "includes": "<batteries/http/http_chunk_decoder.hpp>",
   "inline": false,
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 165,
+    "bodyEnd": 226,
     "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-    "bodyStart": 19,
+    "bodyStart": 21,
     "column": 1,
     "file": "batteries/http/http_chunk_decoder.hpp",
-    "line": 18
+    "line": 20
   },
   "name": "batt::HttpChunkDecoder",
   "override": false,
@@ -51,6 +53,7 @@
     {
       "abstract": false,
       "anchor": "#variable-src-",
+      "brief": "The [BufferSource](/_autogen/Classes/classbatt_1_1BufferSource/) containing Transfer-Encoding: chunked data. ",
       "category": "attributes",
       "const": false,
       "definition": "Src batt::HttpChunkDecoder< Src >::src_",
@@ -62,16 +65,17 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-        "bodyStart": 157,
+        "bodyStart": 192,
         "column": 9,
         "file": "batteries/http/http_chunk_decoder.hpp",
-        "line": 157
+        "line": 192
       },
       "name": "src_",
       "override": false,
       "refid": "classbatt_1_1HttpChunkDecoder_1a61711c924964287690e261e3c869e6af",
       "static": false,
       "strong": false,
+      "summary": "The BufferSource containing Transfer-Encoding: chunked data. ",
       "title": "src_",
       "type": "Src",
       "typePlain": "Src",
@@ -81,27 +85,30 @@
     {
       "abstract": false,
       "anchor": "#variable-decoder-checkpoint-",
+      "brief": "Saves the state of the decoder at the point in the stream where `this->decoded_chunks_` begins. ",
       "category": "attributes",
       "const": false,
       "definition": "pico_http::ChunkedDecoder batt::HttpChunkDecoder< Src >::decoder_checkpoint_",
+      "details": "`decoder_latest_` may need to rewind to this point if we fetch more data from `src_`. ",
       "explicit": false,
       "fullname": "batt::HttpChunkDecoder::decoder_checkpoint_",
-      "hasDetails": false,
+      "hasDetails": true,
       "inline": false,
       "kind": "variable",
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-        "bodyStart": 158,
+        "bodyStart": 197,
         "column": 31,
         "file": "batteries/http/http_chunk_decoder.hpp",
-        "line": 158
+        "line": 197
       },
       "name": "decoder_checkpoint_",
       "override": false,
       "refid": "classbatt_1_1HttpChunkDecoder_1a470a105b77ba5332b343984750832df3",
       "static": false,
       "strong": false,
+      "summary": "Saves the state of the decoder at the point in the stream where this->decoded_chunks_ begins. ",
       "title": "decoder_checkpoint_",
       "type": "[pico_http::ChunkedDecoder](/_autogen/Classes/structpico__http_1_1ChunkedDecoder/)",
       "typePlain": "pico_http::ChunkedDecoder",
@@ -111,27 +118,30 @@
     {
       "abstract": false,
       "anchor": "#variable-decoder-latest-",
+      "brief": "The state of the decoder after having decoded the current contents of `this->decoded_chunks_`. ",
       "category": "attributes",
       "const": false,
       "definition": "pico_http::ChunkedDecoder batt::HttpChunkDecoder< Src >::decoder_latest_",
+      "details": "This is saved in the object to quickly \"fast-forward\" when we consume the entire buffered contents of decoded chunks. ",
       "explicit": false,
       "fullname": "batt::HttpChunkDecoder::decoder_latest_",
-      "hasDetails": false,
+      "hasDetails": true,
       "inline": false,
       "kind": "variable",
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-        "bodyStart": 159,
+        "bodyStart": 203,
         "column": 31,
         "file": "batteries/http/http_chunk_decoder.hpp",
-        "line": 159
+        "line": 203
       },
       "name": "decoder_latest_",
       "override": false,
       "refid": "classbatt_1_1HttpChunkDecoder_1aa90114b275b0b32e048f9e2e3660c903",
       "static": false,
       "strong": false,
+      "summary": "The state of the decoder after having decoded the current contents of this->decoded_chunks_. ",
       "title": "decoder_latest_",
       "type": "[pico_http::ChunkedDecoder](/_autogen/Classes/structpico__http_1_1ChunkedDecoder/)",
       "typePlain": "pico_http::ChunkedDecoder",
@@ -141,6 +151,7 @@
     {
       "abstract": false,
       "anchor": "#variable-done-",
+      "brief": "Set to true only when the decoder tells us we've read the last chunk. ",
       "category": "attributes",
       "const": false,
       "definition": "bool batt::HttpChunkDecoder< Src >::done_",
@@ -153,16 +164,17 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-        "bodyStart": 160,
+        "bodyStart": 207,
         "column": 10,
         "file": "batteries/http/http_chunk_decoder.hpp",
-        "line": 160
+        "line": 207
       },
       "name": "done_",
       "override": false,
       "refid": "classbatt_1_1HttpChunkDecoder_1ac036a34064572194983476e330dca21b",
       "static": false,
       "strong": false,
+      "summary": "Set to true only when the decoder tells us we've read the last chunk. ",
       "title": "done_",
       "type": "bool",
       "typePlain": "bool",
@@ -172,28 +184,31 @@
     {
       "abstract": false,
       "anchor": "#variable-decoded-src-size-",
+      "brief": "The number of bytes from `src_` parsed by the decoder to produce the current `this->decoded_chunks_`. ",
       "category": "attributes",
       "const": false,
       "definition": "usize batt::HttpChunkDecoder< Src >::decoded_src_size_",
+      "details": "This should always be at least as large as `this->decoded_chunks_` itself. ",
       "explicit": false,
       "fullname": "batt::HttpChunkDecoder::decoded_src_size_",
-      "hasDetails": false,
+      "hasDetails": true,
       "initializer": "= 0",
       "inline": false,
       "kind": "variable",
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-        "bodyStart": 161,
+        "bodyStart": 212,
         "column": 11,
         "file": "batteries/http/http_chunk_decoder.hpp",
-        "line": 161
+        "line": 212
       },
       "name": "decoded_src_size_",
       "override": false,
       "refid": "classbatt_1_1HttpChunkDecoder_1abe2eb0c9f5a246b90a7b7eed105ab041",
       "static": false,
       "strong": false,
+      "summary": "The number of bytes from src_ parsed by the decoder to produce the current this->decoded_chunks_. ",
       "title": "decoded_src_size_",
       "type": "usize",
       "typePlain": "usize",
@@ -203,6 +218,7 @@
     {
       "abstract": false,
       "anchor": "#variable-output-available-",
+      "brief": "Cached value of `boost::asio::buffer_size(this->decoded_chunks_)`. ",
       "category": "attributes",
       "const": false,
       "definition": "usize batt::HttpChunkDecoder< Src >::output_available_",
@@ -215,16 +231,17 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-        "bodyStart": 162,
+        "bodyStart": 216,
         "column": 11,
         "file": "batteries/http/http_chunk_decoder.hpp",
-        "line": 162
+        "line": 216
       },
       "name": "output_available_",
       "override": false,
       "refid": "classbatt_1_1HttpChunkDecoder_1ac2d0840690554be39594dbe15b79dc54",
       "static": false,
       "strong": false,
+      "summary": "Cached value of boost::asio::buffer_size(this->decoded_chunks_). ",
       "title": "output_available_",
       "type": "usize",
       "typePlain": "usize",
@@ -234,6 +251,7 @@
     {
       "abstract": false,
       "anchor": "#variable-output-consumed-",
+      "brief": "The number of bytes within `this->decoded_chunks_` that have been consumed via `this->consume(n)`. ",
       "category": "attributes",
       "const": false,
       "definition": "usize batt::HttpChunkDecoder< Src >::output_consumed_",
@@ -246,16 +264,17 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-        "bodyStart": 163,
+        "bodyStart": 221,
         "column": 11,
         "file": "batteries/http/http_chunk_decoder.hpp",
-        "line": 163
+        "line": 221
       },
       "name": "output_consumed_",
       "override": false,
       "refid": "classbatt_1_1HttpChunkDecoder_1a3785493db4bd8580f8c2c8970a600992",
       "static": false,
       "strong": false,
+      "summary": "The number of bytes within this->decoded_chunks_ that have been consumed via this->consume(n). ",
       "title": "output_consumed_",
       "type": "usize",
       "typePlain": "usize",
@@ -265,9 +284,10 @@
     {
       "abstract": false,
       "anchor": "#variable-decoded-chunks-",
+      "brief": "The current decoded data chunks. ",
       "category": "attributes",
       "const": false,
-      "definition": "SmallVec<ConstBuffer, 4> batt::HttpChunkDecoder< Src >::decoded_chunks_",
+      "definition": "SmallVec<ConstBuffer, kBufferVecPreAlloc> batt::HttpChunkDecoder< Src >::decoded_chunks_",
       "explicit": false,
       "fullname": "batt::HttpChunkDecoder::decoded_chunks_",
       "hasDetails": false,
@@ -276,19 +296,20 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-        "bodyStart": 164,
+        "bodyStart": 225,
         "column": 14,
         "file": "batteries/http/http_chunk_decoder.hpp",
-        "line": 164
+        "line": 225
       },
       "name": "decoded_chunks_",
       "override": false,
-      "refid": "classbatt_1_1HttpChunkDecoder_1acca5050156b595ff955dd233bd60c97a",
+      "refid": "classbatt_1_1HttpChunkDecoder_1a07ac9b61b70a6b799590da51e3b03e47",
       "static": false,
       "strong": false,
+      "summary": "The current decoded data chunks. ",
       "title": "decoded_chunks_",
-      "type": "SmallVec< ConstBuffer, 4 >",
-      "typePlain": "SmallVec< ConstBuffer, 4 >",
+      "type": "SmallVec< ConstBuffer, kBufferVecPreAlloc >",
+      "typePlain": "SmallVec< ConstBuffer, kBufferVecPreAlloc >",
       "url": "/_autogen/Classes/classbatt_1_1HttpChunkDecoder/#variable-decoded-chunks-",
       "visibility": "private"
     }
@@ -310,12 +331,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 147,
+        "bodyEnd": 180,
         "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-        "bodyStart": 140,
+        "bodyStart": 173,
         "column": 10,
         "file": "batteries/http/http_chunk_decoder.hpp",
-        "line": 140
+        "line": 173
       },
       "name": "release_decoded_chunks",
       "override": false,
@@ -347,12 +368,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 153,
+        "bodyEnd": 186,
         "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-        "bodyStart": 149,
+        "bodyStart": 182,
         "column": 10,
         "file": "batteries/http/http_chunk_decoder.hpp",
-        "line": 149
+        "line": 182
       },
       "name": "consume_from_src",
       "override": false,
@@ -375,6 +396,39 @@
       "visibility": "private"
     }
   ],
+  "publicAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-kbuffervecprealloc",
+      "category": "attributes",
+      "const": false,
+      "definition": "constexpr usize batt::HttpChunkDecoder< Src >::kBufferVecPreAlloc",
+      "explicit": false,
+      "fullname": "batt::HttpChunkDecoder::kBufferVecPreAlloc",
+      "hasDetails": false,
+      "initializer": "= 2",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/http_chunk_decoder.hpp",
+        "bodyStart": 23,
+        "column": 28,
+        "file": "batteries/http/http_chunk_decoder.hpp",
+        "line": 23
+      },
+      "name": "kBufferVecPreAlloc",
+      "override": false,
+      "refid": "classbatt_1_1HttpChunkDecoder_1ac0926655da25fec74aca369cf5ce7679",
+      "static": true,
+      "strong": false,
+      "title": "kBufferVecPreAlloc",
+      "type": "constexpr usize",
+      "typePlain": "constexpr usize",
+      "url": "/_autogen/Classes/classbatt_1_1HttpChunkDecoder/#variable-kbuffervecprealloc",
+      "visibility": "public"
+    }
+  ],
   "publicFunctions": [
     {
       "abstract": false,
@@ -392,12 +446,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 29,
+        "bodyEnd": 35,
         "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-        "bodyStart": 21,
+        "bodyStart": 27,
         "column": 14,
         "file": "batteries/http/http_chunk_decoder.hpp",
-        "line": 21
+        "line": 27
       },
       "name": "HttpChunkDecoder",
       "override": false,
@@ -440,12 +494,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 36,
+        "bodyEnd": 42,
         "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-        "bodyStart": 33,
+        "bodyStart": 39,
         "column": 11,
         "file": "batteries/http/http_chunk_decoder.hpp",
-        "line": 33
+        "line": 39
       },
       "name": "size",
       "override": false,
@@ -477,12 +531,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 43,
+        "bodyEnd": 49,
         "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-        "bodyStart": 40,
+        "bodyStart": 46,
         "column": 10,
         "file": "batteries/http/http_chunk_decoder.hpp",
-        "line": 40
+        "line": 46
       },
       "name": "done",
       "override": false,
@@ -505,7 +559,7 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "StatusOr<SmallVec<ConstBuffer, 2> > batt::HttpChunkDecoder< Src >::fetch_at_least",
+      "definition": "StatusOr<SmallVec<ConstBuffer, kBufferVecPreAlloc> > batt::HttpChunkDecoder< Src >::fetch_at_least",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::HttpChunkDecoder::fetch_at_least",
@@ -514,12 +568,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 115,
+        "bodyEnd": 148,
         "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-        "bodyStart": 50,
+        "bodyStart": 56,
         "column": 14,
         "file": "batteries/http/http_chunk_decoder.hpp",
-        "line": 50
+        "line": 56
       },
       "name": "fetch_at_least",
       "override": false,
@@ -531,12 +585,12 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1HttpChunkDecoder_1a0ebeffe5cf9f115e14d6d6eda8c08e35",
+      "refid": "classbatt_1_1HttpChunkDecoder_1af77d7ae4b72aedbadb655f2fe2c41b64",
       "static": false,
       "strong": false,
       "title": "fetch_at_least",
-      "type": "[StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< SmallVec< ConstBuffer, 2 > >",
-      "typePlain": "StatusOr< SmallVec< ConstBuffer, 2 > >",
+      "type": "[StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< SmallVec< ConstBuffer, kBufferVecPreAlloc > >",
+      "typePlain": "StatusOr< SmallVec< ConstBuffer, kBufferVecPreAlloc > >",
       "url": "/_autogen/Classes/classbatt_1_1HttpChunkDecoder/#function-fetch-at-least",
       "virtual": false,
       "visibility": "public"
@@ -557,12 +611,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 129,
+        "bodyEnd": 162,
         "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-        "bodyStart": 120,
+        "bodyStart": 153,
         "column": 10,
         "file": "batteries/http/http_chunk_decoder.hpp",
-        "line": 120
+        "line": 153
       },
       "name": "consume",
       "override": false,
@@ -600,12 +654,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 137,
+        "bodyEnd": 170,
         "bodyFile": "batteries/http/http_chunk_decoder.hpp",
-        "bodyStart": 134,
+        "bodyStart": 167,
         "column": 10,
         "file": "batteries/http/http_chunk_decoder.hpp",
-        "line": 134
+        "line": 167
       },
       "name": "close_for_read",
       "override": false,
@@ -625,6 +679,7 @@
   "refid": "classbatt_1_1HttpChunkDecoder",
   "static": false,
   "strong": false,
+  "summary": "BufferSource transformer that decodes HTTP chunked content fetched from Src. ",
   "templateParams": [
     {
       "name": "",
