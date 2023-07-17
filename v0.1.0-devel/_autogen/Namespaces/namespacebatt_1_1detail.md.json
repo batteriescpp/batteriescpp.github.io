@@ -452,6 +452,30 @@
     {
       "anchor": "",
       "category": "classes",
+      "fullname": "batt::detail::OptionalBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::OptionalBase",
+      "refid": "classbatt_1_1detail_1_1OptionalBase",
+      "title": "batt::detail::OptionalBase",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1OptionalBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::OptionalEmptyBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::OptionalEmptyBase",
+      "refid": "classbatt_1_1detail_1_1OptionalEmptyBase",
+      "title": "batt::detail::OptionalEmptyBase",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1OptionalEmptyBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
       "fullname": "batt::detail::AbstractMoveFn",
       "kind": "class",
       "language": "cpp",
@@ -671,6 +695,50 @@
       "refid": "classbatt_1_1detail_1_1NotOkStatusWrapper",
       "title": "batt::detail::NotOkStatusWrapper",
       "url": "/_autogen/Classes/classbatt_1_1detail_1_1NotOkStatusWrapper/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "T",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::EmptyBaseHelper",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::EmptyBaseHelper",
+      "refid": "structbatt_1_1detail_1_1EmptyBaseHelper",
+      "title": "batt::detail::EmptyBaseHelper",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1EmptyBaseHelper/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::EmptyBaseTestCase",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::EmptyBaseTestCase",
+      "refid": "structbatt_1_1detail_1_1EmptyBaseTestCase",
+      "title": "batt::detail::EmptyBaseTestCase",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1EmptyBaseTestCase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::EmptyBaseTestCase2",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::EmptyBaseTestCase2",
+      "refid": "structbatt_1_1detail_1_1EmptyBaseTestCase2",
+      "title": "batt::detail::EmptyBaseTestCase2",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1EmptyBaseTestCase2/",
       "visibility": "public"
     }
   ],
@@ -3110,6 +3178,131 @@
       "type": "std::false_type",
       "typePlain": "std::false_type",
       "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-can-be-eq-compared-helper",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-class-can-be-empty-base",
+      "argsString": "(StaticType< T >={})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "constexpr std::true_type batt::detail::class_can_be_empty_base",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::class_can_be_empty_base",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 250,
+        "bodyFile": "batteries/type_traits.hpp",
+        "bodyStart": 247,
+        "column": 33,
+        "file": "batteries/type_traits.hpp",
+        "line": 247
+      },
+      "name": "class_can_be_empty_base",
+      "override": false,
+      "params": [
+        {
+          "defval": "{}",
+          "defvalPlain": "{}",
+          "name": "",
+          "type": "[StaticType](/_autogen/Classes/structbatt_1_1StaticType/)< T >",
+          "typePlain": "StaticType< T >"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "type__traits_8hpp_1af5b8d15e2f62155d5d91d37909e3785a",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "defval": "std::enable_if_t<sizeof(detail::EmptyBaseHelper<T>) == 16>",
+          "defvalPlain": "std::enable_if_t<sizeof(detail::EmptyBaseHelper<T>) == 16>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "class_can_be_empty_base",
+      "type": "constexpr std::true_type",
+      "typePlain": "constexpr std::true_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-class-can-be-empty-base",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-class-can-be-empty-base",
+      "argsString": "(StaticType< T >={})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "constexpr std::false_type batt::detail::class_can_be_empty_base",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::class_can_be_empty_base",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 258,
+        "bodyFile": "batteries/type_traits.hpp",
+        "bodyStart": 255,
+        "column": 34,
+        "file": "batteries/type_traits.hpp",
+        "line": 255
+      },
+      "name": "class_can_be_empty_base",
+      "override": false,
+      "params": [
+        {
+          "defval": "{}",
+          "defvalPlain": "{}",
+          "name": "",
+          "type": "[StaticType](/_autogen/Classes/structbatt_1_1StaticType/)< T >",
+          "typePlain": "StaticType< T >"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "type__traits_8hpp_1a8563f5b9cf7452955581e80b5eb7d538",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "defval": "std::enable_if_t<sizeof(detail::EmptyBaseHelper<T>) != 16>",
+          "defvalPlain": "std::enable_if_t<sizeof(detail::EmptyBaseHelper<T>) != 16>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        },
+        {
+          "defval": "void",
+          "defvalPlain": "void",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "class_can_be_empty_base",
+      "type": "constexpr std::false_type",
+      "typePlain": "constexpr std::false_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-class-can-be-empty-base",
       "virtual": false,
       "visibility": "public"
     },

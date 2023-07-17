@@ -493,6 +493,22 @@
     },
     {
       "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::seq::detail::HeapOrder< Compare >",
+          "refid": "structbatt_1_1seq_1_1detail_1_1HeapOrder",
+          "url": "/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrder/",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        },
+        {
+          "external": true,
+          "name": "std::conditional_t< can_be_empty_base< Compare >(), HeapOrderEmptyBase< Compare >, HeapOrderBase< Compare > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
       "category": "classes",
       "fullname": "batt::seq::KMergeBy",
       "kind": "class",
@@ -3449,12 +3465,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 152,
+        "bodyEnd": 201,
         "bodyFile": "batteries/seq/kmerge.hpp",
-        "bodyStart": 149,
+        "bodyStart": 198,
         "column": 16,
         "file": "batteries/seq/kmerge.hpp",
-        "line": 149
+        "line": 198
       },
       "name": "kmerge_by",
       "override": false,
@@ -3499,12 +3515,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 157,
+        "bodyEnd": 206,
         "bodyFile": "batteries/seq/kmerge.hpp",
-        "bodyStart": 154,
+        "bodyStart": 203,
         "column": 13,
         "file": "batteries/seq/kmerge.hpp",
-        "line": 154
+        "line": 203
       },
       "name": "kmerge",
       "override": false,
@@ -3536,12 +3552,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 166,
+        "bodyEnd": 215,
         "bodyFile": "batteries/seq/kmerge.hpp",
-        "bodyStart": 160,
+        "bodyStart": 209,
         "column": 11,
         "file": "batteries/seq/kmerge.hpp",
-        "line": 160
+        "line": 209
       },
       "name": "operator|",
       "override": false,

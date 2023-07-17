@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#public-classes" class="md-skip">
+        <a href="#public-types" class="md-skip">
           Skip to content
         </a>
       
@@ -505,13 +505,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#public-classes" class="md-nav__link">
-    Public Classes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#public-types" class="md-nav__link">
     Public Types
   </a>
@@ -521,6 +514,13 @@
         <li class="md-nav__item">
   <a href="#public-functions" class="md-nav__link">
     Public Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-inherited-members" class="md-nav__link">
+    Additional inherited members
   </a>
   
 </li>
@@ -620,21 +620,7 @@
 
 <h1 id="battseqkmergeby">batt::seq::KMergeBy<a class="headerlink" href="#battseqkmergeby" title="Permanent link">&#128279;</a></h1>
 <p><a href="#detailed-description">More...</a></p>
-<h2 id="public-classes">Public Classes<a class="headerlink" href="#public-classes" title="Permanent link">&#128279;</a></h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>struct</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1seq_1_1KMergeBy_1_1HeapOrder/">HeapOrder</a></strong></td>
-</tr>
-</tbody>
-</table>
+<p>Inherits from <a href="/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrder/">batt::seq::detail::HeapOrder&lt; Compare &gt;</a>, std::conditional_t&lt; can_be_empty_base&lt; Compare &gt;(), HeapOrderEmptyBase&lt; Compare &gt;, HeapOrderBase&lt; Compare &gt; &gt;</p>
 <h2 id="public-types">Public Types<a class="headerlink" href="#public-types" title="Permanent link">&#128279;</a></h2>
 <table>
 <thead>
@@ -678,6 +664,30 @@
 <tr>
 <td><a href="/_autogen/Classes/classbatt_1_1Optional/">Optional</a>&lt; Item &gt;</td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1seq_1_1KMergeBy/#function-peek">peek</a></strong>()</td>
+</tr>
+</tbody>
+</table>
+<h2 id="additional-inherited-members">Additional inherited members<a class="headerlink" href="#additional-inherited-members" title="Permanent link">&#128279;</a></h2>
+<p><strong>Public Functions inherited from <a href="/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrder/">batt::seq::detail::HeapOrder&lt; Compare &gt;</a></strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>template &lt;typename L ,typename R > <br>bool</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrder/#function-operator()">operator()</a></strong>(L * l, R * r) const</td>
+</tr>
+<tr>
+<td><a href="/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrder/">HeapOrder</a> &amp;</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrder/#function-order">order</a></strong>()</td>
+</tr>
+<tr>
+<td>const <a href="/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrder/">HeapOrder</a> &amp;</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrder/#function-order">order</a></strong>() const</td>
 </tr>
 </tbody>
 </table>
@@ -725,7 +735,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="w"> </span><span class="n">Item</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">peek</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 17 July 2023 at 19:37:10 UTC</p>
+<p>Updated on 17 July 2023 at 22:04:21 UTC</p>
 
 
 

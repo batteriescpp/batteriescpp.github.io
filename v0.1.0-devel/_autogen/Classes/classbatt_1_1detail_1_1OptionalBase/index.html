@@ -15,7 +15,7 @@
     
     
       
-        <title>batt::seq::KMergeBy::HeapOrder - Batteries C++</title>
+        <title>batt::detail::OptionalBase - Batteries C++</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#public-functions" class="md-skip">
+        <a href="#protected-functions" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              batt::seq::KMergeBy::HeapOrder
+              batt::detail::OptionalBase
             
           </span>
         </div>
@@ -505,50 +505,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#public-functions" class="md-nav__link">
-    Public Functions
+  <a href="#protected-functions" class="md-nav__link">
+    Protected Functions
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#public-attributes" class="md-nav__link">
-    Public Attributes
+  <a href="#detailed-description" class="md-nav__link">
+    Detailed Description
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#public-functions-documentation" class="md-nav__link">
-    Public Functions Documentation
+  <a href="#protected-functions-documentation" class="md-nav__link">
+    Protected Functions Documentation
   </a>
   
-    <nav class="md-nav" aria-label="Public Functions Documentation">
+    <nav class="md-nav" aria-label="Protected Functions Documentation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#function-operator" class="md-nav__link">
-    function operator()
+  <a href="#function-storage_address" class="md-nav__link">
+    function storage_address
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#public-attributes-documentation" class="md-nav__link">
-    Public Attributes Documentation
-  </a>
-  
-    <nav class="md-nav" aria-label="Public Attributes Documentation">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#variable-compare_" class="md-nav__link">
-    variable compare_
+  <a href="#function-storage_address_1" class="md-nav__link">
+    function storage_address
   </a>
   
 </li>
@@ -574,10 +561,11 @@
 
 
 
-  <h1>batt::seq::KMergeBy::HeapOrder</h1>
+  <h1>batt::detail::OptionalBase</h1>
 
-<h1 id="battseqkmergebyheaporder">batt::seq::KMergeBy::HeapOrder<a class="headerlink" href="#battseqkmergebyheaporder" title="Permanent link">&#128279;</a></h1>
-<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&#128279;</a></h2>
+<h1 id="battdetailoptionalbase">batt::detail::OptionalBase<a class="headerlink" href="#battdetailoptionalbase" title="Permanent link">&#128279;</a></h1>
+<p><a href="#detailed-description">More...</a></p>
+<h2 id="protected-functions">Protected Functions<a class="headerlink" href="#protected-functions" title="Permanent link">&#128279;</a></h2>
 <table>
 <thead>
 <tr>
@@ -587,46 +575,29 @@
 </thead>
 <tbody>
 <tr>
-<td>template &lt;typename L ,typename R > <br>bool</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1seq_1_1KMergeBy_1_1HeapOrder/#function-operator()">operator()</a></strong>(L * l, R * r) const</td>
+<td>void *</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1OptionalBase/#function-storage-address">storage_address</a></strong>()</td>
+</tr>
+<tr>
+<td>const void *</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1detail_1_1OptionalBase/#function-storage-address">storage_address</a></strong>() const</td>
 </tr>
 </tbody>
 </table>
-<h2 id="public-attributes">Public Attributes<a class="headerlink" href="#public-attributes" title="Permanent link">&#128279;</a></h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Compare</td>
-<td><strong><a href="/_autogen/Classes/structbatt_1_1seq_1_1KMergeBy_1_1HeapOrder/#variable-compare-">compare_</a></strong></td>
-</tr>
-</tbody>
-</table>
-<h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&#128279;</a></h2>
-<h3 id="function-operator">function operator()<a class="headerlink" href="#function-operator" title="Permanent link">&#128279;</a></h3>
+<h2 id="detailed-description">Detailed Description<a class="headerlink" href="#detailed-description" title="Permanent link">&#128279;</a></h2>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span>
-<span class="normal"><a href="#__codelineno-0-4">4</a></span>
-<span class="normal"><a href="#__codelineno-0-5">5</a></span>
-<span class="normal"><a href="#__codelineno-0-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">L</span><span class="w"> </span><span class="p">,</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">typename</span><span class="w"> </span><span class="nc">R</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="p">()(</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="n">L</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">l</span><span class="p">,</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="n">R</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">r</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">batt</span><span class="o">::</span><span class="n">detail</span><span class="o">::</span><span class="n">OptionalBase</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="public-attributes-documentation">Public Attributes Documentation<a class="headerlink" href="#public-attributes-documentation" title="Permanent link">&#128279;</a></h2>
-<h3 id="variable-compare_">variable compare_<a class="headerlink" href="#variable-compare_" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">Compare</span><span class="w"> </span><span class="n">compare_</span><span class="p">;</span>
+<h2 id="protected-functions-documentation">Protected Functions Documentation<a class="headerlink" href="#protected-functions-documentation" title="Permanent link">&#128279;</a></h2>
+<h3 id="function-storage_address">function storage_address<a class="headerlink" href="#function-storage_address" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">storage_address</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-storage_address_1">function storage_address<a class="headerlink" href="#function-storage_address_1" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">storage_address</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 17 July 2023 at 19:37:10 UTC</p>
+<p>Updated on 17 July 2023 at 22:04:21 UTC</p>
 
 
 

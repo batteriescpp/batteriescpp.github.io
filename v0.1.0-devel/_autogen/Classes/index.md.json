@@ -1934,6 +1934,14 @@
         },
         {
           "anchor": "",
+          "baseClasses": [
+            {
+              "external": true,
+              "name": "std::conditional_t< can_be_empty_base< T >(), detail::OptionalEmptyBase< T >, detail::OptionalBase< T > >",
+              "virtual": "non-virtual",
+              "visibility": "private"
+            }
+          ],
           "category": "classes",
           "fullname": "batt::Optional",
           "kind": "class",
@@ -3308,18 +3316,6 @@
         },
         {
           "anchor": "",
-          "category": "classes",
-          "fullname": "batt::VarSizeArray",
-          "kind": "class",
-          "language": "cpp",
-          "name": "batt::VarSizeArray",
-          "refid": "classbatt_1_1VarSizeArray",
-          "title": "batt::VarSizeArray",
-          "url": "/_autogen/Classes/classbatt_1_1VarSizeArray/",
-          "visibility": "public"
-        },
-        {
-          "anchor": "",
           "baseClasses": [
             {
               "external": false,
@@ -3812,6 +3808,50 @@
             },
             {
               "anchor": "",
+              "baseClasses": [
+                {
+                  "external": true,
+                  "name": "T",
+                  "virtual": "non-virtual",
+                  "visibility": "public"
+                }
+              ],
+              "category": "classes",
+              "fullname": "batt::detail::EmptyBaseHelper",
+              "kind": "struct",
+              "language": "cpp",
+              "name": "batt::detail::EmptyBaseHelper",
+              "refid": "structbatt_1_1detail_1_1EmptyBaseHelper",
+              "title": "batt::detail::EmptyBaseHelper",
+              "url": "/_autogen/Classes/structbatt_1_1detail_1_1EmptyBaseHelper/",
+              "visibility": "public"
+            },
+            {
+              "anchor": "",
+              "category": "classes",
+              "fullname": "batt::detail::EmptyBaseTestCase",
+              "kind": "struct",
+              "language": "cpp",
+              "name": "batt::detail::EmptyBaseTestCase",
+              "refid": "structbatt_1_1detail_1_1EmptyBaseTestCase",
+              "title": "batt::detail::EmptyBaseTestCase",
+              "url": "/_autogen/Classes/structbatt_1_1detail_1_1EmptyBaseTestCase/",
+              "visibility": "public"
+            },
+            {
+              "anchor": "",
+              "category": "classes",
+              "fullname": "batt::detail::EmptyBaseTestCase2",
+              "kind": "struct",
+              "language": "cpp",
+              "name": "batt::detail::EmptyBaseTestCase2",
+              "refid": "structbatt_1_1detail_1_1EmptyBaseTestCase2",
+              "title": "batt::detail::EmptyBaseTestCase2",
+              "url": "/_autogen/Classes/structbatt_1_1detail_1_1EmptyBaseTestCase2/",
+              "visibility": "public"
+            },
+            {
+              "anchor": "",
               "category": "classes",
               "fullname": "batt::detail::FirstMatchImpl",
               "kind": "struct",
@@ -4076,6 +4116,30 @@
               "refid": "structbatt_1_1detail_1_1NullableImpl_3_01std_1_1unique__ptr_3_01T_01_4_01_4",
               "title": "batt::detail::NullableImpl< std::unique_ptr< T > >",
               "url": "/_autogen/Classes/structbatt_1_1detail_1_1NullableImpl_3_01std_1_1unique__ptr_3_01T_01_4_01_4/",
+              "visibility": "public"
+            },
+            {
+              "anchor": "",
+              "category": "classes",
+              "fullname": "batt::detail::OptionalBase",
+              "kind": "class",
+              "language": "cpp",
+              "name": "batt::detail::OptionalBase",
+              "refid": "classbatt_1_1detail_1_1OptionalBase",
+              "title": "batt::detail::OptionalBase",
+              "url": "/_autogen/Classes/classbatt_1_1detail_1_1OptionalBase/",
+              "visibility": "public"
+            },
+            {
+              "anchor": "",
+              "category": "classes",
+              "fullname": "batt::detail::OptionalEmptyBase",
+              "kind": "class",
+              "language": "cpp",
+              "name": "batt::detail::OptionalEmptyBase",
+              "refid": "classbatt_1_1detail_1_1OptionalEmptyBase",
+              "title": "batt::detail::OptionalEmptyBase",
+              "url": "/_autogen/Classes/classbatt_1_1detail_1_1OptionalEmptyBase/",
               "visibility": "public"
             },
             {
@@ -4814,21 +4878,23 @@
             },
             {
               "anchor": "",
-              "category": "classes",
-              "children": [
+              "baseClasses": [
                 {
-                  "anchor": "",
-                  "category": "classes",
-                  "fullname": "batt::seq::KMergeBy::HeapOrder",
-                  "kind": "struct",
-                  "language": "cpp",
-                  "name": "batt::seq::KMergeBy::HeapOrder",
-                  "refid": "structbatt_1_1seq_1_1KMergeBy_1_1HeapOrder",
-                  "title": "batt::seq::KMergeBy::HeapOrder",
-                  "url": "/_autogen/Classes/structbatt_1_1seq_1_1KMergeBy_1_1HeapOrder/",
+                  "external": false,
+                  "name": "batt::seq::detail::HeapOrder< Compare >",
+                  "refid": "structbatt_1_1seq_1_1detail_1_1HeapOrder",
+                  "url": "/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrder/",
+                  "virtual": "non-virtual",
+                  "visibility": "private"
+                },
+                {
+                  "external": true,
+                  "name": "std::conditional_t< can_be_empty_base< Compare >(), HeapOrderEmptyBase< Compare >, HeapOrderBase< Compare > >",
+                  "virtual": "non-virtual",
                   "visibility": "public"
                 }
               ],
+              "category": "classes",
               "fullname": "batt::seq::KMergeBy",
               "kind": "class",
               "language": "cpp",
@@ -5307,6 +5373,70 @@
             {
               "anchor": "",
               "category": "namespaces",
+              "children": [
+                {
+                  "anchor": "",
+                  "baseClasses": [
+                    {
+                      "external": true,
+                      "name": "std::conditional_t< can_be_empty_base< Compare >(), HeapOrderEmptyBase< Compare >, HeapOrderBase< Compare > >",
+                      "virtual": "non-virtual",
+                      "visibility": "public"
+                    }
+                  ],
+                  "category": "classes",
+                  "derivedClasses": [
+                    {
+                      "external": false,
+                      "name": "batt::seq::KMergeBy< Seq, Compare >",
+                      "refid": "classbatt_1_1seq_1_1KMergeBy",
+                      "url": "/_autogen/Classes/classbatt_1_1seq_1_1KMergeBy/",
+                      "virtual": "non-virtual",
+                      "visibility": "private"
+                    }
+                  ],
+                  "fullname": "batt::seq::detail::HeapOrder",
+                  "kind": "struct",
+                  "language": "cpp",
+                  "name": "batt::seq::detail::HeapOrder",
+                  "refid": "structbatt_1_1seq_1_1detail_1_1HeapOrder",
+                  "title": "batt::seq::detail::HeapOrder",
+                  "url": "/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrder/",
+                  "visibility": "public"
+                },
+                {
+                  "anchor": "",
+                  "category": "classes",
+                  "fullname": "batt::seq::detail::HeapOrderBase",
+                  "kind": "struct",
+                  "language": "cpp",
+                  "name": "batt::seq::detail::HeapOrderBase",
+                  "refid": "structbatt_1_1seq_1_1detail_1_1HeapOrderBase",
+                  "title": "batt::seq::detail::HeapOrderBase",
+                  "url": "/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrderBase/",
+                  "visibility": "public"
+                },
+                {
+                  "anchor": "",
+                  "baseClasses": [
+                    {
+                      "external": true,
+                      "name": "Compare",
+                      "virtual": "non-virtual",
+                      "visibility": "public"
+                    }
+                  ],
+                  "category": "classes",
+                  "fullname": "batt::seq::detail::HeapOrderEmptyBase",
+                  "kind": "struct",
+                  "language": "cpp",
+                  "name": "batt::seq::detail::HeapOrderEmptyBase",
+                  "refid": "structbatt_1_1seq_1_1detail_1_1HeapOrderEmptyBase",
+                  "title": "batt::seq::detail::HeapOrderEmptyBase",
+                  "url": "/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrderEmptyBase/",
+                  "visibility": "public"
+                }
+              ],
               "fullname": "batt::seq::detail",
               "kind": "namespace",
               "language": "cpp",

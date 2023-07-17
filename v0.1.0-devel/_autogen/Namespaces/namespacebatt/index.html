@@ -3480,6 +3480,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#function-can_be_empty_base" class="md-nav__link">
+    function can_be_empty_base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-can_be_empty_base_1" class="md-nav__link">
+    function can_be_empty_base
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-operator_110" class="md-nav__link">
     function operator==
   </a>
@@ -4456,10 +4470,6 @@
 <tr>
 <td>struct</td>
 <td><strong><a href="/_autogen/Classes/structbatt_1_1DefaultInitialized/">batt::DefaultInitialized</a></strong> <br>A single type that implicitly converts to any default-constructible type (via batt::make_default()).</td>
-</tr>
-<tr>
-<td>class</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1VarSizeArray/">batt::VarSizeArray</a></strong></td>
 </tr>
 </tbody>
 </table>
@@ -6154,6 +6164,14 @@
 <tr>
 <td>template &lt;typename T > <br>const char *</td>
 <td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-name-of">name_of</a></strong>(<a href="/_autogen/Classes/structbatt_1_1StaticType/">batt::StaticType</a>&lt; T &gt;  ={})<br>Calculates and returns the demangled name of the given type as a null-terminated C-string.</td>
+</tr>
+<tr>
+<td>template &lt;typename T ,typename  =std::enable_if_t<std::is_class_v\<T>>> <br>constexpr auto</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-can-be-empty-base">can_be_empty_base</a></strong>(<a href="/_autogen/Classes/structbatt_1_1StaticType/">StaticType</a>&lt; T &gt;  ={})<br>Returns true iff the specified type can be optimized to zero size via empty base class optimization.</td>
+</tr>
+<tr>
+<td>template &lt;typename T ,typename  =std::enable_if_t&lt;!std::is_class_v<T>&gt;,typename  =void> <br>constexpr std::false_type</td>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/#function-can-be-empty-base">can_be_empty_base</a></strong>(<a href="/_autogen/Classes/structbatt_1_1StaticType/">StaticType</a>&lt; T &gt;  ={})</td>
 </tr>
 <tr>
 <td>bool</td>
@@ -10750,249 +10768,274 @@ The unit string may be upper or lower case, and only the first character is cons
 <a id="__codelineno-408-4" name="__codelineno-408-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Calculates and returns the demangled name of the given type as a null-terminated C-string. </p>
-<h3 id="function-operator_110">function operator==<a class="headerlink" href="#function-operator_110" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-can_be_empty_base">function can_be_empty_base<a class="headerlink" href="#function-can_be_empty_base" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-409-1">1</a></span>
 <span class="normal"><a href="#__codelineno-409-2">2</a></span>
 <span class="normal"><a href="#__codelineno-409-3">3</a></span>
-<span class="normal"><a href="#__codelineno-409-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-409-1" name="__codelineno-409-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span>
-<a id="__codelineno-409-2" name="__codelineno-409-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">UrlParse</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">left</span><span class="p">,</span>
-<a id="__codelineno-409-3" name="__codelineno-409-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">UrlParse</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">right</span>
-<a id="__codelineno-409-4" name="__codelineno-409-4"></a><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-409-4">4</a></span>
+<span class="normal"><a href="#__codelineno-409-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-409-1" name="__codelineno-409-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="p">,</span>
+<a id="__codelineno-409-2" name="__codelineno-409-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_class_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;</span>
+<a id="__codelineno-409-3" name="__codelineno-409-3"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">can_be_empty_base</span><span class="p">(</span>
+<a id="__codelineno-409-4" name="__codelineno-409-4"></a><span class="w">    </span><span class="n">StaticType</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w">  </span><span class="o">=</span><span class="p">{}</span>
+<a id="__codelineno-409-5" name="__codelineno-409-5"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-operator_111">function operator!=<a class="headerlink" href="#function-operator_111" title="Permanent link">&#128279;</a></h3>
+<p>Returns true iff the specified type can be optimized to zero size via empty base class optimization. </p>
+<h3 id="function-can_be_empty_base_1">function can_be_empty_base<a class="headerlink" href="#function-can_be_empty_base_1" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-410-1">1</a></span>
 <span class="normal"><a href="#__codelineno-410-2">2</a></span>
 <span class="normal"><a href="#__codelineno-410-3">3</a></span>
-<span class="normal"><a href="#__codelineno-410-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-410-1" name="__codelineno-410-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">!=</span><span class="p">(</span>
-<a id="__codelineno-410-2" name="__codelineno-410-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">UrlParse</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">left</span><span class="p">,</span>
-<a id="__codelineno-410-3" name="__codelineno-410-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">UrlParse</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">right</span>
-<a id="__codelineno-410-4" name="__codelineno-410-4"></a><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-410-4">4</a></span>
+<span class="normal"><a href="#__codelineno-410-5">5</a></span>
+<span class="normal"><a href="#__codelineno-410-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-410-1" name="__codelineno-410-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="p">,</span>
+<a id="__codelineno-410-2" name="__codelineno-410-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;!</span><span class="n">std</span><span class="o">::</span><span class="n">is_class_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+<a id="__codelineno-410-3" name="__codelineno-410-3"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="kt">void</span><span class="o">&gt;</span>
+<a id="__codelineno-410-4" name="__codelineno-410-4"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">false_type</span><span class="w"> </span><span class="n">can_be_empty_base</span><span class="p">(</span>
+<a id="__codelineno-410-5" name="__codelineno-410-5"></a><span class="w">    </span><span class="n">StaticType</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w">  </span><span class="o">=</span><span class="p">{}</span>
+<a id="__codelineno-410-6" name="__codelineno-410-6"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-operator_112">function operator&lt;&lt;<a class="headerlink" href="#function-operator_112" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-operator_110">function operator==<a class="headerlink" href="#function-operator_110" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-411-1">1</a></span>
 <span class="normal"><a href="#__codelineno-411-2">2</a></span>
 <span class="normal"><a href="#__codelineno-411-3">3</a></span>
-<span class="normal"><a href="#__codelineno-411-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-411-1" name="__codelineno-411-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
-<a id="__codelineno-411-2" name="__codelineno-411-2"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">,</span>
-<a id="__codelineno-411-3" name="__codelineno-411-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">UrlParse</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span>
+<span class="normal"><a href="#__codelineno-411-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-411-1" name="__codelineno-411-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span>
+<a id="__codelineno-411-2" name="__codelineno-411-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">UrlParse</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">left</span><span class="p">,</span>
+<a id="__codelineno-411-3" name="__codelineno-411-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">UrlParse</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">right</span>
 <a id="__codelineno-411-4" name="__codelineno-411-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-parse_url">function parse_url<a class="headerlink" href="#function-parse_url" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-operator_111">function operator!=<a class="headerlink" href="#function-operator_111" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-412-1">1</a></span>
 <span class="normal"><a href="#__codelineno-412-2">2</a></span>
-<span class="normal"><a href="#__codelineno-412-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-412-1" name="__codelineno-412-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">UrlParse</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">parse_url</span><span class="p">(</span>
-<a id="__codelineno-412-2" name="__codelineno-412-2"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">url</span>
-<a id="__codelineno-412-3" name="__codelineno-412-3"></a><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-412-3">3</a></span>
+<span class="normal"><a href="#__codelineno-412-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-412-1" name="__codelineno-412-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="k">operator</span><span class="o">!=</span><span class="p">(</span>
+<a id="__codelineno-412-2" name="__codelineno-412-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">UrlParse</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">left</span><span class="p">,</span>
+<a id="__codelineno-412-3" name="__codelineno-412-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">UrlParse</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">right</span>
+<a id="__codelineno-412-4" name="__codelineno-412-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-make_copy">function make_copy<a class="headerlink" href="#function-make_copy" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-operator_112">function operator&lt;&lt;<a class="headerlink" href="#function-operator_112" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-413-1">1</a></span>
 <span class="normal"><a href="#__codelineno-413-2">2</a></span>
 <span class="normal"><a href="#__codelineno-413-3">3</a></span>
-<span class="normal"><a href="#__codelineno-413-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-413-1" name="__codelineno-413-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-413-2" name="__codelineno-413-2"></a><span class="n">T</span><span class="w"> </span><span class="n">make_copy</span><span class="p">(</span>
-<a id="__codelineno-413-3" name="__codelineno-413-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span>
+<span class="normal"><a href="#__codelineno-413-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-413-1" name="__codelineno-413-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">&lt;&lt;</span><span class="p">(</span>
+<a id="__codelineno-413-2" name="__codelineno-413-2"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">,</span>
+<a id="__codelineno-413-3" name="__codelineno-413-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">UrlParse</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span>
 <a id="__codelineno-413-4" name="__codelineno-413-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>Return a copy of <code>value</code>. </p>
-<p>Supports the "sunk arguments idiom" of always declaring function arguments whose value is copied/retained by the callee as rvalue-references. This idiom maintains optimal efficiency in most cases while providing a signal-boost at call sites that an arg is being copied or moved. Examples:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-414-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-414-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-414-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-414-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-414-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-414-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-414-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-414-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-414-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-414-10">10</a></span>
-<span class="normal"><a href="#__codelineno-414-11">11</a></span>
-<span class="normal"><a href="#__codelineno-414-12">12</a></span>
-<span class="normal"><a href="#__codelineno-414-13">13</a></span>
-<span class="normal"><a href="#__codelineno-414-14">14</a></span>
-<span class="normal"><a href="#__codelineno-414-15">15</a></span>
-<span class="normal"><a href="#__codelineno-414-16">16</a></span>
-<span class="normal"><a href="#__codelineno-414-17">17</a></span>
-<span class="normal"><a href="#__codelineno-414-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-414-1" name="__codelineno-414-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">MyStruct</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-414-2" name="__codelineno-414-2"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p_flag</span><span class="p">;</span>
-<a id="__codelineno-414-3" name="__codelineno-414-3"></a>
-<a id="__codelineno-414-4" name="__codelineno-414-4"></a><span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">MyStruct</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">arg</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">p_flag</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">arg</span><span class="p">)}</span><span class="w"> </span><span class="p">{}</span>
-<a id="__codelineno-414-5" name="__codelineno-414-5"></a><span class="p">};</span>
-<a id="__codelineno-414-6" name="__codelineno-414-6"></a>
-<a id="__codelineno-414-7" name="__codelineno-414-7"></a><span class="c1">// These are allowed:</span>
-<a id="__codelineno-414-8" name="__codelineno-414-8"></a><span class="c1">//</span>
-<a id="__codelineno-414-9" name="__codelineno-414-9"></a><span class="n">MyStruct</span><span class="w"> </span><span class="n">ex1</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">(</span><span class="nb">true</span><span class="p">)};</span>
-<a id="__codelineno-414-10" name="__codelineno-414-10"></a>
-<a id="__codelineno-414-11" name="__codelineno-414-11"></a><span class="k">auto</span><span class="w"> </span><span class="n">flag_arg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
-<a id="__codelineno-414-12" name="__codelineno-414-12"></a><span class="n">MyStruct</span><span class="w"> </span><span class="n">ex2</span><span class="p">{</span><span class="n">batt</span><span class="o">::</span><span class="n">make_copy</span><span class="p">(</span><span class="n">flag_arg</span><span class="p">)};</span>
-<a id="__codelineno-414-13" name="__codelineno-414-13"></a><span class="n">MyStruct</span><span class="w"> </span><span class="n">ex3</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">flag_arg</span><span class="p">)};</span>
-<a id="__codelineno-414-14" name="__codelineno-414-14"></a>
-<a id="__codelineno-414-15" name="__codelineno-414-15"></a><span class="c1">// This is not allowed (the caller must declare intent loudly):</span>
-<a id="__codelineno-414-16" name="__codelineno-414-16"></a><span class="c1">//</span>
-<a id="__codelineno-414-17" name="__codelineno-414-17"></a><span class="k">auto</span><span class="w"> </span><span class="n">flag_arg2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
-<a id="__codelineno-414-18" name="__codelineno-414-18"></a><span class="n">MyStruct</span><span class="w"> </span><span class="n">ex4_BAD</span><span class="p">{</span><span class="n">flag_arg2</span><span class="p">};</span>
+<h3 id="function-parse_url">function parse_url<a class="headerlink" href="#function-parse_url" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-414-1">1</a></span>
+<span class="normal"><a href="#__codelineno-414-2">2</a></span>
+<span class="normal"><a href="#__codelineno-414-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-414-1" name="__codelineno-414-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="w"> </span><span class="n">UrlParse</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">parse_url</span><span class="p">(</span>
+<a id="__codelineno-414-2" name="__codelineno-414-2"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">url</span>
+<a id="__codelineno-414-3" name="__codelineno-414-3"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-sink">function sink<a class="headerlink" href="#function-sink" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-make_copy">function make_copy<a class="headerlink" href="#function-make_copy" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-415-1">1</a></span>
 <span class="normal"><a href="#__codelineno-415-2">2</a></span>
 <span class="normal"><a href="#__codelineno-415-3">3</a></span>
-<span class="normal"><a href="#__codelineno-415-4">4</a></span>
-<span class="normal"><a href="#__codelineno-415-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-415-1" name="__codelineno-415-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="p">,</span>
-<a id="__codelineno-415-2" name="__codelineno-415-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;&gt;</span>
-<a id="__codelineno-415-3" name="__codelineno-415-3"></a><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sink</span><span class="p">(</span>
-<a id="__codelineno-415-4" name="__codelineno-415-4"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">value</span>
-<a id="__codelineno-415-5" name="__codelineno-415-5"></a><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-415-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-415-1" name="__codelineno-415-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
+<a id="__codelineno-415-2" name="__codelineno-415-2"></a><span class="n">T</span><span class="w"> </span><span class="n">make_copy</span><span class="p">(</span>
+<a id="__codelineno-415-3" name="__codelineno-415-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span>
+<a id="__codelineno-415-4" name="__codelineno-415-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-sink_1">function sink<a class="headerlink" href="#function-sink_1" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-416-1">1</a></span>
-<span class="normal"><a href="#__codelineno-416-2">2</a></span>
-<span class="normal"><a href="#__codelineno-416-3">3</a></span>
-<span class="normal"><a href="#__codelineno-416-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-416-1" name="__codelineno-416-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-416-2" name="__codelineno-416-2"></a><span class="n">T</span><span class="w"> </span><span class="n">sink</span><span class="p">(</span>
-<a id="__codelineno-416-3" name="__codelineno-416-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span>
-<a id="__codelineno-416-4" name="__codelineno-416-4"></a><span class="p">)</span>
+<p>Return a copy of <code>value</code>. </p>
+<p>Supports the "sunk arguments idiom" of always declaring function arguments whose value is copied/retained by the callee as rvalue-references. This idiom maintains optimal efficiency in most cases while providing a signal-boost at call sites that an arg is being copied or moved. Examples:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-416-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-416-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-416-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-416-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-416-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-416-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-416-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-416-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-416-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-416-10">10</a></span>
+<span class="normal"><a href="#__codelineno-416-11">11</a></span>
+<span class="normal"><a href="#__codelineno-416-12">12</a></span>
+<span class="normal"><a href="#__codelineno-416-13">13</a></span>
+<span class="normal"><a href="#__codelineno-416-14">14</a></span>
+<span class="normal"><a href="#__codelineno-416-15">15</a></span>
+<span class="normal"><a href="#__codelineno-416-16">16</a></span>
+<span class="normal"><a href="#__codelineno-416-17">17</a></span>
+<span class="normal"><a href="#__codelineno-416-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-416-1" name="__codelineno-416-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">MyStruct</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-416-2" name="__codelineno-416-2"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">p_flag</span><span class="p">;</span>
+<a id="__codelineno-416-3" name="__codelineno-416-3"></a>
+<a id="__codelineno-416-4" name="__codelineno-416-4"></a><span class="w">  </span><span class="k">explicit</span><span class="w"> </span><span class="n">MyStruct</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="n">arg</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">p_flag</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">arg</span><span class="p">)}</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-416-5" name="__codelineno-416-5"></a><span class="p">};</span>
+<a id="__codelineno-416-6" name="__codelineno-416-6"></a>
+<a id="__codelineno-416-7" name="__codelineno-416-7"></a><span class="c1">// These are allowed:</span>
+<a id="__codelineno-416-8" name="__codelineno-416-8"></a><span class="c1">//</span>
+<a id="__codelineno-416-9" name="__codelineno-416-9"></a><span class="n">MyStruct</span><span class="w"> </span><span class="n">ex1</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">(</span><span class="nb">true</span><span class="p">)};</span>
+<a id="__codelineno-416-10" name="__codelineno-416-10"></a>
+<a id="__codelineno-416-11" name="__codelineno-416-11"></a><span class="k">auto</span><span class="w"> </span><span class="n">flag_arg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+<a id="__codelineno-416-12" name="__codelineno-416-12"></a><span class="n">MyStruct</span><span class="w"> </span><span class="n">ex2</span><span class="p">{</span><span class="n">batt</span><span class="o">::</span><span class="n">make_copy</span><span class="p">(</span><span class="n">flag_arg</span><span class="p">)};</span>
+<a id="__codelineno-416-13" name="__codelineno-416-13"></a><span class="n">MyStruct</span><span class="w"> </span><span class="n">ex3</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">flag_arg</span><span class="p">)};</span>
+<a id="__codelineno-416-14" name="__codelineno-416-14"></a>
+<a id="__codelineno-416-15" name="__codelineno-416-15"></a><span class="c1">// This is not allowed (the caller must declare intent loudly):</span>
+<a id="__codelineno-416-16" name="__codelineno-416-16"></a><span class="c1">//</span>
+<a id="__codelineno-416-17" name="__codelineno-416-17"></a><span class="k">auto</span><span class="w"> </span><span class="n">flag_arg2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+<a id="__codelineno-416-18" name="__codelineno-416-18"></a><span class="n">MyStruct</span><span class="w"> </span><span class="n">ex4_BAD</span><span class="p">{</span><span class="n">flag_arg2</span><span class="p">};</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-make_default">function make_default<a class="headerlink" href="#function-make_default" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-sink">function sink<a class="headerlink" href="#function-sink" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-417-1">1</a></span>
 <span class="normal"><a href="#__codelineno-417-2">2</a></span>
-<span class="normal"><a href="#__codelineno-417-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-417-1" name="__codelineno-417-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="p">,</span>
-<a id="__codelineno-417-2" name="__codelineno-417-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;!</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">&gt;&gt;&gt;</span>
-<a id="__codelineno-417-3" name="__codelineno-417-3"></a><span class="n">T</span><span class="w"> </span><span class="n">make_default</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-417-3">3</a></span>
+<span class="normal"><a href="#__codelineno-417-4">4</a></span>
+<span class="normal"><a href="#__codelineno-417-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-417-1" name="__codelineno-417-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="p">,</span>
+<a id="__codelineno-417-2" name="__codelineno-417-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;&gt;</span>
+<a id="__codelineno-417-3" name="__codelineno-417-3"></a><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">sink</span><span class="p">(</span>
+<a id="__codelineno-417-4" name="__codelineno-417-4"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">value</span>
+<a id="__codelineno-417-5" name="__codelineno-417-5"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>Return a default-constructed instance of type <code>T</code>. </p>
-<h3 id="function-make_default_1">function make_default<a class="headerlink" href="#function-make_default_1" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-sink_1">function sink<a class="headerlink" href="#function-sink_1" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-418-1">1</a></span>
 <span class="normal"><a href="#__codelineno-418-2">2</a></span>
 <span class="normal"><a href="#__codelineno-418-3">3</a></span>
-<span class="normal"><a href="#__codelineno-418-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-418-1" name="__codelineno-418-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="p">,</span>
-<a id="__codelineno-418-2" name="__codelineno-418-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">&gt;&gt;</span><span class="p">,</span>
-<a id="__codelineno-418-3" name="__codelineno-418-3"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="kt">void</span><span class="o">&gt;</span>
-<a id="__codelineno-418-4" name="__codelineno-418-4"></a><span class="kt">void</span><span class="w"> </span><span class="n">make_default</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-418-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-418-1" name="__codelineno-418-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
+<a id="__codelineno-418-2" name="__codelineno-418-2"></a><span class="n">T</span><span class="w"> </span><span class="n">sink</span><span class="p">(</span>
+<a id="__codelineno-418-3" name="__codelineno-418-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">value</span>
+<a id="__codelineno-418-4" name="__codelineno-418-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-unwrap_ref_4">function unwrap_ref<a class="headerlink" href="#function-unwrap_ref_4" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-make_default">function make_default<a class="headerlink" href="#function-make_default" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-419-1">1</a></span>
 <span class="normal"><a href="#__codelineno-419-2">2</a></span>
-<span class="normal"><a href="#__codelineno-419-3">3</a></span>
-<span class="normal"><a href="#__codelineno-419-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-419-1" name="__codelineno-419-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-419-2" name="__codelineno-419-2"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
-<a id="__codelineno-419-3" name="__codelineno-419-3"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">obj</span>
-<a id="__codelineno-419-4" name="__codelineno-419-4"></a><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-419-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-419-1" name="__codelineno-419-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="p">,</span>
+<a id="__codelineno-419-2" name="__codelineno-419-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;!</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">&gt;&gt;&gt;</span>
+<a id="__codelineno-419-3" name="__codelineno-419-3"></a><span class="n">T</span><span class="w"> </span><span class="n">make_default</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-unwrap_ref_5">function unwrap_ref<a class="headerlink" href="#function-unwrap_ref_5" title="Permanent link">&#128279;</a></h3>
+<p>Return a default-constructed instance of type <code>T</code>. </p>
+<h3 id="function-make_default_1">function make_default<a class="headerlink" href="#function-make_default_1" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-420-1">1</a></span>
 <span class="normal"><a href="#__codelineno-420-2">2</a></span>
 <span class="normal"><a href="#__codelineno-420-3">3</a></span>
-<span class="normal"><a href="#__codelineno-420-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-420-1" name="__codelineno-420-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-420-2" name="__codelineno-420-2"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
-<a id="__codelineno-420-3" name="__codelineno-420-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">wrapper</span>
-<a id="__codelineno-420-4" name="__codelineno-420-4"></a><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-420-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-420-1" name="__codelineno-420-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="p">,</span>
+<a id="__codelineno-420-2" name="__codelineno-420-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">&gt;&gt;</span><span class="p">,</span>
+<a id="__codelineno-420-3" name="__codelineno-420-3"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="kt">void</span><span class="o">&gt;</span>
+<a id="__codelineno-420-4" name="__codelineno-420-4"></a><span class="kt">void</span><span class="w"> </span><span class="n">make_default</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-unwrap_ref_6">function unwrap_ref<a class="headerlink" href="#function-unwrap_ref_6" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-unwrap_ref_4">function unwrap_ref<a class="headerlink" href="#function-unwrap_ref_4" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-421-1">1</a></span>
 <span class="normal"><a href="#__codelineno-421-2">2</a></span>
 <span class="normal"><a href="#__codelineno-421-3">3</a></span>
 <span class="normal"><a href="#__codelineno-421-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-421-1" name="__codelineno-421-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
 <a id="__codelineno-421-2" name="__codelineno-421-2"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
-<a id="__codelineno-421-3" name="__codelineno-421-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">wrapper</span>
+<a id="__codelineno-421-3" name="__codelineno-421-3"></a><span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">obj</span>
 <a id="__codelineno-421-4" name="__codelineno-421-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-unwrap_ref_7">function unwrap_ref<a class="headerlink" href="#function-unwrap_ref_7" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-unwrap_ref_5">function unwrap_ref<a class="headerlink" href="#function-unwrap_ref_5" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-422-1">1</a></span>
 <span class="normal"><a href="#__codelineno-422-2">2</a></span>
 <span class="normal"><a href="#__codelineno-422-3">3</a></span>
 <span class="normal"><a href="#__codelineno-422-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-422-1" name="__codelineno-422-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
 <a id="__codelineno-422-2" name="__codelineno-422-2"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
-<a id="__codelineno-422-3" name="__codelineno-422-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wrapper</span>
+<a id="__codelineno-422-3" name="__codelineno-422-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">wrapper</span>
 <a id="__codelineno-422-4" name="__codelineno-422-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-unwrap_ref_8">function unwrap_ref<a class="headerlink" href="#function-unwrap_ref_8" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-unwrap_ref_6">function unwrap_ref<a class="headerlink" href="#function-unwrap_ref_6" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-423-1">1</a></span>
 <span class="normal"><a href="#__codelineno-423-2">2</a></span>
 <span class="normal"><a href="#__codelineno-423-3">3</a></span>
 <span class="normal"><a href="#__codelineno-423-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-423-1" name="__codelineno-423-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
 <a id="__codelineno-423-2" name="__codelineno-423-2"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
-<a id="__codelineno-423-3" name="__codelineno-423-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wrapper</span>
+<a id="__codelineno-423-3" name="__codelineno-423-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">wrapper</span>
 <a id="__codelineno-423-4" name="__codelineno-423-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-rotate_args_right">function rotate_args_right<a class="headerlink" href="#function-rotate_args_right" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-unwrap_ref_7">function unwrap_ref<a class="headerlink" href="#function-unwrap_ref_7" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-424-1">1</a></span>
 <span class="normal"><a href="#__codelineno-424-2">2</a></span>
 <span class="normal"><a href="#__codelineno-424-3">3</a></span>
-<span class="normal"><a href="#__codelineno-424-4">4</a></span>
-<span class="normal"><a href="#__codelineno-424-5">5</a></span>
-<span class="normal"><a href="#__codelineno-424-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-424-1" name="__codelineno-424-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w"> </span><span class="p">,</span>
-<a id="__codelineno-424-2" name="__codelineno-424-2"></a><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
-<a id="__codelineno-424-3" name="__codelineno-424-3"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">rotate_args_right</span><span class="p">(</span>
-<a id="__codelineno-424-4" name="__codelineno-424-4"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">,</span>
-<a id="__codelineno-424-5" name="__codelineno-424-5"></a><span class="w">    </span><span class="n">Args</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span>
-<a id="__codelineno-424-6" name="__codelineno-424-6"></a><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-424-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-424-1" name="__codelineno-424-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
+<a id="__codelineno-424-2" name="__codelineno-424-2"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
+<a id="__codelineno-424-3" name="__codelineno-424-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wrapper</span>
+<a id="__codelineno-424-4" name="__codelineno-424-4"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-rotate_args_left">function rotate_args_left<a class="headerlink" href="#function-rotate_args_left" title="Permanent link">&#128279;</a></h3>
+<h3 id="function-unwrap_ref_8">function unwrap_ref<a class="headerlink" href="#function-unwrap_ref_8" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-425-1">1</a></span>
 <span class="normal"><a href="#__codelineno-425-2">2</a></span>
 <span class="normal"><a href="#__codelineno-425-3">3</a></span>
-<span class="normal"><a href="#__codelineno-425-4">4</a></span>
-<span class="normal"><a href="#__codelineno-425-5">5</a></span>
-<span class="normal"><a href="#__codelineno-425-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-425-1" name="__codelineno-425-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w"> </span><span class="p">,</span>
-<a id="__codelineno-425-2" name="__codelineno-425-2"></a><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
-<a id="__codelineno-425-3" name="__codelineno-425-3"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">rotate_args_left</span><span class="p">(</span>
-<a id="__codelineno-425-4" name="__codelineno-425-4"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">,</span>
-<a id="__codelineno-425-5" name="__codelineno-425-5"></a><span class="w">    </span><span class="n">Args</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span>
-<a id="__codelineno-425-6" name="__codelineno-425-6"></a><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-425-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-425-1" name="__codelineno-425-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="w"> </span><span class="o">&gt;</span>
+<a id="__codelineno-425-2" name="__codelineno-425-2"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">unwrap_ref</span><span class="p">(</span>
+<a id="__codelineno-425-3" name="__codelineno-425-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">reference_wrapper</span><span class="o">&lt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">wrapper</span>
+<a id="__codelineno-425-4" name="__codelineno-425-4"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-rotate_args_right">function rotate_args_right<a class="headerlink" href="#function-rotate_args_right" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-426-1">1</a></span>
+<span class="normal"><a href="#__codelineno-426-2">2</a></span>
+<span class="normal"><a href="#__codelineno-426-3">3</a></span>
+<span class="normal"><a href="#__codelineno-426-4">4</a></span>
+<span class="normal"><a href="#__codelineno-426-5">5</a></span>
+<span class="normal"><a href="#__codelineno-426-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-426-1" name="__codelineno-426-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w"> </span><span class="p">,</span>
+<a id="__codelineno-426-2" name="__codelineno-426-2"></a><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<a id="__codelineno-426-3" name="__codelineno-426-3"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">rotate_args_right</span><span class="p">(</span>
+<a id="__codelineno-426-4" name="__codelineno-426-4"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">,</span>
+<a id="__codelineno-426-5" name="__codelineno-426-5"></a><span class="w">    </span><span class="n">Args</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span>
+<a id="__codelineno-426-6" name="__codelineno-426-6"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-rotate_args_left">function rotate_args_left<a class="headerlink" href="#function-rotate_args_left" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-427-1">1</a></span>
+<span class="normal"><a href="#__codelineno-427-2">2</a></span>
+<span class="normal"><a href="#__codelineno-427-3">3</a></span>
+<span class="normal"><a href="#__codelineno-427-4">4</a></span>
+<span class="normal"><a href="#__codelineno-427-5">5</a></span>
+<span class="normal"><a href="#__codelineno-427-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-427-1" name="__codelineno-427-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w"> </span><span class="p">,</span>
+<a id="__codelineno-427-2" name="__codelineno-427-2"></a><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="o">&gt;</span>
+<a id="__codelineno-427-3" name="__codelineno-427-3"></a><span class="k">decltype</span><span class="p">(</span><span class="k">auto</span><span class="p">)</span><span class="w"> </span><span class="n">rotate_args_left</span><span class="p">(</span>
+<a id="__codelineno-427-4" name="__codelineno-427-4"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">,</span>
+<a id="__codelineno-427-5" name="__codelineno-427-5"></a><span class="w">    </span><span class="n">Args</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span>
+<a id="__codelineno-427-6" name="__codelineno-427-6"></a><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="attributes-documentation">Attributes Documentation<a class="headerlink" href="#attributes-documentation" title="Permanent link">&#128279;</a></h2>
 <h3 id="variable-kminstacksizelog2">variable kMinStackSizeLog2<a class="headerlink" href="#variable-kminstacksizelog2" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-426-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-426-1" name="__codelineno-426-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kMinStackSizeLog2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10u</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-428-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-428-1" name="__codelineno-428-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kMinStackSizeLog2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10u</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="variable-kmaxstacksizelog2">variable kMaxStackSizeLog2<a class="headerlink" href="#variable-kmaxstacksizelog2" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-427-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-427-1" name="__codelineno-427-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kMaxStackSizeLog2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32u</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-429-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-429-1" name="__codelineno-429-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kMaxStackSizeLog2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32u</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="variable-kmaxdebuginfothreads">variable kMaxDebugInfoThreads<a class="headerlink" href="#variable-kmaxdebuginfothreads" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-428-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-428-1" name="__codelineno-428-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kMaxDebugInfoThreads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-430-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-430-1" name="__codelineno-430-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kMaxDebugInfoThreads</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="variable-ktaskdebuginfosegvcallbackinstalled">variable kTaskDebugInfoSegvCallbackInstalled<a class="headerlink" href="#variable-ktaskdebuginfosegvcallbackinstalled" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-429-1">1</a></span>
-<span class="normal"><a href="#__codelineno-429-2">2</a></span>
-<span class="normal"><a href="#__codelineno-429-3">3</a></span>
-<span class="normal"><a href="#__codelineno-429-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-429-1" name="__codelineno-429-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">kTaskDebugInfoSegvCallbackInstalled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-429-2" name="__codelineno-429-2"></a><span class="w">    </span><span class="n">extra_segv_debug_info_callback</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">this_task_debug_info</span><span class="p">;</span>
-<a id="__codelineno-429-3" name="__codelineno-429-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
-<a id="__codelineno-429-4" name="__codelineno-429-4"></a><span class="p">}();</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="variable-kcpucachelinesize">variable kCpuCacheLineSize<a class="headerlink" href="#variable-kcpucachelinesize" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-430-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-430-1" name="__codelineno-430-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">kCpuCacheLineSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">usize</span><span class="p">{</span><span class="mi">64</span><span class="p">};</span>
-</code></pre></div></td></tr></table></div>
-<h3 id="variable-ksigsegvhandlerinstalled">variable kSigSegvHandlerInstalled<a class="headerlink" href="#variable-ksigsegvhandlerinstalled" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-431-1">1</a></span>
 <span class="normal"><a href="#__codelineno-431-2">2</a></span>
 <span class="normal"><a href="#__codelineno-431-3">3</a></span>
-<span class="normal"><a href="#__codelineno-431-4">4</a></span>
-<span class="normal"><a href="#__codelineno-431-5">5</a></span>
-<span class="normal"><a href="#__codelineno-431-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-431-1" name="__codelineno-431-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">kSigSegvHandlerInstalled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-431-2" name="__codelineno-431-2"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">SIGSEGV</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">detail</span><span class="o">::</span><span class="n">handle_segv</span><span class="p">);</span>
-<a id="__codelineno-431-3" name="__codelineno-431-3"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">SIGABRT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">detail</span><span class="o">::</span><span class="n">handle_segv</span><span class="p">);</span>
-<a id="__codelineno-431-4" name="__codelineno-431-4"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">atexit</span><span class="p">(</span><span class="o">&amp;</span><span class="n">print_stack_trace_atexit</span><span class="p">);</span>
-<a id="__codelineno-431-5" name="__codelineno-431-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
-<a id="__codelineno-431-6" name="__codelineno-431-6"></a><span class="p">}();</span>
+<span class="normal"><a href="#__codelineno-431-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-431-1" name="__codelineno-431-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">kTaskDebugInfoSegvCallbackInstalled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-431-2" name="__codelineno-431-2"></a><span class="w">    </span><span class="n">extra_segv_debug_info_callback</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">this_task_debug_info</span><span class="p">;</span>
+<a id="__codelineno-431-3" name="__codelineno-431-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<a id="__codelineno-431-4" name="__codelineno-431-4"></a><span class="p">}();</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="variable-kdefaultsmallvecsize">variable kDefaultSmallVecSize<a class="headerlink" href="#variable-kdefaultsmallvecsize" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-432-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-432-1" name="__codelineno-432-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kDefaultSmallVecSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<h3 id="variable-kcpucachelinesize">variable kCpuCacheLineSize<a class="headerlink" href="#variable-kcpucachelinesize" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-432-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-432-1" name="__codelineno-432-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">kCpuCacheLineSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">usize</span><span class="p">{</span><span class="mi">64</span><span class="p">};</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="variable-isstatusenum">variable IsStatusEnum<a class="headerlink" href="#variable-isstatusenum" title="Permanent link">&#128279;</a></h3>
+<h3 id="variable-ksigsegvhandlerinstalled">variable kSigSegvHandlerInstalled<a class="headerlink" href="#variable-ksigsegvhandlerinstalled" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-433-1">1</a></span>
 <span class="normal"><a href="#__codelineno-433-2">2</a></span>
 <span class="normal"><a href="#__codelineno-433-3">3</a></span>
 <span class="normal"><a href="#__codelineno-433-4">4</a></span>
-<span class="normal"><a href="#__codelineno-433-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-433-1" name="__codelineno-433-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">IsStatusEnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">                                  </span>
-<a id="__codelineno-433-2" name="__codelineno-433-2"></a><span class="w">                              </span><span class="o">!</span><span class="n">boost</span><span class="o">::</span><span class="n">system</span><span class="o">::</span><span class="n">is_error_code_enum</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">       </span>
-<a id="__codelineno-433-3" name="__codelineno-433-3"></a><span class="w">                              </span><span class="o">!</span><span class="n">boost</span><span class="o">::</span><span class="n">system</span><span class="o">::</span><span class="n">is_error_condition_enum</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">  </span>
-<a id="__codelineno-433-4" name="__codelineno-433-4"></a><span class="w">                              </span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_error_code_enum_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">                      </span>
-<a id="__codelineno-433-5" name="__codelineno-433-5"></a><span class="w">                              </span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_error_condition_enum_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="normal"><a href="#__codelineno-433-5">5</a></span>
+<span class="normal"><a href="#__codelineno-433-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-433-1" name="__codelineno-433-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">kSigSegvHandlerInstalled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-433-2" name="__codelineno-433-2"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">SIGSEGV</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">detail</span><span class="o">::</span><span class="n">handle_segv</span><span class="p">);</span>
+<a id="__codelineno-433-3" name="__codelineno-433-3"></a><span class="w">    </span><span class="n">signal</span><span class="p">(</span><span class="n">SIGABRT</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">detail</span><span class="o">::</span><span class="n">handle_segv</span><span class="p">);</span>
+<a id="__codelineno-433-4" name="__codelineno-433-4"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">atexit</span><span class="p">(</span><span class="o">&amp;</span><span class="n">print_stack_trace_atexit</span><span class="p">);</span>
+<a id="__codelineno-433-5" name="__codelineno-433-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<a id="__codelineno-433-6" name="__codelineno-433-6"></a><span class="p">}();</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="variable-kdefaultsmallvecsize">variable kDefaultSmallVecSize<a class="headerlink" href="#variable-kdefaultsmallvecsize" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-434-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-434-1" name="__codelineno-434-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="n">usize</span><span class="w"> </span><span class="n">kDefaultSmallVecSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="variable-isstatusenum">variable IsStatusEnum<a class="headerlink" href="#variable-isstatusenum" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-435-1">1</a></span>
+<span class="normal"><a href="#__codelineno-435-2">2</a></span>
+<span class="normal"><a href="#__codelineno-435-3">3</a></span>
+<span class="normal"><a href="#__codelineno-435-4">4</a></span>
+<span class="normal"><a href="#__codelineno-435-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-435-1" name="__codelineno-435-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">IsStatusEnum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">is_enum_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">                                  </span>
+<a id="__codelineno-435-2" name="__codelineno-435-2"></a><span class="w">                              </span><span class="o">!</span><span class="n">boost</span><span class="o">::</span><span class="n">system</span><span class="o">::</span><span class="n">is_error_code_enum</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">       </span>
+<a id="__codelineno-435-3" name="__codelineno-435-3"></a><span class="w">                              </span><span class="o">!</span><span class="n">boost</span><span class="o">::</span><span class="n">system</span><span class="o">::</span><span class="n">is_error_condition_enum</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">  </span>
+<a id="__codelineno-435-4" name="__codelineno-435-4"></a><span class="w">                              </span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_error_code_enum_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w">                      </span>
+<a id="__codelineno-435-5" name="__codelineno-435-5"></a><span class="w">                              </span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_error_condition_enum_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="variable-tupleindexof_v">variable TupleIndexOf_v<a class="headerlink" href="#variable-tupleindexof_v" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-434-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-434-1" name="__codelineno-434-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">TupleIndexOf_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TupleIndexOf</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">TupleT</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-436-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-436-1" name="__codelineno-436-1"></a><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">TupleIndexOf_v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TupleIndexOf</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">TupleT</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 17 July 2023 at 19:37:09 UTC</p>
+<p>Updated on 17 July 2023 at 22:04:21 UTC</p>
 
 
 

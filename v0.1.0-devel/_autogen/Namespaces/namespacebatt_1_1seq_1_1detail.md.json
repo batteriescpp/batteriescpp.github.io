@@ -13,8 +13,8 @@
   "language": "cpp",
   "location": {
     "column": 1,
-    "file": "batteries/seq/zip.hpp",
-    "line": 109
+    "file": "batteries/seq/kmerge.hpp",
+    "line": 21
   },
   "name": "batt::seq::detail",
   "override": false,
@@ -53,6 +53,70 @@
       "refid": "namespacebatt_1_1seq",
       "title": "batt::seq",
       "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    }
+  ],
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::detail::HeapOrderBase",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::detail::HeapOrderBase",
+      "refid": "structbatt_1_1seq_1_1detail_1_1HeapOrderBase",
+      "title": "batt::seq::detail::HeapOrderBase",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrderBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "Compare",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::seq::detail::HeapOrderEmptyBase",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::detail::HeapOrderEmptyBase",
+      "refid": "structbatt_1_1seq_1_1detail_1_1HeapOrderEmptyBase",
+      "title": "batt::seq::detail::HeapOrderEmptyBase",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrderEmptyBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::conditional_t< can_be_empty_base< Compare >(), HeapOrderEmptyBase< Compare >, HeapOrderBase< Compare > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::seq::KMergeBy< Seq, Compare >",
+          "refid": "classbatt_1_1seq_1_1KMergeBy",
+          "url": "/_autogen/Classes/classbatt_1_1seq_1_1KMergeBy/",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "fullname": "batt::seq::detail::HeapOrder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::detail::HeapOrder",
+      "refid": "structbatt_1_1seq_1_1detail_1_1HeapOrder",
+      "title": "batt::seq::detail::HeapOrder",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrder/",
       "visibility": "public"
     }
   ],

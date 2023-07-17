@@ -754,6 +754,7 @@
 
 <h1 id="battoptional">batt::Optional<a class="headerlink" href="#battoptional" title="Permanent link">&#128279;</a></h1>
 <p><a href="#detailed-description">More...</a></p>
+<p>Inherits from std::conditional_t&lt; can_be_empty_base&lt; T &gt;(), detail::OptionalEmptyBase&lt; T &gt;, detail::OptionalBase&lt; T &gt; &gt;</p>
 <h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&#128279;</a></h2>
 <table>
 <thead>
@@ -772,7 +773,7 @@
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-optional">Optional</a></strong>(<a href="/_autogen/Classes/structbatt_1_1NoneType/">NoneType</a> )</td>
 </tr>
 <tr>
-<td>template &lt;typename... Args,typename  =std::enable_if_t<std::is_constructible_v\<T, Args&&...> >> <br></td>
+<td>template &lt;typename... Args,typename  =std::enable_if_t<std::is_constructible_v\<T, Args&&...>>> <br></td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-optional">Optional</a></strong>(<a href="/_autogen/Classes/structbatt_1_1InPlaceInitType/">InPlaceInitType</a> , Args &amp;&amp;... args)</td>
 </tr>
 <tr>
@@ -780,15 +781,15 @@
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-optional">Optional</a></strong>(std::optional&lt; T &gt; &amp;&amp; init)</td>
 </tr>
 <tr>
-<td>template &lt;typename U ,typename  =std::enable_if_t<std::is_convertible_v\<U, T> && !std::is_same_v\<T, Optional\<U> > >,typename  =batt::EnableIfNoShadow<Optional, U>> <br></td>
+<td>template &lt;typename U ,typename  =std::enable_if_t<std::is_convertible_v\<U, T> && !std::is_same_v\<T, Optional\<U>>>,typename  =batt::EnableIfNoShadow<Optional, U>> <br></td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-optional">Optional</a></strong>(<a href="/_autogen/Classes/classbatt_1_1Optional/">Optional</a>&lt; U &gt; &amp;&amp; u)</td>
 </tr>
 <tr>
-<td>template &lt;typename U ,typename  =std::enable_if_t<std::is_convertible_v\<U, T> && !std::is_same_v\<T, Optional\<U> > >,typename  =batt::EnableIfNoShadow<Optional, U>> <br></td>
+<td>template &lt;typename U ,typename  =std::enable_if_t<std::is_convertible_v\<U, T> && !std::is_same_v\<T, Optional\<U>>>,typename  =batt::EnableIfNoShadow<Optional, U>> <br></td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-optional">Optional</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1Optional/">Optional</a>&lt; U &gt; &amp; u)</td>
 </tr>
 <tr>
-<td>template &lt;typename... Args,typename  =std::enable_if_t<std::is_constructible_v\<T, Args&&...> >,typename  =batt::EnableIfNoShadow<Optional, Args...>> <br></td>
+<td>template &lt;typename... Args,typename  =std::enable_if_t<std::is_constructible_v\<T, Args&&...>>,typename  =batt::EnableIfNoShadow<Optional, Args...>> <br></td>
 <td><strong><a href="/_autogen/Classes/classbatt_1_1Optional/#function-optional">Optional</a></strong>(Args &amp;&amp;... args)</td>
 </tr>
 <tr>
@@ -904,7 +905,7 @@
 <span class="normal"><a href="#__codelineno-3-4">4</a></span>
 <span class="normal"><a href="#__codelineno-3-5">5</a></span>
 <span class="normal"><a href="#__codelineno-3-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="p">,</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_constructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_constructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="o">&gt;&gt;&gt;</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Optional</span><span class="p">(</span>
 <a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="n">InPlaceInitType</span><span class="w"> </span><span class="p">,</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="n">Args</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span>
@@ -924,7 +925,7 @@
 <span class="normal"><a href="#__codelineno-5-4">4</a></span>
 <span class="normal"><a href="#__codelineno-5-5">5</a></span>
 <span class="normal"><a href="#__codelineno-5-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="w"> </span><span class="p">,</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_convertible_v</span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="p">,</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_convertible_v</span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&gt;&gt;</span><span class="p">,</span>
 <a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">batt</span><span class="o">::</span><span class="n">EnableIfNoShadow</span><span class="o">&lt;</span><span class="n">Optional</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;&gt;</span>
 <a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Optional</span><span class="p">(</span>
 <a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">u</span>
@@ -937,7 +938,7 @@
 <span class="normal"><a href="#__codelineno-6-4">4</a></span>
 <span class="normal"><a href="#__codelineno-6-5">5</a></span>
 <span class="normal"><a href="#__codelineno-6-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="w"> </span><span class="p">,</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_convertible_v</span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="p">,</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_convertible_v</span><span class="o">&lt;</span><span class="n">U</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;&gt;&gt;</span><span class="p">,</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">batt</span><span class="o">::</span><span class="n">EnableIfNoShadow</span><span class="o">&lt;</span><span class="n">Optional</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;&gt;</span>
 <a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Optional</span><span class="p">(</span>
 <a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Optional</span><span class="o">&lt;</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">u</span>
@@ -950,7 +951,7 @@
 <span class="normal"><a href="#__codelineno-7-4">4</a></span>
 <span class="normal"><a href="#__codelineno-7-5">5</a></span>
 <span class="normal"><a href="#__codelineno-7-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">...</span><span class="w"> </span><span class="n">Args</span><span class="p">,</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_constructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="p">,</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">std</span><span class="o">::</span><span class="n">enable_if_t</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">is_constructible_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="o">&gt;&gt;</span><span class="p">,</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="k">typename</span><span class="w">  </span><span class="o">=</span><span class="n">batt</span><span class="o">::</span><span class="n">EnableIfNoShadow</span><span class="o">&lt;</span><span class="n">Optional</span><span class="p">,</span><span class="w"> </span><span class="n">Args</span><span class="p">...</span><span class="o">&gt;&gt;</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Optional</span><span class="p">(</span>
 <a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">    </span><span class="n">Args</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span>
@@ -1081,7 +1082,7 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">get_ptr</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 17 July 2023 at 19:37:10 UTC</p>
+<p>Updated on 17 July 2023 at 22:04:21 UTC</p>
 
 
 

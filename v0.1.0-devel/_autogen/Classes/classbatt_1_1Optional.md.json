@@ -1,6 +1,15 @@
 {
   "abstract": false,
   "anchor": "",
+  "baseClasses": [
+    {
+      "external": true,
+      "name": "std::conditional_t< can_be_empty_base< T >(), detail::OptionalEmptyBase< T >, detail::OptionalBase< T > >",
+      "refid": null,
+      "virtual": "non-virtual",
+      "visibility": "private"
+    }
+  ],
   "category": "classes",
   "const": false,
   "definition": "",
@@ -12,12 +21,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 324,
+    "bodyEnd": 361,
     "bodyFile": "batteries/optional.hpp",
-    "bodyStart": 91,
+    "bodyStart": 129,
     "column": 1,
     "file": "batteries/optional.hpp",
-    "line": 90
+    "line": 123
   },
   "name": "batt::Optional",
   "override": false,
@@ -50,36 +59,6 @@
   "privateAttributes": [
     {
       "abstract": false,
-      "anchor": "#variable-storage-",
-      "category": "attributes",
-      "const": false,
-      "definition": "std::aligned_storage_t<sizeof(T), alignof(T)> batt::Optional< T >::storage_",
-      "explicit": false,
-      "fullname": "batt::Optional::storage_",
-      "hasDetails": false,
-      "inline": false,
-      "kind": "variable",
-      "language": "cpp",
-      "location": {
-        "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 322,
-        "column": 28,
-        "file": "batteries/optional.hpp",
-        "line": 322
-      },
-      "name": "storage_",
-      "override": false,
-      "refid": "classbatt_1_1Optional_1adcae26d49455ae67928631b4a2111933",
-      "static": false,
-      "strong": false,
-      "title": "storage_",
-      "type": "std::aligned_storage_t< sizeof(T), alignof(T)>",
-      "typePlain": "std::aligned_storage_t< sizeof(T), alignof(T)>",
-      "url": "/_autogen/Classes/classbatt_1_1Optional/#variable-storage-",
-      "visibility": "private"
-    },
-    {
-      "abstract": false,
       "anchor": "#variable-valid-",
       "category": "attributes",
       "const": false,
@@ -93,10 +72,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 323,
+        "bodyStart": 360,
         "column": 10,
         "file": "batteries/optional.hpp",
-        "line": 323
+        "line": 360
       },
       "name": "valid_",
       "override": false,
@@ -127,12 +106,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 315,
+        "bodyEnd": 353,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 312,
+        "bodyStart": 350,
         "column": 7,
         "file": "batteries/optional.hpp",
-        "line": 312
+        "line": 350
       },
       "name": "obj",
       "override": false,
@@ -164,12 +143,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 320,
+        "bodyEnd": 358,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 317,
+        "bodyStart": 355,
         "column": 13,
         "file": "batteries/optional.hpp",
-        "line": 317
+        "line": 355
       },
       "name": "obj",
       "override": false,
@@ -203,12 +182,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 98,
+        "bodyEnd": 136,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 96,
+        "bodyStart": 134,
         "column": 5,
         "file": "batteries/optional.hpp",
-        "line": 96
+        "line": 134
       },
       "name": "Optional",
       "override": false,
@@ -238,12 +217,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 102,
+        "bodyEnd": 140,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 100,
+        "bodyStart": 138,
         "column": 5,
         "file": "batteries/optional.hpp",
-        "line": 100
+        "line": 138
       },
       "name": "Optional",
       "override": false,
@@ -279,12 +258,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 109,
+        "bodyEnd": 147,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 105,
+        "bodyStart": 143,
         "column": 5,
         "file": "batteries/optional.hpp",
-        "line": 105
+        "line": 143
       },
       "name": "Optional",
       "override": false,
@@ -311,8 +290,8 @@
           "typePlain": "typename..."
         },
         {
-          "defval": "std::enable_if_t<std::is_constructible_v<T, Args&&...> >",
-          "defvalPlain": "std::enable_if_t<std::is_constructible_v<T, Args&&...> >",
+          "defval": "std::enable_if_t<std::is_constructible_v<T, Args&&...>>",
+          "defvalPlain": "std::enable_if_t<std::is_constructible_v<T, Args&&...>>",
           "name": "",
           "type": "typename",
           "typePlain": "typename"
@@ -339,12 +318,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 116,
+        "bodyEnd": 154,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 111,
+        "bodyStart": 149,
         "column": 5,
         "file": "batteries/optional.hpp",
-        "line": 111
+        "line": 149
       },
       "name": "Optional",
       "override": false,
@@ -380,12 +359,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 127,
+        "bodyEnd": 165,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 121,
+        "bodyStart": 159,
         "column": 5,
         "file": "batteries/optional.hpp",
-        "line": 121
+        "line": 159
       },
       "name": "Optional",
       "override": false,
@@ -407,8 +386,8 @@
           "typePlain": "typename U"
         },
         {
-          "defval": "std::enable_if_t<std::is_convertible_v<U, T> && !std::is_same_v<T, [Optional](/_autogen/Classes/classbatt_1_1Optional/)<U> > >",
-          "defvalPlain": "std::enable_if_t<std::is_convertible_v<U, T> && !std::is_same_v<T, Optional<U> > >",
+          "defval": "std::enable_if_t<std::is_convertible_v<U, T> && !std::is_same_v<T, [Optional](/_autogen/Classes/classbatt_1_1Optional/)<U>>>",
+          "defvalPlain": "std::enable_if_t<std::is_convertible_v<U, T> && !std::is_same_v<T, Optional<U>>>",
           "name": "",
           "type": "typename",
           "typePlain": "typename"
@@ -442,12 +421,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 138,
+        "bodyEnd": 176,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 132,
+        "bodyStart": 170,
         "column": 5,
         "file": "batteries/optional.hpp",
-        "line": 132
+        "line": 170
       },
       "name": "Optional",
       "override": false,
@@ -469,8 +448,8 @@
           "typePlain": "typename U"
         },
         {
-          "defval": "std::enable_if_t<std::is_convertible_v<U, T> && !std::is_same_v<T, [Optional](/_autogen/Classes/classbatt_1_1Optional/)<U> > >",
-          "defvalPlain": "std::enable_if_t<std::is_convertible_v<U, T> && !std::is_same_v<T, Optional<U> > >",
+          "defval": "std::enable_if_t<std::is_convertible_v<U, T> && !std::is_same_v<T, [Optional](/_autogen/Classes/classbatt_1_1Optional/)<U>>>",
+          "defvalPlain": "std::enable_if_t<std::is_convertible_v<U, T> && !std::is_same_v<T, Optional<U>>>",
           "name": "",
           "type": "typename",
           "typePlain": "typename"
@@ -504,12 +483,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 146,
+        "bodyEnd": 184,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 142,
+        "bodyStart": 180,
         "column": 5,
         "file": "batteries/optional.hpp",
-        "line": 142
+        "line": 180
       },
       "name": "Optional",
       "override": false,
@@ -531,8 +510,8 @@
           "typePlain": "typename..."
         },
         {
-          "defval": "std::enable_if_t<std::is_constructible_v<T, Args&&...> >",
-          "defvalPlain": "std::enable_if_t<std::is_constructible_v<T, Args&&...> >",
+          "defval": "std::enable_if_t<std::is_constructible_v<T, Args&&...>>",
+          "defvalPlain": "std::enable_if_t<std::is_constructible_v<T, Args&&...>>",
           "name": "",
           "type": "typename",
           "typePlain": "typename"
@@ -566,12 +545,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 152,
+        "bodyEnd": 190,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 148,
+        "bodyStart": 186,
         "column": 5,
         "file": "batteries/optional.hpp",
-        "line": 148
+        "line": 186
       },
       "name": "Optional",
       "override": false,
@@ -607,12 +586,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 159,
+        "bodyEnd": 197,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 154,
+        "bodyStart": 192,
         "column": 5,
         "file": "batteries/optional.hpp",
-        "line": 154
+        "line": 192
       },
       "name": "~Optional",
       "override": false,
@@ -642,12 +621,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 167,
+        "bodyEnd": 205,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 161,
+        "bodyStart": 199,
         "column": 5,
         "file": "batteries/optional.hpp",
-        "line": 161
+        "line": 199
       },
       "name": "Optional",
       "override": false,
@@ -683,12 +662,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 175,
+        "bodyEnd": 213,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 169,
+        "bodyStart": 207,
         "column": 5,
         "file": "batteries/optional.hpp",
-        "line": 169
+        "line": 207
       },
       "name": "Optional",
       "override": false,
@@ -724,12 +703,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 190,
+        "bodyEnd": 228,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 177,
+        "bodyStart": 215,
         "column": 14,
         "file": "batteries/optional.hpp",
-        "line": 177
+        "line": 215
       },
       "name": "operator=",
       "override": false,
@@ -767,12 +746,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 205,
+        "bodyEnd": 243,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 192,
+        "bodyStart": 230,
         "column": 14,
         "file": "batteries/optional.hpp",
-        "line": 192
+        "line": 230
       },
       "name": "operator=",
       "override": false,
@@ -810,12 +789,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 217,
+        "bodyEnd": 255,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 208,
+        "bodyStart": 246,
         "column": 7,
         "file": "batteries/optional.hpp",
-        "line": 208
+        "line": 246
       },
       "name": "emplace",
       "override": false,
@@ -860,12 +839,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 226,
+        "bodyEnd": 264,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 220,
+        "bodyStart": 258,
         "column": 7,
         "file": "batteries/optional.hpp",
-        "line": 220
+        "line": 258
       },
       "name": "value_or",
       "override": false,
@@ -910,12 +889,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 235,
+        "bodyEnd": 273,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 229,
+        "bodyStart": 267,
         "column": 7,
         "file": "batteries/optional.hpp",
-        "line": 229
+        "line": 267
       },
       "name": "or_else",
       "override": false,
@@ -960,12 +939,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 244,
+        "bodyEnd": 282,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 238,
+        "bodyStart": 276,
         "column": 14,
         "file": "batteries/optional.hpp",
-        "line": 238
+        "line": 276
       },
       "name": "map",
       "override": false,
@@ -1017,12 +996,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 253,
+        "bodyEnd": 291,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 247,
+        "bodyStart": 285,
         "column": 15,
         "file": "batteries/optional.hpp",
-        "line": 247
+        "line": 285
       },
       "name": "flat_map",
       "override": false,
@@ -1074,12 +1053,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 258,
+        "bodyEnd": 296,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 255,
+        "bodyStart": 293,
         "column": 14,
         "file": "batteries/optional.hpp",
-        "line": 255
+        "line": 293
       },
       "name": "operator bool",
       "override": false,
@@ -1109,12 +1088,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 263,
+        "bodyEnd": 301,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 260,
+        "bodyStart": 298,
         "column": 10,
         "file": "batteries/optional.hpp",
-        "line": 260
+        "line": 298
       },
       "name": "has_value",
       "override": false,
@@ -1146,12 +1125,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 272,
+        "bodyEnd": 310,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 265,
+        "bodyStart": 303,
         "column": 14,
         "file": "batteries/optional.hpp",
-        "line": 265
+        "line": 303
       },
       "name": "operator=",
       "override": false,
@@ -1189,12 +1168,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 277,
+        "bodyEnd": 315,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 274,
+        "bodyStart": 312,
         "column": 7,
         "file": "batteries/optional.hpp",
-        "line": 274
+        "line": 312
       },
       "name": "operator*",
       "override": false,
@@ -1226,12 +1205,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 282,
+        "bodyEnd": 320,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 279,
+        "bodyStart": 317,
         "column": 13,
         "file": "batteries/optional.hpp",
-        "line": 279
+        "line": 317
       },
       "name": "operator*",
       "override": false,
@@ -1263,12 +1242,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 287,
+        "bodyEnd": 325,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 284,
+        "bodyStart": 322,
         "column": 7,
         "file": "batteries/optional.hpp",
-        "line": 284
+        "line": 322
       },
       "name": "operator*",
       "override": false,
@@ -1302,7 +1281,7 @@
       "location": {
         "column": 7,
         "file": "batteries/optional.hpp",
-        "line": 289
+        "line": 327
       },
       "name": "operator*",
       "override": false,
@@ -1334,12 +1313,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 294,
+        "bodyEnd": 332,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 291,
+        "bodyStart": 329,
         "column": 7,
         "file": "batteries/optional.hpp",
-        "line": 291
+        "line": 329
       },
       "name": "operator->",
       "override": false,
@@ -1371,12 +1350,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 299,
+        "bodyEnd": 337,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 296,
+        "bodyStart": 334,
         "column": 13,
         "file": "batteries/optional.hpp",
-        "line": 296
+        "line": 334
       },
       "name": "operator->",
       "override": false,
@@ -1408,12 +1387,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 304,
+        "bodyEnd": 342,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 301,
+        "bodyStart": 339,
         "column": 7,
         "file": "batteries/optional.hpp",
-        "line": 301
+        "line": 339
       },
       "name": "get_ptr",
       "override": false,
@@ -1445,12 +1424,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 309,
+        "bodyEnd": 347,
         "bodyFile": "batteries/optional.hpp",
-        "bodyStart": 306,
+        "bodyStart": 344,
         "column": 13,
         "file": "batteries/optional.hpp",
-        "line": 306
+        "line": 344
       },
       "name": "get_ptr",
       "override": false,
