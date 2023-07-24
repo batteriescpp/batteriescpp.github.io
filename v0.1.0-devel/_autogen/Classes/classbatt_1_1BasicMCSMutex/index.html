@@ -15,7 +15,7 @@
     
     
       
-        <title>pico_http::detail::@157 - Batteries C++</title>
+        <title>batt::BasicMCSMutex - Batteries C++</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#types" class="md-skip">
+        <a href="#public-classes" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              pico_http::detail::@157
+              batt::BasicMCSMutex
             
           </span>
         </div>
@@ -374,7 +374,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Classes/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Classes
       </a>
     </li>
@@ -505,23 +505,79 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#types" class="md-nav__link">
-    Types
+  <a href="#public-classes" class="md-nav__link">
+    Public Classes
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#types-documentation" class="md-nav__link">
-    Types Documentation
+  <a href="#public-functions" class="md-nav__link">
+    Public Functions
   </a>
   
-    <nav class="md-nav" aria-label="Types Documentation">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-description" class="md-nav__link">
+    Detailed Description
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    Public Functions Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#enum-0" class="md-nav__link">
-    enum @0
+  <a href="#function-futex_wait" class="md-nav__link">
+    function futex_wait
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-futex_notify" class="md-nav__link">
+    function futex_notify
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-spin_yield" class="md-nav__link">
+    function spin_yield
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-metrics" class="md-nav__link">
+    function metrics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-basicmcsmutex" class="md-nav__link">
+    function BasicMCSMutex
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-basicmcsmutex_1" class="md-nav__link">
+    function BasicMCSMutex
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-operator" class="md-nav__link">
+    function operator=
   </a>
   
 </li>
@@ -547,10 +603,12 @@
 
 
 
-  <h1>pico_http::detail::@157</h1>
+  <h1>batt::BasicMCSMutex</h1>
 
-<h1 id="pico_httpdetail157">pico_http::detail::@157<a class="headerlink" href="#pico_httpdetail157" title="Permanent link">&#128279;</a></h1>
-<h2 id="types">Types<a class="headerlink" href="#types" title="Permanent link">&#128279;</a></h2>
+<h1 id="battbasicmcsmutex">batt::BasicMCSMutex<a class="headerlink" href="#battbasicmcsmutex" title="Permanent link">&#128279;</a></h1>
+<p>A fair mutual exclusion lock based on the MCS lock algorithm.  <a href="#detailed-description">More...</a></p>
+<p><code>#include &lt;batteries/async/mcs_lock.hpp&gt;</code></p>
+<h2 id="public-classes">Public Classes<a class="headerlink" href="#public-classes" title="Permanent link">&#128279;</a></h2>
 <table>
 <thead>
 <tr>
@@ -560,31 +618,104 @@
 </thead>
 <tbody>
 <tr>
-<td>enum</td>
-<td><strong><a href="/_autogen/Namespaces/namespacepico__http_1_1detail_1_1_0d157/#enum-@0">@0</a></strong> { }</td>
+<td>class</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicMCSMutex_1_1Lock/">Lock</a></strong></td>
+</tr>
+<tr>
+<td>struct</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1BasicMCSMutex_1_1Metrics/">Metrics</a></strong> <br>Metric counters for measuring behavior of MCSMutex locks.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="types-documentation">Types Documentation<a class="headerlink" href="#types-documentation" title="Permanent link">&#128279;</a></h2>
-<h3 id="enum-0">enum @0<a class="headerlink" href="#enum-0" title="Permanent link">&#128279;</a></h3>
+<h2 id="public-functions">Public Functions<a class="headerlink" href="#public-functions" title="Permanent link">&#128279;</a></h2>
 <table>
 <thead>
 <tr>
-<th>Enumerator</th>
-<th>Value</th>
-<th>Description</th>
+<th></th>
+<th>Name</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td>int</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicMCSMutex/#function-futex-wait">futex_wait</a></strong>(std::atomic&lt; u32 &gt; * , u32 )</td>
+</tr>
+<tr>
+<td>int</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicMCSMutex/#function-futex-notify">futex_notify</a></strong>(std::atomic&lt; u32 &gt; * , u32  =1)</td>
+</tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicMCSMutex/#function-spin-yield">spin_yield</a></strong>()</td>
+</tr>
+<tr>
+<td><a href="/_autogen/Classes/structbatt_1_1BasicMCSMutex_1_1Metrics/">Metrics</a> &amp;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicMCSMutex/#function-metrics">metrics</a></strong>()</td>
+</tr>
+<tr>
 <td></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicMCSMutex/#function-basicmcsmutex">BasicMCSMutex</a></strong>() =default</td>
+</tr>
+<tr>
 <td></td>
-<td></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicMCSMutex/#function-basicmcsmutex">BasicMCSMutex</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1BasicMCSMutex/">BasicMCSMutex</a> &amp; ) =deleted</td>
+</tr>
+<tr>
+<td><a href="/_autogen/Classes/classbatt_1_1BasicMCSMutex/">BasicMCSMutex</a> &amp;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicMCSMutex/#function-operator=">operator=</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1BasicMCSMutex/">BasicMCSMutex</a> &amp; ) =deleted</td>
 </tr>
 </tbody>
 </table>
+<h2 id="detailed-description">Detailed Description<a class="headerlink" href="#detailed-description" title="Permanent link">&#128279;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="kt">bool</span><span class="w"> </span><span class="n">kMetricsEnabled</span><span class="w"> </span><span class="o">=</span><span class="nb">true</span><span class="o">&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">batt</span><span class="o">::</span><span class="n">BasicMCSMutex</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+<p>A fair mutual exclusion lock based on the MCS lock algorithm. </p>
+<h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&#128279;</a></h2>
+<h3 id="function-futex_wait">function futex_wait<a class="headerlink" href="#function-futex_wait" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">futex_wait</span><span class="p">(</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="w"> </span><span class="n">u32</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="n">u32</span><span class="w"> </span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-futex_notify">function futex_notify<a class="headerlink" href="#function-futex_notify" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">futex_notify</span><span class="p">(</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="w"> </span><span class="n">u32</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">    </span><span class="n">u32</span><span class="w">  </span><span class="o">=</span><span class="mi">1</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-spin_yield">function spin_yield<a class="headerlink" href="#function-spin_yield" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">spin_yield</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-metrics">function metrics<a class="headerlink" href="#function-metrics" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">Metrics</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">metrics</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-basicmcsmutex">function BasicMCSMutex<a class="headerlink" href="#function-basicmcsmutex" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">BasicMCSMutex</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-basicmcsmutex_1">function BasicMCSMutex<a class="headerlink" href="#function-basicmcsmutex_1" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">BasicMCSMutex</span><span class="p">(</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicMCSMutex</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="n">deleted</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="function-operator">function operator=<a class="headerlink" href="#function-operator" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">BasicMCSMutex</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">BasicMCSMutex</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="n">deleted</span>
+</code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 18 July 2023 at 01:37:00 UTC</p>
+<p>Updated on 24 July 2023 at 20:45:00 UTC</p>
 
 
 

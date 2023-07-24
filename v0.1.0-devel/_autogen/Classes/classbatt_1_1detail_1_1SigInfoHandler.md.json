@@ -12,7 +12,7 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 144,
+    "bodyEnd": 148,
     "bodyFile": "batteries/async/dump_tasks.hpp",
     "bodyStart": 39,
     "column": 1,
@@ -75,10 +75,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/dump_tasks.hpp",
-        "bodyStart": 131,
+        "bodyStart": 135,
         "column": 17,
         "file": "batteries/async/dump_tasks.hpp",
-        "line": 131
+        "line": 135
       },
       "name": "halted_",
       "override": false,
@@ -105,10 +105,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/dump_tasks.hpp",
-        "bodyStart": 133,
+        "bodyStart": 137,
         "column": 29,
         "file": "batteries/async/dump_tasks.hpp",
-        "line": 133
+        "line": 137
       },
       "name": "sig_info_io_",
       "override": false,
@@ -136,10 +136,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/dump_tasks.hpp",
-        "bodyStart": 135,
+        "bodyStart": 139,
         "column": 14,
         "file": "batteries/async/dump_tasks.hpp",
-        "line": 135
+        "line": 139
       },
       "name": "sig_info_work_guard_",
       "override": false,
@@ -167,10 +167,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/dump_tasks.hpp",
-        "bodyStart": 137,
+        "bodyStart": 141,
         "column": 14,
         "file": "batteries/async/dump_tasks.hpp",
-        "line": 137
+        "line": 141
       },
       "name": "sig_info_",
       "override": false,
@@ -198,10 +198,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/dump_tasks.hpp",
-        "bodyStart": 139,
+        "bodyStart": 143,
         "column": 43,
         "file": "batteries/async/dump_tasks.hpp",
-        "line": 139
+        "line": 143
       },
       "name": "last_sig_info_",
       "override": false,
@@ -229,10 +229,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/dump_tasks.hpp",
-        "bodyStart": 141,
+        "bodyStart": 145,
         "column": 17,
         "file": "batteries/async/dump_tasks.hpp",
-        "line": 141
+        "line": 145
       },
       "name": "sig_info_thread_",
       "override": false,
@@ -368,7 +368,7 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 84,
+        "bodyEnd": 82,
         "bodyFile": "batteries/async/dump_tasks.hpp",
         "bodyStart": 73,
         "column": 10,
@@ -405,12 +405,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 102,
+        "bodyEnd": 100,
         "bodyFile": "batteries/async/dump_tasks.hpp",
-        "bodyStart": 86,
+        "bodyStart": 84,
         "column": 10,
         "file": "batteries/async/dump_tasks.hpp",
-        "line": 86
+        "line": 84
       },
       "name": "halt",
       "override": false,
@@ -442,12 +442,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 109,
+        "bodyEnd": 107,
         "bodyFile": "batteries/async/dump_tasks.hpp",
-        "bodyStart": 104,
+        "bodyStart": 102,
         "column": 10,
         "file": "batteries/async/dump_tasks.hpp",
-        "line": 104
+        "line": 102
       },
       "name": "join",
       "override": false,
@@ -465,8 +465,45 @@
     },
     {
       "abstract": false,
+      "anchor": "#function-wait-for-signal",
+      "argsString": "()",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::detail::SigInfoHandler::wait_for_signal",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::SigInfoHandler::wait_for_signal",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 115,
+        "bodyFile": "batteries/async/dump_tasks.hpp",
+        "bodyStart": 109,
+        "column": 10,
+        "file": "batteries/async/dump_tasks.hpp",
+        "line": 109
+      },
+      "name": "wait_for_signal",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1SigInfoHandler_1addd2ec5003a7d30e07708f601c0a9684",
+      "static": false,
+      "strong": false,
+      "title": "wait_for_signal",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1SigInfoHandler/#function-wait-for-signal",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#function-handle-signal",
-      "argsString": "(const boost::system::error_code &, int)",
+      "argsString": "(const boost::system::error_code &ec, int signal_n)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -479,29 +516,29 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 128,
+        "bodyEnd": 132,
         "bodyFile": "batteries/async/dump_tasks.hpp",
-        "bodyStart": 111,
+        "bodyStart": 117,
         "column": 10,
         "file": "batteries/async/dump_tasks.hpp",
-        "line": 111
+        "line": 117
       },
       "name": "handle_signal",
       "override": false,
       "params": [
         {
-          "name": "",
+          "name": "ec",
           "type": "const boost::system::error_code &",
           "typePlain": "const boost::system::error_code &"
         },
         {
-          "name": "",
+          "name": "signal_n",
           "type": "int",
           "typePlain": "int"
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1detail_1_1SigInfoHandler_1af194a59b59ea4933ffbcd839ad1e92a7",
+      "refid": "classbatt_1_1detail_1_1SigInfoHandler_1ae550e89d038df4ae1a52fb8909043f43",
       "static": false,
       "strong": false,
       "title": "handle_signal",

@@ -1,0 +1,153 @@
+{
+  "abstract": false,
+  "anchor": "#file-mcs-lock.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-mcs-lock-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_MCS_LOCK_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/mcs_lock.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/mcs_lock.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_MCS_LOCK_HPP",
+      "override": false,
+      "refid": "mcs__lock_8hpp_1aa4ac61fb1df7e9d601487b193dc8af66",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_MCS_LOCK_HPP",
+      "url": "/_autogen/Files/mcs__lock_8hpp/#define-batteries-async-mcs-lock-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/mcs_lock.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/mcs_lock.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/mcs_lock.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_MCS_LOCK_HPP\n#define BATTERIES_ASYNC_MCS_LOCK_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/cpu_align.hpp>\n#include <batteries/int_types.hpp>\n\n#ifdef BATT_PLATFORM_IS_LINUX\n#include <linux/futex.h>\n#include <sched.h>\n#include <sys/syscall.h>\n#endif\n\n#include <atomic>\n#include <functional>\n\nnamespace batt {\n\ntemplate <bool kMetricsEnabled>\nclass BasicMCSMutex;\n\nusing MCSMutex = BasicMCSMutex<false>;\n\ntemplate <bool kMetricsEnabled = true>\nclass BasicMCSMutex\n{\n   public:\n    struct Metrics {\n        usize acquire_count = 0;\n\n        usize fast_acquire_count = 0;\n\n        usize spin_acquire_count = 0;\n\n        usize wait_acquire_count = 0;\n\n        usize init_acquire_spin_count = 0;\n\n        usize wait_acquire_spin_count = 0;\n\n        usize wait_acquire_futex_count = 0;\n\n        usize release_count = 0;\n\n        usize fast_release_count = 0;\n\n        usize direct_release_count = 0;\n\n        usize spin_release_count = 0;\n\n        usize wait_next_spin_count = 0;\n\n        void reset() noexcept\n        {\n            std::memset(this, 0, sizeof(Metrics));\n        }\n\n        Metrics& operator+=(const Metrics& other) noexcept\n        {\n            this->acquire_count += other.acquire_count;\n            this->fast_acquire_count += other.fast_acquire_count;\n            this->spin_acquire_count += other.spin_acquire_count;\n            this->wait_acquire_count += other.wait_acquire_count;\n            this->init_acquire_spin_count += other.init_acquire_spin_count;\n            this->wait_acquire_futex_count += other.wait_acquire_futex_count;\n            this->release_count += other.release_count;\n            this->fast_release_count += other.fast_release_count;\n            this->direct_release_count += other.direct_release_count;\n            this->spin_release_count += other.spin_release_count;\n            this->wait_next_spin_count += other.wait_next_spin_count;\n            return *this;\n        }\n    };\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n#if defined(BATT_PLATFORM_IS_LINUX)\n\n    static int futex(uint32_t* uaddr, int futex_op, uint32_t val, const struct timespec* timeout,\n                     uint32_t* uaddr2, uint32_t val3)\n    {\n        return syscall(SYS_futex, uaddr, futex_op, val, timeout, uaddr2, val3);\n    }\n\n    static int futex_wait(std::atomic<u32>* var, u32 last_seen)\n    {\n        static_assert(sizeof(std::atomic<u32>) == sizeof(u32));\n        return futex((u32*)var, FUTEX_WAIT_PRIVATE, last_seen, NULL, NULL, 0);\n    }\n\n    static int futex_notify(std::atomic<u32>* var, u32 count = 1)\n    {\n        static_assert(sizeof(std::atomic<u32>) == sizeof(u32));\n        return futex((u32*)var, FUTEX_WAKE_PRIVATE, count, NULL, NULL, 0);\n    }\n\n    static void spin_yield()\n    {\n        sched_yield();\n    }\n\n#else\n\n    static int futex_wait(std::atomic<u32>*, u32)\n    {\n        return 0;\n    }\n\n    static int futex_notify(std::atomic<u32>*, u32 = 1)\n    {\n        return 0;\n    }\n\n    static void spin_yield()\n    {\n        std::this_thread::yield();\n    }\n\n#endif\n\n    static Metrics& metrics()\n    {\n        thread_local Metrics m;\n        return m;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    class Lock\n    {\n       public:\n        static constexpr usize kAcquireSpinCyclesInit = 2048;\n        static constexpr usize kAcquireSpinCyclesSteady = 8;\n\n        explicit Lock(BasicMCSMutex& mutex) noexcept : mutex_{mutex}\n        {\n            if (kMetricsEnabled) {\n                ++metrics().acquire_count;\n            }\n\n            Lock* prev = this->mutex_.lock_->exchange(this);\n            if (prev == nullptr) {\n                // Fast path; we acquired the lock with no contention; return!\n                //\n                if (kMetricsEnabled) {\n                    ++metrics().fast_acquire_count;\n                }\n                return;\n            }\n\n            // Let the current end-of-queue know about us.\n            //\n            prev->next_->store(this);\n\n            // The lock is held by some other task; we must spin to acquire.\n            //\n            for (usize i = 0; i < kAcquireSpinCyclesInit; ++i) {\n                if (kMetricsEnabled) {\n                    ++metrics().init_acquire_spin_count;\n                }\n                if (this->waiting_to_acquire_->load() == 0) {\n                    if (kMetricsEnabled) {\n                        ++metrics().spin_acquire_count;\n                    }\n                    goto have_lock;\n                }\n                //----- --- -- -  -  -   -\n                spin_yield();\n                //----- --- -- -  -  -   -\n            }\n\n            // We have exceeded the maximum allowed spin cycles; enter the Futex-wait loop.\n            //\n            for (;;) {\n                if (kMetricsEnabled) {\n                    ++metrics().wait_acquire_futex_count;\n                }\n\n                // Wait on the Futex.\n                //\n                const int retval = futex_wait(this->waiting_to_acquire_.get(), /*last_seen=*/1);\n                if (retval != 0 && errno != EAGAIN) {\n                    BATT_PANIC() << BATT_INSPECT(retval) << BATT_INSPECT(errno);\n                }\n\n                // Now that the futex has been signaled, we spin for the configured limit before doing another\n                // Futex wait.\n                //\n                for (usize i = 0; i < kAcquireSpinCyclesSteady; ++i) {\n                    if (kMetricsEnabled) {\n                        ++metrics().wait_acquire_spin_count;\n                    }\n                    if (this->waiting_to_acquire_->load() == 0) {\n                        if (kMetricsEnabled) {\n                            ++metrics().wait_acquire_count;\n                        }\n                        goto have_lock;\n                    }\n                    //----- --- -- -  -  -   -\n                    spin_yield();\n                    //----- --- -- -  -  -   -\n                }\n            }\n\n            // Lock acquired!  We are done.\n            //\n        have_lock:;\n        }\n\n        Lock(const Lock&) = delete;\n        Lock& operator=(const Lock&) = delete;\n\n        ~Lock() noexcept\n        {\n            if (kMetricsEnabled) {\n                ++metrics().release_count;\n            }\n\n            Lock* observed_next = this->next_->load();\n\n            //  If our next pointer is null, then assume we are the last in the queue, which means\n            //  mutex_.lock_ should still point to us.  CAS to release the lock under this assumption.\n            //\n            if (observed_next == nullptr) {\n                {\n                    Lock* presumed_holder = this;\n                    do {\n                        if (this->mutex_.lock_->compare_exchange_weak(presumed_holder, nullptr)) {\n                            if (kMetricsEnabled) {\n                                ++metrics().fast_release_count;\n                            }\n                            return;\n                        }\n                    } while (presumed_holder == this);\n                }\n\n                // We failed to replace ourselves with nullptr at the end of the queue, which means there must\n                // be another lock who came afterwards; since we observed our `next_` to be nullptr above, we\n                // must spin-wait until our successor runs the `prev->next_.store(this)` statement in the\n                // ctor.\n                //\n                for (;;) {\n                    if (kMetricsEnabled) {\n                        ++metrics().wait_next_spin_count;\n                    }\n                    observed_next = this->next_->load();\n                    if (observed_next != nullptr) {\n                        if (kMetricsEnabled) {\n                            ++metrics().spin_release_count;\n                        }\n                        break;\n                    }\n                    //----- --- -- -  -  -   -\n                    spin_yield();\n                    //----- --- -- -  -  -   -\n                }\n            } else {\n                if (kMetricsEnabled) {\n                    ++metrics().direct_release_count;\n                }\n            }\n\n            // Signal to the next-in-queue that the lock is now free!\n            //\n            observed_next->waiting_to_acquire_->store(0);\n            futex_notify(observed_next->waiting_to_acquire_.get());\n        }\n\n       private:\n        BasicMCSMutex& mutex_;\n\n        batt::CpuCacheLineIsolated<std::atomic<Lock*>> next_{nullptr};\n\n        batt::CpuCacheLineIsolated<std::atomic<u32>> waiting_to_acquire_{1};\n    };\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    BasicMCSMutex() = default;\n\n    BasicMCSMutex(const BasicMCSMutex&) = delete;\n    BasicMCSMutex& operator=(const BasicMCSMutex&) = delete;\n\n   private:\n    batt::CpuCacheLineIsolated<std::atomic<Lock*>> lock_{nullptr};\n};\n\n}  //namespace batt\n\n#endif  // BATTERIES_ASYNC_MCS_LOCK_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "A fair mutual exclusion lock based on the MCS lock algorithm. ",
+      "category": "classes",
+      "fullname": "batt::BasicMCSMutex",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicMCSMutex",
+      "refid": "classbatt_1_1BasicMCSMutex",
+      "summary": "A fair mutual exclusion lock based on the MCS lock algorithm. ",
+      "title": "batt::BasicMCSMutex",
+      "url": "/_autogen/Classes/classbatt_1_1BasicMCSMutex/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Metric counters for measuring behavior of MCSMutex locks. ",
+      "category": "classes",
+      "fullname": "batt::BasicMCSMutex::Metrics",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::BasicMCSMutex::Metrics",
+      "refid": "structbatt_1_1BasicMCSMutex_1_1Metrics",
+      "summary": "Metric counters for measuring behavior of MCSMutex locks. ",
+      "title": "batt::BasicMCSMutex::Metrics",
+      "url": "/_autogen/Classes/structbatt_1_1BasicMCSMutex_1_1Metrics/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::BasicMCSMutex::Lock",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicMCSMutex::Lock",
+      "refid": "classbatt_1_1BasicMCSMutex_1_1Lock",
+      "title": "batt::BasicMCSMutex::Lock",
+      "url": "/_autogen/Classes/classbatt_1_1BasicMCSMutex_1_1Lock/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "mcs__lock_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/mcs_lock.hpp",
+  "url": "/_autogen/Files/mcs__lock_8hpp/#file-mcs-lock.hpp",
+  "visibility": "public"
+}

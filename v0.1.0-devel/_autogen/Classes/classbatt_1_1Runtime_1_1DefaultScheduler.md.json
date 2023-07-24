@@ -168,7 +168,7 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 315,
+    "bodyEnd": 316,
     "bodyFile": "batteries/async/runtime.hpp",
     "bodyStart": 199,
     "column": 1,
@@ -287,7 +287,7 @@
       "explicit": false,
       "fullname": "batt::Runtime::DefaultScheduler::cpu_count_",
       "hasDetails": false,
-      "initializer": "= std::thread::hardware_concurrency()",
+      "initializer": "=\n        getenv_as<unsigned>(\"BATT_DEFAULT_SCHEDULER_CPU_COUNT\").value_or(std::thread::hardware_concurrency())",
       "inline": false,
       "kind": "variable",
       "language": "cpp",
@@ -323,10 +323,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 293,
+        "bodyStart": 294,
         "column": 17,
         "file": "batteries/async/runtime.hpp",
-        "line": 293
+        "line": 294
       },
       "name": "io_",
       "override": false,
@@ -353,10 +353,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 298,
+        "bodyStart": 299,
         "column": 17,
         "file": "batteries/async/runtime.hpp",
-        "line": 298
+        "line": 299
       },
       "name": "work_guards_",
       "override": false,
@@ -383,10 +383,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 302,
+        "bodyStart": 303,
         "column": 17,
         "file": "batteries/async/runtime.hpp",
-        "line": 302
+        "line": 303
       },
       "name": "thread_pool_",
       "override": false,
@@ -414,10 +414,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 306,
+        "bodyStart": 307,
         "column": 17,
         "file": "batteries/async/runtime.hpp",
-        "line": 306
+        "line": 307
       },
       "name": "halted_",
       "override": false,
@@ -445,10 +445,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 310,
+        "bodyStart": 311,
         "column": 17,
         "file": "batteries/async/runtime.hpp",
-        "line": 310
+        "line": 311
       },
       "name": "round_robin_",
       "override": false,
@@ -475,10 +475,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/runtime.hpp",
-        "bodyStart": 314,
+        "bodyStart": 315,
         "column": 16,
         "file": "batteries/async/runtime.hpp",
-        "line": 314
+        "line": 315
       },
       "name": "join_mutex_",
       "override": false,
