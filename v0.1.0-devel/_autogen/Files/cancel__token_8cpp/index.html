@@ -15,7 +15,7 @@
     
     
       
-        <title>pico_http::detail::@161 - Batteries C++</title>
+        <title>batteries/async/cancel_token.cpp - Batteries C++</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#types" class="md-skip">
+        <a href="#source-code" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              pico_http::detail::@161
+              batteries/async/cancel_token.cpp
             
           </span>
         </div>
@@ -360,7 +360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Files/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Files
       </a>
     </li>
@@ -505,29 +505,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#types" class="md-nav__link">
-    Types
+  <a href="#source-code" class="md-nav__link">
+    Source code
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#types-documentation" class="md-nav__link">
-    Types Documentation
-  </a>
-  
-    <nav class="md-nav" aria-label="Types Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#enum-0" class="md-nav__link">
-    enum @0
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -547,44 +527,36 @@
 
 
 
-  <h1>pico_http::detail::@161</h1>
+  <h1>batteries/async/cancel_token.cpp</h1>
 
-<h1 id="pico_httpdetail161">pico_http::detail::@161<a class="headerlink" href="#pico_httpdetail161" title="Permanent link">&#128279;</a></h1>
-<h2 id="types">Types<a class="headerlink" href="#types" title="Permanent link">&#128279;</a></h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enum</td>
-<td><strong><a href="/_autogen/Namespaces/namespacepico__http_1_1detail_1_1_0d161/#enum-@0">@0</a></strong> { }</td>
-</tr>
-</tbody>
-</table>
-<h2 id="types-documentation">Types Documentation<a class="headerlink" href="#types-documentation" title="Permanent link">&#128279;</a></h2>
-<h3 id="enum-0">enum @0<a class="headerlink" href="#enum-0" title="Permanent link">&#128279;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Enumerator</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<h1 id="batteriesasynccancel_tokencpp">batteries/async/cancel_token.cpp<a class="headerlink" href="#batteriesasynccancel_tokencpp" title="Permanent link">&#128279;</a></h1>
+<h2 id="source-code">Source code<a class="headerlink" href="#source-code" title="Permanent link">&#128279;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1">// Copyright 2023 Anthony Paul Astolfi</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1">//</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/config.hpp&gt;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="cp">#if !BATT_HEADER_ONLY</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/async/cancel_token.hpp&gt;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1">//</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/async/cancel_token_impl.hpp&gt;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="cp">#endif  </span><span class="c1">// !BATT_HEADER_ONLY</span>
+</code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 24 July 2023 at 20:45:00 UTC</p>
+<p>Updated on  9 August 2023 at 21:18:53 UTC</p>
 
 
 

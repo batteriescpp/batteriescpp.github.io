@@ -626,7 +626,7 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "bool batt::Queue< T >::push",
+      "definition": "Status batt::Queue< T >::push",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::Queue::push",
@@ -638,7 +638,7 @@
         "bodyEnd": 148,
         "bodyFile": "batteries/async/queue.hpp",
         "bodyStart": 140,
-        "column": 10,
+        "column": 12,
         "file": "batteries/async/queue.hpp",
         "line": 140
       },
@@ -652,7 +652,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1Queue_1a20568b834b4c0c6b0512f1ca1638f267",
+      "refid": "classbatt_1_1Queue_1a5716b9bef44d0f96558174ad9d6eabad",
       "returns": [
         "true if the push succeeded; false if the queue was closed. "
       ],
@@ -667,8 +667,8 @@
         }
       ],
       "title": "push",
-      "type": "bool",
-      "typePlain": "bool",
+      "type": "[Status](/_autogen/Classes/classbatt_1_1Status/)",
+      "typePlain": "Status",
       "url": "/_autogen/Classes/classbatt_1_1Queue/#function-push",
       "virtual": false,
       "visibility": "public"
@@ -681,7 +681,7 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "bool batt::Queue< T >::push_with_lock",
+      "definition": "Status batt::Queue< T >::push_with_lock",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::Queue::push_with_lock",
@@ -693,7 +693,7 @@
         "bodyEnd": 164,
         "bodyFile": "batteries/async/queue.hpp",
         "bodyStart": 153,
-        "column": 10,
+        "column": 12,
         "file": "batteries/async/queue.hpp",
         "line": 153
       },
@@ -707,7 +707,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1Queue_1adfa5b5d6ae75a28df82c8f5cb8e38e6e",
+      "refid": "classbatt_1_1Queue_1afbf465c6ec03fe210b29e8ae4037ffd6",
       "static": false,
       "strong": false,
       "summary": "Atomically invokes the factory_fn to create an instance of T to push into the Queue. ",
@@ -719,8 +719,8 @@
         }
       ],
       "title": "push_with_lock",
-      "type": "bool",
-      "typePlain": "bool",
+      "type": "[Status](/_autogen/Classes/classbatt_1_1Status/)",
+      "typePlain": "Status",
       "url": "/_autogen/Classes/classbatt_1_1Queue/#function-push-with-lock",
       "virtual": false,
       "visibility": "public"
@@ -733,7 +733,7 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "bool batt::Queue< T >::push_all",
+      "definition": "Status batt::Queue< T >::push_all",
       "deleted": false,
       "details": "[Queue::push_all](/_autogen/Classes/classbatt_1_1Queue/#function-push-all) guarantees that the passed items will be inserted in the given order, with no other items interposed (via concurrent calls to [Queue::push](/_autogen/Classes/classbatt_1_1Queue/#function-push) or similar).\n\n`items` should be an STL sequence; i.e., something that can be iterated via a for-each loop. ",
       "explicit": false,
@@ -746,7 +746,7 @@
         "bodyEnd": 185,
         "bodyFile": "batteries/async/queue.hpp",
         "bodyStart": 174,
-        "column": 10,
+        "column": 12,
         "file": "batteries/async/queue.hpp",
         "line": 174
       },
@@ -760,7 +760,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1Queue_1a96fbf66be0e4e1c3dfe6bebc72e3d109",
+      "refid": "classbatt_1_1Queue_1ac2d8e934f4dadec0922a426cdad13df9",
       "static": false,
       "strong": false,
       "summary": "Inserts multiple items atomically into the Queue. ",
@@ -772,8 +772,8 @@
         }
       ],
       "title": "push_all",
-      "type": "bool",
-      "typePlain": "bool",
+      "type": "[Status](/_autogen/Classes/classbatt_1_1Status/)",
+      "typePlain": "Status",
       "url": "/_autogen/Classes/classbatt_1_1Queue/#function-push-all",
       "virtual": false,
       "visibility": "public"

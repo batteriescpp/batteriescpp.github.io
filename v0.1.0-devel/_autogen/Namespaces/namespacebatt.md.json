@@ -444,6 +444,18 @@
     },
     {
       "anchor": "",
+      "category": "classes",
+      "fullname": "batt::BasicExecutor",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicExecutor",
+      "refid": "classbatt_1_1BasicExecutor",
+      "title": "batt::BasicExecutor",
+      "url": "/_autogen/Classes/classbatt_1_1BasicExecutor/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
       "brief": "Adapts a single ConstBuffer to be a [BufferSource](). ",
       "category": "classes",
       "fullname": "batt::SingleBufferSource",
@@ -538,6 +550,20 @@
       "refid": "classbatt_1_1BufferedChannel",
       "title": "batt::BufferedChannel",
       "url": "/_autogen/Classes/classbatt_1_1BufferedChannel/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Enables effective cancellation of arbitrary async operations. ",
+      "category": "classes",
+      "fullname": "batt::CancelToken",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::CancelToken",
+      "refid": "classbatt_1_1CancelToken",
+      "summary": "Enables effective cancellation of arbitrary async operations. ",
+      "title": "batt::CancelToken",
+      "url": "/_autogen/Classes/classbatt_1_1CancelToken/",
       "visibility": "public"
     },
     {
@@ -847,6 +873,14 @@
       "derivedClasses": [
         {
           "external": false,
+          "name": "batt::HandlerMemory< 2 *kCpuCacheLineSize - sizeof(batt::Watch< u32 >)>",
+          "refid": "classbatt_1_1HandlerMemory",
+          "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
           "name": "batt::HandlerMemory< kHandlerMemoryBytes >",
           "refid": "classbatt_1_1HandlerMemory",
           "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
@@ -941,7 +975,7 @@
       "baseClasses": [
         {
           "external": true,
-          "name": "RefCounted< Latch< T > >",
+          "name": "batt::RefCounted< Latch< T > >",
           "virtual": "non-virtual",
           "visibility": "public"
         }
@@ -1244,18 +1278,6 @@
     },
     {
       "anchor": "",
-      "category": "classes",
-      "fullname": "batt::BasicSimpleExecutor",
-      "kind": "class",
-      "language": "cpp",
-      "name": "batt::BasicSimpleExecutor",
-      "refid": "classbatt_1_1BasicSimpleExecutor",
-      "title": "batt::BasicSimpleExecutor",
-      "url": "/_autogen/Classes/classbatt_1_1BasicSimpleExecutor/",
-      "visibility": "public"
-    },
-    {
-      "anchor": "",
       "baseClasses": [
         {
           "external": true,
@@ -1264,12 +1286,14 @@
           "visibility": "public"
         }
       ],
+      "brief": "A minimal multi-threaded execution context implementation, suitable for parallel-compute thread pools. ",
       "category": "classes",
       "fullname": "batt::SimpleExecutionContext",
       "kind": "class",
       "language": "cpp",
       "name": "batt::SimpleExecutionContext",
       "refid": "classbatt_1_1SimpleExecutionContext",
+      "summary": "A minimal multi-threaded execution context implementation, suitable for parallel-compute thread pools. ",
       "title": "batt::SimpleExecutionContext",
       "url": "/_autogen/Classes/classbatt_1_1SimpleExecutionContext/",
       "visibility": "public"
@@ -1749,7 +1773,7 @@
       "baseClasses": [
         {
           "external": true,
-          "name": "RefCounted< ManagedBuffer >",
+          "name": "batt::RefCounted< ManagedBuffer >",
           "virtual": "non-virtual",
           "visibility": "public"
         }
@@ -1943,7 +1967,7 @@
       "baseClasses": [
         {
           "external": true,
-          "name": "RefCounted< HttpClientHostContext >",
+          "name": "batt::RefCounted< HttpClientHostContext >",
           "virtual": "non-virtual",
           "visibility": "public"
         }
@@ -3682,7 +3706,7 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 62,
+        "bodyEnd": 65,
         "bodyFile": "batteries/algo/parallel_accumulate.hpp",
         "bodyStart": 27,
         "column": 7,
@@ -3777,12 +3801,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 104,
+        "bodyEnd": 107,
         "bodyFile": "batteries/algo/parallel_accumulate.hpp",
-        "bodyStart": 67,
+        "bodyStart": 70,
         "column": 3,
         "file": "batteries/algo/parallel_accumulate.hpp",
-        "line": 67
+        "line": 70
       },
       "name": "parallel_accumulate",
       "override": false,
@@ -3876,7 +3900,7 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 45,
+        "bodyEnd": 47,
         "bodyFile": "batteries/algo/parallel_copy.hpp",
         "bodyStart": 22,
         "column": 6,
@@ -4174,7 +4198,7 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 83,
+        "bodyEnd": 84,
         "bodyFile": "batteries/algo/parallel_running_total.hpp",
         "bodyStart": 32,
         "column": 14,
@@ -4249,12 +4273,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 97,
+        "bodyEnd": 98,
         "bodyFile": "batteries/algo/parallel_running_total.hpp",
-        "bodyStart": 88,
+        "bodyStart": 89,
         "column": 14,
         "file": "batteries/algo/parallel_running_total.hpp",
-        "line": 88
+        "line": 89
       },
       "name": "parallel_running_total",
       "override": false,
@@ -4314,7 +4338,7 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 46,
+        "bodyEnd": 49,
         "bodyFile": "batteries/algo/parallel_transform.hpp",
         "bodyStart": 22,
         "column": 6,
@@ -5362,6 +5386,441 @@
       "type": "auto",
       "typePlain": "auto",
       "url": "/_autogen/Namespaces/namespacebatt/#function-operator|",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-hash-value",
+      "argsString": "(const CancelToken &cancel_token)",
+      "brief": "[CancelToken]() is hashed by its impl pointer. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "usize batt::hash_value",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::hash_value",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 188,
+        "bodyFile": "batteries/async/cancel_token.hpp",
+        "bodyStart": 185,
+        "column": 14,
+        "file": "batteries/async/cancel_token.hpp",
+        "line": 185
+      },
+      "name": "hash_value",
+      "override": false,
+      "params": [
+        {
+          "name": "cancel_token",
+          "type": "const [CancelToken](/_autogen/Classes/classbatt_1_1CancelToken/) &",
+          "typePlain": "const CancelToken &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "cancel__token_8hpp_1a2c8d107d50e117df5352504bc508305d",
+      "static": false,
+      "strong": false,
+      "summary": "CancelToken is hashed by its impl pointer. ",
+      "title": "hash_value",
+      "type": "usize",
+      "typePlain": "usize",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-hash-value",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator==",
+      "argsString": "(const CancelToken &l, const CancelToken &r)",
+      "brief": "Returns true iff the two objects are copies of the same [CancelToken](). ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator==",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator==",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 195,
+        "bodyFile": "batteries/async/cancel_token.hpp",
+        "bodyStart": 192,
+        "column": 13,
+        "file": "batteries/async/cancel_token.hpp",
+        "line": 192
+      },
+      "name": "operator==",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [CancelToken](/_autogen/Classes/classbatt_1_1CancelToken/) &",
+          "typePlain": "const CancelToken &"
+        },
+        {
+          "name": "r",
+          "type": "const [CancelToken](/_autogen/Classes/classbatt_1_1CancelToken/) &",
+          "typePlain": "const CancelToken &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "cancel__token_8hpp_1a61a5c5b88237219da52d54528a091b73",
+      "static": false,
+      "strong": false,
+      "summary": "Returns true iff the two objects are copies of the same CancelToken. ",
+      "title": "operator==",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator==",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator!=",
+      "argsString": "(const CancelToken &l, const CancelToken &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator!=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator!=",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 200,
+        "bodyFile": "batteries/async/cancel_token.hpp",
+        "bodyStart": 197,
+        "column": 13,
+        "file": "batteries/async/cancel_token.hpp",
+        "line": 197
+      },
+      "name": "operator!=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [CancelToken](/_autogen/Classes/classbatt_1_1CancelToken/) &",
+          "typePlain": "const CancelToken &"
+        },
+        {
+          "name": "r",
+          "type": "const [CancelToken](/_autogen/Classes/classbatt_1_1CancelToken/) &",
+          "typePlain": "const CancelToken &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "cancel__token_8hpp_1a6c537cc51dee8a90af97385d0a5ecb97",
+      "static": false,
+      "strong": false,
+      "title": "operator!=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator!=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator<",
+      "argsString": "(const CancelToken &l, const CancelToken &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator<",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator<",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 205,
+        "bodyFile": "batteries/async/cancel_token.hpp",
+        "bodyStart": 202,
+        "column": 8,
+        "file": "batteries/async/cancel_token.hpp",
+        "line": 202
+      },
+      "name": "operator<",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [CancelToken](/_autogen/Classes/classbatt_1_1CancelToken/) &",
+          "typePlain": "const CancelToken &"
+        },
+        {
+          "name": "r",
+          "type": "const [CancelToken](/_autogen/Classes/classbatt_1_1CancelToken/) &",
+          "typePlain": "const CancelToken &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "cancel__token_8hpp_1a8c92060bf77c30f91c730420a329adac",
+      "static": false,
+      "strong": false,
+      "title": "operator<",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator<",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator>",
+      "argsString": "(const CancelToken &l, const CancelToken &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator>",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator>",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 210,
+        "bodyFile": "batteries/async/cancel_token.hpp",
+        "bodyStart": 207,
+        "column": 13,
+        "file": "batteries/async/cancel_token.hpp",
+        "line": 207
+      },
+      "name": "operator>",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [CancelToken](/_autogen/Classes/classbatt_1_1CancelToken/) &",
+          "typePlain": "const CancelToken &"
+        },
+        {
+          "name": "r",
+          "type": "const [CancelToken](/_autogen/Classes/classbatt_1_1CancelToken/) &",
+          "typePlain": "const CancelToken &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "cancel__token_8hpp_1a29aedd8dda6f9ae283439d07db467b48",
+      "static": false,
+      "strong": false,
+      "title": "operator>",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator>",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator<=",
+      "argsString": "(const CancelToken &l, const CancelToken &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator<=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator<=",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 215,
+        "bodyFile": "batteries/async/cancel_token.hpp",
+        "bodyStart": 212,
+        "column": 8,
+        "file": "batteries/async/cancel_token.hpp",
+        "line": 212
+      },
+      "name": "operator<=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [CancelToken](/_autogen/Classes/classbatt_1_1CancelToken/) &",
+          "typePlain": "const CancelToken &"
+        },
+        {
+          "name": "r",
+          "type": "const [CancelToken](/_autogen/Classes/classbatt_1_1CancelToken/) &",
+          "typePlain": "const CancelToken &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "cancel__token_8hpp_1aa8711d17305c188352dd0e9d9a552fb7",
+      "static": false,
+      "strong": false,
+      "title": "operator<=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator<=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator>=",
+      "argsString": "(const CancelToken &l, const CancelToken &r)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::operator>=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::operator>=",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 220,
+        "bodyFile": "batteries/async/cancel_token.hpp",
+        "bodyStart": 217,
+        "column": 13,
+        "file": "batteries/async/cancel_token.hpp",
+        "line": 217
+      },
+      "name": "operator>=",
+      "override": false,
+      "params": [
+        {
+          "name": "l",
+          "type": "const [CancelToken](/_autogen/Classes/classbatt_1_1CancelToken/) &",
+          "typePlain": "const CancelToken &"
+        },
+        {
+          "name": "r",
+          "type": "const [CancelToken](/_autogen/Classes/classbatt_1_1CancelToken/) &",
+          "typePlain": "const CancelToken &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "cancel__token_8hpp_1a9ace6fccc90d0d693fd0f450ef7fea08",
+      "static": false,
+      "strong": false,
+      "title": "operator>=",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-operator>=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is-cancelled",
+      "argsString": "(const CancelToken::HandlerImpl< T > &handler)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::is_cancelled",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::is_cancelled",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 175,
+        "bodyFile": "batteries/async/cancel_token.hpp",
+        "bodyStart": 172,
+        "column": 13,
+        "file": "batteries/async/cancel_token.hpp",
+        "line": 172
+      },
+      "name": "is_cancelled",
+      "override": false,
+      "params": [
+        {
+          "name": "handler",
+          "type": "const [CancelToken::HandlerImpl](/_autogen/Classes/classbatt_1_1CancelToken_1_1HandlerImpl/)< T > &",
+          "typePlain": "const CancelToken::HandlerImpl< T > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "cancel__token_8hpp_1ad2ae298026d2eabfaed8dfbafbfa263f",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "is_cancelled",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-is-cancelled",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is-cancelled",
+      "argsString": "(const CustomAllocHandler< CancelToken::HandlerImpl< T >> &handler)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bool batt::is_cancelled",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::is_cancelled",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 181,
+        "bodyFile": "batteries/async/cancel_token.hpp",
+        "bodyStart": 178,
+        "column": 13,
+        "file": "batteries/async/cancel_token.hpp",
+        "line": 178
+      },
+      "name": "is_cancelled",
+      "override": false,
+      "params": [
+        {
+          "name": "handler",
+          "type": "const [CustomAllocHandler](/_autogen/Classes/classbatt_1_1CustomAllocHandler/)< [CancelToken::HandlerImpl](/_autogen/Classes/classbatt_1_1CancelToken_1_1HandlerImpl/)< T >> &",
+          "typePlain": "const CustomAllocHandler< CancelToken::HandlerImpl< T >> &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "cancel__token_8hpp_1a2b71ffb0a5ef006db8635cc51fd14b5b",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "is_cancelled",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Namespaces/namespacebatt/#function-is-cancelled",
       "virtual": false,
       "visibility": "public"
     },
@@ -6469,7 +6928,7 @@
     {
       "abstract": false,
       "anchor": "#function-push-handler-prealloc",
-      "argsString": "(HandlerList< Args... > *list, AbstractHandler< Args... > *handler)",
+      "argsString": "(boost::intrusive::slist< BasicAbstractHandler< Base, Args... >, boost::intrusive::cache_last< true >, boost::intrusive::constant_time_size< true >> *list, BasicAbstractHandler< Base, Args... > *handler)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -6482,32 +6941,37 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 222,
+        "bodyEnd": 230,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 219,
+        "bodyStart": 224,
         "column": 13,
         "file": "batteries/async/handler.hpp",
-        "line": 219
+        "line": 224
       },
       "name": "push_handler_prealloc",
       "override": false,
       "params": [
         {
           "name": "list",
-          "type": "HandlerList< Args... > *",
-          "typePlain": "HandlerList< Args... > *"
+          "type": "boost::intrusive::slist< [BasicAbstractHandler](/_autogen/Classes/classbatt_1_1BasicAbstractHandler/)< Base, Args... >, boost::intrusive::cache_last< true >, boost::intrusive::constant_time_size< true >> *",
+          "typePlain": "boost::intrusive::slist< BasicAbstractHandler< Base, Args... >, boost::intrusive::cache_last< true >, boost::intrusive::constant_time_size< true >> *"
         },
         {
           "name": "handler",
-          "type": "[AbstractHandler](/_autogen/Classes/classbatt_1_1BasicAbstractHandler/)< Args... > *",
-          "typePlain": "AbstractHandler< Args... > *"
+          "type": "[BasicAbstractHandler](/_autogen/Classes/classbatt_1_1BasicAbstractHandler/)< Base, Args... > *",
+          "typePlain": "BasicAbstractHandler< Base, Args... > *"
         }
       ],
       "pureVirtual": false,
-      "refid": "handler_8hpp_1ad69e589439b59215b63a1bb1d79e2930",
+      "refid": "handler_8hpp_1a01d0548c464df5ea2ae26dcf3da6109a",
       "static": false,
       "strong": false,
       "templateParams": [
+        {
+          "name": "",
+          "type": "typename Base",
+          "typePlain": "typename Base"
+        },
         {
           "name": "Args",
           "type": "typename...",
@@ -6524,7 +6988,7 @@
     {
       "abstract": false,
       "anchor": "#function-push-handler",
-      "argsString": "(HandlerList< Args... > *list, HandlerFn &&fn)",
+      "argsString": "(boost::intrusive::slist< BasicAbstractHandler< Base, Args... >, boost::intrusive::cache_last< true >, boost::intrusive::constant_time_size< true >> *list, HandlerFn &&fn)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -6537,20 +7001,20 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 228,
+        "bodyEnd": 239,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 225,
+        "bodyStart": 233,
         "column": 13,
         "file": "batteries/async/handler.hpp",
-        "line": 225
+        "line": 233
       },
       "name": "push_handler",
       "override": false,
       "params": [
         {
           "name": "list",
-          "type": "HandlerList< Args... > *",
-          "typePlain": "HandlerList< Args... > *"
+          "type": "boost::intrusive::slist< [BasicAbstractHandler](/_autogen/Classes/classbatt_1_1BasicAbstractHandler/)< Base, Args... >, boost::intrusive::cache_last< true >, boost::intrusive::constant_time_size< true >> *",
+          "typePlain": "boost::intrusive::slist< BasicAbstractHandler< Base, Args... >, boost::intrusive::cache_last< true >, boost::intrusive::constant_time_size< true >> *"
         },
         {
           "name": "fn",
@@ -6559,7 +7023,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "handler_8hpp_1ad34629a03828f2828be23017269d05e5",
+      "refid": "handler_8hpp_1a04064acb3c1c625188290c2295342056",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -6567,6 +7031,11 @@
           "name": "Args",
           "type": "typename...",
           "typePlain": "typename..."
+        },
+        {
+          "name": "",
+          "type": "typename Base",
+          "typePlain": "typename Base"
         },
         {
           "name": "",
@@ -6584,7 +7053,7 @@
     {
       "abstract": false,
       "anchor": "#function-invoke-all-handlers",
-      "argsString": "(HandlerList< Params... > *handlers, Args &&... args)",
+      "argsString": "(boost::intrusive::slist< BasicAbstractHandler< Base, Params... >, boost::intrusive::cache_last< true >, boost::intrusive::constant_time_size< true >> *handlers, Args &&... args)",
       "category": "functions",
       "const": false,
       "default": false,
@@ -6597,20 +7066,20 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 238,
+        "bodyEnd": 252,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 231,
+        "bodyStart": 242,
         "column": 13,
         "file": "batteries/async/handler.hpp",
-        "line": 231
+        "line": 242
       },
       "name": "invoke_all_handlers",
       "override": false,
       "params": [
         {
           "name": "handlers",
-          "type": "HandlerList< Params... > *",
-          "typePlain": "HandlerList< Params... > *"
+          "type": "boost::intrusive::slist< [BasicAbstractHandler](/_autogen/Classes/classbatt_1_1BasicAbstractHandler/)< Base, Params... >, boost::intrusive::cache_last< true >, boost::intrusive::constant_time_size< true >> *",
+          "typePlain": "boost::intrusive::slist< BasicAbstractHandler< Base, Params... >, boost::intrusive::cache_last< true >, boost::intrusive::constant_time_size< true >> *"
         },
         {
           "name": "args",
@@ -6619,7 +7088,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "handler_8hpp_1ac95aa1fd10f107f6ff806eeac5351d09",
+      "refid": "handler_8hpp_1a7e01c74d6a7de0be35009165155ee96b",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -6632,6 +7101,11 @@
           "name": "Args",
           "type": "typename...",
           "typePlain": "typename..."
+        },
+        {
+          "name": "",
+          "type": "typename Base",
+          "typePlain": "typename Base"
         }
       ],
       "title": "invoke_all_handlers",
@@ -6657,12 +7131,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 277,
+        "bodyEnd": 291,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 273,
+        "bodyStart": 287,
         "column": 15,
         "file": "batteries/async/handler.hpp",
-        "line": 273
+        "line": 287
       },
       "name": "bind_handler",
       "override": false,
@@ -6717,12 +7191,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 403,
+        "bodyEnd": 417,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 400,
+        "bodyStart": 414,
         "column": 6,
         "file": "batteries/async/handler.hpp",
-        "line": 400
+        "line": 414
       },
       "name": "operator==",
       "override": false,
@@ -6777,12 +7251,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 409,
+        "bodyEnd": 423,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 406,
+        "bodyStart": 420,
         "column": 6,
         "file": "batteries/async/handler.hpp",
-        "line": 406
+        "line": 420
       },
       "name": "operator!=",
       "override": false,
@@ -6838,12 +7312,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 454,
+        "bodyEnd": 473,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 451,
+        "bodyStart": 470,
         "column": 27,
         "file": "batteries/async/handler.hpp",
-        "line": 451
+        "line": 470
       },
       "name": "make_custom_alloc_handler",
       "override": false,
@@ -8035,7 +8509,7 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "void batt::slice_work",
+      "definition": "Status batt::slice_work",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::slice_work",
@@ -8044,10 +8518,10 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 149,
+        "bodyEnd": 151,
         "bodyFile": "batteries/async/slice_work.hpp",
         "bodyStart": 120,
-        "column": 6,
+        "column": 8,
         "file": "batteries/async/slice_work.hpp",
         "line": 120
       },
@@ -8071,7 +8545,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "slice__work_8hpp_1abdf4d13dbab6bcea33d74652cff0900e",
+      "refid": "slice__work_8hpp_1aab0888265eae189022e945747018fcfe",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -8082,8 +8556,8 @@
         }
       ],
       "title": "slice_work",
-      "type": "void",
-      "typePlain": "void",
+      "type": "[Status](/_autogen/Classes/classbatt_1_1Status/)",
+      "typePlain": "Status",
       "url": "/_autogen/Namespaces/namespacebatt/#function-slice-work",
       "virtual": false,
       "visibility": "public"
@@ -8292,12 +8766,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 788,
+        "bodyEnd": 844,
         "bodyFile": "batteries/async/watch_decl.hpp",
-        "bodyStart": 785,
+        "bodyStart": 841,
         "column": 8,
         "file": "batteries/async/watch_decl.hpp",
-        "line": 785
+        "line": 841
       },
       "name": "operator<<",
       "override": false,
@@ -25124,10 +25598,40 @@
     },
     {
       "abstract": false,
+      "anchor": "#using-defaulthandlerbase",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::DefaultHandlerBase = typedef boost::intrusive::slist_base_hook<boost::intrusive::cache_last<true>, boost::intrusive::constant_time_size<true> >",
+      "explicit": false,
+      "fullname": "batt::DefaultHandlerBase",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 28,
+        "column": 1,
+        "file": "batteries/async/handler.hpp",
+        "line": 27
+      },
+      "name": "DefaultHandlerBase",
+      "override": false,
+      "refid": "handler_8hpp_1aae856d4f9012de36e83bad6b095a2825",
+      "static": false,
+      "strong": false,
+      "title": "DefaultHandlerBase",
+      "type": "boost::intrusive::slist_base_hook< boost::intrusive::cache_last< true >, boost::intrusive::constant_time_size< true > >",
+      "typePlain": "boost::intrusive::slist_base_hook< boost::intrusive::cache_last< true >, boost::intrusive::constant_time_size< true > >",
+      "url": "/_autogen/Namespaces/namespacebatt/#using-defaulthandlerbase",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
       "anchor": "#using-abstracthandler",
       "category": "types",
       "const": false,
-      "definition": "using batt::AbstractHandler = typedef BasicAbstractHandler<boost::intrusive::slist_base_hook<boost::intrusive::cache_last<true> >, Args...>",
+      "definition": "using batt::AbstractHandler = typedef BasicAbstractHandler<DefaultHandlerBase, Args...>",
       "explicit": false,
       "fullname": "batt::AbstractHandler",
       "hasDetails": true,
@@ -25136,14 +25640,14 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 78,
+        "bodyStart": 80,
         "column": 1,
         "file": "batteries/async/handler.hpp",
-        "line": 77
+        "line": 80
       },
       "name": "AbstractHandler",
       "override": false,
-      "refid": "handler_8hpp_1a3dcb027a1c474e672f8b54e67298a47d",
+      "refid": "handler_8hpp_1a8c0deb9dc3ca76defb81e13f747c0e09",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -25154,8 +25658,8 @@
         }
       ],
       "title": "AbstractHandler",
-      "type": "[BasicAbstractHandler](/_autogen/Classes/classbatt_1_1BasicAbstractHandler/)< boost::intrusive::slist_base_hook< boost::intrusive::cache_last< true > >, Args... >",
-      "typePlain": "BasicAbstractHandler< boost::intrusive::slist_base_hook< boost::intrusive::cache_last< true > >, Args... >",
+      "type": "[BasicAbstractHandler](/_autogen/Classes/classbatt_1_1BasicAbstractHandler/)< DefaultHandlerBase, Args... >",
+      "typePlain": "BasicAbstractHandler< DefaultHandlerBase, Args... >",
       "url": "/_autogen/Namespaces/namespacebatt/#using-abstracthandler",
       "visibility": "public"
     },
@@ -25164,7 +25668,7 @@
       "anchor": "#using-handlerimpl",
       "category": "types",
       "const": false,
-      "definition": "using batt::HandlerImpl = typedef BasicHandlerImpl<HandlerFn, boost::intrusive::slist_base_hook<boost::intrusive::cache_last<true> >, Args...>",
+      "definition": "using batt::HandlerImpl = typedef BasicHandlerImpl<HandlerFn, DefaultHandlerBase, Args...>",
       "explicit": false,
       "fullname": "batt::HandlerImpl",
       "hasDetails": true,
@@ -25176,11 +25680,11 @@
         "bodyStart": 157,
         "column": 1,
         "file": "batteries/async/handler.hpp",
-        "line": 155
+        "line": 157
       },
       "name": "HandlerImpl",
       "override": false,
-      "refid": "handler_8hpp_1ae1b9c2e2415d6be322a81ff95be64525",
+      "refid": "handler_8hpp_1a8e90205beef8aa3cae8eeeb9b5feac83",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -25196,9 +25700,51 @@
         }
       ],
       "title": "HandlerImpl",
-      "type": "[BasicHandlerImpl](/_autogen/Classes/classbatt_1_1BasicHandlerImpl/)< HandlerFn, boost::intrusive::slist_base_hook< boost::intrusive::cache_last< true > >, Args... >",
-      "typePlain": "BasicHandlerImpl< HandlerFn, boost::intrusive::slist_base_hook< boost::intrusive::cache_last< true > >, Args... >",
+      "type": "[BasicHandlerImpl](/_autogen/Classes/classbatt_1_1BasicHandlerImpl/)< HandlerFn, DefaultHandlerBase, Args... >",
+      "typePlain": "BasicHandlerImpl< HandlerFn, DefaultHandlerBase, Args... >",
       "url": "/_autogen/Namespaces/namespacebatt/#using-handlerimpl",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-basichandlerlist",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::BasicHandlerList = typedef boost::intrusive::slist<BasicAbstractHandler<Base, Args...>, boost::intrusive::cache_last<true>, boost::intrusive::constant_time_size<true> >",
+      "explicit": false,
+      "fullname": "batt::BasicHandlerList",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 218,
+        "column": 1,
+        "file": "batteries/async/handler.hpp",
+        "line": 216
+      },
+      "name": "BasicHandlerList",
+      "override": false,
+      "refid": "handler_8hpp_1a7f4262fde50c28642ce09661bbbc79c4",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Base",
+          "typePlain": "typename Base"
+        },
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "BasicHandlerList",
+      "type": "boost::intrusive::slist< [BasicAbstractHandler](/_autogen/Classes/classbatt_1_1BasicAbstractHandler/)< Base, Args... >, boost::intrusive::cache_last< true >, boost::intrusive::constant_time_size< true > >",
+      "typePlain": "boost::intrusive::slist< BasicAbstractHandler< Base, Args... >, boost::intrusive::cache_last< true >, boost::intrusive::constant_time_size< true > >",
+      "url": "/_autogen/Namespaces/namespacebatt/#using-basichandlerlist",
       "visibility": "public"
     },
     {
@@ -25206,7 +25752,7 @@
       "anchor": "#using-handlerlist",
       "category": "types",
       "const": false,
-      "definition": "using batt::HandlerList = typedef boost::intrusive::slist<AbstractHandler<Args...>, boost::intrusive::cache_last<true> >",
+      "definition": "using batt::HandlerList = typedef BasicHandlerList<DefaultHandlerBase, Args...>",
       "explicit": false,
       "fullname": "batt::HandlerList",
       "hasDetails": true,
@@ -25215,14 +25761,14 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 216,
+        "bodyStart": 221,
         "column": 1,
         "file": "batteries/async/handler.hpp",
-        "line": 216
+        "line": 221
       },
       "name": "HandlerList",
       "override": false,
-      "refid": "handler_8hpp_1a0c131e0a387645223c87e479748f20ad",
+      "refid": "handler_8hpp_1a2b626c9786c687f428493930d188d8e6",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -25233,8 +25779,8 @@
         }
       ],
       "title": "HandlerList",
-      "type": "boost::intrusive::slist< [AbstractHandler](/_autogen/Classes/classbatt_1_1BasicAbstractHandler/)< Args... >, boost::intrusive::cache_last< true > >",
-      "typePlain": "boost::intrusive::slist< AbstractHandler< Args... >, boost::intrusive::cache_last< true > >",
+      "type": "BasicHandlerList< DefaultHandlerBase, Args... >",
+      "typePlain": "BasicHandlerList< DefaultHandlerBase, Args... >",
       "url": "/_autogen/Namespaces/namespacebatt/#using-handlerlist",
       "visibility": "public"
     },
@@ -25333,7 +25879,7 @@
       "anchor": "#using-simpleexecutor",
       "category": "types",
       "const": false,
-      "definition": "using batt::SimpleExecutor = typedef BasicSimpleExecutor<boost::asio::execution::outstanding_work_t::untracked_t>",
+      "definition": "using batt::SimpleExecutor = typedef BasicExecutor<SimpleExecutionContext, boost::asio::execution::outstanding_work_t::untracked_t, boost::asio::execution::blocking_t::never_t, boost::asio::execution::relationship_t::fork_t>",
       "explicit": false,
       "fullname": "batt::SimpleExecutor",
       "hasDetails": false,
@@ -25342,19 +25888,19 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/simple_executor.hpp",
-        "bodyStart": 27,
+        "bodyStart": 35,
         "column": 1,
         "file": "batteries/async/simple_executor.hpp",
-        "line": 27
+        "line": 32
       },
       "name": "SimpleExecutor",
       "override": false,
-      "refid": "simple__executor_8hpp_1a771c5bc977b5a8acd64b2b5f17baa84d",
+      "refid": "simple__executor_8hpp_1ad877f8f1cc44296acdce4815dedad521",
       "static": false,
       "strong": false,
       "title": "SimpleExecutor",
-      "type": "[BasicSimpleExecutor](/_autogen/Classes/classbatt_1_1BasicSimpleExecutor/)< boost::asio::execution::outstanding_work_t::untracked_t >",
-      "typePlain": "BasicSimpleExecutor< boost::asio::execution::outstanding_work_t::untracked_t >",
+      "type": "[BasicExecutor](/_autogen/Classes/classbatt_1_1BasicExecutor/)< [SimpleExecutionContext](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/), boost::asio::execution::outstanding_work_t::untracked_t, boost::asio::execution::blocking_t::never_t, boost::asio::execution::relationship_t::fork_t >",
+      "typePlain": "BasicExecutor< SimpleExecutionContext, boost::asio::execution::outstanding_work_t::untracked_t, boost::asio::execution::blocking_t::never_t, boost::asio::execution::relationship_t::fork_t >",
       "url": "/_autogen/Namespaces/namespacebatt/#using-simpleexecutor",
       "visibility": "public"
     },

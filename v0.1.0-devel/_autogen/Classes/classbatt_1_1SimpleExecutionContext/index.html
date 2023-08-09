@@ -519,13 +519,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#friends" class="md-nav__link">
-    Friends
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#public-types-documentation" class="md-nav__link">
     Public Types Documentation
   </a>
@@ -561,8 +554,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#function-this_thread_inside_run" class="md-nav__link">
-    function this_thread_inside_run
+  <a href="#function-inside_run_on_this_thread" class="md-nav__link">
+    function inside_run_on_this_thread
   </a>
   
 </li>
@@ -603,6 +596,48 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#function-on_work_started" class="md-nav__link">
+    function on_work_started
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-on_work_finished" class="md-nav__link">
+    function on_work_finished
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-stop" class="md-nav__link">
+    function stop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-is_stopped" class="md-nav__link">
+    function is_stopped
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-run" class="md-nav__link">
+    function run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-reset" class="md-nav__link">
+    function reset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#function-get_allocator" class="md-nav__link">
     function get_allocator
   </a>
@@ -624,42 +659,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#function-stop" class="md-nav__link">
-    function stop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#function-run" class="md-nav__link">
-    function run
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#function-reset" class="md-nav__link">
-    function reset
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#friends_1" class="md-nav__link">
-    Friends
-  </a>
-  
-    <nav class="md-nav" aria-label="Friends">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#friend-basicsimpleexecutor" class="md-nav__link">
-    friend BasicSimpleExecutor
+  <a href="#function-defer" class="md-nav__link">
+    function defer
   </a>
   
 </li>
@@ -688,6 +689,8 @@
   <h1>batt::SimpleExecutionContext</h1>
 
 <h1 id="battsimpleexecutioncontext">batt::SimpleExecutionContext<a class="headerlink" href="#battsimpleexecutioncontext" title="Permanent link">&#128279;</a></h1>
+<p>A minimal multi-threaded execution context implementation, suitable for parallel-compute thread pools. 
+<code>#include &lt;batteries/async/simple_executor.hpp&gt;</code></p>
 <p>Inherits from boost::asio::execution_context</p>
 <h2 id="public-types">Public Types<a class="headerlink" href="#public-types" title="Permanent link">&#128279;</a></h2>
 <table>
@@ -700,11 +703,11 @@
 <tbody>
 <tr>
 <td>using <a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/">SimpleExecutionContext</a></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#using-self">Self</a></strong></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#using-self">Self</a></strong> <br>Alias for this type.</td>
 </tr>
 <tr>
-<td>using <a href="/_autogen/Classes/classbatt_1_1BasicSimpleExecutor/">BasicSimpleExecutor</a>&lt; boost::asio::execution::outstanding_work_t::untracked_t &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#using-executor-type">executor_type</a></strong></td>
+<td>using <a href="/_autogen/Classes/classbatt_1_1BasicExecutor/">SimpleExecutor</a></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#using-executor-type">executor_type</a></strong> <br>The executor type for this context; returned by <code>this-&gt;[get_executor()]()</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -718,8 +721,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/">SimpleExecutionContext</a> **</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-this-thread-inside-run">this_thread_inside_run</a></strong>()</td>
+<td>auto</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-inside-run-on-this-thread">inside_run_on_this_thread</a></strong>()<br>Returns a thread-local data member used to track whether the current thread is inside <code>[run()]()</code> for this context, so that <code>dispatch</code> can decide whether to run the passed function immediately.</td>
 </tr>
 <tr>
 <td></td>
@@ -730,55 +733,56 @@
 <td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-~simpleexecutioncontext">~SimpleExecutionContext</a></strong>() =default</td>
 </tr>
 <tr>
-<td><a href="/_autogen/Classes/classbatt_1_1BasicSimpleExecutor/">executor_type</a></td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-get-executor">get_executor</a></strong>()</td>
+<td>auto</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-get-executor">get_executor</a></strong>()<br>Returns a new executor that schedules work onto this context.</td>
 </tr>
 <tr>
-<td><a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>&lt; i64 &gt; &amp;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-work-count">work_count</a></strong>()</td>
+<td>auto</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-work-count">work_count</a></strong>()<br>Returns the current work count.</td>
 </tr>
 <tr>
-<td>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-wake">wake</a></strong>()</td>
+<td>auto</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-wake">wake</a></strong>()<br>Notifies all threads inside <code>this-&gt;[run()]()</code> by signalling the condition variable.</td>
 </tr>
 <tr>
-<td>std::allocator&lt; void &gt;</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-get-allocator">get_allocator</a></strong>() const</td>
+<td>auto</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-on-work-started">on_work_started</a></strong>()<br>Increments the work count by one.</td>
 </tr>
 <tr>
-<td>template &lt;typename Fn > <br>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-dispatch">dispatch</a></strong>(Fn &amp;&amp; fn)</td>
+<td>auto</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-on-work-finished">on_work_finished</a></strong>()<br>Decrements the work count by one.</td>
 </tr>
 <tr>
-<td>template &lt;typename Fn > <br>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-post">post</a></strong>(Fn &amp;&amp; fn)</td>
+<td>auto</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-stop">stop</a></strong>()<br>Signals to all threads inside <code>this-&gt;[run()]()</code> to exit their event processing loop ASAP.</td>
 </tr>
 <tr>
-<td>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-stop">stop</a></strong>()</td>
+<td>auto</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-is-stopped">is_stopped</a></strong>() const<br>Returns true as soon as <code>this-&gt;[stop()](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-stop)</code> is called; this does <em>not</em> indicate that threads have exited <code>this-&gt;[run()]()</code>, only that <code>this-&gt;[stop()](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-stop)</code> has been called.</td>
 </tr>
 <tr>
-<td>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-run">run</a></strong>()</td>
+<td>auto</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-run">run</a></strong>()<br>Blocks the current thread processing <code>[post()]()</code>-ed completion handlers while all of the following are true:</td>
 </tr>
 <tr>
-<td>void</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-reset">reset</a></strong>()</td>
+<td>auto</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-reset">reset</a></strong>()<br>Sets <code>this-&gt;[is_stopped()](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-is-stopped)</code> to false to allow threads to enter <code>this-&gt;[run()](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-run)</code> to resume work processing.</td>
 </tr>
-</tbody>
-</table>
-<h2 id="friends">Friends<a class="headerlink" href="#friends" title="Permanent link">&#128279;</a></h2>
-<table>
-<thead>
 <tr>
-<th></th>
-<th>Name</th>
+<td>auto</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-get-allocator">get_allocator</a></strong>() const<br>Accesses the default allocator directly.</td>
 </tr>
-</thead>
-<tbody>
 <tr>
-<td>class</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#friend-basicsimpleexecutor">BasicSimpleExecutor</a></strong></td>
+<td>template &lt;typename Fn > <br>auto</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-dispatch">dispatch</a></strong>(Fn &amp;&amp; fn)<br>Runs <code>fn</code> in this context, possibly blocking the caller.</td>
+</tr>
+<tr>
+<td>template &lt;typename Fn > <br>auto</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-post">post</a></strong>(Fn &amp;&amp; fn)<br>Runs <code>fn</code> in this context; never blocks the caller.</td>
+</tr>
+<tr>
+<td>template &lt;typename Fn > <br>auto</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-defer">defer</a></strong>(Fn &amp;&amp; fn)<br>Runs <code>fn</code> in this context as a continuation of the currently executing completion handler; this should be used to avoid contention.</td>
 </tr>
 </tbody>
 </table>
@@ -786,13 +790,16 @@
 <h3 id="using-self">using Self<a class="headerlink" href="#using-self" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">SimpleExecutionContext</span><span class="o">::</span><span class="n">Self</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">SimpleExecutionContext</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
+<p>Alias for this type. </p>
 <h3 id="using-executor_type">using executor_type<a class="headerlink" href="#using-executor_type" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">SimpleExecutionContext</span><span class="o">::</span><span class="n">executor_type</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">BasicSimpleExecutor</span><span class="o">&lt;</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="o">::</span><span class="n">untracked_t</span><span class="o">&gt;</span><span class="p">;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">SimpleExecutionContext</span><span class="o">::</span><span class="n">executor_type</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">SimpleExecutor</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
+<p>The executor type for this context; returned by <code>this-&gt;[get_executor()]()</code>. </p>
 <h2 id="public-functions-documentation">Public Functions Documentation<a class="headerlink" href="#public-functions-documentation" title="Permanent link">&#128279;</a></h2>
-<h3 id="function-this_thread_inside_run">function this_thread_inside_run<a class="headerlink" href="#function-this_thread_inside_run" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">SimpleExecutionContext</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="n">this_thread_inside_run</span><span class="p">()</span>
+<h3 id="function-inside_run_on_this_thread">function inside_run_on_this_thread<a class="headerlink" href="#function-inside_run_on_this_thread" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">inside_run_on_this_thread</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
+<p>Returns a thread-local data member used to track whether the current thread is inside <code>[run()]()</code> for this context, so that <code>dispatch</code> can decide whether to run the passed function immediately. </p>
 <h3 id="function-simpleexecutioncontext">function SimpleExecutionContext<a class="headerlink" href="#function-simpleexecutioncontext" title="Permanent link">&#128279;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">SimpleExecutionContext</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
 </code></pre></div></td></tr></table></div>
@@ -800,54 +807,87 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="o">~</span><span class="n">SimpleExecutionContext</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="k">default</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="function-get_executor">function get_executor<a class="headerlink" href="#function-get_executor" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">executor_type</span><span class="w"> </span><span class="n">get_executor</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">get_executor</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
+<p>Returns a new executor that schedules work onto this context. </p>
 <h3 id="function-work_count">function work_count<a class="headerlink" href="#function-work_count" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">Watch</span><span class="o">&lt;</span><span class="w"> </span><span class="n">i64</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">work_count</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">work_count</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
+<p>Returns the current work count. </p>
 <h3 id="function-wake">function wake<a class="headerlink" href="#function-wake" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">wake</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">wake</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-get_allocator">function get_allocator<a class="headerlink" href="#function-get_allocator" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_allocator</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+<p>Notifies all threads inside <code>this-&gt;[run()]()</code> by signalling the condition variable. </p>
+<h3 id="function-on_work_started">function on_work_started<a class="headerlink" href="#function-on_work_started" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">on_work_started</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-dispatch">function dispatch<a class="headerlink" href="#function-dispatch" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
-<span class="normal"><a href="#__codelineno-9-2">2</a></span>
-<span class="normal"><a href="#__codelineno-9-3">3</a></span>
-<span class="normal"><a href="#__codelineno-9-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">dispatch</span><span class="p">(</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="p">)</span>
+<p>Increments the work count by one. </p>
+<p>This is automatically done inside <code>[post()](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-post)</code> (or equivalent; i.e., <code>[dispatch()](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-dispatch)</code> (within <code>this-&gt;[run()](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-run)</code>) or <code>defer</code>). </p>
+<h3 id="function-on_work_finished">function on_work_finished<a class="headerlink" href="#function-on_work_finished" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">on_work_finished</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="function-post">function post<a class="headerlink" href="#function-post" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
-<span class="normal"><a href="#__codelineno-10-2">2</a></span>
-<span class="normal"><a href="#__codelineno-10-3">3</a></span>
-<span class="normal"><a href="#__codelineno-10-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w"> </span><span class="o">&gt;</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">post</span><span class="p">(</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<p>Decrements the work count by one. </p>
+<p>This is automatically done when posted completion handlers are executed. </p>
 <h3 id="function-stop">function stop<a class="headerlink" href="#function-stop" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">stop</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">stop</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
+<p>Signals to all threads inside <code>this-&gt;[run()]()</code> to exit their event processing loop ASAP. </p>
+<p>Once all threads have exited <code>[run()](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-run)</code>, <code>this-&gt;[reset()](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-reset)</code> must be called before <code>this-&gt;[run()](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-run)</code> to resume normal processing. </p>
+<h3 id="function-is_stopped">function is_stopped<a class="headerlink" href="#function-is_stopped" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">is_stopped</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
+</code></pre></div></td></tr></table></div>
+<p>Returns true as soon as <code>this-&gt;[stop()](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-stop)</code> is called; this does <em>not</em> indicate that threads have exited <code>this-&gt;[run()]()</code>, only that <code>this-&gt;[stop()](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-stop)</code> has been called. </p>
+<p>Initially <code>false</code> when a context is constructed. </p>
 <h3 id="function-run">function run<a class="headerlink" href="#function-run" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">run</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">run</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
+<p>Blocks the current thread processing <code>[post()]()</code>-ed completion handlers while all of the following are true: </p>
+<p><strong>Return</strong>: The number of handlers processed. </p>
+<ul>
+<li>This context's work count is non-zero</li>
+<li><code>this-&gt;[is_stopped()](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-is-stopped)</code> is false</li>
+</ul>
 <h3 id="function-reset">function reset<a class="headerlink" href="#function-reset" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">reset</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">reset</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
-<h2 id="friends_1">Friends<a class="headerlink" href="#friends_1" title="Permanent link">&#128279;</a></h2>
-<h3 id="friend-basicsimpleexecutor">friend BasicSimpleExecutor<a class="headerlink" href="#friend-basicsimpleexecutor" title="Permanent link">&#128279;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
-<span class="normal"><a href="#__codelineno-14-2">2</a></span>
-<span class="normal"><a href="#__codelineno-14-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BasicSimpleExecutor</span><span class="p">(</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="w">    </span><span class="n">BasicSimpleExecutor</span><span class="w"> </span>
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="p">);</span>
+<p>Sets <code>this-&gt;[is_stopped()](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-is-stopped)</code> to false to allow threads to enter <code>this-&gt;[run()](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-run)</code> to resume work processing. </p>
+<p>This should only be called once the caller is sure that no thread is inside <code>this-&gt;[run()](/_autogen/Classes/classbatt_1_1SimpleExecutionContext/#function-run)</code>. </p>
+<h3 id="function-get_allocator">function get_allocator<a class="headerlink" href="#function-get_allocator" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kr">inline</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">get_allocator</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
 </code></pre></div></td></tr></table></div>
+<p>Accesses the default allocator directly. </p>
+<h3 id="function-dispatch">function dispatch<a class="headerlink" href="#function-dispatch" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w"> </span><span class="o">&gt;</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">dispatch</span><span class="p">(</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Runs <code>fn</code> in this context, possibly blocking the caller. </p>
+<h3 id="function-post">function post<a class="headerlink" href="#function-post" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w"> </span><span class="o">&gt;</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">post</span><span class="p">(</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Runs <code>fn</code> in this context; never blocks the caller. </p>
+<h3 id="function-defer">function defer<a class="headerlink" href="#function-defer" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="w"> </span><span class="o">&gt;</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">defer</span><span class="p">(</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="n">Fn</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Runs <code>fn</code> in this context as a continuation of the currently executing completion handler; this should be used to avoid contention. </p>
 <hr />
-<p>Updated on 24 July 2023 at 20:45:00 UTC</p>
+<p>Updated on  9 August 2023 at 21:18:53 UTC</p>
 
 
 

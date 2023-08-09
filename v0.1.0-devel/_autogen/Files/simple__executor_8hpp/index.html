@@ -595,11 +595,7 @@
 <tbody>
 <tr>
 <td>class</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/">batt::SimpleExecutionContext</a></strong></td>
-</tr>
-<tr>
-<td>class</td>
-<td><strong><a href="/_autogen/Classes/classbatt_1_1BasicSimpleExecutor/">batt::BasicSimpleExecutor</a></strong></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1SimpleExecutionContext/">batt::SimpleExecutionContext</a></strong> <br>A minimal multi-threaded execution context implementation, suitable for parallel-compute thread pools.</td>
 </tr>
 </tbody>
 </table>
@@ -731,264 +727,7 @@
 <span class="normal"><a href="#__codelineno-1-106">106</a></span>
 <span class="normal"><a href="#__codelineno-1-107">107</a></span>
 <span class="normal"><a href="#__codelineno-1-108">108</a></span>
-<span class="normal"><a href="#__codelineno-1-109">109</a></span>
-<span class="normal"><a href="#__codelineno-1-110">110</a></span>
-<span class="normal"><a href="#__codelineno-1-111">111</a></span>
-<span class="normal"><a href="#__codelineno-1-112">112</a></span>
-<span class="normal"><a href="#__codelineno-1-113">113</a></span>
-<span class="normal"><a href="#__codelineno-1-114">114</a></span>
-<span class="normal"><a href="#__codelineno-1-115">115</a></span>
-<span class="normal"><a href="#__codelineno-1-116">116</a></span>
-<span class="normal"><a href="#__codelineno-1-117">117</a></span>
-<span class="normal"><a href="#__codelineno-1-118">118</a></span>
-<span class="normal"><a href="#__codelineno-1-119">119</a></span>
-<span class="normal"><a href="#__codelineno-1-120">120</a></span>
-<span class="normal"><a href="#__codelineno-1-121">121</a></span>
-<span class="normal"><a href="#__codelineno-1-122">122</a></span>
-<span class="normal"><a href="#__codelineno-1-123">123</a></span>
-<span class="normal"><a href="#__codelineno-1-124">124</a></span>
-<span class="normal"><a href="#__codelineno-1-125">125</a></span>
-<span class="normal"><a href="#__codelineno-1-126">126</a></span>
-<span class="normal"><a href="#__codelineno-1-127">127</a></span>
-<span class="normal"><a href="#__codelineno-1-128">128</a></span>
-<span class="normal"><a href="#__codelineno-1-129">129</a></span>
-<span class="normal"><a href="#__codelineno-1-130">130</a></span>
-<span class="normal"><a href="#__codelineno-1-131">131</a></span>
-<span class="normal"><a href="#__codelineno-1-132">132</a></span>
-<span class="normal"><a href="#__codelineno-1-133">133</a></span>
-<span class="normal"><a href="#__codelineno-1-134">134</a></span>
-<span class="normal"><a href="#__codelineno-1-135">135</a></span>
-<span class="normal"><a href="#__codelineno-1-136">136</a></span>
-<span class="normal"><a href="#__codelineno-1-137">137</a></span>
-<span class="normal"><a href="#__codelineno-1-138">138</a></span>
-<span class="normal"><a href="#__codelineno-1-139">139</a></span>
-<span class="normal"><a href="#__codelineno-1-140">140</a></span>
-<span class="normal"><a href="#__codelineno-1-141">141</a></span>
-<span class="normal"><a href="#__codelineno-1-142">142</a></span>
-<span class="normal"><a href="#__codelineno-1-143">143</a></span>
-<span class="normal"><a href="#__codelineno-1-144">144</a></span>
-<span class="normal"><a href="#__codelineno-1-145">145</a></span>
-<span class="normal"><a href="#__codelineno-1-146">146</a></span>
-<span class="normal"><a href="#__codelineno-1-147">147</a></span>
-<span class="normal"><a href="#__codelineno-1-148">148</a></span>
-<span class="normal"><a href="#__codelineno-1-149">149</a></span>
-<span class="normal"><a href="#__codelineno-1-150">150</a></span>
-<span class="normal"><a href="#__codelineno-1-151">151</a></span>
-<span class="normal"><a href="#__codelineno-1-152">152</a></span>
-<span class="normal"><a href="#__codelineno-1-153">153</a></span>
-<span class="normal"><a href="#__codelineno-1-154">154</a></span>
-<span class="normal"><a href="#__codelineno-1-155">155</a></span>
-<span class="normal"><a href="#__codelineno-1-156">156</a></span>
-<span class="normal"><a href="#__codelineno-1-157">157</a></span>
-<span class="normal"><a href="#__codelineno-1-158">158</a></span>
-<span class="normal"><a href="#__codelineno-1-159">159</a></span>
-<span class="normal"><a href="#__codelineno-1-160">160</a></span>
-<span class="normal"><a href="#__codelineno-1-161">161</a></span>
-<span class="normal"><a href="#__codelineno-1-162">162</a></span>
-<span class="normal"><a href="#__codelineno-1-163">163</a></span>
-<span class="normal"><a href="#__codelineno-1-164">164</a></span>
-<span class="normal"><a href="#__codelineno-1-165">165</a></span>
-<span class="normal"><a href="#__codelineno-1-166">166</a></span>
-<span class="normal"><a href="#__codelineno-1-167">167</a></span>
-<span class="normal"><a href="#__codelineno-1-168">168</a></span>
-<span class="normal"><a href="#__codelineno-1-169">169</a></span>
-<span class="normal"><a href="#__codelineno-1-170">170</a></span>
-<span class="normal"><a href="#__codelineno-1-171">171</a></span>
-<span class="normal"><a href="#__codelineno-1-172">172</a></span>
-<span class="normal"><a href="#__codelineno-1-173">173</a></span>
-<span class="normal"><a href="#__codelineno-1-174">174</a></span>
-<span class="normal"><a href="#__codelineno-1-175">175</a></span>
-<span class="normal"><a href="#__codelineno-1-176">176</a></span>
-<span class="normal"><a href="#__codelineno-1-177">177</a></span>
-<span class="normal"><a href="#__codelineno-1-178">178</a></span>
-<span class="normal"><a href="#__codelineno-1-179">179</a></span>
-<span class="normal"><a href="#__codelineno-1-180">180</a></span>
-<span class="normal"><a href="#__codelineno-1-181">181</a></span>
-<span class="normal"><a href="#__codelineno-1-182">182</a></span>
-<span class="normal"><a href="#__codelineno-1-183">183</a></span>
-<span class="normal"><a href="#__codelineno-1-184">184</a></span>
-<span class="normal"><a href="#__codelineno-1-185">185</a></span>
-<span class="normal"><a href="#__codelineno-1-186">186</a></span>
-<span class="normal"><a href="#__codelineno-1-187">187</a></span>
-<span class="normal"><a href="#__codelineno-1-188">188</a></span>
-<span class="normal"><a href="#__codelineno-1-189">189</a></span>
-<span class="normal"><a href="#__codelineno-1-190">190</a></span>
-<span class="normal"><a href="#__codelineno-1-191">191</a></span>
-<span class="normal"><a href="#__codelineno-1-192">192</a></span>
-<span class="normal"><a href="#__codelineno-1-193">193</a></span>
-<span class="normal"><a href="#__codelineno-1-194">194</a></span>
-<span class="normal"><a href="#__codelineno-1-195">195</a></span>
-<span class="normal"><a href="#__codelineno-1-196">196</a></span>
-<span class="normal"><a href="#__codelineno-1-197">197</a></span>
-<span class="normal"><a href="#__codelineno-1-198">198</a></span>
-<span class="normal"><a href="#__codelineno-1-199">199</a></span>
-<span class="normal"><a href="#__codelineno-1-200">200</a></span>
-<span class="normal"><a href="#__codelineno-1-201">201</a></span>
-<span class="normal"><a href="#__codelineno-1-202">202</a></span>
-<span class="normal"><a href="#__codelineno-1-203">203</a></span>
-<span class="normal"><a href="#__codelineno-1-204">204</a></span>
-<span class="normal"><a href="#__codelineno-1-205">205</a></span>
-<span class="normal"><a href="#__codelineno-1-206">206</a></span>
-<span class="normal"><a href="#__codelineno-1-207">207</a></span>
-<span class="normal"><a href="#__codelineno-1-208">208</a></span>
-<span class="normal"><a href="#__codelineno-1-209">209</a></span>
-<span class="normal"><a href="#__codelineno-1-210">210</a></span>
-<span class="normal"><a href="#__codelineno-1-211">211</a></span>
-<span class="normal"><a href="#__codelineno-1-212">212</a></span>
-<span class="normal"><a href="#__codelineno-1-213">213</a></span>
-<span class="normal"><a href="#__codelineno-1-214">214</a></span>
-<span class="normal"><a href="#__codelineno-1-215">215</a></span>
-<span class="normal"><a href="#__codelineno-1-216">216</a></span>
-<span class="normal"><a href="#__codelineno-1-217">217</a></span>
-<span class="normal"><a href="#__codelineno-1-218">218</a></span>
-<span class="normal"><a href="#__codelineno-1-219">219</a></span>
-<span class="normal"><a href="#__codelineno-1-220">220</a></span>
-<span class="normal"><a href="#__codelineno-1-221">221</a></span>
-<span class="normal"><a href="#__codelineno-1-222">222</a></span>
-<span class="normal"><a href="#__codelineno-1-223">223</a></span>
-<span class="normal"><a href="#__codelineno-1-224">224</a></span>
-<span class="normal"><a href="#__codelineno-1-225">225</a></span>
-<span class="normal"><a href="#__codelineno-1-226">226</a></span>
-<span class="normal"><a href="#__codelineno-1-227">227</a></span>
-<span class="normal"><a href="#__codelineno-1-228">228</a></span>
-<span class="normal"><a href="#__codelineno-1-229">229</a></span>
-<span class="normal"><a href="#__codelineno-1-230">230</a></span>
-<span class="normal"><a href="#__codelineno-1-231">231</a></span>
-<span class="normal"><a href="#__codelineno-1-232">232</a></span>
-<span class="normal"><a href="#__codelineno-1-233">233</a></span>
-<span class="normal"><a href="#__codelineno-1-234">234</a></span>
-<span class="normal"><a href="#__codelineno-1-235">235</a></span>
-<span class="normal"><a href="#__codelineno-1-236">236</a></span>
-<span class="normal"><a href="#__codelineno-1-237">237</a></span>
-<span class="normal"><a href="#__codelineno-1-238">238</a></span>
-<span class="normal"><a href="#__codelineno-1-239">239</a></span>
-<span class="normal"><a href="#__codelineno-1-240">240</a></span>
-<span class="normal"><a href="#__codelineno-1-241">241</a></span>
-<span class="normal"><a href="#__codelineno-1-242">242</a></span>
-<span class="normal"><a href="#__codelineno-1-243">243</a></span>
-<span class="normal"><a href="#__codelineno-1-244">244</a></span>
-<span class="normal"><a href="#__codelineno-1-245">245</a></span>
-<span class="normal"><a href="#__codelineno-1-246">246</a></span>
-<span class="normal"><a href="#__codelineno-1-247">247</a></span>
-<span class="normal"><a href="#__codelineno-1-248">248</a></span>
-<span class="normal"><a href="#__codelineno-1-249">249</a></span>
-<span class="normal"><a href="#__codelineno-1-250">250</a></span>
-<span class="normal"><a href="#__codelineno-1-251">251</a></span>
-<span class="normal"><a href="#__codelineno-1-252">252</a></span>
-<span class="normal"><a href="#__codelineno-1-253">253</a></span>
-<span class="normal"><a href="#__codelineno-1-254">254</a></span>
-<span class="normal"><a href="#__codelineno-1-255">255</a></span>
-<span class="normal"><a href="#__codelineno-1-256">256</a></span>
-<span class="normal"><a href="#__codelineno-1-257">257</a></span>
-<span class="normal"><a href="#__codelineno-1-258">258</a></span>
-<span class="normal"><a href="#__codelineno-1-259">259</a></span>
-<span class="normal"><a href="#__codelineno-1-260">260</a></span>
-<span class="normal"><a href="#__codelineno-1-261">261</a></span>
-<span class="normal"><a href="#__codelineno-1-262">262</a></span>
-<span class="normal"><a href="#__codelineno-1-263">263</a></span>
-<span class="normal"><a href="#__codelineno-1-264">264</a></span>
-<span class="normal"><a href="#__codelineno-1-265">265</a></span>
-<span class="normal"><a href="#__codelineno-1-266">266</a></span>
-<span class="normal"><a href="#__codelineno-1-267">267</a></span>
-<span class="normal"><a href="#__codelineno-1-268">268</a></span>
-<span class="normal"><a href="#__codelineno-1-269">269</a></span>
-<span class="normal"><a href="#__codelineno-1-270">270</a></span>
-<span class="normal"><a href="#__codelineno-1-271">271</a></span>
-<span class="normal"><a href="#__codelineno-1-272">272</a></span>
-<span class="normal"><a href="#__codelineno-1-273">273</a></span>
-<span class="normal"><a href="#__codelineno-1-274">274</a></span>
-<span class="normal"><a href="#__codelineno-1-275">275</a></span>
-<span class="normal"><a href="#__codelineno-1-276">276</a></span>
-<span class="normal"><a href="#__codelineno-1-277">277</a></span>
-<span class="normal"><a href="#__codelineno-1-278">278</a></span>
-<span class="normal"><a href="#__codelineno-1-279">279</a></span>
-<span class="normal"><a href="#__codelineno-1-280">280</a></span>
-<span class="normal"><a href="#__codelineno-1-281">281</a></span>
-<span class="normal"><a href="#__codelineno-1-282">282</a></span>
-<span class="normal"><a href="#__codelineno-1-283">283</a></span>
-<span class="normal"><a href="#__codelineno-1-284">284</a></span>
-<span class="normal"><a href="#__codelineno-1-285">285</a></span>
-<span class="normal"><a href="#__codelineno-1-286">286</a></span>
-<span class="normal"><a href="#__codelineno-1-287">287</a></span>
-<span class="normal"><a href="#__codelineno-1-288">288</a></span>
-<span class="normal"><a href="#__codelineno-1-289">289</a></span>
-<span class="normal"><a href="#__codelineno-1-290">290</a></span>
-<span class="normal"><a href="#__codelineno-1-291">291</a></span>
-<span class="normal"><a href="#__codelineno-1-292">292</a></span>
-<span class="normal"><a href="#__codelineno-1-293">293</a></span>
-<span class="normal"><a href="#__codelineno-1-294">294</a></span>
-<span class="normal"><a href="#__codelineno-1-295">295</a></span>
-<span class="normal"><a href="#__codelineno-1-296">296</a></span>
-<span class="normal"><a href="#__codelineno-1-297">297</a></span>
-<span class="normal"><a href="#__codelineno-1-298">298</a></span>
-<span class="normal"><a href="#__codelineno-1-299">299</a></span>
-<span class="normal"><a href="#__codelineno-1-300">300</a></span>
-<span class="normal"><a href="#__codelineno-1-301">301</a></span>
-<span class="normal"><a href="#__codelineno-1-302">302</a></span>
-<span class="normal"><a href="#__codelineno-1-303">303</a></span>
-<span class="normal"><a href="#__codelineno-1-304">304</a></span>
-<span class="normal"><a href="#__codelineno-1-305">305</a></span>
-<span class="normal"><a href="#__codelineno-1-306">306</a></span>
-<span class="normal"><a href="#__codelineno-1-307">307</a></span>
-<span class="normal"><a href="#__codelineno-1-308">308</a></span>
-<span class="normal"><a href="#__codelineno-1-309">309</a></span>
-<span class="normal"><a href="#__codelineno-1-310">310</a></span>
-<span class="normal"><a href="#__codelineno-1-311">311</a></span>
-<span class="normal"><a href="#__codelineno-1-312">312</a></span>
-<span class="normal"><a href="#__codelineno-1-313">313</a></span>
-<span class="normal"><a href="#__codelineno-1-314">314</a></span>
-<span class="normal"><a href="#__codelineno-1-315">315</a></span>
-<span class="normal"><a href="#__codelineno-1-316">316</a></span>
-<span class="normal"><a href="#__codelineno-1-317">317</a></span>
-<span class="normal"><a href="#__codelineno-1-318">318</a></span>
-<span class="normal"><a href="#__codelineno-1-319">319</a></span>
-<span class="normal"><a href="#__codelineno-1-320">320</a></span>
-<span class="normal"><a href="#__codelineno-1-321">321</a></span>
-<span class="normal"><a href="#__codelineno-1-322">322</a></span>
-<span class="normal"><a href="#__codelineno-1-323">323</a></span>
-<span class="normal"><a href="#__codelineno-1-324">324</a></span>
-<span class="normal"><a href="#__codelineno-1-325">325</a></span>
-<span class="normal"><a href="#__codelineno-1-326">326</a></span>
-<span class="normal"><a href="#__codelineno-1-327">327</a></span>
-<span class="normal"><a href="#__codelineno-1-328">328</a></span>
-<span class="normal"><a href="#__codelineno-1-329">329</a></span>
-<span class="normal"><a href="#__codelineno-1-330">330</a></span>
-<span class="normal"><a href="#__codelineno-1-331">331</a></span>
-<span class="normal"><a href="#__codelineno-1-332">332</a></span>
-<span class="normal"><a href="#__codelineno-1-333">333</a></span>
-<span class="normal"><a href="#__codelineno-1-334">334</a></span>
-<span class="normal"><a href="#__codelineno-1-335">335</a></span>
-<span class="normal"><a href="#__codelineno-1-336">336</a></span>
-<span class="normal"><a href="#__codelineno-1-337">337</a></span>
-<span class="normal"><a href="#__codelineno-1-338">338</a></span>
-<span class="normal"><a href="#__codelineno-1-339">339</a></span>
-<span class="normal"><a href="#__codelineno-1-340">340</a></span>
-<span class="normal"><a href="#__codelineno-1-341">341</a></span>
-<span class="normal"><a href="#__codelineno-1-342">342</a></span>
-<span class="normal"><a href="#__codelineno-1-343">343</a></span>
-<span class="normal"><a href="#__codelineno-1-344">344</a></span>
-<span class="normal"><a href="#__codelineno-1-345">345</a></span>
-<span class="normal"><a href="#__codelineno-1-346">346</a></span>
-<span class="normal"><a href="#__codelineno-1-347">347</a></span>
-<span class="normal"><a href="#__codelineno-1-348">348</a></span>
-<span class="normal"><a href="#__codelineno-1-349">349</a></span>
-<span class="normal"><a href="#__codelineno-1-350">350</a></span>
-<span class="normal"><a href="#__codelineno-1-351">351</a></span>
-<span class="normal"><a href="#__codelineno-1-352">352</a></span>
-<span class="normal"><a href="#__codelineno-1-353">353</a></span>
-<span class="normal"><a href="#__codelineno-1-354">354</a></span>
-<span class="normal"><a href="#__codelineno-1-355">355</a></span>
-<span class="normal"><a href="#__codelineno-1-356">356</a></span>
-<span class="normal"><a href="#__codelineno-1-357">357</a></span>
-<span class="normal"><a href="#__codelineno-1-358">358</a></span>
-<span class="normal"><a href="#__codelineno-1-359">359</a></span>
-<span class="normal"><a href="#__codelineno-1-360">360</a></span>
-<span class="normal"><a href="#__codelineno-1-361">361</a></span>
-<span class="normal"><a href="#__codelineno-1-362">362</a></span>
-<span class="normal"><a href="#__codelineno-1-363">363</a></span>
-<span class="normal"><a href="#__codelineno-1-364">364</a></span>
-<span class="normal"><a href="#__codelineno-1-365">365</a></span>
-<span class="normal"><a href="#__codelineno-1-366">366</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
+<span class="normal"><a href="#__codelineno-1-109">109</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1">// Copyright 2021-2023 Anthony Paul Astolfi</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">//</span>
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="cp">#pragma once</span>
@@ -1000,363 +739,106 @@
 <a id="__codelineno-1-10" name="__codelineno-1-10"></a>
 <a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/asio/execution_context.hpp&gt;</span>
 <a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/asio/system_executor.hpp&gt;</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/async/handler.hpp&gt;</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/async/watch.hpp&gt;</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/utility.hpp&gt;</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a>
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;boost/asio/query.hpp&gt;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/async/basic_executor.hpp&gt;</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/async/handler.hpp&gt;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/async/mutex.hpp&gt;</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/async/watch.hpp&gt;</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/utility.hpp&gt;</span>
 <a id="__codelineno-1-18" name="__codelineno-1-18"></a>
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;condition_variable&gt;</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;mutex&gt;</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a>
-<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">batt</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;boost/asio/query.hpp&gt;</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;condition_variable&gt;</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;mutex&gt;</span>
 <a id="__codelineno-1-23" name="__codelineno-1-23"></a>
-<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">OutstandingWorkP</span><span class="o">&gt;</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="k">class</span><span class="w"> </span><span class="nc">BasicSimpleExecutor</span><span class="p">;</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26"></a>
-<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="k">using</span><span class="w"> </span><span class="n">SimpleExecutor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BasicSimpleExecutor</span><span class="o">&lt;</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="o">::</span><span class="n">untracked_t</span><span class="o">&gt;</span><span class="p">;</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28"></a>
-<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="k">class</span><span class="w"> </span><span class="nc">SimpleExecutionContext</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution_context</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="p">{</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="w">   </span><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">OutstandingWorkP</span><span class="o">&gt;</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">    </span><span class="k">friend</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BasicSimpleExecutor</span><span class="p">;</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34"></a>
-<a id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SimpleExecutionContext</span><span class="p">;</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">batt</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="c1">// Forward-declaration.</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="c1">//</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="k">class</span><span class="w"> </span><span class="nc">SimpleExecutionContext</span><span class="p">;</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="c1">// The executor type used by SimpleExecutionContext.</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="c1">//</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="k">using</span><span class="w"> </span><span class="n">SimpleExecutor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BasicExecutor</span><span class="o">&lt;</span><span class="n">SimpleExecutionContext</span><span class="p">,</span><span class="w">  </span><span class="c1">//</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">                                     </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="o">::</span><span class="n">untracked_t</span><span class="p">,</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="w">                                     </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">blocking_t</span><span class="o">::</span><span class="n">never_t</span><span class="p">,</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="w">                                     </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">relationship_t</span><span class="o">::</span><span class="n">fork_t</span><span class="o">&gt;</span><span class="p">;</span>
 <a id="__codelineno-1-36" name="__codelineno-1-36"></a>
-<a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">executor_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BasicSimpleExecutor</span><span class="o">&lt;</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="o">::</span><span class="n">untracked_t</span><span class="o">&gt;</span><span class="p">;</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38"></a>
-<a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-40" name="__codelineno-1-40"></a>
-<a id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">SimpleExecutionContext</span><span class="o">**</span><span class="w"> </span><span class="nf">this_thread_inside_run</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="w">        </span><span class="k">thread_local</span><span class="w"> </span><span class="n">SimpleExecutionContext</span><span class="o">*</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<a id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="n">context</span><span class="p">;</span>
-<a id="__codelineno-1-45" name="__codelineno-1-45"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-46" name="__codelineno-1-46"></a>
-<a id="__codelineno-1-47" name="__codelineno-1-47"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-48" name="__codelineno-1-48"></a>
-<a id="__codelineno-1-49" name="__codelineno-1-49"></a><span class="w">    </span><span class="n">SimpleExecutionContext</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
-<a id="__codelineno-1-50" name="__codelineno-1-50"></a><span class="w">    </span><span class="o">~</span><span class="n">SimpleExecutionContext</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
-<a id="__codelineno-1-51" name="__codelineno-1-51"></a>
-<a id="__codelineno-1-52" name="__codelineno-1-52"></a><span class="w">    </span><span class="n">executor_type</span><span class="w"> </span><span class="nf">get_executor</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
-<a id="__codelineno-1-53" name="__codelineno-1-53"></a>
-<a id="__codelineno-1-54" name="__codelineno-1-54"></a><span class="w">    </span><span class="c1">// The current work count.</span>
-<a id="__codelineno-1-55" name="__codelineno-1-55"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-56" name="__codelineno-1-56"></a><span class="w">    </span><span class="n">Watch</span><span class="o">&lt;</span><span class="n">i64</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">work_count</span><span class="p">()</span>
-<a id="__codelineno-1-57" name="__codelineno-1-57"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-58" name="__codelineno-1-58"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">work_count_</span><span class="p">;</span>
-<a id="__codelineno-1-59" name="__codelineno-1-59"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="k">class</span><span class="w"> </span><span class="nc">SimpleExecutionContext</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution_context</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="p">{</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="w">   </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SimpleExecutionContext</span><span class="p">;</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41"></a>
+<a id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">executor_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SimpleExecutor</span><span class="p">;</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43"></a>
+<a id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45"></a>
+<a id="__codelineno-1-46" name="__codelineno-1-46"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">inside_run_on_this_thread</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">SimpleExecutionContext</span><span class="o">**</span><span class="p">;</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47"></a>
+<a id="__codelineno-1-48" name="__codelineno-1-48"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49"></a>
+<a id="__codelineno-1-50" name="__codelineno-1-50"></a><span class="w">    </span><span class="n">SimpleExecutionContext</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51"></a><span class="w">    </span><span class="o">~</span><span class="n">SimpleExecutionContext</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<a id="__codelineno-1-52" name="__codelineno-1-52"></a>
+<a id="__codelineno-1-53" name="__codelineno-1-53"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">get_executor</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">executor_type</span><span class="p">;</span>
+<a id="__codelineno-1-54" name="__codelineno-1-54"></a>
+<a id="__codelineno-1-55" name="__codelineno-1-55"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">work_count</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">Watch</span><span class="o">&lt;</span><span class="n">i64</span><span class="o">&gt;&amp;</span><span class="p">;</span><span class="w">  </span><span class="c1">// TODO [tastolfi 2023-07-31] make const &amp;</span>
+<a id="__codelineno-1-56" name="__codelineno-1-56"></a>
+<a id="__codelineno-1-57" name="__codelineno-1-57"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">wake</span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="p">;</span>
+<a id="__codelineno-1-58" name="__codelineno-1-58"></a>
+<a id="__codelineno-1-59" name="__codelineno-1-59"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">on_work_started</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="p">;</span>
 <a id="__codelineno-1-60" name="__codelineno-1-60"></a>
-<a id="__codelineno-1-61" name="__codelineno-1-61"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">wake</span><span class="p">()</span>
-<a id="__codelineno-1-62" name="__codelineno-1-62"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-63" name="__codelineno-1-63"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">cond_</span><span class="p">.</span><span class="n">notify_all</span><span class="p">();</span>
-<a id="__codelineno-1-64" name="__codelineno-1-64"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-65" name="__codelineno-1-65"></a>
-<a id="__codelineno-1-66" name="__codelineno-1-66"></a><span class="w">    </span><span class="c1">// Access the default allocator directly.</span>
-<a id="__codelineno-1-67" name="__codelineno-1-67"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-68" name="__codelineno-1-68"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_allocator</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-69" name="__codelineno-1-69"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-70" name="__codelineno-1-70"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">allocator_</span><span class="p">;</span>
-<a id="__codelineno-1-71" name="__codelineno-1-71"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-61" name="__codelineno-1-61"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">on_work_finished</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="p">;</span>
+<a id="__codelineno-1-62" name="__codelineno-1-62"></a>
+<a id="__codelineno-1-63" name="__codelineno-1-63"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">stop</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="p">;</span>
+<a id="__codelineno-1-64" name="__codelineno-1-64"></a>
+<a id="__codelineno-1-65" name="__codelineno-1-65"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">is_stopped</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">;</span>
+<a id="__codelineno-1-66" name="__codelineno-1-66"></a>
+<a id="__codelineno-1-67" name="__codelineno-1-67"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">run</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">usize</span><span class="p">;</span>
+<a id="__codelineno-1-68" name="__codelineno-1-68"></a>
+<a id="__codelineno-1-69" name="__codelineno-1-69"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">reset</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="p">;</span>
+<a id="__codelineno-1-70" name="__codelineno-1-70"></a>
+<a id="__codelineno-1-71" name="__codelineno-1-71"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">get_allocator</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">;</span>
 <a id="__codelineno-1-72" name="__codelineno-1-72"></a>
 <a id="__codelineno-1-73" name="__codelineno-1-73"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="o">&gt;</span>
-<a id="__codelineno-1-74" name="__codelineno-1-74"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">dispatch</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-75" name="__codelineno-1-75"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-76" name="__codelineno-1-76"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">this_thread_inside_run</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">this</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-77" name="__codelineno-1-77"></a><span class="w">            </span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">fn</span><span class="p">)();</span>
-<a id="__codelineno-1-78" name="__codelineno-1-78"></a><span class="w">            </span><span class="k">return</span><span class="p">;</span>
-<a id="__codelineno-1-79" name="__codelineno-1-79"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-80" name="__codelineno-1-80"></a>
-<a id="__codelineno-1-81" name="__codelineno-1-81"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">post</span><span class="p">(</span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">fn</span><span class="p">));</span>
-<a id="__codelineno-1-82" name="__codelineno-1-82"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-83" name="__codelineno-1-83"></a>
-<a id="__codelineno-1-84" name="__codelineno-1-84"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="o">&gt;</span>
-<a id="__codelineno-1-85" name="__codelineno-1-85"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">post</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-86" name="__codelineno-1-86"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-87" name="__codelineno-1-87"></a><span class="w">        </span><span class="p">{</span>
-<a id="__codelineno-1-88" name="__codelineno-1-88"></a><span class="w">            </span><span class="n">std</span><span class="o">::</span><span class="n">unique_lock</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lock</span><span class="p">{</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">mutex_</span><span class="p">};</span>
-<a id="__codelineno-1-89" name="__codelineno-1-89"></a><span class="w">            </span><span class="n">push_handler</span><span class="p">(</span><span class="o">&amp;</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">queue_</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">decay_t</span><span class="o">&lt;</span><span class="n">Fn</span><span class="o">&gt;</span><span class="p">{</span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">fn</span><span class="p">)});</span>
-<a id="__codelineno-1-90" name="__codelineno-1-90"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-91" name="__codelineno-1-91"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">cond_</span><span class="p">.</span><span class="n">notify_one</span><span class="p">();</span>
-<a id="__codelineno-1-92" name="__codelineno-1-92"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-74" name="__codelineno-1-74"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">dispatch</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="p">;</span>
+<a id="__codelineno-1-75" name="__codelineno-1-75"></a>
+<a id="__codelineno-1-76" name="__codelineno-1-76"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="o">&gt;</span>
+<a id="__codelineno-1-77" name="__codelineno-1-77"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">post</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="p">;</span>
+<a id="__codelineno-1-78" name="__codelineno-1-78"></a>
+<a id="__codelineno-1-79" name="__codelineno-1-79"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="o">&gt;</span>
+<a id="__codelineno-1-80" name="__codelineno-1-80"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">defer</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">void</span><span class="p">;</span>
+<a id="__codelineno-1-81" name="__codelineno-1-81"></a>
+<a id="__codelineno-1-82" name="__codelineno-1-82"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-1-83" name="__codelineno-1-83"></a><span class="w">   </span><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-1-84" name="__codelineno-1-84"></a><span class="w">    </span><span class="n">Watch</span><span class="o">&lt;</span><span class="n">i64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">work_count_</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+<a id="__codelineno-1-85" name="__codelineno-1-85"></a>
+<a id="__codelineno-1-86" name="__codelineno-1-86"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">allocator_</span><span class="p">;</span>
+<a id="__codelineno-1-87" name="__codelineno-1-87"></a>
+<a id="__codelineno-1-88" name="__codelineno-1-88"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="w"> </span><span class="n">mutex_</span><span class="p">;</span>
+<a id="__codelineno-1-89" name="__codelineno-1-89"></a>
+<a id="__codelineno-1-90" name="__codelineno-1-90"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">condition_variable</span><span class="w"> </span><span class="n">cond_</span><span class="p">;</span>
+<a id="__codelineno-1-91" name="__codelineno-1-91"></a>
+<a id="__codelineno-1-92" name="__codelineno-1-92"></a><span class="w">    </span><span class="n">HandlerList</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">queue_</span><span class="p">;</span>
 <a id="__codelineno-1-93" name="__codelineno-1-93"></a>
-<a id="__codelineno-1-94" name="__codelineno-1-94"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">stop</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
-<a id="__codelineno-1-95" name="__codelineno-1-95"></a>
-<a id="__codelineno-1-96" name="__codelineno-1-96"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">run</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
-<a id="__codelineno-1-97" name="__codelineno-1-97"></a>
-<a id="__codelineno-1-98" name="__codelineno-1-98"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">reset</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-99" name="__codelineno-1-99"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-100" name="__codelineno-1-100"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">stop_</span><span class="p">.</span><span class="n">store</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
-<a id="__codelineno-1-101" name="__codelineno-1-101"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-94" name="__codelineno-1-94"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stop_</span><span class="p">{</span><span class="nb">false</span><span class="p">};</span>
+<a id="__codelineno-1-95" name="__codelineno-1-95"></a><span class="p">};</span>
+<a id="__codelineno-1-96" name="__codelineno-1-96"></a>
+<a id="__codelineno-1-97" name="__codelineno-1-97"></a><span class="c1">//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------</span>
+<a id="__codelineno-1-98" name="__codelineno-1-98"></a>
+<a id="__codelineno-1-99" name="__codelineno-1-99"></a><span class="p">}</span><span class="w">  </span><span class="c1">//namespace batt</span>
+<a id="__codelineno-1-100" name="__codelineno-1-100"></a>
+<a id="__codelineno-1-101" name="__codelineno-1-101"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/async/simple_executor.ipp&gt;</span>
 <a id="__codelineno-1-102" name="__codelineno-1-102"></a>
-<a id="__codelineno-1-103" name="__codelineno-1-103"></a><span class="w">   </span><span class="k">private</span><span class="o">:</span>
-<a id="__codelineno-1-104" name="__codelineno-1-104"></a><span class="w">    </span><span class="n">Watch</span><span class="o">&lt;</span><span class="n">i64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">work_count_</span><span class="p">{</span><span class="mi">0</span><span class="p">};</span>
-<a id="__codelineno-1-105" name="__codelineno-1-105"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">allocator_</span><span class="p">;</span>
-<a id="__codelineno-1-106" name="__codelineno-1-106"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">mutex</span><span class="w"> </span><span class="n">mutex_</span><span class="p">;</span>
-<a id="__codelineno-1-107" name="__codelineno-1-107"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">condition_variable</span><span class="w"> </span><span class="n">cond_</span><span class="p">;</span>
-<a id="__codelineno-1-108" name="__codelineno-1-108"></a><span class="w">    </span><span class="n">HandlerList</span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">queue_</span><span class="p">;</span>
-<a id="__codelineno-1-109" name="__codelineno-1-109"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">atomic</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stop_</span><span class="p">{</span><span class="nb">false</span><span class="p">};</span>
-<a id="__codelineno-1-110" name="__codelineno-1-110"></a><span class="p">};</span>
-<a id="__codelineno-1-111" name="__codelineno-1-111"></a>
-<a id="__codelineno-1-112" name="__codelineno-1-112"></a><span class="c1">//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------</span>
-<a id="__codelineno-1-113" name="__codelineno-1-113"></a>
-<a id="__codelineno-1-114" name="__codelineno-1-114"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">OutstandingWorkP</span><span class="o">&gt;</span>
-<a id="__codelineno-1-115" name="__codelineno-1-115"></a><span class="k">class</span><span class="w"> </span><span class="nc">BasicSimpleExecutor</span>
-<a id="__codelineno-1-116" name="__codelineno-1-116"></a><span class="p">{</span>
-<a id="__codelineno-1-117" name="__codelineno-1-117"></a><span class="w">   </span><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-1-118" name="__codelineno-1-118"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BasicSimpleExecutor</span><span class="p">;</span>
-<a id="__codelineno-1-119" name="__codelineno-1-119"></a>
-<a id="__codelineno-1-120" name="__codelineno-1-120"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-121" name="__codelineno-1-121"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">BasicSimpleExecutor</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">context_</span><span class="p">{</span><span class="k">nullptr</span><span class="p">}</span>
-<a id="__codelineno-1-122" name="__codelineno-1-122"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-123" name="__codelineno-1-123"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-124" name="__codelineno-1-124"></a>
-<a id="__codelineno-1-125" name="__codelineno-1-125"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">explicit</span><span class="w"> </span><span class="n">BasicSimpleExecutor</span><span class="p">(</span><span class="n">SimpleExecutionContext</span><span class="o">*</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">context_</span><span class="p">{</span><span class="n">context</span><span class="p">}</span>
-<a id="__codelineno-1-126" name="__codelineno-1-126"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-127" name="__codelineno-1-127"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">OutstandingWorkP</span><span class="p">,</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="o">::</span><span class="n">tracked_t</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-128" name="__codelineno-1-128"></a><span class="w">            </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">on_work_started</span><span class="p">();</span>
-<a id="__codelineno-1-129" name="__codelineno-1-129"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-130" name="__codelineno-1-130"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-131" name="__codelineno-1-131"></a>
-<a id="__codelineno-1-132" name="__codelineno-1-132"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">BasicSimpleExecutor</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Self</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Self</span><span class="p">{</span><span class="n">other</span><span class="p">.</span><span class="n">context_</span><span class="p">}</span>
-<a id="__codelineno-1-133" name="__codelineno-1-133"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-134" name="__codelineno-1-134"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-135" name="__codelineno-1-135"></a>
-<a id="__codelineno-1-136" name="__codelineno-1-136"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">BasicSimpleExecutor</span><span class="p">(</span><span class="n">Self</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">context_</span><span class="p">{</span><span class="n">other</span><span class="p">.</span><span class="n">context_</span><span class="p">}</span>
-<a id="__codelineno-1-137" name="__codelineno-1-137"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-138" name="__codelineno-1-138"></a><span class="w">        </span><span class="n">other</span><span class="p">.</span><span class="n">context_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<a id="__codelineno-1-139" name="__codelineno-1-139"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-140" name="__codelineno-1-140"></a>
-<a id="__codelineno-1-141" name="__codelineno-1-141"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-142" name="__codelineno-1-142"></a><span class="w">    </span><span class="n">Self</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Self</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-143" name="__codelineno-1-143"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-144" name="__codelineno-1-144"></a><span class="w">        </span><span class="n">Self</span><span class="w"> </span><span class="n">tmp</span><span class="p">{</span><span class="n">other</span><span class="p">};</span>
-<a id="__codelineno-1-145" name="__codelineno-1-145"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">swap</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
-<a id="__codelineno-1-146" name="__codelineno-1-146"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
-<a id="__codelineno-1-147" name="__codelineno-1-147"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-148" name="__codelineno-1-148"></a>
-<a id="__codelineno-1-149" name="__codelineno-1-149"></a><span class="w">    </span><span class="n">Self</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">Self</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-150" name="__codelineno-1-150"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-151" name="__codelineno-1-151"></a><span class="w">        </span><span class="n">Self</span><span class="w"> </span><span class="n">tmp</span><span class="p">{</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">other</span><span class="p">)};</span>
-<a id="__codelineno-1-152" name="__codelineno-1-152"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">swap</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
-<a id="__codelineno-1-153" name="__codelineno-1-153"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
-<a id="__codelineno-1-154" name="__codelineno-1-154"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-155" name="__codelineno-1-155"></a>
-<a id="__codelineno-1-156" name="__codelineno-1-156"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-157" name="__codelineno-1-157"></a><span class="w">    </span><span class="o">~</span><span class="n">BasicSimpleExecutor</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-158" name="__codelineno-1-158"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-159" name="__codelineno-1-159"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">OutstandingWorkP</span><span class="p">,</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="o">::</span><span class="n">tracked_t</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-160" name="__codelineno-1-160"></a><span class="w">            </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">on_work_finished</span><span class="p">();</span>
-<a id="__codelineno-1-161" name="__codelineno-1-161"></a><span class="w">        </span><span class="p">}</span>
-<a id="__codelineno-1-162" name="__codelineno-1-162"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-163" name="__codelineno-1-163"></a>
-<a id="__codelineno-1-164" name="__codelineno-1-164"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-165" name="__codelineno-1-165"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">swap</span><span class="p">(</span><span class="n">Self</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span>
-<a id="__codelineno-1-166" name="__codelineno-1-166"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-167" name="__codelineno-1-167"></a><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">swap</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">context_</span><span class="p">,</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">context_</span><span class="p">);</span>
-<a id="__codelineno-1-168" name="__codelineno-1-168"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-169" name="__codelineno-1-169"></a>
-<a id="__codelineno-1-170" name="__codelineno-1-170"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-171" name="__codelineno-1-171"></a><span class="w">    </span><span class="n">SimpleExecutionContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">context</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-172" name="__codelineno-1-172"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-173" name="__codelineno-1-173"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">context_</span><span class="p">;</span>
-<a id="__codelineno-1-174" name="__codelineno-1-174"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-175" name="__codelineno-1-175"></a>
-<a id="__codelineno-1-176" name="__codelineno-1-176"></a><span class="w">    </span><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-177" name="__codelineno-1-177"></a>
-<a id="__codelineno-1-178" name="__codelineno-1-178"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-179" name="__codelineno-1-179"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="n">require</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">blocking_t</span><span class="o">::</span><span class="n">possibly_t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-180" name="__codelineno-1-180"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-181" name="__codelineno-1-181"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
-<a id="__codelineno-1-182" name="__codelineno-1-182"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-183" name="__codelineno-1-183"></a>
-<a id="__codelineno-1-184" name="__codelineno-1-184"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-185" name="__codelineno-1-185"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="n">require</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">blocking_t</span><span class="o">::</span><span class="n">never_t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-186" name="__codelineno-1-186"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-187" name="__codelineno-1-187"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
-<a id="__codelineno-1-188" name="__codelineno-1-188"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-189" name="__codelineno-1-189"></a>
-<a id="__codelineno-1-190" name="__codelineno-1-190"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-191" name="__codelineno-1-191"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="n">require</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">relationship_t</span><span class="o">::</span><span class="n">fork_t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-192" name="__codelineno-1-192"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-193" name="__codelineno-1-193"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
-<a id="__codelineno-1-194" name="__codelineno-1-194"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-195" name="__codelineno-1-195"></a>
-<a id="__codelineno-1-196" name="__codelineno-1-196"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-197" name="__codelineno-1-197"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="n">require</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">relationship_t</span><span class="o">::</span><span class="n">continuation_t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-198" name="__codelineno-1-198"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-199" name="__codelineno-1-199"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
-<a id="__codelineno-1-200" name="__codelineno-1-200"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-201" name="__codelineno-1-201"></a>
-<a id="__codelineno-1-202" name="__codelineno-1-202"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-203" name="__codelineno-1-203"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">require</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="o">::</span><span class="n">tracked_t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-204" name="__codelineno-1-204"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-205" name="__codelineno-1-205"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">BasicSimpleExecutor</span><span class="o">&lt;</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="o">::</span><span class="n">tracked_t</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">context_</span><span class="p">};</span>
-<a id="__codelineno-1-206" name="__codelineno-1-206"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-207" name="__codelineno-1-207"></a>
-<a id="__codelineno-1-208" name="__codelineno-1-208"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-209" name="__codelineno-1-209"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">require</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="o">::</span><span class="n">untracked_t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-210" name="__codelineno-1-210"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-211" name="__codelineno-1-211"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">BasicSimpleExecutor</span><span class="o">&lt;</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="o">::</span><span class="n">untracked_t</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">context_</span><span class="p">};</span>
-<a id="__codelineno-1-212" name="__codelineno-1-212"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-213" name="__codelineno-1-213"></a>
-<a id="__codelineno-1-214" name="__codelineno-1-214"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-215" name="__codelineno-1-215"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">OtherAllocator</span><span class="o">&gt;</span>
-<a id="__codelineno-1-216" name="__codelineno-1-216"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="n">require</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">allocator_t</span><span class="o">&lt;</span><span class="n">OtherAllocator</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-217" name="__codelineno-1-217"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-218" name="__codelineno-1-218"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
-<a id="__codelineno-1-219" name="__codelineno-1-219"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-220" name="__codelineno-1-220"></a>
-<a id="__codelineno-1-221" name="__codelineno-1-221"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-222" name="__codelineno-1-222"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="n">require</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">allocator_t</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-223" name="__codelineno-1-223"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-224" name="__codelineno-1-224"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
-<a id="__codelineno-1-225" name="__codelineno-1-225"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-226" name="__codelineno-1-226"></a>
-<a id="__codelineno-1-227" name="__codelineno-1-227"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-228" name="__codelineno-1-228"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="n">prefer</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">blocking_t</span><span class="o">::</span><span class="n">possibly_t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-229" name="__codelineno-1-229"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-230" name="__codelineno-1-230"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
-<a id="__codelineno-1-231" name="__codelineno-1-231"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-232" name="__codelineno-1-232"></a>
-<a id="__codelineno-1-233" name="__codelineno-1-233"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-234" name="__codelineno-1-234"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="n">prefer</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">blocking_t</span><span class="o">::</span><span class="n">never_t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-235" name="__codelineno-1-235"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-236" name="__codelineno-1-236"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
-<a id="__codelineno-1-237" name="__codelineno-1-237"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-238" name="__codelineno-1-238"></a>
-<a id="__codelineno-1-239" name="__codelineno-1-239"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-240" name="__codelineno-1-240"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="n">prefer</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">relationship_t</span><span class="o">::</span><span class="n">fork_t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-241" name="__codelineno-1-241"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-242" name="__codelineno-1-242"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
-<a id="__codelineno-1-243" name="__codelineno-1-243"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-244" name="__codelineno-1-244"></a>
-<a id="__codelineno-1-245" name="__codelineno-1-245"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-246" name="__codelineno-1-246"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="n">prefer</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">relationship_t</span><span class="o">::</span><span class="n">continuation_t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-247" name="__codelineno-1-247"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-248" name="__codelineno-1-248"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
-<a id="__codelineno-1-249" name="__codelineno-1-249"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-250" name="__codelineno-1-250"></a>
-<a id="__codelineno-1-251" name="__codelineno-1-251"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-252" name="__codelineno-1-252"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">prefer</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="o">::</span><span class="n">tracked_t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-253" name="__codelineno-1-253"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-254" name="__codelineno-1-254"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">BasicSimpleExecutor</span><span class="o">&lt;</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="o">::</span><span class="n">tracked_t</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">context_</span><span class="p">};</span>
-<a id="__codelineno-1-255" name="__codelineno-1-255"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-256" name="__codelineno-1-256"></a>
-<a id="__codelineno-1-257" name="__codelineno-1-257"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-258" name="__codelineno-1-258"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">prefer</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="o">::</span><span class="n">untracked_t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-259" name="__codelineno-1-259"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-260" name="__codelineno-1-260"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">BasicSimpleExecutor</span><span class="o">&lt;</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="o">::</span><span class="n">untracked_t</span><span class="o">&gt;</span><span class="p">{</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">context_</span><span class="p">};</span>
-<a id="__codelineno-1-261" name="__codelineno-1-261"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-262" name="__codelineno-1-262"></a>
-<a id="__codelineno-1-263" name="__codelineno-1-263"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-264" name="__codelineno-1-264"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">OtherAllocator</span><span class="o">&gt;</span>
-<a id="__codelineno-1-265" name="__codelineno-1-265"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="n">prefer</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">allocator_t</span><span class="o">&lt;</span><span class="n">OtherAllocator</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-266" name="__codelineno-1-266"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-267" name="__codelineno-1-267"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
-<a id="__codelineno-1-268" name="__codelineno-1-268"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-269" name="__codelineno-1-269"></a>
-<a id="__codelineno-1-270" name="__codelineno-1-270"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-271" name="__codelineno-1-271"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Self</span><span class="w"> </span><span class="n">prefer</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">allocator_t</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-1-272" name="__codelineno-1-272"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-273" name="__codelineno-1-273"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">*</span><span class="k">this</span><span class="p">;</span>
-<a id="__codelineno-1-274" name="__codelineno-1-274"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-275" name="__codelineno-1-275"></a>
-<a id="__codelineno-1-276" name="__codelineno-1-276"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-277" name="__codelineno-1-277"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">mapping_t</span><span class="w"> </span><span class="n">query</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">mapping_t</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-278" name="__codelineno-1-278"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-279" name="__codelineno-1-279"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">mapping</span><span class="p">.</span><span class="kr">thread</span><span class="p">;</span>
-<a id="__codelineno-1-280" name="__codelineno-1-280"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-281" name="__codelineno-1-281"></a>
-<a id="__codelineno-1-282" name="__codelineno-1-282"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-283" name="__codelineno-1-283"></a><span class="w">    </span><span class="n">SimpleExecutionContext</span><span class="o">&amp;</span><span class="w"> </span><span class="n">query</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">context_t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
-<a id="__codelineno-1-284" name="__codelineno-1-284"></a>
-<a id="__codelineno-1-285" name="__codelineno-1-285"></a><span class="w">    </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution_context</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span>
-<a id="__codelineno-1-286" name="__codelineno-1-286"></a><span class="w">        </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">context_as_t</span><span class="o">&lt;</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution_context</span><span class="o">&amp;&gt;</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
-<a id="__codelineno-1-287" name="__codelineno-1-287"></a>
-<a id="__codelineno-1-288" name="__codelineno-1-288"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-289" name="__codelineno-1-289"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">blocking_t</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">blocking_t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-290" name="__codelineno-1-290"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-291" name="__codelineno-1-291"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">blocking_t</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">blocking</span><span class="p">.</span><span class="n">never</span><span class="p">);</span>
-<a id="__codelineno-1-292" name="__codelineno-1-292"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-293" name="__codelineno-1-293"></a>
-<a id="__codelineno-1-294" name="__codelineno-1-294"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-295" name="__codelineno-1-295"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">relationship_t</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span>
-<a id="__codelineno-1-296" name="__codelineno-1-296"></a><span class="w">        </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">relationship_t</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-297" name="__codelineno-1-297"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-298" name="__codelineno-1-298"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">relationship_t</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">relationship</span><span class="p">.</span><span class="n">continuation</span><span class="p">);</span>
-<a id="__codelineno-1-299" name="__codelineno-1-299"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-300" name="__codelineno-1-300"></a>
-<a id="__codelineno-1-301" name="__codelineno-1-301"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-302" name="__codelineno-1-302"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-303" name="__codelineno-1-303"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span>
-<a id="__codelineno-1-304" name="__codelineno-1-304"></a><span class="w">        </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="p">)</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-305" name="__codelineno-1-305"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-306" name="__codelineno-1-306"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">OutstandingWorkP</span><span class="p">,</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="o">::</span><span class="n">tracked_t</span><span class="o">&gt;</span><span class="p">)</span>
-<a id="__codelineno-1-307" name="__codelineno-1-307"></a><span class="w">                   </span><span class="o">?</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="p">(</span>
-<a id="__codelineno-1-308" name="__codelineno-1-308"></a><span class="w">                         </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work</span><span class="p">.</span><span class="n">tracked</span><span class="p">)</span>
-<a id="__codelineno-1-309" name="__codelineno-1-309"></a><span class="w">                   </span><span class="o">:</span><span class="w"> </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work_t</span><span class="p">(</span>
-<a id="__codelineno-1-310" name="__codelineno-1-310"></a><span class="w">                         </span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">outstanding_work</span><span class="p">.</span><span class="n">untracked</span><span class="p">);</span>
-<a id="__codelineno-1-311" name="__codelineno-1-311"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-312" name="__codelineno-1-312"></a>
-<a id="__codelineno-1-313" name="__codelineno-1-313"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-314" name="__codelineno-1-314"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-315" name="__codelineno-1-315"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">OtherAllocator</span><span class="o">&gt;</span>
-<a id="__codelineno-1-316" name="__codelineno-1-316"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">query</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">allocator_t</span><span class="o">&lt;</span><span class="n">OtherAllocator</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
-<a id="__codelineno-1-317" name="__codelineno-1-317"></a>
-<a id="__codelineno-1-318" name="__codelineno-1-318"></a><span class="w">    </span><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-319" name="__codelineno-1-319"></a><span class="w">    </span><span class="c1">//</span>
-<a id="__codelineno-1-320" name="__codelineno-1-320"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">allocator</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">query</span><span class="p">(</span><span class="n">boost</span><span class="o">::</span><span class="n">asio</span><span class="o">::</span><span class="n">execution</span><span class="o">::</span><span class="n">allocator_t</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
-<a id="__codelineno-1-321" name="__codelineno-1-321"></a>
-<a id="__codelineno-1-322" name="__codelineno-1-322"></a><span class="w">    </span><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
-<a id="__codelineno-1-323" name="__codelineno-1-323"></a>
-<a id="__codelineno-1-324" name="__codelineno-1-324"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">on_work_started</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
-<a id="__codelineno-1-325" name="__codelineno-1-325"></a>
-<a id="__codelineno-1-326" name="__codelineno-1-326"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">on_work_finished</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span><span class="p">;</span>
-<a id="__codelineno-1-327" name="__codelineno-1-327"></a>
-<a id="__codelineno-1-328" name="__codelineno-1-328"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="o">&gt;</span>
-<a id="__codelineno-1-329" name="__codelineno-1-329"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">execute</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-330" name="__codelineno-1-330"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-331" name="__codelineno-1-331"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">context_</span><span class="o">-&gt;</span><span class="n">dispatch</span><span class="p">(</span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">fn</span><span class="p">));</span>
-<a id="__codelineno-1-332" name="__codelineno-1-332"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-333" name="__codelineno-1-333"></a>
-<a id="__codelineno-1-334" name="__codelineno-1-334"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FnAllocator</span><span class="o">&gt;</span>
-<a id="__codelineno-1-335" name="__codelineno-1-335"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">dispatch</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">,</span><span class="w"> </span><span class="n">FnAllocator</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-336" name="__codelineno-1-336"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-337" name="__codelineno-1-337"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">context_</span><span class="o">-&gt;</span><span class="n">dispatch</span><span class="p">(</span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">fn</span><span class="p">));</span>
-<a id="__codelineno-1-338" name="__codelineno-1-338"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-339" name="__codelineno-1-339"></a>
-<a id="__codelineno-1-340" name="__codelineno-1-340"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FnAllocator</span><span class="o">&gt;</span>
-<a id="__codelineno-1-341" name="__codelineno-1-341"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">post</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">,</span><span class="w"> </span><span class="n">FnAllocator</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-342" name="__codelineno-1-342"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-343" name="__codelineno-1-343"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">context_</span><span class="o">-&gt;</span><span class="n">post</span><span class="p">(</span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">fn</span><span class="p">));</span>
-<a id="__codelineno-1-344" name="__codelineno-1-344"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-345" name="__codelineno-1-345"></a>
-<a id="__codelineno-1-346" name="__codelineno-1-346"></a><span class="w">    </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Fn</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">FnAllocator</span><span class="o">&gt;</span>
-<a id="__codelineno-1-347" name="__codelineno-1-347"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">defer</span><span class="p">(</span><span class="n">Fn</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">fn</span><span class="p">,</span><span class="w"> </span><span class="n">FnAllocator</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">noexcept</span>
-<a id="__codelineno-1-348" name="__codelineno-1-348"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-1-349" name="__codelineno-1-349"></a><span class="w">        </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">context_</span><span class="o">-&gt;</span><span class="n">post</span><span class="p">(</span><span class="n">BATT_FORWARD</span><span class="p">(</span><span class="n">fn</span><span class="p">));</span>
-<a id="__codelineno-1-350" name="__codelineno-1-350"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-1-351" name="__codelineno-1-351"></a>
-<a id="__codelineno-1-352" name="__codelineno-1-352"></a><span class="w">   </span><span class="k">private</span><span class="o">:</span>
-<a id="__codelineno-1-353" name="__codelineno-1-353"></a><span class="w">    </span><span class="n">SimpleExecutionContext</span><span class="o">*</span><span class="w"> </span><span class="n">context_</span><span class="p">;</span>
-<a id="__codelineno-1-354" name="__codelineno-1-354"></a><span class="p">};</span>
-<a id="__codelineno-1-355" name="__codelineno-1-355"></a>
-<a id="__codelineno-1-356" name="__codelineno-1-356"></a><span class="p">}</span><span class="w">  </span><span class="c1">//namespace batt</span>
-<a id="__codelineno-1-357" name="__codelineno-1-357"></a>
-<a id="__codelineno-1-358" name="__codelineno-1-358"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/async/simple_executor.ipp&gt;</span>
-<a id="__codelineno-1-359" name="__codelineno-1-359"></a>
-<a id="__codelineno-1-360" name="__codelineno-1-360"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_SIMPLE_EXECUTOR_HPP</span>
-<a id="__codelineno-1-361" name="__codelineno-1-361"></a>
-<a id="__codelineno-1-362" name="__codelineno-1-362"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/config.hpp&gt;</span>
-<a id="__codelineno-1-363" name="__codelineno-1-363"></a>
-<a id="__codelineno-1-364" name="__codelineno-1-364"></a><span class="cp">#if BATT_HEADER_ONLY</span>
-<a id="__codelineno-1-365" name="__codelineno-1-365"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/async/simple_executor_impl.hpp&gt;</span>
-<a id="__codelineno-1-366" name="__codelineno-1-366"></a><span class="cp">#endif</span>
+<a id="__codelineno-1-103" name="__codelineno-1-103"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ASYNC_SIMPLE_EXECUTOR_HPP</span>
+<a id="__codelineno-1-104" name="__codelineno-1-104"></a>
+<a id="__codelineno-1-105" name="__codelineno-1-105"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/config.hpp&gt;</span>
+<a id="__codelineno-1-106" name="__codelineno-1-106"></a>
+<a id="__codelineno-1-107" name="__codelineno-1-107"></a><span class="cp">#if BATT_HEADER_ONLY</span>
+<a id="__codelineno-1-108" name="__codelineno-1-108"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/async/simple_executor_impl.hpp&gt;</span>
+<a id="__codelineno-1-109" name="__codelineno-1-109"></a><span class="cp">#endif</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 24 July 2023 at 20:45:01 UTC</p>
+<p>Updated on  9 August 2023 at 21:18:53 UTC</p>
 
 
 

@@ -14,12 +14,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 141,
+    "bodyEnd": 154,
     "bodyFile": "batteries/async/task_decl.hpp",
-    "bodyStart": 116,
+    "bodyStart": 118,
     "column": 5,
     "file": "batteries/async/task_decl.hpp",
-    "line": 115
+    "line": 117
   },
   "name": "batt::Task::ConcurrentTaskList",
   "override": false,
@@ -96,10 +96,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 137,
+        "bodyStart": 150,
         "column": 20,
         "file": "batteries/async/task_decl.hpp",
-        "line": 137
+        "line": 150
       },
       "name": "mutex_",
       "override": false,
@@ -126,10 +126,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 138,
+        "bodyStart": 151,
         "column": 18,
         "file": "batteries/async/task_decl.hpp",
-        "line": 138
+        "line": 151
       },
       "name": "task_list_",
       "override": false,
@@ -157,10 +157,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 139,
+        "bodyStart": 152,
         "column": 21,
         "file": "batteries/async/task_decl.hpp",
-        "line": 139
+        "line": 152
       },
       "name": "link_count_",
       "override": false,
@@ -188,10 +188,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 140,
+        "bodyStart": 153,
         "column": 15,
         "file": "batteries/async/task_decl.hpp",
-        "line": 140
+        "line": 153
       },
       "name": "unlink_count_",
       "override": false,
@@ -222,18 +222,18 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 711,
+        "bodyEnd": 723,
         "bodyFile": "batteries/async/task_impl.hpp",
-        "bodyStart": 703,
+        "bodyStart": 719,
         "column": 14,
         "file": "batteries/async/task_decl.hpp",
-        "line": 135
+        "line": 142
       },
       "name": "dump_log_info_locked",
       "override": false,
       "params": [
         {
-          "name": "",
+          "name": "lock",
           "type": "std::unique_lock< std::mutex > &",
           "typePlain": "std::unique_lock< std::mutex > &"
         },
@@ -251,6 +251,56 @@
       "type": "void",
       "typePlain": "void",
       "url": "/_autogen/Classes/classbatt_1_1Task_1_1ConcurrentTaskList/#function-dump-log-info-locked",
+      "virtual": false,
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-debug-info-locked",
+      "argsString": "(std::unique_lock< std::mutex > &, std::string_view label) noexcept",
+      "brief": "Returns a function that prints the contents of this list to an ostream for debugging purposes; must be called while holding a lock on `this->mutex_`. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "auto batt::Task::ConcurrentTaskList::debug_info_locked",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Task::ConcurrentTaskList::debug_info_locked",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 749,
+        "bodyFile": "batteries/async/task_impl.hpp",
+        "bodyStart": 738,
+        "column": 23,
+        "file": "batteries/async/task_decl.hpp",
+        "line": 147
+      },
+      "name": "debug_info_locked",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "std::unique_lock< std::mutex > &",
+          "typePlain": "std::unique_lock< std::mutex > &"
+        },
+        {
+          "name": "label",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Task_1_1ConcurrentTaskList_1ada146b296cf0270c41e2365e01aaefef",
+      "static": false,
+      "strong": false,
+      "summary": "Returns a function that prints the contents of this list to an ostream for debugging purposes; must be called while holding a lock on this->mutex_. ",
+      "title": "debug_info_locked",
+      "type": "[batt::SmallFn](/_autogen/Classes/classbatt_1_1SmallFn/)< void(std::ostream &)>",
+      "typePlain": "batt::SmallFn< void(std::ostream &)>",
+      "url": "/_autogen/Classes/classbatt_1_1Task_1_1ConcurrentTaskList/#function-debug-info-locked",
       "virtual": false,
       "visibility": "private"
     }
@@ -274,7 +324,7 @@
       "location": {
         "column": 9,
         "file": "batteries/async/task_decl.hpp",
-        "line": 118
+        "line": 120
       },
       "name": "ConcurrentTaskList",
       "override": false,
@@ -306,7 +356,7 @@
       "location": {
         "column": 9,
         "file": "batteries/async/task_decl.hpp",
-        "line": 120
+        "line": 122
       },
       "name": "ConcurrentTaskList",
       "override": false,
@@ -344,7 +394,7 @@
       "location": {
         "column": 28,
         "file": "batteries/async/task_decl.hpp",
-        "line": 121
+        "line": 123
       },
       "name": "operator=",
       "override": false,
@@ -382,12 +432,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 726,
+        "bodyEnd": 764,
         "bodyFile": "batteries/async/task_impl.hpp",
-        "bodyStart": 715,
+        "bodyStart": 753,
         "column": 14,
         "file": "batteries/async/task_decl.hpp",
-        "line": 123
+        "line": 125
       },
       "name": "push_back",
       "override": false,
@@ -425,12 +475,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 742,
+        "bodyEnd": 780,
         "bodyFile": "batteries/async/task_impl.hpp",
-        "bodyStart": 730,
+        "bodyStart": 768,
         "column": 14,
         "file": "batteries/async/task_decl.hpp",
-        "line": 125
+        "line": 127
       },
       "name": "unlink",
       "override": false,
@@ -468,12 +518,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 762,
+        "bodyEnd": 800,
         "bodyFile": "batteries/async/task_impl.hpp",
-        "bodyStart": 746,
+        "bodyStart": 784,
         "column": 14,
         "file": "batteries/async/task_decl.hpp",
-        "line": 127
+        "line": 129
       },
       "name": "await_empty",
       "override": false,
@@ -505,12 +555,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 1283,
+        "bodyEnd": 1309,
         "bodyFile": "batteries/async/task_decl.hpp",
-        "bodyStart": 1279,
+        "bodyStart": 1305,
         "column": 11,
         "file": "batteries/async/task_decl.hpp",
-        "line": 130
+        "line": 132
       },
       "name": "with_lock",
       "override": false,
@@ -562,12 +612,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 699,
+        "bodyEnd": 715,
         "bodyFile": "batteries/async/task_impl.hpp",
-        "bodyStart": 695,
+        "bodyStart": 711,
         "column": 14,
         "file": "batteries/async/task_decl.hpp",
-        "line": 132
+        "line": 134
       },
       "name": "dump_log_info",
       "override": false,
@@ -586,6 +636,51 @@
       "type": "void",
       "typePlain": "void",
       "url": "/_autogen/Classes/classbatt_1_1Task_1_1ConcurrentTaskList/#function-dump-log-info",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-debug-info",
+      "argsString": "(std::string_view label) noexcept",
+      "brief": "Returns a function that prints the contents of this list to an ostream for debugging purposes. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "auto batt::Task::ConcurrentTaskList::debug_info",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::Task::ConcurrentTaskList::debug_info",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 734,
+        "bodyFile": "batteries/async/task_impl.hpp",
+        "bodyStart": 727,
+        "column": 23,
+        "file": "batteries/async/task_decl.hpp",
+        "line": 139
+      },
+      "name": "debug_info",
+      "override": false,
+      "params": [
+        {
+          "name": "label",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1Task_1_1ConcurrentTaskList_1aee716c062d083697a3e9012059bef1c1",
+      "static": false,
+      "strong": false,
+      "summary": "Returns a function that prints the contents of this list to an ostream for debugging purposes. ",
+      "title": "debug_info",
+      "type": "[batt::SmallFn](/_autogen/Classes/classbatt_1_1SmallFn/)< void(std::ostream &)>",
+      "typePlain": "batt::SmallFn< void(std::ostream &)>",
+      "url": "/_autogen/Classes/classbatt_1_1Task_1_1ConcurrentTaskList/#function-debug-info",
       "virtual": false,
       "visibility": "public"
     }

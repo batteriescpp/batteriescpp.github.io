@@ -72,7 +72,7 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 91,
+    "bodyEnd": 96,
     "bodyFile": "batteries/async/fake_execution_context_decl.hpp",
     "bodyStart": 31,
     "column": 1,
@@ -123,10 +123,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/fake_execution_context_decl.hpp",
-        "bodyStart": 85,
+        "bodyStart": 90,
         "column": 11,
         "file": "batteries/async/fake_execution_context_decl.hpp",
-        "line": 85
+        "line": 90
       },
       "name": "work_count_",
       "override": false,
@@ -154,10 +154,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/fake_execution_context_decl.hpp",
-        "bodyStart": 86,
+        "bodyStart": 91,
         "column": 11,
         "file": "batteries/async/fake_execution_context_decl.hpp",
-        "line": 86
+        "line": 91
       },
       "name": "push_ready_count_",
       "override": false,
@@ -185,10 +185,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/fake_execution_context_decl.hpp",
-        "bodyStart": 87,
+        "bodyStart": 92,
         "column": 11,
         "file": "batteries/async/fake_execution_context_decl.hpp",
-        "line": 87
+        "line": 92
       },
       "name": "pop_ready_count_",
       "override": false,
@@ -215,10 +215,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/fake_execution_context_decl.hpp",
-        "bodyStart": 88,
+        "bodyStart": 93,
         "column": 20,
         "file": "batteries/async/fake_execution_context_decl.hpp",
-        "line": 88
+        "line": 93
       },
       "name": "allocator_",
       "override": false,
@@ -245,10 +245,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/fake_execution_context_decl.hpp",
-        "bodyStart": 89,
+        "bodyStart": 94,
         "column": 16,
         "file": "batteries/async/fake_execution_context_decl.hpp",
-        "line": 89
+        "line": 94
       },
       "name": "mutex_",
       "override": false,
@@ -275,10 +275,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/fake_execution_context_decl.hpp",
-        "bodyStart": 90,
+        "bodyStart": 95,
         "column": 17,
         "file": "batteries/async/fake_execution_context_decl.hpp",
-        "line": 90
+        "line": 95
       },
       "name": "ready_to_run_",
       "override": false,
@@ -387,9 +387,9 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 19,
+        "bodyEnd": 21,
         "bodyFile": "batteries/async/fake_execution_context_impl.hpp",
-        "bodyStart": 16,
+        "bodyStart": 18,
         "column": 19,
         "file": "batteries/async/fake_execution_context_decl.hpp",
         "line": 48
@@ -424,9 +424,9 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 27,
+        "bodyEnd": 29,
         "bodyFile": "batteries/async/fake_execution_context_impl.hpp",
-        "bodyStart": 23,
+        "bodyStart": 25,
         "column": 11,
         "file": "batteries/async/fake_execution_context_decl.hpp",
         "line": 52
@@ -461,9 +461,9 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 41,
+        "bodyEnd": 43,
         "bodyFile": "batteries/async/fake_execution_context_impl.hpp",
-        "bodyStart": 31,
+        "bodyStart": 33,
         "column": 10,
         "file": "batteries/async/fake_execution_context_decl.hpp",
         "line": 57
@@ -504,9 +504,9 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 67,
+        "bodyEnd": 69,
         "bodyFile": "batteries/async/fake_execution_context_impl.hpp",
-        "bodyStart": 45,
+        "bodyStart": 47,
         "column": 6,
         "file": "batteries/async/fake_execution_context_decl.hpp",
         "line": 63
@@ -586,9 +586,9 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 81,
+        "bodyEnd": 83,
         "bodyFile": "batteries/async/fake_execution_context_impl.hpp",
-        "bodyStart": 71,
+        "bodyStart": 73,
         "column": 10,
         "file": "batteries/async/fake_execution_context_decl.hpp",
         "line": 74
@@ -623,9 +623,9 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 92,
+        "bodyEnd": 94,
         "bodyFile": "batteries/async/fake_execution_context_impl.hpp",
-        "bodyStart": 85,
+        "bodyStart": 87,
         "column": 11,
         "file": "batteries/async/fake_execution_context_decl.hpp",
         "line": 78
@@ -660,9 +660,9 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 100,
+        "bodyEnd": 102,
         "bodyFile": "batteries/async/fake_execution_context_impl.hpp",
-        "bodyStart": 96,
+        "bodyStart": 98,
         "column": 11,
         "file": "batteries/async/fake_execution_context_decl.hpp",
         "line": 82
@@ -678,6 +678,49 @@
       "type": "usize",
       "typePlain": "usize",
       "url": "/_autogen/Classes/classbatt_1_1FakeExecutionContext/#function-run",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-run-with-random-seed",
+      "argsString": "(usize seed)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "usize batt::FakeExecutionContext::run_with_random_seed",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::FakeExecutionContext::run_with_random_seed",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 133,
+        "bodyFile": "batteries/async/fake_execution_context_impl.hpp",
+        "bodyStart": 106,
+        "column": 11,
+        "file": "batteries/async/fake_execution_context_decl.hpp",
+        "line": 87
+      },
+      "name": "run_with_random_seed",
+      "override": false,
+      "params": [
+        {
+          "name": "seed",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1FakeExecutionContext_1afec62018128cb83d39c76f9bbf869c5f",
+      "static": false,
+      "strong": false,
+      "title": "run_with_random_seed",
+      "type": "usize",
+      "typePlain": "usize",
+      "url": "/_autogen/Classes/classbatt_1_1FakeExecutionContext/#function-run-with-random-seed",
       "virtual": false,
       "visibility": "public"
     }

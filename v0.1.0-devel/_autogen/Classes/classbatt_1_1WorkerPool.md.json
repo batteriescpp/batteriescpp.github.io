@@ -12,7 +12,7 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 94,
+    "bodyEnd": 95,
     "bodyFile": "batteries/async/worker_pool.hpp",
     "bodyStart": 23,
     "column": 1,
@@ -62,10 +62,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/worker_pool.hpp",
-        "bodyStart": 92,
+        "bodyStart": 93,
         "column": 17,
         "file": "batteries/async/worker_pool.hpp",
-        "line": 92
+        "line": 93
       },
       "name": "workers_",
       "override": false,
@@ -93,10 +93,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/worker_pool.hpp",
-        "bodyStart": 93,
+        "bodyStart": 94,
         "column": 17,
         "file": "batteries/async/worker_pool.hpp",
-        "line": 93
+        "line": 94
       },
       "name": "round_robin_",
       "override": false,
@@ -129,7 +129,7 @@
       "location": {
         "column": 5,
         "file": "batteries/async/worker_pool.hpp",
-        "line": 90
+        "line": 91
       },
       "name": "WorkerPool",
       "override": false,
@@ -313,7 +313,7 @@
       "category": "functions",
       "const": false,
       "default": false,
-      "definition": "void batt::WorkerPool::async_run",
+      "definition": "Status batt::WorkerPool::async_run",
       "deleted": false,
       "explicit": false,
       "fullname": "batt::WorkerPool::async_run",
@@ -322,10 +322,10 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 57,
+        "bodyEnd": 58,
         "bodyFile": "batteries/async/worker_pool.hpp",
         "bodyStart": 49,
-        "column": 10,
+        "column": 12,
         "file": "batteries/async/worker_pool.hpp",
         "line": 49
       },
@@ -339,7 +339,7 @@
         }
       ],
       "pureVirtual": false,
-      "refid": "classbatt_1_1WorkerPool_1a9ee9d4172a3b18866eb822143b7946ab",
+      "refid": "classbatt_1_1WorkerPool_1a3d9896b37c5e3a6f17e2ceb401b2e059",
       "static": false,
       "strong": false,
       "templateParams": [
@@ -350,8 +350,8 @@
         }
       ],
       "title": "async_run",
-      "type": "void",
-      "typePlain": "void",
+      "type": "[Status](/_autogen/Classes/classbatt_1_1Status/)",
+      "typePlain": "Status",
       "url": "/_autogen/Classes/classbatt_1_1WorkerPool/#function-async-run",
       "virtual": false,
       "visibility": "public"
@@ -372,12 +372,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 62,
+        "bodyEnd": 63,
         "bodyFile": "batteries/async/worker_pool.hpp",
-        "bodyStart": 59,
+        "bodyStart": 60,
         "column": 10,
         "file": "batteries/async/worker_pool.hpp",
-        "line": 59
+        "line": 60
       },
       "name": "reset",
       "override": false,
@@ -417,12 +417,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 67,
+        "bodyEnd": 68,
         "bodyFile": "batteries/async/worker_pool.hpp",
-        "bodyStart": 64,
+        "bodyStart": 65,
         "column": 11,
         "file": "batteries/async/worker_pool.hpp",
-        "line": 64
+        "line": 65
       },
       "name": "size",
       "override": false,
@@ -454,12 +454,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 74,
+        "bodyEnd": 75,
         "bodyFile": "batteries/async/worker_pool.hpp",
-        "bodyStart": 69,
+        "bodyStart": 70,
         "column": 10,
         "file": "batteries/async/worker_pool.hpp",
-        "line": 69
+        "line": 70
       },
       "name": "halt",
       "override": false,
@@ -491,12 +491,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 81,
+        "bodyEnd": 82,
         "bodyFile": "batteries/async/worker_pool.hpp",
-        "bodyStart": 76,
+        "bodyStart": 77,
         "column": 10,
         "file": "batteries/async/worker_pool.hpp",
-        "line": 76
+        "line": 77
       },
       "name": "join",
       "override": false,
@@ -528,12 +528,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 87,
+        "bodyEnd": 88,
         "bodyFile": "batteries/async/worker_pool.hpp",
-        "bodyStart": 83,
+        "bodyStart": 84,
         "column": 5,
         "file": "batteries/async/worker_pool.hpp",
-        "line": 83
+        "line": 84
       },
       "name": "~WorkerPool",
       "override": false,

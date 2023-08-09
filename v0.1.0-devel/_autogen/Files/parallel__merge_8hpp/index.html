@@ -1185,7 +1185,7 @@
 <a id="__codelineno-1-246" name="__codelineno-1-246"></a><span class="w">        </span><span class="p">};</span>
 <a id="__codelineno-1-247" name="__codelineno-1-247"></a>
 <a id="__codelineno-1-248" name="__codelineno-1-248"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fixed_shard_end</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">fixed_part_end</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-1-249" name="__codelineno-1-249"></a><span class="w">            </span><span class="n">context</span><span class="p">.</span><span class="n">async_run</span><span class="p">(</span><span class="n">work_fn</span><span class="p">);</span>
+<a id="__codelineno-1-249" name="__codelineno-1-249"></a><span class="w">            </span><span class="n">BATT_CHECK_OK</span><span class="p">(</span><span class="n">context</span><span class="p">.</span><span class="n">async_run</span><span class="p">(</span><span class="n">work_fn</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;context must not be closed!&quot;</span><span class="p">;</span>
 <a id="__codelineno-1-250" name="__codelineno-1-250"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-1-251" name="__codelineno-1-251"></a><span class="w">            </span><span class="n">work_fn</span><span class="p">();</span>
 <a id="__codelineno-1-252" name="__codelineno-1-252"></a><span class="w">        </span><span class="p">}</span>
@@ -1247,7 +1247,7 @@
 <a id="__codelineno-1-308" name="__codelineno-1-308"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_ALGO_PARALLEL_MERGE_HPP</span>
 </code></pre></div></td></tr></table></div>
 <hr />
-<p>Updated on 24 July 2023 at 20:45:01 UTC</p>
+<p>Updated on  9 August 2023 at 21:18:53 UTC</p>
 
 
 

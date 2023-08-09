@@ -8,6 +8,14 @@
   "derivedClasses": [
     {
       "external": false,
+      "name": "batt::HandlerMemory< 2 *kCpuCacheLineSize - sizeof(batt::Watch< u32 >)>",
+      "refid": "classbatt_1_1HandlerMemory",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    },
+    {
+      "external": false,
       "name": "batt::HandlerMemory< kHandlerMemoryBytes >",
       "refid": "classbatt_1_1HandlerMemory",
       "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
@@ -33,12 +41,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 306,
+    "bodyEnd": 320,
     "bodyFile": "batteries/async/handler.hpp",
-    "bodyStart": 285,
+    "bodyStart": 299,
     "column": 1,
     "file": "batteries/async/handler.hpp",
-    "line": 284
+    "line": 298
   },
   "name": "batt::HandlerMemoryBase",
   "override": false,
@@ -84,10 +92,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 305,
+        "bodyStart": 319,
         "column": 10,
         "file": "batteries/async/handler.hpp",
-        "line": 305
+        "line": 319
       },
       "name": "in_use_",
       "override": false,
@@ -120,7 +128,7 @@
       "location": {
         "column": 5,
         "file": "batteries/async/handler.hpp",
-        "line": 301
+        "line": 315
       },
       "name": "HandlerMemoryBase",
       "override": false,
@@ -154,7 +162,7 @@
       "location": {
         "column": 5,
         "file": "batteries/async/handler.hpp",
-        "line": 287
+        "line": 301
       },
       "name": "HandlerMemoryBase",
       "override": false,
@@ -192,7 +200,7 @@
       "location": {
         "column": 23,
         "file": "batteries/async/handler.hpp",
-        "line": 288
+        "line": 302
       },
       "name": "operator=",
       "override": false,
@@ -232,7 +240,7 @@
       "location": {
         "column": 13,
         "file": "batteries/async/handler.hpp",
-        "line": 290
+        "line": 304
       },
       "name": "~HandlerMemoryBase",
       "override": false,
@@ -264,7 +272,7 @@
       "location": {
         "column": 18,
         "file": "batteries/async/handler.hpp",
-        "line": 292
+        "line": 306
       },
       "name": "allocate",
       "override": false,
@@ -278,6 +286,20 @@
       "pureVirtual": true,
       "refid": "classbatt_1_1HandlerMemoryBase_1acfe28d6ead9306f6dbfbb1e816eeb7c7",
       "reimplementedBy": [
+        {
+          "anchor": "#function-allocate",
+          "category": "functions",
+          "fullname": "batt::HandlerMemory::allocate",
+          "kind": "function",
+          "language": "cpp",
+          "name": "allocate",
+          "pureVirtual": false,
+          "refid": "classbatt_1_1HandlerMemory_1a7ec4d4d0224c9142945f959a6bcde3cf",
+          "title": "allocate",
+          "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/#function-allocate",
+          "virtual": true,
+          "visibility": "public"
+        },
         {
           "anchor": "#function-allocate",
           "category": "functions",
@@ -334,7 +356,7 @@
       "location": {
         "column": 18,
         "file": "batteries/async/handler.hpp",
-        "line": 293
+        "line": 307
       },
       "name": "deallocate",
       "override": false,
@@ -348,6 +370,20 @@
       "pureVirtual": true,
       "refid": "classbatt_1_1HandlerMemoryBase_1a8c12a1e301bc493c9dd6e2b0f1fc10d5",
       "reimplementedBy": [
+        {
+          "anchor": "#function-deallocate",
+          "category": "functions",
+          "fullname": "batt::HandlerMemory::deallocate",
+          "kind": "function",
+          "language": "cpp",
+          "name": "deallocate",
+          "pureVirtual": false,
+          "refid": "classbatt_1_1HandlerMemory_1a6a834961e02b8670da86ea45d1a32773",
+          "title": "deallocate",
+          "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/#function-deallocate",
+          "virtual": true,
+          "visibility": "public"
+        },
         {
           "anchor": "#function-deallocate",
           "category": "functions",
@@ -402,12 +438,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 298,
+        "bodyEnd": 312,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 295,
+        "bodyStart": 309,
         "column": 10,
         "file": "batteries/async/handler.hpp",
-        "line": 295
+        "line": 309
       },
       "name": "in_use",
       "override": false,

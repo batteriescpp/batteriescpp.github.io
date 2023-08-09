@@ -139,6 +139,18 @@
         {
           "anchor": "",
           "category": "classes",
+          "fullname": "batt::BasicExecutor",
+          "kind": "class",
+          "language": "cpp",
+          "name": "batt::BasicExecutor",
+          "refid": "classbatt_1_1BasicExecutor",
+          "title": "batt::BasicExecutor",
+          "url": "/_autogen/Classes/classbatt_1_1BasicExecutor/",
+          "visibility": "public"
+        },
+        {
+          "anchor": "",
+          "category": "classes",
           "fullname": "batt::BasicFakeExecutor",
           "kind": "class",
           "language": "cpp",
@@ -291,18 +303,6 @@
         {
           "anchor": "",
           "category": "classes",
-          "fullname": "batt::BasicSimpleExecutor",
-          "kind": "class",
-          "language": "cpp",
-          "name": "batt::BasicSimpleExecutor",
-          "refid": "classbatt_1_1BasicSimpleExecutor",
-          "title": "batt::BasicSimpleExecutor",
-          "url": "/_autogen/Classes/classbatt_1_1BasicSimpleExecutor/",
-          "visibility": "public"
-        },
-        {
-          "anchor": "",
-          "category": "classes",
           "fullname": "batt::BasicStateMachineEntropySource",
           "kind": "class",
           "language": "cpp",
@@ -436,6 +436,54 @@
           "refid": "structbatt_1_1ByteSwap",
           "title": "batt::ByteSwap",
           "url": "/_autogen/Classes/structbatt_1_1ByteSwap/",
+          "visibility": "public"
+        },
+        {
+          "anchor": "",
+          "brief": "Enables effective cancellation of arbitrary async operations. ",
+          "category": "classes",
+          "children": [
+            {
+              "anchor": "",
+              "category": "classes",
+              "fullname": "batt::CancelToken::HandlerImpl",
+              "kind": "class",
+              "language": "cpp",
+              "name": "batt::CancelToken::HandlerImpl",
+              "refid": "classbatt_1_1CancelToken_1_1HandlerImpl",
+              "title": "batt::CancelToken::HandlerImpl",
+              "url": "/_autogen/Classes/classbatt_1_1CancelToken_1_1HandlerImpl/",
+              "visibility": "public"
+            },
+            {
+              "anchor": "",
+              "baseClasses": [
+                {
+                  "external": true,
+                  "name": "batt::RefCounted< Impl >",
+                  "virtual": "non-virtual",
+                  "visibility": "public"
+                }
+              ],
+              "category": "classes",
+              "fullname": "batt::CancelToken::Impl",
+              "kind": "class",
+              "language": "cpp",
+              "name": "batt::CancelToken::Impl",
+              "refid": "classbatt_1_1CancelToken_1_1Impl",
+              "title": "batt::CancelToken::Impl",
+              "url": "/_autogen/Classes/classbatt_1_1CancelToken_1_1Impl/",
+              "visibility": "public"
+            }
+          ],
+          "fullname": "batt::CancelToken",
+          "kind": "class",
+          "language": "cpp",
+          "name": "batt::CancelToken",
+          "refid": "classbatt_1_1CancelToken",
+          "summary": "Enables effective cancellation of arbitrary async operations. ",
+          "title": "batt::CancelToken",
+          "url": "/_autogen/Classes/classbatt_1_1CancelToken/",
           "visibility": "public"
         },
         {
@@ -937,6 +985,14 @@
           "derivedClasses": [
             {
               "external": false,
+              "name": "batt::HandlerMemory< 2 *kCpuCacheLineSize - sizeof(batt::Watch< u32 >)>",
+              "refid": "classbatt_1_1HandlerMemory",
+              "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
+              "virtual": "non-virtual",
+              "visibility": "public"
+            },
+            {
+              "external": false,
               "name": "batt::HandlerMemory< kHandlerMemoryBytes >",
               "refid": "classbatt_1_1HandlerMemory",
               "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
@@ -1077,7 +1133,7 @@
           "baseClasses": [
             {
               "external": true,
-              "name": "RefCounted< HttpClientHostContext >",
+              "name": "batt::RefCounted< HttpClientHostContext >",
               "virtual": "non-virtual",
               "visibility": "public"
             }
@@ -1473,7 +1529,7 @@
           "baseClasses": [
             {
               "external": true,
-              "name": "RefCounted< Latch< T > >",
+              "name": "batt::RefCounted< Latch< T > >",
               "virtual": "non-virtual",
               "visibility": "public"
             }
@@ -1555,7 +1611,7 @@
           "baseClasses": [
             {
               "external": true,
-              "name": "RefCounted< ManagedBuffer >",
+              "name": "batt::RefCounted< ManagedBuffer >",
               "virtual": "non-virtual",
               "visibility": "public"
             }
@@ -2566,12 +2622,14 @@
               "visibility": "public"
             }
           ],
+          "brief": "A minimal multi-threaded execution context implementation, suitable for parallel-compute thread pools. ",
           "category": "classes",
           "fullname": "batt::SimpleExecutionContext",
           "kind": "class",
           "language": "cpp",
           "name": "batt::SimpleExecutionContext",
           "refid": "classbatt_1_1SimpleExecutionContext",
+          "summary": "A minimal multi-threaded execution context implementation, suitable for parallel-compute thread pools. ",
           "title": "batt::SimpleExecutionContext",
           "url": "/_autogen/Classes/classbatt_1_1SimpleExecutionContext/",
           "visibility": "public"
@@ -4001,7 +4059,7 @@
                 },
                 {
                   "external": true,
-                  "name": "RefCounted< Latch< T > >",
+                  "name": "batt::RefCounted< Latch< T > >",
                   "virtual": "non-virtual",
                   "visibility": "public"
                 }
@@ -5543,25 +5601,25 @@
     {
       "anchor": "",
       "category": "namespaces",
-      "fullname": "batt::@102",
+      "fullname": "batt::@106",
       "kind": "namespace",
       "language": "cpp",
-      "name": "batt::@102",
-      "refid": "namespacebatt_1_1_0d102",
-      "title": "batt::@102",
-      "url": "/_autogen/Namespaces/namespacebatt_1_1_0d102/",
+      "name": "batt::@106",
+      "refid": "namespacebatt_1_1_0d106",
+      "title": "batt::@106",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1_0d106/",
       "visibility": "public"
     },
     {
       "anchor": "",
       "category": "namespaces",
-      "fullname": "batt::@157",
+      "fullname": "batt::@161",
       "kind": "namespace",
       "language": "cpp",
-      "name": "batt::@157",
-      "refid": "namespacebatt_1_1_0d157",
-      "title": "batt::@157",
-      "url": "/_autogen/Namespaces/namespacebatt_1_1_0d157/",
+      "name": "batt::@161",
+      "refid": "namespacebatt_1_1_0d161",
+      "title": "batt::@161",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1_0d161/",
       "visibility": "public"
     },
     {
@@ -5677,13 +5735,13 @@
     {
       "anchor": "",
       "category": "namespaces",
-      "fullname": "pico_http::detail::@161",
+      "fullname": "pico_http::detail::@165",
       "kind": "namespace",
       "language": "cpp",
-      "name": "pico_http::detail::@161",
-      "refid": "namespacepico__http_1_1detail_1_1_0d161",
-      "title": "pico_http::detail::@161",
-      "url": "/_autogen/Namespaces/namespacepico__http_1_1detail_1_1_0d161/",
+      "name": "pico_http::detail::@165",
+      "refid": "namespacepico__http_1_1detail_1_1_0d165",
+      "title": "pico_http::detail::@165",
+      "url": "/_autogen/Namespaces/namespacepico__http_1_1detail_1_1_0d165/",
       "visibility": "public"
     },
     {

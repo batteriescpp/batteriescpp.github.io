@@ -15,12 +15,12 @@
   "kind": "class",
   "language": "cpp",
   "location": {
-    "bodyEnd": 446,
+    "bodyEnd": 465,
     "bodyFile": "batteries/async/handler.hpp",
-    "bodyStart": 416,
+    "bodyStart": 430,
     "column": 1,
     "file": "batteries/async/handler.hpp",
-    "line": 415
+    "line": 429
   },
   "name": "batt::CustomAllocHandler",
   "override": false,
@@ -56,7 +56,7 @@
       "anchor": "#variable-memory-",
       "category": "attributes",
       "const": false,
-      "definition": "HandlerMemoryBase& batt::CustomAllocHandler< Handler >::memory_",
+      "definition": "HandlerMemoryBase* batt::CustomAllocHandler< Handler >::memory_",
       "explicit": false,
       "fullname": "batt::CustomAllocHandler::memory_",
       "hasDetails": false,
@@ -65,19 +65,19 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 441,
+        "bodyStart": 460,
         "column": 23,
         "file": "batteries/async/handler.hpp",
-        "line": 441
+        "line": 460
       },
       "name": "memory_",
       "override": false,
-      "refid": "classbatt_1_1CustomAllocHandler_1a5e43ba228763a2729d9116a6a9e53c40",
+      "refid": "classbatt_1_1CustomAllocHandler_1afa07cbea7b46ebc401c6e2baf1c1ea7d",
       "static": false,
       "strong": false,
       "title": "memory_",
-      "type": "[HandlerMemoryBase](/_autogen/Classes/classbatt_1_1HandlerMemoryBase/) &",
-      "typePlain": "HandlerMemoryBase &",
+      "type": "[HandlerMemoryBase](/_autogen/Classes/classbatt_1_1HandlerMemoryBase/) *",
+      "typePlain": "HandlerMemoryBase *",
       "url": "/_autogen/Classes/classbatt_1_1CustomAllocHandler/#variable-memory-",
       "visibility": "private"
     },
@@ -95,10 +95,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 445,
+        "bodyStart": 464,
         "column": 13,
         "file": "batteries/async/handler.hpp",
-        "line": 445
+        "line": 464
       },
       "name": "handler_",
       "override": false,
@@ -129,12 +129,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 425,
+        "bodyEnd": 439,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 421,
+        "bodyStart": 435,
         "column": 5,
         "file": "batteries/async/handler.hpp",
-        "line": 421
+        "line": 435
       },
       "name": "CustomAllocHandler",
       "override": false,
@@ -182,12 +182,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 430,
+        "bodyEnd": 444,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 427,
+        "bodyStart": 441,
         "column": 20,
         "file": "batteries/async/handler.hpp",
-        "line": 427
+        "line": 441
       },
       "name": "get_allocator",
       "override": false,
@@ -219,12 +219,12 @@
       "kind": "function",
       "language": "cpp",
       "location": {
-        "bodyEnd": 436,
+        "bodyEnd": 450,
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 433,
+        "bodyStart": 447,
         "column": 10,
         "file": "batteries/async/handler.hpp",
-        "line": 433
+        "line": 447
       },
       "name": "operator()",
       "override": false,
@@ -252,6 +252,43 @@
       "url": "/_autogen/Classes/classbatt_1_1CustomAllocHandler/#function-operator()",
       "virtual": false,
       "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get-handler",
+      "argsString": "() const noexcept",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "const Handler& batt::CustomAllocHandler< Handler >::get_handler",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CustomAllocHandler::get_handler",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 455,
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 452,
+        "column": 19,
+        "file": "batteries/async/handler.hpp",
+        "line": 452
+      },
+      "name": "get_handler",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CustomAllocHandler_1a04d081151724444ab0cf02d9d94acc52",
+      "static": false,
+      "strong": false,
+      "title": "get_handler",
+      "type": "const Handler &",
+      "typePlain": "const Handler &",
+      "url": "/_autogen/Classes/classbatt_1_1CustomAllocHandler/#function-get-handler",
+      "virtual": false,
+      "visibility": "public"
     }
   ],
   "publicTypes": [
@@ -269,10 +306,10 @@
       "language": "cpp",
       "location": {
         "bodyFile": "batteries/async/handler.hpp",
-        "bodyStart": 418,
+        "bodyStart": 432,
         "column": 5,
         "file": "batteries/async/handler.hpp",
-        "line": 418
+        "line": 432
       },
       "name": "allocator_type",
       "override": false,
