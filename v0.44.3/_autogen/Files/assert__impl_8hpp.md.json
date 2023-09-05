@@ -1,0 +1,99 @@
+{
+  "abstract": false,
+  "anchor": "#file-assert-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-assert-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASSERT_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/assert_impl.hpp",
+        "bodyStart": 3,
+        "column": 9,
+        "file": "batteries/assert_impl.hpp",
+        "line": 3
+      },
+      "name": "BATTERIES_ASSERT_IMPL_HPP",
+      "override": false,
+      "refid": "assert__impl_8hpp_1a3768d66d0c0cb98450ae52a5b03bb7e4",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASSERT_IMPL_HPP",
+      "url": "/_autogen/Files/assert__impl_8hpp/#define-batteries-assert-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/assert_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<mutex>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/assert_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/assert_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "#pragma once\n#ifndef BATTERIES_ASSERT_IMPL_HPP\n#define BATTERIES_ASSERT_IMPL_HPP\n\n#include <mutex>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_NORETURN BATT_INLINE_IMPL void fail_check_exit()\n{\n    BATT_FAIL_CHECK_OUT << std::endl << std::endl;\n    std::abort();\n    BATT_UNREACHABLE();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL bool lock_fail_check_mutex()\n{\n    static std::aligned_storage_t<sizeof(std::mutex), alignof(std::mutex)> storage_;\n    static std::mutex* m = new (&storage_) std::mutex{};\n    thread_local bool locked = false;\n    if (!locked) {\n        m->lock();\n        locked = true;\n    }\n    return true;\n}\n\n}  //namespace batt\n\n#endif  // BATTERIES_ASSERT_IMPL_HPP",
+  "refid": "assert__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/assert_impl.hpp",
+  "url": "/_autogen/Files/assert__impl_8hpp/#file-assert-impl.hpp",
+  "visibility": "public"
+}
