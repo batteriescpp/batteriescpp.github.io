@@ -1,0 +1,327 @@
+{
+  "abstract": true,
+  "anchor": "",
+  "baseClasses": [
+    {
+      "external": true,
+      "name": "boost::intrusive_ref_counter< AbstractStackAllocator >",
+      "refid": null,
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "derivedClasses": [
+    {
+      "external": false,
+      "name": "batt::StackAllocatorImpl< T >",
+      "refid": "classbatt_1_1StackAllocatorImpl",
+      "url": "/_autogen/Classes/classbatt_1_1StackAllocatorImpl/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
+  "explicit": false,
+  "fullname": "batt::AbstractStackAllocator",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 45,
+    "bodyFile": "batteries/async/continuation.hpp",
+    "bodyStart": 32,
+    "column": 1,
+    "file": "batteries/async/continuation.hpp",
+    "line": 31
+  },
+  "name": "batt::AbstractStackAllocator",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "protectedFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-abstractstackallocator",
+      "argsString": "()=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::AbstractStackAllocator::AbstractStackAllocator",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::AbstractStackAllocator::AbstractStackAllocator",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/async/continuation.hpp",
+        "line": 44
+      },
+      "name": "AbstractStackAllocator",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1AbstractStackAllocator_1ad8bf50d45ccf8622cfbfd2393a33835e",
+      "static": false,
+      "strong": false,
+      "title": "AbstractStackAllocator",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractStackAllocator/#function-abstractstackallocator",
+      "virtual": false,
+      "visibility": "protected"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-abstractstackallocator",
+      "argsString": "(const AbstractStackAllocator &)=delete",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::AbstractStackAllocator::AbstractStackAllocator",
+      "deleted": true,
+      "explicit": false,
+      "fullname": "batt::AbstractStackAllocator::AbstractStackAllocator",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/async/continuation.hpp",
+        "line": 34
+      },
+      "name": "AbstractStackAllocator",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [AbstractStackAllocator](/_autogen/Classes/classbatt_1_1AbstractStackAllocator/) &",
+          "typePlain": "const AbstractStackAllocator &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1AbstractStackAllocator_1a0ba279d64a2688af1e7f89f52a6a35a3",
+      "static": false,
+      "strong": false,
+      "title": "AbstractStackAllocator",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractStackAllocator/#function-abstractstackallocator",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(const AbstractStackAllocator &)=delete",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "AbstractStackAllocator& batt::AbstractStackAllocator::operator=",
+      "deleted": true,
+      "explicit": false,
+      "fullname": "batt::AbstractStackAllocator::operator=",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 28,
+        "file": "batteries/async/continuation.hpp",
+        "line": 35
+      },
+      "name": "operator=",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [AbstractStackAllocator](/_autogen/Classes/classbatt_1_1AbstractStackAllocator/) &",
+          "typePlain": "const AbstractStackAllocator &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1AbstractStackAllocator_1aaa17982a09e2fc709221e00f8fb2e748",
+      "static": false,
+      "strong": false,
+      "title": "operator=",
+      "type": "[AbstractStackAllocator](/_autogen/Classes/classbatt_1_1AbstractStackAllocator/) &",
+      "typePlain": "AbstractStackAllocator &",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractStackAllocator/#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-~abstractstackallocator",
+      "argsString": "()=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "virtual batt::AbstractStackAllocator::~AbstractStackAllocator",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::AbstractStackAllocator::~AbstractStackAllocator",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 13,
+        "file": "batteries/async/continuation.hpp",
+        "line": 37
+      },
+      "name": "~AbstractStackAllocator",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1AbstractStackAllocator_1aa085cb027762e489c49563fa28a610fc",
+      "static": false,
+      "strong": false,
+      "title": "~AbstractStackAllocator",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractStackAllocator/#function-~abstractstackallocator",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-allocate",
+      "argsString": "()=0",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "virtual boost::context::stack_context batt::AbstractStackAllocator::allocate",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::AbstractStackAllocator::allocate",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 43,
+        "file": "batteries/async/continuation.hpp",
+        "line": 39
+      },
+      "name": "allocate",
+      "override": false,
+      "params": [],
+      "pureVirtual": true,
+      "refid": "classbatt_1_1AbstractStackAllocator_1a2b1a3aa309c45087b51f5a0fae642a9e",
+      "reimplementedBy": [
+        {
+          "anchor": "#function-allocate",
+          "category": "functions",
+          "fullname": "batt::StackAllocatorImpl::allocate",
+          "kind": "function",
+          "language": "cpp",
+          "name": "allocate",
+          "pureVirtual": false,
+          "refid": "classbatt_1_1StackAllocatorImpl_1a178195ab762bfbba63b2b9fee307958d",
+          "title": "allocate",
+          "url": "/_autogen/Classes/classbatt_1_1StackAllocatorImpl/#function-allocate",
+          "virtual": true,
+          "visibility": "public"
+        }
+      ],
+      "static": false,
+      "strong": false,
+      "title": "allocate",
+      "type": "boost::context::stack_context",
+      "typePlain": "boost::context::stack_context",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractStackAllocator/#function-allocate",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-deallocate",
+      "argsString": "(boost::context::stack_context &)=0",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "virtual void batt::AbstractStackAllocator::deallocate",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::AbstractStackAllocator::deallocate",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 18,
+        "file": "batteries/async/continuation.hpp",
+        "line": 41
+      },
+      "name": "deallocate",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "boost::context::stack_context &",
+          "typePlain": "boost::context::stack_context &"
+        }
+      ],
+      "pureVirtual": true,
+      "refid": "classbatt_1_1AbstractStackAllocator_1ad4b809618a142b523221f1722f2bb7d4",
+      "reimplementedBy": [
+        {
+          "anchor": "#function-deallocate",
+          "category": "functions",
+          "fullname": "batt::StackAllocatorImpl::deallocate",
+          "kind": "function",
+          "language": "cpp",
+          "name": "deallocate",
+          "pureVirtual": false,
+          "refid": "classbatt_1_1StackAllocatorImpl_1a4671c246611bd60e3d99fda02195242a",
+          "title": "deallocate",
+          "url": "/_autogen/Classes/classbatt_1_1StackAllocatorImpl/#function-deallocate",
+          "virtual": true,
+          "visibility": "public"
+        }
+      ],
+      "static": false,
+      "strong": false,
+      "title": "deallocate",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractStackAllocator/#function-deallocate",
+      "virtual": true,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1AbstractStackAllocator",
+  "static": false,
+  "strong": false,
+  "title": "batt::AbstractStackAllocator",
+  "url": "/_autogen/Classes/classbatt_1_1AbstractStackAllocator/",
+  "visibility": "public"
+}
