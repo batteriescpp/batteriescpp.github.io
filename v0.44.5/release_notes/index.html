@@ -1,0 +1,798 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+    
+    
+      
+        <title>Release notes - Batteries C++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Batteries C++" class="md-header__button md-logo" aria-label="Batteries C++" data-md-component="logo">
+      <img width="100px" src="/images/BatteriesLogo.png">
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/releaseNavOptions.js" type="application/javascript"></script>
+<script src="/releaseNav.js" type="application/javascript"></script>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Batteries C++
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Release notes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Batteries C++" class="md-nav__button md-logo" aria-label="Batteries C++" data-md-component="logo">
+      <img width="100px" src="/images/BatteriesLogo.png">
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/releaseNavOptions.js" type="application/javascript"></script>
+<script src="/releaseNav.js" type="application/javascript"></script>
+    </a>
+    Batteries C++
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gitlab.com/batteriescpp/batteries/" class="md-nav__link">
+        GitLab Repo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Headers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Headers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assert.hpp" class="md-nav__link">
+        batteries/assert.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../async" class="md-nav__link">
+        batteries/async/*
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_of.hpp" class="md-nav__link">
+        batteries/case_of.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpu_align.hpp" class="md-nav__link">
+        batteries/cpu_align.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seq" class="md-nav__link">
+        batteries/seq.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../status.hpp" class="md-nav__link">
+        batteries/status.hpp
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_autogen/Files/" class="md-nav__link">
+        Files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_autogen/Classes/" class="md-nav__link">
+        Classes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="." class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coding_style" class="md-nav__link">
+        Coding Style
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/configure-ci-pipelines" class="md-nav__link">
+        Configuring CI Pipelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/write-the-docs" class="md-nav__link">
+        Writing Documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<ul>
+<li>
+<p>0.33.0 (2023/05/19)</p>
+<ul>
+<li>Added Conan options for build variants that affect ABI:<ul>
+<li><code>header_only</code></li>
+<li><code>glog_support</code></li>
+<li><code>protobuf_support</code></li>
+<li><code>asserts_enabled</code></li>
+<li><code>shared</code></li>
+</ul>
+</li>
+<li>Added <code>&lt;batteries/stacktrace.hpp&gt;</code>, which includes boost
+  stacktrace and suppresses spurious GCC warnings in the boost
+  code.</li>
+<li>Added a runtime check system to <code>&lt;batteries/config.hpp&gt;</code> that
+  computes a "feature [bit-]mask" which captures the build
+  variant; this is done for each compilation unit that includes
+  <code>config.hpp</code> (using static init of a <code>bool</code> in an anonymous
+  namespace) and compared to a global, canonical feature mask.  In
+  this way, we can now detect bugs where different libraries were
+  built with different Batteries feature settings and halt the
+  program before undefined behavior ensues.</li>
+<li>Added new macros to control optimization suppression in the code:<ul>
+<li><code>BATT_GCC_BEGIN_OPTIMIZE(setting)</code> - setting must be a string literal, e.g. "O0"</li>
+<li><code>BATT_GCC_END_OPTIMIZE()</code> - reverts the optimization level set by <code>BATT_GCC_BEGIN_OPTIMIZE</code></li>
+<li><code>BATT_BEGIN_NO_OPTIMIZE()</code> - begins a section in which optimization is completely disabled</li>
+<li><code>BATT_END_NO_OPTIMIZE()</code> - ends a section begun by <code>BATT_BEGIN_NO_OPTIMIZE</code></li>
+</ul>
+</li>
+<li>Enabling <code>BATT_ASSERT</code> statements can now be done independent of
+  the <code>NDEBUG</code> define, using <code>BATT_ASSERTS_ENABLED</code>, which is
+  controlled by the Conan config via the <code>asserts_enabled</code> option,
+  which can be <code>None</code> (default), <code>True</code>, or <code>False</code>.  If
+  <code>BATT_ASSERTS_ENABLED</code> is not defined (i.e., <code>asserts_enabled</code>
+  is <code>None</code>), then asserts are only enabled when <code>NDEBUG</code> is
+  defined, like before.</li>
+<li>Added support for <code>std::ostream operator&lt;&lt;</code> to <code>batt::LogLevel</code> (<code>&lt;batteries/status.hpp&gt;</code>)</li>
+<li>Fixed silent ABI breakage bug in
+  <code>batt::detail::NotOkStatusWrapper</code> that causes aborts at runtime
+  when some libraries are compiled with <code>BATT_GLOG_AVAILABLE</code> and
+  some without.</li>
+<li>Fixed an overly aggressive check in <code>batt::Task</code></li>
+</ul>
+</li>
+<li>
+<p>0.31.3 (2023/05/03)</p>
+<ul>
+<li>Fixed bug in TakeNSource that causes hang after limit is reached
+  (instead of returning batt::StatusCode::kEndOfStream).</li>
+</ul>
+</li>
+<li>
+<p>0.31.0 (2023/05/03)</p>
+<ul>
+<li>Added <code>batt::SingleBufferSource</code>.</li>
+</ul>
+</li>
+<li>
+<p>0.30.0 (2023/04/13)</p>
+<ul>
+<li>Fix #4 (Added <code>std::ostream&amp; operator&lt;&lt;(std::ostream&amp;, batt::Watch&lt;T&gt;)</code>)</li>
+<li>Fix #5 (Deadlock if a failed BATT_CHECK generates another failed check when trying to print the message)</li>
+<li>Fix #6 (Added <code>batt::Watch&lt;T&gt;::reset()</code>)</li>
+</ul>
+</li>
+<li>
+<p>0.29.0 (2023/03/31)</p>
+<ul>
+<li>Add <code>batt::seq::zip</code>.</li>
+</ul>
+</li>
+<li>
+<p>0.28.5 (2023/03/17)</p>
+<ul>
+<li>Add doc comment for <code>batt::getenv_as</code>.</li>
+</ul>
+</li>
+<li>
+<p>0.28.4 (2023/03/17)</p>
+<ul>
+<li>Added <code>batt::Optional::or_else(Fn)</code> to match <code>std::optional</code>.</li>
+<li>Changed <code>batt::require_fail_thread_default_log_level()</code> to return <code>batt::Optional&lt;batt::LogLevel&gt;&amp;</code> instead of <code>batt::LogLevel&amp;</code>, and made it default to the <em>current</em> global setting when it is <code>batt::None</code>.</li>
+</ul>
+</li>
+<li>
+<p>0.28.3 (2023/03/13)</p>
+<ul>
+<li>Fix bug that prevented the use of <code>batt::Future&lt;T&gt;::await</code>.</li>
+</ul>
+</li>
+<li>
+<p>0.27.1 (2023/03/08)</p>
+<ul>
+<li>Fixed typo in case_of.hpp doc.</li>
+<li>Added support for silent conversion of <code>batt::StatusOr&lt;batt::NoneType&gt;</code> to <code>batt::Status</code>.</li>
+</ul>
+</li>
+<li>
+<p>0.27.0 (2023/03/07)</p>
+<ul>
+<li>Added <code>BATT_CHECK_TYPE(type, expr)</code> to <code>&lt;batteries/static_assert.hpp&gt;</code>:<ul>
+<li>At runtime, evaluates to just <code>expr</code>, but adds a compile-time assertion that the type of <code>expr</code> is <code>type</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>0.26.0 (2023/03/04)</p>
+<ul>
+<li>Added <code>batt::Task::DeferStart{bool}</code> option to suppress automatic Task starting; also:<ul>
+<li>Added member fn <code>batt::Task::is_started()</code></li>
+<li>Added member fn <code>batt::Task::start()</code></li>
+<li>Added class <code>batt::Task::Options</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>0.25.3 (2023/03/02)</p>
+<ul>
+<li>Fixed many missing functions/operators for <code>batt::Optional&lt;T&amp;&gt;</code> partial specialization.</li>
+</ul>
+</li>
+<li>
+<p>0.25.0 (2023/02/23)</p>
+<ul>
+<li>Added <code>batt::Task::await_signal</code> (moved from "upper layers").</li>
+</ul>
+</li>
+<li>
+<p>0.24.6 (2023/02/22)</p>
+<ul>
+<li>Added support for MacOS/Clang build pipelines</li>
+<li>Added <code>batt::Task::spawn()</code></li>
+<li>Added <code>batt::NoDestruct&lt;T&gt;</code></li>
+</ul>
+</li>
+<li>
+<p>0.23.1 (2023/02/06)</p>
+<ul>
+<li>Fixed bug in script/run-with-docker.sh</li>
+<li>Added xxd to docker images</li>
+</ul>
+</li>
+<li>
+<p>0.22.1 (2023/01/27)</p>
+<ul>
+<li>Added <code>batt::DefaultInitialized</code>, a type that implicitly converts to any default-constructible type.</li>
+<li>Added a <code>step</code> parameter (type <code>batt::TransferStep &amp;</code>, batteries/async/fetch.hpp) that allows callers to determine which step failed when <code>batt::transfer_chunked_data</code> returns an error.</li>
+</ul>
+</li>
+<li>
+<p>0.21.0 (2023/01/25)</p>
+<ul>
+<li>Added <code>batt::register_error_category</code> to allow applications to specify how <code>error_code</code> values with custom <code>error_category</code> objects should be converted to <code>batt::Status</code>.</li>
+<li>Upgraded boost to 1.81.0</li>
+<li>Upgraded gtest to 1.13.0</li>
+</ul>
+</li>
+<li>
+<p>0.20.1 (2023/01/18)</p>
+<ul>
+<li>Added <code>batt::transfer_chunked_data</code> (in batteries/async/fetch.hpp).</li>
+</ul>
+</li>
+<li>
+<p>0.19.8 (2023/01/11)</p>
+<ul>
+<li>Upgrade to Conan 1.56 (from 1.53).</li>
+</ul>
+</li>
+<li>
+<p>0.19.6 (2022/12/19)</p>
+<ul>
+<li>Fixed build error with <code>batt::to_status(std::error_code)</code></li>
+</ul>
+</li>
+<li>
+<p>0.19.5 (2022/12/16)</p>
+<ul>
+<li>Fixed crash bug caused by accidental implicit conversion from error_code enum values to batt::Status.</li>
+</ul>
+</li>
+<li>
+<p>0.19.2 (2022/12/16)</p>
+<ul>
+<li>Fixed test regression by updating the expected error status to match the boost::system::error_code value.</li>
+</ul>
+</li>
+<li>
+<p>0.19.1 (2022/12/16)</p>
+<ul>
+<li>Added accurate translation of more boost::system::error_code values into batt::Status.</li>
+</ul>
+</li>
+<li>
+<p>0.19.0 (2022/12/14)</p>
+<ul>
+<li>Added <code>batt::Latch&lt;T&gt;::set_error</code> to explicitly set the Latch to an error status for better readability.</li>
+<li>Added new header batteries/async/fetch.hpp with:<ul>
+<li><code>batt::fetch_chunk</code>: blocking API for no-copy input streams with an async_fetch method</li>
+<li><code>batt::BasicScopedChunk&lt;Stream&gt;</code>: automatically calls consume on fetched data at scope exit</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>0.18.1 (2022/12/09)</p>
+<ul>
+<li>Added <code>batt::PinnablePtr&lt;T&gt;</code>.</li>
+</ul>
+</li>
+<li>
+<p>0.18.0 (2022/12/07)</p>
+<ul>
+<li>Added <code>batt::Channel&lt;T&gt;::async_read</code>, along with unit tests for the async methods of <code>batt::Channel&lt;T&gt;</code>.</li>
+</ul>
+</li>
+<li>
+<p>0.17.1 (2022/12/02)</p>
+<ul>
+<li>Added <code>batt::Runtime::reset()</code> and <code>batt::Runtime::is_halted()</code> so that downstream libraries that use a Google Test global environment to start/stop batt::Runtime can restart the default thread pool, for GTEST_REPEAT/--gtest_repeat testing.</li>
+</ul>
+</li>
+<li>
+<p>0.16.2 (2022/11/30)</p>
+<ul>
+<li>Fixed a broken link in the release notes.</li>
+</ul>
+</li>
+<li>
+<p>0.16.1 (2022/11/30)</p>
+<ul>
+<li>Added release notes (this document) to the doc pages.</li>
+</ul>
+</li>
+<li>
+<p>0.16.0 (2022/11/30)</p>
+<ul>
+<li>Added clamp min/max functions to <a class="autorefs autorefs-internal" href="../async/#battwatch">batt::Watch</a>, to atomically enforce upper/lower bounds on the watched value.</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6df46069.min.js"></script>
+      
+    
+  </body>
+</html>

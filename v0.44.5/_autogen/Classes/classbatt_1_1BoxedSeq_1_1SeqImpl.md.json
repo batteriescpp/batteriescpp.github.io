@@ -1,0 +1,402 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "baseClasses": [
+    {
+      "external": false,
+      "name": "batt::AbstractValueImpl< AbstractSeq, SeqImpl, T >",
+      "protectedAttributes": [
+        {
+          "abstract": false,
+          "anchor": "#variable-obj-",
+          "category": "attributes",
+          "const": false,
+          "definition": "T batt::AbstractValueImpl< AbstractType, TypedImpl, T >::obj_",
+          "explicit": false,
+          "fullname": "batt::AbstractValueImpl::obj_",
+          "hasDetails": false,
+          "inline": false,
+          "kind": "variable",
+          "language": "cpp",
+          "location": {
+            "bodyFile": "batteries/type_erasure.hpp",
+            "bodyStart": 266,
+            "column": 7,
+            "file": "batteries/type_erasure.hpp",
+            "line": 266
+          },
+          "name": "obj_",
+          "override": false,
+          "refid": "classbatt_1_1AbstractValueImpl_1a5174fedea3e5d569fbf2904dcb3d3882",
+          "static": false,
+          "strong": false,
+          "title": "obj_",
+          "type": "T",
+          "typePlain": "T",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/#variable-obj-",
+          "visibility": "protected"
+        }
+      ],
+      "publicFunctions": [
+        {
+          "abstract": false,
+          "anchor": "#function-abstractvalueimpl",
+          "argsString": "(T &&obj)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "batt::AbstractValueImpl< AbstractType, TypedImpl, T >::AbstractValueImpl",
+          "deleted": false,
+          "explicit": true,
+          "fullname": "batt::AbstractValueImpl::AbstractValueImpl",
+          "hasDetails": false,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 246,
+            "bodyFile": "batteries/type_erasure.hpp",
+            "bodyStart": 236,
+            "column": 14,
+            "file": "batteries/type_erasure.hpp",
+            "line": 236
+          },
+          "name": "AbstractValueImpl",
+          "override": false,
+          "params": [
+            {
+              "name": "obj",
+              "type": "T &&",
+              "typePlain": "T &&"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "classbatt_1_1AbstractValueImpl_1a8e6ed437332a2207ee6543f93ee22ee6",
+          "static": false,
+          "strong": false,
+          "title": "AbstractValueImpl",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/#function-abstractvalueimpl",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-copy-to",
+          "argsString": "(MutableBuffer memory) override",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "AbstractType* batt::AbstractValueImpl< AbstractType, TypedImpl, T >::copy_to",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::AbstractValueImpl::copy_to",
+          "hasDetails": false,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 255,
+            "bodyFile": "batteries/type_erasure.hpp",
+            "bodyStart": 251,
+            "column": 18,
+            "file": "batteries/type_erasure.hpp",
+            "line": 251
+          },
+          "name": "copy_to",
+          "override": true,
+          "params": [
+            {
+              "name": "memory",
+              "type": "MutableBuffer",
+              "typePlain": "MutableBuffer"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "classbatt_1_1AbstractValueImpl_1ae27c9093cb339672a47be7deef8c7517",
+          "static": false,
+          "strong": false,
+          "title": "copy_to",
+          "type": "AbstractType *",
+          "typePlain": "AbstractType *",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/#function-copy-to",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-move-to",
+          "argsString": "(MutableBuffer memory) override",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "AbstractType* batt::AbstractValueImpl< AbstractType, TypedImpl, T >::move_to",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::AbstractValueImpl::move_to",
+          "hasDetails": false,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 261,
+            "bodyFile": "batteries/type_erasure.hpp",
+            "bodyStart": 257,
+            "column": 18,
+            "file": "batteries/type_erasure.hpp",
+            "line": 257
+          },
+          "name": "move_to",
+          "override": true,
+          "params": [
+            {
+              "name": "memory",
+              "type": "MutableBuffer",
+              "typePlain": "MutableBuffer"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "classbatt_1_1AbstractValueImpl_1a95b38fec252faf228bc21c61b8281dd8",
+          "static": false,
+          "strong": false,
+          "title": "move_to",
+          "type": "AbstractType *",
+          "typePlain": "AbstractType *",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/#function-move-to",
+          "virtual": false,
+          "visibility": "public"
+        }
+      ],
+      "refid": "classbatt_1_1AbstractValueImpl",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    },
+    {
+      "external": true,
+      "name": "AbstractType",
+      "refid": null,
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::BoxedSeq::SeqImpl",
+  "hasAdditionalMembers": true,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 75,
+    "bodyFile": "batteries/seq/boxed.hpp",
+    "bodyStart": 56,
+    "column": 5,
+    "file": "batteries/seq/boxed.hpp",
+    "line": 55
+  },
+  "name": "batt::BoxedSeq::SeqImpl",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "classes",
+    "fullname": "batt::BoxedSeq",
+    "kind": "class",
+    "language": "cpp",
+    "name": "batt::BoxedSeq",
+    "refid": "classbatt_1_1BoxedSeq",
+    "title": "batt::BoxedSeq",
+    "url": "/_autogen/Classes/classbatt_1_1BoxedSeq/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::BoxedSeq",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BoxedSeq",
+      "refid": "classbatt_1_1BoxedSeq",
+      "title": "batt::BoxedSeq",
+      "url": "/_autogen/Classes/classbatt_1_1BoxedSeq/",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-seqimpl",
+      "argsString": "(T &&seq) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::BoxedSeq< ItemT >::SeqImpl< T >::SeqImpl",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::BoxedSeq::SeqImpl::SeqImpl",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 64,
+        "bodyFile": "batteries/seq/boxed.hpp",
+        "bodyStart": 62,
+        "column": 18,
+        "file": "batteries/seq/boxed.hpp",
+        "line": 62
+      },
+      "name": "SeqImpl",
+      "override": false,
+      "params": [
+        {
+          "name": "seq",
+          "type": "T &&",
+          "typePlain": "T &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1BoxedSeq_1_1SeqImpl_1a604de2151dae7f72411c84edd43e36de",
+      "static": false,
+      "strong": false,
+      "title": "SeqImpl",
+      "url": "/_autogen/Classes/classbatt_1_1BoxedSeq_1_1SeqImpl/#function-seqimpl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-peek",
+      "argsString": "() override",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Optional<ItemT> batt::BoxedSeq< ItemT >::SeqImpl< T >::peek",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BoxedSeq::SeqImpl::peek",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 69,
+        "bodyFile": "batteries/seq/boxed.hpp",
+        "bodyStart": 66,
+        "column": 18,
+        "file": "batteries/seq/boxed.hpp",
+        "line": 66
+      },
+      "name": "peek",
+      "override": true,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1BoxedSeq_1_1SeqImpl_1a3f2b3c20c6c2f38f2eab7a9782c33cbf",
+      "static": false,
+      "strong": false,
+      "title": "peek",
+      "type": "[Optional](/_autogen/Classes/classbatt_1_1Optional/)< ItemT >",
+      "typePlain": "Optional< ItemT >",
+      "url": "/_autogen/Classes/classbatt_1_1BoxedSeq_1_1SeqImpl/#function-peek",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-next",
+      "argsString": "() override",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Optional<ItemT> batt::BoxedSeq< ItemT >::SeqImpl< T >::next",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::BoxedSeq::SeqImpl::next",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 74,
+        "bodyFile": "batteries/seq/boxed.hpp",
+        "bodyStart": 71,
+        "column": 18,
+        "file": "batteries/seq/boxed.hpp",
+        "line": 71
+      },
+      "name": "next",
+      "override": true,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1BoxedSeq_1_1SeqImpl_1a1c0a6f81dc3a0bbaf0c1d23028b23eb6",
+      "static": false,
+      "strong": false,
+      "title": "next",
+      "type": "[Optional](/_autogen/Classes/classbatt_1_1Optional/)< ItemT >",
+      "typePlain": "Optional< ItemT >",
+      "url": "/_autogen/Classes/classbatt_1_1BoxedSeq_1_1SeqImpl/#function-next",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-super",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::BoxedSeq< ItemT >::SeqImpl< T >::Super =  AbstractValueImpl<AbstractSeq, SeqImpl, T>",
+      "explicit": false,
+      "fullname": "batt::BoxedSeq::SeqImpl::Super",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/boxed.hpp",
+        "bodyStart": 58,
+        "column": 9,
+        "file": "batteries/seq/boxed.hpp",
+        "line": 58
+      },
+      "name": "Super",
+      "override": false,
+      "refid": "classbatt_1_1BoxedSeq_1_1SeqImpl_1a73f421395faf793e6ff0f7e27ff69872",
+      "static": false,
+      "strong": false,
+      "title": "Super",
+      "type": "[AbstractValueImpl](/_autogen/Classes/classbatt_1_1AbstractValueImpl/)< [AbstractSeq](/_autogen/Classes/classbatt_1_1BoxedSeq_1_1AbstractSeq/), [SeqImpl](/_autogen/Classes/classbatt_1_1BoxedSeq_1_1SeqImpl/), T >",
+      "typePlain": "AbstractValueImpl< AbstractSeq, SeqImpl, T >",
+      "url": "/_autogen/Classes/classbatt_1_1BoxedSeq_1_1SeqImpl/#using-super",
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1BoxedSeq_1_1SeqImpl",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename T",
+      "typePlain": "typename T"
+    }
+  ],
+  "title": "batt::BoxedSeq::SeqImpl",
+  "url": "/_autogen/Classes/classbatt_1_1BoxedSeq_1_1SeqImpl/",
+  "visibility": "public"
+}
