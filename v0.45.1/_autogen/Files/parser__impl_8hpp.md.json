@@ -1,0 +1,484 @@
+{
+  "abstract": false,
+  "anchor": "#file-parser-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-pico-http-parser-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_PICO_HTTP_PARSER_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/pico_http/parser_impl.hpp",
+        "bodyStart": 29,
+        "column": 9,
+        "file": "batteries/pico_http/parser_impl.hpp",
+        "line": 29
+      },
+      "name": "BATTERIES_PICO_HTTP_PARSER_IMPL_HPP",
+      "override": false,
+      "refid": "parser__impl_8hpp_1ac32f2398079035afc026a36176b0f28d",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_PICO_HTTP_PARSER_IMPL_HPP",
+      "url": "/_autogen/Files/parser__impl_8hpp/#define-batteries-pico-http-parser-impl-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-pico-http-aligned",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_PICO_HTTP_ALIGNED",
+      "hasDetails": false,
+      "initializer": "__attribute__((aligned(n)))",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/pico_http/parser_impl.hpp",
+        "bodyStart": 55,
+        "column": 10,
+        "file": "batteries/pico_http/parser_impl.hpp",
+        "line": 55
+      },
+      "name": "BATT_PICO_HTTP_ALIGNED",
+      "override": false,
+      "params": [
+        {
+          "name": "n",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "parser__impl_8hpp_1abaf9792b702debae20bedee384b5712a",
+      "static": false,
+      "strong": false,
+      "title": "BATT_PICO_HTTP_ALIGNED",
+      "url": "/_autogen/Files/parser__impl_8hpp/#define-batt-pico-http-aligned",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-pico-http-is-printable-ascii",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_PICO_HTTP_IS_PRINTABLE_ASCII",
+      "hasDetails": false,
+      "initializer": "((unsigned char)(c)-040u < 0137u)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/pico_http/parser_impl.hpp",
+        "bodyStart": 58,
+        "column": 9,
+        "file": "batteries/pico_http/parser_impl.hpp",
+        "line": 58
+      },
+      "name": "BATT_PICO_HTTP_IS_PRINTABLE_ASCII",
+      "override": false,
+      "params": [
+        {
+          "name": "c",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "parser__impl_8hpp_1a1f1fb935e44a6854f608dc29e395a005",
+      "static": false,
+      "strong": false,
+      "title": "BATT_PICO_HTTP_IS_PRINTABLE_ASCII",
+      "url": "/_autogen/Files/parser__impl_8hpp/#define-batt-pico-http-is-printable-ascii",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-pico-http-check-eof",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_PICO_HTTP_CHECK_EOF",
+      "hasDetails": false,
+      "initializer": "    if (buf == buf_end) {                                                                                    \\\n        *ret = -2;                                                                                           \\\n        return nullptr;                                                                                      \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/pico_http/parser_impl.hpp",
+        "bodyStart": 60,
+        "column": 9,
+        "file": "batteries/pico_http/parser_impl.hpp",
+        "line": 60
+      },
+      "name": "BATT_PICO_HTTP_CHECK_EOF",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "parser__impl_8hpp_1ae8122c08055f12f6ec9a96da55d90c40",
+      "static": false,
+      "strong": false,
+      "title": "BATT_PICO_HTTP_CHECK_EOF",
+      "url": "/_autogen/Files/parser__impl_8hpp/#define-batt-pico-http-check-eof",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-pico-http-expect-char-no-check",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_PICO_HTTP_EXPECT_CHAR_NO_CHECK",
+      "hasDetails": false,
+      "initializer": "    if (*buf++ != ch) {                                                                                      \\\n        *ret = -1;                                                                                           \\\n        return nullptr;                                                                                      \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/pico_http/parser_impl.hpp",
+        "bodyStart": 66,
+        "column": 9,
+        "file": "batteries/pico_http/parser_impl.hpp",
+        "line": 66
+      },
+      "name": "BATT_PICO_HTTP_EXPECT_CHAR_NO_CHECK",
+      "override": false,
+      "params": [
+        {
+          "name": "ch",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "parser__impl_8hpp_1ae22615c3447824da5a693d183c1bb0dd",
+      "static": false,
+      "strong": false,
+      "title": "BATT_PICO_HTTP_EXPECT_CHAR_NO_CHECK",
+      "url": "/_autogen/Files/parser__impl_8hpp/#define-batt-pico-http-expect-char-no-check",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-pico-http-expect-char",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_PICO_HTTP_EXPECT_CHAR",
+      "hasDetails": false,
+      "initializer": "    BATT_PICO_HTTP_CHECK_EOF();                                                                              \\\n    BATT_PICO_HTTP_EXPECT_CHAR_NO_CHECK(ch);",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/pico_http/parser_impl.hpp",
+        "bodyStart": 72,
+        "column": 9,
+        "file": "batteries/pico_http/parser_impl.hpp",
+        "line": 72
+      },
+      "name": "BATT_PICO_HTTP_EXPECT_CHAR",
+      "override": false,
+      "params": [
+        {
+          "name": "ch",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "parser__impl_8hpp_1a396714405ad0dfd74db787934ddcc21c",
+      "static": false,
+      "strong": false,
+      "title": "BATT_PICO_HTTP_EXPECT_CHAR",
+      "url": "/_autogen/Files/parser__impl_8hpp/#define-batt-pico-http-expect-char",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-pico-http-advance-token",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_PICO_HTTP_ADVANCE_TOKEN",
+      "hasDetails": false,
+      "initializer": "    do {                                                                                                     \\\n        const char* tok_start = buf;                                                                         \\\n        static const char BATT_PICO_HTTP_ALIGNED(16) ranges2[16] = \"\\000\\040\\177\\177\";                       \\\n        int found2;                                                                                          \\\n        buf = findchar_fast(buf, buf_end, ranges2, 4, &found2);                                              \\\n        if (!found2) {                                                                                       \\\n            BATT_PICO_HTTP_CHECK_EOF();                                                                      \\\n        }                                                                                                    \\\n        while (1) {                                                                                          \\\n            if (*buf == ' ') {                                                                               \\\n                break;                                                                                       \\\n            } else if (BATT_HINT_FALSE(!BATT_PICO_HTTP_IS_PRINTABLE_ASCII(*buf))) {                          \\\n                if ((unsigned char)*buf < '\\040' || *buf == '\\177') {                                        \\\n                    *ret = -1;                                                                               \\\n                    return nullptr;                                                                          \\\n                }                                                                                            \\\n            }                                                                                                \\\n            ++buf;                                                                                           \\\n            BATT_PICO_HTTP_CHECK_EOF();                                                                      \\\n        }                                                                                                    \\\n        tok = tok_start;                                                                                     \\\n        toklen = buf - tok_start;                                                                            \\\n    } while (0)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/pico_http/parser_impl.hpp",
+        "bodyStart": 76,
+        "column": 9,
+        "file": "batteries/pico_http/parser_impl.hpp",
+        "line": 76
+      },
+      "name": "BATT_PICO_HTTP_ADVANCE_TOKEN",
+      "override": false,
+      "params": [
+        {
+          "name": "tok",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "toklen",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "parser__impl_8hpp_1a77d7bc238917d16c1f8c0a9e56ea5673",
+      "static": false,
+      "strong": false,
+      "title": "BATT_PICO_HTTP_ADVANCE_TOKEN",
+      "url": "/_autogen/Files/parser__impl_8hpp/#define-batt-pico-http-advance-token",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-pico-http-doit",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_PICO_HTTP_DOIT",
+      "hasDetails": false,
+      "initializer": "    do {                                                                                                     \\\n        if (BATT_HINT_FALSE(!BATT_PICO_HTTP_IS_PRINTABLE_ASCII(*buf))) {                                     \\\n            goto NonPrintable;                                                                               \\\n        }                                                                                                    \\\n        ++buf;                                                                                               \\\n    } while (0)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "column": 9,
+        "file": "batteries/pico_http/parser_impl.hpp",
+        "line": 168
+      },
+      "name": "BATT_PICO_HTTP_DOIT",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "parser__impl_8hpp_1afb2e05aaf0862265abb304ff67171ac1",
+      "static": false,
+      "strong": false,
+      "title": "BATT_PICO_HTTP_DOIT",
+      "url": "/_autogen/Files/parser__impl_8hpp/#define-batt-pico-http-doit",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-pico-http-parse-int",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_PICO_HTTP_PARSE_INT",
+      "hasDetails": false,
+      "initializer": "    if (*buf < '0' || '9' < *buf) {                                                                          \\\n        buf++;                                                                                               \\\n        *ret = -1;                                                                                           \\\n        return nullptr;                                                                                      \\\n    }                                                                                                        \\\n    *(valp_) = (mul_) * (*buf++ - '0');",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/pico_http/parser_impl.hpp",
+        "bodyStart": 250,
+        "column": 9,
+        "file": "batteries/pico_http/parser_impl.hpp",
+        "line": 250
+      },
+      "name": "BATT_PICO_HTTP_PARSE_INT",
+      "override": false,
+      "params": [
+        {
+          "name": "valp_",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "mul_",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "parser__impl_8hpp_1af6f97630d18ffe735c1d430fc7129884",
+      "static": false,
+      "strong": false,
+      "title": "BATT_PICO_HTTP_PARSE_INT",
+      "url": "/_autogen/Files/parser__impl_8hpp/#define-batt-pico-http-parse-int",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-pico-http-parse-int-3",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_PICO_HTTP_PARSE_INT_3",
+      "hasDetails": false,
+      "initializer": "    do {                                                                                                     \\\n        int res_ = 0;                                                                                        \\\n        BATT_PICO_HTTP_PARSE_INT(&res_, 100)                                                                 \\\n        *valp_ = res_;                                                                                       \\\n        BATT_PICO_HTTP_PARSE_INT(&res_, 10)                                                                  \\\n        *valp_ += res_;                                                                                      \\\n        BATT_PICO_HTTP_PARSE_INT(&res_, 1)                                                                   \\\n        *valp_ += res_;                                                                                      \\\n    } while (0)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/pico_http/parser_impl.hpp",
+        "bodyStart": 258,
+        "column": 9,
+        "file": "batteries/pico_http/parser_impl.hpp",
+        "line": 258
+      },
+      "name": "BATT_PICO_HTTP_PARSE_INT_3",
+      "override": false,
+      "params": [
+        {
+          "name": "valp_",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "parser__impl_8hpp_1acc3617aed75c9c15b280a0ea9329026a",
+      "static": false,
+      "strong": false,
+      "title": "BATT_PICO_HTTP_PARSE_INT_3",
+      "url": "/_autogen/Files/parser__impl_8hpp/#define-batt-pico-http-parse-int-3",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-pico-http-parser-dump-chunks",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_PICO_HTTP_PARSER_DUMP_CHUNKS",
+      "hasDetails": false,
+      "initializer": "0",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/pico_http/parser_impl.hpp",
+        "bodyStart": 622,
+        "column": 9,
+        "file": "batteries/pico_http/parser_impl.hpp",
+        "line": 622
+      },
+      "name": "BATT_PICO_HTTP_PARSER_DUMP_CHUNKS",
+      "override": false,
+      "refid": "parser__impl_8hpp_1adf164cff0689c2d38cbf4239f23d0bd9",
+      "static": false,
+      "strong": false,
+      "title": "BATT_PICO_HTTP_PARSER_DUMP_CHUNKS",
+      "url": "/_autogen/Files/parser__impl_8hpp/#define-batt-pico-http-parser-dump-chunks",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/pico_http/parser_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/pico_http/parser_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/pico_http/parser_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "pico_http",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "pico_http",
+      "refid": "namespacepico__http",
+      "title": "pico_http",
+      "url": "/_autogen/Namespaces/namespacepico__http/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "pico_http::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "pico_http::detail",
+      "refid": "namespacepico__http_1_1detail",
+      "title": "pico_http::detail",
+      "url": "/_autogen/Namespaces/namespacepico__http_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/pico-http",
+    "category": "dirs",
+    "fullname": "batteries/pico_http",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/pico_http",
+    "refid": "dir_c14a1d4d12bee09dc523319537c13e97",
+    "title": "batteries/pico_http",
+    "url": "/_autogen/Files/dir_c14a1d4d12bee09dc523319537c13e97/#dir-batteries/pico-http",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/pico-http",
+      "category": "dirs",
+      "fullname": "batteries/pico_http",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/pico_http",
+      "refid": "dir_c14a1d4d12bee09dc523319537c13e97",
+      "title": "batteries/pico_http",
+      "url": "/_autogen/Files/dir_c14a1d4d12bee09dc523319537c13e97/#dir-batteries/pico-http",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "/*\n * Copyright (c) 2009-2014 Kazuho Oku, Tokuhiro Matsuno, Daisuke Murase,\n *                         Shigeo Mitsunari\n *\n * The software is licensed under either the MIT License (below) or the Perl\n * license.\n *\n * Permission is hereby granted, free of charge, to any person obtaining a copy\n * of this software and associated documentation files (the \"Software\"), to\n * deal in the Software without restriction, including without limitation the\n * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or\n * sell copies of the Software, and to permit persons to whom the Software is\n * furnished to do so, subject to the following conditions:\n *\n * The above copyright notice and this permission notice shall be included in\n * all copies or substantial portions of the Software.\n *\n * THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS\n * IN THE SOFTWARE.\n */\n\n#pragma once\n#ifndef BATTERIES_PICO_HTTP_PARSER_IMPL_HPP\n#define BATTERIES_PICO_HTTP_PARSER_IMPL_HPP\n\n#include <batteries/config.hpp>\n#include <batteries/hint.hpp>\n#include <batteries/int_types.hpp>\n\n#include <assert.h>\n#include <stddef.h>\n#include <string.h>\n#ifdef __SSE4_2__\n#ifdef _MSC_VER\n#include <nmmintrin.h>\n#else\n#include <x86intrin.h>\n#endif\n#endif\n\n#include <batteries/pico_http/parser_decl.hpp>\n\nnamespace pico_http {\nusing namespace batt::int_types;\n}\n\n#ifdef _MSC_VER\n#define BATT_PICO_HTTP_ALIGNED(n) _declspec(align(n))\n#else\n#define BATT_PICO_HTTP_ALIGNED(n) __attribute__((aligned(n)))\n#endif\n\n#define BATT_PICO_HTTP_IS_PRINTABLE_ASCII(c) ((unsigned char)(c)-040u < 0137u)\n\n#define BATT_PICO_HTTP_CHECK_EOF()                                                                           \\\n    if (buf == buf_end) {                                                                                    \\\n        *ret = -2;                                                                                           \\\n        return nullptr;                                                                                      \\\n    }\n\n#define BATT_PICO_HTTP_EXPECT_CHAR_NO_CHECK(ch)                                                              \\\n    if (*buf++ != ch) {                                                                                      \\\n        *ret = -1;                                                                                           \\\n        return nullptr;                                                                                      \\\n    }\n\n#define BATT_PICO_HTTP_EXPECT_CHAR(ch)                                                                       \\\n    BATT_PICO_HTTP_CHECK_EOF();                                                                              \\\n    BATT_PICO_HTTP_EXPECT_CHAR_NO_CHECK(ch);\n\n#define BATT_PICO_HTTP_ADVANCE_TOKEN(tok, toklen)                                                            \\\n    do {                                                                                                     \\\n        const char* tok_start = buf;                                                                         \\\n        static const char BATT_PICO_HTTP_ALIGNED(16) ranges2[16] = \"\\000\\040\\177\\177\";                       \\\n        int found2;                                                                                          \\\n        buf = findchar_fast(buf, buf_end, ranges2, 4, &found2);                                              \\\n        if (!found2) {                                                                                       \\\n            BATT_PICO_HTTP_CHECK_EOF();                                                                      \\\n        }                                                                                                    \\\n        while (1) {                                                                                          \\\n            if (*buf == ' ') {                                                                               \\\n                break;                                                                                       \\\n            } else if (BATT_HINT_FALSE(!BATT_PICO_HTTP_IS_PRINTABLE_ASCII(*buf))) {                          \\\n                if ((unsigned char)*buf < '\\040' || *buf == '\\177') {                                        \\\n                    *ret = -1;                                                                               \\\n                    return nullptr;                                                                          \\\n                }                                                                                            \\\n            }                                                                                                \\\n            ++buf;                                                                                           \\\n            BATT_PICO_HTTP_CHECK_EOF();                                                                      \\\n        }                                                                                                    \\\n        tok = tok_start;                                                                                     \\\n        toklen = buf - tok_start;                                                                            \\\n    } while (0)\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\nnamespace pico_http {\nnamespace detail {\nnamespace {\n\nconst char* token_char_map =\n    \"\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\"\n    \"\\0\\1\\0\\1\\1\\1\\1\\1\\0\\0\\1\\1\\0\\1\\1\\0\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\0\\0\\0\\0\\0\\0\"\n    \"\\0\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\0\\0\\0\\1\\1\"\n    \"\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\1\\0\\1\\0\\1\\0\"\n    \"\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\"\n    \"\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\"\n    \"\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\"\n    \"\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\\0\";\n\nBATT_INLINE_IMPL const char* findchar_fast(const char* buf, const char* buf_end, const char* ranges,\n                                           usize ranges_size, int* found)\n{\n    *found = 0;\n#if __SSE4_2__\n    if (BATT_HINT_TRUE(buf_end - buf >= 16)) {\n        __m128i ranges16 = _mm_loadu_si128((const __m128i*)ranges);\n\n        usize left = (buf_end - buf) & ~15;\n        do {\n            __m128i b16 = _mm_loadu_si128((const __m128i*)buf);\n            int r = _mm_cmpestri(ranges16, ranges_size, b16, 16,\n                                 _SIDD_LEAST_SIGNIFICANT | _SIDD_CMP_RANGES | _SIDD_UBYTE_OPS);\n            if (BATT_HINT_FALSE(r != 16)) {\n                buf += r;\n                *found = 1;\n                break;\n            }\n            buf += 16;\n            left -= 16;\n        } while (BATT_HINT_TRUE(left != 0));\n    }\n#else\n    /* suppress unused parameter warning */\n    (void)buf_end;\n    (void)ranges;\n    (void)ranges_size;\n#endif\n    return buf;\n}\n\nBATT_INLINE_IMPL const char* get_token_to_eol(const char* buf, const char* buf_end, std::string_view* token,\n                                              int* ret)\n{\n    const char* token_start = buf;\n\n    int token_len = 0;\n\n#ifdef __SSE4_2__\n    static const char BATT_PICO_HTTP_ALIGNED(16) ranges1[16] =\n        \"\\0\\010\"    /* allow HT */\n        \"\\012\\037\"  /* allow SP and up to but not including DEL */\n        \"\\177\\177\"; /* allow chars w. MSB set */\n    int found;\n    buf = findchar_fast(buf, buf_end, ranges1, 6, &found);\n    if (found) {\n        goto FOUND_CTL;\n    }\n#else\n    /* find non-printable char within the next 8 bytes, this is the hottest code; manually inlined */\n    while (BATT_HINT_TRUE(buf_end - buf >= 8)) {\n        //+++++++++++-+-+--+----- --- -- -  -  -   -\n#define BATT_PICO_HTTP_DOIT()                                                                                \\\n    do {                                                                                                     \\\n        if (BATT_HINT_FALSE(!BATT_PICO_HTTP_IS_PRINTABLE_ASCII(*buf))) {                                     \\\n            goto NonPrintable;                                                                               \\\n        }                                                                                                    \\\n        ++buf;                                                                                               \\\n    } while (0)\n\n        BATT_PICO_HTTP_DOIT();\n        BATT_PICO_HTTP_DOIT();\n        BATT_PICO_HTTP_DOIT();\n        BATT_PICO_HTTP_DOIT();\n        BATT_PICO_HTTP_DOIT();\n        BATT_PICO_HTTP_DOIT();\n        BATT_PICO_HTTP_DOIT();\n        BATT_PICO_HTTP_DOIT();\n\n#undef BATT_PICO_HTTP_DOIT\n        //+++++++++++-+-+--+----- --- -- -  -  -   -\n        continue;\n    NonPrintable:\n        if ((BATT_HINT_TRUE((unsigned char)*buf < '\\040') && BATT_HINT_TRUE(*buf != '\\011')) ||\n            BATT_HINT_FALSE(*buf == '\\177')) {\n            goto FOUND_CTL;\n        }\n        ++buf;\n    }\n#endif\n    for (;; ++buf) {\n        BATT_PICO_HTTP_CHECK_EOF();\n        if (BATT_HINT_FALSE(!BATT_PICO_HTTP_IS_PRINTABLE_ASCII(*buf))) {\n            if ((BATT_HINT_TRUE((unsigned char)*buf < '\\040') && BATT_HINT_TRUE(*buf != '\\011')) ||\n                BATT_HINT_FALSE(*buf == '\\177')) {\n                goto FOUND_CTL;\n            }\n        }\n    }\nFOUND_CTL:\n    if (BATT_HINT_TRUE(*buf == '\\015')) {\n        ++buf;\n        BATT_PICO_HTTP_EXPECT_CHAR('\\012');\n        token_len = buf - 2 - token_start;\n    } else if (*buf == '\\012') {\n        token_len = buf - token_start;\n        ++buf;\n    } else {\n        *ret = -1;\n        return nullptr;\n    }\n    *token = std::string_view{token_start, static_cast<usize>(token_len)};\n\n    return buf;\n}\n\nBATT_INLINE_IMPL const char* is_complete(const char* buf, const char* buf_end, usize last_len, int* ret)\n{\n    int ret_cnt = 0;\n    buf = last_len < 3 ? buf : buf + last_len - 3;\n\n    while (1) {\n        BATT_PICO_HTTP_CHECK_EOF();\n        if (*buf == '\\015') {\n            ++buf;\n            BATT_PICO_HTTP_CHECK_EOF();\n            BATT_PICO_HTTP_EXPECT_CHAR('\\012');\n            ++ret_cnt;\n        } else if (*buf == '\\012') {\n            ++buf;\n            ++ret_cnt;\n        } else {\n            ++buf;\n            ret_cnt = 0;\n        }\n        if (ret_cnt == 2) {\n            return buf;\n        }\n    }\n\n    *ret = -2;\n    return nullptr;\n}\n\n#define BATT_PICO_HTTP_PARSE_INT(valp_, mul_)                                                                \\\n    if (*buf < '0' || '9' < *buf) {                                                                          \\\n        buf++;                                                                                               \\\n        *ret = -1;                                                                                           \\\n        return nullptr;                                                                                      \\\n    }                                                                                                        \\\n    *(valp_) = (mul_) * (*buf++ - '0');\n\n#define BATT_PICO_HTTP_PARSE_INT_3(valp_)                                                                    \\\n    do {                                                                                                     \\\n        int res_ = 0;                                                                                        \\\n        BATT_PICO_HTTP_PARSE_INT(&res_, 100)                                                                 \\\n        *valp_ = res_;                                                                                       \\\n        BATT_PICO_HTTP_PARSE_INT(&res_, 10)                                                                  \\\n        *valp_ += res_;                                                                                      \\\n        BATT_PICO_HTTP_PARSE_INT(&res_, 1)                                                                   \\\n        *valp_ += res_;                                                                                      \\\n    } while (0)\n\n/* returned pointer is always within [buf, buf_end), or null */\nBATT_INLINE_IMPL const char* parse_token(const char* buf, const char* buf_end, std::string_view* token,\n                                         char next_char, int* ret)\n{\n    /* We use pcmpestri to detect non-token characters. This instruction can take no more than eight character\n     * ranges (8*2*8=128\n     * bits that is the size of a SSE register). Due to this restriction, characters `|` and `~` are handled\n     * in the slow loop. */\n    static const char BATT_PICO_HTTP_ALIGNED(16) ranges[] =\n        \"\\x00 \"  /* control chars and up to SP */\n        \"\\\"\\\"\"   /* 0x22 */\n        \"()\"     /* 0x28,0x29 */\n        \",,\"     /* 0x2c */\n        \"//\"     /* 0x2f */\n        \":@\"     /* 0x3a-0x40 */\n        \"[]\"     /* 0x5b-0x5d */\n        \"{\\xff\"; /* 0x7b-0xff */\n    const char* buf_start = buf;\n    int found;\n    buf = findchar_fast(buf, buf_end, ranges, sizeof(ranges) - 1, &found);\n    if (!found) {\n        BATT_PICO_HTTP_CHECK_EOF();\n    }\n    while (1) {\n        if (*buf == next_char) {\n            break;\n        } else if (!token_char_map[(unsigned char)*buf]) {\n            *ret = -1;\n            return nullptr;\n        }\n        ++buf;\n        BATT_PICO_HTTP_CHECK_EOF();\n    }\n    *token = std::string_view{buf_start, static_cast<usize>(buf - buf_start)};\n    return buf;\n}\n\n/* returned pointer is always within [buf, buf_end), or null */\nBATT_INLINE_IMPL const char* parse_http_version(const char* buf, const char* buf_end, int* minor_version,\n                                                int* ret)\n{\n    /* we want at least [HTTP/1.<two chars>] to try to parse */\n    if (buf_end - buf < 9) {\n        *ret = -2;\n        return nullptr;\n    }\n    BATT_PICO_HTTP_EXPECT_CHAR_NO_CHECK('H');\n    BATT_PICO_HTTP_EXPECT_CHAR_NO_CHECK('T');\n    BATT_PICO_HTTP_EXPECT_CHAR_NO_CHECK('T');\n    BATT_PICO_HTTP_EXPECT_CHAR_NO_CHECK('P');\n    BATT_PICO_HTTP_EXPECT_CHAR_NO_CHECK('/');\n    BATT_PICO_HTTP_EXPECT_CHAR_NO_CHECK('1');\n    BATT_PICO_HTTP_EXPECT_CHAR_NO_CHECK('.');\n    BATT_PICO_HTTP_PARSE_INT(minor_version, 1);\n    return buf;\n}\n\nBATT_INLINE_IMPL const char* parse_headers_impl(const char* buf, const char* buf_end,\n                                                batt::SmallVecBase<pico_http::MessageHeader>* headers,\n                                                int* ret)\n{\n    usize num_headers = 0;\n    std::string_view header_name;\n    std::string_view header_value;\n\n    const auto commit_header = [&] {\n        headers->emplace_back(pico_http::MessageHeader{header_name, header_value});\n        ++num_headers;\n    };\n\n    for (;; commit_header()) {\n        BATT_PICO_HTTP_CHECK_EOF();\n        if (*buf == '\\015') {\n            ++buf;\n            BATT_PICO_HTTP_EXPECT_CHAR('\\012');\n            break;\n        } else if (*buf == '\\012') {\n            ++buf;\n            break;\n        }\n        if (!(num_headers != 0 && (*buf == ' ' || *buf == '\\t'))) {\n            /* parsing name, but do not discard SP before colon, see\n             * http://www.mozilla.org/security/announce/2006/mfsa2006-33.html */\n            if ((buf = parse_token(buf, buf_end, &header_name, ':', ret)) == nullptr) {\n                return nullptr;\n            }\n            if (header_name.size() == 0) {\n                *ret = -1;\n                return nullptr;\n            }\n            ++buf;\n            for (;; ++buf) {\n                BATT_PICO_HTTP_CHECK_EOF();\n                if (!(*buf == ' ' || *buf == '\\t')) {\n                    break;\n                }\n            }\n        } else {\n            header_name = std::string_view{};\n        }\n        std::string_view value;\n        if ((buf = get_token_to_eol(buf, buf_end, &value, ret)) == nullptr) {\n            return nullptr;\n        }\n        /* remove trailing SPs and HTABs */\n        const char* const value_begin = value.data();\n        const char* value_end = value_begin + value.size();\n        for (; value_end != value_begin; --value_end) {\n            const char c = *(value_end - 1);\n            if (!(c == ' ' || c == '\\t')) {\n                break;\n            }\n        }\n\n        header_value = std::string_view{value_begin, static_cast<usize>(value_end - value_begin)};\n    }\n    return buf;\n}\n\nBATT_INLINE_IMPL const char* parse_request_impl(const char* buf, const char* buf_end,\n                                                std::string_view* method, std::string_view* path,\n                                                int* minor_version,\n                                                batt::SmallVecBase<pico_http::MessageHeader>* headers,\n                                                int* ret)\n{\n    /* skip first empty line (some clients add CRLF after POST content) */\n    BATT_PICO_HTTP_CHECK_EOF();\n    if (*buf == '\\015') {\n        ++buf;\n        BATT_PICO_HTTP_EXPECT_CHAR('\\012');\n    } else if (*buf == '\\012') {\n        ++buf;\n    }\n\n    /* parse request line */\n    if ((buf = parse_token(buf, buf_end, method, ' ', ret)) == nullptr) {\n        return nullptr;\n    }\n    do {\n        ++buf;\n        BATT_PICO_HTTP_CHECK_EOF();\n    } while (*buf == ' ');\n    {\n        const char* path_begin;\n        usize path_len;\n        BATT_PICO_HTTP_ADVANCE_TOKEN(path_begin, path_len);\n        *path = std::string_view{path_begin, path_len};\n    }\n    do {\n        ++buf;\n        BATT_PICO_HTTP_CHECK_EOF();\n    } while (*buf == ' ');\n    if (method->size() == 0 || path->size() == 0) {\n        *ret = -1;\n        return nullptr;\n    }\n    if ((buf = parse_http_version(buf, buf_end, minor_version, ret)) == nullptr) {\n        return nullptr;\n    }\n    if (*buf == '\\015') {\n        ++buf;\n        BATT_PICO_HTTP_EXPECT_CHAR('\\012');\n    } else if (*buf == '\\012') {\n        ++buf;\n    } else {\n        *ret = -1;\n        return nullptr;\n    }\n\n    return ::pico_http::detail::parse_headers_impl(buf, buf_end, headers, ret);\n}\n\n}  // namespace\n}  // namespace detail\n}  // namespace pico_http\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL int pico_http::Request::parse(const char* buf_start, usize len, usize last_len)\n{\n    const char *buf = buf_start, *buf_end = buf_start + len;\n    int r;\n\n    this->method = std::string_view{};\n    this->path = std::string_view{};\n    this->major_version = -1;\n    this->minor_version = -1;\n    this->headers.clear();\n\n    /* if last_len != 0, check if the request is complete (a fast countermeasure\n       againt slowloris */\n    if (last_len != 0 && ::pico_http::detail::is_complete(buf, buf_end, last_len, &r) == nullptr) {\n        this->major_version = 1;\n        return r;\n    }\n\n    buf = ::pico_http::detail::parse_request_impl(buf, buf_end, &this->method, &this->path,\n                                                  &this->minor_version, &this->headers, &r);\n    if (buf == nullptr) {\n        return r;\n    }\n\n    this->major_version = 1;\n    return (int)(buf - buf_start);\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\nnamespace pico_http {\nnamespace detail {\nnamespace {\n\nBATT_INLINE_IMPL const char* parse_response_impl(const char* buf, const char* buf_end, int* minor_version,\n                                                 int* status, std::string_view* msg,\n                                                 batt::SmallVecBase<pico_http::MessageHeader>* headers,\n                                                 int* ret)\n{\n    /* parse \"HTTP/1.x\" */\n    if ((buf = parse_http_version(buf, buf_end, minor_version, ret)) == nullptr) {\n        return nullptr;\n    }\n    /* skip space */\n    if (*buf != ' ') {\n        *ret = -1;\n        return nullptr;\n    }\n    do {\n        ++buf;\n        BATT_PICO_HTTP_CHECK_EOF();\n    } while (*buf == ' ');\n    /* parse status code, we want at least [:digit:][:digit:][:digit:]<other char> to try to parse */\n    if (buf_end - buf < 4) {\n        *ret = -2;\n        return nullptr;\n    }\n    BATT_PICO_HTTP_PARSE_INT_3(status);\n\n    /* get message including preceding space */\n    if ((buf = get_token_to_eol(buf, buf_end, msg, ret)) == nullptr) {\n        return nullptr;\n    }\n    if (msg->size() == 0) {\n        /* ok */\n    } else if ((*msg)[0] == ' ') {\n        /* Remove preceding space. Successful return from `get_token_to_eol` guarantees that we would hit\n         * something other than SP before running past the end of the given buffer. */\n        const char* msg_begin = msg->data();\n        usize msg_len = msg->size();\n        do {\n            ++msg_begin;\n            --msg_len;\n        } while (*msg_begin == ' ');\n        *msg = std::string_view{msg_begin, msg_len};\n    } else {\n        /* garbage found after status code */\n        *ret = -1;\n        return nullptr;\n    }\n\n    return ::pico_http::detail::parse_headers_impl(buf, buf_end, headers, ret);\n}\n\n}  // namespace\n}  // namespace detail\n}  // namespace pico_http\n\n#undef BATT_PICO_HTTP_PARSE_INT\n#undef BATT_PICO_HTTP_PARSE_INT_3\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL int pico_http::Response::parse(const char* buf_start, usize len, usize last_len)\n{\n    const char *buf = buf_start, *buf_end = buf + len;\n    int r;\n\n    this->major_version = -1;\n    this->minor_version = -1;\n    this->status = 0;\n    this->message = std::string_view{};\n    this->headers.clear();\n\n    /* if last_len != 0, check if the response is complete (a fast countermeasure\n       against slowloris */\n    if (last_len != 0 && ::pico_http::detail::is_complete(buf, buf_end, last_len, &r) == nullptr) {\n        this->major_version = 1;\n        return r;\n    }\n\n    buf = ::pico_http::detail::parse_response_impl(buf, buf_end, &this->minor_version, &this->status,\n                                                   &this->message, &this->headers, &r);\n    if (buf == nullptr) {\n        return r;\n    }\n\n    this->major_version = 1;\n    return (int)(buf - buf_start);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL int pico_http::parse_headers(const char* buf_start, usize len,\n                                              batt::SmallVecBase<pico_http::MessageHeader>* headers,\n                                              usize last_len)\n{\n    const char *buf = buf_start, *buf_end = buf + len;\n    int r;\n\n    headers->clear();\n\n    /* if last_len != 0, check if the response is complete (a fast countermeasure\n       against slowloris */\n    if (last_len != 0 && ::pico_http::detail::is_complete(buf, buf_end, last_len, &r) == nullptr) {\n        return r;\n    }\n\n    if ((buf = ::pico_http::detail::parse_headers_impl(buf, buf_end, headers, &r)) == nullptr) {\n        return r;\n    }\n\n    return (int)(buf - buf_start);\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\nnamespace pico_http {\nnamespace detail {\nnamespace {\n\nenum {\n    CHUNKED_IN_CHUNK_SIZE,\n    CHUNKED_IN_CHUNK_EXT,\n    CHUNKED_IN_CHUNK_DATA,\n    CHUNKED_IN_CHUNK_CRLF,\n    CHUNKED_IN_TRAILERS_LINE_HEAD,\n    CHUNKED_IN_TRAILERS_LINE_MIDDLE\n};\n\nBATT_INLINE_IMPL int decode_hex(int ch)\n{\n    if ('0' <= ch && ch <= '9') {\n        return ch - '0';\n    } else if ('A' <= ch && ch <= 'F') {\n        return ch - 'A' + 0xa;\n    } else if ('a' <= ch && ch <= 'f') {\n        return ch - 'a' + 0xa;\n    } else {\n        return kParseFailed;\n    }\n}\n\n}  // namespace\n}  // namespace detail\n}  // namespace pico_http\n\n#define BATT_PICO_HTTP_PARSER_DUMP_CHUNKS 0\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL batt::StatusOr<pico_http::DecodeResult> pico_http::decode_chunked(\n    pico_http::ChunkedDecoder* decoder, const batt::ConstBuffer& input,\n    batt::SmallVecBase<batt::ConstBuffer>* output)\n{\n    const char* const buf = static_cast<const char*>(input.data());\n    const usize bufsz = input.size();\n\n#if BATT_PICO_HTTP_PARSER_DUMP_CHUNKS\n    std::cerr << \"decode_chunks(\" << batt::c_str_literal(std::string_view{buf, bufsz}) << \")\" << std::endl;\n#endif\n\n    DecodeResult result;\n\n    result.done = false;\n    result.bytes_consumed = 0;\n\n    usize& src = result.bytes_consumed;\n\n    for (;;) {\n        switch (decoder->state_) {\n        case ::pico_http::detail::CHUNKED_IN_CHUNK_SIZE:\n            for (;; ++src) {\n                int v;\n                if (src == bufsz) {\n                    return result;\n                }\n                if ((v = ::pico_http::detail::decode_hex(buf[src])) == kParseFailed) {\n                    if (decoder->hex_count_ == 0) {\n                        return {batt::StatusCode::kInvalidArgument};\n                    }\n                    break;\n                }\n                if (decoder->hex_count_ == sizeof(usize) * 2) {\n                    return {batt::StatusCode::kInvalidArgument};\n                }\n                decoder->bytes_left_in_chunk = decoder->bytes_left_in_chunk * 16 + v;\n                ++decoder->hex_count_;\n            }\n            decoder->hex_count_ = 0;\n            decoder->state_ = ::pico_http::detail::CHUNKED_IN_CHUNK_EXT;\n        /* fallthru */\n        case ::pico_http::detail::CHUNKED_IN_CHUNK_EXT:\n            /* RFC 7230 A.2 \"Line folding in chunk extensions is disallowed\" */\n            for (;; ++src) {\n                if (src == bufsz) {\n                    return result;\n                }\n                if (buf[src] == '\\012') {\n                    break;\n                }\n            }\n            ++src;\n            if (decoder->bytes_left_in_chunk == 0) {\n                if (decoder->consume_trailer) {\n                    decoder->state_ = ::pico_http::detail::CHUNKED_IN_TRAILERS_LINE_HEAD;\n                    break;\n                } else {\n                    result.done = true;\n                    return result;\n                }\n            }\n            decoder->state_ = ::pico_http::detail::CHUNKED_IN_CHUNK_DATA;\n        /* fallthru */\n        case ::pico_http::detail::CHUNKED_IN_CHUNK_DATA: {\n            const usize avail = bufsz - src;\n            if (avail < decoder->bytes_left_in_chunk) {\n                if (avail > 0) {\n                    output->emplace_back(batt::ConstBuffer{buf + src, avail});\n                }\n                src += avail;\n                decoder->bytes_left_in_chunk -= avail;\n                return result;\n            }\n            output->emplace_back(batt::ConstBuffer{buf + src, decoder->bytes_left_in_chunk});\n            src += decoder->bytes_left_in_chunk;\n            decoder->bytes_left_in_chunk = 0;\n            decoder->state_ = ::pico_http::detail::CHUNKED_IN_CHUNK_CRLF;\n        }\n        /* fallthru */\n        case ::pico_http::detail::CHUNKED_IN_CHUNK_CRLF:\n            for (;; ++src) {\n                if (src == bufsz) {\n                    return result;\n                }\n                if (buf[src] != '\\015') {\n                    break;\n                }\n            }\n            if (buf[src] != '\\012') {\n                return {batt::StatusCode::kInvalidArgument};\n            }\n            ++src;\n            decoder->state_ = ::pico_http::detail::CHUNKED_IN_CHUNK_SIZE;\n            break;\n        case ::pico_http::detail::CHUNKED_IN_TRAILERS_LINE_HEAD:\n            for (;; ++src) {\n                if (src == bufsz) {\n                    return result;\n                }\n                if (buf[src] != '\\015') {\n                    break;\n                }\n            }\n            if (buf[src++] == '\\012') {\n                result.done = true;\n                return result;\n            }\n            decoder->state_ = ::pico_http::detail::CHUNKED_IN_TRAILERS_LINE_MIDDLE;\n        /* fallthru */\n        case ::pico_http::detail::CHUNKED_IN_TRAILERS_LINE_MIDDLE:\n            for (;; ++src) {\n                if (src == bufsz) {\n                    return result;\n                }\n                if (buf[src] == '\\012') {\n                    break;\n                }\n            }\n            ++src;\n            decoder->state_ = ::pico_http::detail::CHUNKED_IN_TRAILERS_LINE_HEAD;\n            break;\n        default:\n            BATT_PANIC() << \"decoder is corrupt\";\n        }\n    }\n}\n\nBATT_INLINE_IMPL int pico_http::decode_chunked_is_in_data(pico_http::ChunkedDecoder* decoder)\n{\n    return decoder->state_ == ::pico_http::detail::CHUNKED_IN_CHUNK_DATA;\n}\n\n#undef BATT_PICO_HTTP_CHECK_EOF\n#undef BATT_PICO_HTTP_EXPECT_CHAR\n#undef BATT_PICO_HTTP_ADVANCE_TOKEN\n#undef BATT_PICO_HTTP_ALIGNED\n\nnamespace pico_http {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL std::ostream& operator<<(std::ostream& out, const MessageHeader& t)\n{\n    return out << t.name << \": \" << t.value << \"\\r\\n\";\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL std::ostream& operator<<(std::ostream& out, const batt::SmallVecBase<MessageHeader>& t)\n{\n    for (const MessageHeader& hdr : t) {\n        out << hdr;\n    }\n    return out;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL std::ostream& operator<<(std::ostream& out, const Request& t)\n{\n    return out << t.method << ' ' << t.path << \" HTTP/\" << t.major_version << '.' << t.minor_version << \"\\r\\n\"\n               << t.headers << \"\\r\\n\";\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL std::ostream& operator<<(std::ostream& out, const Response& t)\n{\n    return out << \"HTTP/\" << t.major_version << '.' << t.minor_version << ' ' << t.status << ' ' << t.message\n               << \"\\r\\n\"\n               << t.headers << \"\\r\\n\";\n}\n\n}  // namespace pico_http\n\n#endif  // BATTERIES_PICO_HTTP_PARSER_IMPL_HPP",
+  "refid": "parser__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/pico_http/parser_impl.hpp",
+  "url": "/_autogen/Files/parser__impl_8hpp/#file-parser-impl.hpp",
+  "visibility": "public"
+}
