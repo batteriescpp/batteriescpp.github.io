@@ -1,0 +1,949 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+    
+    
+      
+        <title>batteries/static_assert.hpp - Batteries C++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#namespaces" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Batteries C++" class="md-header__button md-logo" aria-label="Batteries C++" data-md-component="logo">
+      <img width="100px" src="/images/BatteriesLogo.png">
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/releaseNavOptions.js" type="application/javascript"></script>
+<script src="/releaseNav.js" type="application/javascript"></script>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Batteries C++
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              batteries/static_assert.hpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Batteries C++" class="md-nav__button md-logo" aria-label="Batteries C++" data-md-component="logo">
+      <img width="100px" src="/images/BatteriesLogo.png">
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/releaseNavOptions.js" type="application/javascript"></script>
+<script src="/releaseNav.js" type="application/javascript"></script>
+    </a>
+    Batteries C++
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gitlab.com/batteriescpp/batteries/" class="md-nav__link">
+        GitLab Repo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Headers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Headers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../assert.hpp" class="md-nav__link">
+        batteries/assert.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../async" class="md-nav__link">
+        batteries/async/*
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_of.hpp" class="md-nav__link">
+        batteries/case_of.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cpu_align.hpp" class="md-nav__link">
+        batteries/cpu_align.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../seq" class="md-nav__link">
+        batteries/seq.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../status.hpp" class="md-nav__link">
+        batteries/status.hpp
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Classes/" class="md-nav__link">
+        Classes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release_notes" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../coding_style" class="md-nav__link">
+        Coding Style
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../how-to/configure-ci-pipelines" class="md-nav__link">
+        Configuring CI Pipelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../how-to/write-the-docs" class="md-nav__link">
+        Writing Documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#namespaces" class="md-nav__link">
+    Namespaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defines" class="md-nav__link">
+    Defines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macro-documentation" class="md-nav__link">
+    Macro Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Macro Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-batteries_static_assert_hpp" class="md-nav__link">
+     define BATTERIES_STATIC_ASSERT_HPP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_static_assert_eq" class="md-nav__link">
+     define BATT_STATIC_ASSERT_EQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_static_assert_ne" class="md-nav__link">
+     define BATT_STATIC_ASSERT_NE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_static_assert_lt" class="md-nav__link">
+     define BATT_STATIC_ASSERT_LT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_static_assert_le" class="md-nav__link">
+     define BATT_STATIC_ASSERT_LE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_static_assert_gt" class="md-nav__link">
+     define BATT_STATIC_ASSERT_GT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_static_assert_ge" class="md-nav__link">
+     define BATT_STATIC_ASSERT_GE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_static_assert_type_eq" class="md-nav__link">
+     define BATT_STATIC_ASSERT_TYPE_EQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_check_type" class="md-nav__link">
+     define BATT_CHECK_TYPE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>batteries/static_assert.hpp</h1>
+
+<h1 id="batteriesstatic_asserthpp">batteries/static_assert.hpp<a class="headerlink" href="#batteriesstatic_asserthpp" title="Permanent link">&#128279;</a></h1>
+<h2 id="namespaces">Namespaces<a class="headerlink" href="#namespaces" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/">batt</a></strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>struct</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1StaticBinaryAssertion/">batt::StaticBinaryAssertion</a></strong></td>
+</tr>
+<tr>
+<td>struct</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1StaticSameTypeAssertion/">batt::StaticSameTypeAssertion</a></strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="defines">Defines<a class="headerlink" href="#defines" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/static__assert_8hpp/#define-batteries-static-assert-hpp">BATTERIES_STATIC_ASSERT_HPP</a></strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/static__assert_8hpp/#define-batt-static-assert-eq">BATT_STATIC_ASSERT_EQ</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/static__assert_8hpp/#define-batt-static-assert-ne">BATT_STATIC_ASSERT_NE</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/static__assert_8hpp/#define-batt-static-assert-lt">BATT_STATIC_ASSERT_LT</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/static__assert_8hpp/#define-batt-static-assert-le">BATT_STATIC_ASSERT_LE</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/static__assert_8hpp/#define-batt-static-assert-gt">BATT_STATIC_ASSERT_GT</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/static__assert_8hpp/#define-batt-static-assert-ge">BATT_STATIC_ASSERT_GE</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/static__assert_8hpp/#define-batt-static-assert-type-eq">BATT_STATIC_ASSERT_TYPE_EQ</a></strong>(x, y)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/static__assert_8hpp/#define-batt-check-type">BATT_CHECK_TYPE</a></strong>(type, expr) <br>Evaluates to <code>expr</code>, failing the compilation if the type of the expression doesn't match <code>type</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="macro-documentation">Macro Documentation<a class="headerlink" href="#macro-documentation" title="Permanent link">&#128279;</a></h2>
+<h3 id="define-batteries_static_assert_hpp"><a name="BATTERIES_STATIC_ASSERT_HPP"></a> define BATTERIES_STATIC_ASSERT_HPP<a class="headerlink" href="#define-batteries_static_assert_hpp" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#define BATTERIES_STATIC_ASSERT_HPP()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_static_assert_eq"><a name="BATT_STATIC_ASSERT_EQ"></a> define BATT_STATIC_ASSERT_EQ<a class="headerlink" href="#define-batt_static_assert_eq" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#define BATT_STATIC_ASSERT_EQ(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_static_assert_ne"><a name="BATT_STATIC_ASSERT_NE"></a> define BATT_STATIC_ASSERT_NE<a class="headerlink" href="#define-batt_static_assert_ne" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#define BATT_STATIC_ASSERT_NE(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_static_assert_lt"><a name="BATT_STATIC_ASSERT_LT"></a> define BATT_STATIC_ASSERT_LT<a class="headerlink" href="#define-batt_static_assert_lt" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#define BATT_STATIC_ASSERT_LT(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_static_assert_le"><a name="BATT_STATIC_ASSERT_LE"></a> define BATT_STATIC_ASSERT_LE<a class="headerlink" href="#define-batt_static_assert_le" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#define BATT_STATIC_ASSERT_LE(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_static_assert_gt"><a name="BATT_STATIC_ASSERT_GT"></a> define BATT_STATIC_ASSERT_GT<a class="headerlink" href="#define-batt_static_assert_gt" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">#define BATT_STATIC_ASSERT_GT(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_static_assert_ge"><a name="BATT_STATIC_ASSERT_GE"></a> define BATT_STATIC_ASSERT_GE<a class="headerlink" href="#define-batt_static_assert_ge" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">#define BATT_STATIC_ASSERT_GE(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_static_assert_type_eq"><a name="BATT_STATIC_ASSERT_TYPE_EQ"></a> define BATT_STATIC_ASSERT_TYPE_EQ<a class="headerlink" href="#define-batt_static_assert_type_eq" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">#define BATT_STATIC_ASSERT_TYPE_EQ(x, y)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_check_type"><a name="BATT_CHECK_TYPE"></a> define BATT_CHECK_TYPE<a class="headerlink" href="#define-batt_check_type" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cp">#define BATT_CHECK_TYPE(type, expr)</span>
+</code></pre></div></td></tr></table></div>
+<p>Evaluates to <code>expr</code>, failing the compilation if the type of the expression doesn't match <code>type</code>. </p>
+<h2 id="source-code">Source code<a class="headerlink" href="#source-code" title="Permanent link">&#128279;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span>
+<span class="normal"><a href="#__codelineno-9-13">13</a></span>
+<span class="normal"><a href="#__codelineno-9-14">14</a></span>
+<span class="normal"><a href="#__codelineno-9-15">15</a></span>
+<span class="normal"><a href="#__codelineno-9-16">16</a></span>
+<span class="normal"><a href="#__codelineno-9-17">17</a></span>
+<span class="normal"><a href="#__codelineno-9-18">18</a></span>
+<span class="normal"><a href="#__codelineno-9-19">19</a></span>
+<span class="normal"><a href="#__codelineno-9-20">20</a></span>
+<span class="normal"><a href="#__codelineno-9-21">21</a></span>
+<span class="normal"><a href="#__codelineno-9-22">22</a></span>
+<span class="normal"><a href="#__codelineno-9-23">23</a></span>
+<span class="normal"><a href="#__codelineno-9-24">24</a></span>
+<span class="normal"><a href="#__codelineno-9-25">25</a></span>
+<span class="normal"><a href="#__codelineno-9-26">26</a></span>
+<span class="normal"><a href="#__codelineno-9-27">27</a></span>
+<span class="normal"><a href="#__codelineno-9-28">28</a></span>
+<span class="normal"><a href="#__codelineno-9-29">29</a></span>
+<span class="normal"><a href="#__codelineno-9-30">30</a></span>
+<span class="normal"><a href="#__codelineno-9-31">31</a></span>
+<span class="normal"><a href="#__codelineno-9-32">32</a></span>
+<span class="normal"><a href="#__codelineno-9-33">33</a></span>
+<span class="normal"><a href="#__codelineno-9-34">34</a></span>
+<span class="normal"><a href="#__codelineno-9-35">35</a></span>
+<span class="normal"><a href="#__codelineno-9-36">36</a></span>
+<span class="normal"><a href="#__codelineno-9-37">37</a></span>
+<span class="normal"><a href="#__codelineno-9-38">38</a></span>
+<span class="normal"><a href="#__codelineno-9-39">39</a></span>
+<span class="normal"><a href="#__codelineno-9-40">40</a></span>
+<span class="normal"><a href="#__codelineno-9-41">41</a></span>
+<span class="normal"><a href="#__codelineno-9-42">42</a></span>
+<span class="normal"><a href="#__codelineno-9-43">43</a></span>
+<span class="normal"><a href="#__codelineno-9-44">44</a></span>
+<span class="normal"><a href="#__codelineno-9-45">45</a></span>
+<span class="normal"><a href="#__codelineno-9-46">46</a></span>
+<span class="normal"><a href="#__codelineno-9-47">47</a></span>
+<span class="normal"><a href="#__codelineno-9-48">48</a></span>
+<span class="normal"><a href="#__codelineno-9-49">49</a></span>
+<span class="normal"><a href="#__codelineno-9-50">50</a></span>
+<span class="normal"><a href="#__codelineno-9-51">51</a></span>
+<span class="normal"><a href="#__codelineno-9-52">52</a></span>
+<span class="normal"><a href="#__codelineno-9-53">53</a></span>
+<span class="normal"><a href="#__codelineno-9-54">54</a></span>
+<span class="normal"><a href="#__codelineno-9-55">55</a></span>
+<span class="normal"><a href="#__codelineno-9-56">56</a></span>
+<span class="normal"><a href="#__codelineno-9-57">57</a></span>
+<span class="normal"><a href="#__codelineno-9-58">58</a></span>
+<span class="normal"><a href="#__codelineno-9-59">59</a></span>
+<span class="normal"><a href="#__codelineno-9-60">60</a></span>
+<span class="normal"><a href="#__codelineno-9-61">61</a></span>
+<span class="normal"><a href="#__codelineno-9-62">62</a></span>
+<span class="normal"><a href="#__codelineno-9-63">63</a></span>
+<span class="normal"><a href="#__codelineno-9-64">64</a></span>
+<span class="normal"><a href="#__codelineno-9-65">65</a></span>
+<span class="normal"><a href="#__codelineno-9-66">66</a></span>
+<span class="normal"><a href="#__codelineno-9-67">67</a></span>
+<span class="normal"><a href="#__codelineno-9-68">68</a></span>
+<span class="normal"><a href="#__codelineno-9-69">69</a></span>
+<span class="normal"><a href="#__codelineno-9-70">70</a></span>
+<span class="normal"><a href="#__codelineno-9-71">71</a></span>
+<span class="normal"><a href="#__codelineno-9-72">72</a></span>
+<span class="normal"><a href="#__codelineno-9-73">73</a></span>
+<span class="normal"><a href="#__codelineno-9-74">74</a></span>
+<span class="normal"><a href="#__codelineno-9-75">75</a></span>
+<span class="normal"><a href="#__codelineno-9-76">76</a></span>
+<span class="normal"><a href="#__codelineno-9-77">77</a></span>
+<span class="normal"><a href="#__codelineno-9-78">78</a></span>
+<span class="normal"><a href="#__codelineno-9-79">79</a></span>
+<span class="normal"><a href="#__codelineno-9-80">80</a></span>
+<span class="normal"><a href="#__codelineno-9-81">81</a></span>
+<span class="normal"><a href="#__codelineno-9-82">82</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="c1">// Copyright 2021-2022 Anthony Paul Astolfi</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="c1">//</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="cp">#pragma once</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="cp">#ifndef BATTERIES_STATIC_ASSERT_HPP</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="cp">#define BATTERIES_STATIC_ASSERT_HPP</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/config.hpp&gt;</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="c1">//</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/utility.hpp&gt;</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;boost/preprocessor/cat.hpp&gt;</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;type_traits&gt;</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">batt</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16"></a>
+<a id="__codelineno-9-17" name="__codelineno-9-17"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Eq</span><span class="p">;</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Ne</span><span class="p">;</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Lt</span><span class="p">;</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Le</span><span class="p">;</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Ge</span><span class="p">;</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Gt</span><span class="p">;</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23"></a>
+<a id="__codelineno-9-24" name="__codelineno-9-24"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">Op</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">kCondition</span><span class="o">&gt;</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25"></a><span class="k">struct</span><span class="w"> </span><span class="nc">StaticBinaryAssertion</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">integral_constant</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">,</span><span class="w"> </span><span class="n">kCondition</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26"></a><span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">kCondition</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-27" name="__codelineno-9-27"></a><span class="p">};</span>
+<a id="__codelineno-9-28" name="__codelineno-9-28"></a>
+<a id="__codelineno-9-29" name="__codelineno-9-29"></a><span class="cp">#define BATT_STATIC_ASSERT_EQ(x, y)                                                                          \</span>
+<a id="__codelineno-9-30" name="__codelineno-9-30"></a><span class="cp">    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion&lt;decltype(x), decltype(y), (x), ::batt::Eq, \</span>
+<a id="__codelineno-9-31" name="__codelineno-9-31"></a><span class="cp">                                                           (y), ((x) == (y))&gt;                                \</span>
+<a id="__codelineno-9-32" name="__codelineno-9-32"></a><span class="cp">    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)</span>
+<a id="__codelineno-9-33" name="__codelineno-9-33"></a>
+<a id="__codelineno-9-34" name="__codelineno-9-34"></a><span class="cp">#define BATT_STATIC_ASSERT_NE(x, y)                                                                          \</span>
+<a id="__codelineno-9-35" name="__codelineno-9-35"></a><span class="cp">    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion&lt;decltype(x), decltype(y), (x), ::batt::Ne, \</span>
+<a id="__codelineno-9-36" name="__codelineno-9-36"></a><span class="cp">                                                           (y), ((x) != (y))&gt;                                \</span>
+<a id="__codelineno-9-37" name="__codelineno-9-37"></a><span class="cp">    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)</span>
+<a id="__codelineno-9-38" name="__codelineno-9-38"></a>
+<a id="__codelineno-9-39" name="__codelineno-9-39"></a><span class="cp">#define BATT_STATIC_ASSERT_LT(x, y)                                                                          \</span>
+<a id="__codelineno-9-40" name="__codelineno-9-40"></a><span class="cp">    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion&lt;decltype(x), decltype(y), (x), ::batt::Lt, \</span>
+<a id="__codelineno-9-41" name="__codelineno-9-41"></a><span class="cp">                                                           (y), ((x) &lt; (y))&gt;                                 \</span>
+<a id="__codelineno-9-42" name="__codelineno-9-42"></a><span class="cp">    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)</span>
+<a id="__codelineno-9-43" name="__codelineno-9-43"></a>
+<a id="__codelineno-9-44" name="__codelineno-9-44"></a><span class="cp">#define BATT_STATIC_ASSERT_LE(x, y)                                                                          \</span>
+<a id="__codelineno-9-45" name="__codelineno-9-45"></a><span class="cp">    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion&lt;decltype(x), decltype(y), (x), ::batt::Le, \</span>
+<a id="__codelineno-9-46" name="__codelineno-9-46"></a><span class="cp">                                                           (y), ((x) &lt;= (y))&gt;                                \</span>
+<a id="__codelineno-9-47" name="__codelineno-9-47"></a><span class="cp">    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)</span>
+<a id="__codelineno-9-48" name="__codelineno-9-48"></a>
+<a id="__codelineno-9-49" name="__codelineno-9-49"></a><span class="cp">#define BATT_STATIC_ASSERT_GT(x, y)                                                                          \</span>
+<a id="__codelineno-9-50" name="__codelineno-9-50"></a><span class="cp">    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion&lt;decltype(x), decltype(y), (x), ::batt::Gt, \</span>
+<a id="__codelineno-9-51" name="__codelineno-9-51"></a><span class="cp">                                                           (y), ((x) &gt; (y))&gt;                                 \</span>
+<a id="__codelineno-9-52" name="__codelineno-9-52"></a><span class="cp">    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)</span>
+<a id="__codelineno-9-53" name="__codelineno-9-53"></a>
+<a id="__codelineno-9-54" name="__codelineno-9-54"></a><span class="cp">#define BATT_STATIC_ASSERT_GE(x, y)                                                                          \</span>
+<a id="__codelineno-9-55" name="__codelineno-9-55"></a><span class="cp">    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion&lt;decltype(x), decltype(y), (x), ::batt::Ge, \</span>
+<a id="__codelineno-9-56" name="__codelineno-9-56"></a><span class="cp">                                                           (y), ((x) &gt;= (y))&gt;                                \</span>
+<a id="__codelineno-9-57" name="__codelineno-9-57"></a><span class="cp">    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)</span>
+<a id="__codelineno-9-58" name="__codelineno-9-58"></a>
+<a id="__codelineno-9-59" name="__codelineno-9-59"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-9-60" name="__codelineno-9-60"></a>
+<a id="__codelineno-9-61" name="__codelineno-9-61"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<a id="__codelineno-9-62" name="__codelineno-9-62"></a><span class="k">struct</span><span class="w"> </span><span class="nc">StaticSameTypeAssertion</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-63" name="__codelineno-9-63"></a><span class="w">    </span><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_same_v</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">);</span>
+<a id="__codelineno-9-64" name="__codelineno-9-64"></a><span class="p">};</span>
+<a id="__codelineno-9-65" name="__codelineno-9-65"></a>
+<a id="__codelineno-9-66" name="__codelineno-9-66"></a><span class="cp">#if defined(_MSC_VER) &amp;&amp; 0</span>
+<a id="__codelineno-9-67" name="__codelineno-9-67"></a><span class="cp">#define BATT_STATIC_ASSERT_TYPE_EQ(x, y) static_assert(std::is_same_v&lt;x, y&gt;)</span>
+<a id="__codelineno-9-68" name="__codelineno-9-68"></a><span class="cp">#else</span>
+<a id="__codelineno-9-69" name="__codelineno-9-69"></a><span class="cp">#define BATT_STATIC_ASSERT_TYPE_EQ(x, y)                                                                     \</span>
+<a id="__codelineno-9-70" name="__codelineno-9-70"></a><span class="cp">    BATT_MAYBE_UNUSED static ::batt::StaticSameTypeAssertion&lt;x, y&gt; BOOST_PP_CAT(                             \</span>
+<a id="__codelineno-9-71" name="__codelineno-9-71"></a><span class="cp">        BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)</span>
+<a id="__codelineno-9-72" name="__codelineno-9-72"></a><span class="cp">#endif</span>
+<a id="__codelineno-9-73" name="__codelineno-9-73"></a>
+<a id="__codelineno-9-74" name="__codelineno-9-74"></a><span class="cp">#define BATT_CHECK_TYPE(type, expr)                                                                          \</span>
+<a id="__codelineno-9-75" name="__codelineno-9-75"></a><span class="cp">    [&amp;]() noexcept(noexcept(expr)) -&gt; decltype(auto) {                                                       \</span>
+<a id="__codelineno-9-76" name="__codelineno-9-76"></a><span class="cp">        BATT_STATIC_ASSERT_TYPE_EQ(decltype(expr), type);                                                    \</span>
+<a id="__codelineno-9-77" name="__codelineno-9-77"></a><span class="cp">        return expr;                                                                                         \</span>
+<a id="__codelineno-9-78" name="__codelineno-9-78"></a><span class="cp">    }()</span>
+<a id="__codelineno-9-79" name="__codelineno-9-79"></a>
+<a id="__codelineno-9-80" name="__codelineno-9-80"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
+<a id="__codelineno-9-81" name="__codelineno-9-81"></a>
+<a id="__codelineno-9-82" name="__codelineno-9-82"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_STATIC_ASSERT_HPP</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<p>Updated on 22 September 2023 at 19:38:07 UTC</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.6df46069.min.js"></script>
+      
+    
+  </body>
+</html>
