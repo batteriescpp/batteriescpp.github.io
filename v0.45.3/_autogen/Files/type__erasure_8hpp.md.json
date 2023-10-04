@@ -1,0 +1,233 @@
+{
+  "abstract": false,
+  "anchor": "#file-type-erasure.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-type-erasure-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_TYPE_ERASURE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/type_erasure.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/type_erasure.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_TYPE_ERASURE_HPP",
+      "override": false,
+      "refid": "type__erasure_8hpp_1aa10327706c826648fdaf6805ee1f4c06",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_TYPE_ERASURE_HPP",
+      "url": "/_autogen/Files/type__erasure_8hpp/#define-batteries-type-erasure-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/type_erasure.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/type_erasure.hpp",
+    "line": 0
+  },
+  "name": "batteries/type_erasure.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_TYPE_ERASURE_HPP\n#define BATTERIES_TYPE_ERASURE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/buffer.hpp>\n#include <batteries/cpu_align.hpp>\n#include <batteries/type_traits.hpp>\n\n#include <memory>\n#include <utility>\n\nnamespace batt {\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T>\nclass AbstractValue\n{\n   public:\n    AbstractValue(const AbstractValue&) = delete;\n    AbstractValue& operator=(const AbstractValue&) = delete;\n\n    virtual ~AbstractValue() = default;\n\n    virtual T* copy_to(MutableBuffer memory) const = 0;\n\n    virtual T* move_to(MutableBuffer memory) = 0;\n\n   protected:\n    AbstractValue() = default;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T>\nclass AbstractValuePointer : public AbstractValue<T>\n{\n   public:\n    explicit AbstractValuePointer(std::unique_ptr<T> ptr) noexcept : ptr_{std::move(ptr)}\n    {\n    }\n\n    T* copy_to(MutableBuffer memory) const override\n    {\n        BATT_CHECK_GE(memory.size(), sizeof(AbstractValuePointer));\n\n        return this->ptr_->copy_to(memory);\n    }\n\n    T* move_to(MutableBuffer memory) override\n    {\n        BATT_CHECK_GE(memory.size(), sizeof(AbstractValuePointer));\n\n        auto* copy_of_this = new (memory.data()) AbstractValuePointer{std::move(this->ptr_)};\n\n        return copy_of_this->ptr_.get();\n    }\n\n   private:\n    std::unique_ptr<T> ptr_;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename AbstractType, template <typename> class TypedImpl>\nclass TypeErasedStorageBase\n{\n   public:\n    template <typename T, typename... Args>\n    static AbstractType* construct_impl(StaticType<T>, MutableBuffer buf, Args&&... args)\n    {\n        static_assert(std::is_same_v<std::decay_t<T>, T>,\n                      \"Use std::reference_wrapper (std::ref) to wrap a reference.\");\n\n        // If the impl will fit in the inline buffer, then just use placement new.\n        //\n        if (sizeof(TypedImpl<T>) <= buf.size()) {\n            return new (buf.data()) TypedImpl<T>{BATT_FORWARD(args)...};\n        }\n\n        auto p_impl = std::make_unique<TypedImpl<T>>(BATT_FORWARD(args)...);\n        AbstractType* retval = p_impl.get();\n        new (buf.data()) AbstractValuePointer<AbstractType>{std::move(p_impl)};\n\n        return retval;\n    }\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename AbstractType, template <typename> class TypedImpl,\n          usize kReservedSize = kCpuCacheLineSize - sizeof(void*), usize kAlignment = kCpuCacheLineSize>\nclass TypeErasedStorage : public TypeErasedStorageBase<AbstractType, TypedImpl>\n{\n   public:\n    static_assert(kReservedSize >= sizeof(AbstractValuePointer<AbstractType>),\n                  \"kReservedSize must be large enough to fit a pointer\");\n\n    static constexpr usize reserved_size = kReservedSize;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    TypeErasedStorage() noexcept : impl_{nullptr}\n    {\n    }\n\n    template <typename T, typename... Args>\n    /*implicit*/ TypeErasedStorage(StaticType<T> static_type, Args&&... args) noexcept : impl_{nullptr}\n    {\n        this->emplace(static_type, BATT_FORWARD(args)...);\n    }\n\n    TypeErasedStorage(const TypeErasedStorage& other)\n        : impl_{other.impl_ ? other.get_abstract()->copy_to(this->memory()) : nullptr}\n    {\n    }\n\n    TypeErasedStorage(TypeErasedStorage&& other)\n        : impl_{other.impl_ ? other.get_abstract()->move_to(this->memory()) : nullptr}\n    {\n        other.clear();\n    }\n\n    ~TypeErasedStorage() noexcept\n    {\n        this->clear();\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    TypeErasedStorage& operator=(TypeErasedStorage&& other)\n    {\n        if (BATT_HINT_TRUE(this != &other)) {\n            this->clear();\n            if (other.impl_) {\n                this->impl_ = other.get_abstract()->move_to(this->memory());\n                other.clear();\n            }\n        }\n        return *this;\n    }\n\n    TypeErasedStorage& operator=(const TypeErasedStorage& other)\n    {\n        if (BATT_HINT_TRUE(this != &other)) {\n            this->clear();\n            if (other.impl_) {\n                this->impl_ = other.get_abstract()->copy_to(this->memory());\n            }\n        }\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    template <typename T, typename... Args>\n    AbstractType* emplace(StaticType<T> static_type, Args&&... args)\n    {\n        this->clear();\n        return this->construct(static_type, BATT_FORWARD(args)...);\n    }\n\n    template <typename T, typename U,\n              typename = std::enable_if_t<std::is_same_v<std::decay_t<U>, std::reference_wrapper<T>>>>\n    AbstractType* emplace(StaticType<U>, const std::reference_wrapper<T>& ref)\n    {\n        this->clear();\n        return this->construct(StaticType<std::reference_wrapper<T>>{}, make_copy(ref));\n    }\n\n    void clear()\n    {\n        if (this->impl_) {\n            this->get_abstract()->~AbstractValue<AbstractType>();\n            this->impl_ = nullptr;\n        }\n    }\n\n    MutableBuffer memory()\n    {\n        return MutableBuffer{&this->storage_, sizeof(this->storage_)};\n    }\n\n    AbstractType* get() const\n    {\n        return this->impl_;\n    }\n\n    AbstractValue<AbstractType>* get_abstract() noexcept\n    {\n        return reinterpret_cast<AbstractValue<AbstractType>*>(&this->storage_);\n    }\n\n    const AbstractValue<AbstractType>* get_abstract() const noexcept\n    {\n        return reinterpret_cast<const AbstractValue<AbstractType>*>(&this->storage_);\n    }\n\n    bool is_valid() const\n    {\n        return this->impl_ != nullptr;\n    }\n\n    explicit operator bool() const\n    {\n        return this->is_valid();\n    }\n\n    AbstractType* operator->() const\n    {\n        return this->get();\n    }\n\n    AbstractType& operator*() const\n    {\n        BATT_ASSERT_NOT_NULLTPR(this->get());\n        return *this->get();\n    }\n\n   private:\n    template <typename T, typename... Args>\n    AbstractType* construct(StaticType<T> static_type, Args&&... args)\n    {\n        static_assert(std::is_same_v<std::decay_t<T>, T>,\n                      \"Use std::reference_wrapper (std::ref) to wrap a reference.\");\n\n        this->impl_ = TypeErasedStorage::construct_impl(static_type, this->memory(), BATT_FORWARD(args)...);\n\n        return this->impl_;\n    }\n\n    std::aligned_storage_t<kReservedSize, kAlignment> storage_;\n    AbstractType* impl_ = nullptr;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename AbstractType, template <typename> class TypedImpl, typename T>\nclass AbstractValueImpl : public AbstractType\n{\n   public:\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    explicit AbstractValueImpl(T&& obj) : obj_{BATT_FORWARD(obj)}\n    {\n        static_assert(std::is_same_v<std::decay_t<T>, T>,\n                      \"Use std::reference_wrapper (std::ref) to wrap a reference.\");\n\n        static_assert(std::is_base_of_v<AbstractValue<AbstractType>, AbstractType>,\n                      \"AbstractType must be derived from AbstractValue<AbstractType>.\");\n\n        static_assert(std::is_base_of_v<AbstractValueImpl, TypedImpl<T>>,\n                      \"TypedImpl<T> must be derived from AbstractValueImpl.\");\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    // AbstractValue interface\n\n    AbstractType* copy_to(MutableBuffer memory) const override\n    {\n        return TypeErasedStorageBase<AbstractType, TypedImpl>::construct_impl(StaticType<T>{}, memory,\n                                                                              batt::make_copy(this->obj_));\n    }\n\n    AbstractType* move_to(MutableBuffer memory) override\n    {\n        return TypeErasedStorageBase<AbstractType, TypedImpl>::construct_impl(StaticType<T>{}, memory,\n                                                                              std::move(this->obj_));\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n   protected:\n    T obj_;\n};\n\n}  // namespace batt\n\n#endif  // BATTERIES_TYPE_ERASURE_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::AbstractValuePointer< T >",
+          "refid": "classbatt_1_1AbstractValuePointer",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValuePointer/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::AbstractValue",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::AbstractValue",
+      "refid": "classbatt_1_1AbstractValue",
+      "title": "batt::AbstractValue",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractValue/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::AbstractValue< T >",
+          "refid": "classbatt_1_1AbstractValue",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValue/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::AbstractValuePointer",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::AbstractValuePointer",
+      "refid": "classbatt_1_1AbstractValuePointer",
+      "title": "batt::AbstractValuePointer",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractValuePointer/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::TypeErasedStorage< batt::AbstractStackAllocator, batt::StackAllocatorImpl >",
+          "refid": "classbatt_1_1TypeErasedStorage",
+          "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::TypeErasedStorage< AbstractBufferSource, BufferSourceImpl >",
+          "refid": "classbatt_1_1TypeErasedStorage",
+          "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::TypeErasedStorage< AbstractSeq, SeqImpl >",
+          "refid": "classbatt_1_1TypeErasedStorage",
+          "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::TypeErasedStorage< AbstractType, TypedImpl, kReservedSize, kAlignment >",
+          "refid": "classbatt_1_1TypeErasedStorage",
+          "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::TypeErasedStorageBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::TypeErasedStorageBase",
+      "refid": "classbatt_1_1TypeErasedStorageBase",
+      "title": "batt::TypeErasedStorageBase",
+      "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorageBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::TypeErasedStorageBase< AbstractType, TypedImpl >",
+          "refid": "classbatt_1_1TypeErasedStorageBase",
+          "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorageBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::TypeErasedStorage",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::TypeErasedStorage",
+      "refid": "classbatt_1_1TypeErasedStorage",
+      "title": "batt::TypeErasedStorage",
+      "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "AbstractType",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::AbstractValueImpl",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::AbstractValueImpl",
+      "refid": "classbatt_1_1AbstractValueImpl",
+      "title": "batt::AbstractValueImpl",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "type__erasure_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/type_erasure.hpp",
+  "url": "/_autogen/Files/type__erasure_8hpp/#file-type-erasure.hpp",
+  "visibility": "public"
+}

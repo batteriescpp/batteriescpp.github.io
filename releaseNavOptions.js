@@ -1,5 +1,6 @@
 var releaseNavOptions = [
  "latest",
+ "v0.45.3",
  "v0.45.2",
  "v0.45.1",
  "v0.45.0",
