@@ -1,0 +1,137 @@
+{
+  "abstract": false,
+  "anchor": "#file-preallocated-task.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-preallocated-task-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_PREALLOCATED_TASK_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/preallocated_task.hpp",
+        "bodyStart": 5,
+        "column": 9,
+        "file": "batteries/async/preallocated_task.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_ASYNC_PREALLOCATED_TASK_HPP",
+      "override": false,
+      "refid": "preallocated__task_8hpp_1ac0b45cb4b2b733edbdc84b7e8186f0dd",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_PREALLOCATED_TASK_HPP",
+      "url": "/_autogen/Files/preallocated__task_8hpp/#define-batteries-async-preallocated-task-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/preallocated_task.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/preallocated_task.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/preallocated_task.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_PREALLOCATED_TASK_HPP\n#define BATTERIES_ASYNC_PREALLOCATED_TASK_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/async/task.hpp>\n#include <batteries/int_types.hpp>\n\n#include <boost/asio/associated_allocator.hpp>\n\n#include <memory>\n#include <type_traits>\n#include <utility>\n\nnamespace batt {\n\ntemplate <typename CompletionHandlerFn = void()>\nclass PreallocatedTask\n{\n   public:\n    using byte_allocator_type = typename std::allocator_traits<\n        boost::asio::associated_allocator_t<CompletionHandlerFn>>::template rebind_alloc<char>;\n\n    class PreallocatedStackAllocator\n    {\n       public:\n        PreallocatedStackAllocator() = default;\n\n        explicit PreallocatedStackAllocator(PreallocatedTask* prealloc) noexcept : prealloc_{prealloc}\n        {\n        }\n\n        PreallocatedStackAllocator(const PreallocatedStackAllocator&) = default;\n        PreallocatedStackAllocator& operator=(const PreallocatedStackAllocator&) = default;\n\n        boost::context::stack_context allocate() const\n        {\n            BATT_CHECK_NOT_NULLPTR(this->prealloc_);\n\n            BATT_CHECK(!this->prealloc_->stack_in_use_);\n            this->prealloc_->stack_in_use_ = true;\n\n            return this->prealloc_->get_stack_context();\n        }\n\n        void deallocate(boost::context::stack_context& ctx) const\n        {\n            BATT_CHECK_NOT_NULLPTR(this->prealloc_);\n\n            BATT_CHECK(this->prealloc_->stack_in_use_);\n            this->prealloc_->stack_in_use_ = false;\n\n            boost::context::stack_context expected = this->prealloc_->get_stack_context();\n\n            BATT_CHECK_EQ(expected.sp, ctx.sp);\n            BATT_CHECK_EQ(expected.size, ctx.size);\n        }\n\n       private:\n        PreallocatedTask* prealloc_ = nullptr;\n    };\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    template <typename BodyFn, typename... TaskArgs>\n    static PreallocatedTask* make_new(const boost::asio::any_io_executor& ex,\n                                      CompletionHandlerFn&& completion_handler, StackSize stack_byte_size,\n                                      BodyFn&& body_fn, TaskArgs&&... task_args)\n    {\n        byte_allocator_type byte_allocator =\n            std::move(boost::asio::get_associated_allocator(completion_handler));\n\n        const usize storage_byte_size = stack_byte_size + sizeof(PreallocatedTask);\n\n        void* storage = byte_allocator.allocate(storage_byte_size);\n\n        return new (storage) PreallocatedTask{ex, BATT_FORWARD(completion_handler), stack_byte_size,\n                                              BATT_FORWARD(body_fn), BATT_FORWARD(task_args)...};\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    template <typename BodyFn, typename... TaskArgs>\n    explicit PreallocatedTask(const boost::asio::any_io_executor& ex,\n                              CompletionHandlerFn&& completion_handler, StackSize stack_byte_size,\n                              BodyFn&& body_fn, TaskArgs&&... task_args) noexcept\n        : completion_handler_{std::move(completion_handler)}\n        , stack_in_use_{false}\n        , stack_byte_size_{stack_byte_size}\n    {\n        auto task_options = Task::Options::from_args(BATT_FORWARD(task_args)...);\n        Task::DeferStart defer_start = task_options.get_defer_start();\n\n        task_options.set_params(Task::DeferStart{true});\n        task_options.set_params(StackAllocator{PreallocatedStackAllocator{this}});\n\n        Task* task = new (std::addressof(this->task_))\n            Task{/*parent_task_list=*/Task::all_tasks(), ex, BATT_FORWARD(body_fn), std::move(task_options)};\n\n        task->call_when_done([this] {\n            BATT_CHECK(!this->stack_in_use_);\n\n            this->task_pointer()->~Task();\n\n            CompletionHandlerFn local_handler = std::move(*this->completion_handler_);\n            this->completion_handler_ = None;\n\n            byte_allocator_type byte_allocator =\n                std::move(boost::asio::get_associated_allocator(local_handler));\n\n            const usize storage_byte_size = this->stack_byte_size_ + sizeof(PreallocatedTask);\n\n            this->~PreallocatedTask();\n\n            byte_allocator.deallocate((char*)this, storage_byte_size);\n\n            std::move(local_handler)();\n        });\n\n        BATT_CHECK(!task->is_started());\n\n        if (!defer_start) {\n            task->start();\n            BATT_CHECK(task->is_started());\n        }\n    }\n\n    ~PreallocatedTask() noexcept\n    {\n        BATT_CHECK(!this->stack_in_use_);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    boost::context::stack_context get_stack_context() const noexcept\n    {\n        u8* const stack_bottom = (u8*)(&this->stack_top_[this->stack_byte_size_]);\n\n        boost::context::stack_context ctx;\n        ctx.sp = stack_bottom;\n        ctx.size = this->stack_byte_size_;\n\n        return ctx;\n    }\n\n    Task* task_pointer() noexcept\n    {\n        return reinterpret_cast<Task*>(std::addressof(this->task_));\n    }\n\n    Task& task_ref() noexcept\n    {\n        return *this->task_pointer();\n    }\n\n    Task* operator->() noexcept\n    {\n        return this->task_pointer();\n    }\n\n    void start() noexcept\n    {\n        this->task_pointer()->start();\n    }\n\n   private:\n    Optional<CompletionHandlerFn> completion_handler_;\n    bool stack_in_use_;\n    usize stack_byte_size_;\n    std::aligned_storage_t<sizeof(Task)> task_;\n    u8 stack_top_[0];\n};\n\n}  //namespace batt\n\n#endif  // BATTERIES_ASYNC_PREALLOCATED_TASK_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::PreallocatedTask",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::PreallocatedTask",
+      "refid": "classbatt_1_1PreallocatedTask",
+      "title": "batt::PreallocatedTask",
+      "url": "/_autogen/Classes/classbatt_1_1PreallocatedTask/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::PreallocatedTask::PreallocatedStackAllocator",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::PreallocatedTask::PreallocatedStackAllocator",
+      "refid": "classbatt_1_1PreallocatedTask_1_1PreallocatedStackAllocator",
+      "title": "batt::PreallocatedTask::PreallocatedStackAllocator",
+      "url": "/_autogen/Classes/classbatt_1_1PreallocatedTask_1_1PreallocatedStackAllocator/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "preallocated__task_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/preallocated_task.hpp",
+  "url": "/_autogen/Files/preallocated__task_8hpp/#file-preallocated-task.hpp",
+  "visibility": "public"
+}
