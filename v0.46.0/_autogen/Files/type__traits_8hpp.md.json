@@ -1,0 +1,455 @@
+{
+  "abstract": false,
+  "anchor": "#file-type-traits.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batt-static-value",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_STATIC_VALUE",
+      "hasDetails": false,
+      "initializer": "::batt::StaticValue<decltype(expr), (expr)>",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/type_traits.hpp",
+        "bodyStart": 140,
+        "column": 9,
+        "file": "batteries/type_traits.hpp",
+        "line": 140
+      },
+      "name": "BATT_STATIC_VALUE",
+      "override": false,
+      "params": [
+        {
+          "name": "expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "type__traits_8hpp_1a38e51ce640327a3e1064a147ec31a9b1",
+      "static": false,
+      "strong": false,
+      "title": "BATT_STATIC_VALUE",
+      "url": "/_autogen/Files/type__traits_8hpp/#define-batt-static-value",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/type_traits.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/type_traits.hpp",
+    "line": 0
+  },
+  "name": "batteries/type_traits.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n\n#include <batteries/config.hpp>\n//\n\n#ifndef BATT_PLATFORM_IS_WINDOWS\n#include <cxxabi.h>\n#endif\n\n#include <iterator>\n#include <tuple>\n#include <type_traits>\n#include <typeindex>\n#include <variant>\n\nnamespace batt {\n\n// =============================================================================\n// IsCallable<Fn, Args...>\n//\n//  Type alias for std::true_type if `Fn` is callable with `Args...`.\n//  Type alias for std::false_type otherwise.\n//\nnamespace detail {\n\ntemplate <typename Fn, typename... Args, typename Result = std::invoke_result_t<Fn, Args...>>\nstd::true_type is_callable_impl(void*);\n\ntemplate <typename Fn, typename... Args>\nstd::false_type is_callable_impl(...);\n\n}  // namespace detail\n\ntemplate <typename Fn, typename... Args>\nusing IsCallable = decltype(detail::is_callable_impl<Fn, Args...>(nullptr));\n\n// =============================================================================\n// IsPrintable<T>\n//\nnamespace detail {\n\ntemplate <typename T, typename Result = decltype(std::declval<std::ostream&>() << std::declval<T>())>\nstd::true_type is_printable_impl(void*);\n\ntemplate <typename Fn, typename... Args>\nstd::false_type is_printable_impl(...);\n\n}  // namespace detail\n\ntemplate <typename T>\nusing IsPrintable = decltype(detail::is_printable_impl<T>(nullptr));\n\n// =============================================================================\n// IsRange<T>\n//\n//  Type alias for std::true_type if `T` is a range type.\n//  Type alias for std::false_type otherwise.\n//\nnamespace detail {\n\ntemplate <typename T, typename BeginIter = decltype(std::begin(std::declval<T>())),\n          typename EndIter = decltype(std::end(std::declval<T>())),\n          typename = std::enable_if_t<std::is_same<BeginIter, EndIter>{}>>\nstd::true_type is_range_impl(void*);\n\ntemplate <typename T>\nstd::false_type is_range_impl(...);\n\n}  // namespace detail\n\ntemplate <typename T>\nusing IsRange = decltype(detail::is_range_impl<T>(nullptr));\n\n// =============================================================================\n// IsVariant<T>\n//\n//  Derives std::true_type if `T` is a std::variant type.\n//  Derives std::false_type otherwise.\n//\ntemplate <typename T>\nstruct IsVariant : std::false_type {\n};\n\ntemplate <typename... Ts>\nstruct IsVariant<std::variant<Ts...>> : std::true_type {\n};\n\n// =============================================================================\n// IsTuple<T>\n//\n//  Derives std::true_type if `T` is a std::tuple type.\n//  Derives std::false_type otherwise.\n//\ntemplate <typename T>\nstruct IsTuple : std::false_type {\n};\n\ntemplate <typename... Ts>\nstruct IsTuple<std::tuple<Ts...>> : std::true_type {\n};\n\n// =============================================================================\n// StaticType<T>\n//\ntemplate <typename T>\nstruct StaticType {\n    using type = T;\n};\n\ntemplate <typename L, typename R>\ninline constexpr bool operator==(StaticType<L>, StaticType<R>)\n{\n    return std::is_same_v<L, R>;\n}\ntemplate <typename L, typename R>\ninline constexpr bool operator!=(StaticType<L>, StaticType<R>)\n{\n    return !std::is_same_v<L, R>;\n}\n\nstatic_assert(StaticType<int>{} == StaticType<int>{}, \"\");\nstatic_assert(StaticType<int>{} != StaticType<unsigned>{}, \"\");\n\n// =============================================================================\n//\ntemplate <typename T, T kValue>\nstruct StaticValue {\n    static constexpr T value = kValue;\n\n    constexpr StaticValue() = default;\n\n    constexpr operator T() const\n    {\n        return value;\n    }\n};\n\n#define BATT_STATIC_VALUE(expr) ::batt::StaticValue<decltype(expr), (expr)>\n\n// =============================================================================\n// Enables/disables a constructor template when the argments do not cause it to\n// shadow a built-in method.\n//\n// Usage:\n//\n// ```\n// class MyType {\n// public:\n//   template <typename... Args, typename = batt::EnableIfNoShadow<MyType, Args...>>\n//   MyType(Args&&... args) { /* something other than copy/move/default */ }\n// };\n// ```\n//\ntemplate <typename T, typename... Args>\nusing EnableIfNoShadow =\n    std::enable_if_t<!std::is_same<std::tuple<std::decay_t<T>*>, std::tuple<std::decay_t<Args>*...>>{}\n                     // Copy or move ctor\n                     && !std::is_same<std::tuple<>, std::tuple<std::decay_t<Args>*...>>{}  // Default ctor\n                     >;\n\n// =============================================================================\n// Decays T iff it is an rvalue reference type.\n//\ntemplate <typename T>\nstruct DecayRValueRefImpl\n    : std::conditional_t<  //\n          /*if */ std::is_rvalue_reference_v<T>,\n          /* then */ std::decay<T>,\n          /* else */ batt::StaticType<T>> {\n};\n\ntemplate <typename T>\nusing DecayRValueRef = typename DecayRValueRefImpl<T>::type;\n\n// =============================================================================\n// CanBeEqCompared<T, U> - std::true_type or std::false_type depending on whether types `T` and `U` can be\n// equality-compared.\n//\nnamespace detail {\n\ntemplate <typename T, typename U, typename = decltype(std::declval<const T&>() == std::declval<const U&>())>\nstd::true_type can_be_eq_compared_helper(const T*, const U*)\n{\n    return {};\n}\n\ntemplate <typename T, typename U>\nstd::false_type can_be_eq_compared_helper(...)\n{\n    return {};\n}\n\n}  // namespace detail\n\ntemplate <typename T, typename U = T>\nusing CanBeEqCompared = decltype(detail::can_be_eq_compared_helper<T, U>(nullptr, nullptr));\n\n// =============================================================================\n\ninline const char* name_of(const std::type_index& index)\n{\n    int status = -1;\n#ifdef BATT_PLATFORM_IS_WINDOWS\n    return index.name();\n#else\n    return abi::__cxa_demangle(index.name(), NULL, NULL, &status);\n#endif\n}\n\ninline const char* name_of(const std::type_info& info)\n{\n    return name_of(std::type_index{info});\n}\n\ntemplate <typename T>\nconst char* name_of(batt::StaticType<T> = {})\n{\n    return name_of(typeid(T));\n}\n\n// =============================================================================\n\nnamespace detail {\n\ntemplate <typename T>\nstruct EmptyBaseHelper : T {\n    char bytes[16];\n};\n\nstruct EmptyBaseTestCase {\n};\n\nstruct EmptyBaseTestCase2 {\n    char ch;\n};\n\ntemplate <typename T,  //\n          typename = std::enable_if_t<sizeof(detail::EmptyBaseHelper<T>) == 16>>\ninline constexpr std::true_type class_can_be_empty_base(StaticType<T> = {})\n{\n    return {};\n}\n\ntemplate <typename T,                                                             //\n          typename = std::enable_if_t<sizeof(detail::EmptyBaseHelper<T>) != 16>,  //\n          typename = void>\ninline constexpr std::false_type class_can_be_empty_base(StaticType<T> = {})\n{\n    return {};\n}\n\n}  //namespace detail\n\ntemplate <typename T,  //\n          typename = std::enable_if_t<std::is_class_v<T>>>\ninline constexpr auto can_be_empty_base(StaticType<T> = {})\n{\n    return detail::class_can_be_empty_base<T>();\n}\n\ntemplate <typename T,                                        //\n          typename = std::enable_if_t<!std::is_class_v<T>>,  //\n          typename = void>\ninline constexpr std::false_type can_be_empty_base(StaticType<T> = {})\n{\n    return {};\n}\n\n//+++++++++++-+-+--+----- --- -- -  -  -   -\n\nstatic_assert(can_be_empty_base<detail::EmptyBaseTestCase>());\nstatic_assert(!can_be_empty_base<detail::EmptyBaseTestCase2>());\nstatic_assert(!can_be_empty_base<char>());\nstatic_assert(!can_be_empty_base<int>());\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\ntemplate <typename T>\nstruct Difference : StaticType<decltype(std::declval<T>() - std::declval<T>())> {\n};\n\ntemplate <>\nstruct Difference<unsigned char> : StaticType<char> {\n};\n\ntemplate <>\nstruct Difference<unsigned short> : StaticType<short> {\n};\n\ntemplate <>\nstruct Difference<unsigned long> : StaticType<long> {\n};\n\ntemplate <>\nstruct Difference<unsigned long long> : StaticType<long long> {\n};\n\ntemplate <typename A, typename B>\nstruct Difference<std::pair<A, B>>\n    : StaticType<std::pair<typename Difference<A>::type, typename Difference<B>::type>> {\n};\n\ntemplate <typename... Ts>\nstruct Difference<std::tuple<Ts...>> : StaticType<std::tuple<typename Difference<Ts>::type...>> {\n};\n\n}  // namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::false_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::IsVariant",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IsVariant",
+      "refid": "structbatt_1_1IsVariant",
+      "title": "batt::IsVariant",
+      "url": "/_autogen/Classes/structbatt_1_1IsVariant/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::true_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::IsVariant< std::variant< Ts... > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IsVariant< std::variant< Ts... > >",
+      "refid": "structbatt_1_1IsVariant_3_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4",
+      "title": "batt::IsVariant< std::variant< Ts... > >",
+      "url": "/_autogen/Classes/structbatt_1_1IsVariant_3_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::false_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::IsTuple",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IsTuple",
+      "refid": "structbatt_1_1IsTuple",
+      "title": "batt::IsTuple",
+      "url": "/_autogen/Classes/structbatt_1_1IsTuple/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::true_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::IsTuple< std::tuple< Ts... > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IsTuple< std::tuple< Ts... > >",
+      "refid": "structbatt_1_1IsTuple_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4",
+      "title": "batt::IsTuple< std::tuple< Ts... > >",
+      "url": "/_autogen/Classes/structbatt_1_1IsTuple_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::RemoveStatusOrImpl< StatusOr< T > >",
+          "refid": "structbatt_1_1RemoveStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4",
+          "url": "/_autogen/Classes/structbatt_1_1RemoveStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::StaticType",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::StaticType",
+      "refid": "structbatt_1_1StaticType",
+      "title": "batt::StaticType",
+      "url": "/_autogen/Classes/structbatt_1_1StaticType/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::StaticValue",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::StaticValue",
+      "refid": "structbatt_1_1StaticValue",
+      "title": "batt::StaticValue",
+      "url": "/_autogen/Classes/structbatt_1_1StaticValue/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::conditional_t< std::is_rvalue_reference_v< T >, std::decay< T >, batt::StaticType< T > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::DecayRValueRefImpl",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::DecayRValueRefImpl",
+      "refid": "structbatt_1_1DecayRValueRefImpl",
+      "title": "batt::DecayRValueRefImpl",
+      "url": "/_autogen/Classes/structbatt_1_1DecayRValueRefImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "T",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::EmptyBaseHelper",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::EmptyBaseHelper",
+      "refid": "structbatt_1_1detail_1_1EmptyBaseHelper",
+      "title": "batt::detail::EmptyBaseHelper",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1EmptyBaseHelper/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::EmptyBaseTestCase",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::EmptyBaseTestCase",
+      "refid": "structbatt_1_1detail_1_1EmptyBaseTestCase",
+      "title": "batt::detail::EmptyBaseTestCase",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1EmptyBaseTestCase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::EmptyBaseTestCase2",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::EmptyBaseTestCase2",
+      "refid": "structbatt_1_1detail_1_1EmptyBaseTestCase2",
+      "title": "batt::detail::EmptyBaseTestCase2",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1EmptyBaseTestCase2/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::StaticType< decltype(std::declval< T >() - std::declval< T >())>",
+          "refid": "structbatt_1_1StaticType",
+          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "Type trait that maps subtractable type `T` to the difference type. ",
+      "category": "classes",
+      "fullname": "batt::Difference",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::Difference",
+      "refid": "structbatt_1_1Difference",
+      "summary": "Type trait that maps subtractable type T to the difference type. ",
+      "title": "batt::Difference",
+      "url": "/_autogen/Classes/structbatt_1_1Difference/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::StaticType< char >",
+          "refid": "structbatt_1_1StaticType",
+          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Difference< unsigned char >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::Difference< unsigned char >",
+      "refid": "structbatt_1_1Difference_3_01unsigned_01char_01_4",
+      "title": "batt::Difference< unsigned char >",
+      "url": "/_autogen/Classes/structbatt_1_1Difference_3_01unsigned_01char_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::StaticType< short >",
+          "refid": "structbatt_1_1StaticType",
+          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Difference< unsigned short >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::Difference< unsigned short >",
+      "refid": "structbatt_1_1Difference_3_01unsigned_01short_01_4",
+      "title": "batt::Difference< unsigned short >",
+      "url": "/_autogen/Classes/structbatt_1_1Difference_3_01unsigned_01short_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::StaticType< long >",
+          "refid": "structbatt_1_1StaticType",
+          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Difference< unsigned long >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::Difference< unsigned long >",
+      "refid": "structbatt_1_1Difference_3_01unsigned_01long_01_4",
+      "title": "batt::Difference< unsigned long >",
+      "url": "/_autogen/Classes/structbatt_1_1Difference_3_01unsigned_01long_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::StaticType< long long >",
+          "refid": "structbatt_1_1StaticType",
+          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Difference< unsigned long long >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::Difference< unsigned long long >",
+      "refid": "structbatt_1_1Difference_3_01unsigned_01long_01long_01_4",
+      "title": "batt::Difference< unsigned long long >",
+      "url": "/_autogen/Classes/structbatt_1_1Difference_3_01unsigned_01long_01long_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::StaticType< std::pair< Difference< A >::type, Difference< B >::type > >",
+          "refid": "structbatt_1_1StaticType",
+          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Difference< std::pair< A, B > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::Difference< std::pair< A, B > >",
+      "refid": "structbatt_1_1Difference_3_01std_1_1pair_3_01A_00_01B_01_4_01_4",
+      "title": "batt::Difference< std::pair< A, B > >",
+      "url": "/_autogen/Classes/structbatt_1_1Difference_3_01std_1_1pair_3_01A_00_01B_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::StaticType< std::tuple< Difference< Ts >::type... > >",
+          "refid": "structbatt_1_1StaticType",
+          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Difference< std::tuple< Ts... > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::Difference< std::tuple< Ts... > >",
+      "refid": "structbatt_1_1Difference_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4",
+      "title": "batt::Difference< std::tuple< Ts... > >",
+      "url": "/_autogen/Classes/structbatt_1_1Difference_3_01std_1_1tuple_3_01Ts_8_8_8_01_4_01_4/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "type__traits_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/type_traits.hpp",
+  "url": "/_autogen/Files/type__traits_8hpp/#file-type-traits.hpp",
+  "visibility": "public"
+}
