@@ -1,0 +1,141 @@
+{
+  "abstract": false,
+  "anchor": "#file-grant-decl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-grant-decl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_GRANT_DECL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/grant_decl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/grant_decl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_GRANT_DECL_HPP",
+      "override": false,
+      "refid": "grant__decl_8hpp_1a0d56f9078cbddce0379507cb6e9562df",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_GRANT_DECL_HPP",
+      "url": "/_autogen/Files/grant__decl_8hpp/#define-batteries-async-grant-decl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/grant_decl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/grant_decl.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/grant_decl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_GRANT_DECL_HPP\n#define BATTERIES_ASYNC_GRANT_DECL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/types.hpp>\n#include <batteries/async/watch.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/logging.hpp>\n#include <batteries/pointers.hpp>\n\n#include <atomic>\n\nnamespace batt {\n\nclass Grant\n{\n   public:\n    class Issuer\n    {\n        friend class Grant;\n\n       public:\n        Issuer() = default;\n\n        explicit Issuer(u64 initial_count) noexcept;\n\n        Issuer(const Issuer&) = delete;\n\n        Issuer& operator=(const Issuer&) = delete;\n\n        ~Issuer() noexcept;\n\n        StatusOr<Grant> issue_grant(u64 count, WaitForResource wait_for_resource);\n\n        void grow(u64 count);\n\n        void close();\n\n        u64 available() const noexcept\n        {\n            return this->available_.get_value();\n        }\n\n        u64 total_size() const noexcept\n        {\n            return this->total_size_.load();\n        }\n\n       private:\n        void recycle(u64 count);\n\n        Watch<u64> available_{0};\n        std::atomic<u64> total_size_{0};\n    };\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    //----- --- -- -  -  -   -\n    // (Grant has no default constructor; you must create a new one by calling Grant::Issuer::issue_grant or\n    // by spending part of an existing Grant.  This guarantees that a Grant is never detached from a\n    // Grant::Issuer unless it has gone out of scope via move, which is equivalent to destruction.)\n    //----- --- -- -  -  -   -\n\n    Grant(const Grant&) = delete;\n\n    Grant& operator=(const Grant&) = delete;\n\n    Grant(Grant&& that) noexcept;\n\n    Grant& operator=(Grant&&) = delete;\n\n    ~Grant() noexcept;\n\n    //----- --- -- -  -  -   -\n\n    const Issuer* get_issuer() const\n    {\n        return this->issuer_.get();\n    }\n\n    bool empty() const\n    {\n        return this->size() == 0;\n    }\n\n    explicit operator bool() const\n    {\n        return this->is_valid();\n    }\n\n    bool is_valid() const\n    {\n        return this->size() != 0 && this->issuer_;\n    }\n\n    bool is_revoked() const\n    {\n        return this->size_.is_closed();\n    }\n\n    //----- --- -- -  -  -   -\n    // All of the following public methods are thread-safe with respect to each other; they MUST NOT be called\n    // concurrent to:\n    //  - `Grant::~Grant()`\n    //  - `Grant other = std::move(*this);`\n    //----- --- -- -  -  -   -\n\n    void revoke();\n\n    u64 size() const;\n\n    StatusOr<Grant> spend(u64 count, WaitForResource wait_for_resource = WaitForResource::kFalse);\n\n    u64 spend_all();\n\n    Grant& subsume(Grant&& that);\n\n    void swap(Grant& that);\n\n   private:\n    static StatusOr<Grant> transfer_impl(Grant::Issuer* issuer, Watch<u64>& source, u64 count,\n                                         WaitForResource wait_for_resource);\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    explicit Grant(Issuer* issuer, u64 size) noexcept;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    // This field *must not* change after it is initialized.\n    //\n    UniqueNonOwningPtr<Issuer> issuer_;\n\n    // The size of this Grant.\n    //\n    Watch<u64> size_{0};\n};\n\ninline std::ostream& operator<<(std::ostream& out, const Grant& t)\n{\n    return out << \"Grant{.size=\" << t.size() << \",}\";\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_GRANT_DECL_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "A claim on some counted resource. ",
+      "category": "classes",
+      "fullname": "batt::Grant",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Grant",
+      "refid": "classbatt_1_1Grant",
+      "summary": "A claim on some counted resource. ",
+      "title": "batt::Grant",
+      "url": "/_autogen/Classes/classbatt_1_1Grant/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "A pool from which [Grant](/_autogen/Classes/classbatt_1_1Grant/) instances are allocated. ",
+      "category": "classes",
+      "fullname": "batt::Grant::Issuer",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Grant::Issuer",
+      "refid": "classbatt_1_1Grant_1_1Issuer",
+      "summary": "A pool from which Grant instances are allocated. ",
+      "title": "batt::Grant::Issuer",
+      "url": "/_autogen/Classes/classbatt_1_1Grant_1_1Issuer/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "grant__decl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/grant_decl.hpp",
+  "url": "/_autogen/Files/grant__decl_8hpp/#file-grant-decl.hpp",
+  "visibility": "public"
+}
