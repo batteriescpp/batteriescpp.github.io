@@ -1,0 +1,157 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::SkipNodeBase",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 64,
+    "bodyFile": "batteries/skip_list.hpp",
+    "bodyStart": 52,
+    "column": 1,
+    "file": "batteries/skip_list.hpp",
+    "line": 51
+  },
+  "name": "batt::SkipNodeBase",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-allocate",
+      "argsString": "(i32 new_node_height)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static SkipNodeBase* batt::SkipNodeBase< KeyT, ValueT, OrderFn >::allocate",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::SkipNodeBase::allocate",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 64,
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 57,
+        "column": 25,
+        "file": "batteries/skip_list.hpp",
+        "line": 57
+      },
+      "name": "allocate",
+      "override": false,
+      "params": [
+        {
+          "name": "new_node_height",
+          "type": "i32",
+          "typePlain": "i32"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1SkipNodeBase_1a7bc89458bd2e2184c6f8d311b861be8a",
+      "static": true,
+      "strong": false,
+      "title": "allocate",
+      "type": "[SkipNodeBase](/_autogen/Classes/classbatt_1_1SkipNodeBase/) *",
+      "typePlain": "SkipNodeBase *",
+      "url": "/_autogen/Classes/classbatt_1_1SkipNodeBase/#function-allocate",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-derived",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::SkipNodeBase< KeyT, ValueT, OrderFn >::Derived =  SkipNode<KeyT, ValueT, OrderFn, kHeight>",
+      "explicit": false,
+      "fullname": "batt::SkipNodeBase::Derived",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 55,
+        "column": 5,
+        "file": "batteries/skip_list.hpp",
+        "line": 55
+      },
+      "name": "Derived",
+      "override": false,
+      "refid": "classbatt_1_1SkipNodeBase_1aa7519a050032822a1dd8c31e95fe23ae",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "kHeight",
+          "type": "i32",
+          "typePlain": "i32"
+        }
+      ],
+      "title": "Derived",
+      "type": "[SkipNode](/_autogen/Classes/classbatt_1_1SkipNode/)< KeyT, ValueT, OrderFn, kHeight >",
+      "typePlain": "SkipNode< KeyT, ValueT, OrderFn, kHeight >",
+      "url": "/_autogen/Classes/classbatt_1_1SkipNodeBase/#using-derived",
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1SkipNodeBase",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename KeyT",
+      "typePlain": "typename KeyT"
+    },
+    {
+      "name": "",
+      "type": "typename ValueT",
+      "typePlain": "typename ValueT"
+    },
+    {
+      "name": "",
+      "type": "typename OrderFn",
+      "typePlain": "typename OrderFn"
+    }
+  ],
+  "title": "batt::SkipNodeBase",
+  "url": "/_autogen/Classes/classbatt_1_1SkipNodeBase/",
+  "visibility": "public"
+}
