@@ -1,0 +1,137 @@
+{
+  "abstract": false,
+  "anchor": "#file-prometheus-exporter.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-metrics-prometheus-exporter-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_METRICS_PROMETHEUS_EXPORTER_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/metrics/prometheus_exporter.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/metrics/prometheus_exporter.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_METRICS_PROMETHEUS_EXPORTER_HPP",
+      "override": false,
+      "refid": "prometheus__exporter_8hpp_1ae646975a20e09aa00d818cc6553dc088",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_METRICS_PROMETHEUS_EXPORTER_HPP",
+      "url": "/_autogen/Files/prometheus__exporter_8hpp/#define-batteries-metrics-prometheus-exporter-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/metrics/prometheus_exporter.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/metrics/prometheus_exporter.hpp",
+    "line": 0
+  },
+  "name": "batteries/metrics/prometheus_exporter.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/metrics",
+    "category": "dirs",
+    "fullname": "batteries/metrics",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/metrics",
+    "refid": "dir_5ba863940ce6067bb787d1b849676df9",
+    "title": "batteries/metrics",
+    "url": "/_autogen/Files/dir_5ba863940ce6067bb787d1b849676df9/#dir-batteries/metrics",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/metrics",
+      "category": "dirs",
+      "fullname": "batteries/metrics",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/metrics",
+      "refid": "dir_5ba863940ce6067bb787d1b849676df9",
+      "title": "batteries/metrics",
+      "url": "/_autogen/Files/dir_5ba863940ce6067bb787d1b849676df9/#dir-batteries/metrics",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_METRICS_PROMETHEUS_EXPORTER_HPP\n#define BATTERIES_METRICS_PROMETHEUS_EXPORTER_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/task.hpp>\n#include <batteries/metrics/metric_collectors.hpp>\n#include <batteries/metrics/metric_otel_formatter.hpp>\n#include <batteries/metrics/metric_registry.hpp>\n#include <batteries/status.hpp>\n\n#include <batteries/asio/io_context.hpp>\n#include <batteries/asio/ip_tcp.hpp>\n\n#include <cstring>\n#include <sstream>\n\nnamespace batt {\n\nclass PrometheusMetricExporter\n{\n   public:\n    using Self = PrometheusMetricExporter;\n\n    struct Metrics {\n        CountMetric<u64> export_count{0};\n    };\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    static Metrics& metrics()\n    {\n        static Metrics metrics_;\n        static bool init_ [[maybe_unused]] = [&] {\n            global_metric_registry().add(\"export_count\", metrics_.export_count);\n            return true;\n        }();\n        return metrics_;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    PrometheusMetricExporter(const PrometheusMetricExporter&) = delete;\n    PrometheusMetricExporter& operator=(const PrometheusMetricExporter&) = delete;\n\n    explicit PrometheusMetricExporter(boost::asio::io_context& io, MetricRegistry& registry,\n                                      const boost::asio::ip::tcp::endpoint& endpoint) noexcept\n        : acceptor_{io.get_executor(), endpoint}\n        , registry_{registry}\n        , endpoint_{endpoint}\n    {\n    }\n\n    explicit PrometheusMetricExporter(boost::asio::io_context& io,\n                                      const boost::asio::ip::tcp::endpoint& endpoint) noexcept\n        : PrometheusMetricExporter{io, global_metric_registry(), endpoint}\n    {\n    }\n\n    explicit PrometheusMetricExporter(boost::asio::io_context& io, u16 port) noexcept\n        : PrometheusMetricExporter{\n              io, global_metric_registry(),\n              boost::asio::ip::tcp::endpoint{boost::asio::ip::address_v4::from_string(\"0.0.0.0\"), port}}\n    {\n    }\n\n    void start()\n    {\n        if (!this->task_) {\n            this->task_.emplace(this->acceptor_.get_executor(), [this] {\n                Status status = this->run();\n                BATT_VLOG(1) << BATT_INSPECT(status);\n            });\n        }\n    }\n\n    void halt()\n    {\n        boost::system::error_code ec;\n        this->acceptor_.close(ec);\n\n        BATT_VLOG(1) << BATT_INSPECT(batt::to_status(ec));\n    }\n\n    void join()\n    {\n        if (this->task_) {\n            this->task_->join();\n            this->task_ = None;\n        }\n    }\n\n    batt::Status run()\n    {\n        boost::system::error_code ec;\n        this->acceptor_.listen(boost::asio::ip::tcp::socket::max_listen_connections, ec);\n        BATT_REQUIRE_OK(ec);\n\n        for (;;) {\n            auto socket =\n                batt::Task::await<batt::IOResult<boost::asio::ip::tcp::socket>>([this](auto&& handler) {\n                    this->acceptor_.async_accept(BATT_FORWARD(handler));\n                });\n\n            BATT_REQUIRE_OK(socket);\n\n            Task::spawn(\n                Task::current().get_executor(),\n                [this, socket = std::move(*socket)]() mutable {\n                    Status status = this->run_connection(std::move(socket));\n                    BATT_VLOG(1) << BATT_INSPECT(status);\n                },\n                \"metric exporter connection\");\n        }\n    }\n\n    batt::Status run_connection(boost::asio::ip::tcp::socket socket)\n    {\n        auto on_scope_exit = batt::finally([&] {\n            boost::system::error_code ec;\n            socket.close(ec);\n            BATT_VLOG(1) << \"PrometheusMetricExporter socket closed:\" << BATT_INSPECT(ec);\n        });\n\n        Self::metrics().export_count.add(1);\n\n        std::ostringstream body_out;\n\n        this->formatter_.format_values(this->registry_, body_out);\n\n        std::string body_str = std::move(body_out).str();\n\n        std::ostringstream header_out;\n\n        header_out << \"HTTP/1.1 200 OK\\r\\n\"\n                   << \"Content-Type: text/plain; version=0.0.4; charset=utf-8\\r\\n\"\n                   << \"Content-Length: \" << body_str.size() << \"\\r\\n\"\n                   << \"Connection: close\\r\\n\"\n                   << \"\\r\\n\";\n\n        std::string header_str = std::move(header_out).str();\n\n        IOResult<usize> result = Task::await_write(\n            socket, std::array<ConstBuffer, 2>{ConstBuffer{header_str.data(), header_str.size()},\n                                               ConstBuffer{body_str.data(), body_str.size()}});\n\n        BATT_VLOG(1) << \"Metrics written;\" << BATT_INSPECT(result);\n\n        std::array<char, 512> buffer;\n        auto mbuffer = MutableBuffer{buffer.data(), buffer.size()};\n        usize extra = 0;\n        for (;;) {\n            IOResult<usize> n_read = Task::await_read_some(socket, mbuffer);\n            BATT_REQUIRE_OK(n_read);\n\n            auto str = std::string_view{buffer.data(), *n_read + extra};\n\n            const auto CRLF_CRLF = std::string_view{\"\\r\\n\\r\\n\"};\n            const auto LF_LF = std::string_view{\"\\n\\n\"};\n\n            if (str.find(CRLF_CRLF) != std::string_view::npos || str.find(LF_LF) != std::string_view::npos) {\n                break;\n            }\n\n            extra = std::min<usize>(3, str.size());\n            std::memmove(buffer.data(), buffer.data() + (str.size() - extra), extra);\n            mbuffer = MutableBuffer{buffer.data() + extra, buffer.size() - extra};\n        }\n\n        return OkStatus();\n    }\n\n   private:\n    boost::asio::ip::tcp::acceptor acceptor_;\n    MetricRegistry& registry_;\n    boost::asio::ip::tcp::endpoint endpoint_;\n    MetricOpenTelemetryFormatter formatter_;\n    batt::Optional<batt::Task> task_;\n};\n\n}  //namespace batt\n\n#endif  // BATTERIES_METRICS_PROMETHEUS_EXPORTER_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::PrometheusMetricExporter",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::PrometheusMetricExporter",
+      "refid": "classbatt_1_1PrometheusMetricExporter",
+      "title": "batt::PrometheusMetricExporter",
+      "url": "/_autogen/Classes/classbatt_1_1PrometheusMetricExporter/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::PrometheusMetricExporter::Metrics",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::PrometheusMetricExporter::Metrics",
+      "refid": "structbatt_1_1PrometheusMetricExporter_1_1Metrics",
+      "title": "batt::PrometheusMetricExporter::Metrics",
+      "url": "/_autogen/Classes/structbatt_1_1PrometheusMetricExporter_1_1Metrics/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "prometheus__exporter_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/metrics/prometheus_exporter.hpp",
+  "url": "/_autogen/Files/prometheus__exporter_8hpp/#file-prometheus-exporter.hpp",
+  "visibility": "public"
+}
