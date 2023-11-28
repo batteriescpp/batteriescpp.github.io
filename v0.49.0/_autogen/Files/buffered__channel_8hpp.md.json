@@ -1,0 +1,125 @@
+{
+  "abstract": false,
+  "anchor": "#file-buffered-channel.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-buffered-channel-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_BUFFERED_CHANNEL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/buffered_channel.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/buffered_channel.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_BUFFERED_CHANNEL_HPP",
+      "override": false,
+      "refid": "buffered__channel_8hpp_1a84ea67b008b9a16fca5c53cf43133060",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_BUFFERED_CHANNEL_HPP",
+      "url": "/_autogen/Files/buffered__channel_8hpp/#define-batteries-async-buffered-channel-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/buffered_channel.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/buffered_channel.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/buffered_channel.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_BUFFERED_CHANNEL_HPP\n#define BATTERIES_ASYNC_BUFFERED_CHANNEL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/channel.hpp>\n#include <batteries/async/handler.hpp>\n\n#include <batteries/utility.hpp>\n\n#include <type_traits>\n\nnamespace batt {\n\ntemplate <typename T>\nclass BufferedChannel\n{\n   public:\n    using value_type = T;\n\n    BufferedChannel() = default;\n\n    BufferedChannel(const BufferedChannel&) = delete;\n    BufferedChannel& operator=(const BufferedChannel&) = delete;\n\n    ~BufferedChannel() noexcept = default;\n\n    Status get_last_status() const noexcept\n    {\n        return this->last_status_;\n    }\n\n    bool is_active() const\n    {\n        return this->channel_.is_active();\n    }\n\n    void await_inactive() noexcept\n    {\n        this->channel_.await_inactive();\n    }\n\n    template <typename Handler = void(StatusOr<T&>)>\n    void async_read(Handler&& handler)\n    {\n        this->channel_.async_read(BATT_FORWARD(handler));\n    }\n\n    StatusOr<T&> read()\n    {\n        return this->channel_.read();\n    }\n\n    void consume()\n    {\n        this->channel_.consume();\n    }\n\n    void close_for_read()\n    {\n        this->channel_.close_for_read();\n    }\n\n    template <typename... ArgsAndHandler>\n    void async_write(ArgsAndHandler&&... args_and_handler)\n    {\n        static_assert(sizeof...(ArgsAndHandler) > 0, \"\");\n\n        // Rotate the args one place to the right, to bring the handler to the front of the arg list.\n        //\n        rotate_args_right(\n            [this](auto&& handler, auto&&... args) {\n                this->async_write_impl(BATT_FORWARD(handler), BATT_FORWARD(args)...);\n            },\n            BATT_FORWARD(args_and_handler)...);\n    }\n\n    template <typename... Args>\n    Status write(Args&&... args)\n    {\n        this->channel_.await_inactive();\n        return this->write_assuming_inactive(BATT_FORWARD(args)...);\n    }\n\n    void close_for_write()\n    {\n        this->channel_.close_for_write();\n    }\n\n   private:\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    template <typename... Args>\n    Status write_assuming_inactive(Args&&... args)\n    {\n        Status local_status;\n        std::swap(this->last_status_, local_status);\n\n        T& value = this->buffer_.emplace(BATT_FORWARD(args)...);\n\n        this->channel_.async_write(value, [this](const Status& status) {\n            this->last_status_ = status;\n        });\n\n        return local_status;\n    }\n\n    template <typename Handler, typename... Args>\n    void async_write_impl(Handler&& handler, Args&&... args)\n    {\n        this->channel_.async_wait_inactive(\n            bind_handler(BATT_FORWARD(handler),\n                         [this, args_tuple = std::make_tuple(BATT_FORWARD(args)...)](auto&& handler) mutable {\n                             Status status = std::apply(\n                                 [this](auto&&... args) {\n                                     return this->write_assuming_inactive(BATT_FORWARD(args)...);\n                                 },\n                                 std::move(args_tuple));\n\n                             BATT_FORWARD(handler)(status);\n                         }));\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    Channel<T> channel_;\n    Optional<T> buffer_;\n    Status last_status_;\n};\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_BUFFERED_CHANNEL_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::BufferedChannel",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BufferedChannel",
+      "refid": "classbatt_1_1BufferedChannel",
+      "title": "batt::BufferedChannel",
+      "url": "/_autogen/Classes/classbatt_1_1BufferedChannel/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "buffered__channel_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/buffered_channel.hpp",
+  "url": "/_autogen/Files/buffered__channel_8hpp/#file-buffered-channel.hpp",
+  "visibility": "public"
+}
