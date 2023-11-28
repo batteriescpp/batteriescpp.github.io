@@ -1,0 +1,135 @@
+{
+  "abstract": false,
+  "anchor": "#file-endian.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-endian-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ENDIAN_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/endian.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/endian.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ENDIAN_HPP",
+      "override": false,
+      "refid": "endian_8hpp_1aafd08af748d0de9c538030e39b4bae0e",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ENDIAN_HPP",
+      "url": "/_autogen/Files/endian_8hpp/#define-batteries-endian-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-define-big-endian-less-than",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_DEFINE_BIG_ENDIAN_LESS_THAN",
+      "hasDetails": false,
+      "initializer": "    inline bool big_endian_less_than(BOOST_PP_CAT(u, bits) a, BOOST_PP_CAT(u, bits) b)                       \\\n    {                                                                                                        \\\n        if (boost::endian::order::little == boost::endian::order::native) {                                  \\\n            return ByteSwap<bits>{}(a) < ByteSwap<bits>{}(b);                                                \\\n        }                                                                                                    \\\n        return a < b;                                                                                        \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/endian.hpp",
+        "bodyStart": 87,
+        "column": 9,
+        "file": "batteries/endian.hpp",
+        "line": 87
+      },
+      "name": "BATT_DEFINE_BIG_ENDIAN_LESS_THAN",
+      "override": false,
+      "params": [
+        {
+          "name": "bits",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "endian_8hpp_1a0cb40f316025bf56f089ee2b96db7fd7",
+      "static": false,
+      "strong": false,
+      "title": "BATT_DEFINE_BIG_ENDIAN_LESS_THAN",
+      "url": "/_autogen/Files/endian_8hpp/#define-batt-define-big-endian-less-than",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/endian.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/endian.hpp",
+    "line": 0
+  },
+  "name": "batteries/endian.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ENDIAN_HPP\n#define BATTERIES_ENDIAN_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/int_types.hpp>\n#include <batteries/utility.hpp>\n\n#include <boost/endian/conversion.hpp>\n#include <boost/preprocessor/cat.hpp>\n\n#include <type_traits>\n\nnamespace batt {\n\ntemplate <int kBits>\nstruct ByteSwap;\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// GCC, Clang\n//\n#if BATT_COMPILER_IS_GCC || BATT_COMPILER_IS_CLANG\n\ntemplate <>\nstruct ByteSwap<16> {\n    BATT_ALWAYS_INLINE u16 operator()(u16 value) const\n    {\n        return __builtin_bswap16(value);\n    }\n};\n\ntemplate <>\nstruct ByteSwap<32> {\n    BATT_ALWAYS_INLINE u32 operator()(u32 value) const\n    {\n        return __builtin_bswap32(value);\n    }\n};\n\ntemplate <>\nstruct ByteSwap<64> {\n    BATT_ALWAYS_INLINE u64 operator()(u64 value) const\n    {\n        return __builtin_bswap64(value);\n    }\n};\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// MSVC\n//\n#elif BATT_COMPILER_IS_MSVC\n\ntemplate <>\nstruct ByteSwap<16> {\n    BATT_ALWAYS_INLINE u16 operator()(u16 value) const\n    {\n        return _byteswap_ushort(value);\n    }\n};\n\ntemplate <>\nstruct ByteSwap<32> {\n    BATT_ALWAYS_INLINE u32 operator()(u32 value) const\n    {\n        return _byteswap_ulong(value);\n    }\n};\n\ntemplate <>\nstruct ByteSwap<64> {\n    BATT_ALWAYS_INLINE u64 operator()(u64 value) const\n    {\n        return _byteswap_uint64(value);\n    }\n};\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\n#else\n#error Please define ByteSwap for your compiler!\n#endif\n\n#define BATT_DEFINE_BIG_ENDIAN_LESS_THAN(bits)                                                               \\\n    inline bool big_endian_less_than(BOOST_PP_CAT(u, bits) a, BOOST_PP_CAT(u, bits) b)                       \\\n    {                                                                                                        \\\n        if (boost::endian::order::little == boost::endian::order::native) {                                  \\\n            return ByteSwap<bits>{}(a) < ByteSwap<bits>{}(b);                                                \\\n        }                                                                                                    \\\n        return a < b;                                                                                        \\\n    }\n\nBATT_DEFINE_BIG_ENDIAN_LESS_THAN(16)\nBATT_DEFINE_BIG_ENDIAN_LESS_THAN(32)\nBATT_DEFINE_BIG_ENDIAN_LESS_THAN(64)\n\n#undef BATT_DEFINE_BIG_ENDIAN_LESS_THAN\n\n}  //namespace batt\n\n#endif  // BATTERIES_ENDIAN_HPP",
+  "refid": "endian_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/endian.hpp",
+  "url": "/_autogen/Files/endian_8hpp/#file-endian.hpp",
+  "visibility": "public"
+}
