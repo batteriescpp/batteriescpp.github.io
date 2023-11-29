@@ -1,0 +1,348 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::CancelToken::HandlerImpl",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 122,
+    "bodyFile": "batteries/async/cancel_token.hpp",
+    "bodyStart": 104,
+    "column": 5,
+    "file": "batteries/async/cancel_token.hpp",
+    "line": 103
+  },
+  "name": "batt::CancelToken::HandlerImpl",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "brief": "Enables effective cancellation of arbitrary async operations. ",
+    "category": "classes",
+    "fullname": "batt::CancelToken",
+    "kind": "class",
+    "language": "cpp",
+    "name": "batt::CancelToken",
+    "refid": "classbatt_1_1CancelToken",
+    "summary": "Enables effective cancellation of arbitrary async operations. ",
+    "title": "batt::CancelToken",
+    "url": "/_autogen/Classes/classbatt_1_1CancelToken/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Enables effective cancellation of arbitrary async operations. ",
+      "category": "classes",
+      "fullname": "batt::CancelToken",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::CancelToken",
+      "refid": "classbatt_1_1CancelToken",
+      "summary": "Enables effective cancellation of arbitrary async operations. ",
+      "title": "batt::CancelToken",
+      "url": "/_autogen/Classes/classbatt_1_1CancelToken/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-impl-",
+      "category": "attributes",
+      "const": false,
+      "definition": "batt::SharedPtr<Impl> batt::CancelToken::HandlerImpl< T >::impl_",
+      "explicit": false,
+      "fullname": "batt::CancelToken::HandlerImpl::impl_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/cancel_token.hpp",
+        "bodyStart": 120,
+        "column": 25,
+        "file": "batteries/async/cancel_token.hpp",
+        "line": 120
+      },
+      "name": "impl_",
+      "override": false,
+      "refid": "classbatt_1_1CancelToken_1_1HandlerImpl_1acf8cda2687b48ff87f308d3efcf357b4",
+      "static": false,
+      "strong": false,
+      "title": "impl_",
+      "type": "batt::SharedPtr< [Impl](/_autogen/Classes/classbatt_1_1CancelToken_1_1Impl/) >",
+      "typePlain": "batt::SharedPtr< Impl >",
+      "url": "/_autogen/Classes/classbatt_1_1CancelToken_1_1HandlerImpl/#variable-impl-",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-result-",
+      "category": "attributes",
+      "const": false,
+      "definition": "batt::Optional<T>* batt::CancelToken::HandlerImpl< T >::result_",
+      "explicit": false,
+      "fullname": "batt::CancelToken::HandlerImpl::result_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/cancel_token.hpp",
+        "bodyStart": 121,
+        "column": 24,
+        "file": "batteries/async/cancel_token.hpp",
+        "line": 121
+      },
+      "name": "result_",
+      "override": false,
+      "refid": "classbatt_1_1CancelToken_1_1HandlerImpl_1af8ecfe5c466f9391c5f9a91fee07bf46",
+      "static": false,
+      "strong": false,
+      "title": "result_",
+      "type": "[batt::Optional](/_autogen/Classes/classbatt_1_1Optional/)< T > *",
+      "typePlain": "batt::Optional< T > *",
+      "url": "/_autogen/Classes/classbatt_1_1CancelToken_1_1HandlerImpl/#variable-result-",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-handlerimpl",
+      "argsString": "(batt::SharedPtr< Impl > &&impl, batt::Optional< T > &result) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::CancelToken::HandlerImpl< T >::HandlerImpl",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::CancelToken::HandlerImpl::HandlerImpl",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 18,
+        "file": "batteries/async/cancel_token.hpp",
+        "line": 106
+      },
+      "name": "HandlerImpl",
+      "override": false,
+      "params": [
+        {
+          "name": "impl",
+          "type": "batt::SharedPtr< [Impl](/_autogen/Classes/classbatt_1_1CancelToken_1_1Impl/) > &&",
+          "typePlain": "batt::SharedPtr< Impl > &&"
+        },
+        {
+          "name": "result",
+          "type": "[batt::Optional](/_autogen/Classes/classbatt_1_1Optional/)< T > &",
+          "typePlain": "batt::Optional< T > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CancelToken_1_1HandlerImpl_1abfcd0e0e1d6b6f0ecdc92a659d1c89c2",
+      "static": false,
+      "strong": false,
+      "title": "HandlerImpl",
+      "url": "/_autogen/Classes/classbatt_1_1CancelToken_1_1HandlerImpl/#function-handlerimpl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-handlerimpl",
+      "argsString": "(const HandlerImpl &)=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::CancelToken::HandlerImpl< T >::HandlerImpl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CancelToken::HandlerImpl::HandlerImpl",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 9,
+        "file": "batteries/async/cancel_token.hpp",
+        "line": 108
+      },
+      "name": "HandlerImpl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [HandlerImpl](/_autogen/Classes/classbatt_1_1CancelToken_1_1HandlerImpl/) &",
+          "typePlain": "const HandlerImpl &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CancelToken_1_1HandlerImpl_1a07cb4cd9fcfef1077b10f2a672b51d9e",
+      "static": false,
+      "strong": false,
+      "title": "HandlerImpl",
+      "url": "/_autogen/Classes/classbatt_1_1CancelToken_1_1HandlerImpl/#function-handlerimpl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(const HandlerImpl &)=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "HandlerImpl& batt::CancelToken::HandlerImpl< T >::operator=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CancelToken::HandlerImpl::operator=",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 21,
+        "file": "batteries/async/cancel_token.hpp",
+        "line": 109
+      },
+      "name": "operator=",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [HandlerImpl](/_autogen/Classes/classbatt_1_1CancelToken_1_1HandlerImpl/) &",
+          "typePlain": "const HandlerImpl &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CancelToken_1_1HandlerImpl_1a078b5e7b19a6108354a1badf559723b5",
+      "static": false,
+      "strong": false,
+      "title": "operator=",
+      "type": "[HandlerImpl](/_autogen/Classes/classbatt_1_1CancelToken_1_1HandlerImpl/) &",
+      "typePlain": "HandlerImpl &",
+      "url": "/_autogen/Classes/classbatt_1_1CancelToken_1_1HandlerImpl/#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator()",
+      "argsString": "(Args &&... args) const noexcept",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "void batt::CancelToken::HandlerImpl< T >::operator()",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CancelToken::HandlerImpl::operator()",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 14,
+        "file": "batteries/async/cancel_token.hpp",
+        "line": 112
+      },
+      "name": "operator()",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CancelToken_1_1HandlerImpl_1acae6e11da22757b972fcc6dc7afc53c6",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "operator()",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1CancelToken_1_1HandlerImpl/#function-operator()",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is-cancelled",
+      "argsString": "() const noexcept",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "bool batt::CancelToken::HandlerImpl< T >::is_cancelled",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CancelToken::HandlerImpl::is_cancelled",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 117,
+        "bodyFile": "batteries/async/cancel_token.hpp",
+        "bodyStart": 114,
+        "column": 14,
+        "file": "batteries/async/cancel_token.hpp",
+        "line": 114
+      },
+      "name": "is_cancelled",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CancelToken_1_1HandlerImpl_1a020844be3cd2bb852150e745d626bd2c",
+      "static": false,
+      "strong": false,
+      "title": "is_cancelled",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/classbatt_1_1CancelToken_1_1HandlerImpl/#function-is-cancelled",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1CancelToken_1_1HandlerImpl",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename T",
+      "typePlain": "typename T"
+    }
+  ],
+  "title": "batt::CancelToken::HandlerImpl",
+  "url": "/_autogen/Classes/classbatt_1_1CancelToken_1_1HandlerImpl/",
+  "visibility": "public"
+}

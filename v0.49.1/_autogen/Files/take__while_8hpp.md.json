@@ -1,0 +1,149 @@
+{
+  "abstract": false,
+  "anchor": "#file-take-while.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-take-while-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_TAKE_WHILE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/take_while.hpp",
+        "bodyStart": 5,
+        "column": 9,
+        "file": "batteries/seq/take_while.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_SEQ_TAKE_WHILE_HPP",
+      "override": false,
+      "refid": "take__while_8hpp_1a084738932d6af91cdaab0cc547f39e40",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_TAKE_WHILE_HPP",
+      "url": "/_autogen/Files/take__while_8hpp/#define-batteries-seq-take-while-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/take_while.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/take_while.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/take_while.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_SEQ_TAKE_WHILE_HPP\n#define BATTERIES_SEQ_TAKE_WHILE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/seq/seq_item.hpp>\n#include <batteries/utility.hpp>\n\n#include <type_traits>\n\nnamespace batt {\nnamespace seq {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// take_while\n//\ntemplate <typename Seq, typename Predicate>\nclass TakeWhile\n{\n   public:\n    using Item = SeqItem<Seq>;\n\n    explicit TakeWhile(Seq&& seq, Predicate&& predicate) noexcept\n        : seq_(BATT_FORWARD(seq))\n        , predicate_(BATT_FORWARD(predicate))\n    {\n    }\n\n    Optional<Item> peek()\n    {\n        auto v = seq_.peek();\n        if (v && predicate_(*v)) {\n            return v;\n        }\n        return None;\n    }\n\n    Optional<Item> next()\n    {\n        auto v = peek();\n        if (v) {\n            (void)seq_.next();\n            return v;\n        }\n        return None;\n    }\n\n   private:\n    Seq seq_;\n    Predicate predicate_;\n};\n\ntemplate <typename Predicate>\nstruct TakeWhileBinder {\n    Predicate predicate;\n};\n\ntemplate <typename Predicate>\nTakeWhileBinder<Predicate> take_while(Predicate&& predicate)\n{\n    return {BATT_FORWARD(predicate)};\n}\n\ntemplate <typename Seq, typename Predicate>\n[[nodiscard]] TakeWhile<Seq, Predicate> operator|(Seq&& seq, TakeWhileBinder<Predicate>&& binder)\n{\n    static_assert(std::is_same_v<Seq, std::decay_t<Seq>>,\n                  \"Mapped sequences may not be captured implicitly by reference.\");\n\n    static_assert(std::is_same_v<Predicate, std::decay_t<Predicate>>,\n                  \"Predicate functions may not be captured implicitly by reference.\");\n\n    return TakeWhile<Seq, Predicate>{BATT_FORWARD(seq), BATT_FORWARD(binder.predicate)};\n}\n\n}  // namespace seq\n}  // namespace batt\n\n#endif  // BATTERIES_SEQ_TAKE_WHILE_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::TakeWhile",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::seq::TakeWhile",
+      "refid": "classbatt_1_1seq_1_1TakeWhile",
+      "title": "batt::seq::TakeWhile",
+      "url": "/_autogen/Classes/classbatt_1_1seq_1_1TakeWhile/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::TakeWhileBinder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::TakeWhileBinder",
+      "refid": "structbatt_1_1seq_1_1TakeWhileBinder",
+      "title": "batt::seq::TakeWhileBinder",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1TakeWhileBinder/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "take__while_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/take_while.hpp",
+  "url": "/_autogen/Files/take__while_8hpp/#file-take-while.hpp",
+  "visibility": "public"
+}
