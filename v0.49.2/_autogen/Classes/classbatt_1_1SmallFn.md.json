@@ -1,0 +1,79 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "brief": "A type-erased container for a callable function-like object with a statically bounded maximum size. ",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "details": "By default, the static buffer allocated internal to [SmallFn](/_autogen/Classes/classbatt_1_1SmallFn/) is sized such that `sizeof(SmallFn)` is equal to a single CPU cache line. This class can be used to type-erase both regular copyable types and move-only callable types. [UniqueSmallFn](/reference/namespaces/namespacebatt/#using-uniquesmallfn) can be used to type-erase move-only callable types. ",
+  "explicit": false,
+  "fullname": "batt::SmallFn",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyFile": "batteries/small_fn.hpp",
+    "bodyStart": 32,
+    "column": 1,
+    "file": "batteries/small_fn.hpp",
+    "line": 32
+  },
+  "name": "batt::SmallFn",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1SmallFn",
+  "static": false,
+  "strong": false,
+  "summary": "A type-erased container for a callable function-like object with a statically bounded maximum size. ",
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename Signature",
+      "typePlain": "typename Signature"
+    },
+    {
+      "defval": "kCpuCacheLineSize - sizeof(void*)",
+      "defvalPlain": "kCpuCacheLineSize - sizeof(void*)",
+      "name": "kMaxSize",
+      "type": "usize",
+      "typePlain": "usize"
+    },
+    {
+      "defval": "false",
+      "defvalPlain": "false",
+      "name": "kMoveOnly",
+      "type": "bool",
+      "typePlain": "bool"
+    }
+  ],
+  "title": "batt::SmallFn",
+  "url": "/_autogen/Classes/classbatt_1_1SmallFn/",
+  "visibility": "public"
+}

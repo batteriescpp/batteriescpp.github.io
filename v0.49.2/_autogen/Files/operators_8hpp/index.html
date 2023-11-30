@@ -1,0 +1,1032 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+    
+    
+      
+        <title>batteries/operators.hpp - Batteries C++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#namespaces" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Batteries C++" class="md-header__button md-logo" aria-label="Batteries C++" data-md-component="logo">
+      <img width="100px" src="/images/BatteriesLogo.png">
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/releaseNavOptions.js" type="application/javascript"></script>
+<script src="/releaseNav.js" type="application/javascript"></script>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Batteries C++
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              batteries/operators.hpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Batteries C++" class="md-nav__button md-logo" aria-label="Batteries C++" data-md-component="logo">
+      <img width="100px" src="/images/BatteriesLogo.png">
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/releaseNavOptions.js" type="application/javascript"></script>
+<script src="/releaseNav.js" type="application/javascript"></script>
+    </a>
+    Batteries C++
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gitlab.com/batteriescpp/batteries/" class="md-nav__link">
+        GitLab Repo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Headers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Headers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../assert.hpp" class="md-nav__link">
+        batteries/assert.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../async" class="md-nav__link">
+        batteries/async/*
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_of.hpp" class="md-nav__link">
+        batteries/case_of.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cpu_align.hpp" class="md-nav__link">
+        batteries/cpu_align.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../seq" class="md-nav__link">
+        batteries/seq.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../status.hpp" class="md-nav__link">
+        batteries/status.hpp
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Classes/" class="md-nav__link">
+        Classes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release_notes" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../coding_style" class="md-nav__link">
+        Coding Style
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../how-to/configure-ci-pipelines" class="md-nav__link">
+        Configuring CI Pipelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../how-to/write-the-docs" class="md-nav__link">
+        Writing Documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#namespaces" class="md-nav__link">
+    Namespaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defines" class="md-nav__link">
+    Defines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macro-documentation" class="md-nav__link">
+    Macro Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Macro Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-batteries_operators_hpp" class="md-nav__link">
+     define BATTERIES_OPERATORS_HPP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_unwrap" class="md-nav__link">
+     define BATT_UNWRAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_totally_ordered" class="md-nav__link">
+     define BATT_TOTALLY_ORDERED
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_equality_comparable" class="md-nav__link">
+     define BATT_EQUALITY_COMPARABLE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_object_field_expr" class="md-nav__link">
+     define BATT_OBJECT_FIELD_EXPR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_object_field_param" class="md-nav__link">
+     define BATT_OBJECT_FIELD_PARAM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_print_object_field" class="md-nav__link">
+     define BATT_PRINT_OBJECT_FIELD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_print_object_impl" class="md-nav__link">
+     define BATT_PRINT_OBJECT_IMPL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_object_print_impl" class="md-nav__link">
+     define BATT_OBJECT_PRINT_IMPL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_equals_object_impl" class="md-nav__link">
+     define BATT_EQUALS_OBJECT_IMPL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_object_equals_impl" class="md-nav__link">
+     define BATT_OBJECT_EQUALS_IMPL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_less_than_object_impl" class="md-nav__link">
+     define BATT_LESS_THAN_OBJECT_IMPL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_object_less_than_impl" class="md-nav__link">
+     define BATT_OBJECT_LESS_THAN_IMPL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>batteries/operators.hpp</h1>
+
+<h1 id="batteriesoperatorshpp">batteries/operators.hpp<a class="headerlink" href="#batteriesoperatorshpp" title="Permanent link">&#128279;</a></h1>
+<h2 id="namespaces">Namespaces<a class="headerlink" href="#namespaces" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/">batt</a></strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="defines">Defines<a class="headerlink" href="#defines" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/operators_8hpp/#define-batteries-operators-hpp">BATTERIES_OPERATORS_HPP</a></strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/operators_8hpp/#define-batt-unwrap">BATT_UNWRAP</a></strong>(...)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/operators_8hpp/#define-batt-totally-ordered">BATT_TOTALLY_ORDERED</a></strong>(inline_decl, left_type, right_type)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/operators_8hpp/#define-batt-equality-comparable">BATT_EQUALITY_COMPARABLE</a></strong>(inline_decl, left_type, right_type)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/operators_8hpp/#define-batt-object-field-expr">BATT_OBJECT_FIELD_EXPR</a></strong>(r, obj, fieldname)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/operators_8hpp/#define-batt-object-field-param">BATT_OBJECT_FIELD_PARAM</a></strong>(r, obj, fieldname)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/operators_8hpp/#define-batt-print-object-field">BATT_PRINT_OBJECT_FIELD</a></strong>(r, obj, fieldname)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/operators_8hpp/#define-batt-print-object-impl">BATT_PRINT_OBJECT_IMPL</a></strong>(type, fields_seq)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/operators_8hpp/#define-batt-object-print-impl">BATT_OBJECT_PRINT_IMPL</a></strong>(inline_decl, type, fields_tuple)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/operators_8hpp/#define-batt-equals-object-impl">BATT_EQUALS_OBJECT_IMPL</a></strong>(inline_decl, type, fields_seq)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/operators_8hpp/#define-batt-object-equals-impl">BATT_OBJECT_EQUALS_IMPL</a></strong>(inline_decl, type, fields_tuple)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/operators_8hpp/#define-batt-less-than-object-impl">BATT_LESS_THAN_OBJECT_IMPL</a></strong>(inline_decl, type, fields_seq)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/operators_8hpp/#define-batt-object-less-than-impl">BATT_OBJECT_LESS_THAN_IMPL</a></strong>(inline_decl, type, fields_tuple)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="macro-documentation">Macro Documentation<a class="headerlink" href="#macro-documentation" title="Permanent link">&#128279;</a></h2>
+<h3 id="define-batteries_operators_hpp"><a name="BATTERIES_OPERATORS_HPP"></a> define BATTERIES_OPERATORS_HPP<a class="headerlink" href="#define-batteries_operators_hpp" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#define BATTERIES_OPERATORS_HPP()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_unwrap"><a name="BATT_UNWRAP"></a> define BATT_UNWRAP<a class="headerlink" href="#define-batt_unwrap" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#define BATT_UNWRAP(...)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_totally_ordered"><a name="BATT_TOTALLY_ORDERED"></a> define BATT_TOTALLY_ORDERED<a class="headerlink" href="#define-batt_totally_ordered" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#define BATT_TOTALLY_ORDERED(inline_decl, left_type, right_type)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_equality_comparable"><a name="BATT_EQUALITY_COMPARABLE"></a> define BATT_EQUALITY_COMPARABLE<a class="headerlink" href="#define-batt_equality_comparable" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#define BATT_EQUALITY_COMPARABLE(inline_decl, left_type, right_type)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_object_field_expr"><a name="BATT_OBJECT_FIELD_EXPR"></a> define BATT_OBJECT_FIELD_EXPR<a class="headerlink" href="#define-batt_object_field_expr" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#define BATT_OBJECT_FIELD_EXPR(r, obj, fieldname)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_object_field_param"><a name="BATT_OBJECT_FIELD_PARAM"></a> define BATT_OBJECT_FIELD_PARAM<a class="headerlink" href="#define-batt_object_field_param" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">#define BATT_OBJECT_FIELD_PARAM(r, obj, fieldname)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_print_object_field"><a name="BATT_PRINT_OBJECT_FIELD"></a> define BATT_PRINT_OBJECT_FIELD<a class="headerlink" href="#define-batt_print_object_field" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">#define BATT_PRINT_OBJECT_FIELD(r, obj, fieldname)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_print_object_impl"><a name="BATT_PRINT_OBJECT_IMPL"></a> define BATT_PRINT_OBJECT_IMPL<a class="headerlink" href="#define-batt_print_object_impl" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cp">#define BATT_PRINT_OBJECT_IMPL(type, fields_seq)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_object_print_impl"><a name="BATT_OBJECT_PRINT_IMPL"></a> define BATT_OBJECT_PRINT_IMPL<a class="headerlink" href="#define-batt_object_print_impl" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cp">#define BATT_OBJECT_PRINT_IMPL(inline_decl, type, fields_tuple)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_equals_object_impl"><a name="BATT_EQUALS_OBJECT_IMPL"></a> define BATT_EQUALS_OBJECT_IMPL<a class="headerlink" href="#define-batt_equals_object_impl" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cp">#define BATT_EQUALS_OBJECT_IMPL(inline_decl, type, fields_seq)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_object_equals_impl"><a name="BATT_OBJECT_EQUALS_IMPL"></a> define BATT_OBJECT_EQUALS_IMPL<a class="headerlink" href="#define-batt_object_equals_impl" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#define BATT_OBJECT_EQUALS_IMPL(inline_decl, type, fields_tuple)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_less_than_object_impl"><a name="BATT_LESS_THAN_OBJECT_IMPL"></a> define BATT_LESS_THAN_OBJECT_IMPL<a class="headerlink" href="#define-batt_less_than_object_impl" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#define BATT_LESS_THAN_OBJECT_IMPL(inline_decl, type, fields_seq)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_object_less_than_impl"><a name="BATT_OBJECT_LESS_THAN_IMPL"></a> define BATT_OBJECT_LESS_THAN_IMPL<a class="headerlink" href="#define-batt_object_less_than_impl" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">#define BATT_OBJECT_LESS_THAN_IMPL(inline_decl, type, fields_tuple)</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="source-code">Source code<a class="headerlink" href="#source-code" title="Permanent link">&#128279;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-13-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-13-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-13-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-13-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-13-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-13-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-13-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-13-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-13-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-13-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-13-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-13-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-13-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-13-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-13-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-13-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-13-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-13-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-13-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-13-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-13-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-13-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-13-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-13-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-13-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-13-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-13-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-13-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-13-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-13-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-13-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-13-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-13-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-13-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-13-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-13-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-13-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-13-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-13-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-13-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-13-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-13-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-13-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-13-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-13-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-13-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-13-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-13-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-13-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-13-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-13-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-13-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-13-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-13-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-13-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-13-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-13-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-13-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-13-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-13-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-13-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-13-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-13-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-13-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-13-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-13-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-13-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-13-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-13-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-13-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-13-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-13-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-13-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-13-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-13-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-13-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-13-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-13-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-13-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-13-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-13-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-13-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-13-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-13-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-13-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-13-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-13-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-13-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-13-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-13-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-13-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-13-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-13-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-13-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-13-100">100</a></span>
+<span class="normal"><a href="#__codelineno-13-101">101</a></span>
+<span class="normal"><a href="#__codelineno-13-102">102</a></span>
+<span class="normal"><a href="#__codelineno-13-103">103</a></span>
+<span class="normal"><a href="#__codelineno-13-104">104</a></span>
+<span class="normal"><a href="#__codelineno-13-105">105</a></span>
+<span class="normal"><a href="#__codelineno-13-106">106</a></span>
+<span class="normal"><a href="#__codelineno-13-107">107</a></span>
+<span class="normal"><a href="#__codelineno-13-108">108</a></span>
+<span class="normal"><a href="#__codelineno-13-109">109</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1">// Copyright 2021-2023 Anthony Paul Astolfi</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="c1">//</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="cp">#pragma once</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="cp">#ifndef BATTERIES_OPERATORS_HPP</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="cp">#define BATTERIES_OPERATORS_HPP</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/config.hpp&gt;</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="c1">//</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/stream_util.hpp&gt;</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/type_traits.hpp&gt;</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a>
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;boost/preprocessor/seq/for_each.hpp&gt;</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;boost/preprocessor/stringize.hpp&gt;</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;boost/preprocessor/tuple/to_seq.hpp&gt;</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15"></a>
+<a id="__codelineno-13-16" name="__codelineno-13-16"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;tuple&gt;</span>
+<a id="__codelineno-13-17" name="__codelineno-13-17"></a>
+<a id="__codelineno-13-18" name="__codelineno-13-18"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">batt</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-19" name="__codelineno-13-19"></a>
+<a id="__codelineno-13-20" name="__codelineno-13-20"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-13-21" name="__codelineno-13-21"></a><span class="c1">//</span>
+<a id="__codelineno-13-22" name="__codelineno-13-22"></a><span class="cp">#define BATT_UNWRAP(...) __VA_ARGS__</span>
+<a id="__codelineno-13-23" name="__codelineno-13-23"></a>
+<a id="__codelineno-13-24" name="__codelineno-13-24"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-13-25" name="__codelineno-13-25"></a><span class="c1">//</span>
+<a id="__codelineno-13-26" name="__codelineno-13-26"></a><span class="cp">#define BATT_TOTALLY_ORDERED(inline_decl, left_type, right_type)                                             \</span>
+<a id="__codelineno-13-27" name="__codelineno-13-27"></a><span class="cp">    BATT_UNWRAP inline_decl bool operator&gt;(const left_type&amp; l, const right_type&amp; r)                          \</span>
+<a id="__codelineno-13-28" name="__codelineno-13-28"></a><span class="cp">    {                                                                                                        \</span>
+<a id="__codelineno-13-29" name="__codelineno-13-29"></a><span class="cp">        return r &lt; l;                                                                                        \</span>
+<a id="__codelineno-13-30" name="__codelineno-13-30"></a><span class="cp">    }                                                                                                        \</span>
+<a id="__codelineno-13-31" name="__codelineno-13-31"></a><span class="cp">    BATT_UNWRAP inline_decl bool operator&lt;=(const left_type&amp; l, const right_type&amp; r)                         \</span>
+<a id="__codelineno-13-32" name="__codelineno-13-32"></a><span class="cp">    {                                                                                                        \</span>
+<a id="__codelineno-13-33" name="__codelineno-13-33"></a><span class="cp">        return !(l &gt; r);                                                                                     \</span>
+<a id="__codelineno-13-34" name="__codelineno-13-34"></a><span class="cp">    }                                                                                                        \</span>
+<a id="__codelineno-13-35" name="__codelineno-13-35"></a><span class="cp">    BATT_UNWRAP inline_decl bool operator&gt;=(const left_type&amp; l, const right_type&amp; r)                         \</span>
+<a id="__codelineno-13-36" name="__codelineno-13-36"></a><span class="cp">    {                                                                                                        \</span>
+<a id="__codelineno-13-37" name="__codelineno-13-37"></a><span class="cp">        return !(l &lt; r);                                                                                     \</span>
+<a id="__codelineno-13-38" name="__codelineno-13-38"></a><span class="cp">    }</span>
+<a id="__codelineno-13-39" name="__codelineno-13-39"></a>
+<a id="__codelineno-13-40" name="__codelineno-13-40"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-13-41" name="__codelineno-13-41"></a><span class="c1">//</span>
+<a id="__codelineno-13-42" name="__codelineno-13-42"></a><span class="cp">#define BATT_EQUALITY_COMPARABLE(inline_decl, left_type, right_type)                                         \</span>
+<a id="__codelineno-13-43" name="__codelineno-13-43"></a><span class="cp">    BATT_UNWRAP inline_decl bool operator!=(const left_type&amp; l, const right_type&amp; r)                         \</span>
+<a id="__codelineno-13-44" name="__codelineno-13-44"></a><span class="cp">    {                                                                                                        \</span>
+<a id="__codelineno-13-45" name="__codelineno-13-45"></a><span class="cp">        return !(l == r);                                                                                    \</span>
+<a id="__codelineno-13-46" name="__codelineno-13-46"></a><span class="cp">    }</span>
+<a id="__codelineno-13-47" name="__codelineno-13-47"></a>
+<a id="__codelineno-13-48" name="__codelineno-13-48"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-13-49" name="__codelineno-13-49"></a><span class="c1">//</span>
+<a id="__codelineno-13-50" name="__codelineno-13-50"></a><span class="cp">#define BATT_OBJECT_FIELD_EXPR(r, obj, fieldname) (obj).fieldname</span>
+<a id="__codelineno-13-51" name="__codelineno-13-51"></a>
+<a id="__codelineno-13-52" name="__codelineno-13-52"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-13-53" name="__codelineno-13-53"></a><span class="c1">//</span>
+<a id="__codelineno-13-54" name="__codelineno-13-54"></a><span class="cp">#define BATT_OBJECT_FIELD_PARAM(r, obj, fieldname) BATT_OBJECT_FIELD_EXPR(r, obj, fieldname),</span>
+<a id="__codelineno-13-55" name="__codelineno-13-55"></a>
+<a id="__codelineno-13-56" name="__codelineno-13-56"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-13-57" name="__codelineno-13-57"></a><span class="c1">//</span>
+<a id="__codelineno-13-58" name="__codelineno-13-58"></a><span class="cp">#define BATT_PRINT_OBJECT_FIELD(r, obj, fieldname)                                                           \</span>
+<a id="__codelineno-13-59" name="__codelineno-13-59"></a><span class="cp">    &lt;&lt; &quot; .&quot;                                                                                                  \</span>
+<a id="__codelineno-13-60" name="__codelineno-13-60"></a><span class="cp">    &lt;&lt; BOOST_PP_STRINGIZE(fieldname) &lt;&lt; &quot;=&quot;                                                                  \</span>
+<a id="__codelineno-13-61" name="__codelineno-13-61"></a><span class="cp">                                     &lt;&lt; ::batt::make_printable(BATT_OBJECT_FIELD_EXPR(r, obj, fieldname))    \</span>
+<a id="__codelineno-13-62" name="__codelineno-13-62"></a><span class="cp">                                     &lt;&lt; &quot;,&quot;</span>
+<a id="__codelineno-13-63" name="__codelineno-13-63"></a>
+<a id="__codelineno-13-64" name="__codelineno-13-64"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-13-65" name="__codelineno-13-65"></a><span class="c1">//</span>
+<a id="__codelineno-13-66" name="__codelineno-13-66"></a><span class="cp">#define BATT_PRINT_OBJECT_IMPL(type, fields_seq)                                                             \</span>
+<a id="__codelineno-13-67" name="__codelineno-13-67"></a><span class="cp">    std::ostream&amp; operator&lt;&lt;(std::ostream&amp; out, const type&amp; t)                                               \</span>
+<a id="__codelineno-13-68" name="__codelineno-13-68"></a><span class="cp">    {                                                                                                        \</span>
+<a id="__codelineno-13-69" name="__codelineno-13-69"></a><span class="cp">        return out &lt;&lt; ::batt::unqualified_name_of&lt;type&gt;()                                                    \</span>
+<a id="__codelineno-13-70" name="__codelineno-13-70"></a><span class="cp">                   &lt;&lt; &quot;{&quot; BOOST_PP_SEQ_FOR_EACH(BATT_PRINT_OBJECT_FIELD, (t), fields_seq) &lt;&lt; &quot; }&quot;;           \</span>
+<a id="__codelineno-13-71" name="__codelineno-13-71"></a><span class="cp">    }</span>
+<a id="__codelineno-13-72" name="__codelineno-13-72"></a>
+<a id="__codelineno-13-73" name="__codelineno-13-73"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-13-74" name="__codelineno-13-74"></a><span class="c1">//</span>
+<a id="__codelineno-13-75" name="__codelineno-13-75"></a><span class="cp">#define BATT_OBJECT_PRINT_IMPL(inline_decl, type, fields_tuple)                                              \</span>
+<a id="__codelineno-13-76" name="__codelineno-13-76"></a><span class="cp">    BATT_UNWRAP inline_decl BATT_PRINT_OBJECT_IMPL(type, BOOST_PP_TUPLE_TO_SEQ(fields_tuple))</span>
+<a id="__codelineno-13-77" name="__codelineno-13-77"></a>
+<a id="__codelineno-13-78" name="__codelineno-13-78"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-13-79" name="__codelineno-13-79"></a><span class="c1">//</span>
+<a id="__codelineno-13-80" name="__codelineno-13-80"></a><span class="cp">#define BATT_EQUALS_OBJECT_IMPL(inline_decl, type, fields_seq)                                               \</span>
+<a id="__codelineno-13-81" name="__codelineno-13-81"></a><span class="cp">    BATT_UNWRAP inline_decl bool operator==(const type&amp; l, const type&amp; r)                                    \</span>
+<a id="__codelineno-13-82" name="__codelineno-13-82"></a><span class="cp">    {                                                                                                        \</span>
+<a id="__codelineno-13-83" name="__codelineno-13-83"></a><span class="cp">        return std::forward_as_tuple(                                                                        \</span>
+<a id="__codelineno-13-84" name="__codelineno-13-84"></a><span class="cp">                   BOOST_PP_SEQ_FOR_EACH(BATT_OBJECT_FIELD_PARAM, (l), fields_seq) true) ==                  \</span>
+<a id="__codelineno-13-85" name="__codelineno-13-85"></a><span class="cp">               std::forward_as_tuple(BOOST_PP_SEQ_FOR_EACH(BATT_OBJECT_FIELD_PARAM, (r), fields_seq) true);  \</span>
+<a id="__codelineno-13-86" name="__codelineno-13-86"></a><span class="cp">    }</span>
+<a id="__codelineno-13-87" name="__codelineno-13-87"></a>
+<a id="__codelineno-13-88" name="__codelineno-13-88"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-13-89" name="__codelineno-13-89"></a><span class="c1">//</span>
+<a id="__codelineno-13-90" name="__codelineno-13-90"></a><span class="cp">#define BATT_OBJECT_EQUALS_IMPL(inline_decl, type, fields_tuple)                                             \</span>
+<a id="__codelineno-13-91" name="__codelineno-13-91"></a><span class="cp">    BATT_EQUALS_OBJECT_IMPL(inline_decl, type, BOOST_PP_TUPLE_TO_SEQ(fields_tuple))</span>
+<a id="__codelineno-13-92" name="__codelineno-13-92"></a>
+<a id="__codelineno-13-93" name="__codelineno-13-93"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-13-94" name="__codelineno-13-94"></a><span class="c1">//</span>
+<a id="__codelineno-13-95" name="__codelineno-13-95"></a><span class="cp">#define BATT_LESS_THAN_OBJECT_IMPL(inline_decl, type, fields_seq)                                            \</span>
+<a id="__codelineno-13-96" name="__codelineno-13-96"></a><span class="cp">    BATT_UNWRAP inline_decl bool operator&lt;(const type&amp; l, const type&amp; r)                                     \</span>
+<a id="__codelineno-13-97" name="__codelineno-13-97"></a><span class="cp">    {                                                                                                        \</span>
+<a id="__codelineno-13-98" name="__codelineno-13-98"></a><span class="cp">        return std::forward_as_tuple(BOOST_PP_SEQ_FOR_EACH(BATT_OBJECT_FIELD_PARAM, (l), fields_seq) true) &lt; \</span>
+<a id="__codelineno-13-99" name="__codelineno-13-99"></a><span class="cp">               std::forward_as_tuple(BOOST_PP_SEQ_FOR_EACH(BATT_OBJECT_FIELD_PARAM, (r), fields_seq) true);  \</span>
+<a id="__codelineno-13-100" name="__codelineno-13-100"></a><span class="cp">    }</span>
+<a id="__codelineno-13-101" name="__codelineno-13-101"></a>
+<a id="__codelineno-13-102" name="__codelineno-13-102"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-13-103" name="__codelineno-13-103"></a><span class="c1">//</span>
+<a id="__codelineno-13-104" name="__codelineno-13-104"></a><span class="cp">#define BATT_OBJECT_LESS_THAN_IMPL(inline_decl, type, fields_tuple)                                          \</span>
+<a id="__codelineno-13-105" name="__codelineno-13-105"></a><span class="cp">    BATT_LESS_THAN_OBJECT_IMPL(inline_decl, type, BOOST_PP_TUPLE_TO_SEQ(fields_tuple))</span>
+<a id="__codelineno-13-106" name="__codelineno-13-106"></a>
+<a id="__codelineno-13-107" name="__codelineno-13-107"></a><span class="p">}</span><span class="w">  </span><span class="c1">//namespace batt</span>
+<a id="__codelineno-13-108" name="__codelineno-13-108"></a>
+<a id="__codelineno-13-109" name="__codelineno-13-109"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_OPERATORS_HPP</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<p>Updated on 30 November 2023 at 14:50:09 UTC</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.6df46069.min.js"></script>
+      
+    
+  </body>
+</html>
