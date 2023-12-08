@@ -1,0 +1,304 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "baseClasses": [
+    {
+      "external": true,
+      "name": "AbstractFn< kMoveOnly, Result, Args... >",
+      "refid": null,
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::detail::MoveFnImpl",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 145,
+    "bodyFile": "batteries/small_fn.hpp",
+    "bodyStart": 122,
+    "column": 1,
+    "file": "batteries/small_fn.hpp",
+    "line": 121
+  },
+  "name": "batt::detail::MoveFnImpl",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt::detail",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt::detail",
+    "refid": "namespacebatt_1_1detail",
+    "title": "batt::detail",
+    "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "protectedAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-fn-",
+      "category": "attributes",
+      "const": false,
+      "definition": "Fn batt::detail::MoveFnImpl< Fn, kMoveOnly, Result, Args >::fn_",
+      "explicit": false,
+      "fullname": "batt::detail::MoveFnImpl::fn_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 144,
+        "column": 8,
+        "file": "batteries/small_fn.hpp",
+        "line": 144
+      },
+      "name": "fn_",
+      "override": false,
+      "refid": "classbatt_1_1detail_1_1MoveFnImpl_1a24339002730743a36600c276fde727c7",
+      "static": false,
+      "strong": false,
+      "title": "fn_",
+      "type": "Fn",
+      "typePlain": "Fn",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/#variable-fn-",
+      "visibility": "protected"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-movefnimpl",
+      "argsString": "(FnRef &&ref)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::detail::MoveFnImpl< Fn, kMoveOnly, Result, Args >::MoveFnImpl",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::detail::MoveFnImpl::MoveFnImpl",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 129,
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 127,
+        "column": 14,
+        "file": "batteries/small_fn.hpp",
+        "line": 127
+      },
+      "name": "MoveFnImpl",
+      "override": false,
+      "params": [
+        {
+          "name": "ref",
+          "type": "FnRef &&",
+          "typePlain": "FnRef &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1MoveFnImpl_1a2231a5de944d95a62731eeae0080d4b0",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename FnRef",
+          "typePlain": "typename FnRef"
+        }
+      ],
+      "title": "MoveFnImpl",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/#function-movefnimpl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-invoke",
+      "argsString": "(Args... args) noexcept override",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Result batt::detail::MoveFnImpl< Fn, kMoveOnly, Result, Args >::invoke",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::MoveFnImpl::invoke",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 134,
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 131,
+        "column": 12,
+        "file": "batteries/small_fn.hpp",
+        "line": 131
+      },
+      "name": "invoke",
+      "override": true,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args...",
+          "typePlain": "Args..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1MoveFnImpl_1ab06943027248a858040cc99eac77e7b3",
+      "static": false,
+      "strong": false,
+      "title": "invoke",
+      "type": "Result",
+      "typePlain": "Result",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/#function-invoke",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-move",
+      "argsString": "(void *memory, usize size) noexcept override",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "AbstractFn<kMoveOnly, Result, Args...>* batt::detail::MoveFnImpl< Fn, kMoveOnly, Result, Args >::move",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::MoveFnImpl::move",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 141,
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 136,
+        "column": 16,
+        "file": "batteries/small_fn.hpp",
+        "line": 136
+      },
+      "name": "move",
+      "override": true,
+      "params": [
+        {
+          "name": "memory",
+          "type": "void *",
+          "typePlain": "void *"
+        },
+        {
+          "name": "size",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1MoveFnImpl_1a902bfa60f42fe6caa6b9bbde43c1f088",
+      "static": false,
+      "strong": false,
+      "title": "move",
+      "type": "AbstractFn< [kMoveOnly](/_autogen/Classes/classbatt_1_1kMoveOnly/), Result, Args... > *",
+      "typePlain": "AbstractFn< kMoveOnly, Result, Args... > *",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/#function-move",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-self-type",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::detail::MoveFnImpl< Fn, kMoveOnly, Result, Args >::self_type =  MoveFnImpl",
+      "explicit": false,
+      "fullname": "batt::detail::MoveFnImpl::self_type",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 124,
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 124
+      },
+      "name": "self_type",
+      "override": false,
+      "refid": "classbatt_1_1detail_1_1MoveFnImpl_1a527acc2bd7a3fa92c3d464ceadbc6673",
+      "static": false,
+      "strong": false,
+      "title": "self_type",
+      "type": "[MoveFnImpl](/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/)",
+      "typePlain": "MoveFnImpl",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/#using-self-type",
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1detail_1_1MoveFnImpl",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename Fn",
+      "typePlain": "typename Fn"
+    },
+    {
+      "name": "kMoveOnly",
+      "type": "bool",
+      "typePlain": "bool"
+    },
+    {
+      "name": "",
+      "type": "typename Result",
+      "typePlain": "typename Result"
+    },
+    {
+      "name": "Args",
+      "type": "typename...",
+      "typePlain": "typename..."
+    }
+  ],
+  "title": "batt::detail::MoveFnImpl",
+  "url": "/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/",
+  "visibility": "public"
+}
