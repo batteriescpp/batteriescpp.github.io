@@ -1,0 +1,750 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+    
+    
+      
+        <title>batt::Watch< u8 > - Batteries C++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#additional-inherited-members" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Batteries C++" class="md-header__button md-logo" aria-label="Batteries C++" data-md-component="logo">
+      <img width="100px" src="/images/BatteriesLogo.png">
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/releaseNavOptions.js" type="application/javascript"></script>
+<script src="/releaseNav.js" type="application/javascript"></script>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Batteries C++
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              batt::Watch< u8 >
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Batteries C++" class="md-nav__button md-logo" aria-label="Batteries C++" data-md-component="logo">
+      <img width="100px" src="/images/BatteriesLogo.png">
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/releaseNavOptions.js" type="application/javascript"></script>
+<script src="/releaseNav.js" type="application/javascript"></script>
+    </a>
+    Batteries C++
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gitlab.com/batteriescpp/batteries/" class="md-nav__link">
+        GitLab Repo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Headers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Headers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../assert.hpp" class="md-nav__link">
+        batteries/assert.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../async" class="md-nav__link">
+        batteries/async/*
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_of.hpp" class="md-nav__link">
+        batteries/case_of.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cpu_align.hpp" class="md-nav__link">
+        batteries/cpu_align.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../seq" class="md-nav__link">
+        batteries/seq.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../status.hpp" class="md-nav__link">
+        batteries/status.hpp
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Files/" class="md-nav__link">
+        Files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Classes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release_notes" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../coding_style" class="md-nav__link">
+        Coding Style
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../how-to/configure-ci-pipelines" class="md-nav__link">
+        Configuring CI Pipelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../how-to/write-the-docs" class="md-nav__link">
+        Writing Documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#additional-inherited-members" class="md-nav__link">
+    Additional inherited members
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>batt::Watch< u8 ></h1>
+
+<h1 id="battwatch-u8">batt::Watch&lt; u8 &gt;<a class="headerlink" href="#battwatch-u8" title="Permanent link">&#128279;</a></h1>
+<p>Inherits from <a href="/_autogen/Classes/classbatt_1_1WatchAtomic/">batt::WatchAtomic&lt; u8 &gt;</a></p>
+<h2 id="additional-inherited-members">Additional inherited members<a class="headerlink" href="#additional-inherited-members" title="Permanent link">&#128279;</a></h2>
+<p><strong>Public Types inherited from <a href="/_autogen/Classes/classbatt_1_1WatchAtomic/">batt::WatchAtomic&lt; u8 &gt;</a></strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>using T</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#using-value-type">value_type</a></strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Public Functions inherited from <a href="/_autogen/Classes/classbatt_1_1WatchAtomic/">batt::WatchAtomic&lt; u8 &gt;</a></strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-watchatomic">WatchAtomic</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1WatchAtomic/">WatchAtomic</a> &amp; ) =deleted<br><a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> is not copy-constructible.</td>
+</tr>
+<tr>
+<td><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/">WatchAtomic</a> &amp;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-operator=">operator=</a></strong>(const <a href="/_autogen/Classes/classbatt_1_1WatchAtomic/">WatchAtomic</a> &amp; ) =deleted<br><a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> is not copy-constructible.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-watchatomic">WatchAtomic</a></strong>() =default<br>Constructs a <a href="/_autogen/Classes/classbatt_1_1Watch/">batt::Watch</a> object with a default-initialized value of <code>T</code>.</td>
+</tr>
+<tr>
+<td>template &lt;typename Init ,typename  =EnableIfNoShadow<WatchAtomic, Init>> <br></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-watchatomic">WatchAtomic</a></strong>(Init &amp;&amp; init_value)<br>Constructs a <a href="/_autogen/Classes/classbatt_1_1Watch/">batt::Watch</a> object with the given initial value.</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-~watchatomic">~WatchAtomic</a></strong>()<br>Destroy the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>, automatically calling <a href="/_autogen/Classes/classbatt_1_1Watch/#function-close">Watch::close</a>.</td>
+</tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-close">close</a></strong>(StatusCode final_status_code =StatusCode::kClosed)<br>Set the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> to the "closed" state, which disables all blocking/async synchronization on the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>, immediately unblocking any currently waiting tasks/threads.</td>
+</tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-poke">poke</a></strong>()<br>Wakes up all observers of this <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>, invoking their handlers with StatusCode::kPoke to indicate they should check their current situation and possibly retry.</td>
+</tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-reset">reset</a></strong>()<br>Resets the 'closed' status of this <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>.</td>
+</tr>
+<tr>
+<td>bool</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-is-closed">is_closed</a></strong>() const<br>Tests whether the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> is in a "closed" state.</td>
+</tr>
+<tr>
+<td>T</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-set-value">set_value</a></strong>(T new_value)<br>Atomically set the value of the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>.</td>
+</tr>
+<tr>
+<td>T</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-set-value-and-release">set_value_and_release</a></strong>(T new_value)<br>Same as set_value, but safe to call even when setting the value may cause the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> object to be destroyed.</td>
+</tr>
+<tr>
+<td>T</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-get-value">get_value</a></strong>() const<br>The current value of the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>.</td>
+</tr>
+<tr>
+<td>T</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-fetch-add">fetch_add</a></strong>(T arg)<br>Atomically adds the specified amount to the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value, returning the previous value.</td>
+</tr>
+<tr>
+<td>T</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-fetch-or">fetch_or</a></strong>(T arg)<br>Atomically sets the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value to the bitwise-or of the current value and the passed <code>arg</code>, returning the previous value.</td>
+</tr>
+<tr>
+<td>T</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-fetch-sub">fetch_sub</a></strong>(T arg)<br>Atomically subtracts the specified amount from the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value, returning the previous value.</td>
+</tr>
+<tr>
+<td>T</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-fetch-and">fetch_and</a></strong>(T arg)<br>Atomically sets the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value to the bitwise-and of the current value and the passed <code>arg</code>, returning the previous value.</td>
+</tr>
+<tr>
+<td>template &lt;typename Fn  =T(T)> <br>T</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-modify">modify</a></strong>(Fn &amp;&amp; fn)<br>Atomically modifies the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value by applying the passed transform <code>fn</code>.</td>
+</tr>
+<tr>
+<td>bool</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-compare-exchange">compare_exchange</a></strong>(T &amp; old_value, T new_value)<br>Does an atomic compare-and-swap operation on the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value.</td>
+</tr>
+<tr>
+<td>template &lt;typename Fn  =Optional<T>(T)> <br><a href="/_autogen/Classes/classbatt_1_1StatusOr/">StatusOr</a>&lt; T &gt;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-await-modify">await_modify</a></strong>(Fn &amp;&amp; fn)<br>Retries <code>fn</code> on the watch value until it succeeds or the watch is closed.</td>
+</tr>
+<tr>
+<td>template &lt;typename Fn  =Optional<T>(T)> <br><a href="/_autogen/Classes/classbatt_1_1Optional/">Optional</a>&lt; T &gt;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-modify-if">modify_if</a></strong>(Fn &amp;&amp; fn)<br>Conditionally modify the value of the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>.</td>
+</tr>
+<tr>
+<td>template &lt;typename Handler > <br>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-async-wait">async_wait</a></strong>(T last_seen, Handler &amp;&amp; fn) const<br>Invokes the passed handler <code>fn</code> with the described value as soon as one of the following conditions is true:</td>
+</tr>
+<tr>
+<td><a href="/_autogen/Classes/classbatt_1_1StatusOr/">StatusOr</a>&lt; T &gt;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-await-not-equal">await_not_equal</a></strong>(const T &amp; last_seen) const<br>Blocks the current task/thread until the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> value is <em>not</em> equal to <code>last_seen</code>.</td>
+</tr>
+<tr>
+<td>template &lt;typename Pred > <br><a href="/_autogen/Classes/classbatt_1_1StatusOr/">StatusOr</a>&lt; T &gt;</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-await-true">await_true</a></strong>(Pred &amp;&amp; pred) const<br>Blocks the current task/thread until the passed predicate function returns <code>true</code> for the current value of the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>.</td>
+</tr>
+<tr>
+<td><a href="/_autogen/Classes/classbatt_1_1Status/">Status</a></td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-await-equal">await_equal</a></strong>(T val) const<br>Blocks the current task/thread until the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> contains the specified value.</td>
+</tr>
+<tr>
+<td>template &lt;typename OrderFn  =bool(T, T)> <br>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-clamp-min-value">clamp_min_value</a></strong>(T lower_bound, OrderFn &amp;&amp; order_fn)<br>Modify the value to be at least <code>lower_bound</code>.</td>
+</tr>
+<tr>
+<td>template &lt;typename OrderFn  =bool(T, T)> <br>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-clamp-max-value">clamp_max_value</a></strong>(T upper_bound, OrderFn &amp;&amp; order_fn)<br>Modify the value to be at most <code>upper_bound</code>.</td>
+</tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-clamp-min-value">clamp_min_value</a></strong>(T lower_bound)<br>Modify the value to be at least <code>lower_bound</code>, using the default ordering for T.</td>
+</tr>
+<tr>
+<td>void</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#function-clamp-max-value">clamp_max_value</a></strong>(T upper_bound)<br>Modify the value to be at most <code>upper_bound</code>, using the default ordering for T.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Public Attributes inherited from <a href="/_autogen/Classes/classbatt_1_1WatchAtomic/">batt::WatchAtomic&lt; u8 &gt;</a></strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>constexpr u32</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#variable-klocked">kLocked</a></strong> <br>(INTERNAL USE ONLY) spin-lock bit - indicates the state variable is locked.</td>
+</tr>
+<tr>
+<td>constexpr u32</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#variable-kopen">kOpen</a></strong> <br>(INTERNAL USE ONLY) indicates that the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> is not closed.</td>
+</tr>
+<tr>
+<td>constexpr u32</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#variable-kwaiting">kWaiting</a></strong> <br>(INTERNAL USE ONLY) indicates that one or more handlers are attached to the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a>, awaiting change notification.</td>
+</tr>
+<tr>
+<td>constexpr u32</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#variable-kclosedatend">kClosedAtEnd</a></strong> <br>(INTERNAL USE ONLY) indicates the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> was closed with end-of-stream condition true</td>
+</tr>
+<tr>
+<td>constexpr u32</td>
+<td><strong><a href="/_autogen/Classes/classbatt_1_1WatchAtomic/#variable-kclosedbeforeend">kClosedBeforeEnd</a></strong> <br>(INTERNAL USE ONLY) indicates the <a href="/_autogen/Classes/classbatt_1_1Watch/">Watch</a> was closed with end-of-stream condition false</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Updated on 10 December 2023 at 16:40:37 UTC</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.6df46069.min.js"></script>
+      
+    
+  </body>
+</html>
