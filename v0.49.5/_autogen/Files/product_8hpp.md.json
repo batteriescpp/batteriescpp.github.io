@@ -1,0 +1,137 @@
+{
+  "abstract": false,
+  "anchor": "#file-product.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-product-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_PRODUCT_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/product.hpp",
+        "bodyStart": 7,
+        "column": 9,
+        "file": "batteries/seq/product.hpp",
+        "line": 7
+      },
+      "name": "BATTERIES_SEQ_PRODUCT_HPP",
+      "override": false,
+      "refid": "product_8hpp_1a61cd33f5cebc6c3cb15cdf6bc9226703",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_PRODUCT_HPP",
+      "url": "/_autogen/Files/product_8hpp/#define-batteries-seq-product-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/product.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/product.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/product.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n\n#pragma once\n#ifndef BATTERIES_SEQ_PRODUCT_HPP\n#define BATTERIES_SEQ_PRODUCT_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/seq/reduce.hpp>\n#include <batteries/seq/seq_item.hpp>\n#include <batteries/utility.hpp>\n\n#include <type_traits>\n\nnamespace batt {\nnamespace seq {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// product\n//\nstruct ProductBinder {\n};\n\ninline ProductBinder product()\n{\n    return {};\n}\n\ntemplate <typename Seq>\n[[nodiscard]] auto operator|(Seq&& seq, ProductBinder)\n{\n    static_assert(std::is_same_v<Seq, std::decay_t<Seq>>,\n                  \"(seq::product) Sequences may not be captured implicitly by reference.\");\n\n    return BATT_FORWARD(seq) | reduce(SeqItem<Seq>{1}, [](auto&& a, auto&& b) {\n               return a * b;\n           });\n}\n\n}  // namespace seq\n}  // namespace batt\n\n#endif  // BATTERIES_SEQ_PRODUCT_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::ProductBinder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::ProductBinder",
+      "refid": "structbatt_1_1seq_1_1ProductBinder",
+      "title": "batt::seq::ProductBinder",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1ProductBinder/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "product_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/product.hpp",
+  "url": "/_autogen/Files/product_8hpp/#file-product.hpp",
+  "visibility": "public"
+}

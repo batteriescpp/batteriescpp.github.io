@@ -1,0 +1,636 @@
+{
+  "abstract": false,
+  "anchor": "#file-operators.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-operators-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_OPERATORS_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/operators.hpp",
+        "bodyStart": 5,
+        "column": 9,
+        "file": "batteries/operators.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_OPERATORS_HPP",
+      "override": false,
+      "refid": "operators_8hpp_1a0e3d7662da40d7ee94ee31af6f6ea93f",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_OPERATORS_HPP",
+      "url": "/_autogen/Files/operators_8hpp/#define-batteries-operators-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-unwrap",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_UNWRAP",
+      "hasDetails": false,
+      "initializer": "__VA_ARGS__",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/operators.hpp",
+        "bodyStart": 22,
+        "column": 9,
+        "file": "batteries/operators.hpp",
+        "line": 22
+      },
+      "name": "BATT_UNWRAP",
+      "override": false,
+      "params": [
+        {
+          "name": "...",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "operators_8hpp_1a6cca7afb7970534fff9f10230b7adfd9",
+      "static": false,
+      "strong": false,
+      "title": "BATT_UNWRAP",
+      "url": "/_autogen/Files/operators_8hpp/#define-batt-unwrap",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-totally-ordered",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_TOTALLY_ORDERED",
+      "hasDetails": false,
+      "initializer": "    BATT_UNWRAP inline_decl bool operator>(const left_type& l, const right_type& r)                          \\\n    {                                                                                                        \\\n        return r < l;                                                                                        \\\n    }                                                                                                        \\\n    BATT_UNWRAP inline_decl bool operator<=(const left_type& l, const right_type& r)                         \\\n    {                                                                                                        \\\n        return !(l > r);                                                                                     \\\n    }                                                                                                        \\\n    BATT_UNWRAP inline_decl bool operator>=(const left_type& l, const right_type& r)                         \\\n    {                                                                                                        \\\n        return !(l < r);                                                                                     \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/operators.hpp",
+        "bodyStart": 26,
+        "column": 9,
+        "file": "batteries/operators.hpp",
+        "line": 26
+      },
+      "name": "BATT_TOTALLY_ORDERED",
+      "override": false,
+      "params": [
+        {
+          "name": "inline_decl",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "left_type",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "right_type",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "operators_8hpp_1a244e70a2fad5316456447b5482825395",
+      "static": false,
+      "strong": false,
+      "title": "BATT_TOTALLY_ORDERED",
+      "url": "/_autogen/Files/operators_8hpp/#define-batt-totally-ordered",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-equality-comparable",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_EQUALITY_COMPARABLE",
+      "hasDetails": false,
+      "initializer": "    BATT_UNWRAP inline_decl bool operator!=(const left_type& l, const right_type& r)                         \\\n    {                                                                                                        \\\n        return !(l == r);                                                                                    \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/operators.hpp",
+        "bodyStart": 42,
+        "column": 9,
+        "file": "batteries/operators.hpp",
+        "line": 42
+      },
+      "name": "BATT_EQUALITY_COMPARABLE",
+      "override": false,
+      "params": [
+        {
+          "name": "inline_decl",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "left_type",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "right_type",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "operators_8hpp_1a45aaab9db12aeb7f7e5511be241217d3",
+      "static": false,
+      "strong": false,
+      "title": "BATT_EQUALITY_COMPARABLE",
+      "url": "/_autogen/Files/operators_8hpp/#define-batt-equality-comparable",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-object-field-expr",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_OBJECT_FIELD_EXPR",
+      "hasDetails": false,
+      "initializer": "(obj).fieldname",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/operators.hpp",
+        "bodyStart": 50,
+        "column": 9,
+        "file": "batteries/operators.hpp",
+        "line": 50
+      },
+      "name": "BATT_OBJECT_FIELD_EXPR",
+      "override": false,
+      "params": [
+        {
+          "name": "r",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "obj",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "fieldname",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "operators_8hpp_1a8884ea0be153912ab5940eec9380825f",
+      "static": false,
+      "strong": false,
+      "title": "BATT_OBJECT_FIELD_EXPR",
+      "url": "/_autogen/Files/operators_8hpp/#define-batt-object-field-expr",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-object-field-param",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_OBJECT_FIELD_PARAM",
+      "hasDetails": false,
+      "initializer": "BATT_OBJECT_FIELD_EXPR(r, obj, fieldname),",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/operators.hpp",
+        "bodyStart": 54,
+        "column": 9,
+        "file": "batteries/operators.hpp",
+        "line": 54
+      },
+      "name": "BATT_OBJECT_FIELD_PARAM",
+      "override": false,
+      "params": [
+        {
+          "name": "r",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "obj",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "fieldname",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "operators_8hpp_1acd529ba65836bb2e17e1c7746db36f35",
+      "static": false,
+      "strong": false,
+      "title": "BATT_OBJECT_FIELD_PARAM",
+      "url": "/_autogen/Files/operators_8hpp/#define-batt-object-field-param",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-print-object-field",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_PRINT_OBJECT_FIELD",
+      "hasDetails": false,
+      "initializer": "    << \" .\"                                                                                                  \\\n    << BOOST_PP_STRINGIZE(fieldname) << \"=\"                                                                  \\\n                                     << ::batt::make_printable(BATT_OBJECT_FIELD_EXPR(r, obj, fieldname))    \\\n                                     << \",\"",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/operators.hpp",
+        "bodyStart": 58,
+        "column": 9,
+        "file": "batteries/operators.hpp",
+        "line": 58
+      },
+      "name": "BATT_PRINT_OBJECT_FIELD",
+      "override": false,
+      "params": [
+        {
+          "name": "r",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "obj",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "fieldname",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "operators_8hpp_1a76d730efccc6471a19cd409581cebfc4",
+      "static": false,
+      "strong": false,
+      "title": "BATT_PRINT_OBJECT_FIELD",
+      "url": "/_autogen/Files/operators_8hpp/#define-batt-print-object-field",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-print-object-impl",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_PRINT_OBJECT_IMPL",
+      "hasDetails": false,
+      "initializer": "    std::ostream& operator<<(std::ostream& out, const type& t)                                               \\\n    {                                                                                                        \\\n        return out << ::batt::unqualified_name_of<type>()                                                    \\\n                   << \"{\" BOOST_PP_SEQ_FOR_EACH(BATT_PRINT_OBJECT_FIELD, (t), fields_seq) << \" }\";           \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/operators.hpp",
+        "bodyStart": 66,
+        "column": 9,
+        "file": "batteries/operators.hpp",
+        "line": 66
+      },
+      "name": "BATT_PRINT_OBJECT_IMPL",
+      "override": false,
+      "params": [
+        {
+          "name": "type",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "fields_seq",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "operators_8hpp_1a636b8bdc4c6e14162638aaaccd0f62bf",
+      "static": false,
+      "strong": false,
+      "title": "BATT_PRINT_OBJECT_IMPL",
+      "url": "/_autogen/Files/operators_8hpp/#define-batt-print-object-impl",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-object-print-impl",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_OBJECT_PRINT_IMPL",
+      "hasDetails": false,
+      "initializer": "    BATT_UNWRAP inline_decl BATT_PRINT_OBJECT_IMPL(type, BOOST_PP_TUPLE_TO_SEQ(fields_tuple))",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/operators.hpp",
+        "bodyStart": 75,
+        "column": 9,
+        "file": "batteries/operators.hpp",
+        "line": 75
+      },
+      "name": "BATT_OBJECT_PRINT_IMPL",
+      "override": false,
+      "params": [
+        {
+          "name": "inline_decl",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "type",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "fields_tuple",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "operators_8hpp_1ab7fc681d5c7077118e8a7f45d7be36d5",
+      "static": false,
+      "strong": false,
+      "title": "BATT_OBJECT_PRINT_IMPL",
+      "url": "/_autogen/Files/operators_8hpp/#define-batt-object-print-impl",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-equals-object-impl",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_EQUALS_OBJECT_IMPL",
+      "hasDetails": false,
+      "initializer": "    BATT_UNWRAP inline_decl bool operator==(const type& l, const type& r)                                    \\\n    {                                                                                                        \\\n        return std::forward_as_tuple(                                                                        \\\n                   BOOST_PP_SEQ_FOR_EACH(BATT_OBJECT_FIELD_PARAM, (l), fields_seq) true) ==                  \\\n               std::forward_as_tuple(BOOST_PP_SEQ_FOR_EACH(BATT_OBJECT_FIELD_PARAM, (r), fields_seq) true);  \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/operators.hpp",
+        "bodyStart": 80,
+        "column": 9,
+        "file": "batteries/operators.hpp",
+        "line": 80
+      },
+      "name": "BATT_EQUALS_OBJECT_IMPL",
+      "override": false,
+      "params": [
+        {
+          "name": "inline_decl",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "type",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "fields_seq",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "operators_8hpp_1a408dcd5f0e59b535c38ec3ecfe22464e",
+      "static": false,
+      "strong": false,
+      "title": "BATT_EQUALS_OBJECT_IMPL",
+      "url": "/_autogen/Files/operators_8hpp/#define-batt-equals-object-impl",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-object-equals-impl",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_OBJECT_EQUALS_IMPL",
+      "hasDetails": false,
+      "initializer": "    BATT_EQUALS_OBJECT_IMPL(inline_decl, type, BOOST_PP_TUPLE_TO_SEQ(fields_tuple))",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/operators.hpp",
+        "bodyStart": 90,
+        "column": 9,
+        "file": "batteries/operators.hpp",
+        "line": 90
+      },
+      "name": "BATT_OBJECT_EQUALS_IMPL",
+      "override": false,
+      "params": [
+        {
+          "name": "inline_decl",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "type",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "fields_tuple",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "operators_8hpp_1a0f43ac21cefda931afacc8ff580ea3d6",
+      "static": false,
+      "strong": false,
+      "title": "BATT_OBJECT_EQUALS_IMPL",
+      "url": "/_autogen/Files/operators_8hpp/#define-batt-object-equals-impl",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-less-than-object-impl",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_LESS_THAN_OBJECT_IMPL",
+      "hasDetails": false,
+      "initializer": "    BATT_UNWRAP inline_decl bool operator<(const type& l, const type& r)                                     \\\n    {                                                                                                        \\\n        return std::forward_as_tuple(BOOST_PP_SEQ_FOR_EACH(BATT_OBJECT_FIELD_PARAM, (l), fields_seq) true) < \\\n               std::forward_as_tuple(BOOST_PP_SEQ_FOR_EACH(BATT_OBJECT_FIELD_PARAM, (r), fields_seq) true);  \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/operators.hpp",
+        "bodyStart": 95,
+        "column": 9,
+        "file": "batteries/operators.hpp",
+        "line": 95
+      },
+      "name": "BATT_LESS_THAN_OBJECT_IMPL",
+      "override": false,
+      "params": [
+        {
+          "name": "inline_decl",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "type",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "fields_seq",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "operators_8hpp_1a6a71ee8f44a0b6fa192ff710f5a70a9b",
+      "static": false,
+      "strong": false,
+      "title": "BATT_LESS_THAN_OBJECT_IMPL",
+      "url": "/_autogen/Files/operators_8hpp/#define-batt-less-than-object-impl",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-object-less-than-impl",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_OBJECT_LESS_THAN_IMPL",
+      "hasDetails": false,
+      "initializer": "    BATT_LESS_THAN_OBJECT_IMPL(inline_decl, type, BOOST_PP_TUPLE_TO_SEQ(fields_tuple))",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/operators.hpp",
+        "bodyStart": 104,
+        "column": 9,
+        "file": "batteries/operators.hpp",
+        "line": 104
+      },
+      "name": "BATT_OBJECT_LESS_THAN_IMPL",
+      "override": false,
+      "params": [
+        {
+          "name": "inline_decl",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "type",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "fields_tuple",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "operators_8hpp_1accc8fd4965957c14467644e719b0d756",
+      "static": false,
+      "strong": false,
+      "title": "BATT_OBJECT_LESS_THAN_IMPL",
+      "url": "/_autogen/Files/operators_8hpp/#define-batt-object-less-than-impl",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/operators.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/operators.hpp",
+    "line": 0
+  },
+  "name": "batteries/operators.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_OPERATORS_HPP\n#define BATTERIES_OPERATORS_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/stream_util.hpp>\n#include <batteries/type_traits.hpp>\n\n#include <boost/preprocessor/seq/for_each.hpp>\n#include <boost/preprocessor/stringize.hpp>\n#include <boost/preprocessor/tuple/to_seq.hpp>\n\n#include <tuple>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\n#define BATT_UNWRAP(...) __VA_ARGS__\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\n#define BATT_TOTALLY_ORDERED(inline_decl, left_type, right_type)                                             \\\n    BATT_UNWRAP inline_decl bool operator>(const left_type& l, const right_type& r)                          \\\n    {                                                                                                        \\\n        return r < l;                                                                                        \\\n    }                                                                                                        \\\n    BATT_UNWRAP inline_decl bool operator<=(const left_type& l, const right_type& r)                         \\\n    {                                                                                                        \\\n        return !(l > r);                                                                                     \\\n    }                                                                                                        \\\n    BATT_UNWRAP inline_decl bool operator>=(const left_type& l, const right_type& r)                         \\\n    {                                                                                                        \\\n        return !(l < r);                                                                                     \\\n    }\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\n#define BATT_EQUALITY_COMPARABLE(inline_decl, left_type, right_type)                                         \\\n    BATT_UNWRAP inline_decl bool operator!=(const left_type& l, const right_type& r)                         \\\n    {                                                                                                        \\\n        return !(l == r);                                                                                    \\\n    }\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\n#define BATT_OBJECT_FIELD_EXPR(r, obj, fieldname) (obj).fieldname\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\n#define BATT_OBJECT_FIELD_PARAM(r, obj, fieldname) BATT_OBJECT_FIELD_EXPR(r, obj, fieldname),\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\n#define BATT_PRINT_OBJECT_FIELD(r, obj, fieldname)                                                           \\\n    << \" .\"                                                                                                  \\\n    << BOOST_PP_STRINGIZE(fieldname) << \"=\"                                                                  \\\n                                     << ::batt::make_printable(BATT_OBJECT_FIELD_EXPR(r, obj, fieldname))    \\\n                                     << \",\"\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\n#define BATT_PRINT_OBJECT_IMPL(type, fields_seq)                                                             \\\n    std::ostream& operator<<(std::ostream& out, const type& t)                                               \\\n    {                                                                                                        \\\n        return out << ::batt::unqualified_name_of<type>()                                                    \\\n                   << \"{\" BOOST_PP_SEQ_FOR_EACH(BATT_PRINT_OBJECT_FIELD, (t), fields_seq) << \" }\";           \\\n    }\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\n#define BATT_OBJECT_PRINT_IMPL(inline_decl, type, fields_tuple)                                              \\\n    BATT_UNWRAP inline_decl BATT_PRINT_OBJECT_IMPL(type, BOOST_PP_TUPLE_TO_SEQ(fields_tuple))\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\n#define BATT_EQUALS_OBJECT_IMPL(inline_decl, type, fields_seq)                                               \\\n    BATT_UNWRAP inline_decl bool operator==(const type& l, const type& r)                                    \\\n    {                                                                                                        \\\n        return std::forward_as_tuple(                                                                        \\\n                   BOOST_PP_SEQ_FOR_EACH(BATT_OBJECT_FIELD_PARAM, (l), fields_seq) true) ==                  \\\n               std::forward_as_tuple(BOOST_PP_SEQ_FOR_EACH(BATT_OBJECT_FIELD_PARAM, (r), fields_seq) true);  \\\n    }\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\n#define BATT_OBJECT_EQUALS_IMPL(inline_decl, type, fields_tuple)                                             \\\n    BATT_EQUALS_OBJECT_IMPL(inline_decl, type, BOOST_PP_TUPLE_TO_SEQ(fields_tuple))\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\n#define BATT_LESS_THAN_OBJECT_IMPL(inline_decl, type, fields_seq)                                            \\\n    BATT_UNWRAP inline_decl bool operator<(const type& l, const type& r)                                     \\\n    {                                                                                                        \\\n        return std::forward_as_tuple(BOOST_PP_SEQ_FOR_EACH(BATT_OBJECT_FIELD_PARAM, (l), fields_seq) true) < \\\n               std::forward_as_tuple(BOOST_PP_SEQ_FOR_EACH(BATT_OBJECT_FIELD_PARAM, (r), fields_seq) true);  \\\n    }\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\n#define BATT_OBJECT_LESS_THAN_IMPL(inline_decl, type, fields_tuple)                                          \\\n    BATT_LESS_THAN_OBJECT_IMPL(inline_decl, type, BOOST_PP_TUPLE_TO_SEQ(fields_tuple))\n\n}  //namespace batt\n\n#endif  // BATTERIES_OPERATORS_HPP",
+  "refid": "operators_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/operators.hpp",
+  "url": "/_autogen/Files/operators_8hpp/#file-operators.hpp",
+  "visibility": "public"
+}
