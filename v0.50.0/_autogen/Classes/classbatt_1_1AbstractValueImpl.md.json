@@ -1,0 +1,243 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "baseClasses": [
+    {
+      "external": true,
+      "name": "AbstractType",
+      "refid": null,
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::AbstractValueImpl",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 281,
+    "bodyFile": "batteries/type_erasure.hpp",
+    "bodyStart": 246,
+    "column": 1,
+    "file": "batteries/type_erasure.hpp",
+    "line": 245
+  },
+  "name": "batt::AbstractValueImpl",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "protectedAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-obj-",
+      "category": "attributes",
+      "const": false,
+      "definition": "T batt::AbstractValueImpl< AbstractType, TypedImpl, T >::obj_",
+      "explicit": false,
+      "fullname": "batt::AbstractValueImpl::obj_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/type_erasure.hpp",
+        "bodyStart": 280,
+        "column": 7,
+        "file": "batteries/type_erasure.hpp",
+        "line": 280
+      },
+      "name": "obj_",
+      "override": false,
+      "refid": "classbatt_1_1AbstractValueImpl_1a5174fedea3e5d569fbf2904dcb3d3882",
+      "static": false,
+      "strong": false,
+      "title": "obj_",
+      "type": "T",
+      "typePlain": "T",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/#variable-obj-",
+      "visibility": "protected"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-abstractvalueimpl",
+      "argsString": "(T &&obj)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::AbstractValueImpl< AbstractType, TypedImpl, T >::AbstractValueImpl",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::AbstractValueImpl::AbstractValueImpl",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 260,
+        "bodyFile": "batteries/type_erasure.hpp",
+        "bodyStart": 250,
+        "column": 14,
+        "file": "batteries/type_erasure.hpp",
+        "line": 250
+      },
+      "name": "AbstractValueImpl",
+      "override": false,
+      "params": [
+        {
+          "name": "obj",
+          "type": "T &&",
+          "typePlain": "T &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1AbstractValueImpl_1a8e6ed437332a2207ee6543f93ee22ee6",
+      "static": false,
+      "strong": false,
+      "title": "AbstractValueImpl",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/#function-abstractvalueimpl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-copy-to",
+      "argsString": "(MutableBuffer memory) const override",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "AbstractType* batt::AbstractValueImpl< AbstractType, TypedImpl, T >::copy_to",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::AbstractValueImpl::copy_to",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 269,
+        "bodyFile": "batteries/type_erasure.hpp",
+        "bodyStart": 265,
+        "column": 18,
+        "file": "batteries/type_erasure.hpp",
+        "line": 265
+      },
+      "name": "copy_to",
+      "override": true,
+      "params": [
+        {
+          "name": "memory",
+          "type": "MutableBuffer",
+          "typePlain": "MutableBuffer"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1AbstractValueImpl_1a36fd3410fa73fbee4b01a8e35b35729f",
+      "static": false,
+      "strong": false,
+      "title": "copy_to",
+      "type": "AbstractType *",
+      "typePlain": "AbstractType *",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/#function-copy-to",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-move-to",
+      "argsString": "(MutableBuffer memory) override",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "AbstractType* batt::AbstractValueImpl< AbstractType, TypedImpl, T >::move_to",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::AbstractValueImpl::move_to",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 275,
+        "bodyFile": "batteries/type_erasure.hpp",
+        "bodyStart": 271,
+        "column": 18,
+        "file": "batteries/type_erasure.hpp",
+        "line": 271
+      },
+      "name": "move_to",
+      "override": true,
+      "params": [
+        {
+          "name": "memory",
+          "type": "MutableBuffer",
+          "typePlain": "MutableBuffer"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1AbstractValueImpl_1a95b38fec252faf228bc21c61b8281dd8",
+      "static": false,
+      "strong": false,
+      "title": "move_to",
+      "type": "AbstractType *",
+      "typePlain": "AbstractType *",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/#function-move-to",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1AbstractValueImpl",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename AbstractType",
+      "typePlain": "typename AbstractType"
+    },
+    {
+      "name": "TypedImpl",
+      "type": "template< typename > class",
+      "typePlain": "template< typename > class"
+    },
+    {
+      "name": "",
+      "type": "typename T",
+      "typePlain": "typename T"
+    }
+  ],
+  "title": "batt::AbstractValueImpl",
+  "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
+  "visibility": "public"
+}
