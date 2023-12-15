@@ -1,0 +1,85 @@
+{
+  "abstract": false,
+  "anchor": "#file-stacktrace.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-stacktrace-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_STACKTRACE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/stacktrace.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/stacktrace.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_STACKTRACE_HPP",
+      "override": false,
+      "refid": "stacktrace_8hpp_1a2164a812fc940357748d00fe1066f3da",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_STACKTRACE_HPP",
+      "url": "/_autogen/Files/stacktrace_8hpp/#define-batteries-stacktrace-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/stacktrace.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<boost/stacktrace.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/stacktrace.hpp",
+    "line": 0
+  },
+  "name": "batteries/stacktrace.hpp",
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_STACKTRACE_HPP\n#define BATTERIES_STACKTRACE_HPP\n\n#ifdef BOOST_STACKTRACE_USE_NOOP\n#undef BOOST_STACKTRACE_USE_NOOP\n#endif  // BOOST_STACKTRACE_USE_NOOP\n\n// IMPORTANT: This file must not include any batteries/*.hpp!\n\n#if defined(__GNUC__) && !defined(__clang__)\n#pragma GCC diagnostic push\n#pragma GCC diagnostic ignored \"-Wmaybe-uninitialized\"\n#endif\n\n#include <boost/stacktrace.hpp>\n\n#if defined(__GNUC__) && !defined(__clang__)\n#pragma GCC diagnostic pop\n#endif\n\n#endif  // BATTERIES_STACKTRACE_HPP",
+  "refid": "stacktrace_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/stacktrace.hpp",
+  "url": "/_autogen/Files/stacktrace_8hpp/#file-stacktrace.hpp",
+  "visibility": "public"
+}
