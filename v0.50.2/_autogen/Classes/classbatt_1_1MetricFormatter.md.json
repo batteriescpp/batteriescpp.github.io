@@ -1,0 +1,499 @@
+{
+  "abstract": true,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "derivedClasses": [
+    {
+      "external": false,
+      "name": "batt::MetricCsvFormatter",
+      "refid": "classbatt_1_1MetricCsvFormatter",
+      "url": "/_autogen/Classes/classbatt_1_1MetricCsvFormatter/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    },
+    {
+      "external": false,
+      "name": "batt::MetricOpenTelemetryFormatter",
+      "refid": "classbatt_1_1MetricOpenTelemetryFormatter",
+      "url": "/_autogen/Classes/classbatt_1_1MetricOpenTelemetryFormatter/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
+  "explicit": false,
+  "fullname": "batt::MetricFormatter",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 61,
+    "bodyFile": "batteries/metrics/metric_formatter.hpp",
+    "bodyStart": 18,
+    "column": 1,
+    "file": "batteries/metrics/metric_formatter.hpp",
+    "line": 17
+  },
+  "name": "batt::MetricFormatter",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "protectedFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-metricformatter",
+      "argsString": "()=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::MetricFormatter::MetricFormatter",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricFormatter::MetricFormatter",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/metrics/metric_formatter.hpp",
+        "line": 38
+      },
+      "name": "MetricFormatter",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricFormatter_1aefb08305052e68f1f1e09dd85ab80654",
+      "static": false,
+      "strong": false,
+      "title": "MetricFormatter",
+      "url": "/_autogen/Classes/classbatt_1_1MetricFormatter/#function-metricformatter",
+      "virtual": false,
+      "visibility": "protected"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-fully-qualified-name",
+      "argsString": "(std::string_view name, const MetricLabelSet &labels)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::string batt::MetricFormatter::fully_qualified_name",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricFormatter::fully_qualified_name",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 60,
+        "bodyFile": "batteries/metrics/metric_formatter.hpp",
+        "bodyStart": 43,
+        "column": 17,
+        "file": "batteries/metrics/metric_formatter.hpp",
+        "line": 43
+      },
+      "name": "fully_qualified_name",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "labels",
+          "type": "const MetricLabelSet &",
+          "typePlain": "const MetricLabelSet &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricFormatter_1a3381e4eb37799da368b07ec9d44eb432",
+      "static": false,
+      "strong": false,
+      "title": "fully_qualified_name",
+      "type": "std::string",
+      "typePlain": "std::string",
+      "url": "/_autogen/Classes/classbatt_1_1MetricFormatter/#function-fully-qualified-name",
+      "virtual": false,
+      "visibility": "protected"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-metricformatter",
+      "argsString": "(const MetricFormatter &)=delete",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::MetricFormatter::MetricFormatter",
+      "deleted": true,
+      "explicit": false,
+      "fullname": "batt::MetricFormatter::MetricFormatter",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/metrics/metric_formatter.hpp",
+        "line": 20
+      },
+      "name": "MetricFormatter",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [MetricFormatter](/_autogen/Classes/classbatt_1_1MetricFormatter/) &",
+          "typePlain": "const MetricFormatter &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricFormatter_1a07584ad8cf9279a2959cec63011fb1b5",
+      "static": false,
+      "strong": false,
+      "title": "MetricFormatter",
+      "url": "/_autogen/Classes/classbatt_1_1MetricFormatter/#function-metricformatter",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(const MetricFormatter &)=delete",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricFormatter& batt::MetricFormatter::operator=",
+      "deleted": true,
+      "explicit": false,
+      "fullname": "batt::MetricFormatter::operator=",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 21,
+        "file": "batteries/metrics/metric_formatter.hpp",
+        "line": 21
+      },
+      "name": "operator=",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [MetricFormatter](/_autogen/Classes/classbatt_1_1MetricFormatter/) &",
+          "typePlain": "const MetricFormatter &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricFormatter_1acd86c8e19976584fdf08ac5c399d1e27",
+      "static": false,
+      "strong": false,
+      "title": "operator=",
+      "type": "[MetricFormatter](/_autogen/Classes/classbatt_1_1MetricFormatter/) &",
+      "typePlain": "MetricFormatter &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricFormatter/#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-~metricformatter",
+      "argsString": "()=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "virtual batt::MetricFormatter::~MetricFormatter",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricFormatter::~MetricFormatter",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 13,
+        "file": "batteries/metrics/metric_formatter.hpp",
+        "line": 23
+      },
+      "name": "~MetricFormatter",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricFormatter_1a20daa148c0f4c4d2cfdc57988677ea17",
+      "static": false,
+      "strong": false,
+      "title": "~MetricFormatter",
+      "url": "/_autogen/Classes/classbatt_1_1MetricFormatter/#function-~metricformatter",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-initialize",
+      "argsString": "(MetricRegistry &src, std::ostream &dst)=0",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "virtual void batt::MetricFormatter::initialize",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricFormatter::initialize",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 18,
+        "file": "batteries/metrics/metric_formatter.hpp",
+        "line": 27
+      },
+      "name": "initialize",
+      "override": false,
+      "params": [
+        {
+          "name": "src",
+          "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+          "typePlain": "MetricRegistry &"
+        },
+        {
+          "name": "dst",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        }
+      ],
+      "pureVirtual": true,
+      "refid": "classbatt_1_1MetricFormatter_1a8d3234c4ad9b9946b31735c8a9532262",
+      "reimplementedBy": [
+        {
+          "anchor": "#function-initialize",
+          "category": "functions",
+          "fullname": "batt::MetricCsvFormatter::initialize",
+          "kind": "function",
+          "language": "cpp",
+          "name": "initialize",
+          "pureVirtual": false,
+          "refid": "classbatt_1_1MetricCsvFormatter_1a1f2d364deda3bb0a24527f7068eb3f89",
+          "title": "initialize",
+          "url": "/_autogen/Classes/classbatt_1_1MetricCsvFormatter/#function-initialize",
+          "virtual": true,
+          "visibility": "public"
+        },
+        {
+          "anchor": "#function-initialize",
+          "brief": "Nothing to do for OpenTelemtry format (stateless implementation). ",
+          "category": "functions",
+          "fullname": "batt::MetricOpenTelemetryFormatter::initialize",
+          "kind": "function",
+          "language": "cpp",
+          "name": "initialize",
+          "pureVirtual": false,
+          "refid": "classbatt_1_1MetricOpenTelemetryFormatter_1acf2ae897e57e9551a0a513eaef9e4c01",
+          "summary": "Nothing to do for OpenTelemtry format (stateless implementation). ",
+          "title": "initialize",
+          "url": "/_autogen/Classes/classbatt_1_1MetricOpenTelemetryFormatter/#function-initialize",
+          "virtual": true,
+          "visibility": "public"
+        }
+      ],
+      "static": false,
+      "strong": false,
+      "title": "initialize",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1MetricFormatter/#function-initialize",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-format-values",
+      "argsString": "(MetricRegistry &src, std::ostream &dst)=0",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "virtual void batt::MetricFormatter::format_values",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricFormatter::format_values",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 18,
+        "file": "batteries/metrics/metric_formatter.hpp",
+        "line": 31
+      },
+      "name": "format_values",
+      "override": false,
+      "params": [
+        {
+          "name": "src",
+          "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+          "typePlain": "MetricRegistry &"
+        },
+        {
+          "name": "dst",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        }
+      ],
+      "pureVirtual": true,
+      "refid": "classbatt_1_1MetricFormatter_1a9aa70b2e99f736887635173651b2b788",
+      "reimplementedBy": [
+        {
+          "anchor": "#function-format-values",
+          "category": "functions",
+          "fullname": "batt::MetricCsvFormatter::format_values",
+          "kind": "function",
+          "language": "cpp",
+          "name": "format_values",
+          "pureVirtual": false,
+          "refid": "classbatt_1_1MetricCsvFormatter_1ac4b31e1685e5859e6b85595eb51da409",
+          "title": "format_values",
+          "url": "/_autogen/Classes/classbatt_1_1MetricCsvFormatter/#function-format-values",
+          "virtual": true,
+          "visibility": "public"
+        },
+        {
+          "anchor": "#function-format-values",
+          "brief": "Format the current metrics and values stored in `src` to `dst`. ",
+          "category": "functions",
+          "fullname": "batt::MetricOpenTelemetryFormatter::format_values",
+          "kind": "function",
+          "language": "cpp",
+          "name": "format_values",
+          "pureVirtual": false,
+          "refid": "classbatt_1_1MetricOpenTelemetryFormatter_1ae01a78c583e61aecae4b643d5941596b",
+          "summary": "Format the current metrics and values stored in src to dst. ",
+          "title": "format_values",
+          "url": "/_autogen/Classes/classbatt_1_1MetricOpenTelemetryFormatter/#function-format-values",
+          "virtual": true,
+          "visibility": "public"
+        }
+      ],
+      "static": false,
+      "strong": false,
+      "title": "format_values",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1MetricFormatter/#function-format-values",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-finished",
+      "argsString": "(MetricRegistry &src, std::ostream &dst)=0",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "virtual void batt::MetricFormatter::finished",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricFormatter::finished",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 18,
+        "file": "batteries/metrics/metric_formatter.hpp",
+        "line": 35
+      },
+      "name": "finished",
+      "override": false,
+      "params": [
+        {
+          "name": "src",
+          "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+          "typePlain": "MetricRegistry &"
+        },
+        {
+          "name": "dst",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        }
+      ],
+      "pureVirtual": true,
+      "refid": "classbatt_1_1MetricFormatter_1a2a5042babc0c28e9f1bdaf38b0848bd7",
+      "reimplementedBy": [
+        {
+          "anchor": "#function-finished",
+          "category": "functions",
+          "fullname": "batt::MetricCsvFormatter::finished",
+          "kind": "function",
+          "language": "cpp",
+          "name": "finished",
+          "pureVirtual": false,
+          "refid": "classbatt_1_1MetricCsvFormatter_1ada3dee9c9fe52abc28a79f3c11a6e733",
+          "title": "finished",
+          "url": "/_autogen/Classes/classbatt_1_1MetricCsvFormatter/#function-finished",
+          "virtual": true,
+          "visibility": "public"
+        },
+        {
+          "anchor": "#function-finished",
+          "brief": "Nothing to do for OpenTelemtry format (stateless implementation). ",
+          "category": "functions",
+          "fullname": "batt::MetricOpenTelemetryFormatter::finished",
+          "kind": "function",
+          "language": "cpp",
+          "name": "finished",
+          "pureVirtual": false,
+          "refid": "classbatt_1_1MetricOpenTelemetryFormatter_1ae3098c52c9e62fc7249960142ec3a5ef",
+          "summary": "Nothing to do for OpenTelemtry format (stateless implementation). ",
+          "title": "finished",
+          "url": "/_autogen/Classes/classbatt_1_1MetricOpenTelemetryFormatter/#function-finished",
+          "virtual": true,
+          "visibility": "public"
+        }
+      ],
+      "static": false,
+      "strong": false,
+      "title": "finished",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1MetricFormatter/#function-finished",
+      "virtual": true,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1MetricFormatter",
+  "static": false,
+  "strong": false,
+  "title": "batt::MetricFormatter",
+  "url": "/_autogen/Classes/classbatt_1_1MetricFormatter/",
+  "visibility": "public"
+}
