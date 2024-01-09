@@ -1,0 +1,215 @@
+{
+  "abstract": false,
+  "anchor": "#file-read-write-lock.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-read-write-lock-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_READ_WRITE_LOCK_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/read_write_lock.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_READ_WRITE_LOCK_HPP",
+      "override": false,
+      "refid": "read__write__lock_8hpp_1ac146c8b7ae9bd992317222f4709de3c0",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_READ_WRITE_LOCK_HPP",
+      "url": "/_autogen/Files/read__write__lock_8hpp/#define-batteries-async-read-write-lock-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/read_write_lock.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/read_write_lock.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/read_write_lock.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2023-2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_READ_WRITE_LOCK_HPP\n#define BATTERIES_ASYNC_READ_WRITE_LOCK_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/assert.hpp>\n#include <batteries/async/futex.hpp>\n#include <batteries/async/task.hpp>\n#include <batteries/async/watch.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/logging.hpp>\n\n#include <atomic>\n#include <bitset>\n#include <ostream>\n\nnamespace batt {\n\nstruct DumpReadWriteLockState {\n    u32 state_value;\n};\n\nstd::ostream& operator<<(std::ostream& out, const DumpReadWriteLockState& dump);\n\ntemplate <template <typename> class WatchImplT, bool kPollForNext = false>\nclass BasicReadWriteLock\n{\n   public:\n    using Lock = BasicReadWriteLock;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    static constexpr u32 kBlockedMask = 0b1;\n    static constexpr u32 kBlockedFalse = 0b0;\n    static constexpr u32 kBlockedTrue = 0b1;\n    static constexpr u32 kSuccessorMask = 0b110;\n    static constexpr u32 kSuccessorNone = 0b000;\n    static constexpr u32 kSuccessorReader = 0b010;\n    static constexpr u32 kSuccessorWriter = 0b100;\n\n    static constexpr u32 make_state(u32 is_blocked, u32 successor_class) noexcept\n    {\n        return (is_blocked & kBlockedMask) | (successor_class & kSuccessorMask);\n    }\n\n    static constexpr bool is_blocked_from_state(u32 state) noexcept\n    {\n        return (state & kBlockedMask) != 0;\n    }\n\n    static constexpr u32 successor_class_from_state(u32 state) noexcept\n    {\n        return (state & kSuccessorMask);\n    }\n\n    using DumpState = DumpReadWriteLockState;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    class QueueNode\n    {\n       public:\n        enum NodeClass {\n            kReading,\n            kWriting,\n        };\n\n        //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n        explicit QueueNode(Lock* lock, NodeClass node_class) noexcept : lock_{lock}, class_{node_class}\n        {\n        }\n\n        //----- --- -- -  -  -   -\n        QueueNode* fast_lock_or_get_predecessor(u32& observed_state) noexcept\n        {\n            observed_state = make_state(kBlockedTrue, kSuccessorNone);\n\n            this->next_->set_value(nullptr);\n            this->state_->set_value(observed_state);\n\n            return this->lock_->tail_->exchange(this);\n        }\n\n        //----- --- -- -  -  -   -\n        void set_unblocked(u32& observed_state) noexcept\n        {\n            observed_state = this->state_->fetch_and(~kBlockedTrue) & ~kBlockedTrue;\n        }\n\n        //----- --- -- -  -  -   -\n        void await_unblocked(u32& observed_state) noexcept\n        {\n            // We have exceeded the maximum allowed initial spin cycles; use the more expensive `await_true`\n            // method.\n            //\n            const StatusOr<u32> new_observed_state =  //\n                this->state_->await_true([](u32 observed_state) {\n                    return !is_blocked_from_state(observed_state);\n                });\n\n            BATT_CHECK_OK(new_observed_state);\n\n            observed_state = *new_observed_state;\n        }\n\n        //----- --- -- -  -  -   -\n        bool fast_unlock(QueueNode*& observed_next) noexcept\n        {\n            observed_next = this->next_->get_value();\n\n            if (observed_next == nullptr) {\n                QueueNode* presumed_tail = this;\n                do {\n                    if (this->lock_->tail_->compare_exchange_weak(presumed_tail, nullptr)) {\n                        // Fast-path release - this QueueNode is (still) the tail and we successfully set\n                        // tail to nullptr.  Return!\n                        //\n                        return true;\n                    }\n                } while (this == presumed_tail);\n\n                // Fast-path failed, so we know there is a successor to `this`; wait for them to set our\n                // `next` pointer.\n                //\n                this->await_next(observed_next);\n            }\n\n            return false;\n        }\n\n        //----- --- -- -  -  -   -\n        void await_next(QueueNode*& observed_next)\n        {\n            if (kPollForNext) {\n                while (observed_next == nullptr) {\n                    observed_next = this->next_->poll();\n                }\n\n            } else {\n                const StatusOr<QueueNode*> new_observed_next = this->next_->await_not_equal(nullptr);\n                BATT_CHECK_OK(new_observed_next);\n                observed_next = *new_observed_next;\n            }\n        }\n\n        //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n        Lock* const lock_;\n        NodeClass const class_;\n        CpuCacheLineIsolated<WatchImplT<QueueNode*>> next_;\n        CpuCacheLineIsolated<WatchImplT<u32>> state_;\n    };\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    class Reader : private QueueNode\n    {\n       public:\n        explicit Reader(Lock& lock) noexcept : QueueNode{&lock, QueueNode::kReading}\n        {\n            this->lock_for_read_impl();\n        }\n\n        ~Reader() noexcept\n        {\n            this->unlock_for_read_impl();\n        }\n\n        Lock* lock() const noexcept\n        {\n            return this->lock_;\n        }\n\n        //+++++++++++-+-+--+----- --- -- -  -  -   -\n       private:\n        void lock_for_read_impl() noexcept\n        {\n            u32 observed_state = 0;\n\n            QueueNode* const pred = this->fast_lock_or_get_predecessor(observed_state);\n\n            if (pred == nullptr) {\n                this->lock_->reader_count_->fetch_add(1);\n                this->set_unblocked(observed_state);\n\n            } else {\n                // If our predecessor is a writer or a blocked reader whose state we were able to update (via\n                // CAS) to {successor_class = reader}, then we can count on `pred` to set our state to\n                // unblocked, so set pred->next to us and await that state change.\n                //\n                u32 presumed_pred_state = make_state(kBlockedTrue, kSuccessorNone);\n\n                if (pred->class_ == QueueNode::kWriting ||\n                    pred->state_->compare_exchange(presumed_pred_state,\n                                                   make_state(kBlockedTrue, kSuccessorReader)))  //\n                {\n                    pred->next_->set_value(this);\n                    this->await_unblocked(observed_state);\n\n                } else {\n                    // `pred` is a non-blocked reader; that means we are also unblocked!\n                    //\n                    this->lock_->reader_count_->fetch_add(1);\n                    pred->next_->set_value(this);\n                    this->set_unblocked(observed_state);\n                }\n            }\n            //\n            // At this point, we are NOT blocked.\n\n            if (successor_class_from_state(observed_state) == kSuccessorReader) {\n                QueueNode* observed_next = this->next_->get_value();\n                //----- --- -- -  -  -   -\n                this->await_next(observed_next);\n                //----- --- -- -  -  -   -\n                this->lock_->reader_count_->fetch_add(1);\n                u32 observed_next_state = 0;\n                observed_next->set_unblocked(observed_next_state);\n            }\n        }\n\n        void unlock_for_read_impl() noexcept\n        {\n            QueueNode* observed_next = nullptr;\n\n            if (!this->fast_unlock(observed_next)) {\n                //\n                // At this point, observed_next is NOT nullptr.\n\n                const u32 observed_state = this->state_->get_value();\n                if (successor_class_from_state(observed_state) == kSuccessorWriter) {\n                    this->lock_->next_writer_->store(observed_next);\n                }\n            }\n\n            // If this QueueNode is the last reader, then it's our job to wake the next writer in the queue.\n            //\n            if (this->lock_->reader_count_->fetch_sub(1) == 1) {\n                QueueNode* const observed_next_writer = this->lock_->next_writer_->exchange(nullptr);\n                if (observed_next_writer != nullptr) {\n                    u32 observed_next_writer_state = 0;\n                    observed_next_writer->set_unblocked(observed_next_writer_state);\n                }\n            }\n        }\n    };\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    class Writer : private QueueNode\n    {\n       public:\n        explicit Writer(Lock& lock) noexcept : QueueNode{&lock, QueueNode::kWriting}\n        {\n            this->lock_for_write_impl();\n        }\n\n        ~Writer() noexcept\n        {\n            this->unlock_for_write_impl();\n        }\n\n        Lock* lock() const noexcept\n        {\n            return this->lock_;\n        }\n\n        //+++++++++++-+-+--+----- --- -- -  -  -   -\n       private:\n        void lock_for_write_impl() noexcept\n        {\n            u32 observed_state = 0;\n\n            QueueNode* const pred = this->fast_lock_or_get_predecessor(observed_state);\n\n            if (pred == nullptr) {\n                this->lock_->next_writer_->store(this);\n                if (this->lock_->reader_count_->load() == 0 &&\n                    this->lock_->next_writer_->exchange(nullptr) == this) {\n                    this->set_unblocked(observed_state);\n                    return;\n                }\n\n            } else {\n                // IMPORTANT: this assumes the bits 0b110 are zero!\n                //\n                const u32 prior_pred_state = pred->state_->fetch_or(kSuccessorWriter);\n                BATT_CHECK_EQ((prior_pred_state & kSuccessorMask), kSuccessorNone);\n\n                // IMPORTANT: updating pred->next_ must come after modifying pred->state_!\n                //\n                pred->next_->set_value(this);\n            }\n\n            this->await_unblocked(observed_state);\n        }\n\n        void unlock_for_write_impl() noexcept\n        {\n            QueueNode* observed_next = nullptr;\n\n            if (!this->fast_unlock(observed_next)) {\n                //\n                // At this point, observed_next is NOT nullptr.\n\n                if (observed_next->class_ == QueueNode::kReading) {\n                    this->lock_->reader_count_->fetch_add(1);\n                }\n\n                // Set next->blocked to false to allow the next thread to run.\n                //\n                u32 observed_next_state = 0;\n                observed_next->set_unblocked(observed_next_state);\n            }\n        }\n    };\n\n    i64 reader_count() const noexcept\n    {\n        return this->reader_count_->load();\n    }\n\n   private:\n    CpuCacheLineIsolated<std::atomic<QueueNode*>> tail_{nullptr};\n    CpuCacheLineIsolated<std::atomic<i64>> reader_count_{0};\n    CpuCacheLineIsolated<std::atomic<QueueNode*>> next_writer_{nullptr};\n};\n\nusing ReadWriteLock = BasicReadWriteLock</*WatchImplT=*/WatchAtomic>;\n\ninline std::ostream& operator<<(std::ostream& out, const DumpReadWriteLockState& dump)\n{\n    out << std::bitset<3>{dump.state_value} << \"(\";\n\n    if ((dump.state_value & ReadWriteLock::kBlockedMask) == ReadWriteLock::kBlockedTrue) {\n        out << \"blocked\";\n    } else {\n        out << \"unblocked\";\n    }\n\n    out << \",succ=\";\n\n    switch (dump.state_value & ReadWriteLock::kSuccessorMask) {\n    case ReadWriteLock::kSuccessorNone:\n        out << \"none\";\n        break;\n\n    case ReadWriteLock::kSuccessorReader:\n        out << \"reader\";\n        break;\n\n    case ReadWriteLock::kSuccessorWriter:\n        out << \"writer\";\n        break;\n\n    default:\n        out << \"INVALID\";\n        break;\n    }\n\n    return out << \")\";\n}\n\n}  //namespace batt\n\n#endif  // BATTERIES_ASYNC_READ_WRITE_LOCK_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::DumpReadWriteLockState",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::DumpReadWriteLockState",
+      "refid": "structbatt_1_1DumpReadWriteLockState",
+      "title": "batt::DumpReadWriteLockState",
+      "url": "/_autogen/Classes/structbatt_1_1DumpReadWriteLockState/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "An MCS-style fair reader/writer lock. ",
+      "category": "classes",
+      "fullname": "batt::BasicReadWriteLock",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicReadWriteLock",
+      "refid": "classbatt_1_1BasicReadWriteLock",
+      "summary": "An MCS-style fair reader/writer lock. ",
+      "title": "batt::BasicReadWriteLock",
+      "url": "/_autogen/Classes/classbatt_1_1BasicReadWriteLock/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Base class for [Reader]() and [Writer]() scoped lock guards. ",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::BasicReadWriteLock< WatchImplT, kPollForNext >::Reader",
+          "refid": "classbatt_1_1BasicReadWriteLock_1_1Reader",
+          "url": "/_autogen/Classes/classbatt_1_1BasicReadWriteLock_1_1Reader/",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        },
+        {
+          "external": false,
+          "name": "batt::BasicReadWriteLock< WatchImplT, kPollForNext >::Writer",
+          "refid": "classbatt_1_1BasicReadWriteLock_1_1Writer",
+          "url": "/_autogen/Classes/classbatt_1_1BasicReadWriteLock_1_1Writer/",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "fullname": "batt::BasicReadWriteLock::QueueNode",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicReadWriteLock::QueueNode",
+      "refid": "classbatt_1_1BasicReadWriteLock_1_1QueueNode",
+      "summary": "Base class for Reader and Writer scoped lock guards. ",
+      "title": "batt::BasicReadWriteLock::QueueNode",
+      "url": "/_autogen/Classes/classbatt_1_1BasicReadWriteLock_1_1QueueNode/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::BasicReadWriteLock< WatchImplT, kPollForNext >::QueueNode",
+          "refid": "classbatt_1_1BasicReadWriteLock_1_1QueueNode",
+          "url": "/_autogen/Classes/classbatt_1_1BasicReadWriteLock_1_1QueueNode/",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::BasicReadWriteLock::Reader",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicReadWriteLock::Reader",
+      "refid": "classbatt_1_1BasicReadWriteLock_1_1Reader",
+      "title": "batt::BasicReadWriteLock::Reader",
+      "url": "/_autogen/Classes/classbatt_1_1BasicReadWriteLock_1_1Reader/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::BasicReadWriteLock< WatchImplT, kPollForNext >::QueueNode",
+          "refid": "classbatt_1_1BasicReadWriteLock_1_1QueueNode",
+          "url": "/_autogen/Classes/classbatt_1_1BasicReadWriteLock_1_1QueueNode/",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::BasicReadWriteLock::Writer",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicReadWriteLock::Writer",
+      "refid": "classbatt_1_1BasicReadWriteLock_1_1Writer",
+      "title": "batt::BasicReadWriteLock::Writer",
+      "url": "/_autogen/Classes/classbatt_1_1BasicReadWriteLock_1_1Writer/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "read__write__lock_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/read_write_lock.hpp",
+  "url": "/_autogen/Files/read__write__lock_8hpp/#file-read-write-lock.hpp",
+  "visibility": "public"
+}
