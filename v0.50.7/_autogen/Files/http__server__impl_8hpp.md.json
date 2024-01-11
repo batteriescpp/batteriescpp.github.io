@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-http-server-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-http-http-server-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_HTTP_HTTP_SERVER_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/http_server_impl.hpp",
+        "bodyStart": 3,
+        "column": 9,
+        "file": "batteries/http/http_server_impl.hpp",
+        "line": 3
+      },
+      "name": "BATTERIES_HTTP_HTTP_SERVER_IMPL_HPP",
+      "override": false,
+      "refid": "http__server__impl_8hpp_1a78428485922162ca294dbb58761e2666",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_HTTP_HTTP_SERVER_IMPL_HPP",
+      "url": "/_autogen/Files/http__server__impl_8hpp/#define-batteries-http-http-server-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/http/http_server_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/http/http_server_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/http/http_server_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/http",
+    "category": "dirs",
+    "fullname": "batteries/http",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/http",
+    "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+    "title": "batteries/http",
+    "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/http",
+      "category": "dirs",
+      "fullname": "batteries/http",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/http",
+      "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+      "title": "batteries/http",
+      "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "#pragma once\n#ifndef BATTERIES_HTTP_HTTP_SERVER_IMPL_HPP\n#define BATTERIES_HTTP_HTTP_SERVER_IMPL_HPP\n\n#include <batteries/config.hpp>\n\n#include <batteries/http/http_server.hpp>\n\n#include <batteries/assert.hpp>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*explicit*/ HttpServer::HttpServer(boost::asio::io_context& io, HostAddress&& host_address,\n                                                     RequestDispatcherFactoryFn&& dispatcher_factory) noexcept\n    : io_{io}\n    , host_address_{std::move(host_address)}\n    , dispatcher_factory_{std::move(dispatcher_factory)}\n    , acceptor_task_{io.get_executor(),\n                     [this] {\n                         this->acceptor_task_main();\n                     },\n                     \"HttpServer::acceptor_task\"}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL HttpServer::~HttpServer() noexcept\n{\n    this->halt();\n    this->join();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void HttpServer::halt()\n{\n    this->halt_requested_.set_value(true);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void HttpServer::join()\n{\n    this->acceptor_task_.join();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void HttpServer::acceptor_task_main()\n{\n    this->final_status_ = [&]() -> Status {\n        BATT_CHECK_EQ(this->host_address_.scheme, \"http\") << \"TODO [tastolfi 2022-05-06] implement https!\";\n    }();\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_HTTP_HTTP_SERVER_IMPL_HPP",
+  "refid": "http__server__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/http/http_server_impl.hpp",
+  "url": "/_autogen/Files/http__server__impl_8hpp/#file-http-server-impl.hpp",
+  "visibility": "public"
+}

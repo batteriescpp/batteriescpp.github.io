@@ -1,0 +1,127 @@
+{
+  "abstract": false,
+  "anchor": "#file-inline-sub-task.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-inline-sub-task-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_INLINE_SUB_TASK_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/inline_sub_task.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/inline_sub_task.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_INLINE_SUB_TASK_HPP",
+      "override": false,
+      "refid": "inline__sub__task_8hpp_1a7decc348874340bcc0e707032b292adc",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_INLINE_SUB_TASK_HPP",
+      "url": "/_autogen/Files/inline__sub__task_8hpp/#define-batteries-async-inline-sub-task-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/inline_sub_task.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/inline_sub_task.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/inline_sub_task.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_INLINE_SUB_TASK_HPP\n#define BATTERIES_ASYNC_INLINE_SUB_TASK_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/async_run_task.hpp>\n#include <batteries/async/handler.hpp>\n#include <batteries/async/task.hpp>\n#include <batteries/async/watch.hpp>\n\n#include <batteries/constants.hpp>\n#include <batteries/int_types.hpp>\n\n#include <atomic>\n\nnamespace batt {\n\ntemplate <usize kStackBufferSize>\nclass InlineSubTask\n{\n   public:\n    static constexpr usize kTaskStackOverhead = 4 * kKiB;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    template <typename BodyFn, typename... TaskArgs>\n    explicit InlineSubTask(const boost::asio::any_io_executor& ex, BodyFn&& body_fn,\n                           TaskArgs&&... task_args) noexcept\n        : task_{async_run_task(                                  //\n              ex,                                                //\n              StackSize{kStackBufferSize - kTaskStackOverhead},  //\n              BATT_FORWARD(body_fn),                             //\n              Task::GetIsStarted{&this->is_started_},            //\n              BATT_FORWARD(task_args)...,                        //\n              /*completion_handler=*/[this] {\n                  BATT_CHECK(!this->handler_memory_.in_use());\n                  this->completed_.set_value_and_release(true);\n              })}\n    {\n        // If the task was started in the ctor, then don't save `this->task_`, since it may dangle at any\n        // moment!\n        //\n        if (this->is_started_) {\n            this->task_ = nullptr;\n        }\n    }\n\n    //----- --- -- -  -  -   -\n    InlineSubTask(const InlineSubTask&) = delete;\n    InlineSubTask& operator=(const InlineSubTask&) = delete;\n    //----- --- -- -  -  -   -\n\n    ~InlineSubTask() noexcept\n    {\n        this->join();\n    }\n\n    void start() noexcept\n    {\n        if (this->task_) {\n            Task* local_task = nullptr;\n            std::swap(local_task, this->task_);\n            local_task->start();\n        }\n    }\n\n    bool is_started() const noexcept\n    {\n        return this->task_ == nullptr;\n    }\n\n    void join() noexcept\n    {\n        BATT_CHECK_OK(this->completed_.await_equal(true));\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    HandlerMemory<kStackBufferSize> handler_memory_;\n\n    Watch<bool> completed_{false};\n\n    bool is_started_ = false;\n\n    Task* task_ = nullptr;\n};\n\n}  //namespace batt\n\n#endif  // BATTERIES_ASYNC_INLINE_SUB_TASK_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "A scoped asynchronous task with inline stack memory. ",
+      "category": "classes",
+      "fullname": "batt::InlineSubTask",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::InlineSubTask",
+      "refid": "classbatt_1_1InlineSubTask",
+      "summary": "A scoped asynchronous task with inline stack memory. ",
+      "title": "batt::InlineSubTask",
+      "url": "/_autogen/Classes/classbatt_1_1InlineSubTask/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "inline__sub__task_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/inline_sub_task.hpp",
+  "url": "/_autogen/Files/inline__sub__task_8hpp/#file-inline-sub-task.hpp",
+  "visibility": "public"
+}
