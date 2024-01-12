@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-futex.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-futex-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_FUTEX_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/futex.hpp",
+        "bodyStart": 3,
+        "column": 9,
+        "file": "batteries/async/futex.hpp",
+        "line": 3
+      },
+      "name": "BATTERIES_ASYNC_FUTEX_HPP",
+      "override": false,
+      "refid": "futex_8hpp_1a83e4dd87f253069b7fd3fb70bd25cc6d",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_FUTEX_HPP",
+      "url": "/_autogen/Files/futex_8hpp/#define-batteries-async-futex-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/futex.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/futex.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/futex.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "#pragma once\n#ifndef BATTERIES_ASYNC_FUTEX_HPP\n#define BATTERIES_ASYNC_FUTEX_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/int_types.hpp>\n#include <batteries/syscall_retry.hpp>\n\n#ifdef BATT_PLATFORM_IS_LINUX\n#include <linux/futex.h>\n#include <sched.h>\n#include <sys/syscall.h>\n#endif\n\n#include <atomic>\n#include <thread>\n#include <type_traits>\n\nnamespace batt {\n\n#if defined(BATT_PLATFORM_IS_LINUX)\n\nstatic_assert(std::is_same_v<int, i32>);\n\ninline int futex_impl(u32* uaddr, i32 futex_op, u32 val, const struct timespec* timeout, u32* uaddr2,\n                      u32 val3)\n{\n    return syscall_retry([&] {\n        return syscall(SYS_futex, uaddr, futex_op, val, timeout, uaddr2, val3);\n    });\n}\n\ninline int futex_wait(std::atomic<u32>* var, u32 last_seen)\n{\n    static_assert(sizeof(std::atomic<u32>) == sizeof(u32));\n    return futex_impl((u32*)var, FUTEX_WAIT_PRIVATE, last_seen, NULL, NULL, 0);\n}\n\ninline int futex_notify(std::atomic<u32>* var, u32 count = 1)\n{\n    static_assert(sizeof(std::atomic<u32>) == sizeof(u32));\n    return futex_impl((u32*)var, FUTEX_WAKE_PRIVATE, count, NULL, NULL, 0);\n}\n\ninline void spin_yield()\n{\n    sched_yield();\n}\n\n#else\n\ninline int futex_wait(std::atomic<u32>*, u32)\n{\n    return 0;\n}\n\ninline int futex_notify(std::atomic<u32>*, u32 = 1)\n{\n    return 0;\n}\n\ninline void spin_yield()\n{\n    std::this_thread::yield();\n}\n\n#endif\n\n}  //namespace batt\n\n#endif  // BATTERIES_ASYNC_FUTEX_HPP",
+  "refid": "futex_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/futex.hpp",
+  "url": "/_autogen/Files/futex_8hpp/#file-futex.hpp",
+  "visibility": "public"
+}

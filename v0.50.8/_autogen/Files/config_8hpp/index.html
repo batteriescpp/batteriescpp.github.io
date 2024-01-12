@@ -1,0 +1,1446 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+    
+    
+      
+        <title>batteries/config.hpp - Batteries C++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#namespaces" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Batteries C++" class="md-header__button md-logo" aria-label="Batteries C++" data-md-component="logo">
+      <img width="100px" src="/images/BatteriesLogo.png">
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/releaseNavOptions.js" type="application/javascript"></script>
+<script src="/releaseNav.js" type="application/javascript"></script>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Batteries C++
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              batteries/config.hpp
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Batteries C++" class="md-nav__button md-logo" aria-label="Batteries C++" data-md-component="logo">
+      <img width="100px" src="/images/BatteriesLogo.png">
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/releaseNavOptions.js" type="application/javascript"></script>
+<script src="/releaseNav.js" type="application/javascript"></script>
+    </a>
+    Batteries C++
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gitlab.com/batteriescpp/batteries/" class="md-nav__link">
+        GitLab Repo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Headers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Headers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../assert.hpp" class="md-nav__link">
+        batteries/assert.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../async" class="md-nav__link">
+        batteries/async/*
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../case_of.hpp" class="md-nav__link">
+        batteries/case_of.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cpu_align.hpp" class="md-nav__link">
+        batteries/cpu_align.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../seq" class="md-nav__link">
+        batteries/seq.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../status.hpp" class="md-nav__link">
+        batteries/status.hpp
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Classes/" class="md-nav__link">
+        Classes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release_notes" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../coding_style" class="md-nav__link">
+        Coding Style
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../how-to/configure-ci-pipelines" class="md-nav__link">
+        Configuring CI Pipelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../how-to/write-the-docs" class="md-nav__link">
+        Writing Documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#namespaces" class="md-nav__link">
+    Namespaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defines" class="md-nav__link">
+    Defines
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macro-documentation" class="md-nav__link">
+    Macro Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Macro Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-batteries_config_hpp" class="md-nav__link">
+     define BATTERIES_CONFIG_HPP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_cpp_20" class="md-nav__link">
+     define BATT_CPP_20
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_header_only" class="md-nav__link">
+     define BATT_HEADER_ONLY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_inline_impl" class="md-nav__link">
+     define BATT_INLINE_IMPL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_seq_specialize_algorithms" class="md-nav__link">
+     define BATT_SEQ_SPECIALIZE_ALGORITHMS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_mutex_no_legacy_api" class="md-nav__link">
+     define BATT_MUTEX_NO_LEGACY_API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_with_glog" class="md-nav__link">
+     define BATT_WITH_GLOG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_with_protobuf" class="md-nav__link">
+     define BATT_WITH_PROTOBUF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_compiler_is_gcc" class="md-nav__link">
+     define BATT_COMPILER_IS_GCC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_if_gcc" class="md-nav__link">
+     define BATT_IF_GCC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_compiler_is_clang" class="md-nav__link">
+     define BATT_COMPILER_IS_CLANG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_if_clang" class="md-nav__link">
+     define BATT_IF_CLANG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_compiler_is_msvc" class="md-nav__link">
+     define BATT_COMPILER_IS_MSVC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_if_msvc" class="md-nav__link">
+     define BATT_IF_MSVC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_is_debug_build" class="md-nav__link">
+     define BATT_IS_DEBUG_BUILD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-batt_with_asserts" class="md-nav__link">
+     define BATT_WITH_ASSERTS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" class="md-nav__link">
+    Source code
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>batteries/config.hpp</h1>
+
+<h1 id="batteriesconfighpp">batteries/config.hpp<a class="headerlink" href="#batteriesconfighpp" title="Permanent link">&#128279;</a></h1>
+<h2 id="namespaces">Namespaces<a class="headerlink" href="#namespaces" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt/">batt</a></strong></td>
+</tr>
+<tr>
+<td><strong><a href="/_autogen/Namespaces/namespacebatt_1_1features/">batt::features</a></strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>struct</td>
+<td><strong><a href="/_autogen/Classes/structbatt_1_1features_1_1State/">batt::features::State</a></strong> <br>Captures the normative feature mask plus the stack trace where the global singleton instance of this type was initialized.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="defines">Defines<a class="headerlink" href="#defines" title="Permanent link">&#128279;</a></h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/config_8hpp/#define-batteries-config-hpp">BATTERIES_CONFIG_HPP</a></strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/config_8hpp/#define-batt-cpp-20">BATT_CPP_20</a></strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/config_8hpp/#define-batt-header-only">BATT_HEADER_ONLY</a></strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/config_8hpp/#define-batt-inline-impl">BATT_INLINE_IMPL</a></strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/config_8hpp/#define-batt-seq-specialize-algorithms">BATT_SEQ_SPECIALIZE_ALGORITHMS</a></strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/config_8hpp/#define-batt-mutex-no-legacy-api">BATT_MUTEX_NO_LEGACY_API</a></strong> <br>Set to 1 to disable Mutex<T>::lock().</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/config_8hpp/#define-batt-with-glog">BATT_WITH_GLOG</a></strong> <br>Define this preprocessor symbol to enable optional support for Google Log (GLOG).</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/config_8hpp/#define-batt-with-protobuf">BATT_WITH_PROTOBUF</a></strong> <br>Define this preprocessor symbol to enable optional support for Google Protocol Buffers (protobuf).</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/config_8hpp/#define-batt-compiler-is-gcc">BATT_COMPILER_IS_GCC</a></strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/config_8hpp/#define-batt-if-gcc">BATT_IF_GCC</a></strong>(expr)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/config_8hpp/#define-batt-compiler-is-clang">BATT_COMPILER_IS_CLANG</a></strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/config_8hpp/#define-batt-if-clang">BATT_IF_CLANG</a></strong>(expr)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/config_8hpp/#define-batt-compiler-is-msvc">BATT_COMPILER_IS_MSVC</a></strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/config_8hpp/#define-batt-if-msvc">BATT_IF_MSVC</a></strong>(expr)</td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/config_8hpp/#define-batt-is-debug-build">BATT_IS_DEBUG_BUILD</a></strong></td>
+</tr>
+<tr>
+<td></td>
+<td><strong><a href="/_autogen/Files/config_8hpp/#define-batt-with-asserts">BATT_WITH_ASSERTS</a></strong> <br>Enables BATT_ASSERTs explicitly (instead of inferring from -DNDEBUG)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="macro-documentation">Macro Documentation<a class="headerlink" href="#macro-documentation" title="Permanent link">&#128279;</a></h2>
+<h3 id="define-batteries_config_hpp"><a name="BATTERIES_CONFIG_HPP"></a> define BATTERIES_CONFIG_HPP<a class="headerlink" href="#define-batteries_config_hpp" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#define BATTERIES_CONFIG_HPP()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_cpp_20"><a name="BATT_CPP_20"></a> define BATT_CPP_20<a class="headerlink" href="#define-batt_cpp_20" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cp">#define BATT_CPP_20()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_header_only"><a name="BATT_HEADER_ONLY"></a> define BATT_HEADER_ONLY<a class="headerlink" href="#define-batt_header_only" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="cp">#define BATT_HEADER_ONLY()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_inline_impl"><a name="BATT_INLINE_IMPL"></a> define BATT_INLINE_IMPL<a class="headerlink" href="#define-batt_inline_impl" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="cp">#define BATT_INLINE_IMPL()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_seq_specialize_algorithms"><a name="BATT_SEQ_SPECIALIZE_ALGORITHMS"></a> define BATT_SEQ_SPECIALIZE_ALGORITHMS<a class="headerlink" href="#define-batt_seq_specialize_algorithms" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="cp">#define BATT_SEQ_SPECIALIZE_ALGORITHMS()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_mutex_no_legacy_api"><a name="BATT_MUTEX_NO_LEGACY_API"></a> define BATT_MUTEX_NO_LEGACY_API<a class="headerlink" href="#define-batt_mutex_no_legacy_api" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cp">#define BATT_MUTEX_NO_LEGACY_API()</span>
+</code></pre></div></td></tr></table></div>
+<p>Set to 1 to disable Mutex<T>::lock(). </p>
+<h3 id="define-batt_with_glog"><a name="BATT_WITH_GLOG"></a> define BATT_WITH_GLOG<a class="headerlink" href="#define-batt_with_glog" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="cp">#define BATT_WITH_GLOG()</span>
+</code></pre></div></td></tr></table></div>
+<p>Define this preprocessor symbol to enable optional support for Google Log (GLOG). </p>
+<p>NOTE: when using Conan to install Batteries in a downstream project, this shouldn't be defined directly; instead add the following to the downstream <code>conanfile.py</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">def</span> <span class="nf">configure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>    <span class="o">...</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;batteries&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">with_glog</span> <span class="o">=</span> <span class="kc">True</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_with_protobuf"><a name="BATT_WITH_PROTOBUF"></a> define BATT_WITH_PROTOBUF<a class="headerlink" href="#define-batt_with_protobuf" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cp">#define BATT_WITH_PROTOBUF()</span>
+</code></pre></div></td></tr></table></div>
+<p>Define this preprocessor symbol to enable optional support for Google Protocol Buffers (protobuf). </p>
+<p>NOTE: when using Conan to install Batteries in a downstream project, this shouldn't be defined directly; instead add the following to the downstream <code>conanfile.py</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">def</span> <span class="nf">configure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>    <span class="o">...</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;batteries&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">with_protobuf</span> <span class="o">=</span> <span class="kc">True</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_compiler_is_gcc"><a name="BATT_COMPILER_IS_GCC"></a> define BATT_COMPILER_IS_GCC<a class="headerlink" href="#define-batt_compiler_is_gcc" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="cp">#define BATT_COMPILER_IS_GCC()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_if_gcc"><a name="BATT_IF_GCC"></a> define BATT_IF_GCC<a class="headerlink" href="#define-batt_if_gcc" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">#define BATT_IF_GCC(expr)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_compiler_is_clang"><a name="BATT_COMPILER_IS_CLANG"></a> define BATT_COMPILER_IS_CLANG<a class="headerlink" href="#define-batt_compiler_is_clang" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="cp">#define BATT_COMPILER_IS_CLANG()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_if_clang"><a name="BATT_IF_CLANG"></a> define BATT_IF_CLANG<a class="headerlink" href="#define-batt_if_clang" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="cp">#define BATT_IF_CLANG(expr)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_compiler_is_msvc"><a name="BATT_COMPILER_IS_MSVC"></a> define BATT_COMPILER_IS_MSVC<a class="headerlink" href="#define-batt_compiler_is_msvc" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="cp">#define BATT_COMPILER_IS_MSVC()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_if_msvc"><a name="BATT_IF_MSVC"></a> define BATT_IF_MSVC<a class="headerlink" href="#define-batt_if_msvc" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="cp">#define BATT_IF_MSVC(expr)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_is_debug_build"><a name="BATT_IS_DEBUG_BUILD"></a> define BATT_IS_DEBUG_BUILD<a class="headerlink" href="#define-batt_is_debug_build" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="cp">#define BATT_IS_DEBUG_BUILD()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="define-batt_with_asserts"><a name="BATT_WITH_ASSERTS"></a> define BATT_WITH_ASSERTS<a class="headerlink" href="#define-batt_with_asserts" title="Permanent link">&#128279;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="cp">#define BATT_WITH_ASSERTS()</span>
+</code></pre></div></td></tr></table></div>
+<p>Enables BATT_ASSERTs explicitly (instead of inferring from -DNDEBUG) </p>
+<p>NOTE: when using Conan to install Batteries in a downstream project, this shouldn't be defined directly; instead add the following to the downstream <code>conanfile.py</code>:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="k">def</span> <span class="nf">configure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>    <span class="o">...</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;batteries&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">with_asserts</span> <span class="o">=</span> <span class="kc">True</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="source-code">Source code<a class="headerlink" href="#source-code" title="Permanent link">&#128279;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-19-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-19-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-19-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-19-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-19-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-19-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-19-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-19-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-19-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-19-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-19-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-19-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-19-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-19-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-19-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-19-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-19-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-19-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-19-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-19-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-19-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-19-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-19-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-19-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-19-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-19-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-19-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-19-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-19-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-19-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-19-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-19-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-19-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-19-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-19-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-19-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-19-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-19-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-19-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-19-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-19-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-19-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-19-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-19-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-19-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-19-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-19-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-19-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-19-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-19-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-19-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-19-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-19-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-19-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-19-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-19-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-19-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-19-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-19-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-19-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-19-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-19-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-19-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-19-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-19-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-19-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-19-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-19-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-19-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-19-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-19-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-19-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-19-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-19-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-19-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-19-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-19-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-19-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-19-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-19-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-19-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-19-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-19-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-19-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-19-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-19-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-19-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-19-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-19-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-19-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-19-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-19-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-19-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-19-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-19-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-19-100">100</a></span>
+<span class="normal"><a href="#__codelineno-19-101">101</a></span>
+<span class="normal"><a href="#__codelineno-19-102">102</a></span>
+<span class="normal"><a href="#__codelineno-19-103">103</a></span>
+<span class="normal"><a href="#__codelineno-19-104">104</a></span>
+<span class="normal"><a href="#__codelineno-19-105">105</a></span>
+<span class="normal"><a href="#__codelineno-19-106">106</a></span>
+<span class="normal"><a href="#__codelineno-19-107">107</a></span>
+<span class="normal"><a href="#__codelineno-19-108">108</a></span>
+<span class="normal"><a href="#__codelineno-19-109">109</a></span>
+<span class="normal"><a href="#__codelineno-19-110">110</a></span>
+<span class="normal"><a href="#__codelineno-19-111">111</a></span>
+<span class="normal"><a href="#__codelineno-19-112">112</a></span>
+<span class="normal"><a href="#__codelineno-19-113">113</a></span>
+<span class="normal"><a href="#__codelineno-19-114">114</a></span>
+<span class="normal"><a href="#__codelineno-19-115">115</a></span>
+<span class="normal"><a href="#__codelineno-19-116">116</a></span>
+<span class="normal"><a href="#__codelineno-19-117">117</a></span>
+<span class="normal"><a href="#__codelineno-19-118">118</a></span>
+<span class="normal"><a href="#__codelineno-19-119">119</a></span>
+<span class="normal"><a href="#__codelineno-19-120">120</a></span>
+<span class="normal"><a href="#__codelineno-19-121">121</a></span>
+<span class="normal"><a href="#__codelineno-19-122">122</a></span>
+<span class="normal"><a href="#__codelineno-19-123">123</a></span>
+<span class="normal"><a href="#__codelineno-19-124">124</a></span>
+<span class="normal"><a href="#__codelineno-19-125">125</a></span>
+<span class="normal"><a href="#__codelineno-19-126">126</a></span>
+<span class="normal"><a href="#__codelineno-19-127">127</a></span>
+<span class="normal"><a href="#__codelineno-19-128">128</a></span>
+<span class="normal"><a href="#__codelineno-19-129">129</a></span>
+<span class="normal"><a href="#__codelineno-19-130">130</a></span>
+<span class="normal"><a href="#__codelineno-19-131">131</a></span>
+<span class="normal"><a href="#__codelineno-19-132">132</a></span>
+<span class="normal"><a href="#__codelineno-19-133">133</a></span>
+<span class="normal"><a href="#__codelineno-19-134">134</a></span>
+<span class="normal"><a href="#__codelineno-19-135">135</a></span>
+<span class="normal"><a href="#__codelineno-19-136">136</a></span>
+<span class="normal"><a href="#__codelineno-19-137">137</a></span>
+<span class="normal"><a href="#__codelineno-19-138">138</a></span>
+<span class="normal"><a href="#__codelineno-19-139">139</a></span>
+<span class="normal"><a href="#__codelineno-19-140">140</a></span>
+<span class="normal"><a href="#__codelineno-19-141">141</a></span>
+<span class="normal"><a href="#__codelineno-19-142">142</a></span>
+<span class="normal"><a href="#__codelineno-19-143">143</a></span>
+<span class="normal"><a href="#__codelineno-19-144">144</a></span>
+<span class="normal"><a href="#__codelineno-19-145">145</a></span>
+<span class="normal"><a href="#__codelineno-19-146">146</a></span>
+<span class="normal"><a href="#__codelineno-19-147">147</a></span>
+<span class="normal"><a href="#__codelineno-19-148">148</a></span>
+<span class="normal"><a href="#__codelineno-19-149">149</a></span>
+<span class="normal"><a href="#__codelineno-19-150">150</a></span>
+<span class="normal"><a href="#__codelineno-19-151">151</a></span>
+<span class="normal"><a href="#__codelineno-19-152">152</a></span>
+<span class="normal"><a href="#__codelineno-19-153">153</a></span>
+<span class="normal"><a href="#__codelineno-19-154">154</a></span>
+<span class="normal"><a href="#__codelineno-19-155">155</a></span>
+<span class="normal"><a href="#__codelineno-19-156">156</a></span>
+<span class="normal"><a href="#__codelineno-19-157">157</a></span>
+<span class="normal"><a href="#__codelineno-19-158">158</a></span>
+<span class="normal"><a href="#__codelineno-19-159">159</a></span>
+<span class="normal"><a href="#__codelineno-19-160">160</a></span>
+<span class="normal"><a href="#__codelineno-19-161">161</a></span>
+<span class="normal"><a href="#__codelineno-19-162">162</a></span>
+<span class="normal"><a href="#__codelineno-19-163">163</a></span>
+<span class="normal"><a href="#__codelineno-19-164">164</a></span>
+<span class="normal"><a href="#__codelineno-19-165">165</a></span>
+<span class="normal"><a href="#__codelineno-19-166">166</a></span>
+<span class="normal"><a href="#__codelineno-19-167">167</a></span>
+<span class="normal"><a href="#__codelineno-19-168">168</a></span>
+<span class="normal"><a href="#__codelineno-19-169">169</a></span>
+<span class="normal"><a href="#__codelineno-19-170">170</a></span>
+<span class="normal"><a href="#__codelineno-19-171">171</a></span>
+<span class="normal"><a href="#__codelineno-19-172">172</a></span>
+<span class="normal"><a href="#__codelineno-19-173">173</a></span>
+<span class="normal"><a href="#__codelineno-19-174">174</a></span>
+<span class="normal"><a href="#__codelineno-19-175">175</a></span>
+<span class="normal"><a href="#__codelineno-19-176">176</a></span>
+<span class="normal"><a href="#__codelineno-19-177">177</a></span>
+<span class="normal"><a href="#__codelineno-19-178">178</a></span>
+<span class="normal"><a href="#__codelineno-19-179">179</a></span>
+<span class="normal"><a href="#__codelineno-19-180">180</a></span>
+<span class="normal"><a href="#__codelineno-19-181">181</a></span>
+<span class="normal"><a href="#__codelineno-19-182">182</a></span>
+<span class="normal"><a href="#__codelineno-19-183">183</a></span>
+<span class="normal"><a href="#__codelineno-19-184">184</a></span>
+<span class="normal"><a href="#__codelineno-19-185">185</a></span>
+<span class="normal"><a href="#__codelineno-19-186">186</a></span>
+<span class="normal"><a href="#__codelineno-19-187">187</a></span>
+<span class="normal"><a href="#__codelineno-19-188">188</a></span>
+<span class="normal"><a href="#__codelineno-19-189">189</a></span>
+<span class="normal"><a href="#__codelineno-19-190">190</a></span>
+<span class="normal"><a href="#__codelineno-19-191">191</a></span>
+<span class="normal"><a href="#__codelineno-19-192">192</a></span>
+<span class="normal"><a href="#__codelineno-19-193">193</a></span>
+<span class="normal"><a href="#__codelineno-19-194">194</a></span>
+<span class="normal"><a href="#__codelineno-19-195">195</a></span>
+<span class="normal"><a href="#__codelineno-19-196">196</a></span>
+<span class="normal"><a href="#__codelineno-19-197">197</a></span>
+<span class="normal"><a href="#__codelineno-19-198">198</a></span>
+<span class="normal"><a href="#__codelineno-19-199">199</a></span>
+<span class="normal"><a href="#__codelineno-19-200">200</a></span>
+<span class="normal"><a href="#__codelineno-19-201">201</a></span>
+<span class="normal"><a href="#__codelineno-19-202">202</a></span>
+<span class="normal"><a href="#__codelineno-19-203">203</a></span>
+<span class="normal"><a href="#__codelineno-19-204">204</a></span>
+<span class="normal"><a href="#__codelineno-19-205">205</a></span>
+<span class="normal"><a href="#__codelineno-19-206">206</a></span>
+<span class="normal"><a href="#__codelineno-19-207">207</a></span>
+<span class="normal"><a href="#__codelineno-19-208">208</a></span>
+<span class="normal"><a href="#__codelineno-19-209">209</a></span>
+<span class="normal"><a href="#__codelineno-19-210">210</a></span>
+<span class="normal"><a href="#__codelineno-19-211">211</a></span>
+<span class="normal"><a href="#__codelineno-19-212">212</a></span>
+<span class="normal"><a href="#__codelineno-19-213">213</a></span>
+<span class="normal"><a href="#__codelineno-19-214">214</a></span>
+<span class="normal"><a href="#__codelineno-19-215">215</a></span>
+<span class="normal"><a href="#__codelineno-19-216">216</a></span>
+<span class="normal"><a href="#__codelineno-19-217">217</a></span>
+<span class="normal"><a href="#__codelineno-19-218">218</a></span>
+<span class="normal"><a href="#__codelineno-19-219">219</a></span>
+<span class="normal"><a href="#__codelineno-19-220">220</a></span>
+<span class="normal"><a href="#__codelineno-19-221">221</a></span>
+<span class="normal"><a href="#__codelineno-19-222">222</a></span>
+<span class="normal"><a href="#__codelineno-19-223">223</a></span>
+<span class="normal"><a href="#__codelineno-19-224">224</a></span>
+<span class="normal"><a href="#__codelineno-19-225">225</a></span>
+<span class="normal"><a href="#__codelineno-19-226">226</a></span>
+<span class="normal"><a href="#__codelineno-19-227">227</a></span>
+<span class="normal"><a href="#__codelineno-19-228">228</a></span>
+<span class="normal"><a href="#__codelineno-19-229">229</a></span>
+<span class="normal"><a href="#__codelineno-19-230">230</a></span>
+<span class="normal"><a href="#__codelineno-19-231">231</a></span>
+<span class="normal"><a href="#__codelineno-19-232">232</a></span>
+<span class="normal"><a href="#__codelineno-19-233">233</a></span>
+<span class="normal"><a href="#__codelineno-19-234">234</a></span>
+<span class="normal"><a href="#__codelineno-19-235">235</a></span>
+<span class="normal"><a href="#__codelineno-19-236">236</a></span>
+<span class="normal"><a href="#__codelineno-19-237">237</a></span>
+<span class="normal"><a href="#__codelineno-19-238">238</a></span>
+<span class="normal"><a href="#__codelineno-19-239">239</a></span>
+<span class="normal"><a href="#__codelineno-19-240">240</a></span>
+<span class="normal"><a href="#__codelineno-19-241">241</a></span>
+<span class="normal"><a href="#__codelineno-19-242">242</a></span>
+<span class="normal"><a href="#__codelineno-19-243">243</a></span>
+<span class="normal"><a href="#__codelineno-19-244">244</a></span>
+<span class="normal"><a href="#__codelineno-19-245">245</a></span>
+<span class="normal"><a href="#__codelineno-19-246">246</a></span>
+<span class="normal"><a href="#__codelineno-19-247">247</a></span>
+<span class="normal"><a href="#__codelineno-19-248">248</a></span>
+<span class="normal"><a href="#__codelineno-19-249">249</a></span>
+<span class="normal"><a href="#__codelineno-19-250">250</a></span>
+<span class="normal"><a href="#__codelineno-19-251">251</a></span>
+<span class="normal"><a href="#__codelineno-19-252">252</a></span>
+<span class="normal"><a href="#__codelineno-19-253">253</a></span>
+<span class="normal"><a href="#__codelineno-19-254">254</a></span>
+<span class="normal"><a href="#__codelineno-19-255">255</a></span>
+<span class="normal"><a href="#__codelineno-19-256">256</a></span>
+<span class="normal"><a href="#__codelineno-19-257">257</a></span>
+<span class="normal"><a href="#__codelineno-19-258">258</a></span>
+<span class="normal"><a href="#__codelineno-19-259">259</a></span>
+<span class="normal"><a href="#__codelineno-19-260">260</a></span>
+<span class="normal"><a href="#__codelineno-19-261">261</a></span>
+<span class="normal"><a href="#__codelineno-19-262">262</a></span>
+<span class="normal"><a href="#__codelineno-19-263">263</a></span>
+<span class="normal"><a href="#__codelineno-19-264">264</a></span>
+<span class="normal"><a href="#__codelineno-19-265">265</a></span>
+<span class="normal"><a href="#__codelineno-19-266">266</a></span>
+<span class="normal"><a href="#__codelineno-19-267">267</a></span>
+<span class="normal"><a href="#__codelineno-19-268">268</a></span>
+<span class="normal"><a href="#__codelineno-19-269">269</a></span>
+<span class="normal"><a href="#__codelineno-19-270">270</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="c1">//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="c1">// Copyright 2021-2023 Anthony Paul Astolfi</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="c1">//</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="cp">#pragma once</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="cp">#ifndef BATTERIES_CONFIG_HPP</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="cp">#define BATTERIES_CONFIG_HPP</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a>
+<a id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="c1">//----- --- -- -  -  -   -</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="c1">// IMPORTANT: This is the only batteries header that is allowed to be included from config.hpp!</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="c1">//</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/stacktrace.hpp&gt;</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="c1">//</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13"></a><span class="c1">//----- --- -- -  -  -   -</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14"></a>
+<a id="__codelineno-19-15" name="__codelineno-19-15"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bitset&gt;</span>
+<a id="__codelineno-19-16" name="__codelineno-19-16"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;exception&gt;</span>
+<a id="__codelineno-19-17" name="__codelineno-19-17"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-19-18" name="__codelineno-19-18"></a>
+<a id="__codelineno-19-19" name="__codelineno-19-19"></a><span class="cp">#if __cplusplus &lt; 201703L</span>
+<a id="__codelineno-19-20" name="__codelineno-19-20"></a><span class="cp">#error Batteries requires C++17 or later!</span>
+<a id="__codelineno-19-21" name="__codelineno-19-21"></a><span class="cp">#endif</span>
+<a id="__codelineno-19-22" name="__codelineno-19-22"></a>
+<a id="__codelineno-19-23" name="__codelineno-19-23"></a><span class="cp">#if __cplusplus &gt; 201703L</span>
+<a id="__codelineno-19-24" name="__codelineno-19-24"></a><span class="cp">#define BATT_CPP_20 1</span>
+<a id="__codelineno-19-25" name="__codelineno-19-25"></a><span class="cp">#else</span>
+<a id="__codelineno-19-26" name="__codelineno-19-26"></a><span class="cp">#define BATT_CPP_20 0</span>
+<a id="__codelineno-19-27" name="__codelineno-19-27"></a><span class="cp">#endif</span>
+<a id="__codelineno-19-28" name="__codelineno-19-28"></a>
+<a id="__codelineno-19-29" name="__codelineno-19-29"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-19-30" name="__codelineno-19-30"></a><span class="cp">#ifndef BATT_HEADER_ONLY</span>
+<a id="__codelineno-19-31" name="__codelineno-19-31"></a><span class="cp">#define BATT_HEADER_ONLY 1</span>
+<a id="__codelineno-19-32" name="__codelineno-19-32"></a><span class="cp">#endif</span>
+<a id="__codelineno-19-33" name="__codelineno-19-33"></a>
+<a id="__codelineno-19-34" name="__codelineno-19-34"></a><span class="cp">#if BATT_HEADER_ONLY</span>
+<a id="__codelineno-19-35" name="__codelineno-19-35"></a><span class="cp">#define BATT_INLINE_IMPL inline</span>
+<a id="__codelineno-19-36" name="__codelineno-19-36"></a><span class="cp">#else</span>
+<a id="__codelineno-19-37" name="__codelineno-19-37"></a><span class="cp">#define BATT_INLINE_IMPL</span>
+<a id="__codelineno-19-38" name="__codelineno-19-38"></a><span class="cp">#endif</span>
+<a id="__codelineno-19-39" name="__codelineno-19-39"></a>
+<a id="__codelineno-19-40" name="__codelineno-19-40"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-19-41" name="__codelineno-19-41"></a><span class="cp">#define BATT_SEQ_SPECIALIZE_ALGORITHMS 0</span>
+<a id="__codelineno-19-42" name="__codelineno-19-42"></a>
+<a id="__codelineno-19-43" name="__codelineno-19-43"></a><span class="c1">//+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-19-44" name="__codelineno-19-44"></a><span class="cp">#ifndef BATT_MUTEX_NO_LEGACY_API</span>
+<a id="__codelineno-19-45" name="__codelineno-19-45"></a>
+<a id="__codelineno-19-46" name="__codelineno-19-46"></a><span class="cp">#define BATT_MUTEX_NO_LEGACY_API 0</span>
+<a id="__codelineno-19-47" name="__codelineno-19-47"></a>
+<a id="__codelineno-19-48" name="__codelineno-19-48"></a><span class="cp">#endif  </span><span class="c1">// BATT_MUTEX_NO_LEGACY_API</span>
+<a id="__codelineno-19-49" name="__codelineno-19-49"></a>
+<a id="__codelineno-19-50" name="__codelineno-19-50"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-19-51" name="__codelineno-19-51"></a><span class="cp">#ifndef BATT_WITH_GLOG</span>
+<a id="__codelineno-19-52" name="__codelineno-19-52"></a><span class="cp">#define BATT_WITH_GLOG 0</span>
+<a id="__codelineno-19-53" name="__codelineno-19-53"></a><span class="cp">#endif  </span><span class="c1">// BATT_WITH_GLOG</span>
+<a id="__codelineno-19-54" name="__codelineno-19-54"></a>
+<a id="__codelineno-19-55" name="__codelineno-19-55"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-19-56" name="__codelineno-19-56"></a><span class="cp">#ifndef BATT_WITH_PROTOBUF</span>
+<a id="__codelineno-19-57" name="__codelineno-19-57"></a><span class="cp">#define BATT_WITH_PROTOBUF 0</span>
+<a id="__codelineno-19-58" name="__codelineno-19-58"></a><span class="cp">#endif  </span><span class="c1">// BATT_WITH_PROTOBUF</span>
+<a id="__codelineno-19-59" name="__codelineno-19-59"></a>
+<a id="__codelineno-19-60" name="__codelineno-19-60"></a><span class="c1">//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------</span>
+<a id="__codelineno-19-61" name="__codelineno-19-61"></a><span class="c1">// BATT_COMPILER_IS_&lt;CC&gt; - set to 1 if the compiler is &lt;CC&gt;, else set to 0</span>
+<a id="__codelineno-19-62" name="__codelineno-19-62"></a><span class="c1">//</span>
+<a id="__codelineno-19-63" name="__codelineno-19-63"></a><span class="c1">// &lt;CC&gt; is one of:</span>
+<a id="__codelineno-19-64" name="__codelineno-19-64"></a><span class="c1">//  - CLANG</span>
+<a id="__codelineno-19-65" name="__codelineno-19-65"></a><span class="c1">//  - GCC</span>
+<a id="__codelineno-19-66" name="__codelineno-19-66"></a><span class="c1">//  - MSVC</span>
+<a id="__codelineno-19-67" name="__codelineno-19-67"></a><span class="c1">//</span>
+<a id="__codelineno-19-68" name="__codelineno-19-68"></a>
+<a id="__codelineno-19-69" name="__codelineno-19-69"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-19-70" name="__codelineno-19-70"></a><span class="cp">#if defined(__GNUC__) &amp;&amp; !defined(__clang__)</span>
+<a id="__codelineno-19-71" name="__codelineno-19-71"></a>
+<a id="__codelineno-19-72" name="__codelineno-19-72"></a><span class="cp">#define BATT_COMPILER_IS_GCC 1</span>
+<a id="__codelineno-19-73" name="__codelineno-19-73"></a><span class="cp">#define BATT_IF_GCC(expr) expr</span>
+<a id="__codelineno-19-74" name="__codelineno-19-74"></a>
+<a id="__codelineno-19-75" name="__codelineno-19-75"></a><span class="c1">// This causes a lot of false positives, so disable.</span>
+<a id="__codelineno-19-76" name="__codelineno-19-76"></a><span class="c1">//</span>
+<a id="__codelineno-19-77" name="__codelineno-19-77"></a><span class="cp">#pragma GCC diagnostic ignored &quot;-Wmaybe-uninitialized&quot;</span>
+<a id="__codelineno-19-78" name="__codelineno-19-78"></a>
+<a id="__codelineno-19-79" name="__codelineno-19-79"></a><span class="cp">#else</span>
+<a id="__codelineno-19-80" name="__codelineno-19-80"></a>
+<a id="__codelineno-19-81" name="__codelineno-19-81"></a><span class="cp">#define BATT_COMPILER_IS_GCC 0</span>
+<a id="__codelineno-19-82" name="__codelineno-19-82"></a><span class="cp">#define BATT_IF_GCC(expr)</span>
+<a id="__codelineno-19-83" name="__codelineno-19-83"></a>
+<a id="__codelineno-19-84" name="__codelineno-19-84"></a><span class="cp">#endif</span>
+<a id="__codelineno-19-85" name="__codelineno-19-85"></a>
+<a id="__codelineno-19-86" name="__codelineno-19-86"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-19-87" name="__codelineno-19-87"></a><span class="cp">#if defined(__clang__)</span>
+<a id="__codelineno-19-88" name="__codelineno-19-88"></a>
+<a id="__codelineno-19-89" name="__codelineno-19-89"></a><span class="cp">#define BATT_COMPILER_IS_CLANG 1</span>
+<a id="__codelineno-19-90" name="__codelineno-19-90"></a><span class="cp">#define BATT_IF_CLANG(expr) expr</span>
+<a id="__codelineno-19-91" name="__codelineno-19-91"></a>
+<a id="__codelineno-19-92" name="__codelineno-19-92"></a><span class="cp">#else</span>
+<a id="__codelineno-19-93" name="__codelineno-19-93"></a>
+<a id="__codelineno-19-94" name="__codelineno-19-94"></a><span class="cp">#define BATT_COMPILER_IS_CLANG 0</span>
+<a id="__codelineno-19-95" name="__codelineno-19-95"></a><span class="cp">#define BATT_IF_CLANG(expr)</span>
+<a id="__codelineno-19-96" name="__codelineno-19-96"></a>
+<a id="__codelineno-19-97" name="__codelineno-19-97"></a><span class="cp">#endif</span>
+<a id="__codelineno-19-98" name="__codelineno-19-98"></a>
+<a id="__codelineno-19-99" name="__codelineno-19-99"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-19-100" name="__codelineno-19-100"></a><span class="cp">#if defined(_MSC_VER)</span>
+<a id="__codelineno-19-101" name="__codelineno-19-101"></a>
+<a id="__codelineno-19-102" name="__codelineno-19-102"></a><span class="cp">#define BATT_COMPILER_IS_MSVC 1</span>
+<a id="__codelineno-19-103" name="__codelineno-19-103"></a><span class="cp">#define BATT_IF_MSVC(expr) expr</span>
+<a id="__codelineno-19-104" name="__codelineno-19-104"></a>
+<a id="__codelineno-19-105" name="__codelineno-19-105"></a><span class="cp">#else</span>
+<a id="__codelineno-19-106" name="__codelineno-19-106"></a>
+<a id="__codelineno-19-107" name="__codelineno-19-107"></a><span class="cp">#define BATT_COMPILER_IS_MSVC 0</span>
+<a id="__codelineno-19-108" name="__codelineno-19-108"></a><span class="cp">#define BATT_IF_MSVC(expr)</span>
+<a id="__codelineno-19-109" name="__codelineno-19-109"></a>
+<a id="__codelineno-19-110" name="__codelineno-19-110"></a><span class="cp">#endif</span>
+<a id="__codelineno-19-111" name="__codelineno-19-111"></a>
+<a id="__codelineno-19-112" name="__codelineno-19-112"></a><span class="c1">//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------</span>
+<a id="__codelineno-19-113" name="__codelineno-19-113"></a><span class="c1">// BATT_PLATFORM_IS_&lt;OS&gt; - defined iff the current platform is &lt;OS&gt;</span>
+<a id="__codelineno-19-114" name="__codelineno-19-114"></a><span class="c1">//</span>
+<a id="__codelineno-19-115" name="__codelineno-19-115"></a><span class="c1">// &lt;OS&gt; is one of:</span>
+<a id="__codelineno-19-116" name="__codelineno-19-116"></a><span class="c1">//  - APPLE</span>
+<a id="__codelineno-19-117" name="__codelineno-19-117"></a><span class="c1">//  - LINUX</span>
+<a id="__codelineno-19-118" name="__codelineno-19-118"></a><span class="c1">//  - WINDOWS</span>
+<a id="__codelineno-19-119" name="__codelineno-19-119"></a><span class="c1">//</span>
+<a id="__codelineno-19-120" name="__codelineno-19-120"></a>
+<a id="__codelineno-19-121" name="__codelineno-19-121"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-19-122" name="__codelineno-19-122"></a><span class="cp">#ifdef __APPLE__</span>
+<a id="__codelineno-19-123" name="__codelineno-19-123"></a><span class="cp">#define BATT_PLATFORM_IS_APPLE 1</span>
+<a id="__codelineno-19-124" name="__codelineno-19-124"></a><span class="cp">#else</span>
+<a id="__codelineno-19-125" name="__codelineno-19-125"></a><span class="cp">#undef BATT_PLATFORM_IS_APPLE</span>
+<a id="__codelineno-19-126" name="__codelineno-19-126"></a><span class="cp">#endif</span>
+<a id="__codelineno-19-127" name="__codelineno-19-127"></a>
+<a id="__codelineno-19-128" name="__codelineno-19-128"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-19-129" name="__codelineno-19-129"></a><span class="cp">#ifdef __linux__</span>
+<a id="__codelineno-19-130" name="__codelineno-19-130"></a><span class="cp">#define BATT_PLATFORM_IS_LINUX 1</span>
+<a id="__codelineno-19-131" name="__codelineno-19-131"></a><span class="cp">#else</span>
+<a id="__codelineno-19-132" name="__codelineno-19-132"></a><span class="cp">#undef BATT_PLATFORM_IS_LINUX</span>
+<a id="__codelineno-19-133" name="__codelineno-19-133"></a><span class="cp">#endif</span>
+<a id="__codelineno-19-134" name="__codelineno-19-134"></a>
+<a id="__codelineno-19-135" name="__codelineno-19-135"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-19-136" name="__codelineno-19-136"></a><span class="cp">#if defined(_WIN32) || defined(_WIN64)</span>
+<a id="__codelineno-19-137" name="__codelineno-19-137"></a><span class="cp">#define BATT_PLATFORM_IS_WINDOWS 1</span>
+<a id="__codelineno-19-138" name="__codelineno-19-138"></a><span class="cp">#else</span>
+<a id="__codelineno-19-139" name="__codelineno-19-139"></a><span class="cp">#undef BATT_PLATFORM_IS_WINDOWS</span>
+<a id="__codelineno-19-140" name="__codelineno-19-140"></a><span class="cp">#endif</span>
+<a id="__codelineno-19-141" name="__codelineno-19-141"></a>
+<a id="__codelineno-19-142" name="__codelineno-19-142"></a><span class="cp">#ifdef BATT_PLATFORM_IS_WINDOWS</span>
+<a id="__codelineno-19-143" name="__codelineno-19-143"></a><span class="cp">#undef min</span>
+<a id="__codelineno-19-144" name="__codelineno-19-144"></a><span class="cp">#undef max</span>
+<a id="__codelineno-19-145" name="__codelineno-19-145"></a><span class="cp">#endif</span>
+<a id="__codelineno-19-146" name="__codelineno-19-146"></a>
+<a id="__codelineno-19-147" name="__codelineno-19-147"></a><span class="cp">#ifndef BATT_IS_DEBUG_BUILD</span>
+<a id="__codelineno-19-148" name="__codelineno-19-148"></a><span class="cp">#ifdef NDEBUG</span>
+<a id="__codelineno-19-149" name="__codelineno-19-149"></a><span class="cp">#define BATT_IS_DEBUG_BUILD 0</span>
+<a id="__codelineno-19-150" name="__codelineno-19-150"></a><span class="cp">#else</span>
+<a id="__codelineno-19-151" name="__codelineno-19-151"></a><span class="cp">#define BATT_IS_DEBUG_BUILD 1</span>
+<a id="__codelineno-19-152" name="__codelineno-19-152"></a><span class="cp">#endif</span>
+<a id="__codelineno-19-153" name="__codelineno-19-153"></a><span class="cp">#endif</span>
+<a id="__codelineno-19-154" name="__codelineno-19-154"></a>
+<a id="__codelineno-19-155" name="__codelineno-19-155"></a><span class="c1">//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -</span>
+<a id="__codelineno-19-156" name="__codelineno-19-156"></a><span class="cp">#ifndef BATT_WITH_ASSERTS</span>
+<a id="__codelineno-19-157" name="__codelineno-19-157"></a><span class="cp">#define BATT_WITH_ASSERTS BATT_IS_DEBUG_BUILD</span>
+<a id="__codelineno-19-158" name="__codelineno-19-158"></a><span class="cp">#endif  </span><span class="c1">// BATT_WITH_ASSERTS</span>
+<a id="__codelineno-19-159" name="__codelineno-19-159"></a>
+<a id="__codelineno-19-160" name="__codelineno-19-160"></a><span class="c1">//#=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++</span>
+<a id="__codelineno-19-161" name="__codelineno-19-161"></a>
+<a id="__codelineno-19-162" name="__codelineno-19-162"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">batt</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-163" name="__codelineno-19-163"></a>
+<a id="__codelineno-19-164" name="__codelineno-19-164"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">features</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-165" name="__codelineno-19-165"></a>
+<a id="__codelineno-19-166" name="__codelineno-19-166"></a><span class="k">enum</span><span class="w"> </span><span class="nc">Feature</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-167" name="__codelineno-19-167"></a><span class="w">    </span><span class="n">kHeaderOnly</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-19-168" name="__codelineno-19-168"></a><span class="w">    </span><span class="n">kSeqSpecializeAlgorithms</span><span class="p">,</span>
+<a id="__codelineno-19-169" name="__codelineno-19-169"></a><span class="w">    </span><span class="n">kWithGlog</span><span class="p">,</span>
+<a id="__codelineno-19-170" name="__codelineno-19-170"></a><span class="w">    </span><span class="n">kWithProtobuf</span><span class="p">,</span>
+<a id="__codelineno-19-171" name="__codelineno-19-171"></a><span class="w">    </span><span class="n">kCompilerGCC</span><span class="p">,</span>
+<a id="__codelineno-19-172" name="__codelineno-19-172"></a><span class="w">    </span><span class="n">kCompilerClang</span><span class="p">,</span>
+<a id="__codelineno-19-173" name="__codelineno-19-173"></a><span class="w">    </span><span class="n">kWithAsserts</span><span class="p">,</span>
+<a id="__codelineno-19-174" name="__codelineno-19-174"></a>
+<a id="__codelineno-19-175" name="__codelineno-19-175"></a><span class="w">    </span><span class="c1">// Not a feature - used to check that we have enough bits in the mask int type.</span>
+<a id="__codelineno-19-176" name="__codelineno-19-176"></a><span class="w">    </span><span class="c1">//</span>
+<a id="__codelineno-19-177" name="__codelineno-19-177"></a><span class="w">    </span><span class="n">kNumFeatures</span><span class="p">,</span>
+<a id="__codelineno-19-178" name="__codelineno-19-178"></a><span class="p">};</span>
+<a id="__codelineno-19-179" name="__codelineno-19-179"></a>
+<a id="__codelineno-19-180" name="__codelineno-19-180"></a><span class="k">using</span><span class="w"> </span><span class="n">mask_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">;</span>
+<a id="__codelineno-19-181" name="__codelineno-19-181"></a>
+<a id="__codelineno-19-182" name="__codelineno-19-182"></a><span class="c1">// Make sure that the int type is big enough.</span>
+<a id="__codelineno-19-183" name="__codelineno-19-183"></a><span class="c1">//</span>
+<a id="__codelineno-19-184" name="__codelineno-19-184"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">features</span><span class="o">::</span><span class="n">kNumFeatures</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">mask_type</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">8</span><span class="p">));</span>
+<a id="__codelineno-19-185" name="__codelineno-19-185"></a>
+<a id="__codelineno-19-186" name="__codelineno-19-186"></a><span class="kr">inline</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">mask_type</span><span class="w"> </span><span class="nf">get_feature_mask</span><span class="p">()</span>
+<a id="__codelineno-19-187" name="__codelineno-19-187"></a><span class="p">{</span>
+<a id="__codelineno-19-188" name="__codelineno-19-188"></a><span class="w">    </span><span class="k">constexpr</span><span class="w"> </span><span class="n">mask_type</span><span class="w"> </span><span class="n">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-19-189" name="__codelineno-19-189"></a>
+<a id="__codelineno-19-190" name="__codelineno-19-190"></a><span class="w">    </span><span class="n">mask_type</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-19-191" name="__codelineno-19-191"></a>
+<a id="__codelineno-19-192" name="__codelineno-19-192"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">BATT_HEADER_ONLY</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-193" name="__codelineno-19-193"></a><span class="w">        </span><span class="n">mask</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">(</span><span class="n">enabled</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">features</span><span class="o">::</span><span class="n">kHeaderOnly</span><span class="p">);</span>
+<a id="__codelineno-19-194" name="__codelineno-19-194"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-19-195" name="__codelineno-19-195"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">BATT_SEQ_SPECIALIZE_ALGORITHMS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-196" name="__codelineno-19-196"></a><span class="w">        </span><span class="n">mask</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">(</span><span class="n">enabled</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">features</span><span class="o">::</span><span class="n">kSeqSpecializeAlgorithms</span><span class="p">);</span>
+<a id="__codelineno-19-197" name="__codelineno-19-197"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-19-198" name="__codelineno-19-198"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">BATT_WITH_GLOG</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-199" name="__codelineno-19-199"></a><span class="w">        </span><span class="n">mask</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">(</span><span class="n">enabled</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">features</span><span class="o">::</span><span class="n">kWithGlog</span><span class="p">);</span>
+<a id="__codelineno-19-200" name="__codelineno-19-200"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-19-201" name="__codelineno-19-201"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">BATT_WITH_PROTOBUF</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-202" name="__codelineno-19-202"></a><span class="w">        </span><span class="n">mask</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">(</span><span class="n">enabled</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">features</span><span class="o">::</span><span class="n">kWithProtobuf</span><span class="p">);</span>
+<a id="__codelineno-19-203" name="__codelineno-19-203"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-19-204" name="__codelineno-19-204"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">BATT_COMPILER_IS_GCC</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-205" name="__codelineno-19-205"></a><span class="w">        </span><span class="n">mask</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">(</span><span class="n">enabled</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">features</span><span class="o">::</span><span class="n">kCompilerGCC</span><span class="p">);</span>
+<a id="__codelineno-19-206" name="__codelineno-19-206"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-19-207" name="__codelineno-19-207"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">BATT_COMPILER_IS_CLANG</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-208" name="__codelineno-19-208"></a><span class="w">        </span><span class="n">mask</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">(</span><span class="n">enabled</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">features</span><span class="o">::</span><span class="n">kCompilerClang</span><span class="p">);</span>
+<a id="__codelineno-19-209" name="__codelineno-19-209"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-19-210" name="__codelineno-19-210"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">BATT_WITH_ASSERTS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-211" name="__codelineno-19-211"></a><span class="w">        </span><span class="n">mask</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">(</span><span class="n">enabled</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">features</span><span class="o">::</span><span class="n">kWithAsserts</span><span class="p">);</span>
+<a id="__codelineno-19-212" name="__codelineno-19-212"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-19-213" name="__codelineno-19-213"></a>
+<a id="__codelineno-19-214" name="__codelineno-19-214"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">mask</span><span class="p">;</span>
+<a id="__codelineno-19-215" name="__codelineno-19-215"></a><span class="p">}</span>
+<a id="__codelineno-19-216" name="__codelineno-19-216"></a>
+<a id="__codelineno-19-217" name="__codelineno-19-217"></a><span class="k">struct</span><span class="w"> </span><span class="nc">State</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-218" name="__codelineno-19-218"></a><span class="w">    </span><span class="n">boost</span><span class="o">::</span><span class="n">stacktrace</span><span class="o">::</span><span class="n">stacktrace</span><span class="w"> </span><span class="n">init_trace</span><span class="p">;</span>
+<a id="__codelineno-19-219" name="__codelineno-19-219"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">mask_type</span><span class="w"> </span><span class="n">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_feature_mask</span><span class="p">();</span>
+<a id="__codelineno-19-220" name="__codelineno-19-220"></a><span class="p">};</span>
+<a id="__codelineno-19-221" name="__codelineno-19-221"></a>
+<a id="__codelineno-19-222" name="__codelineno-19-222"></a><span class="kr">inline</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">State</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">get_global_state</span><span class="p">()</span>
+<a id="__codelineno-19-223" name="__codelineno-19-223"></a><span class="p">{</span>
+<a id="__codelineno-19-224" name="__codelineno-19-224"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
+<a id="__codelineno-19-225" name="__codelineno-19-225"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
+<a id="__codelineno-19-226" name="__codelineno-19-226"></a><span class="p">}</span>
+<a id="__codelineno-19-227" name="__codelineno-19-227"></a>
+<a id="__codelineno-19-228" name="__codelineno-19-228"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">check_local_feature_state</span><span class="p">()</span>
+<a id="__codelineno-19-229" name="__codelineno-19-229"></a><span class="p">{</span>
+<a id="__codelineno-19-230" name="__codelineno-19-230"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">State</span><span class="o">&amp;</span><span class="w"> </span><span class="n">global_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">features</span><span class="o">::</span><span class="n">get_global_state</span><span class="p">();</span>
+<a id="__codelineno-19-231" name="__codelineno-19-231"></a>
+<a id="__codelineno-19-232" name="__codelineno-19-232"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">get_feature_mask</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">global_state</span><span class="p">.</span><span class="n">mask</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-233" name="__codelineno-19-233"></a><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;FATAL: feature mask does not match!</span><span class="se">\n\n</span><span class="s">file:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">__FILE__</span>
+<a id="__codelineno-19-234" name="__codelineno-19-234"></a><span class="w">                  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, mask=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">bitset</span><span class="o">&lt;</span><span class="n">features</span><span class="o">::</span><span class="n">kNumFeatures</span><span class="o">&gt;</span><span class="p">{</span><span class="n">features</span><span class="o">::</span><span class="n">get_feature_mask</span><span class="p">()}</span>
+<a id="__codelineno-19-235" name="__codelineno-19-235"></a><span class="w">                  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n\n</span><span class="s">global mask=&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">bitset</span><span class="o">&lt;</span><span class="n">features</span><span class="o">::</span><span class="n">kNumFeatures</span><span class="o">&gt;</span><span class="p">{</span><span class="n">global_state</span><span class="p">.</span><span class="n">mask</span><span class="p">}</span>
+<a id="__codelineno-19-236" name="__codelineno-19-236"></a><span class="w">                  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n\n</span><span class="s">global state initialized at: </span><span class="se">\n\n</span><span class="s">&quot;</span>
+<a id="__codelineno-19-237" name="__codelineno-19-237"></a><span class="w">                  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">global_state</span><span class="p">.</span><span class="n">init_trace</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+<a id="__codelineno-19-238" name="__codelineno-19-238"></a><span class="w">                  </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-19-239" name="__codelineno-19-239"></a>
+<a id="__codelineno-19-240" name="__codelineno-19-240"></a><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">terminate</span><span class="p">();</span>
+<a id="__codelineno-19-241" name="__codelineno-19-241"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-19-242" name="__codelineno-19-242"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<a id="__codelineno-19-243" name="__codelineno-19-243"></a><span class="p">}</span>
+<a id="__codelineno-19-244" name="__codelineno-19-244"></a>
+<a id="__codelineno-19-245" name="__codelineno-19-245"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace features</span>
+<a id="__codelineno-19-246" name="__codelineno-19-246"></a>
+<a id="__codelineno-19-247" name="__codelineno-19-247"></a><span class="k">namespace</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-19-248" name="__codelineno-19-248"></a>
+<a id="__codelineno-19-249" name="__codelineno-19-249"></a><span class="p">[[</span><span class="n">maybe_unused</span><span class="p">]]</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">feature_mask_check_for_module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">features</span><span class="o">::</span><span class="n">check_local_feature_state</span><span class="p">();</span>
+<a id="__codelineno-19-250" name="__codelineno-19-250"></a>
+<a id="__codelineno-19-251" name="__codelineno-19-251"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace</span>
+<a id="__codelineno-19-252" name="__codelineno-19-252"></a>
+<a id="__codelineno-19-253" name="__codelineno-19-253"></a><span class="c1">//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------</span>
+<a id="__codelineno-19-254" name="__codelineno-19-254"></a>
+<a id="__codelineno-19-255" name="__codelineno-19-255"></a><span class="cp">#if defined(BATT_PLATFORM_IS_LINUX)</span>
+<a id="__codelineno-19-256" name="__codelineno-19-256"></a><span class="cp">#define BATT_PLATFORM_SUPPORTS_DEATH_TESTS 1</span>
+<a id="__codelineno-19-257" name="__codelineno-19-257"></a>
+<a id="__codelineno-19-258" name="__codelineno-19-258"></a><span class="cp">#elif defined(BATT_PLATFORM_IS_APPLE)</span>
+<a id="__codelineno-19-259" name="__codelineno-19-259"></a><span class="cp">#define BATT_PLATFORM_SUPPORTS_DEATH_TESTS 1</span>
+<a id="__codelineno-19-260" name="__codelineno-19-260"></a>
+<a id="__codelineno-19-261" name="__codelineno-19-261"></a><span class="cp">#elif defined(BATT_PLATFORM_IS_WINDOWS)</span>
+<a id="__codelineno-19-262" name="__codelineno-19-262"></a><span class="cp">#define BATT_PLATFORM_SUPPORTS_DEATH_TESTS 0</span>
+<a id="__codelineno-19-263" name="__codelineno-19-263"></a>
+<a id="__codelineno-19-264" name="__codelineno-19-264"></a><span class="cp">#else</span>
+<a id="__codelineno-19-265" name="__codelineno-19-265"></a><span class="cp">#error Please define BATT_PLATFORM_SUPPORTS_DEATH_TESTS for your platform</span>
+<a id="__codelineno-19-266" name="__codelineno-19-266"></a><span class="cp">#endif</span>
+<a id="__codelineno-19-267" name="__codelineno-19-267"></a>
+<a id="__codelineno-19-268" name="__codelineno-19-268"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace batt</span>
+<a id="__codelineno-19-269" name="__codelineno-19-269"></a>
+<a id="__codelineno-19-270" name="__codelineno-19-270"></a><span class="cp">#endif  </span><span class="c1">// BATTERIES_CONFIG_HPP</span>
+</code></pre></div></td></tr></table></div>
+<hr />
+<p>Updated on 12 January 2024 at 18:53:48 UTC</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.6df46069.min.js"></script>
+      
+    
+  </body>
+</html>
