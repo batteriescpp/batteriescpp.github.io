@@ -1,0 +1,133 @@
+{
+  "abstract": false,
+  "anchor": "#file-shared-ptr.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-shared-ptr-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SHARED_PTR_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/shared_ptr.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/shared_ptr.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_SHARED_PTR_HPP",
+      "override": false,
+      "refid": "shared__ptr_8hpp_1a0284331a4b442700a6361f3add0d6009",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SHARED_PTR_HPP",
+      "url": "/_autogen/Files/shared__ptr_8hpp/#define-batteries-shared-ptr-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/shared_ptr.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/shared_ptr.hpp",
+    "line": 0
+  },
+  "name": "batteries/shared_ptr.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_SHARED_PTR_HPP\n#define BATTERIES_SHARED_PTR_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/utility.hpp>\n\n#include <boost/smart_ptr/intrusive_ptr.hpp>\n#include <boost/smart_ptr/intrusive_ref_counter.hpp>\n\n#include <memory>\n#include <type_traits>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// Alias to add atomic reference counting intrusively to a class via base class.\n//\ntemplate <typename T>\nusing RefCounted = boost::intrusive_ref_counter<std::decay_t<T>>;\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\nnamespace detail {\n\ntemplate <typename T,                                               //\n          typename = decltype(intrusive_ptr_add_ref((T*)nullptr)),  //\n          typename = decltype(intrusive_ptr_release((T*)nullptr))>\nstd::true_type is_ref_counted_impl(void*);\n\ntemplate <typename T>\nstd::false_type is_ref_counted_impl(...);\n\n}  // namespace detail\n   //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// Type trait that determines whether T, when decayed, is intrusively reference counted.\n//\ntemplate <typename T>\nusing IsRefCounted = decltype(detail::is_ref_counted_impl<std::decay_t<T>>(nullptr));\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T>\nstruct SharedPtrImpl\n    : std::conditional<\n          // If T derives from RefCounted<T>\n          IsRefCounted<T>{},\n          // Then use intrusive_ptr\n          boost::intrusive_ptr<std::remove_reference_t<T>>,\n          // Else use shared_ptr\n          std::shared_ptr<std::remove_reference_t<T>>> {\n};\n\ntemplate <typename T>\nusing SharedPtr = typename SharedPtrImpl<T>::type;\n\ntemplate <typename T, typename... Args, typename = std::enable_if_t<IsRefCounted<T>{}>>\nSharedPtr<T> make_shared(Args&&... args)\n{\n    return SharedPtr<T>{new T(BATT_FORWARD(args)...)};\n}\n\ntemplate <typename T, typename... Args, typename = std::enable_if_t<!IsRefCounted<T>{}>, typename = void>\nSharedPtr<T> make_shared(Args&&... args)\n{\n    return std::make_shared<T>(BATT_FORWARD(args)...);\n}\n\ntemplate <typename T>\nSharedPtr<T> into_shared(std::unique_ptr<T>&& ptr)\n{\n    return SharedPtr<T>{ptr.release()};\n}\n\ntemplate <typename T, typename = std::enable_if_t<\n                          std::is_same_v<SharedPtr<T>, std::shared_ptr<std::remove_reference_t<T>>>>>\nSharedPtr<T> shared_ptr_from(T* that)\n{\n    return that->shared_from_this();\n}\n\ntemplate <typename T,\n          typename = std::enable_if_t<\n              std::is_same_v<SharedPtr<T>, boost::intrusive_ptr<std::remove_reference_t<T>>>>,\n          typename = void>\nSharedPtr<T> shared_ptr_from(T* that)\n{\n    return SharedPtr<T>{that};\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_SHARED_PTR_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::conditional< IsRefCounted< T >{}, boost::intrusive_ptr< std::remove_reference_t< T > >, std::shared_ptr< std::remove_reference_t< T > > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::SharedPtrImpl",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::SharedPtrImpl",
+      "refid": "structbatt_1_1SharedPtrImpl",
+      "title": "batt::SharedPtrImpl",
+      "url": "/_autogen/Classes/structbatt_1_1SharedPtrImpl/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "shared__ptr_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/shared_ptr.hpp",
+  "url": "/_autogen/Files/shared__ptr_8hpp/#file-shared-ptr.hpp",
+  "visibility": "public"
+}
