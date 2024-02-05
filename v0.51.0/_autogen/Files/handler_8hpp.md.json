@@ -1,0 +1,301 @@
+{
+  "abstract": false,
+  "anchor": "#file-handler.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-handler-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_HANDLER_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/handler.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/handler.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_HANDLER_HPP",
+      "override": false,
+      "refid": "handler_8hpp_1a72b1620ddf016bc38e3a8f19a9dfcfbd",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_HANDLER_HPP",
+      "url": "/_autogen/Files/handler_8hpp/#define-batteries-async-handler-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/handler.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/handler.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/handler.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_HANDLER_HPP\n#define BATTERIES_ASYNC_HANDLER_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/buffer.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/static_assert.hpp>\n#include <batteries/stream_util.hpp>\n#include <batteries/suppress.hpp>\n#include <batteries/type_traits.hpp>\n#include <batteries/utility.hpp>\n\n#include <boost/asio/associated_allocator.hpp>\n#include <boost/intrusive/options.hpp>\n#include <boost/intrusive/slist.hpp>\n\n#include <memory>\n#include <type_traits>\n#include <utility>\n\nnamespace batt {\n\nusing DefaultHandlerBase = boost::intrusive::slist_base_hook<boost::intrusive::cache_last<true>,\n                                                             boost::intrusive::constant_time_size<true>>;\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\ntemplate <typename Base, typename... Args>\nclass BasicAbstractHandler : public Base\n{\n   public:\n    using Self = BasicAbstractHandler;\n\n    struct Deleter {\n        void operator()(Self* handler) const\n        {\n            if (handler != nullptr) {\n                handler->destroy();\n            }\n        }\n    };\n\n    BasicAbstractHandler(const Self&) = delete;\n\n    Self& operator=(const Self&) = delete;\n\n    virtual void notify(Args... args) = 0;\n\n    virtual void destroy() = 0;\n\n    virtual void dump(std::ostream& out) = 0;\n\n   protected:\n    BasicAbstractHandler() = default;\n\n    // The handler should only be deleted from inside `notify`.\n    //\n    virtual ~BasicAbstractHandler() = default;\n};\n\ntemplate <typename... Args>\nusing AbstractHandler = BasicAbstractHandler<DefaultHandlerBase, Args...>;\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename HandlerFn, typename Base, typename... Args>\nclass BasicHandlerImpl : public BasicAbstractHandler<Base, Args...>\n{\n   public:\n    using Self = BasicHandlerImpl;\n\n    static_assert(std::is_same_v<HandlerFn, std::decay_t<HandlerFn>>,\n                  \"HandlerFn may not be a reference type\");\n\n    static_assert(batt::IsCallable<HandlerFn, Args...>{}, \"HandlerFn must be callable with (Args...)\");\n\n    using allocator_type = typename std::allocator_traits<\n        boost::asio::associated_allocator_t<HandlerFn>>::template rebind_alloc<Self>;\n\n    template <typename HandlerFnArg>\n    static Self* make_new(HandlerFnArg&& h)\n    {\n        allocator_type local_allocator = std::move(boost::asio::get_associated_allocator(h));\n        void* memory = local_allocator.allocate(1);\n        return new (memory) Self{BATT_FORWARD(h)};\n    }\n\n    template <typename HandlerFnArg>\n    static Self* make_new(HandlerFnArg&& h, usize extra_bytes)\n    {\n        allocator_type local_allocator = std::move(boost::asio::get_associated_allocator(h));\n        void* memory = local_allocator.allocate(1 + (extra_bytes + sizeof(Self) - 1) / sizeof(Self));\n        return new (memory) Self{BATT_FORWARD(h)};\n    }\n\n    template <typename HandlerFnArg, typename = batt::EnableIfNoShadow<Self, HandlerFnArg&&>>\n    explicit BasicHandlerImpl(HandlerFnArg&& h) noexcept : fn_(BATT_FORWARD(h))\n    {\n    }\n\n    void notify(Args... args) override\n    {\n        this->consume_impl([&](auto&& local_fn) {\n            std::move(local_fn)(BATT_FORWARD(args)...);\n        });\n    }\n\n    void destroy() override\n    {\n        this->consume_impl([](auto&& /*local_fn*/) { /* do nothing */ });\n    }\n\n    void dump(std::ostream& out) override\n    {\n        out << \"HandlerImpl<\" << name_of(StaticType<HandlerFn>{}) << \">{}\";\n    }\n\n    HandlerFn& get_fn()\n    {\n        return this->fn_;\n    }\n\n   private:\n    template <typename FnAction>\n    void consume_impl(FnAction&& fn_action)\n    {\n        allocator_type local_allocator = std::move(boost::asio::get_associated_allocator(this->fn_));\n        HandlerFn local_fn = std::move(this->fn_);\n        this->~Self();\n        local_allocator.deallocate(this, 1);\n\n        BATT_FORWARD(fn_action)(BATT_FORWARD(local_fn));\n    }\n\n    HandlerFn fn_;\n};\n\ntemplate <typename HandlerFn, typename... Args>\nusing HandlerImpl = BasicHandlerImpl<HandlerFn, DefaultHandlerBase, Args...>;\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename... Args>\nclass UniqueHandler\n{\n   public:\n    template <typename Fn, typename = EnableIfNoShadow<UniqueHandler, Fn>,\n              typename = std::enable_if_t<IsCallable<std::decay_t<Fn>, Args...>::value>>\n    explicit UniqueHandler(Fn&& fn) noexcept\n        : handler_{HandlerImpl<std::decay_t<Fn>, Args...>::make_new(BATT_FORWARD(fn))}\n    {\n    }\n\n    UniqueHandler() = default;\n\n    UniqueHandler(const UniqueHandler&) = delete;\n    UniqueHandler& operator=(const UniqueHandler&) = delete;\n\n    UniqueHandler(UniqueHandler&&) = default;\n    UniqueHandler& operator=(UniqueHandler&&) = default;\n\n    ~UniqueHandler() noexcept\n    {\n    }\n\n    explicit operator bool() const\n    {\n        return this->handler_ != nullptr;\n    }\n\n    void operator()(Args... args)\n    {\n        if (this->handler_ != nullptr) {\n            auto* local_handler = this->handler_.release();\n            local_handler->notify(BATT_FORWARD(args)...);\n        }\n    }\n\n    friend inline std::ostream& operator<<(std::ostream& out, const UniqueHandler& t)\n    {\n        if (t.handler_ == nullptr) {\n            return out << \"<nullptr>\";\n        }\n        out << (void*)t.handler_.get() << \": \";\n        t.handler_->dump(out);\n        return out;\n    }\n\n   private:\n    std::unique_ptr<AbstractHandler<Args...>, typename AbstractHandler<Args...>::Deleter> handler_;\n};\n\nBATT_STATIC_ASSERT_EQ(sizeof(UniqueHandler<>), sizeof(void*));\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename Base, typename... Args>\nusing BasicHandlerList = boost::intrusive::slist<BasicAbstractHandler<Base, Args...>,  //\n                                                 boost::intrusive::cache_last<true>,   //\n                                                 boost::intrusive::constant_time_size<true>>;\n\ntemplate <typename... Args>\nusing HandlerList = BasicHandlerList<DefaultHandlerBase, Args...>;\n\ntemplate <typename Base, typename... Args>\ninline void push_handler_prealloc(boost::intrusive::slist<BasicAbstractHandler<Base, Args...>,  //\n                                                          boost::intrusive::cache_last<true>,   //\n                                                          boost::intrusive::constant_time_size<true>>* list,\n                                  BasicAbstractHandler<Base, Args...>* handler)\n{\n    list->push_back(*handler);\n}\n\ntemplate <typename... Args, typename Base, typename HandlerFn>\ninline void push_handler(boost::intrusive::slist<BasicAbstractHandler<Base, Args...>,  //\n                                                 boost::intrusive::cache_last<true>,   //\n                                                 boost::intrusive::constant_time_size<true>>* list,\n                         HandlerFn&& fn)\n{\n    push_handler_prealloc(list, BasicHandlerImpl<HandlerFn, Base, Args...>::make_new(BATT_FORWARD(fn)));\n}\n\ntemplate <typename... Params, typename... Args, typename Base>\ninline void invoke_all_handlers(boost::intrusive::slist<BasicAbstractHandler<Base, Params...>,  //\n                                                        boost::intrusive::cache_last<true>,     //\n                                                        boost::intrusive::constant_time_size<true>>* handlers,\n                                Args&&... args)\n{\n    while (!handlers->empty()) {\n        BasicAbstractHandler<Base, Params...>& l = handlers->front();\n        handlers->pop_front();\n        l.notify(args...);\n    }\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename InnerFn, typename OuterFn>\nclass HandlerBinder\n{\n   public:\n    using allocator_type = boost::asio::associated_allocator_t<InnerFn>;\n\n    template <typename InnerFnArg, typename OuterFnArg>\n    explicit HandlerBinder(InnerFnArg&& inner, OuterFnArg&& outer)\n        : inner_fn_{BATT_FORWARD(inner)}\n        , outer_fn_{BATT_FORWARD(outer)}\n    {\n    }\n\n    allocator_type get_allocator() const noexcept\n    {\n        return boost::asio::get_associated_allocator(this->inner_fn_);\n    }\n\n    template <typename... Args,\n              typename = std::enable_if_t<batt::IsCallable<OuterFn&&, InnerFn&&, Args&&...>{}>>\n    void operator()(Args&&... args) noexcept(noexcept(std::declval<HandlerBinder*>()->outer_fn_(\n        BATT_FORWARD(std::declval<HandlerBinder*>()->inner_fn_), std::declval<Args>()...)))\n    {\n        this->outer_fn_(BATT_FORWARD(this->inner_fn_), BATT_FORWARD(args)...);\n    }\n\n    InnerFn inner_fn_;\n    OuterFn outer_fn_;\n};\n\ntemplate <typename InnerFn, typename OuterFn>\nHandlerBinder<std::decay_t<InnerFn>, std::decay_t<OuterFn>> bind_handler(InnerFn&& inner, OuterFn&& outer)\n{\n    return HandlerBinder<std::decay_t<InnerFn>, std::decay_t<OuterFn>>{BATT_FORWARD(inner),\n                                                                       BATT_FORWARD(outer)};\n}\n\n//#=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++\n\nBATT_SUPPRESS_IF_GCC(\"-Wfree-nonheap-object\")\n\n\nclass HandlerMemoryBase\n{\n   public:\n    explicit HandlerMemoryBase(const MutableBuffer& buffer) noexcept : buffer_{buffer}\n    {\n    }\n\n    explicit HandlerMemoryBase(void* ptr, usize size) noexcept : buffer_{ptr, size}\n    {\n    }\n\n    HandlerMemoryBase(const HandlerMemoryBase&) = delete;\n    HandlerMemoryBase& operator=(const HandlerMemoryBase&) = delete;\n\n    virtual ~HandlerMemoryBase() = default;\n\n    void* allocate(usize size)\n    {\n        if (!this->in_use_ && size <= this->buffer_.size()) {\n            this->in_use_ = true;\n            return this->buffer_.data();\n        } else {\n            return ::operator new(size);\n        }\n    }\n\n    void deallocate(void* pointer) noexcept\n    {\n        if (pointer == this->buffer_.data()) {\n            this->in_use_ = false;\n        } else {\n            ::operator delete(pointer);\n        }\n    }\n\n    bool in_use() const noexcept\n    {\n        return this->in_use_;\n    }\n\n   private:\n    // The handler memory.\n    //\n    MutableBuffer buffer_;\n\n    // Tracks whether the memory is currently in use.\n    //\n    bool in_use_ = false;\n};\n\ntemplate <usize kSize>\nclass HandlerMemory : public HandlerMemoryBase\n{\n   public:\n    HandlerMemory() noexcept : HandlerMemoryBase{&this->storage_, sizeof(this->storage_)}\n    {\n    }\n\n    HandlerMemory(const HandlerMemory&) = delete;\n    HandlerMemory& operator=(const HandlerMemory&) = delete;\n\n   private:\n    // The memory.\n    //\n    std::aligned_storage_t<kSize> storage_;\n};\n\ntemplate <typename T>\nclass HandlerAllocator;\n\ntemplate <typename T, typename U>\nbool operator==(const HandlerAllocator<T>& left, const HandlerAllocator<U>& right) noexcept;\n\ntemplate <typename T, typename U>\nbool operator!=(const HandlerAllocator<T>& left, const HandlerAllocator<U>& right) noexcept;\n\ntemplate <typename T>\nclass HandlerAllocator\n{\n   public:\n    template <typename T_, typename U>\n    friend bool operator==(const HandlerAllocator<T_>& left, const HandlerAllocator<U>& right) noexcept;\n\n    template <typename T_, typename U>\n    friend bool operator!=(const HandlerAllocator<T_>& left, const HandlerAllocator<U>& right) noexcept;\n\n    using value_type = T;\n\n    explicit HandlerAllocator(HandlerMemoryBase& mem) : memory_(mem)\n    {\n    }\n\n    template <typename U>\n    HandlerAllocator(const HandlerAllocator<U>& that) noexcept : memory_(that.memory_)\n    {\n    }\n\n    T* allocate(usize n) const\n    {\n        return static_cast<T*>(this->memory_.allocate(sizeof(T) * n));\n    }\n\n    void deallocate(T* p, usize /*n*/) const\n    {\n        return this->memory_.deallocate(p);\n    }\n\n   private:\n    template <typename>\n    friend class HandlerAllocator;\n\n    // The attached memory.\n    //\n    HandlerMemoryBase& memory_;\n};\n\ntemplate <typename T, typename U>\nbool operator==(const HandlerAllocator<T>& left, const HandlerAllocator<U>& right) noexcept\n{\n    return &left.memory_ == &right.memory_;\n}\n\ntemplate <typename T, typename U>\nbool operator!=(const HandlerAllocator<T>& left, const HandlerAllocator<U>& right) noexcept\n{\n    return !(left == right);\n}\n\ntemplate <typename Handler>\nclass CustomAllocHandler\n{\n   public:\n    using allocator_type = HandlerAllocator<Handler>;\n\n    template <typename HandlerArg>\n    CustomAllocHandler(HandlerMemoryBase& m, HandlerArg&& h)\n        : memory_{&m}\n        , handler_(std::forward<HandlerArg>(h))\n    {\n    }\n\n    allocator_type get_allocator() const noexcept\n    {\n        return allocator_type{*this->memory_};\n    }\n\n    template <typename... Args>\n    void operator()(Args&&... args) noexcept(noexcept(std::declval<Handler&>()(std::declval<Args>()...)))\n    {\n        handler_(std::forward<Args>(args)...);\n    }\n\n    const Handler& get_handler() const noexcept\n    {\n        return this->handler_;\n    }\n\n   private:\n    // The attached memory.\n    //\n    HandlerMemoryBase* memory_;\n\n    // The wrapped completion handler.\n    //\n    Handler handler_;\n};\n\ntemplate <typename Handler>\ninline CustomAllocHandler<std::decay_t<Handler>> make_custom_alloc_handler(HandlerMemoryBase& m, Handler&& h)\n{\n    return CustomAllocHandler<std::decay_t<Handler>>{m, std::forward<Handler>(h)};\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_HANDLER_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "Base",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "A type-erased async completion handler with linked list pointers. ",
+      "category": "classes",
+      "fullname": "batt::BasicAbstractHandler",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicAbstractHandler",
+      "refid": "classbatt_1_1BasicAbstractHandler",
+      "summary": "A type-erased async completion handler with linked list pointers. ",
+      "title": "batt::BasicAbstractHandler",
+      "url": "/_autogen/Classes/classbatt_1_1BasicAbstractHandler/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "[Deleter]() for use in std::unique_ptr. ",
+      "category": "classes",
+      "fullname": "batt::BasicAbstractHandler::Deleter",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::BasicAbstractHandler::Deleter",
+      "refid": "structbatt_1_1BasicAbstractHandler_1_1Deleter",
+      "summary": "Deleter for use in std::unique_ptr. ",
+      "title": "batt::BasicAbstractHandler::Deleter",
+      "url": "/_autogen/Classes/structbatt_1_1BasicAbstractHandler_1_1Deleter/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::BasicAbstractHandler< Base, Args... >",
+          "refid": "classbatt_1_1BasicAbstractHandler",
+          "url": "/_autogen/Classes/classbatt_1_1BasicAbstractHandler/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": true,
+          "name": "Base",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::BasicHandlerImpl",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicHandlerImpl",
+      "refid": "classbatt_1_1BasicHandlerImpl",
+      "title": "batt::BasicHandlerImpl",
+      "url": "/_autogen/Classes/classbatt_1_1BasicHandlerImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::UniqueHandler",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::UniqueHandler",
+      "refid": "classbatt_1_1UniqueHandler",
+      "title": "batt::UniqueHandler",
+      "url": "/_autogen/Classes/classbatt_1_1UniqueHandler/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::HandlerBinder",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::HandlerBinder",
+      "refid": "classbatt_1_1HandlerBinder",
+      "title": "batt::HandlerBinder",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerBinder/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Abstract base for HandlerMemory<kSize>. ",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::HandlerMemory< 2 *kCpuCacheLineSize - sizeof(batt::Watch< u32 >)>",
+          "refid": "classbatt_1_1HandlerMemory",
+          "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::HandlerMemory< kHandlerMemoryBytes >",
+          "refid": "classbatt_1_1HandlerMemory",
+          "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::HandlerMemory< kStackBufferSize >",
+          "refid": "classbatt_1_1HandlerMemory",
+          "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::HandlerMemory< kSize >",
+          "refid": "classbatt_1_1HandlerMemory",
+          "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::HandlerMemoryBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::HandlerMemoryBase",
+      "refid": "classbatt_1_1HandlerMemoryBase",
+      "summary": "Abstract base for HandlerMemory<kSize>. ",
+      "title": "batt::HandlerMemoryBase",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerMemoryBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::HandlerMemoryBase",
+          "refid": "classbatt_1_1HandlerMemoryBase",
+          "url": "/_autogen/Classes/classbatt_1_1HandlerMemoryBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "A chunk of memory that can be attached to an async completion handler. ",
+      "category": "classes",
+      "fullname": "batt::HandlerMemory",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::HandlerMemory",
+      "refid": "classbatt_1_1HandlerMemory",
+      "summary": "A chunk of memory that can be attached to an async completion handler. ",
+      "title": "batt::HandlerMemory",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerMemory/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "An allocator associated with a completion handler. ",
+      "category": "classes",
+      "fullname": "batt::HandlerAllocator",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::HandlerAllocator",
+      "refid": "classbatt_1_1HandlerAllocator",
+      "summary": "An allocator associated with a completion handler. ",
+      "title": "batt::HandlerAllocator",
+      "url": "/_autogen/Classes/classbatt_1_1HandlerAllocator/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Wrapper for an async completion handler type `Handler`. ",
+      "category": "classes",
+      "fullname": "batt::CustomAllocHandler",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::CustomAllocHandler",
+      "refid": "classbatt_1_1CustomAllocHandler",
+      "summary": "Wrapper for an async completion handler type Handler. ",
+      "title": "batt::CustomAllocHandler",
+      "url": "/_autogen/Classes/classbatt_1_1CustomAllocHandler/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "handler_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/handler.hpp",
+  "url": "/_autogen/Files/handler_8hpp/#file-handler.hpp",
+  "visibility": "public"
+}

@@ -1,0 +1,172 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "brief": "Base class of typed Mutex<T>; implements core logic without any type dependencies. ",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "derivedClasses": [
+    {
+      "external": false,
+      "name": "batt::Mutex< std::unordered_map< batt::HostAddress, SharedPtr< batt::HttpClientHostContext >, boost::hash< batt::HostAddress > > >",
+      "refid": "classbatt_1_1Mutex",
+      "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    },
+    {
+      "external": false,
+      "name": "batt::Mutex< std::deque< T > >",
+      "refid": "classbatt_1_1Mutex",
+      "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    },
+    {
+      "external": false,
+      "name": "batt::Mutex< batt::NoneType >",
+      "refid": "classbatt_1_1Mutex",
+      "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    },
+    {
+      "external": false,
+      "name": "batt::Mutex< T >",
+      "refid": "classbatt_1_1Mutex",
+      "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
+  "explicit": false,
+  "friends": [
+    {
+      "abstract": false,
+      "anchor": "#friend-lockbase",
+      "argsString": "",
+      "category": "friends",
+      "const": false,
+      "default": false,
+      "definition": "friend class LockBase",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MutexBase::LockBase",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "friend",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/mutex.hpp",
+        "bodyStart": 28,
+        "column": 5,
+        "file": "batteries/async/mutex.hpp",
+        "line": 28
+      },
+      "name": "LockBase",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[LockBase](/_autogen/Classes/classbatt_1_1LockBase/)",
+          "typePlain": "LockBase"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MutexBase_1a5196e9d40fdada1554501f6109d5710e",
+      "static": false,
+      "strong": false,
+      "title": "LockBase",
+      "type": "class",
+      "typePlain": "class",
+      "url": "/_autogen/Classes/classbatt_1_1MutexBase/#friend-lockbase",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "fullname": "batt::MutexBase",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/async/mutex.hpp>",
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 37,
+    "bodyFile": "batteries/async/mutex.hpp",
+    "bodyStart": 24,
+    "column": 1,
+    "file": "batteries/async/mutex.hpp",
+    "line": 23
+  },
+  "name": "batt::MutexBase",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "protectedAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-queue-back-",
+      "brief": "The most-recent end of the queue of locks; once a locker has acquired the mutex, it stays in this queue until it passes the lock to the next in line. ",
+      "category": "attributes",
+      "const": false,
+      "definition": "std::atomic<void*> batt::MutexBase::queue_back_",
+      "explicit": false,
+      "fullname": "batt::MutexBase::queue_back_",
+      "hasDetails": false,
+      "initializer": "{nullptr}",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/mutex.hpp",
+        "bodyStart": 36,
+        "column": 25,
+        "file": "batteries/async/mutex.hpp",
+        "line": 36
+      },
+      "name": "queue_back_",
+      "override": false,
+      "refid": "classbatt_1_1MutexBase_1a59ba71ad5422bb2015ed6bde28ce8606",
+      "static": false,
+      "strong": false,
+      "summary": "The most-recent end of the queue of locks; once a locker has acquired the mutex, it stays in this queue until it passes the lock to the next in line. ",
+      "title": "queue_back_",
+      "type": "std::atomic< void * >",
+      "typePlain": "std::atomic< void * >",
+      "url": "/_autogen/Classes/classbatt_1_1MutexBase/#variable-queue-back-",
+      "visibility": "protected"
+    }
+  ],
+  "refid": "classbatt_1_1MutexBase",
+  "static": false,
+  "strong": false,
+  "summary": "Base class of typed Mutex<T>; implements core logic without any type dependencies. ",
+  "title": "batt::MutexBase",
+  "url": "/_autogen/Classes/classbatt_1_1MutexBase/",
+  "visibility": "public"
+}
