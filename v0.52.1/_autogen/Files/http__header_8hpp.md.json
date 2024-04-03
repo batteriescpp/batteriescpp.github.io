@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-http-header.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-http-header-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_HTTP_HEADER_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/http_header.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/http/http_header.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_HTTP_HEADER_HPP",
+      "override": false,
+      "refid": "http__header_8hpp_1a1a742764de83809fb97b0e5e0addfa16",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_HTTP_HEADER_HPP",
+      "url": "/_autogen/Files/http__header_8hpp/#define-batteries-http-header-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/http/http_header.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/http/http_header.hpp",
+    "line": 0
+  },
+  "name": "batteries/http/http_header.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/http",
+    "category": "dirs",
+    "fullname": "batteries/http",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/http",
+    "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+    "title": "batteries/http",
+    "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/http",
+      "category": "dirs",
+      "fullname": "batteries/http",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/http",
+      "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+      "title": "batteries/http",
+      "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_HTTP_HEADER_HPP\n#define BATTERIES_HTTP_HEADER_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/pico_http/parser.hpp>\n\nnamespace batt {\n\nusing HttpHeader = ::pico_http::MessageHeader;\n\ninline Optional<std::string_view> find_header(const SmallVecBase<HttpHeader>& headers,\n                                              const std::string_view& name)\n{\n    const auto iter = std::find_if(headers.begin(), headers.end(), [&](const HttpHeader& hdr) {\n        return hdr.name == name;\n    });\n    if (iter == headers.end()) {\n        return None;\n    }\n    return iter->value;\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_HTTP_HEADER_HPP",
+  "refid": "http__header_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/http/http_header.hpp",
+  "url": "/_autogen/Files/http__header_8hpp/#file-http-header.hpp",
+  "visibility": "public"
+}
