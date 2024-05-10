@@ -1,0 +1,319 @@
+{
+  "abstract": false,
+  "anchor": "#file-mutex.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-mutex-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_MUTEX_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/mutex.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/mutex.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_MUTEX_HPP",
+      "override": false,
+      "refid": "mutex_8hpp_1a398aabbbba84fef69fca577ce67dadd3",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_MUTEX_HPP",
+      "url": "/_autogen/Files/mutex_8hpp/#define-batteries-async-mutex-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-scoped-lock",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_SCOPED_LOCK",
+      "hasDetails": false,
+      "initializer": "    decltype(MUTEX_EXPR)::Lock LOCK_VAR                                                                      \\\n    {                                                                                                        \\\n        MUTEX_EXPR                                                                                           \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/mutex.hpp",
+        "bodyStart": 644,
+        "column": 9,
+        "file": "batteries/async/mutex.hpp",
+        "line": 644
+      },
+      "name": "BATT_SCOPED_LOCK",
+      "override": false,
+      "params": [
+        {
+          "name": "LOCK_VAR",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "MUTEX_EXPR",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "mutex_8hpp_1a3f03e30650cb27522a082a9e69502d56",
+      "static": false,
+      "strong": false,
+      "title": "BATT_SCOPED_LOCK",
+      "url": "/_autogen/Files/mutex_8hpp/#define-batt-scoped-lock",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-scoped-const-lock",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_SCOPED_CONST_LOCK",
+      "hasDetails": false,
+      "initializer": "    decltype(MUTEX_EXPR)::ConstLock LOCK_VAR                                                                 \\\n    {                                                                                                        \\\n        MUTEX_EXPR                                                                                           \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/mutex.hpp",
+        "bodyStart": 650,
+        "column": 9,
+        "file": "batteries/async/mutex.hpp",
+        "line": 650
+      },
+      "name": "BATT_SCOPED_CONST_LOCK",
+      "override": false,
+      "params": [
+        {
+          "name": "LOCK_VAR",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "MUTEX_EXPR",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "mutex_8hpp_1a1f163efd569fe0fc30cc1cbab64fdc0b",
+      "static": false,
+      "strong": false,
+      "title": "BATT_SCOPED_CONST_LOCK",
+      "url": "/_autogen/Files/mutex_8hpp/#define-batt-scoped-const-lock",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/mutex.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/mutex.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/mutex.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_MUTEX_HPP\n#define BATTERIES_ASYNC_MUTEX_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/async/watch.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/pointers.hpp>\n\n#include <atomic>\n\nnamespace batt {\n\nclass LockBase;\n\nclass MutexBase\n{\n   public:\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    friend class LockBase;\n\n   protected:\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    mutable std::atomic<void*> queue_back_{nullptr};\n};\n\nclass LockBase\n{\n   public:\n    static constexpr usize kMaxLockDepth = 8;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    struct PerThreadState;\n\n    static PerThreadState& per_thread();\n\n    static LockBase* acquire(const MutexBase& mutex);\n\n    static void release(LockBase* lock);\n\n    enum struct State {\n\n        kUnlocked = 0,\n\n        kLocked = 1,\n\n        kLockedHaveNext = 2,\n\n        kInvalid = 3,\n    };\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    LockBase() noexcept\n        : mutex_{nullptr}\n        , state_{State::kUnlocked}\n        , next_{nullptr}\n        , waiting_to_acquire_{false}\n    {\n    }\n\n    explicit LockBase(const MutexBase& mutex) noexcept\n        : mutex_{std::addressof(mutex)}\n        , state_{State::kUnlocked}\n        , next_{nullptr}\n        , waiting_to_acquire_{false}\n    {\n        // IMPORTANT: this should be the only call to acquire_impl!  Please do not add a public `lock()`\n        // member function (or equivalent) without completely reviewing the design of this entire class and\n        // the algorithms it uses.\n        //\n        this->acquire_impl();\n    }\n\n    LockBase(LockBase&& src) noexcept\n        : mutex_{nullptr}\n        , state_{State::kUnlocked}\n        , next_{nullptr}\n        , waiting_to_acquire_{false}\n    {\n        this->move_impl(std::move(src));\n    }\n\n    LockBase(const LockBase&) = delete;\n\n    LockBase& operator=(const LockBase&) = delete;\n\n    ~LockBase() noexcept\n    {\n        this->release_impl();\n    }\n\n    LockBase& operator=(LockBase&& src) noexcept\n    {\n        this->release_impl();\n        this->move_impl(std::move(src));\n\n        return *this;\n    }\n\n    void release() noexcept\n    {\n        this->release_impl();\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    void acquire_impl() noexcept\n    {\n        {\n            void* prior_value = this->mutex_->queue_back_.exchange(this);\n\n            if (prior_value == nullptr) {\n                this->state_ = State::kLocked;\n                return;\n            }\n\n            //----- --- -- -  -  -   -\n            // This is the only section of code where waiting_to_acquire_ is true.\n            //\n            this->waiting_to_acquire_->set_value(true);\n            //\n            LockBase* prev_lock = static_cast<LockBase*>(prior_value);\n            prev_lock->next_->set_value_and_release(this);\n            //\n            // NOTE: this call to `set_value_and_release` MUST be the final usage of the pointer value read\n            // into `prior_value` above.\n        }\n        //\n        BATT_CHECK_OK(this->waiting_to_acquire_->await_equal(false));\n        //\n        //----- --- -- -  -  -   -\n\n        this->state_ = State::kLocked;\n    }\n\n    void move_impl(LockBase&& src) noexcept\n    {\n        this->mutex_ = src.mutex_;\n        this->state_ = src.state_;\n\n        // We will transfer the value of src.next_ below, if necessary.\n        //\n        this->next_->set_value(nullptr);\n\n        // `src.waiting_to_acquire_` should *always* be false, since being true would imply that src is being\n        // moved while inside a call to acquire, meaning it is partially constructed, so how exactly is it\n        // being moved??\n        //\n        BATT_ASSERT(!src.waiting_to_acquire_->get_value());\n        this->waiting_to_acquire_->set_value(false);\n\n        // If src wasn't locked, then we're done!\n        //\n        if (this->state_ == State::kUnlocked) {\n            return;\n        }\n\n        // Let src know it no longer holds the mutex.\n        //\n        src.state_ = State::kUnlocked;\n\n        if (this->state_ == State::kLocked) {\n            void* expected_value = std::addressof(src);\n            for (;;) {\n                // Try to atomically swap `this` into the mutex `queue_back_` where `&src` was; if we succeed,\n                // then no one will ever know the move took place, and we are done!\n                //\n                // NOTE: we know that if there is a LockBase object whose address is held by\n                // MutexBase::queue_back_, it MUST be `src`, since we have an rvalue reference to `src`,\n                // therefore `src` can't have been destroyed and its memory reclaimed (yet).\n                //\n                if (this->mutex_->queue_back_.compare_exchange_weak(expected_value, this)) {\n                    BATT_ASSERT_EQ(src.next_->get_value(), nullptr);\n                    return;\n                }\n\n                // If this was a spurious failure, just retry.\n                //\n                if (expected_value == std::addressof(src)) {\n                    continue;\n                }\n                break;\n            }\n\n            // If we get here, there is some lock who came _after_ `src` to acquire the mutex;  that lock\n            // is obligated to set `src.next_` to itself so it can be unblocked when the lock is released.\n            // Since `this` is the new owner of the lock, it is now responsible for signaling `src.next_`,\n            // so wait for `src.next_` to be set and copy the pointer to `this->next_`.\n            //\n            StatusOr<LockBase*> status_or_next = src.next_->await_not_equal(nullptr);\n            BATT_CHECK_OK(status_or_next);\n\n            LockBase* const src_next = *status_or_next;\n            BATT_ASSERT_NOT_NULLPTR(src_next);\n\n            this->next_->set_value(src_next);\n            this->state_ = State::kLockedHaveNext;\n\n        } else {\n            // Not kUnlocked, not kLocked; kLockedHaveNext is the only remaining possibility.\n            //\n            BATT_ASSERT_EQ(this->state_, State::kLockedHaveNext);\n\n            LockBase* const src_next = src.next_->get_value();\n\n            // kLockedHaveNext implies that src.next_ is non-null.\n            //\n            BATT_CHECK_NOT_NULLPTR(src_next) << BATT_INSPECT((void*)this) << BATT_INSPECT((void*)src_next);\n            this->next_->set_value(src_next);\n        }\n    }\n\n    void release_impl() noexcept\n    {\n        if (this->state_ == State::kUnlocked) {\n            return;\n        }\n\n        const State prior_state = this->state_;\n        this->state_ = State::kUnlocked;\n\n        LockBase* next_lock;  // MUST be set in both branches below.\n\n        if (prior_state == State::kLocked) {\n            void* expected_value = this;\n            for (;;) {\n                if (this->mutex_->queue_back_.compare_exchange_weak(expected_value, nullptr)) {\n                    return;\n                }\n\n                // If this was a spurious failure, just retry.\n                //\n                if (expected_value == this) {\n                    continue;\n                }\n                break;\n            }\n\n            StatusOr<LockBase*> status_or_next = this->next_->await_not_equal(nullptr);\n            BATT_CHECK_OK(status_or_next);\n            next_lock = *status_or_next;\n\n        } else {\n            BATT_ASSERT_EQ(prior_state, State::kLockedHaveNext);\n            next_lock = this->next_->get_value();\n        }\n\n        BATT_ASSERT_NOT_NULLPTR(next_lock) << BATT_INSPECT(prior_state);\n        next_lock->waiting_to_acquire_->set_value_and_release(false);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    const MutexBase* mutex_;\n    State state_;\n    CpuCacheLineIsolated<Watch<LockBase*>> next_;\n    CpuCacheLineIsolated<Watch<bool>> waiting_to_acquire_;\n};\n\ntemplate <typename T>\nclass ScopedLock;\n\ntemplate <typename T>\nclass Mutex : public MutexBase\n{\n   public:\n    template <typename>\n    friend class ScopedLock;\n\n#if BATT_MUTEX_NO_LEGACY_API\n\n    using Lock = ScopedLock<T>;\n    using ConstLock = ScopedLock<const T>;\n\n#else  // BATT_MUTEX_NO_LEGACY_API\n\n    template <typename U, typename MutexT>\n    class LockImpl\n    {\n       public:\n        explicit LockImpl(MutexT& m) noexcept : lock_base_{m}, val_{std::addressof(m.value_)}\n        {\n        }\n\n        LockImpl(const LockImpl&) = delete;\n\n        LockImpl& operator=(const LockImpl&) = delete;\n\n        LockImpl(LockImpl&&) = default;\n\n        LockImpl& operator=(LockImpl&&) = default;\n\n        ~LockImpl() noexcept\n        {\n            this->release();\n        }\n\n        bool is_held() const noexcept\n        {\n            return this->val_ != nullptr;\n        }\n\n        explicit operator bool() const noexcept\n        {\n            return this->is_held();\n        }\n\n        U& operator*() noexcept\n        {\n            return *this->val_;\n        }\n\n        U* get() noexcept\n        {\n            return this->val_.get();\n        }\n\n        U& value() noexcept\n        {\n            return *this->val_;\n        }\n\n        U* operator->() noexcept\n        {\n            return this->val_.get();\n        }\n\n        bool release() noexcept\n        {\n            if (this->val_ != nullptr) {\n                this->val_.release();\n                this->lock_base_.release();\n                return true;\n            }\n            return false;\n        }\n\n       private:\n        LockBase lock_base_;\n\n        // Direct pointer to the locked object; if nullptr, this indicates that the lock has been\n        // released.\n        //\n        UniqueNonOwningPtr<U> val_;\n    };\n\n    using Lock = LockImpl<T, Mutex>;\n\n    using ConstLock = LockImpl<const T, const Mutex>;\n\n#endif  // BATT_MUTEX_NO_LEGACY_API\n\n    template <typename>\n    struct ThreadSafeBaseIsNotSupportedByType {\n    };\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    template <typename Self, typename Base = typename Self::ThreadSafeBase>\n    static Base* thread_safe_base(Self* ptr)\n    {\n        return ptr;\n    }\n\n    template <typename Self, typename Base = typename Self::ThreadSafeBase>\n    static const Base* thread_safe_base(const Self* ptr)\n    {\n        return ptr;\n    }\n\n    template <typename Self, typename Base = typename Self::ThreadSafeBase, typename = void>\n    static Base* thread_safe_base(const std::unique_ptr<Self>* ptr)\n    {\n        return ptr->get();\n    }\n\n    static ThreadSafeBaseIsNotSupportedByType<T>* thread_safe_base(...)\n    {\n        return nullptr;\n    }\n\n    Mutex(const Mutex&) = delete;\n\n    Mutex& operator=(const Mutex&) = delete;\n\n    Mutex() = default;\n\n    template <typename... Args, typename = EnableIfNoShadow<Mutex, Args...>>\n    explicit Mutex(Args&&... args) noexcept : value_(BATT_FORWARD(args)...)\n    {\n    }\n\n#if !BATT_MUTEX_NO_LEGACY_API\n\n    Lock lock()\n    {\n        return Lock{*this};\n    }\n\n    ConstLock lock() const\n    {\n        return ConstLock{*this};\n    }\n\n#endif  // BATT_MUTEX_NO_LEGACY_API\n\n    template <typename Action>\n    decltype(auto) with_lock(Action&& action);\n\n    auto operator->()\n    {\n        return thread_safe_base(&this->value_);\n    }\n\n    decltype(auto) no_lock()\n    {\n        return *thread_safe_base(&this->value_);\n    }\n\n    decltype(auto) no_lock() const\n    {\n        return *thread_safe_base(&this->value_);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    T value_;\n};\n\ntemplate <typename T>\nclass ScopedLock\n{\n   public:\n    explicit ScopedLock(Mutex<T>& m) noexcept : lock_base_{m}, val_{std::addressof(m.value_)}\n    {\n    }\n\n    explicit ScopedLock(const Mutex<std::remove_const_t<T>>& m) noexcept\n        : lock_base_{m}\n        , val_{const_cast<std::add_const_t<T>*>(std::addressof(m.value_))}\n    {\n    }\n\n    ScopedLock(const ScopedLock&) = delete;\n\n    ScopedLock& operator=(const ScopedLock&) = delete;\n\n    ~ScopedLock() noexcept\n    {\n    }\n\n    explicit operator bool() const noexcept\n    {\n        return this->is_held();\n    }\n\n    T& operator*() noexcept\n    {\n        return *this->val_;\n    }\n\n    T* get() noexcept\n    {\n        return this->val_.get();\n    }\n\n    T& value() noexcept\n    {\n        return *this->val_;\n    }\n\n    T* operator->() noexcept\n    {\n        return this->val_.get();\n    }\n\n   private:\n    LockBase lock_base_;\n\n    // Direct pointer to the locked object; if nullptr, this indicates that the lock has been\n    // released.\n    //\n    UniqueNonOwningPtr<T> val_;\n};\n\n#define BATT_SCOPED_LOCK(LOCK_VAR, MUTEX_EXPR)                                                               \\\n    decltype(MUTEX_EXPR)::Lock LOCK_VAR                                                                      \\\n    {                                                                                                        \\\n        MUTEX_EXPR                                                                                           \\\n    }\n\n#define BATT_SCOPED_CONST_LOCK(LOCK_VAR, MUTEX_EXPR)                                                         \\\n    decltype(MUTEX_EXPR)::ConstLock LOCK_VAR                                                                 \\\n    {                                                                                                        \\\n        MUTEX_EXPR                                                                                           \\\n    }\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T>\ntemplate <typename Action>\ninline decltype(auto) Mutex<T>::with_lock(Action&& action)\n{\n    ScopedLock<T> lock{*this};\n    return BATT_FORWARD(action)(this->value_);\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_MUTEX_HPP\n\n#include <batteries/config.hpp>\n//\n#if BATT_HEADER_ONLY\n#include <batteries/async/mutex_impl.hpp>\n#endif",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "Base class of typed Mutex<T>; implements core logic without any type dependencies. ",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::Mutex< std::unordered_map< batt::HostAddress, SharedPtr< batt::HttpClientHostContext >, boost::hash< batt::HostAddress > > >",
+          "refid": "classbatt_1_1Mutex",
+          "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::Mutex< std::deque< T > >",
+          "refid": "classbatt_1_1Mutex",
+          "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::Mutex< batt::NoneType >",
+          "refid": "classbatt_1_1Mutex",
+          "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::Mutex< T >",
+          "refid": "classbatt_1_1Mutex",
+          "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::MutexBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::MutexBase",
+      "refid": "classbatt_1_1MutexBase",
+      "summary": "Base class of typed Mutex<T>; implements core logic without any type dependencies. ",
+      "title": "batt::MutexBase",
+      "url": "/_autogen/Classes/classbatt_1_1MutexBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::LockBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::LockBase",
+      "refid": "classbatt_1_1LockBase",
+      "title": "batt::LockBase",
+      "url": "/_autogen/Classes/classbatt_1_1LockBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::MutexBase",
+          "refid": "classbatt_1_1MutexBase",
+          "url": "/_autogen/Classes/classbatt_1_1MutexBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "Provides mutually-exclusive access to an instance of type `T`. ",
+      "category": "classes",
+      "fullname": "batt::Mutex",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Mutex",
+      "refid": "classbatt_1_1Mutex",
+      "summary": "Provides mutually-exclusive access to an instance of type T. ",
+      "title": "batt::Mutex",
+      "url": "/_autogen/Classes/classbatt_1_1Mutex/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Represents a lock aquisition. ",
+      "category": "classes",
+      "fullname": "batt::Mutex::LockImpl",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Mutex::LockImpl",
+      "refid": "classbatt_1_1Mutex_1_1LockImpl",
+      "summary": "Represents a lock aquisition. ",
+      "title": "batt::Mutex::LockImpl",
+      "url": "/_autogen/Classes/classbatt_1_1Mutex_1_1LockImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Returned by [Mutex::thread_safe_base](/_autogen/Classes/classbatt_1_1Mutex/#function-thread-safe-base) when no-lock access isn't enabled; the name of this type is designed to produce a compilation error that makes it obvious what the problem is. ",
+      "category": "classes",
+      "fullname": "batt::Mutex::ThreadSafeBaseIsNotSupportedByType",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::Mutex::ThreadSafeBaseIsNotSupportedByType",
+      "refid": "structbatt_1_1Mutex_1_1ThreadSafeBaseIsNotSupportedByType",
+      "summary": "Returned by Mutex::thread_safe_base when no-lock access isn't enabled; the name of this type is designed to produce a compilation error that makes it obvious what the problem is. ",
+      "title": "batt::Mutex::ThreadSafeBaseIsNotSupportedByType",
+      "url": "/_autogen/Classes/structbatt_1_1Mutex_1_1ThreadSafeBaseIsNotSupportedByType/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::ScopedLock",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::ScopedLock",
+      "refid": "classbatt_1_1ScopedLock",
+      "title": "batt::ScopedLock",
+      "url": "/_autogen/Classes/classbatt_1_1ScopedLock/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "mutex_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/mutex.hpp",
+  "url": "/_autogen/Files/mutex_8hpp/#file-mutex.hpp",
+  "visibility": "public"
+}

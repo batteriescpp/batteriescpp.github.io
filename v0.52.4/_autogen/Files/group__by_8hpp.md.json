@@ -1,0 +1,161 @@
+{
+  "abstract": false,
+  "anchor": "#file-group-by.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-group-by-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_GROUP_BY_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/group_by.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/seq/group_by.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_SEQ_GROUP_BY_HPP",
+      "override": false,
+      "refid": "group__by_8hpp_1aac54e4ec2923399e039416e6335ceb34",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_GROUP_BY_HPP",
+      "url": "/_autogen/Files/group__by_8hpp/#define-batteries-seq-group-by-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/group_by.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/group_by.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/group_by.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_SEQ_GROUP_BY_HPP\n#define BATTERIES_SEQ_GROUP_BY_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/hint.hpp>\n#include <batteries/optional.hpp>\n#include <batteries/seq/consume.hpp>\n#include <batteries/seq/seq_item.hpp>\n#include <batteries/utility.hpp>\n\n#include <type_traits>\n#include <utility>\n\nnamespace batt {\nnamespace seq {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// group_by\n//\n\ntemplate <typename Seq, typename GroupEq>\nclass GroupBy\n{\n   public:\n    static_assert(std::is_same_v<Seq, std::decay_t<Seq>>, \"GroupBy is not supported for Seq references.\");\n\n    class SubGroup;\n\n    static void detach(SubGroup*, bool);\n\n    using SubGroupItem = SeqItem<Seq>;\n\n    using Item = SubGroup;\n\n    explicit GroupBy(Seq&& seq, GroupEq&& group_eq) noexcept\n        : seq_(BATT_FORWARD(seq))\n        , group_eq_(BATT_FORWARD(group_eq))\n        , next_item_(seq_.next())\n    {\n    }\n\n    explicit GroupBy(Seq&& seq, GroupEq&& group_eq, Optional<SubGroupItem>&& next_item) noexcept\n        : seq_(BATT_FORWARD(seq))\n        , group_eq_(BATT_FORWARD(group_eq))\n        , next_item_(std::move(next_item))\n    {\n    }\n\n    ~GroupBy() noexcept\n    {\n#if defined(__GNUC__) && !defined(__clang__)\n#pragma GCC diagnostic push\n#pragma GCC diagnostic ignored \"-Wmaybe-uninitialized\"\n#endif\n\n        detach(this->sub_group_, /*skip_advance=*/true);\n\n#if defined(__GNUC__) && !defined(__clang__)\n#pragma GCC diagnostic pop\n#endif\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    // We need custom copy and move constructors because `sub_group_` contains a\n    // back-reference to the GroupBy sequence object that needs to be fixed up\n    // when we copy/move.\n    //\n    GroupBy(GroupBy&& that) noexcept\n        : seq_(std::move(that.seq_))\n        , group_eq_(std::move(that.group_eq_))\n        , next_item_(std::move(that.next_item_))\n    {\n        move_sub_group(std::move(that));\n    }\n\n    GroupBy& operator=(GroupBy&& that)\n    {\n        if (BATT_HINT_TRUE(this != &that)) {\n            detach(this->sub_group_, /*skip_advance=*/true);\n\n            this->seq_ = BATT_FORWARD(that.seq_);\n            this->group_eq_.emplace(BATT_FORWARD(*that.group_eq_));\n            this->next_item_ = BATT_FORWARD(that.next_item_);\n\n            move_sub_group(std::move(that));\n        }\n        return *this;\n    }\n\n    GroupBy(const GroupBy& that) noexcept\n        : seq_(that.seq_)\n        , group_eq_(that.group_eq_)\n        , next_item_(that.next_item_)\n    {\n        copy_sub_group(that);\n    }\n\n    GroupBy& operator=(const GroupBy& that)\n    {\n        if (BATT_HINT_TRUE(this != &that)) {\n            detach(this->sub_group_, /*skip_advance=*/true);\n\n            this->seq_ = that.seq_;\n            this->group_eq_.emplace(*that.group_eq_);\n            this->next_item_ = that.next_item_;\n            this->sub_group_ = nullptr;\n\n            copy_sub_group(that);\n        }\n        return *this;\n    }\n    //\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    Optional<Item> peek();\n    Optional<Item> next();\n\n#if BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n    template <typename Seq_, typename GroupEq_, typename Fn>\n    friend LoopControl operator|(GroupBy<Seq_, GroupEq_>&& group_by_seq, ForEachBinder<Fn>&& binder);\n\n    template <typename Seq_, typename GroupEq_, typename Fn>\n    friend LoopControl operator|(typename GroupBy<Seq_, GroupEq_>::SubGroup&& sub_group,\n                                 ForEachBinder<Fn>&& binder);\n\n#endif  // BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n   private:\n    void move_sub_group(GroupBy&& that)\n    {\n        if (that.sub_group_) {\n            this->sub_group_ = that.sub_group_;\n            this->sub_group_->group_by_ = this;\n        } else {\n            this->sub_group_ = nullptr;\n        }\n        that.sub_group_ = nullptr;\n    }\n\n    void copy_sub_group(const GroupBy& that)\n    {\n        BATT_ASSERT(this->sub_group_ == nullptr);\n        if (that.sub_group_) {\n            SubGroup{&this->sub_group_, this} | consume();\n        }\n        BATT_ASSERT(this->sub_group_ == nullptr);\n    }\n\n    Optional<SubGroupItem> sub_group_peek()\n    {\n        return next_item_;\n    }\n    Optional<SubGroupItem> sub_group_next();\n\n    SubGroup* sub_group_ = nullptr;\n    Seq seq_;\n    Optional<GroupEq> group_eq_;\n    Optional<SeqItem<Seq>> next_item_;\n};\n\ntemplate <typename Seq, typename GroupEq>\nclass GroupBy<Seq, GroupEq>::SubGroup\n{\n   public:\n    static_assert(std::is_same_v<Seq, std::decay_t<Seq>>, \"\");\n\n    friend class GroupBy<Seq, GroupEq>;\n\n#if BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n    template <typename Seq_, typename GroupEq_, typename Fn>\n    friend LoopControl operator|(GroupBy<Seq_, GroupEq_>&& group_by_seq, ForEachBinder<Fn>&& binder);\n\n    template <typename Seq_, typename GroupEq_, typename Fn>\n    friend LoopControl operator|(typename GroupBy<Seq_, GroupEq_>::SubGroup&& sub_group,\n                                 ForEachBinder<Fn>&& binder);\n\n#endif  // BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n    using Item = SeqItem<Seq>;\n\n   private:\n    explicit SubGroup(SubGroup** sub_group_out, GroupBy* group_by) noexcept\n        : private_group_by_{}\n        , group_by_{group_by}\n    {\n        if (private_group_by_) {\n            private_group_by_->sub_group_ = this;\n        }\n        if (sub_group_out) {\n            *sub_group_out = this;\n        }\n    }\n\n    template <typename... PrivateGroupByArgs>\n    explicit SubGroup(SubGroup** sub_group_out, std::nullptr_t,\n                      PrivateGroupByArgs&&... private_group_by_args) noexcept\n        : private_group_by_{InPlaceInit, BATT_FORWARD(private_group_by_args)...}\n        , group_by_{private_group_by_.get_ptr()}\n    {\n        private_group_by_->sub_group_ = this;\n\n        if (sub_group_out) {\n            *sub_group_out = this;\n        }\n    }\n\n   public:\n    SubGroup(SubGroup&& that) noexcept : group_by_{nullptr}\n    {\n        move_impl(std::move(that));\n    }\n\n    SubGroup(const SubGroup& that) noexcept : group_by_{nullptr}\n    {\n        copy_impl(that);\n    }\n\n    ~SubGroup() noexcept\n    {\n        if (this->group_by_) {\n            GroupBy::detach(this, /*skip_advance=*/false);\n        }\n    }\n\n    SubGroup& operator=(SubGroup&& that)\n    {\n        if (BATT_HINT_TRUE(this != &that)) {\n            if (this->group_by_) {\n                GroupBy::detach(this, /*skip_advance=*/false);\n            }\n            move_impl(std::move(that));\n        }\n        return *this;\n    }\n\n    SubGroup& operator=(const SubGroup& that)\n    {\n        if (BATT_HINT_TRUE(this != &that)) {\n            if (this->group_by_) {\n                GroupBy::detach(this, /*skip_advance=*/false);\n            }\n            copy_impl(that);\n        }\n        return *this;\n    }\n\n    bool is_detached() const noexcept\n    {\n        if (this->group_by_ == nullptr) {\n            return true;\n        }\n\n        BATT_ASSERT_IMPLIES(bool{this->private_group_by_},\n                            this->group_by_ == this->private_group_by_.get_ptr());\n\n        return bool{private_group_by_};\n    }\n\n    Optional<Item> peek()\n    {\n        if (!group_by_) {\n            return None;\n        }\n        return group_by_->sub_group_peek();\n    }\n\n    Optional<Item> next()\n    {\n        if (!group_by_) {\n            return None;\n        }\n        return group_by_->sub_group_next();\n    }\n\n   private:\n    void move_impl(SubGroup&& that)\n    {\n        if (!that.group_by_) {\n            this->group_by_ = nullptr;\n            this->private_group_by_ = None;\n            return;\n        }\n\n        if (that.private_group_by_) {\n            {\n                GroupBy& that_group_by = *that.private_group_by_;\n\n                this->private_group_by_.emplace(std::move(that_group_by.seq_),\n                                                std::move(*that_group_by.group_eq_),\n                                                std::move(that_group_by.next_item_));\n\n                that_group_by.sub_group_ = nullptr;\n            }\n            that.private_group_by_ = None;\n            this->group_by_ = this->private_group_by_.get_ptr();\n        } else {\n            this->private_group_by_ = None;\n            this->group_by_ = that.group_by_;\n        }\n\n        this->group_by_->sub_group_ = this;\n\n        that.group_by_ = nullptr;\n    }\n\n    void copy_impl(const SubGroup& that)\n    {\n        if (!that.group_by_) {\n            this->group_by_ = nullptr;\n            this->private_group_by_ = None;\n            return;\n        }\n\n        this->private_group_by_.emplace(batt::make_copy(that.group_by_->seq_),\n                                        batt::make_copy(*that.group_by_->group_eq_),\n                                        batt::make_copy(that.group_by_->next_item_));\n\n        this->group_by_ = this->private_group_by_.get_ptr();\n        this->group_by_->sub_group_ = this;\n    }\n\n    // If this SubGroup is detached, private_group_by_ holds the GroupBy object to\n    // which this->group_by_ points (if any).\n    //\n    Optional<GroupBy> private_group_by_;\n\n    // If nullptr, then this SubGroup has been consumed.  Otherwise, points to the\n    // sequence state for this SubGroup.\n    //\n    GroupBy* group_by_ = nullptr;\n};\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\n// If *p_sub_group points to a SubGroup that is attached to an external GroupBy\n// object, copy its external state into the sub group and set the GroupBy\n// sub_group_ pointer to nullptr.\n//\ntemplate <typename Seq, typename GroupEq>\ninline void GroupBy<Seq, GroupEq>::detach(SubGroup* sub_group, bool skip_advance)\n{\n    if (!sub_group || sub_group->is_detached()) {\n        return;\n    }\n\n    BATT_ASSERT(!sub_group->private_group_by_);\n    BATT_ASSERT_NOT_NULLPTR(sub_group->group_by_);\n    BATT_ASSERT_EQ(sub_group->group_by_->sub_group_, sub_group);\n\n    sub_group->private_group_by_.emplace(batt::make_copy(sub_group->group_by_->seq_),\n                                         batt::make_copy(*sub_group->group_by_->group_eq_),\n                                         batt::make_copy(sub_group->group_by_->next_item_));\n\n    if (skip_advance) {\n        sub_group->group_by_->sub_group_ = nullptr;\n    } else {\n        GroupBy* const group_by = sub_group->group_by_;\n        SubGroup{&group_by->sub_group_, group_by} | consume();\n        BATT_ASSERT(group_by->sub_group_ == nullptr);\n    }\n\n    sub_group->group_by_ = sub_group->private_group_by_.get_ptr();\n    sub_group->group_by_->sub_group_ = sub_group;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\ntemplate <typename Seq, typename GroupEq>\ninline Optional<typename GroupBy<Seq, GroupEq>::SubGroupItem> GroupBy<Seq, GroupEq>::sub_group_next()\n{\n    if (!next_item_) {\n        BATT_ASSERT(this->sub_group_ == nullptr);\n        return None;\n    }\n    Optional<SeqItem<Seq>> item = std::move(next_item_);\n\n    next_item_ = this->seq_.next();\n    if (!next_item_ || !(*group_eq_)(*item, *next_item_)) {\n        this->sub_group_->group_by_ = nullptr;\n        this->sub_group_->private_group_by_ = None;\n        this->sub_group_ = nullptr;\n    }\n\n    return item;\n}\n\ntemplate <typename Seq, typename GroupEq>\ninline Optional<typename GroupBy<Seq, GroupEq>::SubGroup> GroupBy<Seq, GroupEq>::peek()\n{\n    if (this->sub_group_ == nullptr) {\n        if (!this->next_item_) {\n            return None;\n        }\n        return {SubGroup{nullptr, nullptr, batt::make_copy(seq_), batt::make_copy(*group_eq_),\n                         batt::make_copy(next_item_)}};\n    }\n    return GroupBy{static_cast<const GroupBy&>(*this)}.peek();\n}\n\ntemplate <typename Seq, typename GroupEq>\ninline Optional<typename GroupBy<Seq, GroupEq>::SubGroup> GroupBy<Seq, GroupEq>::next()\n{\n    if (this->sub_group_ != nullptr) {\n        detach(this->sub_group_, /*skip_advance=*/false);\n    }\n    BATT_ASSERT(this->sub_group_ == nullptr);\n    if (!this->next_item_) {\n        return None;\n    }\n    return {SubGroup{&this->sub_group_, this}};\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\ntemplate <typename GroupEq>\nstruct GroupByBinder {\n    GroupEq group_eq;\n};\n\ntemplate <typename GroupEq>\nGroupByBinder<GroupEq> group_by(GroupEq&& group_eq)\n{\n    return {BATT_FORWARD(group_eq)};\n}\n\ntemplate <typename Seq, typename GroupEq>\n[[nodiscard]] GroupBy<Seq, GroupEq> operator|(Seq&& seq, GroupByBinder<GroupEq>&& binder)\n{\n    static_assert(std::is_same_v<Seq, std::decay_t<Seq>>,\n                  \"Grouped sequences may not be captured implicitly by reference.\");\n\n    static_assert(std::is_same_v<GroupEq, std::decay_t<GroupEq>>,\n                  \"Grouping functions may not be captured implicitly by reference.\");\n\n    return GroupBy<Seq, GroupEq>{BATT_FORWARD(seq), BATT_FORWARD(binder.group_eq)};\n}\n\n#if BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\ntemplate <typename Seq, typename GroupEq, typename Fn>\nLoopControl operator|(GroupBy<Seq, GroupEq>&& group_by_seq, ForEachBinder<Fn>&& binder)\n{\n    using SubGroup = typename GroupBy<Seq, GroupEq>::SubGroup;\n\n    while (group_by_seq.next_item_) {\n        if (group_by_seq.sub_group_ != nullptr) {\n            group_by_seq.detach(group_by_seq.sub_group_, /*skip_advance=*/false);\n        }\n        BATT_ASSERT(group_by_seq.sub_group_ == nullptr);\n\n        if (BATT_HINT_FALSE(run_loop_fn(binder.fn, SubGroup{&group_by_seq.sub_group_, &group_by_seq}) ==\n                            kBreak)) {\n            return kBreak;\n        }\n    }\n\n    return kContinue;\n}\n\ntemplate <typename Seq, typename GroupEq, typename Fn>\nLoopControl operator|(typename GroupBy<Seq, GroupEq>::SubGroup&& sub_group, ForEachBinder<Fn>&& binder)\n{\n    GroupBy<Seq, GroupEq>* p_group_by = sub_group.group_by_;\n    if (!p_group_by || !p_group_by->next_item_) {\n        return kContinue;\n    }\n    auto& group_by_seq = *p_group_by;\n    auto& group_eq = *group_by_seq.group_eq_;\n\n    LoopControl first_result = run_loop_fn(binder.fn, *group_by_seq.next_item_);\n    if (BATT_HINT_FALSE(first_result == kBreak)) {\n        group_by_seq.next_item_ = group_by_seq.seq_.next();\n        return kBreak;\n    }\n\n    Optional<SeqItem<Seq>> prev_item = std::move(group_by_seq.next_item_);\n    group_by_seq.next_item_ = None;\n\n    auto loop_body = [&](auto&& item) -> LoopControl {\n        if (group_eq(*prev_item, item)) {\n            LoopControl item_result = run_loop_fn(binder.fn, item);\n            prev_item = BATT_FORWARD(item);\n            return item_result;\n        }\n\n        group_by_seq.next_item_ = BATT_FORWARD(item);\n        sub_group.group_by_ = nullptr;\n        sub_group.private_group_by_ = None;\n        group_by_seq.sub_group_ = nullptr;\n\n        return kBreak;\n    };\n\n    LoopControl rest_result = group_by_seq.seq_ | for_each(loop_body);\n\n    if (sub_group.group_by_ == nullptr) {\n        return kContinue;\n    }\n    return rest_result;\n}\n\n#endif  // BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n}  // namespace seq\n}  // namespace batt\n\n#endif  // BATTERIES_SEQ_GROUP_BY_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::GroupBy",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::seq::GroupBy",
+      "refid": "classbatt_1_1seq_1_1GroupBy",
+      "title": "batt::seq::GroupBy",
+      "url": "/_autogen/Classes/classbatt_1_1seq_1_1GroupBy/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::GroupBy::SubGroup",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::seq::GroupBy::SubGroup",
+      "refid": "classbatt_1_1seq_1_1GroupBy_1_1SubGroup",
+      "title": "batt::seq::GroupBy::SubGroup",
+      "url": "/_autogen/Classes/classbatt_1_1seq_1_1GroupBy_1_1SubGroup/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::GroupByBinder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::GroupByBinder",
+      "refid": "structbatt_1_1seq_1_1GroupByBinder",
+      "title": "batt::seq::GroupByBinder",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1GroupByBinder/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "group__by_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/group_by.hpp",
+  "url": "/_autogen/Files/group__by_8hpp/#file-group-by.hpp",
+  "visibility": "public"
+}
