@@ -1,0 +1,127 @@
+{
+  "abstract": false,
+  "anchor": "#file-http-server-decl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-http-http-server-decl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_HTTP_HTTP_SERVER_DECL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/http_server_decl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/http/http_server_decl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_HTTP_HTTP_SERVER_DECL_HPP",
+      "override": false,
+      "refid": "http__server__decl_8hpp_1a5215f6fc3a033a082cd44f822bdad8e3",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_HTTP_HTTP_SERVER_DECL_HPP",
+      "url": "/_autogen/Files/http__server__decl_8hpp/#define-batteries-http-http-server-decl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/http/http_server_decl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/http/http_server_decl.hpp",
+    "line": 0
+  },
+  "name": "batteries/http/http_server_decl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/http",
+    "category": "dirs",
+    "fullname": "batteries/http",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/http",
+    "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+    "title": "batteries/http",
+    "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/http",
+      "category": "dirs",
+      "fullname": "batteries/http",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/http",
+      "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+      "title": "batteries/http",
+      "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_HTTP_HTTP_SERVER_DECL_HPP\n#define BATTERIES_HTTP_HTTP_SERVER_DECL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/http/host_address.hpp>\n#include <batteries/http/http_request.hpp>\n#include <batteries/http/http_response.hpp>\n#include <batteries/http/http_server_settings.hpp>\n\n#include <batteries/async/grant.hpp>\n#include <batteries/async/task.hpp>\n#include <batteries/async/watch.hpp>\n\n#include <batteries/small_fn.hpp>\n#include <batteries/status.hpp>\n\n#include <boost/asio/io_context.hpp>\n\n#include <memory>\n\nnamespace batt {\n\nusing HttpRequestDispatcherFn = SmallFn<Status(HttpRequest& request, HttpResponse& response)>;\n\nusing HttpRequestDispatcherFactoryFn = SmallFn<StatusOr<HttpRequestDispatcherFn>()>;\n\nclass HttpServer\n{\n   public:\n    explicit HttpServer(boost::asio::io_context& io, HostAddress&& host_address,\n                        HttpRequestDispatcherFactoryFn&& dispatcher_factory,\n                        const Optional<HttpServerSettings>& settings = None) noexcept;\n\n    ~HttpServer() noexcept;\n\n    boost::asio::io_context& get_io_context() const noexcept\n    {\n        return this->io_;\n    }\n\n    void halt();\n\n    void join();\n\n    Status get_final_status() const;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    void acceptor_task_main();\n\n    void connection_task_main(boost::asio::ip::tcp::socket&& socket);\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    boost::asio::io_context& io_;\n\n    HostAddress host_address_;\n\n    HttpRequestDispatcherFactoryFn dispatcher_factory_;\n\n    HttpServerSettings settings_;\n\n    boost::asio::ip::tcp::acceptor acceptor_;\n\n    Watch<bool> halt_requested_{false};\n\n    Status final_status_;\n\n    Grant::Issuer connection_tokens_;\n\n    Task acceptor_task_;\n};\n\n}  // namespace batt\n\n#endif  // BATTERIES_HTTP_HTTP_SERVER_DECL_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "An HTTP server. ",
+      "category": "classes",
+      "fullname": "batt::HttpServer",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::HttpServer",
+      "refid": "classbatt_1_1HttpServer",
+      "summary": "An HTTP server. ",
+      "title": "batt::HttpServer",
+      "url": "/_autogen/Classes/classbatt_1_1HttpServer/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "http__server__decl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/http/http_server_decl.hpp",
+  "url": "/_autogen/Files/http__server__decl_8hpp/#file-http-server-decl.hpp",
+  "visibility": "public"
+}
