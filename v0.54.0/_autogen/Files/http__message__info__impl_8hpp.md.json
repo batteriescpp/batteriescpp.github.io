@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-http-message-info-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-http-http-message-info-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_HTTP_HTTP_MESSAGE_INFO_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/http_message_info_impl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/http/http_message_info_impl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_HTTP_HTTP_MESSAGE_INFO_IMPL_HPP",
+      "override": false,
+      "refid": "http__message__info__impl_8hpp_1a7a647a7b698254e5634412a5fa150512",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_HTTP_HTTP_MESSAGE_INFO_IMPL_HPP",
+      "url": "/_autogen/Files/http__message__info__impl_8hpp/#define-batteries-http-http-message-info-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/http/http_message_info_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/http/http_message_info_decl.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/http/http_message_info_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/http/http_message_info_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/http",
+    "category": "dirs",
+    "fullname": "batteries/http",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/http",
+    "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+    "title": "batteries/http",
+    "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/http",
+      "category": "dirs",
+      "fullname": "batteries/http",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/http",
+      "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+      "title": "batteries/http",
+      "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022-2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_HTTP_HTTP_MESSAGE_INFO_IMPL_HPP\n#define BATTERIES_HTTP_HTTP_MESSAGE_INFO_IMPL_HPP\n\n#include <batteries/http/http_message_info_decl.hpp>\n\n#include <batteries/http/http_chunk_decoder.hpp>\n#include <batteries/http/http_data.hpp>\n#include <batteries/http/http_header.hpp>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*explicit*/ HttpMessageInfo::HttpMessageInfo(const pico_http::Response& response) noexcept\n    : HttpMessageInfo{response.major_version, response.minor_version, response.headers}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*explicit*/ HttpMessageInfo::HttpMessageInfo(const pico_http::Request& request) noexcept\n    : HttpMessageInfo{request.major_version, request.minor_version, request.headers}\n{\n    if (request.method != \"PUT\" && request.method != \"POST\") {\n        this->content_length = 0;\n        this->chunked_encoding = false;\n    }\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL\nHttpMessageInfo::HttpMessageInfo(int major_version, int minor_version,\n                                 const batt::SmallVecBase<pico_http::MessageHeader>& headers) noexcept\n    : content_length{find_header(headers, \"Content-Length\").flat_map([](std::string_view s) {\n        return Optional{from_string<usize>(std::string(s))};\n    })}\n    , keep_alive{find_header(headers, \"Connection\")\n                     .map([](std::string_view s) {\n                         return s == \"keep-alive\";\n                     })\n                     .value_or(major_version == 1 && minor_version >= 1)}\n    , chunked_encoding{find_header(headers, \"Transfer-Encoding\")\n                           .map([](std::string_view s) {\n                               return s == \"chunked\";\n                           })\n                           .value_or(false)}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL HttpData HttpMessageInfo::get_data(StreamBuffer& input_buffer)\n{\n    return HttpData{[&]() -> BufferSource {\n        const auto consume_trailer = IncludeHttpTrailer{true};\n\n        if (this->content_length == None) {\n            if (this->chunked_encoding) {\n                return HttpChunkDecoder<StreamBuffer&>{input_buffer, consume_trailer};\n            } else {\n                if (this->keep_alive) {\n                    return BufferSource{};\n                } else {\n                    return std::ref(input_buffer);\n                }\n            }\n        } else {\n            if (this->chunked_encoding) {\n                return HttpChunkDecoder<StreamBuffer&>{input_buffer, consume_trailer}  //\n                       | seq::take_n(*this->content_length);\n            } else {\n                return input_buffer | seq::take_n(*this->content_length);\n            }\n        }\n    }()};\n}\n\n}  //namespace batt\n\n#endif  // BATTERIES_HTTP_HTTP_MESSAGE_INFO_IMPL_HPP",
+  "refid": "http__message__info__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/http/http_message_info_impl.hpp",
+  "url": "/_autogen/Files/http__message__info__impl_8hpp/#file-http-message-info-impl.hpp",
+  "visibility": "public"
+}
