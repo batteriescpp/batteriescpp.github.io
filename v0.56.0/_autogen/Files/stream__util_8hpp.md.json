@@ -1,0 +1,327 @@
+{
+  "abstract": false,
+  "anchor": "#file-stream-util.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batt-detail-overload-string-printable",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_DETAIL_OVERLOAD_STRING_PRINTABLE",
+      "hasDetails": false,
+      "initializer": "    inline decltype(auto) make_printable(type str)                                                           \\\n    {                                                                                                        \\\n        return c_str_literal(str);                                                                           \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 171,
+        "column": 9,
+        "file": "batteries/stream_util.hpp",
+        "line": 171
+      },
+      "name": "BATT_DETAIL_OVERLOAD_STRING_PRINTABLE",
+      "override": false,
+      "params": [
+        {
+          "name": "type",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "stream__util_8hpp_1a6ca5eda1a5a0c3a776df91757b541640",
+      "static": false,
+      "strong": false,
+      "title": "BATT_DETAIL_OVERLOAD_STRING_PRINTABLE",
+      "url": "/_autogen/Files/stream__util_8hpp/#define-batt-detail-overload-string-printable",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-detail-specialize-string-printable",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_DETAIL_SPECIALIZE_STRING_PRINTABLE",
+      "hasDetails": false,
+      "initializer": "    BATT_DETAIL_OVERLOAD_STRING_PRINTABLE(type&)                                                             \\\n    BATT_DETAIL_OVERLOAD_STRING_PRINTABLE(type&&)                                                            \\\n    BATT_DETAIL_OVERLOAD_STRING_PRINTABLE(const type&)                                                       \\\n    BATT_DETAIL_OVERLOAD_STRING_PRINTABLE(const type&&)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 177,
+        "column": 9,
+        "file": "batteries/stream_util.hpp",
+        "line": 177
+      },
+      "name": "BATT_DETAIL_SPECIALIZE_STRING_PRINTABLE",
+      "override": false,
+      "params": [
+        {
+          "name": "type",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "stream__util_8hpp_1af432fb9f15d9da108565ffbce22c2771",
+      "static": false,
+      "strong": false,
+      "title": "BATT_DETAIL_SPECIALIZE_STRING_PRINTABLE",
+      "url": "/_autogen/Files/stream__util_8hpp/#define-batt-detail-specialize-string-printable",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-inspect-str",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_INSPECT_STR",
+      "hasDetails": false,
+      "initializer": "\" \" << #expr << \" == \" << ::batt::c_str_literal((expr))",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 189,
+        "column": 9,
+        "file": "batteries/stream_util.hpp",
+        "line": 189
+      },
+      "name": "BATT_INSPECT_STR",
+      "override": false,
+      "params": [
+        {
+          "name": "expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "stream__util_8hpp_1a037f193fd4a493f3272b6fc9edf2138d",
+      "static": false,
+      "strong": false,
+      "title": "BATT_INSPECT_STR",
+      "url": "/_autogen/Files/stream__util_8hpp/#define-batt-inspect-str",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-inspect-range",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_INSPECT_RANGE",
+      "hasDetails": false,
+      "initializer": "\" \" << #expr << \" == \" << ::batt::dump_range((expr))",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 703,
+        "column": 9,
+        "file": "batteries/stream_util.hpp",
+        "line": 703
+      },
+      "name": "BATT_INSPECT_RANGE",
+      "override": false,
+      "params": [
+        {
+          "name": "expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "stream__util_8hpp_1a749237b6093a2d194a42d7e8163eb8cf",
+      "static": false,
+      "strong": false,
+      "title": "BATT_INSPECT_RANGE",
+      "url": "/_autogen/Files/stream__util_8hpp/#define-batt-inspect-range",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-inspect-range-pretty",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_INSPECT_RANGE_PRETTY",
+      "hasDetails": false,
+      "initializer": "    \" \" << #expr << \" == \" << ::batt::dump_range((expr), ::batt::Pretty::True)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 704,
+        "column": 9,
+        "file": "batteries/stream_util.hpp",
+        "line": 704
+      },
+      "name": "BATT_INSPECT_RANGE_PRETTY",
+      "override": false,
+      "params": [
+        {
+          "name": "expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "stream__util_8hpp_1a341b0e04846e7807382114731ab0b6ad",
+      "static": false,
+      "strong": false,
+      "title": "BATT_INSPECT_RANGE_PRETTY",
+      "url": "/_autogen/Files/stream__util_8hpp/#define-batt-inspect-range-pretty",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/stream_util.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/stream_util.hpp",
+    "line": 0
+  },
+  "name": "batteries/stream_util.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "std",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "std",
+      "refid": "namespacestd",
+      "title": "std",
+      "url": "/_autogen/Namespaces/namespacestd/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n\n#include <batteries/config.hpp>\n//\n#include <batteries/constants.hpp>\n#include <batteries/finally.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/operators.hpp>\n#include <batteries/optional.hpp>\n#include <batteries/suppress.hpp>\n#include <batteries/type_traits.hpp>\n#include <batteries/utility.hpp>\n\n#include <boost/algorithm/string.hpp>\n#include <boost/io/ios_state.hpp>\n\n#include <array>\n#include <atomic>\n#include <charconv>\n#include <filesystem>\n#include <iomanip>\n#include <optional>\n#include <ostream>\n#include <sstream>\n\nnamespace std {\n\n// =============================================================================\n// Support printing for std::optional<T>.\n//\ntemplate <typename T>\ninline ostream& operator<<(ostream& out, const optional<T>& t)\n{\n    if (t) {\n        return out << *t;\n    }\n    return out << \"{}\";\n}\n\n// =============================================================================\n// Support insertion of lambdas and other callables that take a std::ostream&.\n//\ntemplate <typename Fn, typename = enable_if_t<::batt::IsCallable<Fn, ostream&>{}>>\ninline ostream& operator<<(ostream& out, Fn&& fn)\n{\n    fn(out);\n    return out;\n}\n\n}  // namespace std\n\nnamespace batt {\n\n// =============================================================================\n// print_all - insert all arguments to the stream.\n//\ninline std::ostream& print_all(std::ostream& out)\n{\n    return out;\n}\ntemplate <typename First, typename... Rest>\nstd::ostream& print_all(std::ostream& out, First&& first, Rest&&... rest)\n{\n    return print_all(out << BATT_FORWARD(first), BATT_FORWARD(rest)...);\n}\n\n// =============================================================================\n// extract_all - extract all arguments to the stream.\n//\ninline std::istream& extract_all(std::istream& in)\n{\n    return in;\n}\ntemplate <typename First, typename... Rest>\nstd::istream& extract_all(std::istream& in, First&& first, Rest&&... rest)\n{\n    return extract_all(in >> BATT_FORWARD(first), BATT_FORWARD(rest)...);\n}\n\n// =============================================================================\n// to_string - use ostream insertion to convert any object to a string.\n//\ntemplate <typename... Args>\nstd::string to_string(Args&&... args)\n{\n    std::ostringstream oss;\n    print_all(oss, BATT_FORWARD(args)...);\n    return std::move(oss).str();\n}\n\n#if defined(__GNUC__) && !defined(__clang__)\nBATT_SUPPRESS(\"-Wmaybe-uninitialized\")\n#endif\n\n// =============================================================================\n// from_string - use istream extraction to parse any object from a string.\n//\n\nnamespace detail {\n\n// General case.\n//\ntemplate <typename T, typename... FormatArgs>\nstd::optional<T> from_string_impl(StaticType<T>, const std::string& str, FormatArgs&&... format_args)\n{\n    T val;\n    std::istringstream iss{str};\n    extract_all(iss, BATT_FORWARD(format_args)..., val);\n    if (iss.good() || (iss.eof() && !iss.fail())) {\n        return val;\n    }\n    return std::nullopt;\n}\n\n// Special case for bool.\n//\ntemplate <typename... FormatArgs>\nstd::optional<bool> from_string_impl(StaticType<bool>, const std::string& str,\n                                     FormatArgs&&... /*format_args*/)\n{\n    return boost::algorithm::to_lower_copy(str) == \"true\" || from_string_impl(StaticType<int>{}, str) != 0;\n}\n\n}  // namespace detail\n\ntemplate <typename T, typename... FormatArgs>\nstd::optional<T> from_string(const std::string& str, FormatArgs&&... format_args)\n{\n    return detail::from_string_impl(StaticType<T>{}, str, BATT_FORWARD(format_args)...);\n}\n\n#if defined(__GNUC__) && !defined(__clang__)\nBATT_UNSUPPRESS()\n#endif\n\n// =============================================================================\n// c_str_literal(str) - escape a C string.\n//\nstruct EscapedStringLiteral {\n    static std::atomic<usize>& max_show_length()\n    {\n        static std::atomic<usize> len{std::numeric_limits<usize>::max()};\n        return len;\n    }\n\n    std::string_view str;\n};\n\ninline EscapedStringLiteral c_str_literal(const std::string_view& str)\n{\n    return EscapedStringLiteral{str};\n}\n\ntemplate <typename T, typename = std::enable_if_t<std::is_convertible_v<T, std::string_view>>>\ninline Optional<EscapedStringLiteral> c_str_literal(const Optional<T>& maybe_str)\n{\n    if (maybe_str) {\n        return {c_str_literal(*maybe_str)};\n    }\n    return None;\n}\n\ninline Optional<EscapedStringLiteral> c_str_literal(const NoneType&)\n{\n    return None;\n}\n\n#define BATT_DETAIL_OVERLOAD_STRING_PRINTABLE(type)                                                          \\\n    inline decltype(auto) make_printable(type str)                                                           \\\n    {                                                                                                        \\\n        return c_str_literal(str);                                                                           \\\n    }\n\n#define BATT_DETAIL_SPECIALIZE_STRING_PRINTABLE(type)                                                        \\\n    BATT_DETAIL_OVERLOAD_STRING_PRINTABLE(type&)                                                             \\\n    BATT_DETAIL_OVERLOAD_STRING_PRINTABLE(type&&)                                                            \\\n    BATT_DETAIL_OVERLOAD_STRING_PRINTABLE(const type&)                                                       \\\n    BATT_DETAIL_OVERLOAD_STRING_PRINTABLE(const type&&)\n\nBATT_DETAIL_SPECIALIZE_STRING_PRINTABLE(std::string)\nBATT_DETAIL_SPECIALIZE_STRING_PRINTABLE(std::string_view)\n\n#undef BATT_DETAIL_SPECIALIZE_STRING_PRINTABLE\n#undef BATT_DETAIL_OVERLOAD_STRING_PRINTABLE\n\n#define BATT_INSPECT_STR(expr) \" \" << #expr << \" == \" << ::batt::c_str_literal((expr))\n\ninline const std::string_view& StringUpperBound()\n{\n    static const std::string_view s = [] {\n        static std::array<char, 4096> s;\n        s.fill(0xff);\n        return std::string_view{s.data(), s.size()};\n    }();\n    return s;\n}\n\ninline std::ostream& operator<<(std::ostream& out, const EscapedStringLiteral& t)\n{\n    if (t.str.data() == StringUpperBound().data()) {\n        return out << \"\\\"\\\\xff\\\"...\";\n    }\n\n    static const char xdigit[16] = {'0', '1', '2', '3', '4', '5', '6', '7',\n                                    '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};\n\n    const auto emit_hex_ascii = [&](char ch) {\n        out << \"\\\\x\" << xdigit[(ch >> 4) & 0xf] << xdigit[ch & 0xf];\n    };\n\n    out << '\"';\n    usize i = 0;\n    for (char ch : t.str) {\n        if (i > EscapedStringLiteral::max_show_length()) {\n            return out << \"\\\"...(\" << t.str.length() - i << \" skipped chars)\";\n        }\n        ++i;\n        if (ch & 0b10000000) {\n            emit_hex_ascii(ch);\n            continue;\n        }\n        switch (ch & 0b1110000) {\n        case 0b0000000:\n            switch (ch & 0b1111) {\n            case 0b0000:\n                out << \"\\\\0\";\n                break;\n            case 0b0111:\n                out << \"\\\\a\";\n                break;\n            case 0b1000:\n                out << \"\\\\b\";\n                break;\n            case 0b1001:\n                out << \"\\\\t\";\n                break;\n            case 0b1010:\n                out << \"\\\\n\";\n                break;\n            case 0b1011:\n                out << \"\\\\v\";\n                break;\n            case 0b1100:\n                out << \"\\\\f\";\n                break;\n            case 0b1101:\n                out << \"\\\\r\";\n                break;\n            default:\n                emit_hex_ascii(ch);\n                break;\n            }\n            break;\n        case 0b0010000:\n            switch (ch & 0b1111) {\n            case 0b1011:\n                out << \"\\\\e\";\n                break;\n            default:\n                emit_hex_ascii(ch);\n                break;\n            }\n            break;\n        case 0b0100000:\n            switch (ch & 0b1111) {\n            case 0b0010:\n                out << \"\\\\\\\"\";\n                break;\n            default:\n                out << ch;\n                break;\n            }\n            break;\n        case 0b1010000:\n            switch (ch & 0b1111) {\n            case 0b1100:\n                out << \"\\\\\\\\\";\n                break;\n            default:\n                out << ch;\n                break;\n            }\n            break;\n        case 0b1110000:\n            switch (ch & 0b1111) {\n            case 0b1111:\n                out << \"\\\\x7f\";\n                break;\n            default:\n                out << ch;\n                break;\n            }\n            break;\n        default:\n            out << ch;\n            break;\n        }\n    }\n    return out << '\"';\n}\n\nstruct HexByteDumper {\n    std::string_view bytes;\n};\n\ninline std::ostream& operator<<(std::ostream& out, const HexByteDumper& t)\n{\n    out << std::endl;\n    boost::io::ios_flags_saver saver{out};\n\n    const char* const bytes = t.bytes.data();\n    const usize len = t.bytes.size();\n    for (usize i = 0; i < len; ++i) {\n        if (i % 16 == 0) {\n            out << std::hex << std::setw(8) << std::setfill('0') << i << \": \";\n        }\n        out << std::hex << std::setw(2) << std::setfill('0') << (((unsigned)bytes[i]) & 0xfful);\n        if (i % 16 == 15) {\n            out << std::endl;\n        } else if (i % 2 == 1) {\n            out << \" \";\n        }\n    }\n    return out;\n}\n\ninline HexByteDumper dump_hex(const void* ptr, usize size)\n{\n    return HexByteDumper{std::string_view{static_cast<const char*>(ptr), size}};\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\nstruct SizeDumper {\n    enum struct UnitBase {\n        kLog2 = 2,\n        kLog10 = 10,\n    };\n\n    std::string format(UnitBase base, i32& parts, i32& ord, usize& error) const\n    {\n        std::ostringstream oss;\n\n        parts = 0;\n        ord = 0;\n        error = 0;\n\n        bool first_part = true;\n        usize n = this->value;\n        usize unit_ord = 7;\n\n        auto format_impl = [&](const std::array<std::pair<u64, const char*>, 7>& units) {\n            for (auto [div, unit_str] : units) {\n                const usize q = n / div;\n                const usize r = n % div;\n                if (q != 0 || (div == 1 && first_part)) {\n                    if (first_part) {\n                        ord = unit_ord;\n                    }\n                    parts += 1;\n                    oss << (first_part ? \"\" : \"+\") << q << unit_str;\n                    if (!this->exact) {\n                        error = r;\n                        break;\n                    }\n                    first_part = false;\n                }\n                n = r;\n                unit_ord -= 1;\n            }\n        };\n\n        switch (base) {\n        case UnitBase::kLog2:\n            format_impl({\n                std::make_pair(kEiB, \"EiB\"),\n                std::make_pair(kPiB, \"PiB\"),\n                std::make_pair(kTiB, \"TiB\"),\n                std::make_pair(kGiB, \"GiB\"),\n                std::make_pair(kMiB, \"MiB\"),\n                std::make_pair(kKiB, \"KiB\"),\n                std::make_pair(u64{1}, \"B\"),\n            });\n            break;\n\n        case UnitBase::kLog10:\n            format_impl({\n                std::make_pair(kEB, \"EB\"),\n                std::make_pair(kPB, \"PB\"),\n                std::make_pair(kTB, \"TB\"),\n                std::make_pair(kGB, \"GB\"),\n                std::make_pair(kMB, \"MB\"),\n                std::make_pair(kKB, \"KB\"),\n                std::make_pair(u64{1}, \"B\"),\n            });\n            break;\n\n        default:\n            BATT_PANIC() << \"Invalid value for `base`: \" << int(base);\n        }\n\n        return std::move(oss).str();\n    }\n\n    usize value;\n\n    bool exact;\n};\n\ninline std::ostream& operator<<(std::ostream& out, SizeDumper t)\n{\n    i32 base2_parts = 0, base10_parts = 0, base2_ord = 0, base10_ord = 0;\n    usize base2_error = 0, base10_error = 0;\n    const std::string base2_str = t.format(SizeDumper::UnitBase::kLog2, base2_parts, base2_ord, base2_error);\n    const std::string base10_str =\n        t.format(SizeDumper::UnitBase::kLog10, base10_parts, base10_ord, base10_error);\n\n    if (base10_parts < base2_parts           //\n        || (base10_parts == base2_parts      //\n            && (base2_ord < base10_ord       //\n                || (base2_ord == base10_ord  //\n                    && (base2_error != 0 && base10_error == 0))))) {\n        return out << ((base10_error == 0) ? \"\" : \"~\") << base10_str;\n    } else {\n        return out << ((base2_error == 0) ? \"\" : \"~\") << base2_str;\n    }\n}\n\ninline SizeDumper dump_size(usize n)\n{\n    return SizeDumper{\n        .value = n,\n        .exact = false,\n    };\n}\n\ninline SizeDumper dump_size_exact(usize n)\n{\n    return SizeDumper{\n        .value = n,\n        .exact = true,\n    };\n}\n\ninline Optional<usize> parse_byte_size(std::string_view s)\n{\n    if (s.empty()) {\n        return None;\n    }\n\n    usize result_value = 0;\n    bool have_result = false;\n\n    while (!s.empty()) {\n        if (s.front() == '+') {\n            s.remove_prefix(1);\n            continue;\n        }\n        if (s.front() == '-') {\n            if (!have_result) {\n                return None;\n            }\n            s.remove_prefix(1);\n            Optional<usize> delta = parse_byte_size(s);\n            if (!delta) {\n                return None;\n            }\n            result_value -= *delta;\n            break;\n        }\n        std::string_view num_chars = s;\n        while (!s.empty() && s.front() >= '0' && s.front() <= '9') {\n            s.remove_prefix(1);\n        }\n        num_chars.remove_suffix(s.size());\n\n        usize num_value = 0;\n        std::from_chars_result int_parse =\n            std::from_chars(num_chars.data(), num_chars.data() + num_chars.size(), num_value);\n\n        if (int_parse.ec != std::errc{}) {\n            return None;\n        }\n\n        const usize unit_value = [&]() -> usize {\n            if (s.empty()) {\n                return 1ull;\n            }\n            switch (std::tolower(s.front())) {\n            case 'b':\n                return 1ull;\n            case 'k':\n                return kKiB;\n            case 'm':\n                return kMiB;\n            case 'g':\n                return kGiB;\n            case 't':\n                return kTiB;\n            case 'p':\n                return kPiB;\n            case 'e':\n                return kEiB;\n            default:\n                return 1ull;\n            }\n        }();\n        while (!s.empty() &&\n               ((s.front() >= 'a' && s.front() <= 'z') || (s.front() >= 'A' && s.front() <= 'Z'))) {\n            s.remove_prefix(1);\n        }\n\n        have_result = true;\n        result_value += num_value * unit_value;\n\n        // After the unit string, only '-' or '+' are allowed.\n        //\n        if (!s.empty() && s.front() != '+' && s.front() != '-') {\n            return None;\n        }\n    }\n\n    return result_value;\n}\n\n// =============================================================================\n// dump_range(x) - make range `x` printable to std::ostream.  Will also print any nested ranges\n// (e.g., `std::vector<std::vector<int>>`).\n//\n// Example:\n//\n// ```\n// std::vector<int> nums;\n//\n// std::cout << batt::dump_range(nums);\n// ```\n//\n// Example (Pretty-printing):\n// ```\n// std::vector<int> nums;\n//\n// std::cout << batt::dump_range(nums, batt::Pretty::True);\n// ```\n//\nenum struct Pretty { True, False, Default };\n\ntemplate <typename T>\nclass RangeDumper;\n\ntemplate <typename T>\nRangeDumper<const T&> dump_range(const T& value, Pretty pretty = Pretty::Default);\n\nnamespace detail {\n\ninline Pretty& range_dump_pretty()\n{\n    thread_local Pretty p = Pretty::False;\n    return p;\n}\n\ninline int& range_dump_depth()\n{\n    thread_local int depth = 0;\n    return depth;\n}\n\ntemplate <typename T, typename = std::enable_if_t<!std::is_same<std::decay_t<T>, u8>{}>,\n          typename = std::enable_if_t<!IsRange<T>{}>>\ninline std::ostream& dump_item(std::ostream& out, T&& item)\n{\n    return out << BATT_FORWARD(item);\n}\n\ninline std::ostream& dump_item(std::ostream& out, const std::string& s)\n{\n    return out << c_str_literal(s);\n}\n\ninline std::ostream& dump_item(std::ostream& out, const std::string_view& s)\n{\n    return out << c_str_literal(s);\n}\n\ninline std::ostream& dump_item(std::ostream& out, const std::filesystem::path& p)\n{\n    return out << p;\n}\n\ntemplate <typename T, typename = std::enable_if_t<IsRange<T>{}>>\ninline std::ostream& dump_item(std::ostream& out, T&& item)\n{\n    return out << dump_range(item);\n}\n\ninline std::ostream& dump_item(std::ostream& out, u8 byte_val)\n{\n    return out << \"0x\" << std::hex << std::setfill('0') << std::setw(2) << unsigned(byte_val);\n}\n\ntemplate <typename FirstT, typename SecondT>\ninline std::ostream& dump_item(std::ostream& out, const std::pair<FirstT, SecondT>& p)\n{\n    out << \"{\";\n    dump_item(out, p.first);\n    out << \", \";\n    dump_item(out, p.second);\n    return out << \"}\";\n}\n\n}  // namespace detail\n\ninline auto pretty_print_indent()\n{\n    return std::string(detail::range_dump_depth() * 2, ' ');\n}\n\ntemplate <typename T>\nclass RangeDumper\n{\n   private:\n    T value_;\n    Pretty pretty_;\n\n   public:\n    template <typename Arg>\n    explicit RangeDumper(Arg&& arg, Pretty pretty) noexcept : value_{BATT_FORWARD(arg)}\n                                                            , pretty_{pretty}\n    {\n    }\n\n    friend inline std::ostream& operator<<(std::ostream& out, const RangeDumper& t) noexcept\n    {\n        boost::io::ios_flags_saver flags_saver(out);\n        const Pretty save_pretty = detail::range_dump_pretty();\n        bool pretty = [&] {\n            if (t.pretty_ == Pretty::Default) {\n                return save_pretty == Pretty::True;\n            }\n            return t.pretty_ == Pretty::True;\n        }();\n        detail::range_dump_pretty() = pretty ? Pretty::True : Pretty::False;\n\n        std::string indent = pretty_print_indent();\n        ++detail::range_dump_depth();\n        const auto leave_indent_level = finally([&] {\n            --detail::range_dump_depth();\n            detail::range_dump_pretty() = save_pretty;\n        });\n\n        out << \"{ \";\n        if (pretty && std::begin(t.value_) != std::end(t.value_)) {\n            out << std::endl << indent;\n        }\n        for (const auto& item : t.value_) {\n            if (pretty) {\n                out << \"  \";\n            }\n            detail::dump_item(out, item) << \", \";\n            if (pretty) {\n                out << std::endl << indent;\n            }\n        }\n\n        return out << \"}\";\n    }\n};\n\ntemplate <typename T>\nRangeDumper<const T&> dump_range(const T& value, Pretty pretty)\n{\n    return RangeDumper<const T&>{value, pretty};\n}\n\n#define BATT_INSPECT_RANGE(expr) \" \" << #expr << \" == \" << ::batt::dump_range((expr))\n#define BATT_INSPECT_RANGE_PRETTY(expr)                                                                      \\\n    \" \" << #expr << \" == \" << ::batt::dump_range((expr), ::batt::Pretty::True)\n\n}  // namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::EscapedStringLiteral",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::EscapedStringLiteral",
+      "refid": "structbatt_1_1EscapedStringLiteral",
+      "title": "batt::EscapedStringLiteral",
+      "url": "/_autogen/Classes/structbatt_1_1EscapedStringLiteral/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::HexByteDumper",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::HexByteDumper",
+      "refid": "structbatt_1_1HexByteDumper",
+      "title": "batt::HexByteDumper",
+      "url": "/_autogen/Classes/structbatt_1_1HexByteDumper/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Wrapper around `usize` (`std::size_t`) that prints as human-readable sizes. ",
+      "category": "classes",
+      "fullname": "batt::SizeDumper",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::SizeDumper",
+      "refid": "structbatt_1_1SizeDumper",
+      "summary": "Wrapper around usize (std::size_t) that prints as human-readable sizes. ",
+      "title": "batt::SizeDumper",
+      "url": "/_autogen/Classes/structbatt_1_1SizeDumper/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::RangeDumper",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::RangeDumper",
+      "refid": "classbatt_1_1RangeDumper",
+      "title": "batt::RangeDumper",
+      "url": "/_autogen/Classes/classbatt_1_1RangeDumper/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "stream__util_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/stream_util.hpp",
+  "url": "/_autogen/Files/stream__util_8hpp/#file-stream-util.hpp",
+  "visibility": "public"
+}

@@ -1,0 +1,234 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::LazyLatch::AsyncGetHandler",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 187,
+    "bodyFile": "batteries/async/lazy_latch_decl.hpp",
+    "bodyStart": 162,
+    "column": 1,
+    "file": "batteries/async/lazy_latch_decl.hpp",
+    "line": 161
+  },
+  "name": "batt::LazyLatch::AsyncGetHandler",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "baseClasses": [
+      {
+        "external": true,
+        "name": "batt::RefCounted< LazyLatch< T > >",
+        "virtual": "non-virtual",
+        "visibility": "public"
+      },
+      {
+        "external": false,
+        "name": "batt::BasicAbstractHandler< StatusOr< T > && >",
+        "refid": "classbatt_1_1BasicAbstractHandler",
+        "url": "/_autogen/Classes/classbatt_1_1BasicAbstractHandler/",
+        "virtual": "non-virtual",
+        "visibility": "private"
+      }
+    ],
+    "brief": "A write-once, single-value synchronized container that is populated lazily by an init_fn when the value is requested. ",
+    "category": "classes",
+    "fullname": "batt::LazyLatch",
+    "kind": "class",
+    "language": "cpp",
+    "name": "batt::LazyLatch",
+    "refid": "classbatt_1_1LazyLatch",
+    "summary": "A write-once, single-value synchronized container that is populated lazily by an init_fn when the value is requested. ",
+    "title": "batt::LazyLatch",
+    "url": "/_autogen/Classes/classbatt_1_1LazyLatch/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "batt::RefCounted< LazyLatch< T > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::BasicAbstractHandler< StatusOr< T > && >",
+          "refid": "classbatt_1_1BasicAbstractHandler",
+          "url": "/_autogen/Classes/classbatt_1_1BasicAbstractHandler/",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "brief": "A write-once, single-value synchronized container that is populated lazily by an init_fn when the value is requested. ",
+      "category": "classes",
+      "fullname": "batt::LazyLatch",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::LazyLatch",
+      "refid": "classbatt_1_1LazyLatch",
+      "summary": "A write-once, single-value synchronized container that is populated lazily by an init_fn when the value is requested. ",
+      "title": "batt::LazyLatch",
+      "url": "/_autogen/Classes/classbatt_1_1LazyLatch/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-latch-",
+      "category": "attributes",
+      "const": false,
+      "definition": "LazyLatch* batt::LazyLatch< T, InitFn >::AsyncGetHandler::latch_",
+      "explicit": false,
+      "fullname": "batt::LazyLatch::AsyncGetHandler::latch_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/lazy_latch_decl.hpp",
+        "bodyStart": 186,
+        "column": 15,
+        "file": "batteries/async/lazy_latch_decl.hpp",
+        "line": 186
+      },
+      "name": "latch_",
+      "override": false,
+      "refid": "classbatt_1_1LazyLatch_1_1AsyncGetHandler_1ab68f05e0e61aebc5d041d07e1d3c10f4",
+      "static": false,
+      "strong": false,
+      "title": "latch_",
+      "type": "[LazyLatch](/_autogen/Classes/classbatt_1_1LazyLatch/) *",
+      "typePlain": "LazyLatch *",
+      "url": "/_autogen/Classes/classbatt_1_1LazyLatch_1_1AsyncGetHandler/#variable-latch-",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-asyncgethandler",
+      "argsString": "(LazyLatch *latch) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::LazyLatch< T, InitFn >::AsyncGetHandler::AsyncGetHandler",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::LazyLatch::AsyncGetHandler::AsyncGetHandler",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 166,
+        "bodyFile": "batteries/async/lazy_latch_decl.hpp",
+        "bodyStart": 164,
+        "column": 14,
+        "file": "batteries/async/lazy_latch_decl.hpp",
+        "line": 164
+      },
+      "name": "AsyncGetHandler",
+      "override": false,
+      "params": [
+        {
+          "name": "latch",
+          "type": "[LazyLatch](/_autogen/Classes/classbatt_1_1LazyLatch/) *",
+          "typePlain": "LazyLatch *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1LazyLatch_1_1AsyncGetHandler_1a6569a40fd95952394dd24fc62a1d7ed7",
+      "static": false,
+      "strong": false,
+      "title": "AsyncGetHandler",
+      "url": "/_autogen/Classes/classbatt_1_1LazyLatch_1_1AsyncGetHandler/#function-asyncgethandler",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator()",
+      "argsString": "(Handler &&handler, const StatusOr< u32 > &result) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "void batt::LazyLatch< T, InitFn >::AsyncGetHandler::operator()",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::LazyLatch::AsyncGetHandler::operator()",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 183,
+        "bodyFile": "batteries/async/lazy_latch_decl.hpp",
+        "bodyStart": 169,
+        "column": 10,
+        "file": "batteries/async/lazy_latch_decl.hpp",
+        "line": 169
+      },
+      "name": "operator()",
+      "override": false,
+      "params": [
+        {
+          "name": "handler",
+          "type": "Handler &&",
+          "typePlain": "Handler &&"
+        },
+        {
+          "name": "result",
+          "type": "const [StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< u32 > &",
+          "typePlain": "const StatusOr< u32 > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1LazyLatch_1_1AsyncGetHandler_1a9a52f16405e7d4bf7cf2658c9f843b12",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Handler",
+          "typePlain": "typename Handler"
+        }
+      ],
+      "title": "operator()",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1LazyLatch_1_1AsyncGetHandler/#function-operator()",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1LazyLatch_1_1AsyncGetHandler",
+  "static": false,
+  "strong": false,
+  "title": "batt::LazyLatch::AsyncGetHandler",
+  "url": "/_autogen/Classes/classbatt_1_1LazyLatch_1_1AsyncGetHandler/",
+  "visibility": "public"
+}
