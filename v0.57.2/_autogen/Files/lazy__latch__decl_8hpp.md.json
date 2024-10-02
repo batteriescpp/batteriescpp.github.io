@@ -1,0 +1,155 @@
+{
+  "abstract": false,
+  "anchor": "#file-lazy-latch-decl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-lazy-latch-decl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_LAZY_LATCH_DECL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/lazy_latch_decl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/lazy_latch_decl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_LAZY_LATCH_DECL_HPP",
+      "override": false,
+      "refid": "lazy__latch__decl_8hpp_1ae60726e4f1afbabb40d4b516f3bb7cfc",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_LAZY_LATCH_DECL_HPP",
+      "url": "/_autogen/Files/lazy__latch__decl_8hpp/#define-batteries-async-lazy-latch-decl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/lazy_latch_decl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/lazy_latch_decl.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/lazy_latch_decl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_LAZY_LATCH_DECL_HPP\n#define BATTERIES_ASYNC_LAZY_LATCH_DECL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/async/handler.hpp>\n#include <batteries/async/watch_decl.hpp>\n#include <batteries/cpu_align.hpp>\n#include <batteries/optional.hpp>\n#include <batteries/shared_ptr.hpp>\n#include <batteries/small_fn.hpp>\n#include <batteries/status.hpp>\n#include <batteries/utility.hpp>\n\nnamespace batt {\n\ntemplate <typename T,\n          typename InitFn = SmallFn<void(AbstractHandler<StatusOr<T>&&>*),\n                                    /*size=*/kCpuCacheLineSize - (sizeof(void*) + sizeof(Watch<u32>)),\n                                    /*move-only=*/true,\n                                    /*allow-alloc=*/true>>\nclass LazyLatch\n    : public RefCounted<LazyLatch<T>>\n    , private AbstractHandler<StatusOr<T>&&>\n{\n   public:\n    enum State : u32 {\n        kInitial = 0,\n        kTriggered = 1,\n        // 2 intentionally skipped; these states are treated as a bitmap of orthogonal conditions.\n        kReady = 3,\n    };\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    explicit LazyLatch(InitFn&& init_fn) noexcept;\n\n    LazyLatch(const LazyLatch&) = delete;\n\n    ~LazyLatch() noexcept;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    LazyLatch& operator=(const LazyLatch&) = delete;\n\n    void trigger();\n\n    bool is_ready() const;\n\n    StatusOr<T> await() & noexcept;\n\n    StatusOr<T> await() && noexcept;\n\n    StatusOr<T> poll();\n\n    StatusOr<T> get_ready_value_or_panic() & noexcept;\n\n    StatusOr<T> get_ready_value_or_panic() && noexcept;\n\n    template <typename Handler>\n    void async_get(Handler&& handler);\n\n    void poke()\n    {\n        this->state_.poke();\n    }\n\n   private:\n    class AsyncGetHandler;\n\n    using Storage = std::aligned_storage_t<std::max(sizeof(InitFn), sizeof(StatusOr<T>)),\n                                           std::max(alignof(InitFn), alignof(StatusOr<T>))>;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    // AbstractHandler impl\n    //\n    void notify(StatusOr<T>&&) override;\n\n    void destroy() override;\n\n    void dump(std::ostream& out) override;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    InitFn& stored_init_fn() noexcept;\n\n    StatusOr<T>& stored_result() noexcept;\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    Watch<u32> state_{kInitial};\n    Storage storage_;\n};\n\n//#=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++\n\ntemplate <typename T, typename InitFn>\nclass LazyLatch<T, InitFn>::AsyncGetHandler\n{\n   public:\n    explicit AsyncGetHandler(LazyLatch* latch) noexcept : latch_{latch}\n    {\n    }\n\n    template <typename Handler>\n    void operator()(Handler&& handler, const StatusOr<u32>& result) const\n    {\n        if (result.status() != StatusCode::kPoke) {\n            if (!result.ok()) {\n                BATT_FORWARD(handler)(result.status());\n                return;\n            }\n\n            if (*result == kReady) {\n                BATT_FORWARD(handler)(this->latch_->get_ready_value_or_panic());\n                return;\n            }\n        }\n        this->latch_->state_.async_wait(/*last_seen=*/*result, bind_handler(BATT_FORWARD(handler), *this));\n    }\n\n   private:\n    LazyLatch* latch_;\n};\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_LAZY_LATCH_DECL_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "batt::RefCounted< LazyLatch< T > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::BasicAbstractHandler< StatusOr< T > && >",
+          "refid": "classbatt_1_1BasicAbstractHandler",
+          "url": "/_autogen/Classes/classbatt_1_1BasicAbstractHandler/",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "brief": "A write-once, single-value synchronized container that is populated lazily by an init_fn when the value is requested. ",
+      "category": "classes",
+      "fullname": "batt::LazyLatch",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::LazyLatch",
+      "refid": "classbatt_1_1LazyLatch",
+      "summary": "A write-once, single-value synchronized container that is populated lazily by an init_fn when the value is requested. ",
+      "title": "batt::LazyLatch",
+      "url": "/_autogen/Classes/classbatt_1_1LazyLatch/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::LazyLatch::AsyncGetHandler",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::LazyLatch::AsyncGetHandler",
+      "refid": "classbatt_1_1LazyLatch_1_1AsyncGetHandler",
+      "title": "batt::LazyLatch::AsyncGetHandler",
+      "url": "/_autogen/Classes/classbatt_1_1LazyLatch_1_1AsyncGetHandler/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "lazy__latch__decl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/lazy_latch_decl.hpp",
+  "url": "/_autogen/Files/lazy__latch__decl_8hpp/#file-lazy-latch-decl.hpp",
+  "visibility": "public"
+}
