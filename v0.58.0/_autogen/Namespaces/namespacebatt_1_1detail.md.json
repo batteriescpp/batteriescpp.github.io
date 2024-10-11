@@ -1,0 +1,4119 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "namespaces",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::detail",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "namespace",
+  "language": "cpp",
+  "location": {
+    "column": 1,
+    "file": "batteries/algo/parallel_merge.hpp",
+    "line": 18
+  },
+  "name": "batt::detail",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "publicAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-kthreshold",
+      "category": "attributes",
+      "const": false,
+      "definition": "constexpr isize batt::detail::kThreshold",
+      "explicit": false,
+      "fullname": "batt::detail::kThreshold",
+      "hasDetails": false,
+      "initializer": "= 1400",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/algo/parallel_merge.hpp",
+        "bodyStart": 90,
+        "column": 24,
+        "file": "batteries/algo/parallel_merge.hpp",
+        "line": 90
+      },
+      "name": "kThreshold",
+      "override": false,
+      "refid": "parallel__merge_8hpp_1a24f63418c2402322b3ae11a572b0b025",
+      "static": true,
+      "strong": false,
+      "title": "kThreshold",
+      "type": "constexpr isize",
+      "typePlain": "constexpr isize",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#variable-kthreshold",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-kmaxshards",
+      "category": "attributes",
+      "const": false,
+      "definition": "constexpr isize batt::detail::kMaxShards",
+      "explicit": false,
+      "fullname": "batt::detail::kMaxShards",
+      "hasDetails": false,
+      "initializer": "= 8",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/algo/parallel_merge.hpp",
+        "bodyStart": 91,
+        "column": 24,
+        "file": "batteries/algo/parallel_merge.hpp",
+        "line": 91
+      },
+      "name": "kMaxShards",
+      "override": false,
+      "refid": "parallel__merge_8hpp_1a15c9d31b4ebd677ba7df2a4e09fa1d74",
+      "static": true,
+      "strong": false,
+      "title": "kMaxShards",
+      "type": "constexpr isize",
+      "typePlain": "constexpr isize",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#variable-kmaxshards",
+      "visibility": "public"
+    }
+  ],
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::FirstPhase",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::FirstPhase",
+      "refid": "structbatt_1_1detail_1_1FirstPhase",
+      "title": "batt::detail::FirstPhase",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1FirstPhase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::ThirdPhase",
+          "refid": "structbatt_1_1detail_1_1ThirdPhase",
+          "url": "/_autogen/Classes/structbatt_1_1detail_1_1ThirdPhase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::detail::SecondPhase",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::SecondPhase",
+      "refid": "structbatt_1_1detail_1_1SecondPhase",
+      "title": "batt::detail::SecondPhase",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1SecondPhase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::SecondPhase",
+          "refid": "structbatt_1_1detail_1_1SecondPhase",
+          "url": "/_autogen/Classes/structbatt_1_1detail_1_1SecondPhase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::ThirdPhase",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::ThirdPhase",
+      "refid": "structbatt_1_1detail_1_1ThirdPhase",
+      "title": "batt::detail::ThirdPhase",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1ThirdPhase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::SigInfoHandler",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::SigInfoHandler",
+      "refid": "classbatt_1_1detail_1_1SigInfoHandler",
+      "title": "batt::detail::SigInfoHandler",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1SigInfoHandler/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::Latch< T >",
+          "refid": "classbatt_1_1Latch",
+          "url": "/_autogen/Classes/classbatt_1_1Latch/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": true,
+          "name": "batt::RefCounted< Latch< T > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::FutureImpl",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::FutureImpl",
+      "refid": "classbatt_1_1detail_1_1FutureImpl",
+      "title": "batt::detail::FutureImpl",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1FutureImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::PriorityHeap",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::PriorityHeap",
+      "refid": "classbatt_1_1detail_1_1PriorityHeap",
+      "title": "batt::detail::PriorityHeap",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeap/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::PriorityHeapItem",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::PriorityHeapItem",
+      "refid": "classbatt_1_1detail_1_1PriorityHeapItem",
+      "title": "batt::detail::PriorityHeapItem",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItem/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::PriorityHeapItemList",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::PriorityHeapItemList",
+      "refid": "classbatt_1_1detail_1_1PriorityHeapItemList",
+      "title": "batt::detail::PriorityHeapItemList",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1PriorityHeapItemList/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::FirstMatchImpl",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::FirstMatchImpl",
+      "refid": "structbatt_1_1detail_1_1FirstMatchImpl",
+      "title": "batt::detail::FirstMatchImpl",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1FirstMatchImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::conditional_t< IsCallable< CaseFirst, Args &&... >{}, std::integral_constant< usize, 0 >, std::integral_constant< usize, 1+FirstMatchImpl< std::tuple< CaseRest... >, std::tuple< Args... > >{}> >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::FirstMatchImpl< std::tuple< CaseFirst, CaseRest... >, std::tuple< Args... > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::FirstMatchImpl< std::tuple< CaseFirst, CaseRest... >, std::tuple< Args... > >",
+      "refid": "structbatt_1_1detail_1_1FirstMatchImpl_3_01std_1_1tuple_3_01CaseFirst_00_01CaseRest_8_8_8_01_4_0ef0b86a15b721fa11026a803059cf332",
+      "title": "batt::detail::FirstMatchImpl< std::tuple< CaseFirst, CaseRest... >, std::tuple< Args... > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1FirstMatchImpl_3_01std_1_1tuple_3_01CaseFirst_00_01CaseRest_8_8_8_01_4_0ef0b86a15b721fa11026a803059cf332/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::integral_constant< usize, 0 >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::FirstMatchImpl< std::tuple<>, std::tuple< Args... > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::FirstMatchImpl< std::tuple<>, std::tuple< Args... > >",
+      "refid": "structbatt_1_1detail_1_1FirstMatchImpl_3_01std_1_1tuple_3_4_00_01std_1_1tuple_3_01Args_8_8_8_01_4_01_4",
+      "title": "batt::detail::FirstMatchImpl< std::tuple<>, std::tuple< Args... > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1FirstMatchImpl_3_01std_1_1tuple_3_4_00_01std_1_1tuple_3_01Args_8_8_8_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::VisitorResult",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::VisitorResult",
+      "refid": "structbatt_1_1detail_1_1VisitorResult",
+      "title": "batt::detail::VisitorResult",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > >",
+      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4",
+      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const >",
+      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_4",
+      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > & >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > & >",
+      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_6_01_4",
+      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > & >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_6_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const & >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const & >",
+      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_6_01_4",
+      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const & >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_6_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > && >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > && >",
+      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_6_6_01_4",
+      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > && >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01_6_6_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const && >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const && >",
+      "refid": "structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_6_6_01_4",
+      "title": "batt::detail::VisitorResult< Visitor, std::variant< Ts... > const && >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult_3_01Visitor_00_01std_1_1variant_3_01Ts_8_8_8_01_4_01const_01_6_6_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Temporary object that collects any optional message string parts, throwing a [StatusException](/_autogen/Classes/classbatt_1_1StatusException/) when destructed (unless this object has been moved). ",
+      "category": "classes",
+      "fullname": "batt::detail::ThrowWhenDestroyed",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::ThrowWhenDestroyed",
+      "refid": "classbatt_1_1detail_1_1ThrowWhenDestroyed",
+      "summary": "Temporary object that collects any optional message string parts, throwing a StatusException when destructed (unless this object has been moved). ",
+      "title": "batt::detail::ThrowWhenDestroyed",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1ThrowWhenDestroyed/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::HttpClientRequestContext",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::HttpClientRequestContext",
+      "refid": "classbatt_1_1detail_1_1HttpClientRequestContext",
+      "title": "batt::detail::HttpClientRequestContext",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1HttpClientRequestContext/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::NullableImpl",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::NullableImpl",
+      "refid": "structbatt_1_1detail_1_1NullableImpl",
+      "title": "batt::detail::NullableImpl",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1NullableImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::NullableImpl< std::optional< T > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::NullableImpl< std::optional< T > >",
+      "refid": "structbatt_1_1detail_1_1NullableImpl_3_01std_1_1optional_3_01T_01_4_01_4",
+      "title": "batt::detail::NullableImpl< std::optional< T > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1NullableImpl_3_01std_1_1optional_3_01T_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::NullableImpl< std::unique_ptr< T > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::NullableImpl< std::unique_ptr< T > >",
+      "refid": "structbatt_1_1detail_1_1NullableImpl_3_01std_1_1unique__ptr_3_01T_01_4_01_4",
+      "title": "batt::detail::NullableImpl< std::unique_ptr< T > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1NullableImpl_3_01std_1_1unique__ptr_3_01T_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::NullableImpl< std::shared_ptr< T > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::NullableImpl< std::shared_ptr< T > >",
+      "refid": "structbatt_1_1detail_1_1NullableImpl_3_01std_1_1shared__ptr_3_01T_01_4_01_4",
+      "title": "batt::detail::NullableImpl< std::shared_ptr< T > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1NullableImpl_3_01std_1_1shared__ptr_3_01T_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::NullableImpl< T * >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::NullableImpl< T * >",
+      "refid": "structbatt_1_1detail_1_1NullableImpl_3_01T_01_5_01_4",
+      "title": "batt::detail::NullableImpl< T * >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1NullableImpl_3_01T_01_5_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::OptionalBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::OptionalBase",
+      "refid": "classbatt_1_1detail_1_1OptionalBase",
+      "title": "batt::detail::OptionalBase",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1OptionalBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::OptionalEmptyBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::OptionalEmptyBase",
+      "refid": "classbatt_1_1detail_1_1OptionalEmptyBase",
+      "title": "batt::detail::OptionalEmptyBase",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1OptionalEmptyBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::AbstractMoveFn",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::AbstractMoveFn",
+      "refid": "classbatt_1_1detail_1_1AbstractMoveFn",
+      "title": "batt::detail::AbstractMoveFn",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AbstractMoveFn/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::AbstractMoveFn< false, Result, Args... >",
+          "refid": "classbatt_1_1detail_1_1AbstractMoveFn",
+          "url": "/_autogen/Classes/classbatt_1_1detail_1_1AbstractMoveFn/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::AbstractCopyFn",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::AbstractCopyFn",
+      "refid": "classbatt_1_1detail_1_1AbstractCopyFn",
+      "title": "batt::detail::AbstractCopyFn",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AbstractCopyFn/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "AbstractFn< kMoveOnly, Result, Args... >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::MoveFnImpl",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::MoveFnImpl",
+      "refid": "classbatt_1_1detail_1_1MoveFnImpl",
+      "title": "batt::detail::MoveFnImpl",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::MoveFnImpl< Fn, false, Result, Args... >",
+          "refid": "classbatt_1_1detail_1_1MoveFnImpl",
+          "url": "/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": true,
+          "name": "AbstractFn< kMoveOnly, Result, Args... >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::CopyFnImpl",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::CopyFnImpl",
+      "refid": "classbatt_1_1detail_1_1CopyFnImpl",
+      "title": "batt::detail::CopyFnImpl",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1CopyFnImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::AllocFnWrapper",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::AllocFnWrapper",
+      "refid": "classbatt_1_1detail_1_1AllocFnWrapper",
+      "title": "batt::detail::AllocFnWrapper",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::ModelCheckShardMetrics",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::ModelCheckShardMetrics",
+      "refid": "structbatt_1_1detail_1_1ModelCheckShardMetrics",
+      "title": "batt::detail::ModelCheckShardMetrics",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1ModelCheckShardMetrics/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::ParallelModelCheckState",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::ParallelModelCheckState",
+      "refid": "classbatt_1_1detail_1_1ParallelModelCheckState",
+      "title": "batt::detail::ParallelModelCheckState",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1ParallelModelCheckState/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::Status",
+          "refid": "classbatt_1_1Status",
+          "url": "/_autogen/Classes/classbatt_1_1Status/",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "fullname": "batt::detail::StatusBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::StatusBase",
+      "refid": "classbatt_1_1detail_1_1StatusBase",
+      "title": "batt::detail::StatusBase",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1StatusBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::StatusOrValueContainer",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::StatusOrValueContainer",
+      "refid": "classbatt_1_1detail_1_1StatusOrValueContainer",
+      "title": "batt::detail::StatusOrValueContainer",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1StatusOrValueContainer/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::StatusOrValueContainer< T & >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::StatusOrValueContainer< T & >",
+      "refid": "classbatt_1_1detail_1_1StatusOrValueContainer_3_01T_01_6_01_4",
+      "title": "batt::detail::StatusOrValueContainer< T & >",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1StatusOrValueContainer_3_01T_01_6_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::false_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::IsStatusOrImpl",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::IsStatusOrImpl",
+      "refid": "structbatt_1_1detail_1_1IsStatusOrImpl",
+      "title": "batt::detail::IsStatusOrImpl",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1IsStatusOrImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::true_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::IsStatusOrImpl< StatusOr< T > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::IsStatusOrImpl< StatusOr< T > >",
+      "refid": "structbatt_1_1detail_1_1IsStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4",
+      "title": "batt::detail::IsStatusOrImpl< StatusOr< T > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1IsStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::true_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::IsStatusOrImpl< StatusOr< T & > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::IsStatusOrImpl< StatusOr< T & > >",
+      "refid": "structbatt_1_1detail_1_1IsStatusOrImpl_3_01StatusOr_3_01T_01_6_01_4_01_4",
+      "title": "batt::detail::IsStatusOrImpl< StatusOr< T & > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1IsStatusOrImpl_3_01StatusOr_3_01T_01_6_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::NotOkStatusWrapper",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::NotOkStatusWrapper",
+      "refid": "classbatt_1_1detail_1_1NotOkStatusWrapper",
+      "title": "batt::detail::NotOkStatusWrapper",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1NotOkStatusWrapper/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "T",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::EmptyBaseHelper",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::EmptyBaseHelper",
+      "refid": "structbatt_1_1detail_1_1EmptyBaseHelper",
+      "title": "batt::detail::EmptyBaseHelper",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1EmptyBaseHelper/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::EmptyBaseTestCase",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::EmptyBaseTestCase",
+      "refid": "structbatt_1_1detail_1_1EmptyBaseTestCase",
+      "title": "batt::detail::EmptyBaseTestCase",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1EmptyBaseTestCase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::EmptyBaseTestCase2",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::EmptyBaseTestCase2",
+      "refid": "structbatt_1_1detail_1_1EmptyBaseTestCase2",
+      "title": "batt::detail::EmptyBaseTestCase2",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1EmptyBaseTestCase2/",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-parallel-merge-fanout",
+      "argsString": "(WorkContext &context, Fixed fixed_begin, Fixed fixed_end, Search search_begin, Search search_end, Dst dst_begin, Compare &&compare, usize min_task_size, usize max_tasks, batt::StaticType< Phase >)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::detail::parallel_merge_fanout",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::parallel_merge_fanout",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 6,
+        "file": "batteries/algo/parallel_merge.hpp",
+        "line": 96
+      },
+      "name": "parallel_merge_fanout",
+      "override": false,
+      "params": [
+        {
+          "name": "context",
+          "type": "[WorkContext](/_autogen/Classes/classbatt_1_1WorkContext/) &",
+          "typePlain": "WorkContext &"
+        },
+        {
+          "name": "fixed_begin",
+          "type": "Fixed",
+          "typePlain": "Fixed"
+        },
+        {
+          "name": "fixed_end",
+          "type": "Fixed",
+          "typePlain": "Fixed"
+        },
+        {
+          "name": "search_begin",
+          "type": "Search",
+          "typePlain": "Search"
+        },
+        {
+          "name": "search_end",
+          "type": "Search",
+          "typePlain": "Search"
+        },
+        {
+          "name": "dst_begin",
+          "type": "Dst",
+          "typePlain": "Dst"
+        },
+        {
+          "name": "compare",
+          "type": "Compare &&",
+          "typePlain": "Compare &&"
+        },
+        {
+          "name": "min_task_size",
+          "type": "usize",
+          "typePlain": "usize"
+        },
+        {
+          "name": "max_tasks",
+          "type": "usize",
+          "typePlain": "usize"
+        },
+        {
+          "name": "",
+          "type": "[batt::StaticType](/_autogen/Classes/structbatt_1_1StaticType/)< Phase >",
+          "typePlain": "batt::StaticType< Phase >"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "parallel__merge_8hpp_1a4ed6fb52dab85e17e20801654b76b00a",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Fixed",
+          "typePlain": "typename Fixed"
+        },
+        {
+          "name": "",
+          "type": "typename Search",
+          "typePlain": "typename Search"
+        },
+        {
+          "name": "",
+          "type": "typename Dst",
+          "typePlain": "typename Dst"
+        },
+        {
+          "name": "",
+          "type": "typename Compare",
+          "typePlain": "typename Compare"
+        },
+        {
+          "name": "",
+          "type": "typename Phase",
+          "typePlain": "typename Phase"
+        }
+      ],
+      "title": "parallel_merge_fanout",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-parallel-merge-fanout",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-parallel-merge-impl",
+      "argsString": "(WorkContext &context, Src0 src_0_begin, Src0 src_0_end, Src1 src_1_begin, Src1 src_1_end, Dst dst_begin, Compare &&compare, usize min_task_size, usize max_tasks, batt::StaticType< Phase > phase)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::detail::parallel_merge_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::parallel_merge_impl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 160,
+        "bodyFile": "batteries/algo/parallel_merge.hpp",
+        "bodyStart": 108,
+        "column": 6,
+        "file": "batteries/algo/parallel_merge.hpp",
+        "line": 108
+      },
+      "name": "parallel_merge_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "context",
+          "type": "[WorkContext](/_autogen/Classes/classbatt_1_1WorkContext/) &",
+          "typePlain": "WorkContext &"
+        },
+        {
+          "name": "src_0_begin",
+          "type": "Src0",
+          "typePlain": "Src0"
+        },
+        {
+          "name": "src_0_end",
+          "type": "Src0",
+          "typePlain": "Src0"
+        },
+        {
+          "name": "src_1_begin",
+          "type": "Src1",
+          "typePlain": "Src1"
+        },
+        {
+          "name": "src_1_end",
+          "type": "Src1",
+          "typePlain": "Src1"
+        },
+        {
+          "name": "dst_begin",
+          "type": "Dst",
+          "typePlain": "Dst"
+        },
+        {
+          "name": "compare",
+          "type": "Compare &&",
+          "typePlain": "Compare &&"
+        },
+        {
+          "name": "min_task_size",
+          "type": "usize",
+          "typePlain": "usize"
+        },
+        {
+          "name": "max_tasks",
+          "type": "usize",
+          "typePlain": "usize"
+        },
+        {
+          "name": "phase",
+          "type": "[batt::StaticType](/_autogen/Classes/structbatt_1_1StaticType/)< Phase >",
+          "typePlain": "batt::StaticType< Phase >"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "parallel__merge_8hpp_1ab3d87aaf69f8a580f6778813be2a2b31",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Src0",
+          "typePlain": "typename Src0"
+        },
+        {
+          "name": "",
+          "type": "typename Src1",
+          "typePlain": "typename Src1"
+        },
+        {
+          "name": "",
+          "type": "typename Dst",
+          "typePlain": "typename Dst"
+        },
+        {
+          "name": "",
+          "type": "typename Compare",
+          "typePlain": "typename Compare"
+        },
+        {
+          "name": "",
+          "type": "typename Phase",
+          "typePlain": "typename Phase"
+        }
+      ],
+      "title": "parallel_merge_impl",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-parallel-merge-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-parallel-merge-fanout",
+      "argsString": "(WorkContext &context, Fixed fixed_begin, Fixed fixed_end, Fixed fixed_part_begin, Fixed fixed_part_end, Search search_begin, Search search_end, Dst dst_begin, Compare &&compare, usize min_task_size, usize max_tasks, batt::StaticType< Phase >)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::detail::parallel_merge_fanout",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::parallel_merge_fanout",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 258,
+        "bodyFile": "batteries/algo/parallel_merge.hpp",
+        "bodyStart": 165,
+        "column": 6,
+        "file": "batteries/algo/parallel_merge.hpp",
+        "line": 165
+      },
+      "name": "parallel_merge_fanout",
+      "override": false,
+      "params": [
+        {
+          "name": "context",
+          "type": "[WorkContext](/_autogen/Classes/classbatt_1_1WorkContext/) &",
+          "typePlain": "WorkContext &"
+        },
+        {
+          "name": "fixed_begin",
+          "type": "Fixed",
+          "typePlain": "Fixed"
+        },
+        {
+          "name": "fixed_end",
+          "type": "Fixed",
+          "typePlain": "Fixed"
+        },
+        {
+          "name": "fixed_part_begin",
+          "type": "Fixed",
+          "typePlain": "Fixed"
+        },
+        {
+          "name": "fixed_part_end",
+          "type": "Fixed",
+          "typePlain": "Fixed"
+        },
+        {
+          "name": "search_begin",
+          "type": "Search",
+          "typePlain": "Search"
+        },
+        {
+          "name": "search_end",
+          "type": "Search",
+          "typePlain": "Search"
+        },
+        {
+          "name": "dst_begin",
+          "type": "Dst",
+          "typePlain": "Dst"
+        },
+        {
+          "name": "compare",
+          "type": "Compare &&",
+          "typePlain": "Compare &&"
+        },
+        {
+          "name": "min_task_size",
+          "type": "usize",
+          "typePlain": "usize"
+        },
+        {
+          "name": "max_tasks",
+          "type": "usize",
+          "typePlain": "usize"
+        },
+        {
+          "name": "",
+          "type": "[batt::StaticType](/_autogen/Classes/structbatt_1_1StaticType/)< Phase >",
+          "typePlain": "batt::StaticType< Phase >"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "parallel__merge_8hpp_1aee6e0e3b73f970ce4b7f8d5dd170c2ce",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Fixed",
+          "typePlain": "typename Fixed"
+        },
+        {
+          "name": "",
+          "type": "typename Search",
+          "typePlain": "typename Search"
+        },
+        {
+          "name": "",
+          "type": "typename Dst",
+          "typePlain": "typename Dst"
+        },
+        {
+          "name": "",
+          "type": "typename Compare",
+          "typePlain": "typename Compare"
+        },
+        {
+          "name": "",
+          "type": "typename Phase",
+          "typePlain": "typename Phase"
+        }
+      ],
+      "title": "parallel_merge_fanout",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-parallel-merge-fanout",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-has-const-buffer-sequence-requirements-impl",
+      "argsString": "(...)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::false_type batt::detail::has_const_buffer_sequence_requirements_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::has_const_buffer_sequence_requirements_impl",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 41,
+        "bodyFile": "batteries/async/buffer_source.hpp",
+        "bodyStart": 38,
+        "column": 24,
+        "file": "batteries/async/buffer_source.hpp",
+        "line": 38
+      },
+      "name": "has_const_buffer_sequence_requirements_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "...",
+          "typePlain": "..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "buffer__source_8hpp_1abde697952915157c1ec04c5b79daa702",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "has_const_buffer_sequence_requirements_impl",
+      "type": "std::false_type",
+      "typePlain": "std::false_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-has-const-buffer-sequence-requirements-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-has-const-buffer-sequence-requirements-impl",
+      "argsString": "(std::decay_t< T > *)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::true_type batt::detail::has_const_buffer_sequence_requirements_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::has_const_buffer_sequence_requirements_impl",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 52,
+        "bodyFile": "batteries/async/buffer_source.hpp",
+        "bodyStart": 49,
+        "column": 23,
+        "file": "batteries/async/buffer_source.hpp",
+        "line": 49
+      },
+      "name": "has_const_buffer_sequence_requirements_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "std::decay_t< T > *",
+          "typePlain": "std::decay_t< T > *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "buffer__source_8hpp_1ab01f15951838bbf81c7698fe9f0b9345",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "defval": "decltype(*boost::asio::buffer_sequence_begin(std::declval<T>()))",
+          "defvalPlain": "decltype(*boost::asio::buffer_sequence_begin(std::declval<T>()))",
+          "name": "",
+          "type": "typename ElementT",
+          "typePlain": "typename ElementT"
+        }
+      ],
+      "title": "has_const_buffer_sequence_requirements_impl",
+      "type": "std::true_type",
+      "typePlain": "std::true_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-has-const-buffer-sequence-requirements-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-has-buffer-source-requirements-impl",
+      "argsString": "(...)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::false_type batt::detail::has_buffer_source_requirements_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::has_buffer_source_requirements_impl",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 77,
+        "bodyFile": "batteries/async/buffer_source.hpp",
+        "bodyStart": 74,
+        "column": 24,
+        "file": "batteries/async/buffer_source.hpp",
+        "line": 74
+      },
+      "name": "has_buffer_source_requirements_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "...",
+          "typePlain": "..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "buffer__source_8hpp_1a5cb81519b40d1cd75c362f5eb422a17c",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "has_buffer_source_requirements_impl",
+      "type": "std::false_type",
+      "typePlain": "std::false_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-has-buffer-source-requirements-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-has-buffer-source-requirements-impl",
+      "argsString": "(std::decay_t< T > *)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::true_type batt::detail::has_buffer_source_requirements_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::has_buffer_source_requirements_impl",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 89,
+        "bodyFile": "batteries/async/buffer_source.hpp",
+        "bodyStart": 86,
+        "column": 23,
+        "file": "batteries/async/buffer_source.hpp",
+        "line": 86
+      },
+      "name": "has_buffer_source_requirements_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "std::decay_t< T > *",
+          "typePlain": "std::decay_t< T > *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "buffer__source_8hpp_1a2b31a724ea8a4a61dcbcb4297bd7c396",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "has_buffer_source_requirements_impl",
+      "type": "std::true_type",
+      "typePlain": "std::true_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-has-buffer-source-requirements-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-slice-buffer-impl",
+      "argsString": "(const BufferT &buffer, const Interval< SizeT > &slice)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "BufferT batt::detail::slice_buffer_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::slice_buffer_impl",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 92,
+        "bodyFile": "batteries/buffer.hpp",
+        "bodyStart": 79,
+        "column": 16,
+        "file": "batteries/buffer.hpp",
+        "line": 79
+      },
+      "name": "slice_buffer_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "buffer",
+          "type": "const BufferT &",
+          "typePlain": "const BufferT &"
+        },
+        {
+          "name": "slice",
+          "type": "const [Interval](/_autogen/Classes/structbatt_1_1BasicInterval/)< SizeT > &",
+          "typePlain": "const Interval< SizeT > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "buffer_8hpp_1a6158c8577646ada5d20df8b659b725ff",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename BufferT",
+          "typePlain": "typename BufferT"
+        },
+        {
+          "name": "",
+          "type": "typename SizeT",
+          "typePlain": "typename SizeT"
+        }
+      ],
+      "title": "slice_buffer_impl",
+      "type": "BufferT",
+      "typePlain": "BufferT",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-slice-buffer-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-escape-otel-metric-name",
+      "argsString": "(const std::string_view name)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::string batt::detail::escape_otel_metric_name",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::escape_otel_metric_name",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 30,
+        "bodyFile": "batteries/metrics/metric_otel_formatter_impl.hpp",
+        "bodyStart": 19,
+        "column": 22,
+        "file": "batteries/metrics/metric_otel_formatter_impl.hpp",
+        "line": 19
+      },
+      "name": "escape_otel_metric_name",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "const std::string_view",
+          "typePlain": "const std::string_view"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "metric__otel__formatter__impl_8hpp_1a20c8f3083b1b0f6e8d90e0099064d93c",
+      "static": false,
+      "strong": false,
+      "title": "escape_otel_metric_name",
+      "type": "std::string",
+      "typePlain": "std::string",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-escape-otel-metric-name",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-print-nothing",
+      "argsString": "(std::ostream &)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::detail::print_nothing",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::print_nothing",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 30,
+        "bodyFile": "batteries/segv.hpp",
+        "bodyStart": 28,
+        "column": 13,
+        "file": "batteries/segv.hpp",
+        "line": 28
+      },
+      "name": "print_nothing",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "segv_8hpp_1afaaedbfad2c6294ac70d2465202e0e05",
+      "static": false,
+      "strong": false,
+      "title": "print_nothing",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-print-nothing",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-handle-segv",
+      "argsString": "(int sig)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::detail::handle_segv",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::handle_segv",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 90,
+        "bodyFile": "batteries/segv.hpp",
+        "bodyStart": 81,
+        "column": 13,
+        "file": "batteries/segv.hpp",
+        "line": 81
+      },
+      "name": "handle_segv",
+      "override": false,
+      "params": [
+        {
+          "name": "sig",
+          "type": "int",
+          "typePlain": "int"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "segv_8hpp_1af8c5950d7cd410e57d7d3d77bb802a05",
+      "static": false,
+      "strong": false,
+      "title": "handle_segv",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-handle-segv",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-exit-impl",
+      "argsString": "(int code)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::detail::exit_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::exit_impl",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 96,
+        "bodyFile": "batteries/segv.hpp",
+        "bodyStart": 92,
+        "column": 13,
+        "file": "batteries/segv.hpp",
+        "line": 92
+      },
+      "name": "exit_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "code",
+          "type": "int",
+          "typePlain": "int"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "segv_8hpp_1a4ce024adcb7fd74eb863d4fc623edada",
+      "static": false,
+      "strong": false,
+      "title": "exit_impl",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-exit-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-has-seq-requirements-impl",
+      "argsString": "(...)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::false_type batt::detail::has_seq_requirements_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::has_seq_requirements_impl",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 21,
+        "bodyFile": "batteries/seq/requirements.hpp",
+        "bodyStart": 18,
+        "column": 24,
+        "file": "batteries/seq/requirements.hpp",
+        "line": 18
+      },
+      "name": "has_seq_requirements_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "...",
+          "typePlain": "..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "requirements_8hpp_1aadab4a46b0f625baedfb91485410bb62",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "has_seq_requirements_impl",
+      "type": "std::false_type",
+      "typePlain": "std::false_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-has-seq-requirements-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-has-seq-requirements-impl",
+      "argsString": "(std::decay_t< T > *)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::true_type batt::detail::has_seq_requirements_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::has_seq_requirements_impl",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 31,
+        "bodyFile": "batteries/seq/requirements.hpp",
+        "bodyStart": 28,
+        "column": 23,
+        "file": "batteries/seq/requirements.hpp",
+        "line": 28
+      },
+      "name": "has_seq_requirements_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "std::decay_t< T > *",
+          "typePlain": "std::decay_t< T > *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "requirements_8hpp_1a39b2a8d4818e10f2416a64abfab8fe13",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "defval": "typename std::decay_t<T>::Item",
+          "defvalPlain": "typename std::decay_t<T>::Item",
+          "name": "",
+          "type": "typename ItemT",
+          "typePlain": "typename ItemT"
+        }
+      ],
+      "title": "has_seq_requirements_impl",
+      "type": "std::true_type",
+      "typePlain": "std::true_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-has-seq-requirements-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is-ref-counted-impl",
+      "argsString": "(void *)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::true_type batt::detail::is_ref_counted_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::is_ref_counted_impl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 16,
+        "file": "batteries/shared_ptr.hpp",
+        "line": 32
+      },
+      "name": "is_ref_counted_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void *",
+          "typePlain": "void *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "shared__ptr_8hpp_1a2b89e2267b6a6d5ea26b7db68b39e520",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "defval": "decltype(intrusive_ptr_add_ref((T*)nullptr))",
+          "defvalPlain": "decltype(intrusive_ptr_add_ref((T*)nullptr))",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        },
+        {
+          "defval": "decltype(intrusive_ptr_release((T*)nullptr))",
+          "defvalPlain": "decltype(intrusive_ptr_release((T*)nullptr))",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "is_ref_counted_impl",
+      "type": "std::true_type",
+      "typePlain": "std::true_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-is-ref-counted-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is-ref-counted-impl",
+      "argsString": "(...)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::false_type batt::detail::is_ref_counted_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::is_ref_counted_impl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 17,
+        "file": "batteries/shared_ptr.hpp",
+        "line": 35
+      },
+      "name": "is_ref_counted_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "...",
+          "typePlain": "..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "shared__ptr_8hpp_1a2cbe7cd3ced9d5d3b878947e7acb8004",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "is_ref_counted_impl",
+      "type": "std::false_type",
+      "typePlain": "std::false_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-is-ref-counted-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator<<",
+      "argsString": "(std::ostream &out, const ModelCheckShardMetrics &t)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::ostream& batt::detail::operator<<",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::operator<<",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 41,
+        "bodyFile": "batteries/state_machine_model/parallel_model_check_state.hpp",
+        "bodyStart": 32,
+        "column": 8,
+        "file": "batteries/state_machine_model/parallel_model_check_state.hpp",
+        "line": 32
+      },
+      "name": "operator<<",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        },
+        {
+          "name": "t",
+          "type": "const [ModelCheckShardMetrics](/_autogen/Classes/structbatt_1_1detail_1_1ModelCheckShardMetrics/) &",
+          "typePlain": "const ModelCheckShardMetrics &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "parallel__model__check__state_8hpp_1a13562985439b839ccd036c717abc606b",
+      "static": false,
+      "strong": false,
+      "title": "operator<<",
+      "type": "std::ostream &",
+      "typePlain": "std::ostream &",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-operator<<",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-casehandlerimpl",
+      "argsString": "(Fn &&fn)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "R batt::detail::CaseHandlerImpl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::CaseHandlerImpl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 30,
+        "bodyFile": "batteries/static_dispatch.hpp",
+        "bodyStart": 27,
+        "column": 3,
+        "file": "batteries/static_dispatch.hpp",
+        "line": 27
+      },
+      "name": "CaseHandlerImpl",
+      "override": false,
+      "params": [
+        {
+          "name": "fn",
+          "type": "Fn &&",
+          "typePlain": "Fn &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "static__dispatch_8hpp_1a9dbb74f6af7627e322438f96a097ade3",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename IntT",
+          "typePlain": "typename IntT"
+        },
+        {
+          "name": "I",
+          "type": "IntT",
+          "typePlain": "IntT"
+        },
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        },
+        {
+          "name": "",
+          "type": "typename R",
+          "typePlain": "typename R"
+        }
+      ],
+      "title": "CaseHandlerImpl",
+      "type": "R",
+      "typePlain": "R",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-casehandlerimpl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-initialize-case-handlers",
+      "argsString": "(std::integral_constant< IntT, I >, std::integral_constant< IntT, I >, AbstractCaseHandler< Fn, R > *, AbstractCaseHandler< Fn, R > *)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::detail::initialize_case_handlers",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::initialize_case_handlers",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 37,
+        "bodyFile": "batteries/static_dispatch.hpp",
+        "bodyStart": 33,
+        "column": 6,
+        "file": "batteries/static_dispatch.hpp",
+        "line": 33
+      },
+      "name": "initialize_case_handlers",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "std::integral_constant< IntT, I >",
+          "typePlain": "std::integral_constant< IntT, I >"
+        },
+        {
+          "name": "",
+          "type": "std::integral_constant< IntT, I >",
+          "typePlain": "std::integral_constant< IntT, I >"
+        },
+        {
+          "name": "",
+          "type": "AbstractCaseHandler< Fn, R > *",
+          "typePlain": "AbstractCaseHandler< Fn, R > *"
+        },
+        {
+          "name": "",
+          "type": "AbstractCaseHandler< Fn, R > *",
+          "typePlain": "AbstractCaseHandler< Fn, R > *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "static__dispatch_8hpp_1ae1af9b6f77e866dceab82c48eafdd5b6",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename IntT",
+          "typePlain": "typename IntT"
+        },
+        {
+          "name": "I",
+          "type": "IntT",
+          "typePlain": "IntT"
+        },
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        },
+        {
+          "name": "",
+          "type": "typename R",
+          "typePlain": "typename R"
+        }
+      ],
+      "title": "initialize_case_handlers",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-initialize-case-handlers",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-initialize-case-handlers",
+      "argsString": "(std::integral_constant< IntT, kBegin >, std::integral_constant< IntT, kEnd >, AbstractCaseHandler< Fn, R > *begin, AbstractCaseHandler< Fn, R > *end)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::detail::initialize_case_handlers",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::initialize_case_handlers",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 60,
+        "bodyFile": "batteries/static_dispatch.hpp",
+        "bodyStart": 40,
+        "column": 6,
+        "file": "batteries/static_dispatch.hpp",
+        "line": 40
+      },
+      "name": "initialize_case_handlers",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "std::integral_constant< IntT, kBegin >",
+          "typePlain": "std::integral_constant< IntT, kBegin >"
+        },
+        {
+          "name": "",
+          "type": "std::integral_constant< IntT, kEnd >",
+          "typePlain": "std::integral_constant< IntT, kEnd >"
+        },
+        {
+          "name": "begin",
+          "type": "AbstractCaseHandler< Fn, R > *",
+          "typePlain": "AbstractCaseHandler< Fn, R > *"
+        },
+        {
+          "name": "end",
+          "type": "AbstractCaseHandler< Fn, R > *",
+          "typePlain": "AbstractCaseHandler< Fn, R > *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "static__dispatch_8hpp_1a9dabc1e03badde65b77b9e0915b59e90",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename IntT",
+          "typePlain": "typename IntT"
+        },
+        {
+          "name": "kBegin",
+          "type": "IntT",
+          "typePlain": "IntT"
+        },
+        {
+          "name": "kEnd",
+          "type": "IntT",
+          "typePlain": "IntT"
+        },
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        },
+        {
+          "name": "",
+          "type": "typename R",
+          "typePlain": "typename R"
+        }
+      ],
+      "title": "initialize_case_handlers",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-initialize-case-handlers",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-emplace-none",
+      "argsString": "(StatusOrValueContainer< T > &)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::detail::emplace_none",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::emplace_none",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 354,
+        "bodyFile": "batteries/status.hpp",
+        "bodyStart": 352,
+        "column": 6,
+        "file": "batteries/status.hpp",
+        "line": 352
+      },
+      "name": "emplace_none",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[StatusOrValueContainer](/_autogen/Classes/classbatt_1_1detail_1_1StatusOrValueContainer/)< T > &",
+          "typePlain": "StatusOrValueContainer< T > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "status_8hpp_1a5943e04a22e76955907d56784286457b",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "emplace_none",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-emplace-none",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-emplace-none",
+      "argsString": "(StatusOrValueContainer< NoneType > &s)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::detail::emplace_none",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::emplace_none",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 359,
+        "bodyFile": "batteries/status.hpp",
+        "bodyStart": 356,
+        "column": 13,
+        "file": "batteries/status.hpp",
+        "line": 356
+      },
+      "name": "emplace_none",
+      "override": false,
+      "params": [
+        {
+          "name": "s",
+          "type": "[StatusOrValueContainer](/_autogen/Classes/classbatt_1_1detail_1_1StatusOrValueContainer/)< [NoneType](/_autogen/Classes/structbatt_1_1NoneType/) > &",
+          "typePlain": "StatusOrValueContainer< NoneType > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "status_8hpp_1a5bcc858d0c8da95adeac69b4f849d68f",
+      "static": false,
+      "strong": false,
+      "title": "emplace_none",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-emplace-none",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-thread-local-error-category-status-map",
+      "argsString": "()",
+      "brief": "Returns a reference to a thread-local hash map from error_category* to another hash map from code value (int) to equivalent [batt::Status](/_autogen/Classes/classbatt_1_1Status/). ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::unordered_map< const boost::system::error_category *, const std::unordered_map< int, Status > > & batt::detail::thread_local_error_category_status_map",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::thread_local_error_category_status_map",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 388,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 381,
+        "column": 1,
+        "file": "batteries/status_impl.hpp",
+        "line": 381
+      },
+      "name": "thread_local_error_category_status_map",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "status_8hpp_1a8fd6f5bf0ed00e41e932dd214163f5e6",
+      "static": false,
+      "strong": false,
+      "summary": "Returns a reference to a thread-local hash map from error_category* to another hash map from code value (int) to equivalent batt::Status. ",
+      "title": "thread_local_error_category_status_map",
+      "type": "std::unordered_map< const boost::system::error_category *, const std::unordered_map< int, [Status](/_autogen/Classes/classbatt_1_1Status/) > > &",
+      "typePlain": "std::unordered_map< const boost::system::error_category *, const std::unordered_map< int, Status > > &",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-thread-local-error-category-status-map",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-global-error-category-status-map-mutex",
+      "argsString": "()",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::mutex & batt::detail::global_error_category_status_map_mutex",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::global_error_category_status_map_mutex",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 397,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 392,
+        "column": 21,
+        "file": "batteries/status_impl.hpp",
+        "line": 392
+      },
+      "name": "global_error_category_status_map_mutex",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "status_8hpp_1a12b59f658a3ba85d74484ca6cd44507f",
+      "static": false,
+      "strong": false,
+      "title": "global_error_category_status_map_mutex",
+      "type": "std::mutex &",
+      "typePlain": "std::mutex &",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-global-error-category-status-map-mutex",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-global-error-category-status-map",
+      "argsString": "()",
+      "brief": "Returns a reference to a global-scoped hash map from error_category* to another hash map from code value (int) to equivalent [batt::Status](/_autogen/Classes/classbatt_1_1Status/). ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::unordered_map< const boost::system::error_category *, const std::unordered_map< int, Status > > & batt::detail::global_error_category_status_map",
+      "deleted": false,
+      "details": "MUST be called while holding a lock on the mutex returned by batt::detail::global_error_category_status_map_mutex(). ",
+      "explicit": false,
+      "fullname": "batt::detail::global_error_category_status_map",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 410,
+        "bodyFile": "batteries/status_impl.hpp",
+        "bodyStart": 403,
+        "column": 1,
+        "file": "batteries/status_impl.hpp",
+        "line": 403
+      },
+      "name": "global_error_category_status_map",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "status_8hpp_1a6c5408f0c73d68ec406db26dc8ec80cc",
+      "static": false,
+      "strong": false,
+      "summary": "Returns a reference to a global-scoped hash map from error_category* to another hash map from code value (int) to equivalent batt::Status. ",
+      "title": "global_error_category_status_map",
+      "type": "std::unordered_map< const boost::system::error_category *, const std::unordered_map< int, [Status](/_autogen/Classes/classbatt_1_1Status/) > > &",
+      "typePlain": "std::unordered_map< const boost::system::error_category *, const std::unordered_map< int, Status > > &",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-global-error-category-status-map",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-from-string-impl",
+      "argsString": "(StaticType< T >, const std::string &str, FormatArgs &&... format_args)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::optional<T> batt::detail::from_string_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::from_string_impl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 117,
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 108,
+        "column": 15,
+        "file": "batteries/stream_util.hpp",
+        "line": 108
+      },
+      "name": "from_string_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[StaticType](/_autogen/Classes/structbatt_1_1StaticType/)< T >",
+          "typePlain": "StaticType< T >"
+        },
+        {
+          "name": "str",
+          "type": "const std::string &",
+          "typePlain": "const std::string &"
+        },
+        {
+          "name": "format_args",
+          "type": "FormatArgs &&...",
+          "typePlain": "FormatArgs &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "stream__util_8hpp_1a9862cddc072968bd3efb57799e9ad142",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "FormatArgs",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "from_string_impl",
+      "type": "std::optional< T >",
+      "typePlain": "std::optional< T >",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-from-string-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-from-string-impl",
+      "argsString": "(StaticType< bool >, const std::string &str, FormatArgs &&...)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::optional<bool> batt::detail::from_string_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::from_string_impl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 126,
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 122,
+        "column": 15,
+        "file": "batteries/stream_util.hpp",
+        "line": 122
+      },
+      "name": "from_string_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[StaticType](/_autogen/Classes/structbatt_1_1StaticType/)< bool >",
+          "typePlain": "StaticType< bool >"
+        },
+        {
+          "name": "str",
+          "type": "const std::string &",
+          "typePlain": "const std::string &"
+        },
+        {
+          "name": "...",
+          "type": "FormatArgs &&",
+          "typePlain": "FormatArgs &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "stream__util_8hpp_1ae101f117bcaf62b5bbe0ae839594038a",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "FormatArgs",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "from_string_impl",
+      "type": "std::optional< bool >",
+      "typePlain": "std::optional< bool >",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-from-string-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-range-dump-pretty",
+      "argsString": "()",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "Pretty& batt::detail::range_dump_pretty",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::range_dump_pretty",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 589,
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 585,
+        "column": 15,
+        "file": "batteries/stream_util.hpp",
+        "line": 585
+      },
+      "name": "range_dump_pretty",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "stream__util_8hpp_1a3b784632a5240cde3cff0930e63868f9",
+      "static": false,
+      "strong": false,
+      "title": "range_dump_pretty",
+      "type": "Pretty &",
+      "typePlain": "Pretty &",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-range-dump-pretty",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-range-dump-depth",
+      "argsString": "()",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "int& batt::detail::range_dump_depth",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::range_dump_depth",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 595,
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 591,
+        "column": 12,
+        "file": "batteries/stream_util.hpp",
+        "line": 591
+      },
+      "name": "range_dump_depth",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "stream__util_8hpp_1ac00f535bb93f0e9d9f9cc64a434496e8",
+      "static": false,
+      "strong": false,
+      "title": "range_dump_depth",
+      "type": "int &",
+      "typePlain": "int &",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-range-dump-depth",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-dump-item",
+      "argsString": "(std::ostream &out, T &&item)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::ostream& batt::detail::dump_item",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::dump_item",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 604,
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 601,
+        "column": 21,
+        "file": "batteries/stream_util.hpp",
+        "line": 601
+      },
+      "name": "dump_item",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        },
+        {
+          "name": "item",
+          "type": "T &&",
+          "typePlain": "T &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "stream__util_8hpp_1acbf028ae6b4cd516ad550f10072456d7",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "defval": "std::enable_if_t<!std::is_same_v<std::decay_t<T>, u8> &&                                        IsPrintable<T>{} &&                                                            !IsRange<T>{}>",
+          "defvalPlain": "std::enable_if_t<!std::is_same_v<std::decay_t<T>, u8> &&                                        IsPrintable<T>{} &&                                                            !IsRange<T>{}>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "dump_item",
+      "type": "std::ostream &",
+      "typePlain": "std::ostream &",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-dump-item",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-dump-item",
+      "argsString": "(std::ostream &out, T &&item)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::ostream& batt::detail::dump_item",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::dump_item",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 612,
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 609,
+        "column": 21,
+        "file": "batteries/stream_util.hpp",
+        "line": 609
+      },
+      "name": "dump_item",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        },
+        {
+          "name": "item",
+          "type": "T &&",
+          "typePlain": "T &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "stream__util_8hpp_1aebe4d8860a03e636a8e133a21dc7b81a",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "defval": "std::enable_if_t<IsRange<T>{}>",
+          "defvalPlain": "std::enable_if_t<IsRange<T>{}>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        },
+        {
+          "defval": "void",
+          "defvalPlain": "void",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "dump_item",
+      "type": "std::ostream &",
+      "typePlain": "std::ostream &",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-dump-item",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-dump-item",
+      "argsString": "(std::ostream &out, T &&item)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::ostream& batt::detail::dump_item",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::dump_item",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 622,
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 619,
+        "column": 21,
+        "file": "batteries/stream_util.hpp",
+        "line": 619
+      },
+      "name": "dump_item",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        },
+        {
+          "name": "item",
+          "type": "T &&",
+          "typePlain": "T &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "stream__util_8hpp_1af8c26c284c650273162bf55bf3652812",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "defval": "std::enable_if_t<!IsRange<T>{} &&                                           !IsPrintable<T>{}>",
+          "defvalPlain": "std::enable_if_t<!IsRange<T>{} &&                                           !IsPrintable<T>{}>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        },
+        {
+          "defval": "void",
+          "defvalPlain": "void",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        },
+        {
+          "defval": "void",
+          "defvalPlain": "void",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "dump_item",
+      "type": "std::ostream &",
+      "typePlain": "std::ostream &",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-dump-item",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-dump-item",
+      "argsString": "(std::ostream &out, const std::string &s)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::ostream& batt::detail::dump_item",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::dump_item",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 627,
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 624,
+        "column": 21,
+        "file": "batteries/stream_util.hpp",
+        "line": 624
+      },
+      "name": "dump_item",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        },
+        {
+          "name": "s",
+          "type": "const std::string &",
+          "typePlain": "const std::string &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "stream__util_8hpp_1a704a05a64f9dac5c4f3b29cf37bb918a",
+      "static": false,
+      "strong": false,
+      "title": "dump_item",
+      "type": "std::ostream &",
+      "typePlain": "std::ostream &",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-dump-item",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-dump-item",
+      "argsString": "(std::ostream &out, const std::string_view &s)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::ostream& batt::detail::dump_item",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::dump_item",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 632,
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 629,
+        "column": 21,
+        "file": "batteries/stream_util.hpp",
+        "line": 629
+      },
+      "name": "dump_item",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        },
+        {
+          "name": "s",
+          "type": "const std::string_view &",
+          "typePlain": "const std::string_view &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "stream__util_8hpp_1a7bbf87bcb6f354758380ed496e94bdb2",
+      "static": false,
+      "strong": false,
+      "title": "dump_item",
+      "type": "std::ostream &",
+      "typePlain": "std::ostream &",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-dump-item",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-dump-item",
+      "argsString": "(std::ostream &out, const std::filesystem::path &p)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::ostream& batt::detail::dump_item",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::dump_item",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 637,
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 634,
+        "column": 21,
+        "file": "batteries/stream_util.hpp",
+        "line": 634
+      },
+      "name": "dump_item",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        },
+        {
+          "name": "p",
+          "type": "const std::filesystem::path &",
+          "typePlain": "const std::filesystem::path &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "stream__util_8hpp_1ada3a6e7fa99f616e776da981ea6ce945",
+      "static": false,
+      "strong": false,
+      "title": "dump_item",
+      "type": "std::ostream &",
+      "typePlain": "std::ostream &",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-dump-item",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-dump-item",
+      "argsString": "(std::ostream &out, u8 byte_val)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::ostream& batt::detail::dump_item",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::dump_item",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 642,
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 639,
+        "column": 21,
+        "file": "batteries/stream_util.hpp",
+        "line": 639
+      },
+      "name": "dump_item",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        },
+        {
+          "name": "byte_val",
+          "type": "u8",
+          "typePlain": "u8"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "stream__util_8hpp_1a27114092d34e5edf97588754060e700a",
+      "static": false,
+      "strong": false,
+      "title": "dump_item",
+      "type": "std::ostream &",
+      "typePlain": "std::ostream &",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-dump-item",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-dump-item",
+      "argsString": "(std::ostream &out, const std::pair< FirstT, SecondT > &p)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::ostream& batt::detail::dump_item",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::dump_item",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 652,
+        "bodyFile": "batteries/stream_util.hpp",
+        "bodyStart": 645,
+        "column": 21,
+        "file": "batteries/stream_util.hpp",
+        "line": 645
+      },
+      "name": "dump_item",
+      "override": false,
+      "params": [
+        {
+          "name": "out",
+          "type": "std::ostream &",
+          "typePlain": "std::ostream &"
+        },
+        {
+          "name": "p",
+          "type": "const std::pair< FirstT, SecondT > &",
+          "typePlain": "const std::pair< FirstT, SecondT > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "stream__util_8hpp_1a8ffc87244197789e0ffe728483828a4d",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename FirstT",
+          "typePlain": "typename FirstT"
+        },
+        {
+          "name": "",
+          "type": "typename SecondT",
+          "typePlain": "typename SecondT"
+        }
+      ],
+      "title": "dump_item",
+      "type": "std::ostream &",
+      "typePlain": "std::ostream &",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-dump-item",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is-callable-impl",
+      "argsString": "(void *)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::true_type batt::detail::is_callable_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::is_callable_impl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 16,
+        "file": "batteries/type_traits.hpp",
+        "line": 30
+      },
+      "name": "is_callable_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void *",
+          "typePlain": "void *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "type__traits_8hpp_1a1e422e57128ae657640913f50190e893",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        },
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        },
+        {
+          "defval": "std::invoke_result_t<Fn, Args...>",
+          "defvalPlain": "std::invoke_result_t<Fn, Args...>",
+          "name": "",
+          "type": "typename Result",
+          "typePlain": "typename Result"
+        }
+      ],
+      "title": "is_callable_impl",
+      "type": "std::true_type",
+      "typePlain": "std::true_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-is-callable-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is-callable-impl",
+      "argsString": "(...)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::false_type batt::detail::is_callable_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::is_callable_impl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 17,
+        "file": "batteries/type_traits.hpp",
+        "line": 33
+      },
+      "name": "is_callable_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "...",
+          "typePlain": "..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "type__traits_8hpp_1ae75975bbd2c02296d443c5f274920cef",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        },
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "is_callable_impl",
+      "type": "std::false_type",
+      "typePlain": "std::false_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-is-callable-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is-printable-impl",
+      "argsString": "(void *)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::true_type batt::detail::is_printable_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::is_printable_impl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 16,
+        "file": "batteries/type_traits.hpp",
+        "line": 46
+      },
+      "name": "is_printable_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void *",
+          "typePlain": "void *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "type__traits_8hpp_1a22a30c315e3f553a306f20962d0b58b6",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "defval": "decltype(std::declval<std::ostream&>() << std::declval<T>())",
+          "defvalPlain": "decltype(std::declval<std::ostream&>() << std::declval<T>())",
+          "name": "",
+          "type": "typename Result",
+          "typePlain": "typename Result"
+        }
+      ],
+      "title": "is_printable_impl",
+      "type": "std::true_type",
+      "typePlain": "std::true_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-is-printable-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is-printable-impl",
+      "argsString": "(...)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::false_type batt::detail::is_printable_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::is_printable_impl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 17,
+        "file": "batteries/type_traits.hpp",
+        "line": 49
+      },
+      "name": "is_printable_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "...",
+          "typePlain": "..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "type__traits_8hpp_1a02443becd809c3bdc5b4301d44f01289",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        },
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "is_printable_impl",
+      "type": "std::false_type",
+      "typePlain": "std::false_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-is-printable-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is-range-impl",
+      "argsString": "(void *)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::true_type batt::detail::is_range_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::is_range_impl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 16,
+        "file": "batteries/type_traits.hpp",
+        "line": 67
+      },
+      "name": "is_range_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "void *",
+          "typePlain": "void *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "type__traits_8hpp_1a55d96f593a3980366e8c23076b842a50",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "defval": "decltype(std::begin(std::declval<T>()))",
+          "defvalPlain": "decltype(std::begin(std::declval<T>()))",
+          "name": "",
+          "type": "typename BeginIter",
+          "typePlain": "typename BeginIter"
+        },
+        {
+          "defval": "decltype(std::end(std::declval<T>()))",
+          "defvalPlain": "decltype(std::end(std::declval<T>()))",
+          "name": "",
+          "type": "typename EndIter",
+          "typePlain": "typename EndIter"
+        },
+        {
+          "defval": "std::enable_if_t<std::is_same<BeginIter, EndIter>{}>",
+          "defvalPlain": "std::enable_if_t<std::is_same<BeginIter, EndIter>{}>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "is_range_impl",
+      "type": "std::true_type",
+      "typePlain": "std::true_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-is-range-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is-range-impl",
+      "argsString": "(...)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::false_type batt::detail::is_range_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::is_range_impl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 17,
+        "file": "batteries/type_traits.hpp",
+        "line": 70
+      },
+      "name": "is_range_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "...",
+          "typePlain": "..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "type__traits_8hpp_1a6c511fc37ee36b79fc859f16ce6041da",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "is_range_impl",
+      "type": "std::false_type",
+      "typePlain": "std::false_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-is-range-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-can-be-eq-compared-helper",
+      "argsString": "(const T *, const U *)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::true_type batt::detail::can_be_eq_compared_helper",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::can_be_eq_compared_helper",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 233,
+        "bodyFile": "batteries/type_traits.hpp",
+        "bodyStart": 230,
+        "column": 16,
+        "file": "batteries/type_traits.hpp",
+        "line": 230
+      },
+      "name": "can_be_eq_compared_helper",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const T *",
+          "typePlain": "const T *"
+        },
+        {
+          "name": "",
+          "type": "const U *",
+          "typePlain": "const U *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "type__traits_8hpp_1a6a39c29b5df44a8b7bcfeade33624684",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        },
+        {
+          "defval": "decltype(std::declval<const T&>() == std::declval<const U&>())",
+          "defvalPlain": "decltype(std::declval<const T&>() == std::declval<const U&>())",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "can_be_eq_compared_helper",
+      "type": "std::true_type",
+      "typePlain": "std::true_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-can-be-eq-compared-helper",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-can-be-eq-compared-helper",
+      "argsString": "(...)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::false_type batt::detail::can_be_eq_compared_helper",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::can_be_eq_compared_helper",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 239,
+        "bodyFile": "batteries/type_traits.hpp",
+        "bodyStart": 236,
+        "column": 17,
+        "file": "batteries/type_traits.hpp",
+        "line": 236
+      },
+      "name": "can_be_eq_compared_helper",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "...",
+          "typePlain": "..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "type__traits_8hpp_1a5c36ee3846aa378856525eddd13d69bd",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "",
+          "type": "typename U",
+          "typePlain": "typename U"
+        }
+      ],
+      "title": "can_be_eq_compared_helper",
+      "type": "std::false_type",
+      "typePlain": "std::false_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-can-be-eq-compared-helper",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-class-can-be-empty-base",
+      "argsString": "(StaticType< T >={})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "constexpr std::true_type batt::detail::class_can_be_empty_base",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::class_can_be_empty_base",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 324,
+        "bodyFile": "batteries/type_traits.hpp",
+        "bodyStart": 321,
+        "column": 33,
+        "file": "batteries/type_traits.hpp",
+        "line": 321
+      },
+      "name": "class_can_be_empty_base",
+      "override": false,
+      "params": [
+        {
+          "defval": "{}",
+          "defvalPlain": "{}",
+          "name": "",
+          "type": "[StaticType](/_autogen/Classes/structbatt_1_1StaticType/)< T >",
+          "typePlain": "StaticType< T >"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "type__traits_8hpp_1af5b8d15e2f62155d5d91d37909e3785a",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "defval": "std::enable_if_t<sizeof(detail::EmptyBaseHelper<T>) == 16>",
+          "defvalPlain": "std::enable_if_t<sizeof(detail::EmptyBaseHelper<T>) == 16>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "class_can_be_empty_base",
+      "type": "constexpr std::true_type",
+      "typePlain": "constexpr std::true_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-class-can-be-empty-base",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-class-can-be-empty-base",
+      "argsString": "(StaticType< T >={})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "constexpr std::false_type batt::detail::class_can_be_empty_base",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::class_can_be_empty_base",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 332,
+        "bodyFile": "batteries/type_traits.hpp",
+        "bodyStart": 329,
+        "column": 34,
+        "file": "batteries/type_traits.hpp",
+        "line": 329
+      },
+      "name": "class_can_be_empty_base",
+      "override": false,
+      "params": [
+        {
+          "defval": "{}",
+          "defvalPlain": "{}",
+          "name": "",
+          "type": "[StaticType](/_autogen/Classes/structbatt_1_1StaticType/)< T >",
+          "typePlain": "StaticType< T >"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "type__traits_8hpp_1a8563f5b9cf7452955581e80b5eb7d538",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "defval": "std::enable_if_t<sizeof(detail::EmptyBaseHelper<T>) != 16>",
+          "defvalPlain": "std::enable_if_t<sizeof(detail::EmptyBaseHelper<T>) != 16>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        },
+        {
+          "defval": "void",
+          "defvalPlain": "void",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "class_can_be_empty_base",
+      "type": "constexpr std::false_type",
+      "typePlain": "constexpr std::false_type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-class-can-be-empty-base",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-parse-url-auth",
+      "argsString": "(std::string_view url, UrlParse &&parse)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "StatusOr< UrlParse > batt::detail::parse_url_auth",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::parse_url_auth",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 146,
+        "bodyFile": "batteries/url_parse.hpp",
+        "bodyStart": 110,
+        "column": 17,
+        "file": "batteries/url_parse.hpp",
+        "line": 110
+      },
+      "name": "parse_url_auth",
+      "override": false,
+      "params": [
+        {
+          "name": "url",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "parse",
+          "type": "[UrlParse](/_autogen/Classes/structbatt_1_1UrlParse/) &&",
+          "typePlain": "UrlParse &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "url__parse_8hpp_1a9ee1155f85dcd043f7a481828267dae9",
+      "static": false,
+      "strong": false,
+      "title": "parse_url_auth",
+      "type": "[StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< [UrlParse](/_autogen/Classes/structbatt_1_1UrlParse/) >",
+      "typePlain": "StatusOr< UrlParse >",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-parse-url-auth",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-parse-url-host",
+      "argsString": "(std::string_view url, UrlParse &&parse)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "StatusOr< UrlParse > batt::detail::parse_url_host",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::parse_url_host",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 194,
+        "bodyFile": "batteries/url_parse.hpp",
+        "bodyStart": 150,
+        "column": 17,
+        "file": "batteries/url_parse.hpp",
+        "line": 150
+      },
+      "name": "parse_url_host",
+      "override": false,
+      "params": [
+        {
+          "name": "url",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "parse",
+          "type": "[UrlParse](/_autogen/Classes/structbatt_1_1UrlParse/) &&",
+          "typePlain": "UrlParse &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "url__parse_8hpp_1aa53433e5272fd98e97f1be44baa6abd2",
+      "static": false,
+      "strong": false,
+      "title": "parse_url_host",
+      "type": "[StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< [UrlParse](/_autogen/Classes/structbatt_1_1UrlParse/) >",
+      "typePlain": "StatusOr< UrlParse >",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-parse-url-host",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-parse-url-port",
+      "argsString": "(std::string_view url, UrlParse &&parse)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "StatusOr< UrlParse > batt::detail::parse_url_port",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::parse_url_port",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 210,
+        "bodyFile": "batteries/url_parse.hpp",
+        "bodyStart": 198,
+        "column": 17,
+        "file": "batteries/url_parse.hpp",
+        "line": 198
+      },
+      "name": "parse_url_port",
+      "override": false,
+      "params": [
+        {
+          "name": "url",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "parse",
+          "type": "[UrlParse](/_autogen/Classes/structbatt_1_1UrlParse/) &&",
+          "typePlain": "UrlParse &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "url__parse_8hpp_1a074f89689b65653e96132aae6d0312d2",
+      "static": false,
+      "strong": false,
+      "title": "parse_url_port",
+      "type": "[StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< [UrlParse](/_autogen/Classes/structbatt_1_1UrlParse/) >",
+      "typePlain": "StatusOr< UrlParse >",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-parse-url-port",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-parse-url-path",
+      "argsString": "(std::string_view url, UrlParse &&parse)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "StatusOr< UrlParse > batt::detail::parse_url_path",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::parse_url_path",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 241,
+        "bodyFile": "batteries/url_parse.hpp",
+        "bodyStart": 214,
+        "column": 17,
+        "file": "batteries/url_parse.hpp",
+        "line": 214
+      },
+      "name": "parse_url_path",
+      "override": false,
+      "params": [
+        {
+          "name": "url",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "parse",
+          "type": "[UrlParse](/_autogen/Classes/structbatt_1_1UrlParse/) &&",
+          "typePlain": "UrlParse &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "url__parse_8hpp_1aac575dab91263978842b2e21b982455a",
+      "static": false,
+      "strong": false,
+      "title": "parse_url_path",
+      "type": "[StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< [UrlParse](/_autogen/Classes/structbatt_1_1UrlParse/) >",
+      "typePlain": "StatusOr< UrlParse >",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-parse-url-path",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-parse-url-query",
+      "argsString": "(std::string_view url, UrlParse &&parse)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "StatusOr< UrlParse > batt::detail::parse_url_query",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::parse_url_query",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 257,
+        "bodyFile": "batteries/url_parse.hpp",
+        "bodyStart": 245,
+        "column": 17,
+        "file": "batteries/url_parse.hpp",
+        "line": 245
+      },
+      "name": "parse_url_query",
+      "override": false,
+      "params": [
+        {
+          "name": "url",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "parse",
+          "type": "[UrlParse](/_autogen/Classes/structbatt_1_1UrlParse/) &&",
+          "typePlain": "UrlParse &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "url__parse_8hpp_1a872f835880585212cbda013a90ed8cb8",
+      "static": false,
+      "strong": false,
+      "title": "parse_url_query",
+      "type": "[StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< [UrlParse](/_autogen/Classes/structbatt_1_1UrlParse/) >",
+      "typePlain": "StatusOr< UrlParse >",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-parse-url-query",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-parse-url-fragment",
+      "argsString": "(std::string_view url, UrlParse &&parse)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "StatusOr<UrlParse> batt::detail::parse_url_fragment",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::parse_url_fragment",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 10,
+        "file": "batteries/url_parse.hpp",
+        "line": 70
+      },
+      "name": "parse_url_fragment",
+      "override": false,
+      "params": [
+        {
+          "name": "url",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "parse",
+          "type": "[UrlParse](/_autogen/Classes/structbatt_1_1UrlParse/) &&",
+          "typePlain": "UrlParse &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "url__parse_8hpp_1a07c8d7615aa5d51549098931076545d6",
+      "static": false,
+      "strong": false,
+      "title": "parse_url_fragment",
+      "type": "[StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/)< [UrlParse](/_autogen/Classes/structbatt_1_1UrlParse/) >",
+      "typePlain": "StatusOr< UrlParse >",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-parse-url-fragment",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-rotate-args-right-impl",
+      "argsString": "(Fn &&fn, ArgsTuple &&args_tuple, std::index_sequence< kIndex... >)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "decltype(auto) batt::detail::rotate_args_right_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::rotate_args_right_impl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 170,
+        "bodyFile": "batteries/utility.hpp",
+        "bodyStart": 164,
+        "column": 10,
+        "file": "batteries/utility.hpp",
+        "line": 164
+      },
+      "name": "rotate_args_right_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "fn",
+          "type": "Fn &&",
+          "typePlain": "Fn &&"
+        },
+        {
+          "name": "args_tuple",
+          "type": "ArgsTuple &&",
+          "typePlain": "ArgsTuple &&"
+        },
+        {
+          "name": "",
+          "type": "std::index_sequence< kIndex... >",
+          "typePlain": "std::index_sequence< kIndex... >"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "utility_8hpp_1a2eabdcf85dac14249463ed813c366282",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        },
+        {
+          "name": "",
+          "type": "typename ArgsTuple",
+          "typePlain": "typename ArgsTuple"
+        },
+        {
+          "name": "kIndex",
+          "type": "usize...",
+          "typePlain": "usize..."
+        }
+      ],
+      "title": "rotate_args_right_impl",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-rotate-args-right-impl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-rotate-args-left-impl",
+      "argsString": "(Fn &&fn, ArgsTuple &&args_tuple, std::index_sequence< kIndex... >)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "decltype(auto) batt::detail::rotate_args_left_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::rotate_args_left_impl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 188,
+        "bodyFile": "batteries/utility.hpp",
+        "bodyStart": 184,
+        "column": 10,
+        "file": "batteries/utility.hpp",
+        "line": 184
+      },
+      "name": "rotate_args_left_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "fn",
+          "type": "Fn &&",
+          "typePlain": "Fn &&"
+        },
+        {
+          "name": "args_tuple",
+          "type": "ArgsTuple &&",
+          "typePlain": "ArgsTuple &&"
+        },
+        {
+          "name": "",
+          "type": "std::index_sequence< kIndex... >",
+          "typePlain": "std::index_sequence< kIndex... >"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "utility_8hpp_1ab9dca0778bdd3f3ec7aacb73f2869cd9",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        },
+        {
+          "name": "",
+          "type": "typename ArgsTuple",
+          "typePlain": "typename ArgsTuple"
+        },
+        {
+          "name": "kIndex",
+          "type": "usize...",
+          "typePlain": "usize..."
+        }
+      ],
+      "title": "rotate_args_left_impl",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#function-rotate-args-left-impl",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-visitorresultt",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::detail::VisitorResultT = typedef typename VisitorResult<Visitor, VariantArg>::type",
+      "explicit": false,
+      "fullname": "batt::detail::VisitorResultT",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/case_of.hpp",
+        "bodyStart": 70,
+        "column": 1,
+        "file": "batteries/case_of.hpp",
+        "line": 70
+      },
+      "name": "VisitorResultT",
+      "override": false,
+      "refid": "case__of_8hpp_1a3d752d1df10a9ba0bcf4d0da018121a7",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Visitor",
+          "typePlain": "typename Visitor"
+        },
+        {
+          "name": "",
+          "type": "typename VariantArg",
+          "typePlain": "typename VariantArg"
+        }
+      ],
+      "title": "VisitorResultT",
+      "type": "typename [VisitorResult](/_autogen/Classes/structbatt_1_1detail_1_1VisitorResult/)< Visitor, VariantArg >::type",
+      "typePlain": "typename VisitorResult< Visitor, VariantArg >::type",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#using-visitorresultt",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-abstractfn",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::detail::AbstractFn = typedef std::conditional_t<kMoveOnly, AbstractMoveFn<true, Result, Args...>, AbstractCopyFn<Result, Args...> >",
+      "explicit": false,
+      "fullname": "batt::detail::AbstractFn",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 59,
+        "column": 1,
+        "file": "batteries/small_fn.hpp",
+        "line": 58
+      },
+      "name": "AbstractFn",
+      "override": false,
+      "refid": "small__fn_8hpp_1a7b0468ac992500b5e9425a4593c136d4",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "kMoveOnly",
+          "type": "bool",
+          "typePlain": "bool"
+        },
+        {
+          "name": "",
+          "type": "typename Result",
+          "typePlain": "typename Result"
+        },
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "AbstractFn",
+      "type": "std::conditional_t< kMoveOnly, [AbstractMoveFn](/_autogen/Classes/classbatt_1_1detail_1_1AbstractMoveFn/)< true, Result, Args... >, [AbstractCopyFn](/_autogen/Classes/classbatt_1_1detail_1_1AbstractCopyFn/)< Result, Args... > >",
+      "typePlain": "std::conditional_t< kMoveOnly, AbstractMoveFn< true, Result, Args... >, AbstractCopyFn< Result, Args... > >",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#using-abstractfn",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-fnimpl",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::detail::FnImpl = typedef std::conditional_t<kMoveOnly, MoveFnImpl<Fn, kMoveOnly, Result, Args...>, CopyFnImpl<Fn, Result, Args...> >",
+      "explicit": false,
+      "fullname": "batt::detail::FnImpl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 71,
+        "column": 1,
+        "file": "batteries/small_fn.hpp",
+        "line": 70
+      },
+      "name": "FnImpl",
+      "override": false,
+      "refid": "small__fn_8hpp_1a5964d29b802bf26bdf29d6aaa2dc2b5d",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        },
+        {
+          "name": "kMoveOnly",
+          "type": "bool",
+          "typePlain": "bool"
+        },
+        {
+          "name": "",
+          "type": "typename Result",
+          "typePlain": "typename Result"
+        },
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "FnImpl",
+      "type": "std::conditional_t< kMoveOnly, [MoveFnImpl](/_autogen/Classes/classbatt_1_1detail_1_1MoveFnImpl/)< Fn, kMoveOnly, Result, Args... >, [CopyFnImpl](/_autogen/Classes/classbatt_1_1detail_1_1CopyFnImpl/)< Fn, Result, Args... > >",
+      "typePlain": "std::conditional_t< kMoveOnly, MoveFnImpl< Fn, kMoveOnly, Result, Args... >, CopyFnImpl< Fn, Result, Args... > >",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#using-fnimpl",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-abstractcasehandler",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::detail::AbstractCaseHandler = typedef Result (*)(Arg)",
+      "explicit": false,
+      "fullname": "batt::detail::AbstractCaseHandler",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/static_dispatch.hpp",
+        "bodyStart": 24,
+        "column": 1,
+        "file": "batteries/static_dispatch.hpp",
+        "line": 24
+      },
+      "name": "AbstractCaseHandler",
+      "override": false,
+      "refid": "static__dispatch_8hpp_1ad013f39542e4e170e8855a04ddf42017",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Arg",
+          "typePlain": "typename Arg"
+        },
+        {
+          "name": "",
+          "type": "typename Result",
+          "typePlain": "typename Result"
+        }
+      ],
+      "title": "AbstractCaseHandler",
+      "type": "Result(*)(Arg)",
+      "typePlain": "Result(*)(Arg)",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/#using-abstractcasehandler",
+      "visibility": "public"
+    }
+  ],
+  "refid": "namespacebatt_1_1detail",
+  "static": false,
+  "strong": false,
+  "title": "batt::detail",
+  "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+  "visibility": "public"
+}
