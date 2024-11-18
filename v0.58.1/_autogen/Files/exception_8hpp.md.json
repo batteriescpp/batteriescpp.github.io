@@ -1,0 +1,227 @@
+{
+  "abstract": false,
+  "anchor": "#file-exception.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-exception-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_EXCEPTION_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/exception.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/exception.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_EXCEPTION_HPP",
+      "override": false,
+      "refid": "exception_8hpp_1adf06b5d16c3564db59e845b207ad97e5",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_EXCEPTION_HPP",
+      "url": "/_autogen/Files/exception_8hpp/#define-batteries-exception-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-throw-if-not-ok",
+      "brief": "Expands to a statement which throws a [batt::StatusException](/_autogen/Classes/classbatt_1_1StatusException/) if the passed expression evaluates to a non-ok batt::StatusOr<T> value. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "This macro allows additional information to appended to the message of the exception via ostream-style insertion:\n\n\n\n```cpp\n {c++}\nint arg = 7;\nbatt::Status status = something_that_might_fail(arg);\nBATT_THROW_IF_NOT_OK(status) << \"Turns out it did fail!\" << BATT_INSPECT(arg);\n```",
+      "explicit": false,
+      "fullname": "BATT_THROW_IF_NOT_OK",
+      "hasDetails": true,
+      "initializer": "    for (auto&& BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__) = (status_expr);                       \\\n         !::batt::is_ok_status(BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__));)                      \\\n        ::batt::detail::ThrowWhenDestroyed                                                                   \\\n        {                                                                                                    \\\n            ::batt::to_status(BATT_FORWARD(BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__)))           \\\n        }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/exception.hpp",
+        "bodyStart": 142,
+        "column": 9,
+        "file": "batteries/exception.hpp",
+        "line": 142
+      },
+      "name": "BATT_THROW_IF_NOT_OK",
+      "override": false,
+      "params": [
+        {
+          "name": "status_expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "exception_8hpp_1afd148abfffdfffd73c5016e430d14cde",
+      "static": false,
+      "strong": false,
+      "summary": "Expands to a statement which throws a batt::StatusException if the passed expression evaluates to a non-ok batt::StatusOr<T> value. ",
+      "title": "BATT_THROW_IF_NOT_OK",
+      "url": "/_autogen/Files/exception_8hpp/#define-batt-throw-if-not-ok",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-ok-result-or-throw",
+      "brief": "Expands to an expression which throws a StatusException if the passed expression evaluates to a non-ok batt::StatusOr<T> value, and otherwise evaluates to the `T` value contained within the [batt::StatusOr](/_autogen/Classes/classbatt_1_1StatusOr/). ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "Example: # \n\n\n# ```c++\n\nbatt::StatusOr<std::string> part1 = get_part1(); batt::StatusOr<std::string> part2 = get_part2();\n\n// This line will throw if either part1 or part2 is not ok; otherwise it concatenates the strings. // std::string both_parts = BATT_OK_RESULT_OR_THROW(part1) + BATT_OK_RESULT_OR_THROW(part2); ",
+      "explicit": false,
+      "fullname": "BATT_OK_RESULT_OR_THROW",
+      "hasDetails": true,
+      "initializer": "    [&](auto&& statusor_value) {                                                                             \\\n        BATT_THROW_IF_NOT_OK(statusor_value)                                                                 \\\n            << \"(\" << BOOST_PP_STRINGIZE(statusor_expr) << \").ok() == false\";                                \\\n        return std::move(*BATT_FORWARD(statusor_value));                                                     \\\n    }((statusor_expr))",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/exception.hpp",
+        "bodyStart": 164,
+        "column": 9,
+        "file": "batteries/exception.hpp",
+        "line": 164
+      },
+      "name": "BATT_OK_RESULT_OR_THROW",
+      "override": false,
+      "params": [
+        {
+          "name": "statusor_expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "exception_8hpp_1a562ba02186a47324f5da207fa0a415fe",
+      "static": false,
+      "strong": false,
+      "summary": "Expands to an expression which throws a StatusException if the passed expression evaluates to a non-ok batt::StatusOr<T> value, and otherwise evaluates to the T value contained within the batt::StatusOr. ",
+      "title": "BATT_OK_RESULT_OR_THROW",
+      "url": "/_autogen/Files/exception_8hpp/#define-batt-ok-result-or-throw",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/exception.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/exception.hpp",
+    "line": 0
+  },
+  "name": "batteries/exception.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_EXCEPTION_HPP\n#define BATTERIES_EXCEPTION_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/hint.hpp>\n#include <batteries/status.hpp>\n#include <batteries/stream_util.hpp>\n\n#include <sstream>\n#include <stdexcept>\n#include <string_view>\n\nnamespace batt {\n\nclass StatusException : public std::runtime_error\n{\n   public:\n    explicit StatusException(Status status, Optional<std::string_view>&& optional_message = None) noexcept;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    Status status() const noexcept;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    Status status_;\n};\n\nnamespace detail {\n\nclass ThrowWhenDestroyed\n{\n   public:\n    explicit ThrowWhenDestroyed() noexcept;\n\n    explicit ThrowWhenDestroyed(Status status) noexcept;\n\n    ThrowWhenDestroyed(const ThrowWhenDestroyed&) = delete;\n\n    ThrowWhenDestroyed& operator=(const ThrowWhenDestroyed&) = delete;\n\n    ThrowWhenDestroyed(ThrowWhenDestroyed&& that) noexcept;\n\n    ThrowWhenDestroyed& operator=(ThrowWhenDestroyed&& that) noexcept;\n\n    ~ThrowWhenDestroyed() noexcept(false);\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    bool has_status() const noexcept;\n\n    Status status() const noexcept;\n\n    void cancel() noexcept;\n\n    std::ostream& message_out() noexcept;\n\n    template <typename T>\n    ThrowWhenDestroyed& operator<<(T&& value) noexcept;\n\n    ThrowWhenDestroyed& operator<<(std::ostream& (&fn)(std::ostream&)) noexcept;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    Optional<Status> status_;\n    Optional<std::ostringstream> message_stream_;\n};\n\n}  //namespace detail\n\n#define BATT_THROW_IF_NOT_OK(status_expr)                                                                    \\\n    for (auto&& BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__) = (status_expr);                       \\\n         !::batt::is_ok_status(BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__));)                      \\\n        ::batt::detail::ThrowWhenDestroyed                                                                   \\\n        {                                                                                                    \\\n            ::batt::to_status(BATT_FORWARD(BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__)))           \\\n        }\n\n#define BATT_OK_RESULT_OR_THROW(statusor_expr)                                                               \\\n    [&](auto&& statusor_value) {                                                                             \\\n        BATT_THROW_IF_NOT_OK(statusor_value)                                                                 \\\n            << \"(\" << BOOST_PP_STRINGIZE(statusor_expr) << \").ok() == false\";                                \\\n        return std::move(*BATT_FORWARD(statusor_value));                                                     \\\n    }((statusor_expr))\n\n//#=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++\n\nnamespace detail {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T>\ninline ThrowWhenDestroyed& ThrowWhenDestroyed::operator<<(T&& value) noexcept\n{\n    if (this->status_) {\n        this->message_out() << BATT_FORWARD(value);\n    }\n    return *this;\n}\n\n}  //namespace detail\n}  //namespace batt\n\n#if BATT_HEADER_ONLY\n#include <batteries/exception_impl.hpp>\n#endif\n\n#endif  // BATTERIES_EXCEPTION_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::runtime_error",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "Exception wrapper for a [batt::Status]() value. ",
+      "category": "classes",
+      "fullname": "batt::StatusException",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::StatusException",
+      "refid": "classbatt_1_1StatusException",
+      "summary": "Exception wrapper for a batt::Status value. ",
+      "title": "batt::StatusException",
+      "url": "/_autogen/Classes/classbatt_1_1StatusException/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Temporary object that collects any optional message string parts, throwing a [StatusException](/_autogen/Classes/classbatt_1_1StatusException/) when destructed (unless this object has been moved). ",
+      "category": "classes",
+      "fullname": "batt::detail::ThrowWhenDestroyed",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::ThrowWhenDestroyed",
+      "refid": "classbatt_1_1detail_1_1ThrowWhenDestroyed",
+      "summary": "Temporary object that collects any optional message string parts, throwing a StatusException when destructed (unless this object has been moved). ",
+      "title": "batt::detail::ThrowWhenDestroyed",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1ThrowWhenDestroyed/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "exception_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/exception.hpp",
+  "url": "/_autogen/Files/exception_8hpp/#file-exception.hpp",
+  "visibility": "public"
+}
