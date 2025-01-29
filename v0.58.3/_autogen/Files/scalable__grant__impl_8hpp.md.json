@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-scalable-grant-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-scalable-grant-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_SCALABLE_GRANT_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/scalable_grant_impl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/scalable_grant_impl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_SCALABLE_GRANT_IMPL_HPP",
+      "override": false,
+      "refid": "scalable__grant__impl_8hpp_1ade45da8ba6c3dbbaf1b61fd52ce9a8f0",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_SCALABLE_GRANT_IMPL_HPP",
+      "url": "/_autogen/Files/scalable__grant__impl_8hpp/#define-batteries-async-scalable-grant-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/scalable_grant_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/scalable_grant_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/scalable_grant_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_SCALABLE_GRANT_IMPL_HPP\n#define BATTERIES_ASYNC_SCALABLE_GRANT_IMPL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/debug_info.hpp>\n\nnamespace batt {\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n// class ScalableGrantIssuer\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL ScalableGrantIssuer::~ScalableGrantIssuer() noexcept\n{\n    BATT_CHECK_EQ(this->total_size_.load(), this->state_.get_count())\n        << \"This may indicate a Grant is still active!\";\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL ScalableGrantIssuer::ScalableGrantIssuer() noexcept : Self{0}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*explicit*/ ScalableGrantIssuer::ScalableGrantIssuer(u64 size) noexcept\n    : state_{size}\n    , total_size_{size}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL StatusOr<ScalableGrant> ScalableGrantIssuer::issue_grant(\n    u64 count, WaitForResource wait_for_resource) noexcept\n{\n    return this->state_.acquire(this, count, wait_for_resource);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void ScalableGrantIssuer::grow(u64 count) noexcept\n{\n    const u64 old_size = this->total_size_.fetch_add(count);\n    BATT_CHECK_GT(u64{old_size + count}, old_size) << \"Integer overflow detected!\";\n    this->recycle(count);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void ScalableGrantIssuer::close() noexcept\n{\n    ConsumerList to_wake = this->state_.close();\n    State::wake_all(this, to_wake, StatusCode::kClosed);\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n// class ScalableGrantIssuer::State\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*explicit*/ ScalableGrantIssuer::State::State(u64 init_count) noexcept\n    : count_{init_count}\n    , mutex_{}\n    , waiters_{}\n    , closed_{false}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL ScalableGrantIssuer::State::State(State&& that) noexcept\n    : count_{that.count_.exchange(0)}\n    , mutex_{}\n    , waiters_{std::move(that.waiters_)}\n    , closed_{that.closed_}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*static*/ void ScalableGrantIssuer::State::wake_all(Issuer* issuer, ConsumerList& to_wake,\n                                                                      Status status)\n{\n    while (!to_wake.empty()) {\n        Consumer& next = to_wake.front();\n        to_wake.pop_front();\n        u64 size = next.needed;\n        if (status.ok()) {\n            next.notify(ScalableGrant{issuer, size});\n        } else {\n            next.notify(status);\n        }\n    }\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL StatusOr<ScalableGrant> ScalableGrantIssuer::State::acquire(\n    Issuer* issuer, u64 n, WaitForResource wait_for_resource) noexcept\n{\n    if (issuer == nullptr) {\n        return {StatusCode::kFailedPrecondition};\n    }\n\n    if (this->try_acquire(n)) {\n        return ScalableGrant{issuer, n};\n    }\n\n    if (wait_for_resource == WaitForResource::kFalse) {\n        return {StatusCode::kGrantUnavailable};\n    }\n\n    BATT_DEBUG_INFO(\"Grant::acquire(n=\" << n << \")\" << BATT_INSPECT(this->count_)\n                                        << BATT_INSPECT(issuer->total_size_));\n\n    return Task::await<StatusOr<ScalableGrant>>([&](auto&& handler) {\n        this->async_acquire(issuer, n, BATT_FORWARD(handler));\n    });\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL bool ScalableGrantIssuer::State::try_acquire(u64 n) noexcept\n{\n    Optional<std::unique_lock<std::mutex>> optional_lock;\n\n    u64 observed = this->count_.load();\n    for (;;) {\n        // If we observe the count to be zero, lock the mutex to rule out the possibility that there is\n        // another thread inside release.\n        //\n        if (observed == 0 && !optional_lock) {\n            optional_lock.emplace(this->mutex_);\n            observed = this->count_.load();\n        }\n        if (observed < n) {\n            return false;\n        }\n        if (this->count_.compare_exchange_weak(observed, observed - n)) {\n            return true;\n        }\n    }\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL auto ScalableGrantIssuer::State::release(u64 n_released) noexcept -> ConsumerList\n{\n    ConsumerList to_wake;\n\n    if (n_released != 0) {\n        std::unique_lock<std::mutex> lock{this->mutex_};\n\n        // If there are no waiters, we just increment the count and return.\n        //\n        if (this->waiters_.empty()) {\n            this->count_.fetch_add(n_released);\n\n        } else {\n            // Claim exclusive access to all count while release is running; because `release` must lock the\n            // mutex (and all acquire methods only decrease count, never increase), we know that count will\n            // stay 0 until we replace the local count below.\n            //\n            u64 local_count = this->count_.exchange(0) + n_released;\n            auto on_scope_exit = batt::finally([&] {\n                this->count_.store(local_count);\n            });\n\n            do {\n                Consumer& next = this->waiters_.front();\n                const u64 n_needed = next.needed;\n                if (local_count < n_needed) {\n                    break;\n                }\n                local_count -= n_needed;\n                this->waiters_.pop_front();\n                to_wake.push_back(next);\n            } while (!this->waiters_.empty());\n        }\n    }\n\n    return to_wake;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL auto ScalableGrantIssuer::State::close() noexcept -> ConsumerList\n{\n    ConsumerList to_wake;\n\n    std::unique_lock<std::mutex> lock{this->mutex_};\n\n    this->closed_ = true;\n    std::swap(to_wake, this->waiters_);\n\n    return to_wake;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void ScalableGrantIssuer::State::swap(State& that) noexcept\n{\n    if (BATT_HINT_FALSE(this == &that)) {\n        return;\n    }\n    std::array<std::mutex*, 2> to_lock{&this->mutex_, &that.mutex_};\n    if (to_lock[0] > to_lock[1]) {\n        std::swap(to_lock[0], to_lock[1]);\n    }\n\n    std::unique_lock<std::mutex> lock0{*to_lock[0]};\n    std::unique_lock<std::mutex> lock1{*to_lock[1]};\n\n    this->count_.store(that.count_.exchange(this->count_.exchange(0)));\n    std::swap(this->closed_, that.closed_);\n    std::swap(this->waiters_, that.waiters_);\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n// class ScalableGrant\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL ScalableGrant::ScalableGrant() noexcept : state_{0}, issuer_{nullptr}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL ScalableGrant::ScalableGrant(ScalableGrant&& that) noexcept\n    : state_{std::move(that.state_)}\n    , issuer_{std::move(that.issuer_)}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL ScalableGrant::ScalableGrant(Issuer* issuer, u64 count) noexcept\n    : state_{count}\n    , issuer_{issuer}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL ScalableGrant::~ScalableGrant() noexcept\n{\n    this->revoke();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL StatusOr<ScalableGrant> ScalableGrant::spend(u64 count,\n                                                              WaitForResource wait_for_resource) noexcept\n{\n    return this->state_.acquire(this->issuer_.get(), count, wait_for_resource);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL u64 ScalableGrant::spend_all() noexcept\n{\n    if (!this->issuer_) {\n        return 0;\n    }\n\n    const u64 n_to_recycle = this->state_.acquire_all();\n    if (n_to_recycle != 0) {\n        this->issuer_->recycle(n_to_recycle);\n    }\n\n    return n_to_recycle;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL ScalableGrant& ScalableGrant::subsume(ScalableGrant&& that) noexcept\n{\n    if (this == &that || !that.issuer_) {\n        return *this;\n    }\n\n    BATT_CHECK_NOT_NULLPTR(this->issuer_) << \"It is NOT legal to subsume a Grant into an invalidated Grant.\";\n    BATT_CHECK_EQ(this->issuer_, that.issuer_);\n\n    const u64 n_subsumed = that.state_.acquire_all();\n    Issuer::ConsumerList to_wake = this->state_.release(n_subsumed);\n    State::wake_all(this->issuer_.get(), to_wake, OkStatus());\n\n    return *this;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void ScalableGrant::revoke() noexcept\n{\n    this->spend_all();\n    Issuer::ConsumerList to_wake = this->state_.close();\n    State::wake_all(this->issuer_.get(), to_wake, StatusCode::kGrantRevoked);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void ScalableGrant::swap(ScalableGrant& that) noexcept\n{\n    std::swap(this->issuer_, that.issuer_);\n    this->state_.swap(that.state_);\n}\n\n}  //namespace batt\n\n#endif  // BATTERIES_ASYNC_SCALABLE_GRANT_IMPL_HPP",
+  "refid": "scalable__grant__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/scalable_grant_impl.hpp",
+  "url": "/_autogen/Files/scalable__grant__impl_8hpp/#file-scalable-grant-impl.hpp",
+  "visibility": "public"
+}
