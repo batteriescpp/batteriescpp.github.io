@@ -1,0 +1,119 @@
+{
+  "abstract": false,
+  "anchor": "#file-segv.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batt-exit",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_EXIT",
+      "hasDetails": false,
+      "initializer": "::batt::detail::exit_impl(code)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/segv.hpp",
+        "bodyStart": 77,
+        "column": 9,
+        "file": "batteries/segv.hpp",
+        "line": 77
+      },
+      "name": "BATT_EXIT",
+      "override": false,
+      "params": [
+        {
+          "name": "code",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "segv_8hpp_1aa37e0fb7f75b77f8fd15ad891428effc",
+      "static": false,
+      "strong": false,
+      "title": "BATT_EXIT",
+      "url": "/_autogen/Files/segv_8hpp/#define-batt-exit",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/segv.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/segv.hpp",
+    "line": 0
+  },
+  "name": "batteries/segv.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/stacktrace.hpp>\n\n#include <atomic>\n#include <iostream>\n\n#include <signal.h>\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\n#ifndef BATT_PLATFORM_IS_WINDOWS\n#include <execinfo.h>\n#include <unistd.h>\n#endif\n\nnamespace batt {\n\n#ifndef BATT_STACK_TRACE_AT_EXIT\n#define BATT_STACK_TRACE_AT_EXIT false\n#endif\n\ninline bool& print_stack_trace_atexit_enabled()\n{\n    static bool b_ = BATT_STACK_TRACE_AT_EXIT;\n    return b_;\n}\n\ninline void print_stack_trace_atexit()\n{\n    if (print_stack_trace_atexit_enabled()) {\n        const bool previously_entered = fail_check_exit_entered().exchange(true);\n        if (!previously_entered) {\n            print_stack_trace();\n        }\n    }\n}\n\n// =============================================================================\n// SEGV backtrace handler\n//\nnamespace detail {\n\ninline void handle_segv(int sig)\n{\n#ifdef BATT_PLATFORM_IS_WINDOWS\n    fprintf(stderr, \"FATAL: signal %d:\\n[[raw stack]]\\n\", sig);\n#else\n    fprintf(stderr, \"FATAL: signal %d (%s):\\n[[raw stack]]\\n\", sig, strsignal(sig));\n#endif\n    print_stack_trace_atexit_enabled() = true;\n    exit(sig);\n}\n\ninline void exit_impl(int code)\n{\n    print_stack_trace_atexit_enabled() = (code != 0);\n    ::exit(code);\n}\n\n}  // namespace detail\n\ninline const bool kSigSegvHandlerInstalled = [] {\n    signal(SIGSEGV, &detail::handle_segv);\n    signal(SIGABRT, &detail::handle_segv);\n    std::atexit(&print_stack_trace_atexit);\n    return true;\n}();\n\n#define BATT_EXIT(code) ::batt::detail::exit_impl(code)\n\n}  // namespace batt",
+  "refid": "segv_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/segv.hpp",
+  "url": "/_autogen/Files/segv_8hpp/#file-segv.hpp",
+  "visibility": "public"
+}

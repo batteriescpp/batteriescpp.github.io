@@ -1,0 +1,81 @@
+{
+  "abstract": false,
+  "anchor": "#file-stacktrace.hpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/stacktrace.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/stacktrace.hpp",
+    "line": 0
+  },
+  "name": "batteries/stacktrace.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2023-2024 Anthony Paul Astolfi\n//\n#pragma once\n\n#include <batteries/config.hpp>\n//\n#include <batteries/int_types.hpp>\n#include <batteries/stacktrace_decl.hpp>\n\n#include <atomic>\n#include <iostream>\n\n#ifndef BATT_PLATFORM_IS_WINDOWS\n#include <execinfo.h>\n#include <unistd.h>\n#endif\n\nnamespace batt {\n\nusing PrintToStreamFunctionPointer = void (*)(std::ostream&);\n\nnamespace detail {\ninline void print_nothing(std::ostream&)\n{\n}\n}  // namespace detail\n\ninline std::atomic<PrintToStreamFunctionPointer>& extra_segv_debug_info_callback()\n{\n    static std::atomic<PrintToStreamFunctionPointer> ptr_{&detail::print_nothing};\n    return ptr_;\n}\n\ninline void print_stack_trace()\n{\n#ifndef BATT_PLATFORM_IS_WINDOWS\n\n    constexpr usize kMaxStackFrames = 64;\n\n    void* frames[kMaxStackFrames];\n    const usize size = backtrace(frames, kMaxStackFrames);\n\n    // Print out all the frames to stderr.\n    //\n    backtrace_symbols_fd(frames, size, STDERR_FILENO);\n    fflush(stderr);\n\n#endif  // !BATT_PLATFORM_IS_WINDOWS\n\n    std::cerr << std::endl << boost::stacktrace::stacktrace{} << std::endl;\n\n    extra_segv_debug_info_callback().load()(std::cerr);\n}\n\n}  // namespace batt",
+  "refid": "stacktrace_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/stacktrace.hpp",
+  "url": "/_autogen/Files/stacktrace_8hpp/#file-stacktrace.hpp",
+  "visibility": "public"
+}
