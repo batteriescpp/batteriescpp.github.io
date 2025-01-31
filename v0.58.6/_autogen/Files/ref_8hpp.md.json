@@ -1,0 +1,190 @@
+{
+  "abstract": false,
+  "anchor": "#file-ref.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-ref-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_REF_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/ref.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_REF_HPP",
+      "override": false,
+      "refid": "ref_8hpp_1a59b0538a5b27b3853c9133fb3c1461aa",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_REF_HPP",
+      "url": "/_autogen/Files/ref_8hpp/#define-batteries-ref-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-ref-delegate-memfun",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_REF_DELEGATE_MEMFUN",
+      "hasDetails": false,
+      "initializer": "    template <typename... Args>                                                                              \\\n    decltype(auto) name(Args&&... args) qualifiers                                                           \\\n    {                                                                                                        \\\n        return this->ptr_->name(BATT_FORWARD(args)...);                                                      \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 79,
+        "column": 9,
+        "file": "batteries/ref.hpp",
+        "line": 79
+      },
+      "name": "BATT_REF_DELEGATE_MEMFUN",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "qualifiers",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "ref_8hpp_1ac0c3b6b793e0772cc91953f0184b3c05",
+      "static": false,
+      "strong": false,
+      "title": "BATT_REF_DELEGATE_MEMFUN",
+      "url": "/_autogen/Files/ref_8hpp/#define-batt-ref-delegate-memfun",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-unwrap-ref-batt-ref",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_UNWRAP_REF_BATT_REF",
+      "hasDetails": false,
+      "initializer": "    template <typename T>                                                                                    \\\n    decltype(auto) unwrap_ref(Ref<T> qualifiers wrapper)                                                     \\\n    {                                                                                                        \\\n        return BATT_FORWARD(wrapper).get();                                                                  \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/ref.hpp",
+        "bodyStart": 135,
+        "column": 9,
+        "file": "batteries/ref.hpp",
+        "line": 135
+      },
+      "name": "BATT_UNWRAP_REF_BATT_REF",
+      "override": false,
+      "params": [
+        {
+          "name": "qualifiers",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "ref_8hpp_1a657bb0bfbd03dcffa2cfcadba60779eb",
+      "static": false,
+      "strong": false,
+      "title": "BATT_UNWRAP_REF_BATT_REF",
+      "url": "/_autogen/Files/ref_8hpp/#define-batt-unwrap-ref-batt-ref",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/ref.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/ref.hpp",
+    "line": 0
+  },
+  "name": "batteries/ref.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_REF_HPP\n#define BATTERIES_REF_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/seq.hpp>\n#include <batteries/seq/requirements.hpp>\n#include <batteries/seq/seq_item.hpp>\n\n#include <batteries/utility.hpp>\n\n#include <ostream>\n#include <tuple>\n#include <type_traits>\n\nnamespace batt {\n\ntemplate <typename T>\nclass Ref\n{\n   public:\n    using Item = typename std::conditional_t<batt::HasSeqRequirements<T>{},  //\n                                             /*then*/ batt::SeqItem_Impl<T>,\n                                             /*else*/ batt::StaticType<void>>::type;\n\n    template <typename U, typename = std::enable_if_t<std::is_constructible_v<T*, U*>>>\n    /*implicit*/ Ref(U& obj_ref) noexcept : ptr_{&obj_ref}\n    {\n    }\n\n    Ref() noexcept : ptr_{nullptr}\n    {\n    }\n\n    template <typename U, typename = std::enable_if_t<std::is_constructible_v<T*, U*>>>\n    Ref(const Ref<U>& that) noexcept : ptr_{that.ptr_}\n    {\n    }\n\n    template <typename U, typename = std::enable_if_t<std::is_constructible_v<T*, U*>>>\n    Ref& operator=(const Ref<U>& that) noexcept\n    {\n        this->ptr_ = that.ptr_;\n        return *this;\n    }\n\n    bool is_valid() const\n    {\n        return this->ptr_ != nullptr;\n    }\n\n    T& get() const\n    {\n        return *this->ptr_;\n    }\n\n    T* pointer() const\n    {\n        return this->ptr_;\n    }\n\n    /*implicit*/ operator T&() const\n    {\n        return *this->ptr_;\n    }\n\n    template <typename... Args,\n              typename = std::enable_if_t<!std::is_same_v<std::tuple<std::ostream&>, std::tuple<Args...>>>>\n    decltype(auto) operator()(Args&&... args) const\n        noexcept(noexcept((*std::declval<const Ref*>()->ptr_)(BATT_FORWARD(args)...)))\n    {\n        return (*this->ptr_)(BATT_FORWARD(args)...);\n    }\n\n#define BATT_REF_DELEGATE_MEMFUN(name, qualifiers)                                                           \\\n    template <typename... Args>                                                                              \\\n    decltype(auto) name(Args&&... args) qualifiers                                                           \\\n    {                                                                                                        \\\n        return this->ptr_->name(BATT_FORWARD(args)...);                                                      \\\n    }\n\n    BATT_REF_DELEGATE_MEMFUN(poll, const)\n    BATT_REF_DELEGATE_MEMFUN(poll, )\n    BATT_REF_DELEGATE_MEMFUN(peek, const)\n    BATT_REF_DELEGATE_MEMFUN(peek, )\n    BATT_REF_DELEGATE_MEMFUN(next, const)\n    BATT_REF_DELEGATE_MEMFUN(next, )\n    BATT_REF_DELEGATE_MEMFUN(push_frame, const)\n    BATT_REF_DELEGATE_MEMFUN(await_frame_consumed, const)\n    BATT_REF_DELEGATE_MEMFUN(Update, const)\n    BATT_REF_DELEGATE_MEMFUN(ok, const)\n    BATT_REF_DELEGATE_MEMFUN(recycle_pages, const)\n    BATT_REF_DELEGATE_MEMFUN(await_flush, const)\n\n#undef BATT_REF_DELEGATE_MEMFUN\n\n   private:\n    T* ptr_;\n};\n\ntemplate <typename T>\ninline std::ostream& operator<<(std::ostream& out, const Ref<T>& t)\n{\n    return out << t.get();\n}\n\ntemplate <typename T>\nRef<T> as_ref(T& obj_ref)\n{\n    return Ref<T>{obj_ref};\n}\n\ntemplate <typename T>\nRef<const T> as_cref(const T& obj_ref)\n{\n    return Ref<const T>{obj_ref};\n}\n\ntemplate <typename T>\nRef<T> into_ref(T* ptr)\n{\n    return as_ref(*ptr);\n}\n\ntemplate <typename T>\nRef<const T> into_cref(const T* ptr)\n{\n    return as_ref(*ptr);\n}\n\n#define BATT_UNWRAP_REF_BATT_REF(qualifiers)                                                                 \\\n    template <typename T>                                                                                    \\\n    decltype(auto) unwrap_ref(Ref<T> qualifiers wrapper)                                                     \\\n    {                                                                                                        \\\n        return BATT_FORWARD(wrapper).get();                                                                  \\\n    }\n\nBATT_UNWRAP_REF_BATT_REF(&)\nBATT_UNWRAP_REF_BATT_REF(const&)\nBATT_UNWRAP_REF_BATT_REF(&&)\nBATT_UNWRAP_REF_BATT_REF(const&&)\n\n#undef BATT_UNWRAP_REF_BATT_REF\n\n}  // namespace batt\n\n#endif  // BATTERIES_REF_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Ref",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Ref",
+      "refid": "classbatt_1_1Ref",
+      "title": "batt::Ref",
+      "url": "/_autogen/Classes/classbatt_1_1Ref/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "ref_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/ref.hpp",
+  "url": "/_autogen/Files/ref_8hpp/#file-ref.hpp",
+  "visibility": "public"
+}
