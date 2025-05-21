@@ -1,0 +1,279 @@
+{
+  "abstract": false,
+  "anchor": "#file-optional.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-optional-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_OPTIONAL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/optional.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/optional.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_OPTIONAL_HPP",
+      "override": false,
+      "refid": "optional_8hpp_1a0c3fd6ee43b10441622c6d1d29240e28",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_OPTIONAL_HPP",
+      "url": "/_autogen/Files/optional_8hpp/#define-batteries-optional-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/optional.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/optional.hpp",
+    "line": 0
+  },
+  "name": "batteries/optional.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2025 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_OPTIONAL_HPP\n#define BATTERIES_OPTIONAL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/hint.hpp>\n#include <batteries/strong_typedef.hpp>\n#include <batteries/suppress.hpp>\n#include <batteries/type_traits.hpp>\n\n#include <optional>\n\n#ifdef BATT_USE_BOOST_OPTIONAL\n\n#include <boost/optional.hpp>\n#include <boost/optional/optional_io.hpp>\n\nnamespace batt {\n\ntemplate <typename T>\nusing Optional = boost::optional<T>;\n\nnamespace {\ndecltype(auto) None = boost::none;\ndecltype(auto) InPlaceInit = boost::in_place_init;\n}  // namespace\n\nusing NoneType = std::decay_t<decltype(boost::none)>;\n\ntemplate <typename... Args>\nauto make_optional(Args&&... args)\n{\n    return boost::make_optional(std::forward<Args>(args)...);\n}\n\ntemplate <typename T, typename U, typename = decltype(std::declval<const T&>() == std::declval<const U&>())>\ninline bool operator==(const Optional<T>& l, const Optional<U>& r)\n{\n    return (l && r && *l == *r) || (!l && !r);\n}\n\n}  // namespace batt\n\n#else\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n// Custom optional implementation.\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\n#include <batteries/type_traits.hpp>\n#include <batteries/utility.hpp>\n\n#include <type_traits>\n\nnamespace batt {\n\nstruct NoneType {\n};\n\ninline bool operator==(const NoneType&, const NoneType&)\n{\n    return true;\n}\n\ninline bool operator!=(const NoneType&, const NoneType&)\n{\n    return false;\n}\n\nstruct InPlaceInitType {\n};\n\nBATT_SUPPRESS_IF_GCC(\"-Wunused-variable\")\n\nnamespace {\nNoneType None;\nInPlaceInitType InPlaceInit;\n}  // namespace\n\nBATT_UNSUPPRESS_IF_GCC()\n\nnamespace detail {\n\ntemplate <typename T>\nclass OptionalBase\n{\n   protected:\n    void* storage_address() noexcept\n    {\n        return &this->storage_;\n    }\n\n    const void* storage_address() const noexcept\n    {\n        return &this->storage_;\n    }\n\n   private:\n    std::aligned_storage_t<sizeof(T), alignof(T)> storage_;\n};\n\ntemplate <typename T>\nclass OptionalEmptyBase\n{\n   protected:\n    void* storage_address() noexcept\n    {\n        return this;\n    }\n\n    const void* storage_address() const noexcept\n    {\n        return this;\n    }\n};\n\n}  //namespace detail\n\ntemplate <typename T>\nclass Optional\n    : private std::conditional_t<        //\n          can_be_empty_base<T>(),        //\n          detail::OptionalEmptyBase<T>,  //\n          detail::OptionalBase<T>        //\n          >\n{\n   public:\n    static_assert(std::is_same_v<T, std::decay_t<T>>,\n                  \"Optional<T&> is (partially) explicitly specialized below\");\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    Optional() noexcept : valid_{false}\n    {\n    }\n\n    Optional(NoneType) noexcept : valid_{false}\n    {\n    }\n\n    template <typename... Args, typename = std::enable_if_t<std::is_constructible_v<T, Args&&...>>>\n    Optional(InPlaceInitType, Args&&... args) noexcept : valid_{false}\n    {\n        new (this->storage_address()) T(BATT_FORWARD(args)...);\n        this->valid_ = true;\n    }\n\n    Optional(std::optional<T>&& init) noexcept : valid_{!!init}\n    {\n        if (this->valid_) {\n            new (this->storage_address()) T(std::move(*init));\n        }\n    }\n\n    template <typename U,\n              typename = std::enable_if_t<std::is_convertible_v<U, T> && !std::is_same_v<T, Optional<U>>>,\n              typename = batt::EnableIfNoShadow<Optional, U>>\n    Optional(Optional<U>&& u) noexcept : valid_{false}\n    {\n        if (u) {\n            new (this->storage_address()) T(std::move(*u));\n            this->valid_ = true;\n        }\n    }\n\n    template <typename U,\n              typename = std::enable_if_t<std::is_convertible_v<U, T> && !std::is_same_v<T, Optional<U>>>,\n              typename = batt::EnableIfNoShadow<Optional, U>>\n    Optional(const Optional<U>& u) noexcept : valid_{false}\n    {\n        if (u) {\n            new (this->storage_address()) T(*u);\n            this->valid_ = true;\n        }\n    }\n\n    template <typename... Args,\n              typename = std::enable_if_t<std::is_constructible_v<T, Args&&...> &&\n                                          (!IsStrongType<std::decay_t<T>>{} ||\n                                           IsCallable<void (&)(T), Args&&...>{})>,\n              typename = batt::EnableIfNoShadow<Optional, Args...>>\n    Optional(Args&&... args) noexcept : valid_{false}\n    {\n        new (this->storage_address()) T(BATT_FORWARD(args)...);\n        this->valid_ = true;\n    }\n\n    Optional(const T& val) noexcept : valid_{false}\n    {\n        new (this->storage_address()) T(val);\n        this->valid_ = true;\n    }\n\n    Optional(Optional&& that) noexcept : valid_{false}\n    {\n        if (that.valid_) {\n            new (this->storage_address()) T(std::move(that.obj()));\n            valid_ = true;\n        }\n    }\n\n    Optional(const Optional& that) noexcept : valid_{false}\n    {\n        if (that.valid_) {\n            new (this->storage_address()) T(that.obj());\n            valid_ = true;\n        }\n    }\n\n    ~Optional() noexcept\n    {\n        if (this->valid_) {\n            this->obj().~T();\n        }\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    void reset() noexcept\n    {\n        if (this->valid_) {\n            T& obj_ref = this->obj();\n            this->valid_ = false;\n            obj_ref.~T();\n        }\n    }\n\n    Optional& operator=(Optional&& that) noexcept\n    {\n        if (BATT_HINT_TRUE(this != &that)) {\n            this->reset();\n            if (that.valid_) {\n                new (this->storage_address()) T(std::move(that.obj()));\n                this->valid_ = true;\n            }\n        }\n        return *this;\n    }\n\n    Optional& operator=(const Optional& that) noexcept\n    {\n        if (BATT_HINT_TRUE(this != &that)) {\n            this->reset();\n            if (that.valid_) {\n                new (this->storage_address()) T(that.obj());\n                this->valid_ = true;\n            }\n        }\n        return *this;\n    }\n\n    template <typename... Args>\n    T& emplace(Args&&... args) noexcept\n    {\n        this->reset();\n        new (this->storage_address()) T(BATT_FORWARD(args)...);\n        this->valid_ = true;\n        return this->obj();\n    }\n\n    template <typename U>\n    T value_or(U&& else_val) const noexcept\n    {\n        if (this->valid_) {\n            return this->obj();\n        }\n        return T(BATT_FORWARD(else_val));\n    }\n\n    template <typename Fn>\n    T or_else(Fn&& fn) const noexcept(noexcept(std::declval<Fn>()()))\n    {\n        if (this->valid_) {\n            return this->obj();\n        }\n        return BATT_FORWARD(fn)();\n    }\n\n    template <typename Fn, typename U = std::invoke_result_t<Fn, const T&>>\n    Optional<U> map(Fn&& fn) const noexcept\n    {\n        if (this->valid_) {\n            return BATT_FORWARD(fn)(this->obj());\n        }\n        return None;\n    }\n\n    template <typename Fn, typename OptionalU = std::invoke_result_t<Fn, const T&>>\n    OptionalU flat_map(Fn&& fn) const noexcept\n    {\n        if (this->valid_) {\n            return BATT_FORWARD(fn)(this->obj());\n        }\n        return None;\n    }\n\n    explicit operator bool() const noexcept\n    {\n        return this->valid_;\n    }\n\n    bool has_value() const noexcept\n    {\n        return this->valid_;\n    }\n\n    Optional& operator=(NoneType) noexcept\n    {\n        this->reset();\n        return *this;\n    }\n\n    T& operator*() & noexcept\n    {\n        return this->obj();\n    }\n\n    const T& operator*() const& noexcept\n    {\n        return this->obj();\n    }\n\n    T operator*() && noexcept\n    {\n        return std::move(this->obj());\n    }\n\n    T operator*() const&& noexcept = delete;\n\n    T* operator->() noexcept\n    {\n        return &this->obj();\n    }\n\n    const T* operator->() const noexcept\n    {\n        return &this->obj();\n    }\n\n    T* get_ptr() noexcept\n    {\n        return &this->obj();\n    }\n\n    const T* get_ptr() const noexcept\n    {\n        return &this->obj();\n    }\n\n    T& value_or_panic()\n    {\n        BATT_CHECK(this->has_value());\n        return this->operator*();\n    }\n\n    const T& value_or_panic() const\n    {\n        BATT_CHECK(this->has_value());\n        return this->operator*();\n    }\n\n   private:\n    T& obj() noexcept\n    {\n        BATT_ASSERT(this->valid_);\n        return *(T*)this->storage_address();\n    }\n\n    const T& obj() const noexcept\n    {\n        BATT_ASSERT(this->valid_);\n        return *(const T*)this->storage_address();\n    }\n\n    bool valid_ = false;\n};\n\ntemplate <typename T>\nclass Optional<T&>\n{\n   public:\n    Optional() noexcept : Optional{None}\n    {\n    }\n\n    Optional(NoneType) noexcept : ptr_{nullptr}\n    {\n    }\n\n    template <typename... Args, typename = std::enable_if_t<std::is_constructible_v<T&, Args&&...>>>\n    Optional(InPlaceInitType, Args&&... args) noexcept\n        : Optional{[](T& ref) -> T& {\n            return ref;\n        }(BATT_FORWARD(args)...)}\n    {\n    }\n\n    template <\n        typename U,\n        typename = std::enable_if_t<std::is_convertible_v<U*, T*> && !std::is_same_v<T, const Optional<U>>>,\n        typename = batt::EnableIfNoShadow<Optional, U>>\n    Optional(const Optional<U&>& u) noexcept : ptr_{u.ptr_}\n    {\n    }\n\n    /*implicit*/ Optional(T& ref) noexcept : ptr_{&ref}\n    {\n    }\n\n    Optional(const Optional&) = default;\n    Optional& operator=(const Optional&) = default;\n\n    ~Optional() noexcept\n    {\n        // nothing to do.\n    }\n\n    template <typename Fn, typename U = std::invoke_result_t<Fn, const T&>>\n    Optional<U> map(Fn&& fn) const noexcept\n    {\n        if (this->ptr_) {\n            return BATT_FORWARD(fn)(*this->ptr_);\n        }\n        return None;\n    }\n\n    template <typename Fn, typename OptionalU = std::invoke_result_t<Fn, const T&>>\n    OptionalU flat_map(Fn&& fn) const noexcept\n    {\n        if (this->ptr_) {\n            return BATT_FORWARD(fn)(*this->ptr_);\n        }\n        return None;\n    }\n\n    T& operator*() const noexcept\n    {\n        return *this->ptr_;\n    }\n\n    T* operator->() noexcept\n    {\n        return this->ptr_;\n    }\n\n    const T* operator->() const noexcept\n    {\n        return this->ptr_;\n    }\n\n    bool has_value() const noexcept\n    {\n        return this->ptr_ != nullptr;\n    }\n\n    explicit operator bool() const noexcept\n    {\n        return this->has_value();\n    }\n\n    bool operator!() const noexcept\n    {\n        return this->ptr_ == nullptr;\n    }\n\n    T& emplace(T& ref) noexcept\n    {\n        this->ptr_ = &ref;\n        return *this->ptr_;\n    }\n\n    Optional& operator=(NoneType) noexcept\n    {\n        this->ptr_ = nullptr;\n        return *this;\n    }\n\n    T& value_or(T& other) noexcept\n    {\n        if (this->ptr_) {\n            return *this->ptr_;\n        }\n        return other;\n    }\n\n    template <typename Fn>\n    T& or_else(Fn&& fn) const noexcept(noexcept(std::declval<Fn>()()))\n    {\n        if (this->ptr_) {\n            return *this->ptr_;\n        }\n        return BATT_FORWARD(fn)();\n    }\n\n    T& value_or_panic()\n    {\n        BATT_CHECK(this->has_value());\n        return this->operator*();\n    }\n\n    const T& value_or_panic() const\n    {\n        BATT_CHECK(this->has_value());\n        return this->operator*();\n    }\n\n   private:\n    T* ptr_ = nullptr;\n};\n\ntemplate <typename T0, typename T1>\ninline bool operator==(const Optional<T0>& v0, const Optional<T1>& v1)\n{\n    return (v0 && v1 && (*v0 == *v1)) || (!v0 && !v1);\n}\n\ntemplate <typename T0, typename T1>\ninline bool operator!=(const Optional<T0>& v0, const Optional<T1>& v1)\n{\n    return !(v0 == v1);\n}\n\ntemplate <typename T0, typename T1>\ninline bool operator==(const Optional<T0>& v0, const T1& v1)\n{\n    return v0 && (*v0 == v1);\n}\n\ntemplate <typename T0, typename T1>\ninline bool operator!=(const Optional<T0>& v0, const T1& v1)\n{\n    return !(v0 == v1);\n}\n\ntemplate <typename T0, typename T1>\ninline bool operator==(const T0& v0, const Optional<T1>& v1)\n{\n    return v1 && (v0 == *v1);\n}\n\ntemplate <typename T0, typename T1>\ninline bool operator!=(const T0& v0, const Optional<T1>& v1)\n{\n    return !(v0 == v1);\n}\n\ntemplate <typename T>\ninline bool operator==(NoneType, const Optional<T>& v)\n{\n    return !v;\n}\n\ntemplate <typename T>\ninline bool operator!=(NoneType, const Optional<T>& v)\n{\n    return !(None == v);\n}\n\ntemplate <typename T>\ninline bool operator==(const Optional<T>& v, NoneType)\n{\n    return !v;\n}\n\ntemplate <typename T>\ninline bool operator!=(const Optional<T>& v, NoneType)\n{\n    return !(v == None);\n}\n\ntemplate <typename T>\ninline std::ostream& operator<<(std::ostream& out, const Optional<T>& t)\n{\n    if (!t) {\n        return out << \"--\";\n    }\n    return out << make_printable(*t);\n}\n\ninline std::ostream& operator<<(std::ostream& out, const NoneType&)\n{\n    return out << \"--\";\n}\n\ntemplate <typename T>\nOptional<std::decay_t<T>> make_optional(T&& val) noexcept\n{\n    return {BATT_FORWARD(val)};\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\ntemplate <typename T>\nstruct IsOptionalImpl : std::false_type {\n};\n\ntemplate <typename T>\nstruct IsOptionalImpl<Optional<T>> : std::true_type {\n};\n\ntemplate <typename T>\nusing IsOptional = IsOptionalImpl<std::decay_t<T>>;\n\ntemplate <typename T>\nstruct RemoveOptionalImpl : StaticType<T> {\n};\n\ntemplate <typename T>\nstruct RemoveOptionalImpl<Optional<T>> : StaticType<T> {\n};\n\ntemplate <typename T>\nusing RemoveOptional = typename RemoveOptionalImpl<std::decay_t<T>>::type;\n\n}  // namespace batt\n\n#endif\n\nnamespace batt {\n\ntemplate <typename T>\ndecltype(auto) get_or_panic(Optional<T>& opt)\n{\n    BATT_CHECK(opt);\n    return *opt;\n}\n\ntemplate <typename T>\ndecltype(auto) get_or_panic(const Optional<T>& opt)\n{\n    BATT_CHECK(opt);\n    return *opt;\n}\n\ntemplate <typename T>\ndecltype(auto) get_or_panic(Optional<T>&& opt)\n{\n    BATT_CHECK(opt);\n    return std::move(*opt);\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_OPTIONAL_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::NoneType",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::NoneType",
+      "refid": "structbatt_1_1NoneType",
+      "title": "batt::NoneType",
+      "url": "/_autogen/Classes/structbatt_1_1NoneType/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::InPlaceInitType",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::InPlaceInitType",
+      "refid": "structbatt_1_1InPlaceInitType",
+      "title": "batt::InPlaceInitType",
+      "url": "/_autogen/Classes/structbatt_1_1InPlaceInitType/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::OptionalBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::OptionalBase",
+      "refid": "classbatt_1_1detail_1_1OptionalBase",
+      "title": "batt::detail::OptionalBase",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1OptionalBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::OptionalEmptyBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::OptionalEmptyBase",
+      "refid": "classbatt_1_1detail_1_1OptionalEmptyBase",
+      "title": "batt::detail::OptionalEmptyBase",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1OptionalEmptyBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::conditional_t< can_be_empty_base< T >(), detail::OptionalEmptyBase< T >, detail::OptionalBase< T > >",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "brief": "Exception-free drop-in replacement for std::optional. ",
+      "category": "classes",
+      "fullname": "batt::Optional",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Optional",
+      "refid": "classbatt_1_1Optional",
+      "summary": "Exception-free drop-in replacement for std::optional. ",
+      "title": "batt::Optional",
+      "url": "/_autogen/Classes/classbatt_1_1Optional/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Optional< T & >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Optional< T & >",
+      "refid": "classbatt_1_1Optional_3_01T_01_6_01_4",
+      "title": "batt::Optional< T & >",
+      "url": "/_autogen/Classes/classbatt_1_1Optional_3_01T_01_6_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::false_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::IsOptionalImpl",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IsOptionalImpl",
+      "refid": "structbatt_1_1IsOptionalImpl",
+      "title": "batt::IsOptionalImpl",
+      "url": "/_autogen/Classes/structbatt_1_1IsOptionalImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::true_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::IsOptionalImpl< Optional< T > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IsOptionalImpl< Optional< T > >",
+      "refid": "structbatt_1_1IsOptionalImpl_3_01Optional_3_01T_01_4_01_4",
+      "title": "batt::IsOptionalImpl< Optional< T > >",
+      "url": "/_autogen/Classes/structbatt_1_1IsOptionalImpl_3_01Optional_3_01T_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::StaticType< T >",
+          "refid": "structbatt_1_1StaticType",
+          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::RemoveOptionalImpl",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::RemoveOptionalImpl",
+      "refid": "structbatt_1_1RemoveOptionalImpl",
+      "title": "batt::RemoveOptionalImpl",
+      "url": "/_autogen/Classes/structbatt_1_1RemoveOptionalImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::StaticType< T >",
+          "refid": "structbatt_1_1StaticType",
+          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::RemoveOptionalImpl< Optional< T > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::RemoveOptionalImpl< Optional< T > >",
+      "refid": "structbatt_1_1RemoveOptionalImpl_3_01Optional_3_01T_01_4_01_4",
+      "title": "batt::RemoveOptionalImpl< Optional< T > >",
+      "url": "/_autogen/Classes/structbatt_1_1RemoveOptionalImpl_3_01Optional_3_01T_01_4_01_4/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "optional_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/optional.hpp",
+  "url": "/_autogen/Files/optional_8hpp/#file-optional.hpp",
+  "visibility": "public"
+}

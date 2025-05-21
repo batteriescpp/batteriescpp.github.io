@@ -1,0 +1,196 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "baseClasses": [
+    {
+      "external": true,
+      "name": "std::runtime_error",
+      "refid": null,
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
+  "brief": "Exception wrapper for a [batt::Status]() value. ",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "details": "Use this class to adapt code that uses Batteries exception-free style to a containing context of code that uses exceptions to report errors.",
+  "explicit": false,
+  "fullname": "batt::StatusException",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "<batteries/exception.hpp>",
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 46,
+    "bodyFile": "batteries/exception.hpp",
+    "bodyStart": 28,
+    "column": 1,
+    "file": "batteries/exception.hpp",
+    "line": 27
+  },
+  "name": "batt::StatusException",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-status-",
+      "category": "attributes",
+      "const": false,
+      "definition": "Status batt::StatusException::status_",
+      "explicit": false,
+      "fullname": "batt::StatusException::status_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/exception.hpp",
+        "bodyStart": 45,
+        "column": 12,
+        "file": "batteries/exception.hpp",
+        "line": 45
+      },
+      "name": "status_",
+      "override": false,
+      "refid": "classbatt_1_1StatusException_1a6efa5d6b052edeb98d0c2d1263eaf5d1",
+      "static": false,
+      "strong": false,
+      "title": "status_",
+      "type": "[Status](/_autogen/Classes/classbatt_1_1Status/)",
+      "typePlain": "Status",
+      "url": "/_autogen/Classes/classbatt_1_1StatusException/#variable-status-",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-statusexception",
+      "argsString": "(Status status, Optional< std::string_view > &&optional_message=None) noexcept",
+      "brief": "Construct a [StatusException](/_autogen/Classes/classbatt_1_1StatusException/) with the given status code and optional message. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "BATT_INLINE_IMPL batt::StatusException::StatusException",
+      "deleted": false,
+      "details": "The `what()` message returned by this exception will contain the string form of the status code, as well as any optional message provided here. ",
+      "explicit": true,
+      "fullname": "batt::StatusException::StatusException",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 22,
+        "bodyFile": "batteries/exception_impl.hpp",
+        "bodyStart": 12,
+        "column": 14,
+        "file": "batteries/exception.hpp",
+        "line": 35
+      },
+      "name": "StatusException",
+      "override": false,
+      "params": [
+        {
+          "name": "status",
+          "type": "[Status](/_autogen/Classes/classbatt_1_1Status/)",
+          "typePlain": "Status"
+        },
+        {
+          "defval": "None",
+          "defvalPlain": "None",
+          "name": "optional_message",
+          "type": "[Optional](/_autogen/Classes/classbatt_1_1Optional/)< std::string_view > &&",
+          "typePlain": "Optional< std::string_view > &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1StatusException_1a77cc20e3ca47967d35ba236e6e9cc983",
+      "static": false,
+      "strong": false,
+      "summary": "Construct a StatusException with the given status code and optional message. ",
+      "title": "StatusException",
+      "url": "/_autogen/Classes/classbatt_1_1StatusException/#function-statusexception",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-status",
+      "argsString": "() const noexcept",
+      "brief": "Returns the status code wrapped by this exception. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "BATT_INLINE_IMPL Status batt::StatusException::status",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::StatusException::status",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 29,
+        "bodyFile": "batteries/exception_impl.hpp",
+        "bodyStart": 26,
+        "column": 12,
+        "file": "batteries/exception.hpp",
+        "line": 41
+      },
+      "name": "status",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1StatusException_1a49ec5474c6b9848e591178ddf56e06a7",
+      "static": false,
+      "strong": false,
+      "summary": "Returns the status code wrapped by this exception. ",
+      "title": "status",
+      "type": "[Status](/_autogen/Classes/classbatt_1_1Status/)",
+      "typePlain": "Status",
+      "url": "/_autogen/Classes/classbatt_1_1StatusException/#function-status",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1StatusException",
+  "see": [
+    "BATT_THROW_IF_NOT_OK, BATT_OK_RESULT_OR_THROW "
+  ],
+  "static": false,
+  "strong": false,
+  "summary": "Exception wrapper for a batt::Status value. ",
+  "title": "batt::StatusException",
+  "url": "/_autogen/Classes/classbatt_1_1StatusException/",
+  "visibility": "public"
+}

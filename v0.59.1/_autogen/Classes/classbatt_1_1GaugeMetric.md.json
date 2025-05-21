@@ -1,0 +1,233 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "brief": "A Metric collector that stores and reports a single instantaneous value. ",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::GaugeMetric",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "<batteries/metrics/metric_collectors.hpp>",
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 887,
+    "bodyFile": "batteries/metrics/metric_collectors.hpp",
+    "bodyStart": 866,
+    "column": 1,
+    "file": "batteries/metrics/metric_collectors.hpp",
+    "line": 865
+  },
+  "name": "batt::GaugeMetric",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-value-",
+      "category": "attributes",
+      "const": false,
+      "definition": "std::atomic<T> batt::GaugeMetric< T >::value_",
+      "explicit": false,
+      "fullname": "batt::GaugeMetric::value_",
+      "hasDetails": false,
+      "initializer": "{0}",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/metrics/metric_collectors.hpp",
+        "bodyStart": 886,
+        "column": 17,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 886
+      },
+      "name": "value_",
+      "override": false,
+      "refid": "classbatt_1_1GaugeMetric_1a97e435c4d08541a9f25cf72c83b71a74",
+      "static": false,
+      "strong": false,
+      "title": "value_",
+      "type": "std::atomic< T >",
+      "typePlain": "std::atomic< T >",
+      "url": "/_autogen/Classes/classbatt_1_1GaugeMetric/#variable-value-",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-gaugemetric",
+      "argsString": "()=default",
+      "brief": "Initializes an empty metric. ",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::GaugeMetric< T >::GaugeMetric",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::GaugeMetric::GaugeMetric",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 869
+      },
+      "name": "GaugeMetric",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1GaugeMetric_1abc73b717f639660088443ec117971e21",
+      "static": false,
+      "strong": false,
+      "summary": "Initializes an empty metric. ",
+      "title": "GaugeMetric",
+      "url": "/_autogen/Classes/classbatt_1_1GaugeMetric/#function-gaugemetric",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-set",
+      "argsString": "(D sample) noexcept",
+      "brief": "Sets the stored value to a given sample. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::GaugeMetric< T >::set",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::GaugeMetric::set",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 877,
+        "bodyFile": "batteries/metrics/metric_collectors.hpp",
+        "bodyStart": 874,
+        "column": 10,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 874
+      },
+      "name": "set",
+      "override": false,
+      "paramList": [
+        {
+          "name": "sample",
+          "text": "value. "
+        }
+      ],
+      "params": [
+        {
+          "name": "sample",
+          "type": "D",
+          "typePlain": "D"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1GaugeMetric_1a3930cce6b34ee827debb7f2b1300354b",
+      "static": false,
+      "strong": false,
+      "summary": "Sets the stored value to a given sample. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename D",
+          "typePlain": "typename D"
+        }
+      ],
+      "title": "set",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1GaugeMetric/#function-set",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-load",
+      "argsString": "() const noexcept",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "T batt::GaugeMetric< T >::load",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::GaugeMetric::load",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 883,
+        "bodyFile": "batteries/metrics/metric_collectors.hpp",
+        "bodyStart": 880,
+        "column": 7,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 880
+      },
+      "name": "load",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1GaugeMetric_1a03494e1f10cd7413c2b0d6b355a30ae7",
+      "returns": [
+        "The gauge value. "
+      ],
+      "static": false,
+      "strong": false,
+      "title": "load",
+      "type": "T",
+      "typePlain": "T",
+      "url": "/_autogen/Classes/classbatt_1_1GaugeMetric/#function-load",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1GaugeMetric",
+  "static": false,
+  "strong": false,
+  "summary": "A Metric collector that stores and reports a single instantaneous value. ",
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename T",
+      "typePlain": "typename T"
+    }
+  ],
+  "title": "batt::GaugeMetric",
+  "url": "/_autogen/Classes/classbatt_1_1GaugeMetric/",
+  "visibility": "public"
+}
