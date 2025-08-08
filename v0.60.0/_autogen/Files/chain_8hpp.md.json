@@ -1,0 +1,149 @@
+{
+  "abstract": false,
+  "anchor": "#file-chain.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-chain-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_CHAIN_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/chain.hpp",
+        "bodyStart": 5,
+        "column": 9,
+        "file": "batteries/seq/chain.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_SEQ_CHAIN_HPP",
+      "override": false,
+      "refid": "chain_8hpp_1a99c76d99ab8a4b04c0d6a619622632ff",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_CHAIN_HPP",
+      "url": "/_autogen/Files/chain_8hpp/#define-batteries-seq-chain-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/chain.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/chain.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/chain.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2021-2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_SEQ_CHAIN_HPP\n#define BATTERIES_SEQ_CHAIN_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/optional.hpp>\n#include <batteries/seq/seq_item.hpp>\n#include <batteries/utility.hpp>\n\n#include <type_traits>\n\nnamespace batt {\nnamespace seq {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// chain\n//\ntemplate <typename Seq1, typename Seq2>\nclass Chain\n{\n   public:\n    using Item = std::common_type_t<SeqItem<Seq1>, SeqItem<Seq2>>;\n\n    explicit Chain(Seq1&& seq1, Seq2&& seq2) noexcept : seq1_(BATT_FORWARD(seq1)), seq2_(BATT_FORWARD(seq2))\n    {\n    }\n\n    Optional<Item> peek()\n    {\n        if (this->seq1_) {\n            auto item = this->seq1_->peek();\n            if (item) {\n                return item;\n            }\n        }\n        return this->seq2_.peek();\n    }\n\n    Optional<Item> next()\n    {\n        if (this->seq1_) {\n            auto item = this->seq1_->next();\n            if (item) {\n                return item;\n            }\n            this->seq1_ = None;\n        }\n        return this->seq2_.next();\n    }\n\n   private:\n    Optional<Seq1> seq1_;\n    Seq2 seq2_;\n};\n\ntemplate <typename Seq2>\nstruct ChainBinder {\n    Seq2 seq2;\n};\n\ntemplate <typename Seq2>\nChainBinder<Seq2> chain(Seq2&& seq2)\n{\n    return {BATT_FORWARD(seq2)};\n}\n\ntemplate <typename Seq1, typename Seq2>\n[[nodiscard]] Chain<Seq1, Seq2> operator|(Seq1&& seq1, ChainBinder<Seq2>&& binder)\n{\n    static_assert(std::is_same_v<Seq1, std::decay_t<Seq1>>,\n                  \"Concatenated sequences may not be captured implicitly by reference.\");\n\n    static_assert(std::is_same_v<Seq2, std::decay_t<Seq2>>,\n                  \"Concatenated sequences may not be captured implicitly by reference.\");\n\n    return Chain<Seq1, Seq2>{BATT_FORWARD(seq1), BATT_FORWARD(binder.seq2)};\n}\n\n}  // namespace seq\n}  // namespace batt\n\n#endif  // BATTERIES_SEQ_CHAIN_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::Chain",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::seq::Chain",
+      "refid": "classbatt_1_1seq_1_1Chain",
+      "title": "batt::seq::Chain",
+      "url": "/_autogen/Classes/classbatt_1_1seq_1_1Chain/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::ChainBinder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::ChainBinder",
+      "refid": "structbatt_1_1seq_1_1ChainBinder",
+      "title": "batt::seq::ChainBinder",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1ChainBinder/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "chain_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/chain.hpp",
+  "url": "/_autogen/Files/chain_8hpp/#file-chain.hpp",
+  "visibility": "public"
+}

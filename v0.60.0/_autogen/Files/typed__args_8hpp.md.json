@@ -1,0 +1,69 @@
+{
+  "abstract": false,
+  "anchor": "#file-typed-args.hpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/typed_args.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/typed_args.hpp",
+    "line": 0
+  },
+  "name": "batteries/typed_args.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2025 Anthony Paul Astolfi\n//\n#pragma once\n\n#include <batteries/config.hpp>\n//\n#include <batteries/optional.hpp>\n\n#include <type_traits>\n\nnamespace batt {\n\ntemplate <typename T>\nconst T& get_typed_arg(const T& default_value)\n{\n    return default_value;\n}\n\ntemplate <typename T, typename... Rest>\nconst T& get_typed_arg(const T& /*default_value*/, const T& first, const Rest&... /*rest*/)\n{\n    return first;\n}\n\ntemplate <\n    typename T, typename First, typename... Rest,\n    typename = std::enable_if_t<IsOptional<T>{} && std::is_same_v<std::decay_t<First>, RemoveOptional<T>>>>\nconst T& get_typed_arg(const T& /*default_value*/, const First& first, const Rest&... /*rest*/)\n{\n    thread_local std::decay_t<T> tmp;\n    tmp.emplace(first);\n    return tmp;\n}\n\ntemplate <\n    typename T, typename First, typename... Rest,\n    typename = std::enable_if_t<!IsOptional<T>{} || !std::is_same_v<std::decay_t<First>, RemoveOptional<T>>>,\n    typename = void>\nconst T& get_typed_arg(const T& default_value, const First& /*first*/, const Rest&... rest)\n{\n    return get_typed_arg<T>(default_value, rest...);\n}\n\n}  // namespace batt",
+  "refid": "typed__args_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/typed_args.hpp",
+  "url": "/_autogen/Files/typed__args_8hpp/#file-typed-args.hpp",
+  "visibility": "public"
+}

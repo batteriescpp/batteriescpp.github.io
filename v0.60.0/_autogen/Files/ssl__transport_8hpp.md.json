@@ -1,0 +1,127 @@
+{
+  "abstract": false,
+  "anchor": "#file-ssl-transport.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-http-ssl-transport-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_HTTP_SSL_TRANSPORT_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/ssl_transport.hpp",
+        "bodyStart": 8,
+        "column": 9,
+        "file": "batteries/http/ssl_transport.hpp",
+        "line": 8
+      },
+      "name": "BATTERIES_HTTP_SSL_TRANSPORT_HPP",
+      "override": false,
+      "refid": "ssl__transport_8hpp_1aa25380faa5d5ca606726d37fdc138e4b",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_HTTP_SSL_TRANSPORT_HPP",
+      "url": "/_autogen/Files/ssl__transport_8hpp/#define-batteries-http-ssl-transport-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/http/ssl_transport.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/http/ssl_transport.hpp",
+    "line": 0
+  },
+  "name": "batteries/http/ssl_transport.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/http",
+    "category": "dirs",
+    "fullname": "batteries/http",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/http",
+    "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+    "title": "batteries/http",
+    "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/http",
+      "category": "dirs",
+      "fullname": "batteries/http",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/http",
+      "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+      "title": "batteries/http",
+      "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2024 Anthony Paul Astolfi\n//\n#include <batteries/config.hpp>\n//\n#pragma once\n#ifndef BATTERIES_HTTP_SSL_TRANSPORT_HPP\n#define BATTERIES_HTTP_SSL_TRANSPORT_HPP\n\n#include <batteries/http/http_client_host_context_decl.hpp>\n\n#include <batteries/async/handler.hpp>\n#include <batteries/async/task.hpp>\n\n#include <batteries/asio/io_context.hpp>\n#include <batteries/asio/ip_tcp.hpp>\n\n#include <batteries/int_types.hpp>\n\n#include <boost/asio/bind_executor.hpp>\n#include <boost/asio/dispatch.hpp>\n#include <boost/asio/ssl/stream.hpp>\n#include <boost/asio/strand.hpp>\n\n#include <atomic>\n#include <functional>\n\nnamespace batt {\n\nclass SslTransport\n{\n   public:\n    explicit SslTransport(HttpClientHostContext& host_context) noexcept;\n\n    boost::asio::ip::tcp::endpoint local_endpoint(ErrorCode& ec) const noexcept;\n\n    boost::asio::ip::tcp::endpoint remote_endpoint(ErrorCode& ec) const noexcept;\n\n    bool is_open() const noexcept;\n\n    void close(ErrorCode& ec) noexcept;\n\n    void shutdown(boost::asio::socket_base::shutdown_type mode, ErrorCode& ec) noexcept;\n\n    template <typename Handler>\n    void async_connect(const boost::asio::ip::tcp::endpoint& ep, Handler&& handler);\n\n    template <typename MutableBufferSequence, typename Handler>\n    void async_read_some(MutableBufferSequence&& buffers, Handler&& handler);\n\n    template <typename ConstBufferSequence, typename Handler>\n    void async_write_some(ConstBufferSequence&& buffers, Handler&& handler);\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    boost::asio::io_context& io_;\n\n    const i64 stream_id_;\n\n    std::atomic<bool> close_initiated_;\n\n    Optional<boost::asio::ssl::context> ssl_context_;\n\n    boost::asio::ssl::stream<boost::asio::ip::tcp::socket> ssl_stream_;\n\n    boost::asio::basic_socket<boost::asio::ip::tcp>& socket_;\n\n    boost::asio::strand<boost::asio::any_io_executor> strand_;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename Handler>\ninline void SslTransport::async_connect(const boost::asio::ip::tcp::endpoint& ep, Handler&& handler)\n{\n    boost::asio::dispatch(\n        this->strand_,\n        bind_handler(\n            BATT_FORWARD(handler),  //\n            [this, ep](auto&& handler) {\n                //----- --- -- -  -  -   -\n                // On strand.\n                //\n                this->socket_.async_connect(\n                    ep, bind_executor(\n                            this->strand_,\n                            bind_handler(BATT_FORWARD(handler),  //\n                                         [this](auto&& handler, const ErrorCode& ec) {\n                                             //----- --- -- -  -  -   -\n                                             // On strand.\n                                             //\n                                             if (ec) {\n                                                 // Because this is a caller-supplied handler, we must\n                                                 // call it in the \"proper\" way by extracting its\n                                                 // associated executor and calling post, binding the\n                                                 // completion args.\n                                                 //\n                                                 post_handler(BATT_FORWARD(handler), ec);\n\n                                             } else {\n                                                 this->ssl_stream_.async_handshake(\n                                                     boost::asio::ssl::stream_base::client,\n                                                     bind_executor(\n                                                         this->strand_,\n                                                         bind_handler(\n                                                             BATT_FORWARD(handler),\n                                                             [this](auto&& handler, const ErrorCode& ec) {\n                                                                 //----- --- -- -  -  -   -\n                                                                 // On strand.\n\n                                                                 // If the handshake failed, then close\n                                                                 // the socket.\n                                                                 //\n                                                                 if (ec) {\n                                                                     ErrorCode close_ec;\n                                                                     this->socket_.close(close_ec);\n                                                                 }\n\n                                                                 // Reset the close flag.\n                                                                 //\n                                                                 this->close_initiated_.store(false);\n\n                                                                 // See comment above re: post_handler vs\n                                                                 // directly calling `handler`.\n                                                                 //\n                                                                 post_handler(BATT_FORWARD(handler), ec);\n                                                             })));\n                                             }\n                                         })));\n            }));\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename MutableBufferSequence, typename Handler>\ninline void SslTransport::async_read_some(MutableBufferSequence&& buffers, Handler&& handler)\n{\n    boost::asio::dispatch(\n        this->strand_,\n        bind_handler(BATT_FORWARD(handler), [this, buffers = BATT_FORWARD(buffers)](auto&& handler) mutable {\n            //----- --- -- -  -  -   -\n            // On strand.\n            //\n            this->ssl_stream_.async_read_some(std::move(buffers),\n                                              bind_executor(this->strand_, BATT_FORWARD(handler)));\n        }));\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename ConstBufferSequence, typename Handler>\ninline void SslTransport::async_write_some(ConstBufferSequence&& buffers, Handler&& handler)\n{\n    boost::asio::dispatch(\n        this->strand_,\n        bind_handler(BATT_FORWARD(handler), [this, buffers = BATT_FORWARD(buffers)](auto&& handler) mutable {\n            //----- --- -- -  -  -   -\n            // On strand.\n            //\n            this->ssl_stream_.async_write_some(std::move(buffers),\n                                               bind_executor(this->strand_, BATT_FORWARD(handler)));\n        }));\n}\n\n}  //namespace batt\n\n#endif  // BATTERIES_HTTP_SSL_TRANSPORT_HPP\n\n#if BATT_HEADER_ONLY\n#include <batteries/http/ssl_transport_impl.hpp>\n#endif  // BATT_HEADER_ONLY",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "An SSL/TLS based transport for HTTPS clients. ",
+      "category": "classes",
+      "fullname": "batt::SslTransport",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::SslTransport",
+      "refid": "classbatt_1_1SslTransport",
+      "summary": "An SSL/TLS based transport for HTTPS clients. ",
+      "title": "batt::SslTransport",
+      "url": "/_autogen/Classes/classbatt_1_1SslTransport/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "ssl__transport_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/http/ssl_transport.hpp",
+  "url": "/_autogen/Files/ssl__transport_8hpp/#file-ssl-transport.hpp",
+  "visibility": "public"
+}

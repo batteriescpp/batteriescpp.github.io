@@ -1,0 +1,671 @@
+{
+  "abstract": false,
+  "anchor": "#file-skip-list.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-skip-list-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SKIP_LIST_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 3,
+        "column": 9,
+        "file": "batteries/skip_list.hpp",
+        "line": 3
+      },
+      "name": "BATTERIES_SKIP_LIST_HPP",
+      "override": false,
+      "refid": "skip__list_8hpp_1a7e5e6031509e321c5c732472c033ee57",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SKIP_LIST_HPP",
+      "url": "/_autogen/Files/skip__list_8hpp/#define-batteries-skip-list-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-for-skip-level-2",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_FOR_SKIP_LEVEL_2",
+      "hasDetails": false,
+      "initializer": "macro((start)) macro(((start) + 1))",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 19,
+        "column": 9,
+        "file": "batteries/skip_list.hpp",
+        "line": 19
+      },
+      "name": "BATT_FOR_SKIP_LEVEL_2",
+      "override": false,
+      "params": [
+        {
+          "name": "start",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "macro",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "skip__list_8hpp_1af76cd697bb902c2b136f972922bf1177",
+      "static": false,
+      "strong": false,
+      "title": "BATT_FOR_SKIP_LEVEL_2",
+      "url": "/_autogen/Files/skip__list_8hpp/#define-batt-for-skip-level-2",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-for-skip-level-4",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_FOR_SKIP_LEVEL_4",
+      "hasDetails": false,
+      "initializer": "    BATT_FOR_SKIP_LEVEL_2(start, macro) BATT_FOR_SKIP_LEVEL_2((start) + 2, macro)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 21,
+        "column": 9,
+        "file": "batteries/skip_list.hpp",
+        "line": 21
+      },
+      "name": "BATT_FOR_SKIP_LEVEL_4",
+      "override": false,
+      "params": [
+        {
+          "name": "start",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "macro",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "skip__list_8hpp_1a3880c8dd39161285e1f81de6ffde3326",
+      "static": false,
+      "strong": false,
+      "title": "BATT_FOR_SKIP_LEVEL_4",
+      "url": "/_autogen/Files/skip__list_8hpp/#define-batt-for-skip-level-4",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-for-skip-level-8",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_FOR_SKIP_LEVEL_8",
+      "hasDetails": false,
+      "initializer": "    BATT_FOR_SKIP_LEVEL_4((start), macro) BATT_FOR_SKIP_LEVEL_4((start) + 4, macro)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 24,
+        "column": 9,
+        "file": "batteries/skip_list.hpp",
+        "line": 24
+      },
+      "name": "BATT_FOR_SKIP_LEVEL_8",
+      "override": false,
+      "params": [
+        {
+          "name": "start",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "macro",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "skip__list_8hpp_1a32e448e932502cba26123580308ae24a",
+      "static": false,
+      "strong": false,
+      "title": "BATT_FOR_SKIP_LEVEL_8",
+      "url": "/_autogen/Files/skip__list_8hpp/#define-batt-for-skip-level-8",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-for-skip-level-16",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_FOR_SKIP_LEVEL_16",
+      "hasDetails": false,
+      "initializer": "    BATT_FOR_SKIP_LEVEL_8((start), macro) BATT_FOR_SKIP_LEVEL_8((start) + 8, macro)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 27,
+        "column": 9,
+        "file": "batteries/skip_list.hpp",
+        "line": 27
+      },
+      "name": "BATT_FOR_SKIP_LEVEL_16",
+      "override": false,
+      "params": [
+        {
+          "name": "start",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "macro",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "skip__list_8hpp_1a572dbcb0a2dd3ef0321d5f5980907daf",
+      "static": false,
+      "strong": false,
+      "title": "BATT_FOR_SKIP_LEVEL_16",
+      "url": "/_autogen/Files/skip__list_8hpp/#define-batt-for-skip-level-16",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-for-skip-level-32",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_FOR_SKIP_LEVEL_32",
+      "hasDetails": false,
+      "initializer": "    BATT_FOR_SKIP_LEVEL_16((start), macro) BATT_FOR_SKIP_LEVEL_16((start) + 16, macro)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 30,
+        "column": 9,
+        "file": "batteries/skip_list.hpp",
+        "line": 30
+      },
+      "name": "BATT_FOR_SKIP_LEVEL_32",
+      "override": false,
+      "params": [
+        {
+          "name": "start",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "macro",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "skip__list_8hpp_1ab0e2269e9b151f568e37cb3e980e24c5",
+      "static": false,
+      "strong": false,
+      "title": "BATT_FOR_SKIP_LEVEL_32",
+      "url": "/_autogen/Files/skip__list_8hpp/#define-batt-for-skip-level-32",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-for-skip-level-64",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_FOR_SKIP_LEVEL_64",
+      "hasDetails": false,
+      "initializer": "    BATT_FOR_SKIP_LEVEL_32((start), macro) BATT_FOR_SKIP_LEVEL_32((start) + 32, macro)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 33,
+        "column": 9,
+        "file": "batteries/skip_list.hpp",
+        "line": 33
+      },
+      "name": "BATT_FOR_SKIP_LEVEL_64",
+      "override": false,
+      "params": [
+        {
+          "name": "start",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "macro",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "skip__list_8hpp_1a0bc1c1fd1bdf4d795de1aeb996bccbd2",
+      "static": false,
+      "strong": false,
+      "title": "BATT_FOR_SKIP_LEVEL_64",
+      "url": "/_autogen/Files/skip__list_8hpp/#define-batt-for-skip-level-64",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-for-all-skip-levels",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_FOR_ALL_SKIP_LEVELS",
+      "hasDetails": false,
+      "initializer": "    switch (height_expr) {                                                                                   \\\n        BATT_FOR_SKIP_LEVEL_64(1, macro)                                                                     \\\n                                                                                                             \\\n    default:                                                                                                 \\\n        BATT_PANIC() << \"Bad height value: \" << (height_expr);                                               \\\n        BATT_UNREACHABLE();                                                                                  \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 36,
+        "column": 9,
+        "file": "batteries/skip_list.hpp",
+        "line": 36
+      },
+      "name": "BATT_FOR_ALL_SKIP_LEVELS",
+      "override": false,
+      "params": [
+        {
+          "name": "height_expr",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "macro",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "skip__list_8hpp_1ad3ce633b3ca0c0ed2627b9a025582643",
+      "static": false,
+      "strong": false,
+      "title": "BATT_FOR_ALL_SKIP_LEVELS",
+      "url": "/_autogen/Files/skip__list_8hpp/#define-batt-for-all-skip-levels",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-return-new-skip-node",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_RETURN_NEW_SKIP_NODE",
+      "hasDetails": false,
+      "initializer": "    case (HEIGHT):                                                                                           \\\n        return new Derived<(HEIGHT)>{};",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "column": 9,
+        "file": "batteries/skip_list.hpp",
+        "line": 59
+      },
+      "name": "BATT_RETURN_NEW_SKIP_NODE",
+      "override": false,
+      "params": [
+        {
+          "name": "HEIGHT",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "skip__list_8hpp_1a7f7793d0ced1430ab41c274f2f3db533",
+      "static": false,
+      "strong": false,
+      "title": "BATT_RETURN_NEW_SKIP_NODE",
+      "url": "/_autogen/Files/skip__list_8hpp/#define-batt-return-new-skip-node",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-delete-skip-node",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_DELETE_SKIP_NODE",
+      "hasDetails": false,
+      "initializer": "    case (HEIGHT):                                                                                           \\\n        delete static_cast<Derived<(HEIGHT)>*>(this);                                                        \\\n        break;",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "column": 9,
+        "file": "batteries/skip_list.hpp",
+        "line": 68
+      },
+      "name": "BATT_DELETE_SKIP_NODE",
+      "override": false,
+      "params": [
+        {
+          "name": "HEIGHT",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "skip__list_8hpp_1a0c37f5754d61f796a8412a386fd9a50a",
+      "static": false,
+      "strong": false,
+      "title": "BATT_DELETE_SKIP_NODE",
+      "url": "/_autogen/Files/skip__list_8hpp/#define-batt-delete-skip-node",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/skip_list.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/skip_list.hpp",
+    "line": 0
+  },
+  "name": "batteries/skip_list.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "#pragma once\n#ifndef BATTERIES_SKIP_LIST_HPP\n#define BATTERIES_SKIP_LIST_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/int_types.hpp>\n#include <batteries/math.hpp>\n#include <batteries/optional.hpp>\n\n#include <pcg_random.hpp>\n\n#include <array>\n#include <bitset>\n#include <functional>\n\nnamespace batt {\n\n#define BATT_FOR_SKIP_LEVEL_2(start, macro) macro((start)) macro(((start) + 1))\n\n#define BATT_FOR_SKIP_LEVEL_4(start, macro)                                                                  \\\n    BATT_FOR_SKIP_LEVEL_2(start, macro) BATT_FOR_SKIP_LEVEL_2((start) + 2, macro)\n\n#define BATT_FOR_SKIP_LEVEL_8(start, macro)                                                                  \\\n    BATT_FOR_SKIP_LEVEL_4((start), macro) BATT_FOR_SKIP_LEVEL_4((start) + 4, macro)\n\n#define BATT_FOR_SKIP_LEVEL_16(start, macro)                                                                 \\\n    BATT_FOR_SKIP_LEVEL_8((start), macro) BATT_FOR_SKIP_LEVEL_8((start) + 8, macro)\n\n#define BATT_FOR_SKIP_LEVEL_32(start, macro)                                                                 \\\n    BATT_FOR_SKIP_LEVEL_16((start), macro) BATT_FOR_SKIP_LEVEL_16((start) + 16, macro)\n\n#define BATT_FOR_SKIP_LEVEL_64(start, macro)                                                                 \\\n    BATT_FOR_SKIP_LEVEL_32((start), macro) BATT_FOR_SKIP_LEVEL_32((start) + 32, macro)\n\n#define BATT_FOR_ALL_SKIP_LEVELS(height_expr, macro)                                                         \\\n    switch (height_expr) {                                                                                   \\\n        BATT_FOR_SKIP_LEVEL_64(1, macro)                                                                     \\\n                                                                                                             \\\n    default:                                                                                                 \\\n        BATT_PANIC() << \"Bad height value: \" << (height_expr);                                               \\\n        BATT_UNREACHABLE();                                                                                  \\\n    }\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\ntemplate <typename KeyT, typename ValueT, typename OrderFn, i32 kHeight>\nclass SkipNode;\n\ntemplate <typename KeyT, typename ValueT, typename OrderFn>\nclass SkipNodeBase\n{\n   public:\n    template <i32 kHeight>\n    using Derived = SkipNode<KeyT, ValueT, OrderFn, kHeight>;\n\n    static SkipNodeBase* allocate(i32 new_node_height)\n    {\n#define BATT_RETURN_NEW_SKIP_NODE(HEIGHT)                                                                    \\\n    case (HEIGHT):                                                                                           \\\n        return new Derived<(HEIGHT)>{};\n        //----- --- -- -  -  -   -\n\n        BATT_FOR_ALL_SKIP_LEVELS(new_node_height, BATT_RETURN_NEW_SKIP_NODE)\n    }\n\n    void deallocate()\n    {\n#define BATT_DELETE_SKIP_NODE(HEIGHT)                                                                        \\\n    case (HEIGHT):                                                                                           \\\n        delete static_cast<Derived<(HEIGHT)>*>(this);                                                        \\\n        break;\n        //----- --- -- -  -  -   -\n\n        BATT_FOR_ALL_SKIP_LEVELS(this->height_, BATT_DELETE_SKIP_NODE)\n    }\n\n    SkipNodeBase** get_next(i32 level);\n\n    const SkipNodeBase* const* get_next(i32 level) const;\n\n    Optional<KeyT> key_;\n    Optional<ValueT> value_;\n    i32 height_;\n};\n\ntemplate <typename KeyT, typename ValueT, typename OrderFn, i32 kHeight>\nclass SkipNode : public SkipNodeBase<KeyT, ValueT, OrderFn>\n{\n   public:\n    using Super = SkipNodeBase<KeyT, ValueT, OrderFn>;\n\n    SkipNode()\n    {\n        this->height_ = kHeight;\n        this->next_.fill(nullptr);\n    }\n\n    std::array<Super*, kHeight> next_;\n};\n\ntemplate <typename KeyT, typename ValueT, typename OrderFn = std::less<KeyT>, typename Rng = pcg64_unique>\nclass SkipList\n{\n   public:\n    template <i32 kHeight>\n    using Node = SkipNode<KeyT, ValueT, OrderFn, kHeight>;\n\n    using NodeBase = SkipNodeBase<KeyT, ValueT, OrderFn>;\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    SkipList() noexcept : rng_{}, active_levels_{0}, head_{}, size_{0}\n    {\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    i32 height() const noexcept\n    {\n        if (this->active_levels_ == 0) {\n            return 0;\n        }\n        return 64 - __builtin_clzll(this->active_levels_);\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    usize size() const noexcept\n    {\n        return this->size_;\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    bool empty() const noexcept\n    {\n        return this->size_ == 0;\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    const NodeBase* find(const KeyT& key) const noexcept\n    {\n        i32 height = this->height();\n        if (height == 0) {\n            return nullptr;\n        }\n        i32 level = height - 1;\n\n        OrderFn key_less_than;\n\n        const NodeBase* prev = &this->head_;\n        const NodeBase* next;\n        const NodeBase* const* p_next;\n\n        for (;;) {\n            p_next = prev->get_next(level);\n            next = *p_next;\n            if (!next || (next->key_ && key_less_than(key, *next->key_))) {\n                if (level == 0) {\n                    return prev;\n                }\n                --level;\n            } else {\n                prev = next;\n            }\n        }\n\n        BATT_UNREACHABLE();\n    }\n\n    template <typename KeyArg>\n    bool erase(const KeyArg& key_arg)\n    {\n        i32 height = this->height();\n        if (height == 0) {\n            return false;\n        }\n        i32 level = height - 1;\n\n        OrderFn key_less_than;\n\n        NodeBase* prev = &this->head_;\n        NodeBase* next;\n        NodeBase** p_next;\n        NodeBase* found = nullptr;\n\n        for (;;) {\n            p_next = prev->get_next(level);\n            next = *p_next;\n            if (next) {\n                BATT_CHECK(next->key_);\n                if (found || !key_less_than(key_arg, *next->key_)) {\n                    if (next == found || (!found && !key_less_than(*next->key_, key_arg))) {\n                        //\n                        // Keys are equal!\n\n                        if (found) {\n                            BATT_CHECK_EQ(found, next) << \"Same key found multiple times, different nodes!\";\n                        } else {\n                            found = next;\n                        }\n\n                        // Remove the node from this level of the list.\n                        //\n                        *p_next = *next->get_next(level);\n\n                    } else {\n                        prev = next;\n                        continue;\n                    }\n                }\n            }\n            if (level == 0) {\n                break;\n            }\n            --level;\n        }\n\n        if (found) {\n            for (i32 i = 0; i < height; ++i) {\n                if (!this->head_.next_[i]) {\n                    this->active_levels_ &= ~(u64{1} << i);\n                }\n            }\n            found->deallocate();\n        }\n\n        return found != nullptr;\n    }\n\n    template <typename KeyArg, typename ValueArg>\n    NodeBase* emplace(KeyArg&& key_arg, ValueArg&& value_arg)\n    {\n        i32 new_node_height = __builtin_clzll(this->rng_() | 1ull) + 1;\n\n        NodeBase* node = nullptr;\n\n        i32 this_height = this->height();\n        i32 level = this_height - 1;\n\n        OrderFn key_less_than;\n\n        NodeBase* prev = &this->head_;\n        NodeBase* next;\n        NodeBase** p_next;\n\n        std::array<NodeBase**, 64> p_next_stack;\n        for (i32 i = 0; i < new_node_height; ++i) {\n            p_next_stack[i] = &this->head_.next_[i];\n        }\n\n        while (level >= 0) {\n            p_next = prev->get_next(level);\n            next = *p_next;\n            if (next) {\n                BATT_CHECK(next->key_);\n                if (!key_less_than(key_arg, *next->key_)) {\n                    if (!key_less_than(*next->key_, key_arg)) {\n                        //\n                        // Keys are equal!\n\n                        node = next;\n                        node->value_.emplace(BATT_FORWARD(value_arg));\n                        break;\n\n                    } else {\n                        prev = next;\n                        continue;\n                    }\n                }\n            }\n            if (level < new_node_height) {\n                p_next_stack[level] = p_next;\n            }\n            --level;\n        }\n\n        if (!node) {\n            node = NodeBase::allocate(new_node_height);\n            BATT_ASSERT_EQ(node->height_, new_node_height);\n\n            node->key_.emplace(BATT_FORWARD(key_arg));\n            node->value_.emplace(BATT_FORWARD(value_arg));\n\n            for (i32 i = 0; i < new_node_height; ++i) {\n                BATT_ASSERT_NOT_NULLPTR(p_next_stack[i]);\n                *node->get_next(i) = *p_next_stack[i];\n                *p_next_stack[i] = node;\n            }\n\n            this->active_levels_ |= (u64{1} << new_node_height) - 1;\n            this->size_ += 1;\n        }\n\n        return node;\n    }\n\n    void check_invariants() const\n    {\n        for (i32 level = 0; level < i32(this->head_.next_.size()); ++level) {\n            u64 mask = u64{1} << level;\n            NodeBase* node = this->head_.next_[level];\n\n            BATT_CHECK_EQ((node != nullptr), ((this->active_levels_ & mask) != 0))\n                << BATT_INSPECT((void*)node) << BATT_INSPECT(std::bitset<16>{this->active_levels_})\n                << BATT_INSPECT(std::bitset<16>{mask}) << BATT_INSPECT(level);\n\n            Optional<KeyT> prev_key = this->head_.key_;\n            OrderFn key_less_than;\n            while (node) {\n                BATT_CHECK(node->key_);\n                if (prev_key) {\n                    BATT_CHECK(key_less_than(*prev_key, *node->key_))\n                        << BATT_INSPECT(prev_key) << BATT_INSPECT(node->key_);\n                }\n                BATT_CHECK_GT(node->height_, level);\n                prev_key = node->key_;\n                node = *node->get_next(level);\n            }\n        }\n    }\n\n    Rng rng_;\n    u64 active_levels_;\n    Node<64> head_;\n    usize size_;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\ntemplate <typename KeyT, typename ValueT, typename OrderFn>\nauto SkipNodeBase<KeyT, ValueT, OrderFn>::get_next(i32 level) -> SkipNodeBase**\n{\n    auto* node1 = static_cast<SkipNode<KeyT, ValueT, OrderFn, 1>*>(this);\n    return &node1->next_[level];\n}\n\ntemplate <typename KeyT, typename ValueT, typename OrderFn>\nauto SkipNodeBase<KeyT, ValueT, OrderFn>::get_next(i32 level) const -> const SkipNodeBase* const*\n{\n    auto* node1 = static_cast<const SkipNode<KeyT, ValueT, OrderFn, 1>*>(this);\n    return &node1->next_[level];\n}\n\n}  //namespace batt\n\n#endif  // BATTERIES_SKIP_LIST_HPP",
+  "publicAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-key-",
+      "category": "attributes",
+      "const": false,
+      "definition": "Optional<KeyT> key_",
+      "explicit": false,
+      "fullname": "skip_list.hpp::key_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 80,
+        "column": 14,
+        "file": "batteries/skip_list.hpp",
+        "line": 80
+      },
+      "name": "key_",
+      "override": false,
+      "refid": "skip__list_8hpp_1a81b098673ebf88b95dca8880d6be4802",
+      "static": false,
+      "strong": false,
+      "title": "key_",
+      "type": "Optional< KeyT >",
+      "typePlain": "Optional< KeyT >",
+      "url": "/_autogen/Files/skip__list_8hpp/#variable-key-",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-value-",
+      "category": "attributes",
+      "const": false,
+      "definition": "Optional<ValueT> value_",
+      "explicit": false,
+      "fullname": "skip_list.hpp::value_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 81,
+        "column": 14,
+        "file": "batteries/skip_list.hpp",
+        "line": 81
+      },
+      "name": "value_",
+      "override": false,
+      "refid": "skip__list_8hpp_1a65ad0339029da7b1e01cdee9f241f153",
+      "static": false,
+      "strong": false,
+      "title": "value_",
+      "type": "Optional< ValueT >",
+      "typePlain": "Optional< ValueT >",
+      "url": "/_autogen/Files/skip__list_8hpp/#variable-value-",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-height-",
+      "category": "attributes",
+      "const": false,
+      "definition": "i32 height_",
+      "explicit": false,
+      "fullname": "skip_list.hpp::height_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 82,
+        "column": 9,
+        "file": "batteries/skip_list.hpp",
+        "line": 82
+      },
+      "name": "height_",
+      "override": false,
+      "refid": "skip__list_8hpp_1a6d134715cd65d5c3390494ab5c306da9",
+      "static": false,
+      "strong": false,
+      "title": "height_",
+      "type": "i32",
+      "typePlain": "i32",
+      "url": "/_autogen/Files/skip__list_8hpp/#variable-height-",
+      "visibility": "public"
+    }
+  ],
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::SkipNodeBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::SkipNodeBase",
+      "refid": "classbatt_1_1SkipNodeBase",
+      "title": "batt::SkipNodeBase",
+      "url": "/_autogen/Classes/classbatt_1_1SkipNodeBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "SkipNodeBase< KeyT, ValueT, OrderFn >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "SkipNode",
+      "kind": "class",
+      "language": "cpp",
+      "name": "SkipNode",
+      "refid": "classSkipNode",
+      "title": "SkipNode",
+      "url": "/_autogen/Classes/classSkipNode/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "SkipList",
+      "kind": "class",
+      "language": "cpp",
+      "name": "SkipList",
+      "refid": "classSkipList",
+      "title": "SkipList",
+      "url": "/_autogen/Classes/classSkipList/",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-deallocate",
+      "argsString": "()",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void deallocate",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "skip_list.hpp::deallocate",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 74,
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 66,
+        "column": 10,
+        "file": "batteries/skip_list.hpp",
+        "line": 66
+      },
+      "name": "deallocate",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "skip__list_8hpp_1a2d68be4fd20ffdd7f7a9b51579eacc2f",
+      "static": false,
+      "strong": false,
+      "title": "deallocate",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Files/skip__list_8hpp/#function-deallocate",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get-next",
+      "argsString": "(i32 level)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "const SkipNodeBase *const  * get_next",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "skip_list.hpp::get_next",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 18,
+        "file": "batteries/skip_list.hpp",
+        "line": 76
+      },
+      "name": "get_next",
+      "override": false,
+      "params": [
+        {
+          "name": "level",
+          "type": "i32",
+          "typePlain": "i32"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "skip__list_8hpp_1a716f857314282285d0cf6fcea7ed2f7f",
+      "static": false,
+      "strong": false,
+      "title": "get_next",
+      "type": "SkipNodeBase **",
+      "typePlain": "SkipNodeBase **",
+      "url": "/_autogen/Files/skip__list_8hpp/#function-get-next",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "skip__list_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/skip_list.hpp",
+  "url": "/_autogen/Files/skip__list_8hpp/#file-skip-list.hpp",
+  "visibility": "public"
+}
