@@ -1,0 +1,432 @@
+{
+  "abstract": false,
+  "anchor": "#file-metric-collectors.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-metrics-metric-collectors-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_METRICS_METRIC_COLLECTORS_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/metrics/metric_collectors.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_METRICS_METRIC_COLLECTORS_HPP",
+      "override": false,
+      "refid": "metric__collectors_8hpp_1a4cefebe3a045bb32373adc1b83ea3165",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_METRICS_METRIC_COLLECTORS_HPP",
+      "url": "/_autogen/Files/metric__collectors_8hpp/#define-batteries-metrics-metric-collectors-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-collect-latency",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_COLLECT_LATENCY",
+      "hasDetails": false,
+      "initializer": "    [&] {                                                                                                    \\\n        ::batt::LatencyTimer ANONYMOUS_latency_timer_{(metric)};                                             \\\n        return expr;                                                                                         \\\n    }()",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/metrics/metric_collectors.hpp",
+        "bodyStart": 808,
+        "column": 9,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 808
+      },
+      "name": "BATT_COLLECT_LATENCY",
+      "override": false,
+      "params": [
+        {
+          "name": "metric",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "metric__collectors_8hpp_1a55ecd17235f9ab24f487f97744e83dff",
+      "static": false,
+      "strong": false,
+      "title": "BATT_COLLECT_LATENCY",
+      "url": "/_autogen/Files/metric__collectors_8hpp/#define-batt-collect-latency",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-collect-latency-n",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_COLLECT_LATENCY_N",
+      "hasDetails": false,
+      "initializer": "    [&] {                                                                                                    \\\n        ::batt::LatencyTimer ANONYMOUS_latency_timer_{(metric), (count_delta)};                              \\\n        return expr;                                                                                         \\\n    }()",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/metrics/metric_collectors.hpp",
+        "bodyStart": 814,
+        "column": 9,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 814
+      },
+      "name": "BATT_COLLECT_LATENCY_N",
+      "override": false,
+      "params": [
+        {
+          "name": "metric",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "expr",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "count_delta",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "metric__collectors_8hpp_1abd3f557dd9f1e68aafec5c7a158bb75d",
+      "static": false,
+      "strong": false,
+      "title": "BATT_COLLECT_LATENCY_N",
+      "url": "/_autogen/Files/metric__collectors_8hpp/#define-batt-collect-latency-n",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-collect-latency-sample",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_COLLECT_LATENCY_SAMPLE",
+      "hasDetails": false,
+      "initializer": "    [&] {                                                                                                    \\\n        if (::batt::sample_metric_at_rate((rate_spec))) {                                                    \\\n            ::batt::LatencyTimer ANONYMOUS_latency_timer_{(metric)};                                         \\\n            return expr;                                                                                     \\\n        }                                                                                                    \\\n        return expr;                                                                                         \\\n    }()",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/metrics/metric_collectors.hpp",
+        "bodyStart": 820,
+        "column": 9,
+        "file": "batteries/metrics/metric_collectors.hpp",
+        "line": 820
+      },
+      "name": "BATT_COLLECT_LATENCY_SAMPLE",
+      "override": false,
+      "params": [
+        {
+          "name": "rate_spec",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "metric",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "metric__collectors_8hpp_1a3ffa551dba1c34e2595e536e430e333e",
+      "static": false,
+      "strong": false,
+      "title": "BATT_COLLECT_LATENCY_SAMPLE",
+      "url": "/_autogen/Files/metric__collectors_8hpp/#define-batt-collect-latency-sample",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/metrics/metric_collectors.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/metrics/metric_collectors.hpp",
+    "line": 0
+  },
+  "name": "batteries/metrics/metric_collectors.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/metrics",
+    "category": "dirs",
+    "fullname": "batteries/metrics",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/metrics",
+    "refid": "dir_5ba863940ce6067bb787d1b849676df9",
+    "title": "batteries/metrics",
+    "url": "/_autogen/Files/dir_5ba863940ce6067bb787d1b849676df9/#dir-batteries/metrics",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/metrics",
+      "category": "dirs",
+      "fullname": "batteries/metrics",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/metrics",
+      "refid": "dir_5ba863940ce6067bb787d1b849676df9",
+      "title": "batteries/metrics",
+      "url": "/_autogen/Files/dir_5ba863940ce6067bb787d1b849676df9/#dir-batteries/metrics",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2025 Anthony Paul Astolfi, Eitan Steiner\n//\n#pragma once\n#ifndef BATTERIES_METRICS_METRIC_COLLECTORS_HPP\n#define BATTERIES_METRICS_METRIC_COLLECTORS_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/strong_typedef.hpp>\n\n#include <pcg_random.hpp>\n\n#include <algorithm>\n#include <atomic>\n#include <chrono>\n#include <functional>\n#include <mutex>\n#include <ostream>\n#include <unordered_map>\n#include <vector>\n\nnamespace batt {\n\ntemplate <typename T>\nclass CountMetric\n{\n   public:\n    CountMetric() = default;\n\n    /*implicit*/ CountMetric(T init_val) noexcept : value_{init_val}\n    {\n    }\n\n    void set(T value)\n    {\n        this->value_.store(value, std::memory_order_relaxed);\n    }\n\n    void store(T value)\n    {\n        return this->set(value);\n    }\n\n    template <typename D>\n    void add(D delta)\n    {\n        this->value_.fetch_add(delta, std::memory_order_relaxed);\n    }\n\n    template <typename D>\n    decltype(auto) fetch_add(D delta)\n    {\n        return this->value_.fetch_add(delta, std::memory_order_relaxed);\n    }\n\n    operator T() const\n    {\n        return this->value_;\n    }\n\n    decltype(auto) operator++(int)\n    {\n        return this->value_++;\n    }\n\n    decltype(auto) operator++()\n    {\n        return ++this->value_;\n    }\n\n    template <typename D>\n    decltype(auto) operator+=(D delta)\n    {\n        return this->value_ += delta;\n    }\n\n    T get() const\n    {\n        return value_.load(std::memory_order_relaxed);\n    }\n\n    T load() const\n    {\n        return this->get();\n    }\n\n    void reset()\n    {\n        this->set(0);\n    }\n\n    void clamp_min(T lower_bound)\n    {\n        T observed = this->value_.load();\n        while (observed < lower_bound) {\n            if (value_.compare_exchange_weak(observed, lower_bound)) {\n                break;\n            }\n        }\n    }\n\n    void clamp_max(T upper_bound)\n    {\n        T observed = this->value_.load();\n        while (observed > upper_bound) {\n            if (value_.compare_exchange_weak(observed, upper_bound)) {\n                break;\n            }\n        }\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    std::atomic<T> value_{0};\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T, usize kMaxInstances = 4096>\nclass FastCountMetric\n{\n   public:\n    class GlobalState;\n\n    class PerThreadState\n    {\n       public:\n        friend class FastCountMetric;\n        friend class FastCountMetric::GlobalState;\n\n        struct Impl {\n            std::aligned_storage_t<sizeof(std::array<T, kMaxInstances>), alignof(T)> storage_;\n\n            T* counters_ = reinterpret_cast<T*>(std::addressof(this->storage_));\n\n            std::atomic<usize> counters_size_{0};\n\n            // Sanity check.\n            //\n            static_assert(sizeof(std::array<T, kMaxInstances>) >= sizeof(T) * kMaxInstances);\n\n            //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n            T* mutable_counter(usize id)\n            {\n                usize n = this->counters_size_.load();\n                if (n <= id) {\n                    BATT_ASSERT_LT(id, kMaxInstances);\n\n                    while (n <= id) {\n                        this->counters_[n] = T{};\n                        ++n;\n                    }\n                    this->counters_size_.store(n);\n                }\n                return std::addressof(this->counters_[id]);\n            }\n\n            T counter(usize id) const\n            {\n                if (BATT_HINT_TRUE(id < this->counters_size_.load())) {\n                    return this->counters_[id];\n                }\n                return T{};\n            }\n        };\n\n        friend class GlobalState;\n\n        static PerThreadState& instance();\n\n        //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n        PerThreadState(const PerThreadState&) = delete;\n        PerThreadState& operator=(const PerThreadState&) = delete;\n\n        ~PerThreadState() noexcept;\n\n        //+++++++++++-+-+--+----- --- -- -  -  -   -\n       private:\n        PerThreadState() = default;\n\n        //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n        Impl* impl_ = nullptr;\n    };\n\n    class GlobalState\n    {\n       public:\n        static GlobalState& instance()\n        {\n            static GlobalState* instance_ = new GlobalState;\n            return *instance_;\n        }\n\n        //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n        GlobalState(const GlobalState&) = delete;\n        GlobalState& operator=(const GlobalState&) = delete;\n\n        //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n        usize alloc_id()\n        {\n            usize id = this->next_id_.fetch_add(1);\n            if (id < kMaxInstances) {\n                return id;\n            }\n\n            // Allocating a never-used id failed; undo the increment to next_id_.\n            //\n            this->next_id_.fetch_sub(1);\n\n            // Attempt to allocate a recycled id from the available pool.\n            //\n            this->with_lock([&] {\n                if (!this->available_ids_.empty()) {\n                    id = this->available_ids_.back();\n                    this->available_ids_.pop_back();\n                }\n            });\n\n            BATT_CHECK_LT(id, kMaxInstances);\n            return id;\n        }\n\n        void recycle_id(usize id)\n        {\n            this->with_lock([&] {\n                // Make sure old values aren't seen by any future owners of this id.\n                //\n                this->set_counter_with_lock(id, T{});\n\n                // Add to the end of the pool.\n                //\n                this->available_ids_.emplace_back(id);\n            });\n        }\n\n        typename PerThreadState::Impl* add(PerThreadState* per_thread_state)\n        {\n            return this->with_lock([&] {\n                auto [iter, inserted] = this->thread_states_.emplace(per_thread_state, nullptr);\n                if (inserted) {\n                    BATT_CHECK_EQ(iter->second, nullptr);\n                    iter->second = new typename PerThreadState::Impl{};\n                } else {\n                    BATT_ASSERT_NOT_NULLPTR(iter->second);\n                }\n                return iter->second;\n            });\n        }\n\n        typename PerThreadState::Impl* remove(PerThreadState* per_thread_state)\n        {\n            return this->with_lock([&] {\n                if (per_thread_state->impl_ == nullptr) {\n                    auto iter = this->thread_states_.find(per_thread_state);\n                    if (iter != this->thread_states_.end()) {\n                        BATT_CHECK_NOT_NULLPTR(iter->second);\n                        per_thread_state->impl_ = iter->second;\n                    }\n                }\n                if (this->thread_states_.erase(per_thread_state) != 0) {\n                    const usize n_counters = per_thread_state->impl_->counters_size_.load();\n                    BATT_CHECK_LE(n_counters, kMaxInstances);\n\n                    if (this->reaped_counters_.size() < n_counters) {\n                        this->reaped_counters_.resize(n_counters, T{});\n                    }\n\n                    for (usize i = 0; i < n_counters; ++i) {\n                        this->reaped_counters_[i] += per_thread_state->impl_->counters_[i];\n                    }\n                }\n                return per_thread_state->impl_;\n            });\n        }\n\n        void set_counter(usize id, T new_value)\n        {\n            this->with_lock([&] {\n                this->set_counter_with_lock(id, new_value);\n            });\n        }\n\n        T get_counter(usize id)\n        {\n            T value = T{};\n            this->with_lock([&] {\n                if (id < this->reaped_counters_.size()) {\n                    value += this->reaped_counters_[id];\n                }\n                for (const auto& [p_state, p_impl] : this->thread_states_) {\n                    value += p_impl->counter(id);\n                }\n            });\n            return value;\n        }\n\n        //+++++++++++-+-+--+----- --- -- -  -  -   -\n       private:\n        GlobalState() = default;\n\n        //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n        template <typename ActionFn>\n        decltype(auto) with_lock(ActionFn&& action_fn)\n        {\n            std::unique_lock<std::mutex> lock{this->mutex_};\n            return BATT_FORWARD(action_fn)();\n        }\n\n        void set_counter_with_lock(usize id, T new_value)\n        {\n            if (id >= this->reaped_counters_.size()) {\n                this->reaped_counters_.resize(id + 1, T{});\n            }\n            this->reaped_counters_[id] = new_value;\n            for (const auto& [p_state, p_impl] : this->thread_states_) {\n                *p_impl->mutable_counter(id) = T{};\n            }\n        }\n\n        //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n        std::mutex mutex_;\n        std::atomic<usize> next_id_{0};\n        std::unordered_map<PerThreadState*, typename PerThreadState::Impl*> thread_states_;\n        std::vector<T> reaped_counters_;\n        std::vector<usize> available_ids_;\n    };\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    FastCountMetric() = default;\n\n    explicit FastCountMetric(T init_val) noexcept\n    {\n        *PerThreadState::instance().impl_->mutable_counter(this->id_) = init_val;\n    }\n\n    ~FastCountMetric() noexcept\n    {\n        GlobalState::instance().recycle_id(this->id_);\n    }\n\n    usize id() const\n    {\n        return this->id_;\n    }\n\n    template <typename D>\n    void add(D delta)\n    {\n        *PerThreadState::instance().impl_->mutable_counter(this->id_) += delta;\n    }\n\n    T get() const\n    {\n        return GlobalState::instance().get_counter(this->id_);\n    }\n\n    void set(T new_value)\n    {\n        GlobalState::instance().set_counter(this->id_, new_value);\n    }\n\n    void reset()\n    {\n        this->set(T{});\n    }\n\n    // Only needed for ScalarMetricExporter.\n    //\n    T load() const\n    {\n        return this->get();\n    }\n\n   private:\n    usize id_ = GlobalState::instance().alloc_id();\n};\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T, usize kMaxInstances>\ninline std::ostream& operator<<(std::ostream& out, const FastCountMetric<T, kMaxInstances>& m)\n{\n    return out << m.get();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T, usize kMaxInstances>\ninline /*static*/ auto FastCountMetric<T, kMaxInstances>::PerThreadState::instance() -> PerThreadState&\n{\n    thread_local PerThreadState instance_;\n\n    if (instance_.impl_ == nullptr) {\n        instance_.impl_ = GlobalState::instance().add(&instance_);\n        BATT_ASSERT_NOT_NULLPTR(instance_.impl_);\n    }\n    return instance_;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T, usize kMaxInstances>\ninline FastCountMetric<T, kMaxInstances>::PerThreadState::~PerThreadState() noexcept\n{\n    Impl* impl = GlobalState::instance().remove(this);\n    if (impl != nullptr) {\n        const usize n = impl->counters_size_.load();\n        for (usize i = 0; i < n; ++i) {\n            impl->counters_[i].~T();\n        }\n        delete impl;\n    }\n}\n\nnamespace detail {\n\ndouble calibrate_latency_timer_nanos();\n\ndouble get_latency_timer_overhead_nanos(bool recalibrate = false);\n\n}  //namespace detail\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\nclass LatencyMetric\n{\n   public:\n    void update(std::chrono::steady_clock::time_point start, u64 count_delta = 1)\n    {\n        return this->update(std::chrono::steady_clock::now() - start, count_delta);\n    }\n\n    void update(std::chrono::steady_clock::duration elapsed_duration, u64 count_delta = 1)\n    {\n        const i64 elapsed_nanos =\n            std::max<i64>(0, std::chrono::duration_cast<std::chrono::nanoseconds>(elapsed_duration).count());\n\n        this->total_nanos.add(elapsed_nanos);\n        this->count.add(count_delta);\n    }\n\n    double nonzero_count() const noexcept\n    {\n        auto value = this->count.get();\n        if (value != 0) {\n            return (double)value;\n        }\n        return 1e-100;\n    }\n\n    double nonzero_total_nanos() const noexcept\n    {\n        auto value = this->total_nanos.get();\n        if (value != 0) {\n            return (double)value;\n        }\n        return 1e-100;\n    }\n\n    double rate_per_second(bool calibrated = true) const noexcept\n    {\n        if (this->count.get() == 0) {\n            return 0;\n        }\n        double nanos_per_unit = this->average_nanos(calibrated);\n        if (nanos_per_unit <= 0) {\n            nanos_per_unit = 1e-100;\n        }\n        return 1e9 / nanos_per_unit;\n    }\n\n    double total_usec() const noexcept\n    {\n        return (double)this->total_nanos.get() / 1e3;\n    }\n\n    double total_msec() const noexcept\n    {\n        return (double)this->total_nanos.get() / 1e6;\n    }\n\n    double total_seconds() const noexcept\n    {\n        return (double)this->total_nanos.get() / 1e9;\n    }\n\n    double average_usec(bool calibrated = true) const noexcept\n    {\n        return this->average_nanos(calibrated) / 1000.0;\n    }\n\n    double average_nanos(bool calibrated = true) const noexcept\n    {\n        const u64 observed_nanos = this->total_nanos.get();\n        if (observed_nanos == 0) {\n            return 0;\n        }\n        auto avg = (double)observed_nanos / (double)this->count.get();\n        if (calibrated) {\n            avg = std::max<double>(0, avg - detail::get_latency_timer_overhead_nanos());\n        }\n        return avg;\n    }\n\n    void reset() noexcept\n    {\n        this->total_nanos.reset();\n        this->count.reset();\n    }\n\n    CountMetric<u64> total_nanos{0};\n    CountMetric<u64> count{0};\n};\n\ninline std::ostream& operator<<(std::ostream& out, const LatencyMetric& t) noexcept\n{\n    return out << t.average_usec() << \"us(n=\" << t.count << \");rate=\" << t.rate_per_second() << \"/s\";\n}\n\nnamespace detail {\n\ninline pcg64_unique& metric_sampler_thread_rng() noexcept\n{\n    thread_local pcg64_unique thread_rng;\n    return thread_rng;\n}\n\n}  //namespace detail\n\nBATT_STRONG_TYPEDEF(i32, Every2ToThe);\n\ninline bool sample_metric_at_rate(Every2ToThe inv_rate_log2) noexcept\n{\n    return (((u64{1} << inv_rate_log2) - 1) & detail::metric_sampler_thread_rng()()) == 0;\n}\n\ntemplate <i32 kInvRateLog2>\nstruct Every2ToTheConst {\n    static constexpr i32 value = kInvRateLog2;\n};\n\ntemplate <i32 kInvRateLog2>\ninline bool sample_metric_at_rate(Every2ToTheConst<kInvRateLog2>) noexcept\n{\n    static constexpr u64 kMask = (u64{1} << kInvRateLog2) - 1;\n    return (kMask & detail::metric_sampler_thread_rng()()) == 0;\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\nclass LatencyTimer\n{\n   public:\n    using Clock = std::chrono::steady_clock;\n    using TimePoint = Clock::time_point;\n\n    static double get_overhead_nanos()\n    {\n        return detail::get_latency_timer_overhead_nanos();\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    LatencyTimer() = default;\n\n    LatencyTimer(const LatencyTimer&) = delete;\n\n    LatencyTimer& operator=(const LatencyTimer&) = delete;\n\n    explicit LatencyTimer(LatencyMetric& metric, u64 delta = 1) noexcept : metric_{&metric}, delta_{delta}\n    {\n        this->reset_start_time();\n    }\n\n    template <typename RateSpec>\n    explicit LatencyTimer(RateSpec&& rate_spec, LatencyMetric& metric, u64 delta = 1) noexcept\n        : LatencyTimer{}\n    {\n        this->start_sampled(BATT_FORWARD(rate_spec), metric, delta);\n    }\n\n    ~LatencyTimer() noexcept\n    {\n        this->stop();\n    }\n\n    void start(LatencyMetric& metric, u64 delta = 1) noexcept\n    {\n        this->metric_ = &metric;\n        this->delta_ = delta;\n        this->reset_start_time();\n    }\n\n    template <typename RateSpec>\n    void start_sampled(RateSpec&& rate_spec, LatencyMetric& metric, u64 delta = 1) noexcept\n    {\n        if (sample_metric_at_rate(BATT_FORWARD(rate_spec))) {\n            this->metric_ = &metric;\n            this->delta_ = delta;\n            this->reset_start_time();\n        }\n    }\n\n    bool is_active() const noexcept\n    {\n        return this->metric_ != nullptr;\n    }\n\n    i64 read_nanos() const noexcept\n    {\n        return std::max<i64>(\n            0, std::chrono::duration_cast<std::chrono::nanoseconds>(Clock::now() - this->get_start_time())\n                   .count());\n    }\n\n    i64 read_usec() const noexcept\n    {\n        return this->read_nanos() / 1e3;\n    }\n\n    void stop() noexcept\n    {\n        if (this->metric_) {\n            this->metric_->update(this->get_start_time(), this->delta_);\n            this->get_start_time().~TimePoint();\n            this->metric_ = nullptr;\n        }\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    TimePoint& reset_start_time() noexcept\n    {\n        return *(new (&this->start_storage_) TimePoint{Clock::now()});\n    }\n\n    TimePoint& get_start_time() noexcept\n    {\n        return *reinterpret_cast<TimePoint*>(&this->start_storage_);\n    }\n\n    const TimePoint& get_start_time() const noexcept\n    {\n        return *reinterpret_cast<const TimePoint*>(&this->start_storage_);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    LatencyMetric* metric_ = nullptr;\n    u64 delta_;\n    std::aligned_storage_t<sizeof(TimePoint), alignof(TimePoint)> start_storage_;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\n#define BATT_COLLECT_LATENCY(metric, expr)                                                                   \\\n    [&] {                                                                                                    \\\n        ::batt::LatencyTimer ANONYMOUS_latency_timer_{(metric)};                                             \\\n        return expr;                                                                                         \\\n    }()\n\n#define BATT_COLLECT_LATENCY_N(metric, expr, count_delta)                                                    \\\n    [&] {                                                                                                    \\\n        ::batt::LatencyTimer ANONYMOUS_latency_timer_{(metric), (count_delta)};                              \\\n        return expr;                                                                                         \\\n    }()\n\n#define BATT_COLLECT_LATENCY_SAMPLE(rate_spec, metric, expr)                                                 \\\n    [&] {                                                                                                    \\\n        if (::batt::sample_metric_at_rate((rate_spec))) {                                                    \\\n            ::batt::LatencyTimer ANONYMOUS_latency_timer_{(metric)};                                         \\\n            return expr;                                                                                     \\\n        }                                                                                                    \\\n        return expr;                                                                                         \\\n    }()\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\nnamespace detail {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline double calibrate_latency_timer_nanos()\n{\n    constexpr usize kMinSamples = 10000;\n    constexpr usize kMaxSamples = 1000000;\n    constexpr usize kRequireStable = 10;\n    constexpr double kStableEpsilon = 0.02;\n    constexpr double kMultiplier = 0.5;\n\n    LatencyMetric noop_latency;\n\n    for (usize i = 0; i < kMinSamples; ++i) {\n        LatencyTimer timer{noop_latency};\n    }\n    BATT_CHECK_GT(noop_latency.total_nanos.get(), 0);\n\n    double timer_overhead_nanos = noop_latency.average_nanos(false);\n    usize i = 0;\n    usize stable_count = 0;\n\n    for (i = kMinSamples; i < kMaxSamples; ++i) {\n        {\n            LatencyTimer timer{noop_latency};\n        }\n        const double new_overhead_nanos = noop_latency.average_nanos(false);\n        const double epsilon = std::abs(timer_overhead_nanos - new_overhead_nanos);\n        timer_overhead_nanos = new_overhead_nanos;\n\n        if (epsilon < timer_overhead_nanos * kStableEpsilon) {\n            ++stable_count;\n            if (stable_count == kRequireStable) {\n                break;\n            }\n        } else {\n            stable_count = 0;\n        }\n    }\n\n    return std::max<double>(0, timer_overhead_nanos * kMultiplier);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline double get_latency_timer_overhead_nanos(bool recalibrate)\n{\n    static double cached_ = calibrate_latency_timer_nanos();\n    if (recalibrate) {\n        cached_ = calibrate_latency_timer_nanos();\n    }\n    return cached_;\n}\n\n}  //namespace detail\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\ntemplate <typename T>\nusing DerivedMetric = std::function<T()>;\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\ntemplate <typename T, i64 kDefaultIntervalSec = 2>\nclass RateMetric\n{\n   public:\n    using Self = RateMetric;\n\n    static constexpr i64 kDefaultIntervalUsec = kDefaultIntervalSec * 1000 * 1000;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    static const auto& base_time() noexcept\n    {\n        static const auto base_time_ = std::chrono::steady_clock::now();\n\n        return base_time_;\n    }\n\n    static i64 now_usec() noexcept\n    {\n        return std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::steady_clock::now() -\n                                                                     Self::base_time())\n            .count();\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    explicit RateMetric() noexcept : interval_usec_{Self::kDefaultIntervalUsec}\n    {\n    }\n\n    explicit RateMetric(double default_interval_sec) noexcept\n        : interval_usec_{static_cast<i64>(default_interval_sec * 1000.0 * 1000.0)}\n    {\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    i64 elapsed_usec() const noexcept\n    {\n        return Self::now_usec() - this->start_time_;\n    }\n\n    double elapsed_sec() const noexcept\n    {\n        return static_cast<double>(this->elapsed_usec) / (1000.0 * 1000.0);\n    }\n\n    void update(T value) noexcept\n    {\n        this->current_value_.store(value);\n\n        const i64 local_elapsed_usec = this->elapsed_usec();\n\n        if (local_elapsed_usec >= this->interval_usec_) {\n            this->start_time_.fetch_add(local_elapsed_usec / 2);\n            this->start_value_.store((value + this->start_value_.load()) / 2);\n        }\n    }\n\n    double get() const noexcept\n    {\n        return static_cast<double>(this->current_value_ - this->start_value_) * 1000000.0 /\n               static_cast<double>(this->elapsed_usec());\n    }\n\n   private:\n    const i64 interval_usec_;\n    std::atomic<i64> start_time_{Self::now_usec()};\n    std::atomic<T> start_value_{0};\n    std::atomic<T> current_value_;\n};\n\ntemplate <typename T>\nclass GaugeMetric\n{\n   public:\n    GaugeMetric() = default;\n\n    template <typename D>\n    void set(D sample) noexcept\n    {\n        this->value_.store(sample, std::memory_order_relaxed);\n    }\n\n    T load() const noexcept\n    {\n        return this->value_.load(std::memory_order_relaxed);\n    }\n\n   private:\n    std::atomic<T> value_{0};\n};\n\ntemplate <typename T>\nclass StatsMetric\n{\n   public:\n    StatsMetric() = default;\n\n    explicit StatsMetric(T init_val) noexcept : count_{1}, total_{init_val}, max_{init_val}, min_{init_val}\n    {\n    }\n\n    void reset()\n    {\n        this->count_.reset();\n        this->total_.reset();\n        this->max_.set(std::numeric_limits<T>::min());\n        this->min_.set(std::numeric_limits<T>::max());\n    }\n\n    template <typename D>\n    void update(D sample)\n    {\n        this->count_.fetch_add(1);\n        this->total_.fetch_add(sample);\n        this->max_.clamp_min(sample);\n        this->min_.clamp_max(sample);\n    }\n\n    T count() const\n    {\n        return this->count_.load();\n    }\n\n    T total() const\n    {\n        return this->total_.load();\n    }\n\n    T max() const\n    {\n        return this->max_.load();\n    }\n\n    T min() const\n    {\n        return this->min_.load();\n    }\n\n    double average() const\n    {\n        if (this->count() == 0) {\n            return 0;\n        }\n        return (double)this->total() / (double)this->count();\n    }\n\n   private:\n    CountMetric<T> count_{0};\n    CountMetric<T> total_{0};\n    CountMetric<T> max_{std::numeric_limits<T>::min()};\n    CountMetric<T> min_{std::numeric_limits<T>::max()};\n\n    friend class MetricRegistry;\n};\n\ntemplate <typename T>\ninline std::ostream& operator<<(std::ostream& out, const StatsMetric<T>& m)\n{\n    return out << \"{.n=\" << m.count() << \", .avg=\" << m.average() << \", .min=\" << m.min()\n               << \", .max=\" << m.max() << \",}\";\n}\n\ntemplate <typename T>\nclass HistogramMetric\n{\n   public:\n    static constexpr batt::int_types::i64 kMaxNumberOfIntervals = /*-inf...*/ 1 + 16 + /*...+inf*/ 1;\n\n    struct Bucket {\n        Bucket() = delete;\n\n        explicit Bucket(T upper, T count, T total) noexcept : upper{upper}, count{count}, total{total}\n        {\n        }\n\n        const T upper;\n        const T count;\n        const T total;\n    };\n\n    HistogramMetric() = default;\n\n    HistogramMetric(const HistogramMetric&) = delete;\n\n    HistogramMetric& operator=(const HistogramMetric&) = delete;\n\n    HistogramMetric(const batt::int_types::usize intervals, const T min_val, const T max_val)\n    {\n        BATT_CHECK(initialize(intervals, min_val, max_val)) << \"Histogram initialization failed\";\n    }\n\n    [[nodiscard]] bool initialize(const batt::int_types::usize intervals, const T min_val, const T max_val)\n    {\n        static_assert(std::is_integral<T>::value);\n        this->reset();\n        if (intervals < 1 || intervals > (kMaxNumberOfIntervals - 2) || min_val >= max_val) {\n            return false;\n        }\n        this->num_intervals_ = static_cast<T>(intervals);\n        this->min_val_ = min_val;\n        this->max_val_ = max_val;\n        // Add (divisor - 1) to emulate ceiling function.\n        this->per_bucket_range_ = (this->overall_range() + this->num_intervals_ - 1) / this->num_intervals_;\n        if (this->num_intervals_ > this->overall_range()) {\n            this->reset();\n            return false;\n        }\n        return true;\n    }\n\n    void reset()\n    {\n        this->clear();\n        this->num_intervals_ = 0u;\n        this->min_val_ = 0;\n        this->max_val_ = 0;\n        this->per_bucket_range_ = 0;\n    }\n\n    void clear()\n    {\n        for (auto& bucket : this->buckets_) {\n            bucket.reset();\n        }\n    }\n\n    inline batt::int_types::usize bucket_index(T sample) const noexcept\n    {\n        BATT_CHECK_NE(this->num_intervals_, 0u) << \"Histogram was not initialized\";\n        BATT_CHECK_NE(this->overall_range(), 0) << \"Histogram was not initialized\";\n\n        return [&] {\n            if (BATT_HINT_FALSE(sample > this->max_val_)) {  // Exceeds max\n                return this->num_intervals_ + 1;\n            } else if (BATT_HINT_FALSE(sample <= this->min_val_)) {  // Subceeds min\n                return 0;\n            } else {  // Find index of interval in range. Add (divisor - 1) to emulate ceiling function.\n                auto found = (this->num_intervals_ * (sample - this->min_val_) + this->overall_range() - 1) /\n                             this->overall_range();\n                if (sample <= this->upper_bound(found - 1)) {  // Adjust when interval rounded up\n                    --found;\n                }\n                return found;\n            }\n        }();\n    }\n\n    void update(T sample)\n    {\n        const auto index = this->bucket_index(sample);\n        if (index >= 0 && index < this->num_intervals_ + 2u) {\n            this->buckets_[index].update(sample);\n        }\n    }\n\n    std::vector<HistogramMetric<T>::Bucket> get() const\n    {\n        std::vector<HistogramMetric<T>::Bucket> buckets;\n        if (this->num_intervals_ > 0) {\n            for (usize i = 0; i < this->num_intervals_ + 2u; ++i) {\n                buckets.emplace_back(this->upper_bound(i), this->buckets_[i].count(),\n                                     this->buckets_[i].total());\n            }\n        }\n        return buckets;\n    }\n\n   private:\n    T upper_bound(batt::int_types::usize interval) const noexcept\n    {\n        BATT_CHECK_NE(this->num_intervals_, 0u) << \"Histogram was not initialized\";\n        BATT_CHECK_GE(this->num_intervals_ + 1u, interval) << \"Histogram interval out of bounds\";\n        if (interval == 0) {\n            return this->min_val_;\n        } else if (interval == this->num_intervals_ + 1u) {\n            return std::numeric_limits<T>::max();\n        } else {\n            const T upper_bound = this->min_val_ + this->per_bucket_range_ * static_cast<T>(interval);\n            return std::min(upper_bound, this->max_val_);\n        }\n    }\n\n    inline T overall_range() const noexcept\n    {\n        return (this->max_val_ - this->min_val_);\n    }\n\n    T num_intervals_{0};  // T instead of usize to minimize conversion during update-path arithmetic.\n    T min_val_{0};\n    T max_val_{0};\n    T per_bucket_range_{0};  // Cache division result to mitigate repetition during update-path arithmetic.\n    std::array<StatsMetric<T>, kMaxNumberOfIntervals> buckets_{};\n\n    friend class MetricRegistry;\n};\n\n}  // namespace batt\n\n#endif  // BATTERIES_METRICS_METRIC_COLLECTORS_HPP\n\n#if BATT_HEADER_ONLY\n#include <batteries/metrics/metric_collectors_impl.hpp>\n#endif  // BATT_HEADER_ONLY",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "A monotonic counter metric. ",
+      "category": "classes",
+      "fullname": "batt::CountMetric",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::CountMetric",
+      "refid": "classbatt_1_1CountMetric",
+      "summary": "A monotonic counter metric. ",
+      "title": "batt::CountMetric",
+      "url": "/_autogen/Classes/classbatt_1_1CountMetric/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "A counter metric that uses thread-local storage for fast updates, at the cost of slightly slower and less consistent reads. ",
+      "category": "classes",
+      "fullname": "batt::FastCountMetric",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::FastCountMetric",
+      "refid": "classbatt_1_1FastCountMetric",
+      "summary": "A counter metric that uses thread-local storage for fast updates, at the cost of slightly slower and less consistent reads. ",
+      "title": "batt::FastCountMetric",
+      "url": "/_autogen/Classes/classbatt_1_1FastCountMetric/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Holds an array of counters per each thread. ",
+      "category": "classes",
+      "fullname": "batt::FastCountMetric::PerThreadState",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::FastCountMetric::PerThreadState",
+      "refid": "classbatt_1_1FastCountMetric_1_1PerThreadState",
+      "summary": "Holds an array of counters per each thread. ",
+      "title": "batt::FastCountMetric::PerThreadState",
+      "url": "/_autogen/Classes/classbatt_1_1FastCountMetric_1_1PerThreadState/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::FastCountMetric::PerThreadState::Impl",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::FastCountMetric::PerThreadState::Impl",
+      "refid": "structbatt_1_1FastCountMetric_1_1PerThreadState_1_1Impl",
+      "title": "batt::FastCountMetric::PerThreadState::Impl",
+      "url": "/_autogen/Classes/structbatt_1_1FastCountMetric_1_1PerThreadState_1_1Impl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::FastCountMetric::GlobalState",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::FastCountMetric::GlobalState",
+      "refid": "classbatt_1_1FastCountMetric_1_1GlobalState",
+      "title": "batt::FastCountMetric::GlobalState",
+      "url": "/_autogen/Classes/classbatt_1_1FastCountMetric_1_1GlobalState/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::LatencyMetric",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::LatencyMetric",
+      "refid": "classbatt_1_1LatencyMetric",
+      "title": "batt::LatencyMetric",
+      "url": "/_autogen/Classes/classbatt_1_1LatencyMetric/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Specifies a constexpr (integral) exponential frequency. ",
+      "category": "classes",
+      "fullname": "batt::Every2ToTheConst",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::Every2ToTheConst",
+      "refid": "structbatt_1_1Every2ToTheConst",
+      "summary": "Specifies a constexpr (integral) exponential frequency. ",
+      "title": "batt::Every2ToTheConst",
+      "url": "/_autogen/Classes/structbatt_1_1Every2ToTheConst/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Takes a single latency sample and adds it to the metric passed in at construction time. ",
+      "category": "classes",
+      "fullname": "batt::LatencyTimer",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::LatencyTimer",
+      "refid": "classbatt_1_1LatencyTimer",
+      "summary": "Takes a single latency sample and adds it to the metric passed in at construction time. ",
+      "title": "batt::LatencyTimer",
+      "url": "/_autogen/Classes/classbatt_1_1LatencyTimer/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::RateMetric",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::RateMetric",
+      "refid": "classbatt_1_1RateMetric",
+      "title": "batt::RateMetric",
+      "url": "/_autogen/Classes/classbatt_1_1RateMetric/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "A Metric collector that stores and reports a single instantaneous value. ",
+      "category": "classes",
+      "fullname": "batt::GaugeMetric",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::GaugeMetric",
+      "refid": "classbatt_1_1GaugeMetric",
+      "summary": "A Metric collector that stores and reports a single instantaneous value. ",
+      "title": "batt::GaugeMetric",
+      "url": "/_autogen/Classes/classbatt_1_1GaugeMetric/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Collect count, total, max and min values for multiple samples. ",
+      "category": "classes",
+      "fullname": "batt::StatsMetric",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::StatsMetric",
+      "refid": "classbatt_1_1StatsMetric",
+      "summary": "Collect count, total, max and min values for multiple samples. ",
+      "title": "batt::StatsMetric",
+      "url": "/_autogen/Classes/classbatt_1_1StatsMetric/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Collect histogram values for multiple samples. ",
+      "category": "classes",
+      "fullname": "batt::HistogramMetric",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::HistogramMetric",
+      "refid": "classbatt_1_1HistogramMetric",
+      "summary": "Collect histogram values for multiple samples. ",
+      "title": "batt::HistogramMetric",
+      "url": "/_autogen/Classes/classbatt_1_1HistogramMetric/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Represents a single histogram bucket for reporting. ",
+      "category": "classes",
+      "fullname": "batt::HistogramMetric::Bucket",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::HistogramMetric::Bucket",
+      "refid": "structbatt_1_1HistogramMetric_1_1Bucket",
+      "summary": "Represents a single histogram bucket for reporting. ",
+      "title": "batt::HistogramMetric::Bucket",
+      "url": "/_autogen/Classes/structbatt_1_1HistogramMetric_1_1Bucket/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "metric__collectors_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/metrics/metric_collectors.hpp",
+  "url": "/_autogen/Files/metric__collectors_8hpp/#file-metric-collectors.hpp",
+  "visibility": "public"
+}

@@ -1,0 +1,163 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "baseClasses": [
+    {
+      "external": true,
+      "name": "SkipNodeBase< KeyT, ValueT, OrderFn >",
+      "refid": null,
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "SkipNode",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 98,
+    "bodyFile": "batteries/skip_list.hpp",
+    "bodyStart": 87,
+    "column": 1,
+    "file": "batteries/skip_list.hpp",
+    "line": 86
+  },
+  "name": "SkipNode",
+  "override": false,
+  "parent": null,
+  "publicAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-next-",
+      "category": "attributes",
+      "const": false,
+      "definition": "std::array<Super*, kHeight> SkipNode< KeyT, ValueT, OrderFn, kHeight >::next_",
+      "explicit": false,
+      "fullname": "SkipNode::next_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 97,
+        "column": 16,
+        "file": "batteries/skip_list.hpp",
+        "line": 97
+      },
+      "name": "next_",
+      "override": false,
+      "refid": "classSkipNode_1a48fcf6a30fc57475d84d858977b87491",
+      "static": false,
+      "strong": false,
+      "title": "next_",
+      "type": "std::array< Super *, kHeight >",
+      "typePlain": "std::array< Super *, kHeight >",
+      "url": "/_autogen/Classes/classSkipNode/#variable-next-",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-skipnode",
+      "argsString": "()",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "SkipNode< KeyT, ValueT, OrderFn, kHeight >::SkipNode",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "SkipNode::SkipNode",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 95,
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 91,
+        "column": 5,
+        "file": "batteries/skip_list.hpp",
+        "line": 91
+      },
+      "name": "SkipNode",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classSkipNode_1a55459581ac3c3c39ca3759f06477b332",
+      "static": false,
+      "strong": false,
+      "title": "SkipNode",
+      "url": "/_autogen/Classes/classSkipNode/#function-skipnode",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-super",
+      "category": "types",
+      "const": false,
+      "definition": "using SkipNode< KeyT, ValueT, OrderFn, kHeight >::Super =  SkipNodeBase<KeyT, ValueT, OrderFn>",
+      "explicit": false,
+      "fullname": "SkipNode::Super",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/skip_list.hpp",
+        "bodyStart": 89,
+        "column": 5,
+        "file": "batteries/skip_list.hpp",
+        "line": 89
+      },
+      "name": "Super",
+      "override": false,
+      "refid": "classSkipNode_1a49e6048685d0d89e744edadbf7a1d9db",
+      "static": false,
+      "strong": false,
+      "title": "Super",
+      "type": "SkipNodeBase< KeyT, ValueT, OrderFn >",
+      "typePlain": "SkipNodeBase< KeyT, ValueT, OrderFn >",
+      "url": "/_autogen/Classes/classSkipNode/#using-super",
+      "visibility": "public"
+    }
+  ],
+  "refid": "classSkipNode",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename KeyT",
+      "typePlain": "typename KeyT"
+    },
+    {
+      "name": "",
+      "type": "typename ValueT",
+      "typePlain": "typename ValueT"
+    },
+    {
+      "name": "",
+      "type": "typename OrderFn",
+      "typePlain": "typename OrderFn"
+    },
+    {
+      "name": "kHeight",
+      "type": "i32",
+      "typePlain": "i32"
+    }
+  ],
+  "title": "SkipNode",
+  "url": "/_autogen/Classes/classSkipNode/",
+  "visibility": "public"
+}

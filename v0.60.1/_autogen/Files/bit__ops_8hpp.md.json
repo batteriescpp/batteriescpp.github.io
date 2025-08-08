@@ -1,0 +1,105 @@
+{
+  "abstract": false,
+  "anchor": "#file-bit-ops.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batt-bit-select-iter",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_BIT_SELECT_ITER",
+      "hasDetails": false,
+      "initializer": "    ans = bit_rank(bit_set, probe);                                                                          \\\n    if (ans < rank) {                                                                                        \\\n        probe += step;                                                                                       \\\n    } else {                                                                                                 \\\n        probe -= step;                                                                                       \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "column": 9,
+        "file": "batteries/bit_ops.hpp",
+        "line": 220
+      },
+      "name": "BATT_BIT_SELECT_ITER",
+      "override": false,
+      "params": [
+        {
+          "name": "step",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "bit__ops_8hpp_1ada1a39bad4d01c34084bf84060f8e465",
+      "static": false,
+      "strong": false,
+      "title": "BATT_BIT_SELECT_ITER",
+      "url": "/_autogen/Files/bit__ops_8hpp/#define-batt-bit-select-iter",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/bit_ops.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/bit_ops.hpp",
+    "line": 0
+  },
+  "name": "batteries/bit_ops.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2025 Anthony Paul Astolfi\n//\n#pragma once\n\n#include <batteries/config.hpp>\n//\n#include <batteries/int_types.hpp>\n#include <batteries/interval.hpp>\n\n#ifdef __BMI2__\n#include <x86gprintrin.h>\n#endif  // __BMI2__\n\n#ifdef _MSC_VER\n#include <intrin.h>\n#define __builtin_clzll _lzcnt_u64\n#define __builtin_ctzll _tzcnt_u64\n#define __builtin_popcountll __popcnt64\n#endif\n\nnamespace batt {\n\ninline i32 bit_count(u64 n)\n{\n    return __builtin_popcountll(n);\n}\n\ninline i32 first_bit(u64 bit_set)\n{\n    if (bit_set == 0) {\n        return 64;\n    }\n    return __builtin_ctzll(bit_set);\n}\n\ninline i32 last_bit(u64 bit_set)\n{\n    if (bit_set == 0) {\n        return -1;\n    }\n    return 63 - __builtin_clzll(bit_set);\n}\n\ninline i32 next_bit(u64 bit_set, i32 index)\n{\n    const u64 mask = (u64{2} << index) - 1;\n    return first_bit(bit_set & ~mask);\n}\n\ninline i32 prev_bit(u64 bit_set, i32 index)\n{\n    const u64 mask = ((u64{1} << index) - 1);\n    return last_bit(bit_set & mask);\n}\n\ninline bool get_bit(u64 bit_set, i32 index)\n{\n    return (bit_set & (u64{1} << index)) != 0;\n}\n\n[[nodiscard]] inline u64 set_bit(u64 bit_set, i32 index, bool value)\n{\n    const u64 mask = u64{1} << index;\n    if (value) {\n        return bit_set | mask;\n    } else {\n        return bit_set & ~mask;\n    }\n}\n\n[[nodiscard]] inline u64 insert_bit(u64 bit_set, i32 index, bool value)\n{\n    const u64 lower_mask = (u64{1} << index) - 1;\n    const u64 upper_mask = ~lower_mask;\n\n    bit_set = (bit_set & lower_mask) | ((bit_set & upper_mask) << 1);\n    bit_set = set_bit(bit_set, index, value);\n\n    return bit_set;\n}\n\n[[nodiscard]] inline u64 remove_bit(u64 bit_set, i32 index)\n{\n    const u64 lower_mask = (u64{1} << index) - 1;\n    const u64 upper_mask = (~lower_mask) << 1;\n\n    return (bit_set & lower_mask) | ((bit_set & upper_mask) >> 1);\n}\n\ntemplate <typename IntT>\ninline u64 mask_from_interval(const CInterval<IntT>& i)\n{\n    u64 mask = (u64{1} << i.size()) - 1;\n    return mask << i.lower_bound;\n}\n\ninline i32 bit_rank(u64 bit_set, i32 index)\n{\n    if (index > 63) {\n        index = 63;\n    }\n    return __builtin_popcountll(bit_set & ((u64{2} << index) - 1)) - 1;\n}\n\ninline i32 bit_select(u64 bit_set, i32 rank)\n{\n#ifdef __BMI2__\n\n    // Use BMI2 instructions to accelerate this operation, if available.\n    //\n    const u64 tmp = _pdep_u64((u64{1} << (rank + 1)) - 1, bit_set);\n    if (tmp == 0) {\n        return 0;\n    }\n    return (63 - __builtin_clzll(tmp));\n\n#else\n\n    // Fall-back portable implementation: do O(log_2(64)) probes using bit_rank to quickly\n    // narrow in on the correct value.  This could be written as a loop, but since we know\n    // the maximum number of iterations (log_2(64)==6), we just manually unroll.\n    //\n    i32 ans;\n    i32 probe = 31;\n\n    // Starting at the middle (bit 31), probe bit_rank and move up or down by an exponentially decreasing\n    // amount each iteration.  NOTE: because `bit_select` must return the _least_ index with the specified\n    // rank, we can't return early if we find a perfect match, since there may be a lower-valued one.  This\n    // also means that the way the conditional in the macro below is written is very important: if ans ==\n    // rank, we must move DOWN.\n    //\n#define BATT_BIT_SELECT_ITER(step)                                                                           \\\n    ans = bit_rank(bit_set, probe);                                                                          \\\n    if (ans < rank) {                                                                                        \\\n        probe += step;                                                                                       \\\n    } else {                                                                                                 \\\n        probe -= step;                                                                                       \\\n    }\n\n    BATT_BIT_SELECT_ITER(16)\n    BATT_BIT_SELECT_ITER(8)\n    BATT_BIT_SELECT_ITER(4)\n    BATT_BIT_SELECT_ITER(2)\n    BATT_BIT_SELECT_ITER(1)\n    BATT_BIT_SELECT_ITER(0)\n\n    // Do the cheapest check first; is probe exactly right?\n    //\n    if (ans == rank) {\n        return probe;\n    }\n\n    // Otherwise, since we have narrowed the `step` down to 0 by repeated divisions by 2, we know that the\n    // correct value is at most off by one.  Handle both cases below.\n    //\n    if (ans < rank) {\n        return probe + 1;\n    }\n    return probe - 1;\n\n#undef BATT_BIT_SELECT_ITER\n\n#endif  // __BMI2__\n}\n\n}  // namespace batt",
+  "refid": "bit__ops_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/bit_ops.hpp",
+  "url": "/_autogen/Files/bit__ops_8hpp/#file-bit-ops.hpp",
+  "visibility": "public"
+}
