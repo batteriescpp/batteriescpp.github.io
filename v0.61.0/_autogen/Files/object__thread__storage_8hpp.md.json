@@ -1,0 +1,99 @@
+{
+  "abstract": false,
+  "anchor": "#file-object-thread-storage.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-object-thread-storage-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_OBJECT_THREAD_STORAGE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/object_thread_storage.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/object_thread_storage.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_OBJECT_THREAD_STORAGE_HPP",
+      "override": false,
+      "refid": "object__thread__storage_8hpp_1a680af534cf60aacd9a9aa65b33e05f74",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_OBJECT_THREAD_STORAGE_HPP",
+      "url": "/_autogen/Files/object__thread__storage_8hpp/#define-batteries-object-thread-storage-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/object_thread_storage.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/object_thread_storage.hpp",
+    "line": 0
+  },
+  "name": "batteries/object_thread_storage.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2025 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_OBJECT_THREAD_STORAGE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/finally.hpp>\n#include <batteries/hint.hpp>\n#include <batteries/int_types.hpp>\n\n#include <memory>\n#include <mutex>\n#include <unordered_set>\n#include <vector>\n\nnamespace batt {\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T>\nclass ObjectThreadStorage\n{\n   public:\n    using Self = ObjectThreadStorage;\n\n    static constexpr usize kInvalidSlot = ~usize{0} >> 24;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    static Self& instance()\n    {\n        // Intentionally leak `instance_` to avoid dtor ordering problems on shutdown.\n        //\n        static Self* instance_ = new Self{};\n\n        return *instance_;\n    }\n\n    template <typename... Args>\n    static T& get_slot(usize slot_i, Args&&... args)\n    {\n        thread_local std::vector<std::unique_ptr<T>> slots_;\n\n        thread_local bool initialized_ = [&] {\n            Self& self = Self::instance();\n            std::unique_lock<std::mutex> lock{self.mutex_};\n            auto [iter, inserted] = self.thread_states_.emplace(std::addressof(slots_));\n            BATT_CHECK(inserted);\n            return true;\n        }();\n\n        thread_local auto on_scope_exit = batt::finally([&] {\n            Self& self = Self::instance();\n            std::unique_lock<std::mutex> lock{self.mutex_};\n            self.thread_states_.erase(std::addressof(slots_));\n        });\n\n        BATT_ASSERT(initialized_);\n\n        if (BATT_HINT_FALSE(slots_.size() <= slot_i)) {\n            slots_.resize(slot_i + 1);\n        }\n        std::unique_ptr<T>& state = slots_[slot_i];\n\n        if (!state) {\n            state = std::make_unique<T>(BATT_FORWARD(args)...);\n        }\n        return *state;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    // Forward-declare.\n    //\n    class ScopedSlot;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    usize alloc_slot()\n    {\n        std::unique_lock<std::mutex> lock{this->mutex_};\n\n        if (!this->slot_pool_.empty()) {\n            const usize slot_i = this->slot_pool_.back();\n            this->slot_pool_.pop_back();\n            return slot_i;\n        }\n\n        const usize new_slot_i = this->total_slots_created_;\n        ++this->total_slots_created_;\n\n        BATT_CHECK_LT(new_slot_i, Self::kInvalidSlot);\n\n        return new_slot_i;\n    }\n\n    void free_slot(usize slot_i)\n    {\n        if (slot_i == kInvalidSlot) {\n            return;\n        }\n        BATT_CHECK_LT(slot_i, kInvalidSlot);\n\n        // Instead of deleting objects with the mutex held, we transfer ownership to this local vector, then\n        // destroy them all at the end.\n        //\n        std::vector<std::unique_ptr<T>> to_destruct;\n        {\n            std::unique_lock<std::mutex> lock{this->mutex_};\n\n            for (std::vector<std::unique_ptr<T>>* per_thread : this->thread_states_) {\n                BATT_CHECK_NOT_NULLPTR(per_thread);\n\n                // If a given thread's slot vector is smaller than slot_i + 1, then this slot index was never\n                // used on that thread; just continue.\n                //\n                if (slot_i < per_thread->size()) {\n                    to_destruct.emplace_back(std::move((*per_thread)[slot_i]));\n                    BATT_CHECK_EQ((*per_thread)[slot_i], nullptr);\n                }\n            }\n\n            this->slot_pool_.emplace_back(slot_i);\n        }\n        // to_destruct's dtor runs, freeing all instances of T for the given slot.\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    // Protects all state of this class against data races.\n    //\n    std::mutex mutex_;\n\n    // Slot indices which were allocated but are currently available.  We want to re-use these so that the\n    // per-thread vectors don't grow unbounded over time.\n    //\n    std::vector<usize> slot_pool_;\n\n    // Keeps track of the minimum unused slot index value, in case `this->slot_pool_` is empty.\n    //\n    usize total_slots_created_ = 0;\n\n    // Each thread registers its slot vector inside `get_slot`; we track these here so that per-object,\n    // per-thread instances of T can be destructed when their `ScopedSlot` is deleted.\n    //\n    std::unordered_set<std::vector<std::unique_ptr<T>>*> thread_states_;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T>\nclass ObjectThreadStorage<T>::ScopedSlot\n{\n   public:\n    static constexpr usize kInvalidSlot = ObjectThreadStorage<T>::kInvalidSlot;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    explicit ScopedSlot() noexcept : slot_i_{ObjectThreadStorage<T>::instance().alloc_slot()}\n    {\n    }\n\n    ~ScopedSlot() noexcept\n    {\n        ObjectThreadStorage<T>::instance().free_slot(this->slot_i_);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    ScopedSlot(const ScopedSlot&) = delete;\n\n    ScopedSlot& operator=(const ScopedSlot&) = delete;\n\n    ScopedSlot(ScopedSlot&& that) noexcept : slot_i_{that.slot_i_}\n    {\n        that.slot_i_ = ObjectThreadStorage<T>::kInvalidSlot;\n    }\n\n    ScopedSlot& operator=(ScopedSlot&& that) noexcept\n    {\n        ScopedSlot tmp{std::move(that)};\n        std::swap(tmp.slot_i_, this->slot_i_);\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    bool is_valid() const noexcept\n    {\n        return this->slot_i_ != ObjectThreadStorage<T>::kInvalidSlot;\n    }\n\n    usize index() const noexcept\n    {\n        return this->slot_i_;\n    }\n\n    template <typename... Args>\n    T& get(Args&&... args) const\n    {\n        return ObjectThreadStorage<T>::get_slot(this->slot_i_, BATT_FORWARD(args)...);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    // The slot index.\n    //\n    usize slot_i_;\n};\n\n}  // namespace batt",
+  "refid": "object__thread__storage_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/object_thread_storage.hpp",
+  "url": "/_autogen/Files/object__thread__storage_8hpp/#file-object-thread-storage.hpp",
+  "visibility": "public"
+}
