@@ -1,0 +1,654 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "friends": [
+    {
+      "abstract": false,
+      "anchor": "#friend-smallfn",
+      "argsString": "",
+      "category": "friends",
+      "const": false,
+      "default": false,
+      "definition": "friend class SmallFn",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::kAllowAlloc::SmallFn",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "friend",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 230,
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 230
+      },
+      "name": "SmallFn",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[SmallFn](/_autogen/Classes/classbatt_1_1SmallFn/)",
+          "typePlain": "SmallFn"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1kAllowAlloc_1a88e2e096d55a17b37ad7e20f03f7727e",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        },
+        {
+          "name": "",
+          "type": "usize",
+          "typePlain": "usize"
+        },
+        {
+          "name": "",
+          "type": "bool",
+          "typePlain": "bool"
+        },
+        {
+          "name": "",
+          "type": "bool",
+          "typePlain": "bool"
+        }
+      ],
+      "title": "SmallFn",
+      "type": "class",
+      "typePlain": "class",
+      "url": "/_autogen/Classes/classbatt_1_1kAllowAlloc/#friend-smallfn",
+      "virtual": false,
+      "visibility": "private"
+    }
+  ],
+  "fullname": "batt::kAllowAlloc",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 388,
+    "bodyFile": "batteries/small_fn.hpp",
+    "bodyStart": 228,
+    "column": 1,
+    "file": "batteries/small_fn.hpp",
+    "line": 227
+  },
+  "name": "batt::kAllowAlloc",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "privateFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-check-fn-size",
+      "argsString": "(Fn &&fn) -> Fn &&",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static auto batt::kAllowAlloc< Args, Result, kMaxSize, kMoveOnly, kAllowAlloc >::check_fn_size",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::kAllowAlloc::check_fn_size",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 261,
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 255,
+        "column": 17,
+        "file": "batteries/small_fn.hpp",
+        "line": 255
+      },
+      "name": "check_fn_size",
+      "override": false,
+      "params": [
+        {
+          "name": "fn",
+          "type": "Fn &&",
+          "typePlain": "Fn &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1kAllowAlloc_1ac13ebd83eaa4a279b00437b8e851e603",
+      "static": true,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        }
+      ],
+      "title": "check_fn_size",
+      "type": "auto",
+      "typePlain": "auto",
+      "url": "/_autogen/Classes/classbatt_1_1kAllowAlloc/#function-check-fn-size",
+      "virtual": false,
+      "visibility": "private"
+    }
+  ],
+  "privateTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-abstractfn",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::kAllowAlloc< Args, Result, kMaxSize, kMoveOnly, kAllowAlloc >::AbstractFn =  detail::AbstractFn<kMoveOnly, Result, Args...>",
+      "explicit": false,
+      "fullname": "batt::kAllowAlloc::AbstractFn",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 234,
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 234
+      },
+      "name": "AbstractFn",
+      "override": false,
+      "refid": "classbatt_1_1kAllowAlloc_1ae4fabfa55e3abf40fe668fedfefd7a73",
+      "static": false,
+      "strong": false,
+      "title": "AbstractFn",
+      "type": "detail::AbstractFn< kMoveOnly, Result, Args... >",
+      "typePlain": "detail::AbstractFn< kMoveOnly, Result, Args... >",
+      "url": "/_autogen/Classes/classbatt_1_1kAllowAlloc/#using-abstractfn",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-noallocfnimpl",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::kAllowAlloc< Args, Result, kMaxSize, kMoveOnly, kAllowAlloc >::NoAllocFnImpl =  detail::FnImpl<Fn, kMoveOnly, Result, Args...>",
+      "explicit": false,
+      "fullname": "batt::kAllowAlloc::NoAllocFnImpl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 239,
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 239
+      },
+      "name": "NoAllocFnImpl",
+      "override": false,
+      "refid": "classbatt_1_1kAllowAlloc_1a14634348bb69d05397014f4aeba74df0",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        }
+      ],
+      "title": "NoAllocFnImpl",
+      "type": "detail::FnImpl< Fn, kMoveOnly, Result, Args... >",
+      "typePlain": "detail::FnImpl< Fn, kMoveOnly, Result, Args... >",
+      "url": "/_autogen/Classes/classbatt_1_1kAllowAlloc/#using-noallocfnimpl",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-allocfnimpl",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::kAllowAlloc< Args, Result, kMaxSize, kMoveOnly, kAllowAlloc >::AllocFnImpl =  detail::FnImpl<detail::AllocFnWrapper<Fn, kMoveOnly, Result, Args...>, kMoveOnly, Result, Args...>",
+      "explicit": false,
+      "fullname": "batt::kAllowAlloc::AllocFnImpl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 245,
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 244
+      },
+      "name": "AllocFnImpl",
+      "override": false,
+      "refid": "classbatt_1_1kAllowAlloc_1afb8d8fde469c22c5b2e78dedf779e8ad",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        }
+      ],
+      "title": "AllocFnImpl",
+      "type": "detail::FnImpl< [detail::AllocFnWrapper](/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/)< Fn, kMoveOnly, Result, Args... >, kMoveOnly, Result, Args... >",
+      "typePlain": "detail::FnImpl< detail::AllocFnWrapper< Fn, kMoveOnly, Result, Args... >, kMoveOnly, Result, Args... >",
+      "url": "/_autogen/Classes/classbatt_1_1kAllowAlloc/#using-allocfnimpl",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-fnimpl",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::kAllowAlloc< Args, Result, kMaxSize, kMoveOnly, kAllowAlloc >::FnImpl =  std::conditional_t< (!kAllowAlloc || sizeof(NoAllocFnImpl<std::decay_t<Fn> >) <= kMaxSize), NoAllocFnImpl<Fn>, AllocFnImpl<Fn> >",
+      "explicit": false,
+      "fullname": "batt::kAllowAlloc::FnImpl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 250,
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 248
+      },
+      "name": "FnImpl",
+      "override": false,
+      "refid": "classbatt_1_1kAllowAlloc_1ab028134202b9b8f1f98ccac0aa13c18a",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        }
+      ],
+      "title": "FnImpl",
+      "type": "std::conditional_t<(![kAllowAlloc](/_autogen/Classes/classbatt_1_1kAllowAlloc/)||sizeof(NoAllocFnImpl< std::decay_t< Fn > >)<=kMaxSize), NoAllocFnImpl< Fn >, AllocFnImpl< Fn > >",
+      "typePlain": "std::conditional_t<(!kAllowAlloc||sizeof(NoAllocFnImpl< std::decay_t< Fn > >)<=kMaxSize), NoAllocFnImpl< Fn >, AllocFnImpl< Fn > >",
+      "url": "/_autogen/Classes/classbatt_1_1kAllowAlloc/#using-fnimpl",
+      "visibility": "private"
+    }
+  ],
+  "publicAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-storage-",
+      "category": "attributes",
+      "const": false,
+      "definition": "copy_to_move_only batt::kAllowAlloc< Args, Result, kMaxSize, kMoveOnly, kAllowAlloc >::storage_",
+      "explicit": false,
+      "fullname": "batt::kAllowAlloc::storage_",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 302,
+        "column": 27,
+        "file": "batteries/small_fn.hpp",
+        "line": 302
+      },
+      "name": "storage_",
+      "override": false,
+      "refid": "classbatt_1_1kAllowAlloc_1acf1025627e8cb336bac888e29bdeb29a",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "kThatSize",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "title": "storage_",
+      "type": "copy_to_move_only",
+      "typePlain": "copy_to_move_only",
+      "url": "/_autogen/Classes/classbatt_1_1kAllowAlloc/#variable-storage-",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-impl-",
+      "category": "attributes",
+      "const": false,
+      "definition": "AbstractFn* batt::kAllowAlloc< Args, Result, kMaxSize, kMoveOnly, kAllowAlloc >::impl_",
+      "explicit": false,
+      "fullname": "batt::kAllowAlloc::impl_",
+      "hasDetails": false,
+      "initializer": "= nullptr",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 384,
+        "column": 16,
+        "file": "batteries/small_fn.hpp",
+        "line": 384
+      },
+      "name": "impl_",
+      "override": false,
+      "refid": "classbatt_1_1kAllowAlloc_1a99e1074bacf9049655c781916ac67fdb",
+      "static": false,
+      "strong": false,
+      "title": "impl_",
+      "type": "AbstractFn *",
+      "typePlain": "AbstractFn *",
+      "url": "/_autogen/Classes/classbatt_1_1kAllowAlloc/#variable-impl-",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-smallfn",
+      "argsString": "()=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::kAllowAlloc< Args, Result, kMaxSize, kMoveOnly, kAllowAlloc >::SmallFn",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::kAllowAlloc::SmallFn",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 268
+      },
+      "name": "SmallFn",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1kAllowAlloc_1a3a43003365cfeb2e3bd11b17c844d619",
+      "static": false,
+      "strong": false,
+      "title": "SmallFn",
+      "url": "/_autogen/Classes/classbatt_1_1kAllowAlloc/#function-smallfn",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-smallfn",
+      "argsString": "(Fn &&fn) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::kAllowAlloc< Args, Result, kMaxSize, kMoveOnly, kAllowAlloc >::SmallFn",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::kAllowAlloc::SmallFn",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 275,
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 272,
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 272
+      },
+      "name": "SmallFn",
+      "override": false,
+      "params": [
+        {
+          "name": "fn",
+          "type": "Fn &&",
+          "typePlain": "Fn &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1kAllowAlloc_1ab582cd9cc14cf1728e30cae30f3e6361",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Fn",
+          "typePlain": "typename Fn"
+        },
+        {
+          "defval": "EnableIfNoShadow<[self_type](/_autogen/Classes/classbatt_1_1SmallFn/), Fn>",
+          "defvalPlain": "EnableIfNoShadow<self_type, Fn>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        },
+        {
+          "defval": "std::enable_if_t<IsCallable<Fn, Args...>{}>",
+          "defvalPlain": "std::enable_if_t<IsCallable<Fn, Args...>{}>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "SmallFn",
+      "url": "/_autogen/Classes/classbatt_1_1kAllowAlloc/#function-smallfn",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-smallfn",
+      "argsString": "(self_type &&that) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::kAllowAlloc< Args, Result, kMaxSize, kMoveOnly, kAllowAlloc >::SmallFn",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::kAllowAlloc::SmallFn",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 285,
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 277,
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 277
+      },
+      "name": "SmallFn",
+      "override": false,
+      "params": [
+        {
+          "name": "that",
+          "type": "[self_type](/_autogen/Classes/classbatt_1_1SmallFn/) &&",
+          "typePlain": "self_type &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1kAllowAlloc_1aab2796e5e0a4470536787a9b18b9d51f",
+      "static": false,
+      "strong": false,
+      "title": "SmallFn",
+      "url": "/_autogen/Classes/classbatt_1_1kAllowAlloc/#function-smallfn",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-smallfn",
+      "argsString": "(const self_type &that) noexcept",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::kAllowAlloc< Args, Result, kMaxSize, kMoveOnly, kAllowAlloc >::SmallFn",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::kAllowAlloc::SmallFn",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 293,
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 287,
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 287
+      },
+      "name": "SmallFn",
+      "override": false,
+      "params": [
+        {
+          "name": "that",
+          "type": "const [self_type](/_autogen/Classes/classbatt_1_1SmallFn/) &",
+          "typePlain": "const self_type &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1kAllowAlloc_1a5ffb7c589f33b05a9e4fb7fde44b9e61",
+      "static": false,
+      "strong": false,
+      "title": "SmallFn",
+      "url": "/_autogen/Classes/classbatt_1_1kAllowAlloc/#function-smallfn",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-self-type",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::kAllowAlloc< Args, Result, kMaxSize, kMoveOnly, kAllowAlloc >::self_type =  SmallFn<auto(Args...)->Result, kMaxSize, kMoveOnly, kAllowAlloc>",
+      "explicit": false,
+      "fullname": "batt::kAllowAlloc::self_type",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 264,
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 264
+      },
+      "name": "self_type",
+      "override": false,
+      "refid": "classbatt_1_1kAllowAlloc_1a3987f3627f121f777495fcb04321482b",
+      "static": false,
+      "strong": false,
+      "title": "self_type",
+      "type": "[SmallFn](/_autogen/Classes/classbatt_1_1SmallFn/)< auto(Args...) ->Result, kMaxSize, kMoveOnly, [kAllowAlloc](/_autogen/Classes/classbatt_1_1kAllowAlloc/) >",
+      "typePlain": "SmallFn< auto(Args...) ->Result, kMaxSize, kMoveOnly, kAllowAlloc >",
+      "url": "/_autogen/Classes/classbatt_1_1kAllowAlloc/#using-self-type",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-result-type",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::kAllowAlloc< Args, Result, kMaxSize, kMoveOnly, kAllowAlloc >::result_type =  Result",
+      "explicit": false,
+      "fullname": "batt::kAllowAlloc::result_type",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 266,
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 266
+      },
+      "name": "result_type",
+      "override": false,
+      "refid": "classbatt_1_1kAllowAlloc_1a26b192226ff544b6a56cb4f69998d73b",
+      "static": false,
+      "strong": false,
+      "title": "result_type",
+      "type": "Result",
+      "typePlain": "Result",
+      "url": "/_autogen/Classes/classbatt_1_1kAllowAlloc/#using-result-type",
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1kAllowAlloc",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "Args",
+      "type": "typename...",
+      "typePlain": "typename..."
+    },
+    {
+      "name": "",
+      "type": "typename Result",
+      "typePlain": "typename Result"
+    },
+    {
+      "name": "kMaxSize",
+      "type": "usize",
+      "typePlain": "usize"
+    },
+    {
+      "name": "kMoveOnly",
+      "type": "bool",
+      "typePlain": "bool"
+    },
+    {
+      "name": "kAllowAlloc",
+      "type": "bool",
+      "typePlain": "bool"
+    }
+  ],
+  "title": "batt::kAllowAlloc",
+  "url": "/_autogen/Classes/classbatt_1_1kAllowAlloc/",
+  "visibility": "public"
+}

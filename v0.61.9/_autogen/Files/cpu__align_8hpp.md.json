@@ -1,0 +1,139 @@
+{
+  "abstract": false,
+  "anchor": "#file-cpu-align.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batt-cpu-align-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_CPU_ALIGN_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/cpu_align.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/cpu_align.hpp",
+        "line": 6
+      },
+      "name": "BATT_CPU_ALIGN_HPP",
+      "override": false,
+      "refid": "cpu__align_8hpp_1af60065d314bff89bb4fc23e83c522345",
+      "static": false,
+      "strong": false,
+      "title": "BATT_CPU_ALIGN_HPP",
+      "url": "/_autogen/Files/cpu__align_8hpp/#define-batt-cpu-align-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/cpu_align.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/cpu_align.hpp",
+    "line": 0
+  },
+  "name": "batteries/cpu_align.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2025 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATT_CPU_ALIGN_HPP\n#define BATT_CPU_ALIGN_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/hint.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/logging.hpp>\n#include <batteries/small_vec.hpp>\n#include <batteries/status.hpp>\n#include <batteries/stream_util.hpp>\n#include <batteries/type_traits.hpp>\n\n#include <numeric>\n#include <thread>\n\n#ifdef __linux__\n#include <sched.h>\n#endif  // __linux__\n\nnamespace batt {\n\nconstexpr auto kCpuCacheLineSize = usize{64};\n\n// An instance of `T` guaranteed not to reside in the same cache lines as any other object.\n//\ntemplate <typename T>\nclass CpuCacheLineIsolated\n{\n   public:\n    // The contained type.\n    //\n    using value_type = T;\n\n    // The size of T rounded up to the nearest multiple of cache line size.\n    //\n    static constexpr usize kIsolatedSize =\n        (sizeof(T) + kCpuCacheLineSize - 1) - ((sizeof(T) + kCpuCacheLineSize - 1) % kCpuCacheLineSize);\n\n    // If the passed pointer is constructed within a CpuCacheLineIsolated<T>, return a pointer to the outer\n    // object. Else, behavior is undefined.\n    //\n    static CpuCacheLineIsolated* pointer_from(T* inner_obj)\n    {\n        return reinterpret_cast<CpuCacheLineIsolated*>(inner_obj);\n    }\n    static const CpuCacheLineIsolated* pointer_from(const T* inner_obj)\n    {\n        return reinterpret_cast<const CpuCacheLineIsolated*>(inner_obj);\n    }\n\n    // Default-construct the object.\n    //\n    CpuCacheLineIsolated() noexcept(noexcept(T{}))\n    {\n        new (&storage_) T{};\n    }\n\n    // Pass-through construct the object from arbitrary arguments.\n    //\n    template <typename... Args, typename = EnableIfNoShadow<CpuCacheLineIsolated, Args...>>\n    explicit CpuCacheLineIsolated(Args&&... args) noexcept(noexcept(T(std::forward<Args>(args)...)))\n    {\n        new (&storage_) T(std::forward<Args>(args)...);\n    }\n\n    // Construct the object by copying from `that`.\n    //\n    CpuCacheLineIsolated(const CpuCacheLineIsolated& that)\n#if !BATT_COMPILER_IS_MSVC\n        noexcept(noexcept(T(that.value())))\n#endif  // BATT_COMPILER_IS_MSVC\n    {\n        new (&storage_) T(that.value());\n    }\n\n    // Construct the object by moving from `that`.\n    //\n    CpuCacheLineIsolated(CpuCacheLineIsolated&& that) noexcept(noexcept(T(std::move(that).value())))\n    {\n        new (&storage_) T(std::move(that).value());\n    }\n\n    // Assign a new value to the object from the object contained within `that`.\n    //\n    CpuCacheLineIsolated& operator=(const CpuCacheLineIsolated& that)\n    {\n        if (BATT_HINT_TRUE(this != &that)) {\n            this->value() = that.value();\n        }\n        return *this;\n    }\n\n    // Pass-through assignment from any type assignable to T.\n    //\n    template <typename V, typename = std::enable_if_t<!std::is_same_v<std::decay_t<V>, CpuCacheLineIsolated>>>\n    CpuCacheLineIsolated& operator=(V&& val) noexcept(\n        noexcept(std::declval<CpuCacheLineIsolated*>()->value() = std::forward<V>(val)))\n    {\n        this->value() = std::forward<V>(val);\n        return *this;\n    }\n\n    // Move a new value to the object from the object contained within `that`.\n    //\n    CpuCacheLineIsolated& operator=(CpuCacheLineIsolated&& that)\n    {\n        if (BATT_HINT_TRUE(this != &that)) {\n            this->value() = std::move(that).value();\n        }\n        return *this;\n    }\n\n    // Destroy the object.\n    //\n    ~CpuCacheLineIsolated() noexcept\n    {\n        value().~T();\n    }\n\n    // Return a pointer to the isolated object.\n    //\n    T* get()\n    {\n        return reinterpret_cast<T*>(&storage_);\n    }\n    const T* get() const\n    {\n        return reinterpret_cast<const T*>(&storage_);\n    }\n\n    // Return a reference to the isolated object.\n    //\n    T& value() & noexcept\n    {\n        return *reinterpret_cast<T*>(&storage_);\n    }\n    const T& value() const& noexcept\n    {\n        return *reinterpret_cast<const T*>(&storage_);\n    }\n    T&& value() && noexcept\n    {\n        return std::move(*reinterpret_cast<T*>(&storage_));\n    }\n    const T&& value() const&& = delete;\n\n    // Member-dereference the isolated object.\n    //\n    T* operator->()\n    {\n        return this->get();\n    }\n    const T* operator->() const\n    {\n        return this->get();\n    }\n\n    // Dereference the isolated object.\n    //\n    T& operator*() &\n    {\n        return this->value();\n    }\n    const T& operator*() const&\n    {\n        return this->value();\n    }\n    T&& operator*() &&\n    {\n        return std::move(this->value());\n    }\n\n   private:\n    // The properly padded and aligned storage to hold the isolated object.\n    //\n    std::aligned_storage_t<kIsolatedSize, kCpuCacheLineSize> storage_;\n};\n\ntemplate <typename T>\ninline std::ostream& operator<<(std::ostream& out, const CpuCacheLineIsolated<T>& t)\n{\n    return out << make_printable(t.value());\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\nstruct ThreadSpec {\n    std::vector<std::vector<usize>> allowed_cpus_for_thread;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    // Convenience methods.\n\n    usize size() const\n    {\n        return this->allowed_cpus_for_thread.size();\n    }\n\n    bool empty() const\n    {\n        return this->allowed_cpus_for_thread.empty();\n    }\n\n    const std::vector<usize>& operator[](usize i) const\n    {\n        return this->allowed_cpus_for_thread[i];\n    }\n\n    const std::vector<usize>& get(usize i) const\n    {\n        BATT_CHECK_LT(i, this->size());\n        return this->allowed_cpus_for_thread[i];\n    }\n};\n\n//+++++++++++-+-+--+----- --- -- -  -  -   -\n\ninline StatusOr<ThreadSpec> parse_thread_spec(std::string in_str) noexcept\n{\n    ThreadSpec out_spec;\n    std::istringstream iss{in_str};\n\n    while (iss.good()) {\n        std::string t_spec;\n        iss >> t_spec;\n\n        if (t_spec.empty()) {\n            continue;\n        }\n\n        out_spec.allowed_cpus_for_thread.emplace_back();\n        std::vector<usize>& thread_cpus = out_spec.allowed_cpus_for_thread.back();\n\n        if (t_spec == \"*\") {\n            thread_cpus.resize(std::thread::hardware_concurrency());\n            std::iota(thread_cpus.begin(), thread_cpus.end(), 0);\n        } else {\n            const usize dash_pos = t_spec.find('-');\n            if (dash_pos == std::string::npos) {\n                usize next_comma = t_spec.find(',');\n                if (next_comma == std::string::npos) {\n                    const std::optional<usize> cpu_i = from_string<usize>(t_spec);\n                    if (!cpu_i) {\n                        return {StatusCode::kInvalidArgument};\n                    }\n                    thread_cpus.push_back(*cpu_i);\n\n                } else {\n                    for (;;) {\n                        const std::optional<usize> cpu_i = from_string<usize>(t_spec.substr(0, next_comma));\n                        if (!cpu_i) {\n                            return {StatusCode::kInvalidArgument};\n                        }\n                        thread_cpus.push_back(*cpu_i);\n                        if (next_comma == std::string::npos) {\n                            break;\n                        }\n                        t_spec = t_spec.substr(next_comma + 1);\n                        next_comma = t_spec.find(',');\n                        if (next_comma == 0) {\n                            return {StatusCode::kInvalidArgument};\n                        }\n                    }\n                }\n\n            } else {\n                const std::optional<usize> cpu_lower = from_string<usize>(t_spec.substr(0, dash_pos));\n                const std::optional<usize> cpu_upper = from_string<usize>(t_spec.substr(dash_pos + 1));\n                if (!cpu_lower || !cpu_upper) {\n                    return {StatusCode::kInvalidArgument};\n                }\n                for (usize cpu_i = *cpu_lower; cpu_i <= *cpu_upper; ++cpu_i) {\n                    thread_cpus.push_back(cpu_i);\n                }\n            }\n        }\n    }\n\n    BATT_VLOG(1) << BATT_INSPECT_RANGE(out_spec.allowed_cpus_for_thread);\n\n    return out_spec;\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\ninline Status pin_thread_to_cpu(usize cpu_i)\n{\n#ifdef __linux__\n    cpu_set_t mask;\n    CPU_ZERO(&mask);\n    CPU_SET(cpu_i, &mask);\n    const int retval = sched_setaffinity(0, sizeof(mask), &mask);\n    return status_from_retval(retval);\n#else\n    (void)cpu_i;\n    return StatusCode::kUnimplemented;\n#endif  //__linux__\n}\n\ntemplate <typename IntRange>\ninline Status pin_thread_to_cpu_set(const IntRange& cpu_i_set)\n{\n#ifdef __linux__\n    cpu_set_t mask;\n    CPU_ZERO(&mask);\n    for (usize cpu_i : cpu_i_set) {\n        CPU_SET(cpu_i, &mask);\n    }\n    const int retval = sched_setaffinity(0, sizeof(mask), &mask);\n    return status_from_retval(retval);\n#else\n    (void)cpu_i_set;\n    return StatusCode::kUnimplemented;\n#endif  //__linux__\n}\n\nstruct ThreadPoolConfig {\n    usize thread_count;\n    usize cpu_group_size;\n    usize first_cpu;\n    bool pin;\n};\n\ninline Status pin_thread_i_of_config(usize i, const ThreadPoolConfig& config,\n                                     const std::string_view& pool_name = \"\")\n{\n    static const usize cpu_count = std::thread::hardware_concurrency();\n\n    if (i >= config.thread_count) {\n        return StatusCode::kInvalidArgument;\n    }\n\n    if (!config.pin) {\n        return OkStatus();\n    }\n\n    // The position of this thread within its CPU group.\n    //\n    const usize group_position = i % config.cpu_group_size;\n\n    // The first CPU within this thread's CPU group.\n    //\n    const usize group_first = i - group_position + config.first_cpu;\n\n    // The last CPU in the group.\n    //\n    const usize group_last = group_first + config.cpu_group_size;\n\n    // Build the CPU set to pin this worker thread.\n    //\n    SmallVec<int, 64> cpu_set;\n    for (usize j = group_first; j < group_last; ++j) {\n        cpu_set.emplace_back(static_cast<int>(j % cpu_count));\n    }\n\n    BATT_VLOG(1) << pool_name << \"[\" << i << \"]: cpu \" << batt::dump_range(cpu_set);\n\n    return pin_thread_to_cpu_set(cpu_set);\n}\n\n}  // namespace batt\n\n#endif  // BATT_CPU_ALIGN_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::CpuCacheLineIsolated",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::CpuCacheLineIsolated",
+      "refid": "classbatt_1_1CpuCacheLineIsolated",
+      "title": "batt::CpuCacheLineIsolated",
+      "url": "/_autogen/Classes/classbatt_1_1CpuCacheLineIsolated/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "A mapping from threads to allowed CPUs, for creating thread pools. ",
+      "category": "classes",
+      "fullname": "batt::ThreadSpec",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::ThreadSpec",
+      "refid": "structbatt_1_1ThreadSpec",
+      "summary": "A mapping from threads to allowed CPUs, for creating thread pools. ",
+      "title": "batt::ThreadSpec",
+      "url": "/_autogen/Classes/structbatt_1_1ThreadSpec/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::ThreadPoolConfig",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::ThreadPoolConfig",
+      "refid": "structbatt_1_1ThreadPoolConfig",
+      "title": "batt::ThreadPoolConfig",
+      "url": "/_autogen/Classes/structbatt_1_1ThreadPoolConfig/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "cpu__align_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/cpu_align.hpp",
+  "url": "/_autogen/Files/cpu__align_8hpp/#file-cpu-align.hpp",
+  "visibility": "public"
+}
