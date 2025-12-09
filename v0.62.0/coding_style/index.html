@@ -1,0 +1,830 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+    
+    
+      
+        <title>Batteries C++ Coding Style Guide - Batteries C++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#casting-and-type-conversions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Batteries C++" class="md-header__button md-logo" aria-label="Batteries C++" data-md-component="logo">
+      <img width="100px" src="/images/BatteriesLogo.png">
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/releaseNavOptions.js" type="application/javascript"></script>
+<script src="/releaseNav.js" type="application/javascript"></script>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Batteries C++
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Batteries C++ Coding Style Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Batteries C++" class="md-nav__button md-logo" aria-label="Batteries C++" data-md-component="logo">
+      <img width="100px" src="/images/BatteriesLogo.png">
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/releaseNavOptions.js" type="application/javascript"></script>
+<script src="/releaseNav.js" type="application/javascript"></script>
+    </a>
+    Batteries C++
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gitlab.com/batteriescpp/batteries/" class="md-nav__link">
+        GitLab Repo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Headers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Headers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assert.hpp" class="md-nav__link">
+        batteries/assert.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../async" class="md-nav__link">
+        batteries/async/*
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_of.hpp" class="md-nav__link">
+        batteries/case_of.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpu_align.hpp" class="md-nav__link">
+        batteries/cpu_align.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seq" class="md-nav__link">
+        batteries/seq.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../status.hpp" class="md-nav__link">
+        batteries/status.hpp
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_autogen/Files/" class="md-nav__link">
+        Files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_autogen/Classes/" class="md-nav__link">
+        Classes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release_notes" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="." class="md-nav__link">
+        Coding Style
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/configure-ci-pipelines" class="md-nav__link">
+        Configuring CI Pipelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/write-the-docs" class="md-nav__link">
+        Writing Documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#casting-and-type-conversions" class="md-nav__link">
+    Casting and Type Conversions
+  </a>
+  
+    <nav class="md-nav" aria-label="Casting and Type Conversions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prefer-explicit-constructor-calls-over-static_cast-when-possible" class="md-nav__link">
+    Prefer explicit constructor calls over static_cast when possible
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-member-access" class="md-nav__link">
+    Class Member Access
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    Environment Variables
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-battgetenv_ast-to-access-environment-variables" class="md-nav__link">
+    Use batt::getenv_as&lt;T&gt; to access environment variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling-status-check-assert-and-throw" class="md-nav__link">
+    Error Handling: Status, CHECK, ASSERT, and throw
+  </a>
+  
+    <nav class="md-nav" aria-label="Error Handling: Status, CHECK, ASSERT, and throw">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prefer-checkassert-to-statusthrow-only-for-problems-in-the-code-itself" class="md-nav__link">
+    Prefer CHECK/ASSERT to Status/throw only for problems in the code itself
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-status-internally-within-batteriesproject-code" class="md-nav__link">
+    Use Status internally within Batteries/project code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-batt_throw_if_not_ok-to-implement-interfaces-that-use-exceptions" class="md-nav__link">
+    Use BATT_THROW_IF_NOT_OK to implement interfaces that use exceptions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-names" class="md-nav__link">
+    File Names
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integer-scalar-types" class="md-nav__link">
+    Integer Scalar Types
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Batteries C++ Coding Style Guide</h1>
+
+<h1 id="batteries-c-coding-style-guide">Batteries C++ Coding Style Guide<a class="headerlink" href="#batteries-c-coding-style-guide" title="Permanent link">&#128279;</a></h1>
+<p>This document describes the coding conventions to be followed in this library.  Generally, the coding style Batteries uses is modelled after the <a href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a>.  Generally, we also recommend following the advice in the <a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines">C++ Core Guidelines</a>, except when they contradict the Google style or this document.  In summary, the order of precedence is:</p>
+<ol>
+<li><a href="https://batteriescpp.github.io/latest/coding_style/">This document</a></li>
+<li><a href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a></li>
+<li><a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines">C++ Core Guidelines</a></li>
+</ol>
+<p>Some of the major points:</p>
+<ul>
+<li>Avoid <a href="https://google.github.io/styleguide/cppguide.html#Exceptions">Exceptions</a> (see also <a href="https://batteriescpp.github.io/latest/status.hpp/#why-not-exceptions">&lt;batteries/status.hpp&gt; docs</a>)</li>
+<li>Always <a href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a> the code, using the <code>.clang-format</code> file at the top of the Batteries repo</li>
+<li>Optimize for the <a href="https://google.github.io/styleguide/cppguide.html#Goals">reader</a>, not the writer</li>
+</ul>
+<p>The rest of this document is a collection of call-outs that the Batteries team has found helpful in onboarding new developers and getting them up to speed on good Batteries C++ style.</p>
+<h2 id="casting-and-type-conversions">Casting and Type Conversions<a class="headerlink" href="#casting-and-type-conversions" title="Permanent link">&#128279;</a></h2>
+<h3 id="prefer-explicit-constructor-calls-over-static_cast-when-possible">Prefer explicit constructor calls over <code>static_cast</code> when possible<a class="headerlink" href="#prefer-explicit-constructor-calls-over-static_cast-when-possible" title="Permanent link">&#128279;</a></h3>
+<p>For example, <code>std::string</code> <a href="https://en.cppreference.com/w/cpp/string/basic_string/basic_string">has an implicit constructor</a>(9) that takes a <code>StringViewLike</code> object (which of course includes <code>std::string_view</code>.  Therefore it is possible to write:</p>
+<p><strong>DO NOT</strong> write:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_me_a_string_view</span><span class="p">();</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v</span><span class="p">);</span><span class="w">  </span><span class="c1">// BAD!</span>
+</code></pre></div></td></tr></table></div>
+<p>However, this is suboptimal for the following reason: because we prioritize ease-of-reading over ease-of-writing, we care a great deal about the cognitive effort it takes for a reader to mentally parse and understand the meaning of a piece of code.  Casts, in general, should be avoided when possible, since they open the door to all kinds of undefined and unsafe behavior.  Therefore, when a reader sees a cast, they should immediately start paying closer attention, since the stakes of misunderstanding have just risen significantly.  The example above does not really warrant this extra expendature of mental effort, so we prefer writing it without the cast:</p>
+<p>Instead, <strong>DO</strong> write:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">{</span><span class="n">v</span><span class="p">};</span><span class="w">  </span><span class="c1">// GOOD!</span>
+</code></pre></div></td></tr></table></div>
+<p>or, even simpler:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">{</span><span class="n">v</span><span class="p">};</span><span class="w">  </span><span class="c1">// GOOD!</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="class-member-access">Class Member Access<a class="headerlink" href="#class-member-access" title="Permanent link">&#128279;</a></h2>
+<p>To enhance readability, all implicit uses of <code>this</code> within a class should be made explicit.  For example:</p>
+<p><strong>DO NOT</strong> write:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">my_method</span><span class="p">()</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">    </span><span class="n">internal_method</span><span class="p">();</span><span class="w">  </span><span class="c1">// BAD!</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w"> </span><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">internal_method</span><span class="p">()</span><span class="w"> </span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">    </span><span class="o">++</span><span class="n">counter_</span><span class="p">;</span><span class="w">  </span><span class="c1">// BAD!</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">counter_</span><span class="p">;</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<p>Instead, <strong>DO</strong> write:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">my_method</span><span class="p">()</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">internal_method</span><span class="p">();</span><span class="w">  </span><span class="c1">// GOOD!</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w"> </span><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">internal_method</span><span class="p">()</span><span class="w"> </span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="w">    </span><span class="o">++</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">counter_</span><span class="p">;</span><span class="w">  </span><span class="c1">// GOOD!</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">counter_</span><span class="p">;</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&#128279;</a></h2>
+<h3 id="use-battgetenv_ast-to-access-environment-variables">Use <code>batt::getenv_as&lt;T&gt;</code> to access environment variables<a class="headerlink" href="#use-battgetenv_ast-to-access-environment-variables" title="Permanent link">&#128279;</a></h3>
+<p>This is preferred over calling <code>getenv</code> and <code>std::getenv</code> directly because <code>batt::getenv_as</code> automatically handles type conversion/parsing (and parse errors), and forces the calling code to deal with a variable being undefined or incorrectly formatted by returning an <code>optional</code> type. </p>
+<p><strong>DO NOT</strong> write:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">getenv</span><span class="p">(</span><span class="s">&quot;N&quot;</span><span class="p">);</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">i32</span><span class="w"> </span><span class="n">int_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">atoi</span><span class="p">(</span><span class="n">value</span><span class="p">);</span><span class="w">  </span><span class="c1">// BUG!  Possible nullptr value not handled</span>
+</code></pre></div></td></tr></table></div>
+<p>Instead, <strong>DO</strong> write:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">i32</span><span class="w"> </span><span class="n">int_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">getenv_as</span><span class="o">&lt;</span><span class="n">i32</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;N&quot;</span><span class="p">).</span><span class="n">value_or</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">    </span><span class="c1">// ^^^</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">    </span><span class="c1">// GOOD!  Error cases handled and default value is explicitly specified in a readable way</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="error-handling-status-check-assert-and-throw">Error Handling: Status, CHECK, ASSERT, and throw<a class="headerlink" href="#error-handling-status-check-assert-and-throw" title="Permanent link">&#128279;</a></h2>
+<h3 id="prefer-checkassert-to-statusthrow-only-for-problems-in-the-code-itself">Prefer CHECK/ASSERT to Status/throw only for problems in the code itself<a class="headerlink" href="#prefer-checkassert-to-statusthrow-only-for-problems-in-the-code-itself" title="Permanent link">&#128279;</a></h3>
+<p>A good test to apply when trying to decide whether to use a CHECK or ASSERT statement, which will abort the program on failure, is whether the error being detected can be corrected in principle only by a coding change to the program.  In other words, if it represents something like bad input, resource exhaustion, data corruptions, etc., then CHECK/ASSERT is the wrong mechanism to use.  If however, a certain condition should <em>always be true</em> if the programmer's intent is correctly implemented, then CHECK/ASSERT is the way to go.</p>
+<h3 id="use-status-internally-within-batteriesproject-code">Use Status internally within Batteries/project code<a class="headerlink" href="#use-status-internally-within-batteriesproject-code" title="Permanent link">&#128279;</a></h3>
+<ul>
+<li>Functions that would otherwise return <code>void</code> should return <code>batt::Status</code></li>
+<li>Functions that would otherwise return some other type <code>R</code> should return <code>batt::StatusOr&lt;R&gt;</code></li>
+<li>Declare functions as <code>noexcept</code> when returning <code>batt::Status</code> or <code>batt::StatusOr</code></li>
+</ul>
+<h3 id="use-batt_throw_if_not_ok-to-implement-interfaces-that-use-exceptions">Use <code>BATT_THROW_IF_NOT_OK</code> to implement interfaces that use exceptions<a class="headerlink" href="#use-batt_throw_if_not_ok-to-implement-interfaces-that-use-exceptions" title="Permanent link">&#128279;</a></h3>
+<p>The use of some third party libraries together with Batteries in a larger application may dictate writing free functions or class/struct member functions that report errors by throwing.  Use <code>batt::StatusException</code> at the boundary layer only, and use macros like <code>BATT_THROW_IF_NOT_OK</code> and <code>BATT_OK_RESULT_OR_THROW</code> wherever relevant.</p>
+<p>See <a href="https://batteriescpp.github.io/latest/_autogen/Files/exception_8hpp">&lt;batteries/exception.hpp&gt;</a> for more details.</p>
+<h2 id="file-names">File Names<a class="headerlink" href="#file-names" title="Permanent link">&#128279;</a></h2>
+<p>All source code files live under <code>batteries/src</code>.</p>
+<ul>
+<li>Source, header, inline/implementation, and test sources should be colocated within the same directory.</li>
+<li>Source files should use the <code>.cpp</code> extension.</li>
+<li>Header files should use the <code>.hpp</code> extension.</li>
+<li>Test files for a given source/header should use the <code>.test.cpp</code> suffix.</li>
+</ul>
+<p>For example, if you have a header file: <code>src/some_namespace/myutils.hpp</code>, then you should also have:</p>
+<ul>
+<li><code>src/some_namespace/myutils.cpp</code></li>
+<li><code>src/some_namespace/myutils.test.cpp</code></li>
+<li><code>src/some_namespace/myutils.ipp</code></li>
+</ul>
+<h2 id="integer-scalar-types">Integer Scalar Types<a class="headerlink" href="#integer-scalar-types" title="Permanent link">&#128279;</a></h2>
+<p>Please use the type aliases defined in <a href="https://batteriescpp.github.io/latest/_autogen/Files/int__types_8hpp/#file-int-types.hpp">&lt;batteries/int_types.hpp&gt;</a> instead of their built-in names or the more verbose aliases in the standard header <a href="https://en.cppreference.com/w/cpp/header/cstdint">&lt;cstdint&gt;</a>.</p>
+<p><strong>DO NOT</strong> write:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">size_t</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">  </span><span class="n">nums</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Instead, <strong>DO</strong> write:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/int_types.hpp&gt;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="c1">// Don&#39;t put this in a header, but for .cpp file it is fine!</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1">//</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">batt</span><span class="o">::</span><span class="nn">int_types</span><span class="p">;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="p">...</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">i64</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="p">;</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">usize</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">  </span><span class="n">nums</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6df46069.min.js"></script>
+      
+    
+  </body>
+</html>

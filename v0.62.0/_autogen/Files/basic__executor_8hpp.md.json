@@ -1,0 +1,125 @@
+{
+  "abstract": false,
+  "anchor": "#file-basic-executor.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-basic-executor-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_BASIC_EXECUTOR_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/basic_executor.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/basic_executor.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_BASIC_EXECUTOR_HPP",
+      "override": false,
+      "refid": "basic__executor_8hpp_1a1978d118073110bd4f84fecb874996a9",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_BASIC_EXECUTOR_HPP",
+      "url": "/_autogen/Files/basic__executor_8hpp/#define-batteries-async-basic-executor-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/basic_executor.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/basic_executor.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/basic_executor.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_BASIC_EXECUTOR_HPP\n#define BATTERIES_ASYNC_BASIC_EXECUTOR_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/asio/execution_context.hpp>\n\n#include <type_traits>\n\nnamespace batt {\n\ntemplate <typename ContextT, typename OutstandingWorkP, typename BlockingP, typename RelationshipP>\nclass BasicExecutor\n{\n   public:\n    using Self = BasicExecutor;\n\n    using context_type = ContextT;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr explicit BasicExecutor() noexcept : context_{nullptr}\n    {\n    }\n\n    constexpr explicit BasicExecutor(ContextT* context) noexcept : context_{context}\n    {\n        if (std::is_same_v<OutstandingWorkP, boost::asio::execution::outstanding_work_t::tracked_t>) {\n            this->on_work_started();\n        }\n    }\n\n    constexpr BasicExecutor(const Self& other) noexcept : Self{other.context_}\n    {\n    }\n\n    constexpr BasicExecutor(Self&& other) noexcept : context_{other.context_}\n    {\n        other.context_ = nullptr;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    Self& operator=(const Self& other) noexcept\n    {\n        Self tmp{other};\n        this->swap(tmp);\n        return *this;\n    }\n\n    Self& operator=(Self&& other) noexcept\n    {\n        Self tmp{std::move(other)};\n        this->swap(tmp);\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    ~BasicExecutor() noexcept\n    {\n        if (std::is_same_v<OutstandingWorkP, boost::asio::execution::outstanding_work_t::tracked_t>) {\n            this->on_work_finished();\n        }\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    void swap(Self& other)\n    {\n        std::swap(this->context_, other.context_);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    ContextT& context() const\n    {\n        return *this->context_;\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr auto require(boost::asio::execution::blocking_t::possibly_t) const\n    {\n        return BasicExecutor<ContextT, OutstandingWorkP, boost::asio::execution::blocking_t::possibly_t,\n                             RelationshipP>{this->context_};\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr auto require(boost::asio::execution::blocking_t::never_t) const\n    {\n        return BasicExecutor<ContextT, OutstandingWorkP, boost::asio::execution::blocking_t::never_t,\n                             RelationshipP>{this->context_};\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr auto require(boost::asio::execution::relationship_t::fork_t) const\n    {\n        return BasicExecutor<ContextT, OutstandingWorkP, BlockingP,\n                             boost::asio::execution::relationship_t::fork_t>{this->context_};\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr auto require(boost::asio::execution::relationship_t::continuation_t) const\n    {\n        return BasicExecutor<ContextT, OutstandingWorkP, BlockingP,\n                             boost::asio::execution::relationship_t::continuation_t>{this->context_};\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr auto require(boost::asio::execution::outstanding_work_t::tracked_t) const\n    {\n        return BasicExecutor<ContextT, boost::asio::execution::outstanding_work_t::tracked_t, BlockingP,\n                             RelationshipP>{this->context_};\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr auto require(boost::asio::execution::outstanding_work_t::untracked_t) const\n    {\n        return BasicExecutor<ContextT, boost::asio::execution::outstanding_work_t::untracked_t, BlockingP,\n                             RelationshipP>{this->context_};\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    template <typename OtherAllocator>\n    constexpr Self require(boost::asio::execution::allocator_t<OtherAllocator>) const\n    {\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    constexpr Self require(boost::asio::execution::allocator_t<void>) const\n    {\n        return *this;\n    }\n\n    //----- --- -- -  -  -   -\n\n    template <typename T>\n    constexpr auto prefer(boost::asio::execution::prefer_only<T>) const\n    {\n        return this->require(T{});\n    }\n\n    //----- --- -- -  -  -   -\n\n    static constexpr auto query(boost::asio::execution::mapping_t) noexcept  //\n        -> boost::asio::execution::mapping_t;\n\n    static constexpr auto query(boost::asio::execution::outstanding_work_t) noexcept  //\n        -> boost::asio::execution::outstanding_work_t;\n\n    constexpr auto query(boost::asio::execution::blocking_t) const noexcept  //\n        -> boost::asio::execution::blocking_t;\n\n    constexpr auto query(boost::asio::execution::relationship_t) const noexcept  //\n        -> boost::asio::execution::relationship_t;\n\n    template <typename OtherAllocator>\n    constexpr auto query(boost::asio::execution::allocator_t<OtherAllocator>) const noexcept  //\n        -> std::allocator<void>;\n\n    constexpr auto query(boost::asio::execution::allocator_t<void>) const noexcept  //\n        -> std::allocator<void>;\n\n    auto query(boost::asio::execution::context_t) const noexcept  //\n        -> ContextT&;\n\n    auto query(boost::asio::execution::context_as_t<boost::asio::execution_context&>) const noexcept  //\n        -> boost::asio::execution_context&;\n\n    //----- --- -- -  -  -   -\n\n    void on_work_started() const noexcept;\n\n    void on_work_finished() const noexcept;\n\n    template <typename Fn>\n    void execute(Fn&& fn) const noexcept;\n\n    template <typename Fn, typename FnAllocator>\n    void dispatch(Fn&& fn, FnAllocator&&) const noexcept;\n\n    template <typename Fn, typename FnAllocator>\n    void post(Fn&& fn, FnAllocator&&) const noexcept;\n\n    template <typename Fn, typename FnAllocator>\n    void defer(Fn&& fn, FnAllocator&&) const noexcept;\n\n   private:\n    ContextT* context_;\n};\n\n}  //namespace batt\n\n#include <batteries/async/basic_executor.ipp>\n\n#endif  // BATTERIES_ASYNC_BASIC_EXECUTOR_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::BasicExecutor",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicExecutor",
+      "refid": "classbatt_1_1BasicExecutor",
+      "title": "batt::BasicExecutor",
+      "url": "/_autogen/Classes/classbatt_1_1BasicExecutor/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "basic__executor_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/basic_executor.hpp",
+  "url": "/_autogen/Files/basic__executor_8hpp/#file-basic-executor.hpp",
+  "visibility": "public"
+}
