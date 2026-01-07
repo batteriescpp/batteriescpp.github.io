@@ -1,0 +1,97 @@
+{
+  "abstract": false,
+  "anchor": "#file-math.hpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/math.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/math.hpp",
+    "line": 0
+  },
+  "name": "batteries/math.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::fixed_point",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::fixed_point",
+      "refid": "namespacebatt_1_1fixed__point",
+      "title": "batt::fixed_point",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1fixed__point/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2025 Anthony Paul Astolfi\n//\n#pragma once\n\n#include <batteries/config.hpp>\n//\n#include <batteries/bit_ops.hpp>\n#include <batteries/int_types.hpp>\n\n#include <type_traits>\n\nnamespace batt {\n\ninline constexpr i32 log2_ceil(u64 i)\n{\n    return (i <= 1) ? 0 : (64 - (i32)__builtin_clzll(i - 1));\n}\n\ninline constexpr i32 log2_floor(u64 i)\n{\n    return (i == 0) ? 0 : (63 - (i32)__builtin_clzll(i));\n}\n\ntemplate <typename IntT>\ninline constexpr IntT lsb_mask(i32 bits)\n{\n    return ((IntT{1} << bits) - 1);\n}\n\ntemplate <typename IntT>\ninline constexpr IntT round_down_bits(i32 bits, IntT n)\n{\n    return n & ~lsb_mask<IntT>(bits);\n}\n\ntemplate <typename IntT>\ninline constexpr IntT round_up_bits(i32 bits, IntT n)\n{\n    return round_down_bits(bits, n + lsb_mask<IntT>(bits));\n}\n\ntemplate <typename IntT>\ninline constexpr IntT round_down_to(IntT unit, IntT n)\n{\n    return n - (n % unit);\n}\n\ntemplate <typename IntT>\ninline constexpr IntT round_up_to(IntT unit, IntT n)\n{\n    return round_down_to(unit, n + (unit - 1));\n}\n\ntemplate <typename IntT>\ninline constexpr IntT ipow(IntT base, IntT exponent, IntT accumulator = static_cast<IntT>(1))\n{\n    static_assert(std::is_integral_v<IntT>, \"batt::ipow may only be used with integral types.\");\n    return (exponent > 0) ? ipow(base, exponent - 1, accumulator * base) : accumulator;\n}\n\nnamespace fixed_point {\n\ntemplate <typename UnitT, typename OutT = UnitT>\nstruct LinearProjection {\n    OutT output_range;\n\n    i8 pre_mul_shift;\n\n    i8 post_mul_shift;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    explicit LinearProjection(OutT out_range) noexcept\n    {\n        this->reset_output_range(out_range);\n    }\n\n    LinearProjection() noexcept : LinearProjection{1}\n    {\n    }\n\n    void reset_output_range(OutT out_range)\n    {\n        this->output_range = out_range;\n        this->pre_mul_shift = static_cast<i8>(log2_ceil(out_range));\n        this->post_mul_shift = static_cast<i8>(sizeof(UnitT) * 8 /*bits/byte*/ - this->pre_mul_shift);\n    }\n\n    OutT operator()(UnitT unit_value) const\n    {\n        return ((unit_value >> this->pre_mul_shift) * this->output_range) >> this->post_mul_shift;\n    }\n};\n\n}  //namespace fixed_point\n\n}  // namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "Functor which projects (scales) values in the input domain [0...std::numeric_limits<UnitT>::max] on to the output domain [0...OutT]. ",
+      "category": "classes",
+      "fullname": "batt::fixed_point::LinearProjection",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::fixed_point::LinearProjection",
+      "refid": "structbatt_1_1fixed__point_1_1LinearProjection",
+      "summary": "Functor which projects (scales) values in the input domain [0...std::numeric_limits<UnitT>::max] on to the output domain [0...OutT]. ",
+      "title": "batt::fixed_point::LinearProjection",
+      "url": "/_autogen/Classes/structbatt_1_1fixed__point_1_1LinearProjection/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "math_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/math.hpp",
+  "url": "/_autogen/Files/math_8hpp/#file-math.hpp",
+  "visibility": "public"
+}
