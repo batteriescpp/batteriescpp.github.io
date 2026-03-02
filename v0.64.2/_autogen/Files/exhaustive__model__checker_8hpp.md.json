@@ -1,0 +1,137 @@
+{
+  "abstract": false,
+  "anchor": "#file-exhaustive-model-checker.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-state-machine-model-exhaustive-model-checker-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_STATE_MACHINE_MODEL_EXHAUSTIVE_MODEL_CHECKER_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/state_machine_model/exhaustive_model_checker.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/state_machine_model/exhaustive_model_checker.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_STATE_MACHINE_MODEL_EXHAUSTIVE_MODEL_CHECKER_HPP",
+      "override": false,
+      "refid": "exhaustive__model__checker_8hpp_1a950f21387d1d2ec7b3d5de55b9eb3096",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_STATE_MACHINE_MODEL_EXHAUSTIVE_MODEL_CHECKER_HPP",
+      "url": "/_autogen/Files/exhaustive__model__checker_8hpp/#define-batteries-state-machine-model-exhaustive-model-checker-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/state_machine_model/exhaustive_model_checker.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/state_machine_model/exhaustive_model_checker.hpp",
+    "line": 0
+  },
+  "name": "batteries/state_machine_model/exhaustive_model_checker.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/state-machine-model",
+    "category": "dirs",
+    "fullname": "batteries/state_machine_model",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/state_machine_model",
+    "refid": "dir_a632bc4ac9c412aedbec832ef7391aeb",
+    "title": "batteries/state_machine_model",
+    "url": "/_autogen/Files/dir_a632bc4ac9c412aedbec832ef7391aeb/#dir-batteries/state-machine-model",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/state-machine-model",
+      "category": "dirs",
+      "fullname": "batteries/state_machine_model",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/state_machine_model",
+      "refid": "dir_a632bc4ac9c412aedbec832ef7391aeb",
+      "title": "batteries/state_machine_model",
+      "url": "/_autogen/Files/dir_a632bc4ac9c412aedbec832ef7391aeb/#dir-batteries/state-machine-model",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_STATE_MACHINE_MODEL_EXHAUSTIVE_MODEL_CHECKER_HPP\n#define BATTERIES_STATE_MACHINE_MODEL_EXHAUSTIVE_MODEL_CHECKER_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/state_machine_model/advanced_options.hpp>\n#include <batteries/state_machine_model/parallel_model_check_state.hpp>\n#include <batteries/state_machine_model/state_machine_result.hpp>\n#include <batteries/state_machine_model/state_machine_traits.hpp>\n#include <batteries/state_machine_model/verbose.hpp>\n\n#include <batteries/radix_queue.hpp>\n#include <batteries/status.hpp>\n#include <batteries/stream_util.hpp>\n\nnamespace batt {\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename StateT, typename StateHash, typename StateEqual>\nstruct StateMachineBranch {\n    using state_type = StateT;\n    using state_hash_type = StateHash;\n    using state_equal_type = StateEqual;\n    using delta_type = RadixQueue<StateMachineTraits<StateT>::kRadixQueueSize>;\n\n    state_type snapshot;\n    delta_type delta;\n};\n\ntemplate <typename StateT, typename StateHash, typename StateEqual>\ninline std::ostream& operator<<(std::ostream& out, const StateMachineBranch<StateT, StateHash, StateEqual>& t)\n{\n    return out << \"Branch{\" << std::endl\n               << pretty_print_indent() << \".snapshot=\" << make_printable(t.snapshot) << \",\" << std::endl\n               << pretty_print_indent() << \".delta=\" << t.delta << \",\" << std::endl\n               << \"}\";\n}\n\ntemplate <typename StateT, typename StateHash, typename StateEqual>\ninline bool operator==(const StateMachineBranch<StateT, StateHash, StateEqual>& l,\n                       const StateMachineBranch<StateT, StateHash, StateEqual>& r)\n{\n    return StateEqual{}(l.snapshot, r.snapshot) && l.delta == r.delta;\n}\n\ntemplate <typename StateT, typename StateHash, typename StateEqual>\ninline usize hash_value(const StateMachineBranch<StateT, StateHash, StateEqual>& branch)\n{\n    return hash(StateHash{}(branch.snapshot), branch.delta);\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename ModelT>\nclass ExhaustiveModelChecker\n{\n   public:\n    using StateMachineModel = ModelT;\n    using Branch = typename StateMachineModel::Branch;\n    using StateT = typename StateMachineModel::state_type;\n    using Result = StateMachineResult;\n    using AdvancedOptions = StateMachineModelCheckAdvancedOptions;\n    using BranchDelta = typename Branch::delta_type;\n    using VisitResult = typename StateMachineModel::VisitResult;\n\n    BATT_STRONG_TYPEDEF(bool, ForceSend);\n\n    explicit ExhaustiveModelChecker(StateMachineModel& model, detail::ParallelModelCheckState<Branch>& mesh,\n                                    usize shard_i) noexcept;\n\n    ~ExhaustiveModelChecker() noexcept;\n\n    Result run();\n\n    usize pick_int(usize min_value, usize max_value);\n\n   private:\n    void explore(Branch&& branch, ForceSend force_send = ForceSend{false});\n\n    void enter_loop(usize loop_counter);\n\n    bool pop_next();\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    StateMachineModel& model_;\n    const AdvancedOptions options_ = this->model_.advanced_options();\n    detail::ParallelModelCheckState<Branch>& mesh_;\n    const usize shard_i_;\n    Optional<Branch> current_branch_;\n    BranchDelta history_;\n    std::deque<Branch> queue_;\n    Result result_;\n    usize progress_reports_ = 0;\n};\n\n//#=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename ModelT>\ninline ExhaustiveModelChecker<ModelT>::ExhaustiveModelChecker(StateMachineModel& model,\n                                                              detail::ParallelModelCheckState<Branch>& mesh,\n                                                              usize shard_i) noexcept\n    : model_{model}\n    , mesh_{mesh}\n    , shard_i_{shard_i}\n{\n    BATT_CHECK_GT(this->mesh_.shard_count, 0u);\n    BATT_CHECK_LT(this->shard_i_, this->mesh_.shard_count);\n\n    this->model_.set_entropy(StateMachineEntropySource{[this](usize min_value, usize max_value) {\n        return this->pick_int(min_value, max_value);\n    }});\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename ModelT>\ninline ExhaustiveModelChecker<ModelT>::~ExhaustiveModelChecker() noexcept\n{\n    this->model_.set_entropy(StateMachineEntropySource{});\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename ModelT>\ninline usize ExhaustiveModelChecker<ModelT>::pick_int(usize min_value, usize max_value)\n{\n    if (min_value == max_value) {\n        return min_value;\n    }\n\n    BATT_CHECK_LT(min_value, max_value);\n\n    const usize radix = max_value - min_value + 1;\n\n    if (!this->current_branch_->delta.empty()) {\n        auto before = this->current_branch_->delta;\n        const usize value = this->current_branch_->delta.pop(radix);\n        this->history_.push(radix, value);\n        BATT_STATE_MACHINE_VERBOSE() << \"pick_int(\" << min_value << \",\" << max_value << \") [delta=\" << before\n                                     << \"] returning branch value: \" << (min_value + value);\n        return min_value + value;\n    }\n\n    for (usize value = 1; value < radix; ++value) {\n        Branch to_explore{\n            .snapshot = this->current_branch_->snapshot,\n            .delta = this->history_,\n        };\n        to_explore.delta.push(radix, value);\n\n        BATT_STATE_MACHINE_VERBOSE() << \"pick_int(\" << min_value << \",\" << max_value << \") -> \" << min_value\n                                     << \"; queuing new branch: \" << (min_value + value)\n                                     << \" [delta=\" << to_explore.delta << \"]\";\n\n        this->explore(std::move(to_explore));\n    }\n    this->history_.push(radix, /*value=*/0);\n\n    return /*value=*/min_value;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename ModelT>\ninline void ExhaustiveModelChecker<ModelT>::explore(Branch&& branch, ForceSend force_send)\n{\n    const usize dst_i = this->mesh_.find_shard(branch);\n\n    // Update cross-shard branch hit rate stats.\n    //\n    if (dst_i != this->shard_i_) {\n        this->result_.branch_miss_count += 1;\n    }\n\n    if (dst_i == this->shard_i_ && !force_send) {\n        this->result_.branch_push_count += 1;\n        this->queue_.emplace_back(std::move(branch));\n    } else {\n        this->mesh_.send(/*src_i=*/this->shard_i_, /*dst_i=*/dst_i, std::move(branch));\n    }\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename ModelT>\nvoid ExhaustiveModelChecker<ModelT>::enter_loop(usize loop_counter)\n{\n    // Flush outbound queues to other shards periodically to try to prevent stalls.\n    //\n    if (((loop_counter + 1) % this->options_.max_loop_iterations_between_flush) == 0) {\n        if (this->mesh_.shard_count > 1) {\n            this->mesh_.flush_all(this->shard_i_);\n        }\n    }\n\n    // Update elapsed time and send a progress report if necessary.\n    //\n    if (((loop_counter + 1) % this->options_.max_loop_iterations_between_update) == 0) {\n        this->result_.update_elapsed_time();\n        const double elapsed_seconds = double(this->result_.elapsed_ms) / 1000.0;\n        const usize required_reports = elapsed_seconds / this->model_.progress_report_interval_seconds();\n        if (this->progress_reports_ < required_reports) {\n            this->progress_reports_ += 1;\n            this->model_.report_progress(this->result_);\n        }\n    }\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename ModelT>\nbool ExhaustiveModelChecker<ModelT>::pop_next()\n{\n    for (;;) {\n        while (this->queue_.empty()) {\n            const usize size_before = this->queue_.size();\n            StatusOr<usize> n_recv = this->mesh_.recv(this->shard_i_, this->queue_);\n            if (!n_recv.ok()) {\n                if (n_recv.status() != batt::StatusCode::kClosed) {\n                    this->result_.ok = false;\n                }\n                return false;\n            }\n            const usize size_after = this->queue_.size();\n            BATT_CHECK_EQ(size_before, 0u);\n            BATT_CHECK_GT(*n_recv, 0u);\n            BATT_CHECK_EQ(size_after - size_before, *n_recv);\n\n            // Deduplicate incoming branches.\n            //\n            auto first_duplicate =\n                std::remove_if(this->queue_.begin(), this->queue_.end(), [&](const Branch& branch) {\n                    const bool is_duplicate =\n                        branch.delta.empty() &&\n                        (this->model_.visit(branch.snapshot, /*src_branch=*/Branch{}\n                                            // TODO [tastolfi 2022-01-24] restore the trace history when\n                                            // merging `visited_` sets at the end of a parallel run.\n                                            ) == VisitResult::kSeenBefore);\n\n                    return is_duplicate;\n                });\n\n            this->queue_.erase(first_duplicate, this->queue_.end());\n            this->result_.branch_push_count += this->queue_.size();\n        }\n        BATT_CHECK(!this->queue_.empty());\n\n        auto& next_branch = this->queue_.front();\n        const usize branch_shard_i = this->mesh_.find_shard(next_branch);\n        BATT_CHECK_EQ(branch_shard_i, this->shard_i_);\n\n        // Pop the next branch of the state graph to explore.\n        //\n        this->current_branch_ = std::move(next_branch);\n        this->history_.clear();\n        this->queue_.pop_front();\n        this->result_.branch_pop_count += 1;\n\n        return true;\n    }\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename ModelT>\nauto ExhaustiveModelChecker<ModelT>::run() -> Result\n{\n    // Clear current state.\n    //\n    this->progress_reports_ = 0;\n    this->current_branch_ = None;\n    this->history_.clear();\n    this->model_.reset_visited_states();\n    this->queue_.clear();\n\n    // Initialize new state and seed the BFS for model checking.\n    //\n    {\n        StateT s = this->model_.normalize(this->model_.initialize());\n        this->explore(\n            Branch{\n                .snapshot = std::move(s),\n                .delta = BranchDelta{},\n            },\n            ForceSend{true});\n    }\n    this->mesh_.flush_all(this->shard_i_);\n    BATT_CHECK_OK(this->mesh_.wait_for_other_shards());\n    BATT_CHECK_GT(this->mesh_.total_pending_count->load(), 0);\n\n    this->result_.ok = true;\n    this->result_.state_count = 1;\n    this->result_.start_time = std::chrono::steady_clock::now();\n\n    const auto notify_finished = finally([&] {\n        this->mesh_.finished(this->shard_i_);\n        this->result_.update_elapsed_time();\n        this->model_.report_progress(this->result_);\n    });\n\n    for (usize loop_counter = 0;; ++loop_counter) {\n        // Perform top-of-loop maintenance tasks.\n        //\n        this->enter_loop(loop_counter);\n\n        // Pop the next branch off the queue (this may block on other shards if the local queue is empty).\n        //\n        if (!this->pop_next()) {\n            break;\n        }\n\n        // Enter the new state.\n        //\n        this->model_.enter_state(this->current_branch_->snapshot);\n\n        BATT_STATE_MACHINE_VERBOSE() << \" branch=\" << this->current_branch_->delta;\n\n        // We should have already checked invariants for this state before enqueuing it for the first time\n        // (and the initial state should always pass invariant checks), but one can never be too sure...\n        //\n        if (!this->model_.check_invariants()) {\n            this->result_.ok = false;\n            break;\n        }\n\n        // Expand the \"out-edges\" of this node of the graph.\n        //\n        this->model_.step();\n\n        // Make sure the state machine hasn't violated any of its invariants.\n        //\n        if (!this->model_.check_invariants()) {\n            this->result_.ok = false;\n            break;\n        }\n\n        // Grab the new state and normalize it.\n        //\n        StateT after = this->model_.normalize(this->model_.leave_state());\n\n        if (after == this->current_branch_->snapshot) {\n            BATT_STATE_MACHINE_VERBOSE() << \"(no state change) pruning self-branch\";\n            this->result_.self_branch_count += 1;\n            continue;\n        }\n\n        // If this is the first time we are visiting the new state, add it to the queue and note how we\n        // discovered it in the trace.\n        //\n        if (this->model_.visit(after, /*src_branch=*/Branch{\n                                   .snapshot = this->current_branch_->snapshot,\n                                   .delta = this->history_,\n                               }) == VisitResult::kFirstTime) {\n            this->result_.state_count += 1;\n            BATT_STATE_MACHINE_VERBOSE() << \"new state discovered\";\n\n            // This is the branch (or \"out-edge\") that represents choosing 0 for all non-deterministic\n            // variables inside `step()`.  We added all the non-0 branches already inside\n            // `pick_int`.\n            //\n            this->explore(Branch{\n                .snapshot = after,\n                .delta = BranchDelta{},\n            });\n        } else {\n            BATT_STATE_MACHINE_VERBOSE() << \"state already visited; pruning\";\n        }\n    }\n\n    return this->result_;\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_STATE_MACHINE_MODEL_EXHAUSTIVE_MODEL_CHECKER_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::StateMachineBranch",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::StateMachineBranch",
+      "refid": "structbatt_1_1StateMachineBranch",
+      "title": "batt::StateMachineBranch",
+      "url": "/_autogen/Classes/structbatt_1_1StateMachineBranch/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::ExhaustiveModelChecker",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::ExhaustiveModelChecker",
+      "refid": "classbatt_1_1ExhaustiveModelChecker",
+      "title": "batt::ExhaustiveModelChecker",
+      "url": "/_autogen/Classes/classbatt_1_1ExhaustiveModelChecker/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "exhaustive__model__checker_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/state_machine_model/exhaustive_model_checker.hpp",
+  "url": "/_autogen/Files/exhaustive__model__checker_8hpp/#file-exhaustive-model-checker.hpp",
+  "visibility": "public"
+}

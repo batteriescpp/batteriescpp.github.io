@@ -1,0 +1,1052 @@
+{
+  "abstract": false,
+  "anchor": "#file-status.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-status-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_STATUS_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/status.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/status.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_STATUS_HPP",
+      "override": false,
+      "refid": "status_8hpp_1a848f91ef7993b33f8591f03885c41cfe",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_STATUS_HPP",
+      "url": "/_autogen/Files/status_8hpp/#define-batteries-status-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-define-status",
+      "brief": "(Internal use only) Expands to a single status code enum value definition. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "\nUsage code will look something like this \n\n```cpp\nBATT_DEFINE_STATUS(MyStatusCode, kFileOpeningError, 7, \"Couldn't open log file\")\n```\n\nAbove code will expand into: \n\n```cpp\nkFileOpeningError = 7,\n```",
+      "explicit": false,
+      "fullname": "BATT_DEFINE_STATUS",
+      "hasDetails": true,
+      "initializer": "STATUS_CODE_NAME = VAL,",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/status.hpp",
+        "bodyStart": 306,
+        "column": 9,
+        "file": "batteries/status.hpp",
+        "line": 306
+      },
+      "name": "BATT_DEFINE_STATUS",
+      "override": false,
+      "paramList": [
+        {
+          "name": "ENUM_STRUCT_NAME",
+          "text": "Ignored "
+        },
+        {
+          "name": "STATUS_CODE_NAME",
+          "text": "Status code enum name "
+        },
+        {
+          "name": "VAL",
+          "text": "Value of the enum "
+        },
+        {
+          "name": "MSG",
+          "text": "Ignored"
+        }
+      ],
+      "params": [
+        {
+          "name": "ENUM_STRUCT_NAME",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "STATUS_CODE_NAME",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "VAL",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "MSG",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "status_8hpp_1a5e99f0aafd42bc6ba9df0fd9d5582ae5",
+      "static": false,
+      "strong": false,
+      "summary": "(Internal use only) Expands to a single status code enum value definition. ",
+      "title": "BATT_DEFINE_STATUS",
+      "url": "/_autogen/Files/status_8hpp/#define-batt-define-status",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-define-kv-status-code",
+      "brief": "(Internal use only) Defines the enum structure using the passed in struct name and status code list. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_DEFINE_KV_STATUS_CODE",
+      "hasDetails": true,
+      "initializer": "    enum struct ENUM_STRUCT_NAME { STATUS_CODES(ENUM_STRUCT_NAME, BATT_DEFINE_STATUS) };",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/status.hpp",
+        "bodyStart": 314,
+        "column": 9,
+        "file": "batteries/status.hpp",
+        "line": 314
+      },
+      "name": "BATT_DEFINE_KV_STATUS_CODE",
+      "override": false,
+      "paramList": [
+        {
+          "name": "ENUM_STRUCT_NAME",
+          "text": "Name of the enum structure "
+        },
+        {
+          "name": "STATUS_CODES",
+          "text": "User defined status code enum list macro "
+        }
+      ],
+      "params": [
+        {
+          "name": "ENUM_STRUCT_NAME",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "STATUS_CODES",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "status_8hpp_1a081efab613c78170ba9e12b8e1e66db9",
+      "static": false,
+      "strong": false,
+      "summary": "(Internal use only) Defines the enum structure using the passed in struct name and status code list. ",
+      "title": "BATT_DEFINE_KV_STATUS_CODE",
+      "url": "/_autogen/Files/status_8hpp/#define-batt-define-kv-status-code",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-register-status",
+      "brief": "(Internal use only) Status code registration helper macro which expands the status codes into registration frendly format. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_REGISTER_STATUS",
+      "hasDetails": true,
+      "initializer": "    {ENUM_STRUCT_NAME::STATUS_CODE_NAME, MSG \" (\" #STATUS_CODE_NAME \")\"},",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/status.hpp",
+        "bodyStart": 326,
+        "column": 9,
+        "file": "batteries/status.hpp",
+        "line": 326
+      },
+      "name": "BATT_REGISTER_STATUS",
+      "override": false,
+      "paramList": [
+        {
+          "name": "ENUM_STRUCT_NAME",
+          "text": "Name of the enum structure "
+        },
+        {
+          "name": "STATUS_CODE_NAME",
+          "text": "status code enum name "
+        },
+        {
+          "name": "VAL",
+          "text": "Ignored "
+        },
+        {
+          "name": "MSG",
+          "text": "Message (description) for the status code "
+        }
+      ],
+      "params": [
+        {
+          "name": "ENUM_STRUCT_NAME",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "STATUS_CODE_NAME",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "VAL",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "MSG",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "status_8hpp_1a8700644dd0ccfb3e4d0140cbd2dd4094",
+      "static": false,
+      "strong": false,
+      "summary": "(Internal use only) Status code registration helper macro which expands the status codes into registration frendly format. ",
+      "title": "BATT_REGISTER_STATUS",
+      "url": "/_autogen/Files/status_8hpp/#define-batt-register-status",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-register-batt-status-code",
+      "brief": "(Internal use only) Used inside the status code creation function to enumurate the status codes for registration. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "This registers the passed in list of status codes with batteries. Registration is done only once (at the first call).",
+      "explicit": false,
+      "fullname": "BATT_REGISTER_BATT_STATUS_CODE",
+      "hasDetails": true,
+      "initializer": "    {                                                                                                        \\\n        static const bool initialized_ = ::batt::Status::register_codes<ENUM_STRUCT_NAME>(                   \\\n            {STATUS_CODES(ENUM_STRUCT_NAME, BATT_REGISTER_STATUS)});                                         \\\n        (void)initialized_;                                                                                  \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/status.hpp",
+        "bodyStart": 337,
+        "column": 9,
+        "file": "batteries/status.hpp",
+        "line": 337
+      },
+      "name": "BATT_REGISTER_BATT_STATUS_CODE",
+      "override": false,
+      "paramList": [
+        {
+          "name": "ENUM_STRUCT_NAME",
+          "text": "Name of the enum structure "
+        },
+        {
+          "name": "STATUS_CODES",
+          "text": "tatus code list passed in by the user "
+        }
+      ],
+      "params": [
+        {
+          "name": "ENUM_STRUCT_NAME",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "STATUS_CODES",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "status_8hpp_1a659a92b1dbfe3948f94dec9bb4459749",
+      "static": false,
+      "strong": false,
+      "summary": "(Internal use only) Used inside the status code creation function to enumurate the status codes for registration. ",
+      "title": "BATT_REGISTER_BATT_STATUS_CODE",
+      "url": "/_autogen/Files/status_8hpp/#define-batt-register-batt-status-code",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-declare-make-status-fn",
+      "brief": "Declares function to create status codes at run-time. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "To be used in the .h file when one has both .cpp and .h files.",
+      "explicit": false,
+      "fullname": "BATT_DECLARE_MAKE_STATUS_FN",
+      "hasDetails": true,
+      "initializer": "::batt::Status FN(ENUM_STRUCT_NAME code)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/status.hpp",
+        "bodyStart": 351,
+        "column": 9,
+        "file": "batteries/status.hpp",
+        "line": 351
+      },
+      "name": "BATT_DECLARE_MAKE_STATUS_FN",
+      "override": false,
+      "paramList": [
+        {
+          "name": "ENUM_STRUCT_NAME",
+          "text": "Name of the enum structure "
+        },
+        {
+          "name": "FN",
+          "text": "User defined name for 'make_status' function "
+        }
+      ],
+      "params": [
+        {
+          "name": "ENUM_STRUCT_NAME",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "FN",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "status_8hpp_1ab2e927e43333855ad7e94aec0133f8a0",
+      "static": false,
+      "strong": false,
+      "summary": "Declares function to create status codes at run-time. ",
+      "title": "BATT_DECLARE_MAKE_STATUS_FN",
+      "url": "/_autogen/Files/status_8hpp/#define-batt-declare-make-status-fn",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-define-make-status-fn",
+      "brief": "This defines the registration function (like make_status). ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "This is .cpp and .hpp compatible. Users are going to call this function to create [batt::Status](/_autogen/Classes/classbatt_1_1Status/) objects.",
+      "explicit": false,
+      "fullname": "BATT_DEFINE_MAKE_STATUS_FN",
+      "hasDetails": true,
+      "initializer": "    BATT_UNWRAP INLINE_DECL ::batt::Status FN(ENUM_STRUCT_NAME code)                                         \\\n    {                                                                                                        \\\n        BATT_REGISTER_BATT_STATUS_CODE(ENUM_STRUCT_NAME, STATUS_CODES);                                      \\\n        return ::batt::Status{code};                                                                         \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/status.hpp",
+        "bodyStart": 362,
+        "column": 9,
+        "file": "batteries/status.hpp",
+        "line": 362
+      },
+      "name": "BATT_DEFINE_MAKE_STATUS_FN",
+      "override": false,
+      "paramList": [
+        {
+          "name": "ENUM_STRUCT_NAME",
+          "text": "Name of the enum structure "
+        },
+        {
+          "name": "STATUS_CODES",
+          "text": "Status code list passed in by the user "
+        },
+        {
+          "name": "INLINE_DECL",
+          "text": "specify if the function is 'inline' "
+        },
+        {
+          "name": "FN",
+          "text": "User defined function name (this function creates the status code for the caller) "
+        }
+      ],
+      "params": [
+        {
+          "name": "ENUM_STRUCT_NAME",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "STATUS_CODES",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "INLINE_DECL",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "FN",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "status_8hpp_1a5fc02054411719e7b26d566f558d2a2f",
+      "static": false,
+      "strong": false,
+      "summary": "This defines the registration function (like make_status). ",
+      "title": "BATT_DEFINE_MAKE_STATUS_FN",
+      "url": "/_autogen/Files/status_8hpp/#define-batt-define-make-status-fn",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-register-codes-and-make-status-fn",
+      "brief": "Super macro to register status codes and define the function at the same time. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "This is used in .hpp file to declare/define the at the same time.\n\nThis will be used by the user to define and register the status codes with batteries infrastructure. This also defines the function to create status codes for client side code. \n\n```\n     Example/Reference Usage Code **********\n```\n\n This is how user side code will look like (most likely a header will will have this). This example code defines two status codes (kOk and kVal1). \n\n```cpp\n// This is the place where user add in new status codes.\n#define StatusCodes(NAME, STATUS) \\\n    STATUS(NAME, kOk, 0, \"Ok\") \\\n    STATUS(NAME, kVal1, 1, \"VAL1\")\n\n// This defines the StatusCode enum and registration/status-code-creation function.\n// 'TestStatusCodes' is the TestStatus enum struct name.\n// 'StatusCodes' is the status code list of enums which user has created above.\n// 'inline' indicate that this is a header only definition. If we have .cpp also then we pass '()' instead.\n// 'make_test_status' is the function to create status code.\nBATT_RGISTER_CODES_AND_MAKE_STATUS_FUNCT(TestStatusCodes, StatusCodes, (inline), make_test_status);\n\n// (Optional) To be used to declare 'make_status' function user is going to define. Used in .hpp file.\nBATT_DECLARE_MAKE_STATUS_FN(TestStatusCodes, make_test_status)\n```\n\nUser side code using the new status codes will look somethins like this \n\n```cpp\nbatt::Status s1 = ::make_test_status(::TestStatusCodes::kOk);\n```",
+      "explicit": false,
+      "fullname": "BATT_REGISTER_CODES_AND_MAKE_STATUS_FN",
+      "hasDetails": true,
+      "initializer": "    BATT_DEFINE_KV_STATUS_CODE(ENUM_STRUCT_NAME, STATUS_CODES)                                               \\\n    BATT_DEFINE_MAKE_STATUS_FN(ENUM_STRUCT_NAME, STATUS_CODES, INLINE_DECL, FN)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/status.hpp",
+        "bodyStart": 406,
+        "column": 9,
+        "file": "batteries/status.hpp",
+        "line": 406
+      },
+      "name": "BATT_REGISTER_CODES_AND_MAKE_STATUS_FN",
+      "override": false,
+      "paramList": [
+        {
+          "name": "ENUM_STRUCT_NAME",
+          "text": "Name of the enum structure "
+        },
+        {
+          "name": "STATUS_CODES",
+          "text": "Status code list passed in by the user "
+        },
+        {
+          "name": "INLINE_DECL",
+          "text": "specify if the function is '(inline)' else pass '()' "
+        },
+        {
+          "name": "FN",
+          "text": "User defined function name (this function creates the status code for the caller) "
+        }
+      ],
+      "params": [
+        {
+          "name": "ENUM_STRUCT_NAME",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "STATUS_CODES",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "INLINE_DECL",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "FN",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "status_8hpp_1ab36dbe2e002d1d46e51cff1a9cc77438",
+      "static": false,
+      "strong": false,
+      "summary": "Super macro to register status codes and define the function at the same time. ",
+      "title": "BATT_REGISTER_CODES_AND_MAKE_STATUS_FN",
+      "url": "/_autogen/Files/status_8hpp/#define-batt-register-codes-and-make-status-fn",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-require-ok",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_REQUIRE_OK",
+      "hasDetails": false,
+      "initializer": "    for (auto&& BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__) = (expr);                              \\\n         !::batt::is_ok_status(BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__));)                      \\\n        return ::batt::detail::NotOkStatusWrapper                                                            \\\n        {                                                                                                    \\\n            sizeof(::batt::detail::NotOkStatusWrapper), __FILE__, __LINE__,                                  \\\n                ::batt::to_status(BATT_FORWARD(BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__))),      \\\n                BATT_VLOG_IS_ON(1)                                                                           \\\n        }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/status.hpp",
+        "bodyStart": 1161,
+        "column": 9,
+        "file": "batteries/status.hpp",
+        "line": 1161
+      },
+      "name": "BATT_REQUIRE_OK",
+      "override": false,
+      "params": [
+        {
+          "name": "expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "status_8hpp_1ad7bf345283c2bbf7afe74eac45f7064e",
+      "static": false,
+      "strong": false,
+      "title": "BATT_REQUIRE_OK",
+      "url": "/_autogen/Files/status_8hpp/#define-batt-require-ok",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-assign-ok-result",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_ASSIGN_OK_RESULT",
+      "hasDetails": false,
+      "initializer": "    auto BOOST_PP_CAT(BATTERIES_temp_StatusOr_result_, __LINE__) = statusor_expr;                            \\\n    BATT_REQUIRE_OK(BOOST_PP_CAT(BATTERIES_temp_StatusOr_result_, __LINE__));                                \\\n    lvalue_expr = std::move(*BOOST_PP_CAT(BATTERIES_temp_StatusOr_result_, __LINE__))",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/status.hpp",
+        "bodyStart": 1172,
+        "column": 9,
+        "file": "batteries/status.hpp",
+        "line": 1172
+      },
+      "name": "BATT_ASSIGN_OK_RESULT",
+      "override": false,
+      "params": [
+        {
+          "name": "lvalue_expr",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "statusor_expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "status_8hpp_1afde188d6899cd832b59ba87095ea812f",
+      "static": false,
+      "strong": false,
+      "title": "BATT_ASSIGN_OK_RESULT",
+      "url": "/_autogen/Files/status_8hpp/#define-batt-assign-ok-result",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-ok-result-or-panic",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_OK_RESULT_OR_PANIC",
+      "hasDetails": false,
+      "initializer": "    [&](auto&& expr_value) {                                                                                 \\\n        BATT_CHECK(::batt::is_ok_status(expr_value))                                                         \\\n            << BOOST_PP_STRINGIZE(expr) << \".status == \" << ::batt::to_status(expr_value);                   \\\n        return *BATT_FORWARD(expr_value);                                                                    \\\n    }((expr))",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/status.hpp",
+        "bodyStart": 1177,
+        "column": 9,
+        "file": "batteries/status.hpp",
+        "line": 1177
+      },
+      "name": "BATT_OK_RESULT_OR_PANIC",
+      "override": false,
+      "params": [
+        {
+          "name": "expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "status_8hpp_1ab55a937fe8ac2f3a70d938f1d3144ad1",
+      "static": false,
+      "strong": false,
+      "title": "BATT_OK_RESULT_OR_PANIC",
+      "url": "/_autogen/Files/status_8hpp/#define-batt-ok-result-or-panic",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-check-ok",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_CHECK_OK",
+      "hasDetails": false,
+      "initializer": "    if (bool BOOST_PP_CAT(BATTERIES_check_ok_flag_, __LINE__) = true)                                        \\\n        for (auto&& BOOST_PP_CAT(BATTERIES_check_expr_value_, __LINE__) = (expr);                            \\\n             BOOST_PP_CAT(BATTERIES_check_ok_flag_, __LINE__);                                               \\\n             BOOST_PP_CAT(BATTERIES_check_ok_flag_, __LINE__) = false)                                       \\\n            for (; !BATT_HINT_TRUE(                                                                          \\\n                       ::batt::is_ok_status(BOOST_PP_CAT(BATTERIES_check_expr_value_, __LINE__))) &&         \\\n                   BATT_HINT_TRUE(::batt::lock_fail_check_mutex());                                          \\\n                 ::batt::fail_check_exit())                                                                  \\\n    BATT_FAIL_CHECK_MESSAGE(\"batt::to_status(\" BOOST_PP_STRINGIZE(expr) \")\",                                 \\\n                            ::batt::to_status(BOOST_PP_CAT(BATTERIES_check_expr_value_, __LINE__)),          \\\n                            \"==\", \"batt::OkStatus()\", ::batt::OkStatus(),                                    \\\n                            __FILE__, __LINE__, BATT_THIS_FUNCTION)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/status.hpp",
+        "bodyStart": 1185,
+        "column": 9,
+        "file": "batteries/status.hpp",
+        "line": 1185
+      },
+      "name": "BATT_CHECK_OK",
+      "override": false,
+      "params": [
+        {
+          "name": "expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "status_8hpp_1a553df5fbefb707ef3a123b665a21daa3",
+      "static": false,
+      "strong": false,
+      "title": "BATT_CHECK_OK",
+      "url": "/_autogen/Files/status_8hpp/#define-batt-check-ok",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-return-ok-result",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_RETURN_OK_RESULT",
+      "hasDetails": false,
+      "initializer": "    for (auto&& BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__) = (statusor_expr);                     \\\n         ::batt::is_ok_status(BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__));)                       \\\n        return std::move(*BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__))",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/status.hpp",
+        "bodyStart": 1199,
+        "column": 9,
+        "file": "batteries/status.hpp",
+        "line": 1199
+      },
+      "name": "BATT_RETURN_OK_RESULT",
+      "override": false,
+      "params": [
+        {
+          "name": "statusor_expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "status_8hpp_1afc24a3abcab198a468f038af3bb18a7f",
+      "static": false,
+      "strong": false,
+      "title": "BATT_RETURN_OK_RESULT",
+      "url": "/_autogen/Files/status_8hpp/#define-batt-return-ok-result",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/status.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/status.hpp",
+    "line": 0
+  },
+  "name": "batteries/status.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_STATUS_HPP\n#define BATTERIES_STATUS_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/logging.hpp>\n#include <batteries/stream_util.hpp>\n#include <batteries/strong_typedef.hpp>\n#include <batteries/suppress.hpp>\n#include <batteries/utility.hpp>\n\nBATT_SUPPRESS_IF_GCC(\"-Wsuggest-override\")\nBATT_SUPPRESS_IF_GCC(\"-Woverloaded-virtual\")\nBATT_SUPPRESS_IF_CLANG(\"-Wsuggest-override\")\nBATT_SUPPRESS_IF_CLANG(\"-Woverloaded-virtual\")\n//\n#include <boost/asio/error.hpp>\n//\nBATT_UNSUPPRESS_IF_CLANG()\nBATT_UNSUPPRESS_IF_CLANG()\nBATT_UNSUPPRESS_IF_GCC()\nBATT_UNSUPPRESS_IF_GCC()\n\n#include <boost/preprocessor/cat.hpp>\n#include <boost/system/error_code.hpp>\n\n#include <atomic>\n#include <cstring>\n#include <limits>\n#include <mutex>\n#include <string>\n#include <typeindex>\n#include <typeinfo>\n#include <unordered_map>\n#include <vector>\n\nnamespace batt {\n\n#ifdef BATT_STATUS_CUSTOM_MESSSAGES\n#error This feature is not ready yet!\n#endif\n\nnamespace detail {\n\nclass StatusBase\n{\n   public:\n    StatusBase() noexcept;\n};\n\n}  // namespace detail\n\n// Intentionally value-compatible with Abseil's StatusCode.\n//\nenum class StatusCode : int {\n    kOk = 0,\n    kCancelled = 1,\n    kUnknown = 2,\n    kInvalidArgument = 3,\n    kDeadlineExceeded = 4,\n    kNotFound = 5,\n    kAlreadyExists = 6,\n    kPermissionDenied = 7,\n    kResourceExhausted = 8,\n    kFailedPrecondition = 9,\n    kAborted = 10,\n    kOutOfRange = 11,\n    kUnimplemented = 12,\n    kInternal = 13,\n    kUnavailable = 14,\n    kDataLoss = 15,\n    kUnauthenticated = 16,\n    // ...\n    // This range reserved for future allocation of Abseil status codes.\n    // ...\n    kClosed = 100,\n    kGrantUnavailable = 101,\n    kLoopBreak = 102,\n    kEndOfStream = 103,\n    kClosedBeforeEndOfStream = 104,\n    kGrantRevoked = 105,\n    kPoke = 106,\n};\n\nenum ErrnoValue {};\n\nenum StdGenericErrorCode {};\n\nenum StdFutureErrorCode {};\n\nenum StdSystemErrorCode {};\n\nenum StdIostreamErrorCode {};\n\nclass BATT_WARN_UNUSED_RESULT Status;\n\ntemplate <typename T>\nclass BATT_WARN_UNUSED_RESULT StatusOr;\n\ntemplate <typename T>\nconstexpr bool IsStatusEnum = std::is_enum_v<T> &&                                  //\n                              !boost::system::is_error_code_enum<T>::value &&       //\n                              !boost::system::is_error_condition_enum<T>::value &&  //\n                              !std::is_error_code_enum_v<T> &&                      //\n                              !std::is_error_condition_enum_v<T>;\n\nclass Status : private detail::StatusBase\n{\n   public:\n    using value_type = i32;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    static constexpr i32 kGroupSizeBits = 12 /*-> 4096*/;\n    static constexpr i32 kGroupSize = i32{1} << kGroupSizeBits;\n    static constexpr i32 kMaxGroups = 0x7fffff00l - kGroupSize;\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    struct ForceLookup {\n    };\n\n    struct CodeEntry {\n        value_type code;\n        int enum_value;\n        std::string message;\n    };\n\n    struct CodeGroup {\n        std::type_index enum_type_index{typeid(int)};\n        usize index;\n        int min_enum_value;\n        std::vector<usize> enum_value_to_code;\n        std::vector<CodeEntry> entries;\n\n        const char* name() const noexcept;\n    };\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    template <typename EnumT>\n    static const CodeGroup& code_group_for_type()\n    {\n        return code_group_for_type_internal<EnumT>();\n    }\n\n    static const std::string& unknown_enum_value_message();\n\n    template <typename EnumT>\n    static bool register_codes(const std::vector<std::pair<EnumT, std::string>>& codes);\n\n    static const CodeEntry& get_entry_from_code(value_type value);\n\n    static std::string_view message_from_code(value_type value);\n\n    static usize get_index_of_group(value_type value);\n\n    static usize get_index_within_group(value_type value);\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    // Construct a no-error status object.\n    //\n    Status();\n\n    // This is a regular copyable value type.\n    //\n    Status(const Status&) = default;\n    Status& operator=(const Status&) = default;\n\n    // Implicitly convert enumerated types to Status.  The given type `EnumT` must have been registered\n    // via `Status::register_codes` prior to invoking this constructor.\n    //\n    template <typename EnumT>\n    /*implicit*/ Status(ForceLookup, EnumT enum_value) noexcept\n    {\n        const CodeGroup& group = code_group_for_type<EnumT>();\n        BATT_ASSERT_GE(static_cast<int>(enum_value), group.min_enum_value);\n\n        const int index_within_enum = static_cast<int>(enum_value) - group.min_enum_value;\n        BATT_ASSERT_LT(index_within_enum, static_cast<int>(group.enum_value_to_code.size()))\n            << BATT_INSPECT(group.index) << BATT_INSPECT(group.enum_type_index.name());\n\n        this->value_ = group.enum_value_to_code[index_within_enum];\n\n        BATT_ASSERT_NOT_NULLPTR(message_from_code(this->value_).data());\n\n#ifdef BATT_ASSERT_CUSTOM_MESSSAGES\n        const usize index_within_group = get_index_within_group(this->value_);\n\n        this->message_ = group.entries[index_within_group].message;\n#endif\n    }\n\n    template <typename EnumT, typename = std::enable_if_t<IsStatusEnum<EnumT>>>\n    /*implicit*/ Status(EnumT enum_value) noexcept : Status{ForceLookup{}, enum_value}\n    {\n    }\n\n    template <typename EnumT, typename = std::enable_if_t<boost::system::is_error_code_enum<EnumT>::value>,\n              typename = void>\n    /*implicit*/ Status(EnumT enum_value) noexcept;\n\n    template <typename EnumT, typename = std::enable_if_t<std::is_error_code_enum<EnumT>::value>,\n              typename = void, typename = void>\n    /*implicit*/ Status(EnumT enum_value) noexcept;\n\n#ifdef BATT_STATUS_CUSTOM_MESSSAGES\n    template <typename EnumT, typename = std::enable_if_t<IsStatusEnum<EnumT>>>\n    explicit Status(EnumT enum_value, const std::string_view& custom_message) noexcept : Status{enum_value}\n    {\n        this->message_ = custom_message;\n    }\n#endif\n\n    Status(const StatusOr<NoneType>&) noexcept;\n    Status& operator=(const StatusOr<NoneType>&) noexcept;\n\n    bool ok() const noexcept BATT_WARN_UNUSED_RESULT;\n\n    value_type code() const noexcept;\n\n    value_type code_index_within_group() const noexcept;\n\n    const CodeEntry& code_entry() const noexcept;\n\n    std::string_view message() const noexcept;\n\n    const CodeGroup* group_pointer() const noexcept;\n\n    const CodeGroup& group() const noexcept\n    {\n        return *this->group_pointer();\n    }\n\n    value_type group_index() const noexcept;\n\n    void IgnoreError() const noexcept;\n\n    void Update(const Status& new_status);\n\n   private:\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    friend class detail::StatusBase;\n\n    static constexpr usize kMaxGroupCount = 256;\n    static constexpr i32 kMaxCodeNumericRange = 0xffff;\n    static constexpr i32 kLocalMask = (i32{1} << kGroupSizeBits) - 1;\n    static constexpr i32 kGroupMask = ~kLocalMask;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    static usize next_group_index();\n\n    static std::array<CodeGroup*, kMaxGroupCount>& registered_groups();\n\n    template <typename EnumT>\n    static CodeGroup& code_group_for_type_internal()\n    {\n        static CodeGroup group;\n        return group;\n    }\n\n    template <typename EnumT>\n    static bool register_codes_internal(const std::vector<std::pair<EnumT, std::string>>& codes);\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    // Unique error code;\n    //\n    value_type value_;\n#ifdef BATT_STATUS_CUSTOM_MESSSAGES\n    std::string_view message_;\n#endif\n};\n\nstatic_assert(sizeof(Status) <= sizeof(void*), \"\");\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\n#define BATT_DEFINE_STATUS(ENUM_STRUCT_NAME, STATUS_CODE_NAME, VAL, MSG) STATUS_CODE_NAME = VAL,\n\n#define BATT_DEFINE_KV_STATUS_CODE(ENUM_STRUCT_NAME, STATUS_CODES)                                           \\\n    enum struct ENUM_STRUCT_NAME { STATUS_CODES(ENUM_STRUCT_NAME, BATT_DEFINE_STATUS) };\n\n#define BATT_REGISTER_STATUS(ENUM_STRUCT_NAME, STATUS_CODE_NAME, VAL, MSG)                                   \\\n    {ENUM_STRUCT_NAME::STATUS_CODE_NAME, MSG \" (\" #STATUS_CODE_NAME \")\"},\n\n#define BATT_REGISTER_BATT_STATUS_CODE(ENUM_STRUCT_NAME, STATUS_CODES)                                       \\\n    {                                                                                                        \\\n        static const bool initialized_ = ::batt::Status::register_codes<ENUM_STRUCT_NAME>(                   \\\n            {STATUS_CODES(ENUM_STRUCT_NAME, BATT_REGISTER_STATUS)});                                         \\\n        (void)initialized_;                                                                                  \\\n    }\n\n#define BATT_DECLARE_MAKE_STATUS_FN(ENUM_STRUCT_NAME, FN) ::batt::Status FN(ENUM_STRUCT_NAME code)\n\n#define BATT_DEFINE_MAKE_STATUS_FN(ENUM_STRUCT_NAME, STATUS_CODES, INLINE_DECL, FN)                          \\\n    BATT_UNWRAP INLINE_DECL ::batt::Status FN(ENUM_STRUCT_NAME code)                                         \\\n    {                                                                                                        \\\n        BATT_REGISTER_BATT_STATUS_CODE(ENUM_STRUCT_NAME, STATUS_CODES);                                      \\\n        return ::batt::Status{code};                                                                         \\\n    }\n\n#define BATT_REGISTER_CODES_AND_MAKE_STATUS_FN(ENUM_STRUCT_NAME, STATUS_CODES, INLINE_DECL, FN)              \\\n    BATT_DEFINE_KV_STATUS_CODE(ENUM_STRUCT_NAME, STATUS_CODES)                                               \\\n    BATT_DEFINE_MAKE_STATUS_FN(ENUM_STRUCT_NAME, STATUS_CODES, INLINE_DECL, FN)\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\n// Print human-friendly representation of a Status.\n//\nstd::ostream& operator<<(std::ostream& out, const Status& t);\n\n// Equality comparison of `Status` values.\n//\nbool operator==(const Status& l, const Status& r);\nbool operator!=(const Status& l, const Status& r);\n\n// Returns a Status value `s` for which `s.ok() == true`.\n//\nStatus OkStatus();\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\nnamespace detail {\n\ntemplate <typename T>\nclass StatusOrValueContainer\n{\n   public:\n    using Self = StatusOrValueContainer;\n\n    template <typename... Args>\n    void construct(Args&&... args)\n    {\n        new (&this->storage_) T(BATT_FORWARD(args)...);\n    }\n\n    void construct(const Self& that)\n    {\n        this->construct(that.reference());\n    }\n\n    void construct(Self&& that)\n    {\n        this->construct(std::move(that.reference()));\n    }\n\n    T* pointer() noexcept\n    {\n        return reinterpret_cast<T*>(&this->storage_);\n    }\n\n    const T* pointer() const noexcept\n    {\n        return reinterpret_cast<const T*>(&this->storage_);\n    }\n\n    T& reference() noexcept\n    {\n        return *this->pointer();\n    }\n\n    const T& reference() const noexcept\n    {\n        return *this->pointer();\n    }\n\n    void destroy()\n    {\n        this->reference().~T();\n    }\n\n   private:\n    std::aligned_storage_t<sizeof(T), alignof(T)> storage_;\n};\n\ntemplate <typename T>\nvoid emplace_none(StatusOrValueContainer<T>&)\n{\n}\n\ninline void emplace_none(StatusOrValueContainer<NoneType>& s)\n{\n    s.construct(None);\n}\n\ntemplate <typename T>\nclass StatusOrValueContainer<T&>\n{\n   public:\n    using Self = StatusOrValueContainer<T&>;\n\n    void construct(T& value)\n    {\n        this->ptr_ = &value;\n    }\n\n    void construct(const Self& that)\n    {\n        this->ptr_ = that.ptr_;\n    }\n\n    void construct(Self&& that)\n    {\n        this->ptr_ = that.ptr_;\n    }\n\n    T* pointer() const noexcept\n    {\n        return this->ptr_;\n    }\n\n    T& reference() const noexcept\n    {\n        return *this->pointer();\n    }\n\n    void destroy() noexcept\n    {\n        this->ptr_ = nullptr;\n    }\n\n   private:\n    T* ptr_ = nullptr;\n};\n\n}  // namespace detail\n\ntemplate <typename T>\nclass StatusOr\n{\n    template <typename U>\n    friend class StatusOr;\n\n   public:\n    using value_type = T;\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    // Constructors\n\n    explicit StatusOr() noexcept : status_{StatusCode::kUnknown}\n    {\n        BATT_ASSERT(!this->ok());\n    }\n\n    /*implicit*/ StatusOr(const Status& s) : status_{s}\n    {\n        if (!std::is_same_v<T, NoneType>) {\n            BATT_CHECK(!this->ok()) << \"StatusOr must not be constructed with an Ok Status value.\";\n        } else {\n            if (s.ok()) {\n                detail::emplace_none(this->value_);\n            }\n        }\n    }\n\n    StatusOr(StatusOr&& that) : status_{StatusCode::kUnknown}\n    {\n        if (that.ok()) {\n            this->value_.construct(std::move(that.value_));\n            this->status_ = OkStatus();\n\n            that.value_.destroy();\n            that.status_ = StatusCode::kUnknown;\n        } else {\n            this->status_ = std::move(that.status_);\n        }\n    }\n\n    StatusOr(const StatusOr& that) : status_{that.status_}\n    {\n        if (this->ok()) {\n            this->value_.construct(that.value_);\n        }\n    }\n\n    /*implicit*/ StatusOr(const std::decay_t<T>& obj) noexcept(\n        noexcept(T(std::declval<const std::decay_t<T>&>())))\n        : status_{OkStatus()}\n    {\n        this->value_.construct(obj);\n    }\n\n    /*implicit*/ StatusOr(std::decay_t<T>& obj) noexcept(noexcept(T(std::declval<std::decay_t<T>&>())))\n        : status_{OkStatus()}\n    {\n        this->value_.construct(obj);\n    }\n\n    /*implicit*/ StatusOr(std::decay_t<T>&& obj) noexcept(noexcept(T(std::declval<std::decay_t<T>&&>())))\n        : status_{OkStatus()}\n    {\n        this->value_.construct(std::move(obj));\n    }\n\n    template <\n        typename U, typename = EnableIfNoShadow<StatusOr, U&&>,\n        typename = std::enable_if_t<!std::is_same_v<std::decay_t<U>, T> && std::is_constructible_v<T, U&&>>,\n        typename = void>\n    /*implicit*/ StatusOr(U&& obj) noexcept(noexcept(T(std::declval<U&&>()))) : status_{OkStatus()}\n    {\n        this->value_.construct(BATT_FORWARD(obj));\n    }\n\n    template <typename U, typename = std::enable_if_t<!std::is_same_v<std::decay_t<U>, T> &&\n                                                      std::is_constructible_v<T, U&&>>>\n    /*implicit*/ StatusOr(StatusOr<U>&& that) noexcept(noexcept(T(std::declval<U&&>())))\n        : status_{StatusCode::kUnknown}\n    {\n        if (that.status_.ok()) {\n            this->value_.construct(std::move(that.value()));\n            this->status_ = OkStatus();\n\n            that.value_.destroy();\n            that.status_ = StatusCode::kUnknown;\n        } else {\n            this->status_ = std::move(that).status();\n        }\n    }\n\n    template <typename U, typename = std::enable_if_t<!std::is_same_v<std::decay_t<U>, T> &&\n                                                      std::is_constructible_v<T, const U&>>>\n    /*implicit*/ StatusOr(const StatusOr<U>& that) noexcept(noexcept(T(std::declval<const U&>())))\n        : status_{StatusCode::kUnknown}\n    {\n        if (that.status_.ok()) {\n            new (&this->storage_) T(that.value());\n            this->status_ = OkStatus();\n        } else {\n            this->status_ = that.status_;\n        }\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    // Destructor\n\n    ~StatusOr()\n    {\n        if (this->ok()) {\n            this->value_.destroy();\n        }\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    // Assignment operator overloads\n\n    StatusOr& operator=(std::decay_t<T>&& obj)\n    {\n        static_assert(std::is_same_v<T, std::decay_t<T>>, \"\");\n        if (this->ok()) {\n            this->value_.destroy();\n        }\n        this->status_ = OkStatus();\n        this->value_.construct(std::move(obj));\n\n        return *this;\n    }\n\n    StatusOr& operator=(const T& obj)\n    {\n        if (this->ok()) {\n            this->value_.destroy();\n        }\n        this->status_ = OkStatus();\n        this->value_.construct(obj);\n\n        return *this;\n    }\n\n    template <typename U, typename = std::enable_if_t<!std::is_same_v<std::decay_t<U>, T> &&\n                                                      std::is_constructible_v<T, U&&>>>\n    StatusOr& operator=(U&& obj) noexcept(noexcept(T(std::declval<U&&>())))\n    {\n        if (this->ok()) {\n            this->value_.destroy();\n        }\n        this->status_ = OkStatus();\n        this->value_.construct(BATT_FORWARD(obj));\n\n        return *this;\n    }\n\n    StatusOr& operator=(const StatusOr& that) noexcept(\n        noexcept(T(std::declval<const T&>())) && noexcept(std::declval<T&>() = std::declval<const T&>()))\n    {\n        if (BATT_HINT_TRUE(this != &that)) {\n            if (this->ok()) {\n                if (that.ok()) {\n                    this->value() = that.value();\n                } else {\n                    this->value_.destroy();\n                }\n            } else {\n                if (that.ok()) {\n                    this->value_.construct(that.value());\n                }\n            }\n            this->status_ = that.status_;\n        }\n        return *this;\n    }\n\n    StatusOr& operator=(StatusOr&& that) noexcept(noexcept(T(std::declval<T&&>())) &&\n                                                  noexcept(std::declval<T&>() = /*move*/ std::declval<T&&>()))\n    {\n        if (BATT_HINT_TRUE(this != &that)) {\n            if (this->ok()) {\n                if (that.ok()) {\n                    this->value() = std::move(that.value());\n                } else {\n                    this->value_.destroy();\n                }\n            } else {\n                if (that.ok()) {\n                    this->value_.construct(std::move(that.value()));\n                }\n            }\n            this->status_ = that.status_;\n        }\n        return *this;\n    }\n\n    StatusOr& operator=(const Status& new_status) noexcept\n    {\n        if (BATT_HINT_FALSE(&new_status == &this->status_)) {\n            return *this;\n        }\n\n        if (this->ok()) {\n            this->value_.destroy();\n        }\n\n        if (std::is_same_v<T, NoneType>) {\n            if (new_status.ok()) {\n                detail::emplace_none(this->value_);\n            }\n        } else {\n            BATT_CHECK(!new_status.ok()) << \"StatusOr must not be constructed with an Ok Status value.\";\n        }\n\n        this->status_ = new_status;\n\n        return *this;\n    }\n\n    template <typename... Args>\n    void emplace(Args&&... args)\n    {\n        if (this->ok()) {\n            this->value_.destroy();\n        }\n        this->value_.construct(BATT_FORWARD(args)...);\n        this->status_ = OkStatus();\n    }\n\n    template <typename U>\n    void emplace(StatusOr<U>&& that)\n    {\n        if (this->ok()) {\n            this->value_.destroy();\n            this->status_ = StatusCode::kUnknown;\n        }\n        if (that.ok()) {\n            this->value_.construct(std::move(*that));\n        }\n        this->status_ = that.status();\n    }\n\n    template <typename U>\n    void emplace(const StatusOr<U>& that)\n    {\n        if (this->ok()) {\n            this->value_.destroy();\n            this->status_ = StatusCode::kUnknown;\n        }\n        if (that.ok()) {\n            this->value_.construct(*that);\n        }\n        this->status_ = that.status();\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    void IgnoreError() const noexcept\n    {\n        // do nothing\n    }\n\n    bool ok() const noexcept\n    {\n        return this->status_.ok();\n    }\n\n    const Status& status() const&\n    {\n        return this->status_;\n    }\n\n    T& value() noexcept\n    {\n        BATT_ASSERT(this->status_.ok()) << BATT_INSPECT(this->status_);\n        return this->value_.reference();\n    }\n\n    const T& value() const noexcept\n    {\n        BATT_ASSERT(this->status_.ok()) << BATT_INSPECT(this->status_);\n        return this->value_.reference();\n    }\n\n    T& operator*() & noexcept\n    {\n        return this->value();\n    }\n\n    const T& operator*() const& noexcept\n    {\n        return this->value();\n    }\n\n    T operator*() && noexcept\n    {\n        return std::move(this->value());\n    }\n\n    std::add_const_t<std::remove_reference_t<T>>* operator->() const noexcept\n    {\n        return &(this->value());\n    }\n\n    std::remove_reference_t<T>* operator->() noexcept\n    {\n        return &(this->value());\n    }\n\n   private:\n    Status status_;\n    detail::StatusOrValueContainer<T> value_;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n// StatusOr<Status> == Status.\n//\ntemplate <>\nclass StatusOr<Status> : public Status\n{\n   public:\n    using Status::Status;\n\n    /*implicit*/ StatusOr(const Status& status) : Status{status}\n    {\n    }\n\n    /*implicit*/ StatusOr(Status&& status) : Status{std::move(status)}\n    {\n    }\n};\n\nstatic_assert(sizeof(Status) == sizeof(StatusOr<Status>), \"\");\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n// StatusOr<StatusOr<T>> == StatusOr<T>\n//\ntemplate <typename T>\nclass StatusOr<StatusOr<T>> : public StatusOr<T>\n{\n   public:\n    using StatusOr<T>::StatusOr;\n\n    /*implicit*/ StatusOr(const StatusOr<T>& status_or) : StatusOr<T>{status_or}\n    {\n    }\n\n    /*implicit*/ StatusOr(StatusOr<T>&& status_or) : StatusOr<T>{std::move(status_or)}\n    {\n    }\n};\n\nstatic_assert(sizeof(StatusOr<StatusOr<int>>) == sizeof(StatusOr<int>), \"\");\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\ntemplate <typename T, typename U, typename = std::enable_if_t<CanBeEqCompared<T, U>{}>>\ninline bool operator==(const StatusOr<T>& l, const StatusOr<U>& r)\n{\n    return (l.ok() && r.ok() && l.value() == r.value()) || (!l.ok() && !r.ok() && l.status() == r.status());\n}\n\n// If `T` (and `U`) can't be equality-compared, then we define StatusOr<T> to be equal iff the non-ok status\n// values are equal.\n//\ntemplate <typename T, typename U, typename = std::enable_if_t<!CanBeEqCompared<T, U>{}>, typename = void>\ninline bool operator==(const StatusOr<T>& l, const StatusOr<U>& r)\n{\n    return (!l.ok() && !r.ok() && l.status() == r.status());\n}\n\ntemplate <typename T, typename U>\ninline bool operator!=(const StatusOr<T>& l, const StatusOr<U>& r)\n{\n    return !(l == r);\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\nnamespace detail {\n\ntemplate <typename T>\nstruct IsStatusOrImpl : std::false_type {\n};\n\ntemplate <typename T>\nstruct IsStatusOrImpl<StatusOr<T>> : std::true_type {\n};\n\ntemplate <typename T>\nstruct IsStatusOrImpl<StatusOr<T&>> : std::true_type {\n};\n\n}  // namespace detail\n\ntemplate <typename T>\nusing IsStatusOr = detail::IsStatusOrImpl<std::decay_t<T>>;\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\ntemplate <typename T>\nstruct RemoveStatusOrImpl : batt::StaticType<T> {\n};\n\ntemplate <typename T>\nstruct RemoveStatusOrImpl<StatusOr<T>> : batt::StaticType<T> {\n};\n\ntemplate <typename T>\nusing RemoveStatusOr = typename RemoveStatusOrImpl<std::decay_t<T>>::type;\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\nbool is_ok_status(const std::error_code& ec);\n\ntemplate <typename T>\nbool is_ok_status(const T& val)\n{\n    return val.ok();\n}\n\nenum struct LogLevel {\n    kFatal,\n    kError,\n    kWarning,\n    kInfo,\n    kDebug,\n    kVerbose,\n};\n\nstd::ostream& operator<<(std::ostream& out, LogLevel t);\n\nstd::atomic<LogLevel>& require_fail_global_default_log_level();\n\nOptional<LogLevel>& require_fail_thread_default_log_level();\n\nnamespace detail {\n\nclass NotOkStatusWrapper\n{\n   public:\n    explicit NotOkStatusWrapper(usize this_size, const char* file, int line, const Status& status,\n                                bool vlog_is_on\n#if BATT_WITH_GLOG\n                                = false\n#endif  // BATT_WITH_GLOG\n                                ) noexcept;\n\n    ~NotOkStatusWrapper() noexcept;\n\n    operator Status() noexcept;\n\n    template <typename T>\n    operator StatusOr<T>() noexcept\n    {\n        return StatusOr<T>{std::move(this->status_)};\n    }\n\n    NotOkStatusWrapper& operator<<(LogLevel new_level);\n\n    template <typename T>\n    NotOkStatusWrapper& operator<<(T&& val)\n    {\n        this->output_buffer() << BATT_FORWARD(val);\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    std::ostringstream& output_buffer();\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    // The source file from which this object was created.\n    //\n    const char* file_;\n\n    // The source line from which tihs object was created.\n    //\n    int line_;\n\n    // The error status code.\n    //\n    Status status_;\n\n    // Whether or not vlog is enabled.\n    //\n    bool vlog_is_on_;\n\n    // The log level at which to report the error status.\n    //\n    LogLevel level_{require_fail_thread_default_log_level().or_else([] {\n        return require_fail_global_default_log_level().load();\n    })};\n\n    // The error message for the log.\n    //\n    Optional<std::ostringstream> output_;\n};\n\n}  // namespace detail\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\nStatus status_from_errno(int code);\n\ntemplate <typename T,\n          typename = std::enable_if_t<IsStatusOr<T>{} && !std::is_same_v<std::decay_t<T>, StatusOr<Status>>>>\ninline decltype(auto) to_status(T&& v)\n{\n    return BATT_FORWARD(v).status();\n}\n\ntemplate <typename T,\n          typename = std::enable_if_t<std::is_same_v<std::decay_t<T>, Status> ||\n                                      std::is_same_v<std::decay_t<T>, StatusOr<Status>>>,\n          typename = void>\ninline decltype(auto) to_status(T&& s)\n{\n    return BATT_FORWARD(s);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\nnamespace detail {\n\nstd::unordered_map<const boost::system::error_category*, const std::unordered_map<int, Status>>&\nthread_local_error_category_status_map();\n\nstd::mutex& global_error_category_status_map_mutex();\n\nstd::unordered_map<const boost::system::error_category*, const std::unordered_map<int, Status>>&\nglobal_error_category_status_map();\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\n}  // namespace detail\n\ntemplate <typename EnumT>\n[[maybe_unused]] bool register_error_category(const boost::system::error_category& category,\n                                              const std::vector<EnumT>& codes, batt::StaticType<EnumT> = {})\n{\n    static_assert(std::is_enum_v<EnumT>, \"The code value type must be an enum\");\n\n    static bool result_ = [&category, &codes] {\n        {\n            std::vector<std::pair<EnumT, std::string>> codes_with_message;\n            for (const EnumT& code : codes) {\n                codes_with_message.emplace_back(code, category.message(static_cast<int>(code)));\n            }\n            Status::register_codes(codes_with_message);\n        }\n\n        std::unordered_map<int, Status> category_map;\n        for (const EnumT& code : codes) {\n            category_map.emplace(static_cast<int>(code), Status{Status::ForceLookup{}, code});\n        }\n\n        // Add the map of codes to Status values to the global cache.\n        {\n            std::unique_lock<std::mutex> lock{detail::global_error_category_status_map_mutex()};\n            detail::global_error_category_status_map().emplace(&category, std::move(category_map));\n        }\n        return true;\n    }();\n\n    return result_;\n}\n\nStatus status_from_error_category(const boost::system::error_category& category, int code);\n\nStatus status_from_error_code(const boost::system::error_code& ec);\n\nStatus error_code_to_status(const std::error_code& ec);\nStatus error_code_to_status(const boost::system::error_code& ec);\n\ntemplate <typename T,\n          typename = std::enable_if_t<std::is_same_v<std::decay_t<T>, std::error_code> ||\n                                      std::is_same_v<std::decay_t<T>, boost::system::error_code>>,\n          typename = void, typename = void>\ninline Status to_status(const T& ec)\n{\n    return error_code_to_status(ec);\n}\n\ntemplate <typename T,\n          typename = std::enable_if_t<std::is_same_v<std::decay_t<T>, boost::asio::error::basic_errors> ||\n                                      std::is_same_v<std::decay_t<T>, boost::asio::error::netdb_errors> ||\n                                      std::is_same_v<std::decay_t<T>, boost::asio::error::addrinfo_errors> ||\n                                      std::is_same_v<std::decay_t<T>, boost::asio::error::misc_errors>>,\n          typename = void, typename = void, typename = void>\ninline Status to_status(T&& code_value)\n{\n    return to_status(boost::system::error_code(code_value));\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\n// clang-format off\n#define BATT_REQUIRE_OK(expr)                                                                                \\\n    for (auto&& BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__) = (expr);                              \\\n         !::batt::is_ok_status(BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__));)                      \\\n        return ::batt::detail::NotOkStatusWrapper                                                            \\\n        {                                                                                                    \\\n            sizeof(::batt::detail::NotOkStatusWrapper), __FILE__, __LINE__,                                  \\\n                ::batt::to_status(BATT_FORWARD(BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__))),      \\\n                BATT_VLOG_IS_ON(1)                                                                           \\\n        }\n// clang-format on\n\n#define BATT_ASSIGN_OK_RESULT(lvalue_expr, statusor_expr)                                                    \\\n    auto BOOST_PP_CAT(BATTERIES_temp_StatusOr_result_, __LINE__) = statusor_expr;                            \\\n    BATT_REQUIRE_OK(BOOST_PP_CAT(BATTERIES_temp_StatusOr_result_, __LINE__));                                \\\n    lvalue_expr = std::move(*BOOST_PP_CAT(BATTERIES_temp_StatusOr_result_, __LINE__))\n\n#define BATT_OK_RESULT_OR_PANIC(expr)                                                                        \\\n    [&](auto&& expr_value) {                                                                                 \\\n        BATT_CHECK(::batt::is_ok_status(expr_value))                                                         \\\n            << BOOST_PP_STRINGIZE(expr) << \".status == \" << ::batt::to_status(expr_value);                   \\\n        return *BATT_FORWARD(expr_value);                                                                    \\\n    }((expr))\n\n// clang-format off\n#define BATT_CHECK_OK(expr)                                                                                  \\\n    if (bool BOOST_PP_CAT(BATTERIES_check_ok_flag_, __LINE__) = true)                                        \\\n        for (auto&& BOOST_PP_CAT(BATTERIES_check_expr_value_, __LINE__) = (expr);                            \\\n             BOOST_PP_CAT(BATTERIES_check_ok_flag_, __LINE__);                                               \\\n             BOOST_PP_CAT(BATTERIES_check_ok_flag_, __LINE__) = false)                                       \\\n            for (; !BATT_HINT_TRUE(                                                                          \\\n                       ::batt::is_ok_status(BOOST_PP_CAT(BATTERIES_check_expr_value_, __LINE__))) &&         \\\n                   BATT_HINT_TRUE(::batt::lock_fail_check_mutex());                                          \\\n                 ::batt::fail_check_exit())                                                                  \\\n    BATT_FAIL_CHECK_MESSAGE(\"batt::to_status(\" BOOST_PP_STRINGIZE(expr) \")\",                                 \\\n                            ::batt::to_status(BOOST_PP_CAT(BATTERIES_check_expr_value_, __LINE__)),          \\\n                            \"==\", \"batt::OkStatus()\", ::batt::OkStatus(),                                    \\\n                            __FILE__, __LINE__, BATT_THIS_FUNCTION)\n\n#define BATT_RETURN_OK_RESULT(statusor_expr)                                                                 \\\n    for (auto&& BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__) = (statusor_expr);                     \\\n         ::batt::is_ok_status(BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__));)                       \\\n        return std::move(*BOOST_PP_CAT(BATTERIES_temp_status_result_, __LINE__))\n\n// clang-format on\n\ninline Status status_from_errno(int code)\n{\n    if (BATT_HINT_FALSE(code >= Status::kGroupSize || code < 0)) {\n        BATT_LOG_WARNING() << \"Truncating invalid errno value: \" << code << \" (=> \"\n                           << (Status::kGroupSize - 1) << \")\";\n        code = Status::kGroupSize - 1;\n    }\n    return static_cast<ErrnoValue>(code);\n}\n\ntemplate <typename T>\ninline Status status_from_retval(T retval)\n{\n    if (retval >= 0) {\n        return OkStatus();\n    }\n    return status_from_errno(errno);\n}\n\ntemplate <typename T>\ninline T&& ok_result_or_panic(StatusOr<T>&& result)\n{\n    BATT_CHECK_OK(result);\n\n    return std::move(*result);\n}\n\ntemplate <typename T, typename = std::enable_if_t<IsStatusOr<std::decay_t<T>>{} &&\n                                                  !std::is_same_v<std::decay_t<T>, StatusOr<Status>>>>\nstd::ostream& operator<<(std::ostream& out, T&& status_or)\n{\n    if (!status_or.ok()) {\n        return out << \"Status{\" << status_or.status() << \"}\";\n    }\n    return out << \"Ok{\" << make_printable(*status_or) << \"}\";\n}\n\nbool status_is_retryable(const Status& s);\n\n//#=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++\n\ntemplate <typename EnumT>\ninline bool Status::register_codes(const std::vector<std::pair<EnumT, std::string>>& codes)\n{\n    static detail::StatusBase base;\n\n    return register_codes_internal<EnumT>(codes);\n}\n\ntemplate <typename EnumT>\ninline bool Status::register_codes_internal(const std::vector<std::pair<EnumT, std::string>>& codes)\n{\n    static bool exactly_once = [&]() -> bool {\n        [&] {\n            CodeGroup group;\n\n            group.enum_type_index = std::type_index{typeid(EnumT)};\n            group.index = next_group_index();\n            BATT_CHECK_LT(group.index, kMaxGroups) << \"Status::register_codes called too many times!\";\n\n            if (codes.empty()) {\n                return;\n            }\n\n            int min_enum_value = std::numeric_limits<int>::max();\n            int max_enum_value = std::numeric_limits<int>::min();\n            Status::value_type next_code = group.index * kGroupSize;\n\n            for (auto& [value, message] : codes) {\n                const int enum_value = static_cast<int>(value);\n\n                min_enum_value = std::min(min_enum_value, enum_value);\n                max_enum_value = std::max(max_enum_value, enum_value);\n\n                group.entries.emplace_back(CodeEntry{\n                    next_code,\n                    enum_value,\n                    std::move(message),\n                });\n                next_code += 1;\n            }\n\n            BATT_CHECK_LE(max_enum_value - min_enum_value, kMaxCodeNumericRange)\n                << \"The maximum numeric range of codes was exceeded.  min_enum_value=\" << min_enum_value\n                << \" max_enum_value=\" << max_enum_value;\n\n            group.min_enum_value = min_enum_value;\n\n            group.enum_value_to_code.resize(max_enum_value - min_enum_value + 1);\n            std::fill(group.enum_value_to_code.begin(), group.enum_value_to_code.end(), next_code);\n\n            for (const CodeEntry& e : group.entries) {\n                group.enum_value_to_code[e.enum_value - group.min_enum_value] = e.code;\n            }\n\n            // Insert an entry at the end of the group for all unknown values.\n            //\n            group.entries.emplace_back(\n                CodeEntry{next_code, max_enum_value + 1, unknown_enum_value_message()});\n\n            // Atomically insert the new code group.\n            //\n            CodeGroup& global_group = Status::code_group_for_type_internal<EnumT>();\n            BATT_CHECK(global_group.entries.empty()) << \"A status code group may only be registered once!\";\n            global_group = std::move(group);\n\n            /*std::array<CodeGroup*, ...>*/ auto& all_groups = Status::registered_groups();\n            BATT_CHECK_LT(global_group.index, all_groups.size());\n\n            all_groups[global_group.index] = &global_group;\n\n            // Done!\n        }();\n        return true;\n    }();\n\n    return exactly_once;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename EnumT, typename, typename>\ninline /*implicit*/ Status::Status(EnumT enum_value) noexcept\n    : Status{to_status(boost::system::error_code{enum_value})}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename EnumT, typename, typename, typename>\ninline /*implicit*/ Status::Status(EnumT enum_value) noexcept : Status{to_status(std::error_code{enum_value})}\n{\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_STATUS_HPP\n\n#if BATT_HEADER_ONLY\n#include <batteries/status_impl.hpp>\n#endif  // BATT_HEADER_ONLY",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::Status",
+          "refid": "classbatt_1_1Status",
+          "url": "/_autogen/Classes/classbatt_1_1Status/",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "fullname": "batt::detail::StatusBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::StatusBase",
+      "refid": "classbatt_1_1detail_1_1StatusBase",
+      "title": "batt::detail::StatusBase",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1StatusBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::StatusBase",
+          "refid": "classbatt_1_1detail_1_1StatusBase",
+          "url": "/_autogen/Classes/classbatt_1_1detail_1_1StatusBase/",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::StatusOr< Status >",
+          "refid": "classbatt_1_1StatusOr_3_01Status_01_4",
+          "url": "/_autogen/Classes/classbatt_1_1StatusOr_3_01Status_01_4/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::Status",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Status",
+      "refid": "classbatt_1_1Status",
+      "title": "batt::Status",
+      "url": "/_autogen/Classes/classbatt_1_1Status/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Sentinel type passed to [Status](/_autogen/Classes/classbatt_1_1Status/) constructor to force the passed code enum value to be treated as a non-error_code type. ",
+      "category": "classes",
+      "fullname": "batt::Status::ForceLookup",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::Status::ForceLookup",
+      "refid": "structbatt_1_1Status_1_1ForceLookup",
+      "summary": "Sentinel type passed to Status constructor to force the passed code enum value to be treated as a non-error_code type. ",
+      "title": "batt::Status::ForceLookup",
+      "url": "/_autogen/Classes/structbatt_1_1Status_1_1ForceLookup/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Status::CodeEntry",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::Status::CodeEntry",
+      "refid": "structbatt_1_1Status_1_1CodeEntry",
+      "title": "batt::Status::CodeEntry",
+      "url": "/_autogen/Classes/structbatt_1_1Status_1_1CodeEntry/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Status::CodeGroup",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::Status::CodeGroup",
+      "refid": "structbatt_1_1Status_1_1CodeGroup",
+      "title": "batt::Status::CodeGroup",
+      "url": "/_autogen/Classes/structbatt_1_1Status_1_1CodeGroup/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::StatusOrValueContainer",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::StatusOrValueContainer",
+      "refid": "classbatt_1_1detail_1_1StatusOrValueContainer",
+      "title": "batt::detail::StatusOrValueContainer",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1StatusOrValueContainer/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::StatusOrValueContainer< T & >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::StatusOrValueContainer< T & >",
+      "refid": "classbatt_1_1detail_1_1StatusOrValueContainer_3_01T_01_6_01_4",
+      "title": "batt::detail::StatusOrValueContainer< T & >",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1StatusOrValueContainer_3_01T_01_6_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::StatusOr< StatusOr< T > >",
+          "refid": "classbatt_1_1StatusOr_3_01StatusOr_3_01T_01_4_01_4",
+          "url": "/_autogen/Classes/classbatt_1_1StatusOr_3_01StatusOr_3_01T_01_4_01_4/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::StatusOr",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::StatusOr",
+      "refid": "classbatt_1_1StatusOr",
+      "title": "batt::StatusOr",
+      "url": "/_autogen/Classes/classbatt_1_1StatusOr/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::Status",
+          "refid": "classbatt_1_1Status",
+          "url": "/_autogen/Classes/classbatt_1_1Status/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::detail::StatusBase",
+          "refid": "classbatt_1_1detail_1_1StatusBase",
+          "url": "/_autogen/Classes/classbatt_1_1detail_1_1StatusBase/",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::StatusOr< Status >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::StatusOr< Status >",
+      "refid": "classbatt_1_1StatusOr_3_01Status_01_4",
+      "title": "batt::StatusOr< Status >",
+      "url": "/_autogen/Classes/classbatt_1_1StatusOr_3_01Status_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::StatusOr< T >",
+          "refid": "classbatt_1_1StatusOr",
+          "url": "/_autogen/Classes/classbatt_1_1StatusOr/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::StatusOr< StatusOr< T > >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::StatusOr< StatusOr< T > >",
+      "refid": "classbatt_1_1StatusOr_3_01StatusOr_3_01T_01_4_01_4",
+      "title": "batt::StatusOr< StatusOr< T > >",
+      "url": "/_autogen/Classes/classbatt_1_1StatusOr_3_01StatusOr_3_01T_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::false_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::IsStatusOrImpl",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::IsStatusOrImpl",
+      "refid": "structbatt_1_1detail_1_1IsStatusOrImpl",
+      "title": "batt::detail::IsStatusOrImpl",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1IsStatusOrImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::true_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::IsStatusOrImpl< StatusOr< T > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::IsStatusOrImpl< StatusOr< T > >",
+      "refid": "structbatt_1_1detail_1_1IsStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4",
+      "title": "batt::detail::IsStatusOrImpl< StatusOr< T > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1IsStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::true_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::detail::IsStatusOrImpl< StatusOr< T & > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::IsStatusOrImpl< StatusOr< T & > >",
+      "refid": "structbatt_1_1detail_1_1IsStatusOrImpl_3_01StatusOr_3_01T_01_6_01_4_01_4",
+      "title": "batt::detail::IsStatusOrImpl< StatusOr< T & > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1IsStatusOrImpl_3_01StatusOr_3_01T_01_6_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::StaticType< T >",
+          "refid": "structbatt_1_1StaticType",
+          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::RemoveStatusOrImpl",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::RemoveStatusOrImpl",
+      "refid": "structbatt_1_1RemoveStatusOrImpl",
+      "title": "batt::RemoveStatusOrImpl",
+      "url": "/_autogen/Classes/structbatt_1_1RemoveStatusOrImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::StaticType< T >",
+          "refid": "structbatt_1_1StaticType",
+          "url": "/_autogen/Classes/structbatt_1_1StaticType/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::RemoveStatusOrImpl< StatusOr< T > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::RemoveStatusOrImpl< StatusOr< T > >",
+      "refid": "structbatt_1_1RemoveStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4",
+      "title": "batt::RemoveStatusOrImpl< StatusOr< T > >",
+      "url": "/_autogen/Classes/structbatt_1_1RemoveStatusOrImpl_3_01StatusOr_3_01T_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::NotOkStatusWrapper",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::NotOkStatusWrapper",
+      "refid": "classbatt_1_1detail_1_1NotOkStatusWrapper",
+      "title": "batt::detail::NotOkStatusWrapper",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1NotOkStatusWrapper/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "status_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/status.hpp",
+  "url": "/_autogen/Files/status_8hpp/#file-status.hpp",
+  "visibility": "public"
+}

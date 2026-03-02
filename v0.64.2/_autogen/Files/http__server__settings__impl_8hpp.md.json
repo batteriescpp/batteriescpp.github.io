@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-http-server-settings-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-http-http-server-settings-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_HTTP_HTTP_SERVER_SETTINGS_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/http_server_settings_impl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/http/http_server_settings_impl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_HTTP_HTTP_SERVER_SETTINGS_IMPL_HPP",
+      "override": false,
+      "refid": "http__server__settings__impl_8hpp_1af26dc872945ede44169b4060528ae47e",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_HTTP_HTTP_SERVER_SETTINGS_IMPL_HPP",
+      "url": "/_autogen/Files/http__server__settings__impl_8hpp/#define-batteries-http-http-server-settings-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/http/http_server_settings_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/http/http_server_settings_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/http/http_server_settings_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/http",
+    "category": "dirs",
+    "fullname": "batteries/http",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/http",
+    "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+    "title": "batteries/http",
+    "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/http",
+      "category": "dirs",
+      "fullname": "batteries/http",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/http",
+      "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+      "title": "batteries/http",
+      "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_HTTP_HTTP_SERVER_SETTINGS_IMPL_HPP\n#define BATTERIES_HTTP_HTTP_SERVER_SETTINGS_IMPL_HPP\n\n#include <batteries/config.hpp>\n\n#include <batteries/http/http_server_settings.hpp>\n\n#include <thread>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL HttpServerSettings HttpServerSettings ::with_default_values() noexcept\n{\n    return HttpServerSettings{\n        .max_connections = HttpServerSettings::kDefaultMaxConnections,\n        .max_requests_per_connection = std::thread::hardware_concurrency(),\n        .idle_connection_timeout_ms = HttpServerSettings::kDefaultIdleConnectionTimeoutMs,\n        .connection_buffer_size = HttpServerSettings::kDefaultConnectionBufferSize,\n    };\n}\n\n}  //namespace batt\n\n#endif  // BATTERIES_HTTP_HTTP_SERVER_SETTINGS_IMPL_HPP",
+  "refid": "http__server__settings__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/http/http_server_settings_impl.hpp",
+  "url": "/_autogen/Files/http__server__settings__impl_8hpp/#file-http-server-settings-impl.hpp",
+  "visibility": "public"
+}
