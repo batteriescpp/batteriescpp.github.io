@@ -1,0 +1,169 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "derivedClasses": [
+    {
+      "external": false,
+      "name": "batt::TypeErasedStorage< batt::AbstractStackAllocator, batt::StackAllocatorImpl >",
+      "refid": "classbatt_1_1TypeErasedStorage",
+      "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    },
+    {
+      "external": false,
+      "name": "batt::TypeErasedStorage< AbstractBufferSource, BufferSourceImpl >",
+      "refid": "classbatt_1_1TypeErasedStorage",
+      "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    },
+    {
+      "external": false,
+      "name": "batt::TypeErasedStorage< AbstractSeq, SeqImpl >",
+      "refid": "classbatt_1_1TypeErasedStorage",
+      "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    },
+    {
+      "external": false,
+      "name": "batt::TypeErasedStorage< AbstractType, TypedImpl, kReservedSize, kAlignment >",
+      "refid": "classbatt_1_1TypeErasedStorage",
+      "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorage/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
+  "explicit": false,
+  "fullname": "batt::TypeErasedStorageBase",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 93,
+    "bodyFile": "batteries/type_erasure.hpp",
+    "bodyStart": 73,
+    "column": 1,
+    "file": "batteries/type_erasure.hpp",
+    "line": 72
+  },
+  "name": "batt::TypeErasedStorageBase",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-construct-impl",
+      "argsString": "(StaticType< T >, MutableBuffer buf, Args &&... args)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static AbstractType* batt::TypeErasedStorageBase< AbstractType, TypedImpl >::construct_impl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::TypeErasedStorageBase::construct_impl",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 92,
+        "bodyFile": "batteries/type_erasure.hpp",
+        "bodyStart": 76,
+        "column": 25,
+        "file": "batteries/type_erasure.hpp",
+        "line": 76
+      },
+      "name": "construct_impl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[StaticType](/_autogen/Classes/structbatt_1_1StaticType/)< T >",
+          "typePlain": "StaticType< T >"
+        },
+        {
+          "name": "buf",
+          "type": "MutableBuffer",
+          "typePlain": "MutableBuffer"
+        },
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1TypeErasedStorageBase_1a23ea38d0232061e2dc5a32ce237074d2",
+      "static": true,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        },
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "construct_impl",
+      "type": "AbstractType *",
+      "typePlain": "AbstractType *",
+      "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorageBase/#function-construct-impl",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1TypeErasedStorageBase",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename AbstractType",
+      "typePlain": "typename AbstractType"
+    },
+    {
+      "name": "TypedImpl",
+      "type": "template< typename > class",
+      "typePlain": "template< typename > class"
+    }
+  ],
+  "title": "batt::TypeErasedStorageBase",
+  "url": "/_autogen/Classes/classbatt_1_1TypeErasedStorageBase/",
+  "visibility": "public"
+}

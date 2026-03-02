@@ -1,0 +1,137 @@
+{
+  "abstract": false,
+  "anchor": "#file-slice-work.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-slice-work-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_SLICE_WORK_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/slice_work.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/slice_work.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_SLICE_WORK_HPP",
+      "override": false,
+      "refid": "slice__work_8hpp_1acb2b3ba492ed28990ef7032754064ba5",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_SLICE_WORK_HPP",
+      "url": "/_autogen/Files/slice__work_8hpp/#define-batteries-async-slice-work-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/slice_work.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/slice_work.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/slice_work.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_SLICE_WORK_HPP\n#define BATTERIES_ASYNC_SLICE_WORK_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/work_context.hpp>\n#include <batteries/async/worker_pool.hpp>\n\n#include <batteries/assert.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/strong_typedef.hpp>\n\n#include <algorithm>\n\nnamespace batt {\n\nBATT_STRONG_TYPEDEF(usize, TaskCount);\nBATT_STRONG_TYPEDEF(usize, InputSize);\nBATT_STRONG_TYPEDEF(usize, TaskSize);\nBATT_STRONG_TYPEDEF(usize, TaskIndex);\nBATT_STRONG_TYPEDEF(isize, TaskOffset);\n\ntemplate <typename Iter>\ninline InputSize get_input_size(const Iter& first, const Iter& last)\n{\n    BATT_CHECK_LE(first, last);\n    return InputSize{static_cast<usize>(std::distance(first, last))};\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n// Parameters that control the formation of a work-slicing plan (WorkSlicePlan).\n//\nstruct WorkSliceParams {\n    // This isn't too meaningful, as it is a unitless quantity, but supposing it is number of bytes to be\n    // loaded from memory, we define this as a half kilobyte as a \"safe\" lower bound on how small an amount of\n    // data can be transferred to a CPU for processing, without being so small as to not be worth it.\n    //\n    static constexpr TaskSize kDefaultMinTaskSize{512};\n\n    // Returns reasonable defaults for slicing work to be performed by the given WorkerPool.\n    //\n    static WorkSliceParams from_worker_pool(WorkerPool& worker_pool)\n    {\n        return WorkSliceParams{\n            .min_task_size = WorkSliceParams::kDefaultMinTaskSize,\n            .max_tasks = TaskCount{worker_pool.size() + 1},\n        };\n    }\n\n    // The minimum size to assign to a task (slice).  This depends on the round-trip communication latency\n    // within a WorkerPool and the cost of the computation to be performed on a given amount of input.  Too\n    // small and we spend more time transferring data than doing useful work (it would have been cheaper just\n    // to do it locally); too large and we may under-utilize compute resources.\n    //\n    TaskSize min_task_size;\n\n    // The maximum number of slices (tasks) to create for parallel execution.  This is informed by the amount\n    // of independent execution resources available and the expected variance in cost between work slices.\n    //\n    TaskCount max_tasks;\n};\n\nstd::ostream& operator<<(std::ostream& out, const WorkSliceParams& t);\n\n// Apply the given WorkSliceParams to the given InputSize to produce a target TaskSize.\n//\n// The returned value must not be smaller than `params.min_task_size` and large enough so that `input_size /\n// task_size <= params.max_tasks`.\n//\ninline TaskSize get_task_size(const WorkSliceParams& params, InputSize input_size)\n{\n    BATT_CHECK_GT(params.max_tasks, 0u);\n    BATT_CHECK_GT(params.min_task_size, 0u);\n    return TaskSize{\n        std::max<usize>(params.min_task_size, (input_size + params.max_tasks - 1) / params.max_tasks)};\n}\n\ninline TaskCount get_task_count(InputSize input_size, TaskSize task_size)\n{\n    BATT_CHECK_GT(task_size, 0u);\n    return TaskCount{(input_size + task_size - 1) / task_size};\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n// An abstract plan for slicing up some amount of work into smaller tasks of roughly equal size that can\n// be executed in parallel.\n//\nstruct WorkSlicePlan {\n    explicit WorkSlicePlan(const WorkSliceParams& params, InputSize input_size) noexcept;\n\n    template <typename Iter>\n    explicit WorkSlicePlan(const WorkSliceParams& params, const Iter& first, const Iter& last) noexcept;\n\n    // A metric on the total amount of work to be done.\n    //\n    InputSize input_size;\n\n    // The target amount of `input_size` to be apportioned to each task.\n    //\n    TaskSize task_size;\n\n    // The target number of tasks (slices) into which to divide the overall work.\n    //\n    TaskCount n_tasks;\n};\n\nstd::ostream& operator<<(std::ostream& out, const WorkSlicePlan& t);\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// Divide an input range into equal sized pieces and schedule work tasks for each by invoking the\n// WorkFnGenerator.  The final task is run on the calling thread.\n//\n// `WorkFnGenerator`: auto(usize task_index, isize task_offset, isize task_size) -> void()\n//\ntemplate <typename WorkFnGenerator>\nStatus slice_work(WorkContext& context, const WorkSlicePlan& plan, WorkFnGenerator&& gen_work_fn)\n{\n    if (plan.input_size == 0) {\n        return OkStatus();\n    }\n\n    BATT_CHECK_GT(plan.n_tasks, 0);\n    BATT_CHECK_GT(plan.task_size, 0);\n\n    usize task_index = 0;\n    isize task_offset = 0;\n    usize input_remaining = plan.input_size;\n    while (input_remaining > 0) {\n        const usize this_task_size = std::min<usize>(input_remaining, plan.task_size);\n\n        auto work_fn = gen_work_fn(TaskIndex{task_index}, TaskOffset{task_offset}, TaskSize{this_task_size});\n\n        task_index += 1;\n        task_offset += this_task_size;\n        input_remaining -= this_task_size;\n\n        if (task_index == plan.n_tasks) {\n            work_fn();\n        } else {\n            BATT_REQUIRE_OK(context.async_run(BATT_FORWARD(work_fn)));\n        }\n    }\n\n    BATT_CHECK_EQ(task_index, plan.n_tasks);\n\n    return OkStatus();\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_SLICE_WORK_HPP\n\n#include <batteries/async/slice_work.ipp>\n\n#if BATT_HEADER_ONLY\n#include <batteries/async/slice_work_impl.hpp>\n#endif",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::WorkSliceParams",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::WorkSliceParams",
+      "refid": "structbatt_1_1WorkSliceParams",
+      "title": "batt::WorkSliceParams",
+      "url": "/_autogen/Classes/structbatt_1_1WorkSliceParams/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::WorkSlicePlan",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::WorkSlicePlan",
+      "refid": "structbatt_1_1WorkSlicePlan",
+      "title": "batt::WorkSlicePlan",
+      "url": "/_autogen/Classes/structbatt_1_1WorkSlicePlan/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "slice__work_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/slice_work.hpp",
+  "url": "/_autogen/Files/slice__work_8hpp/#file-slice-work.hpp",
+  "visibility": "public"
+}
