@@ -1,0 +1,169 @@
+{
+  "abstract": false,
+  "anchor": "#file-fake-time-service-decl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-fake-time-service-decl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_FAKE_TIME_SERVICE_DECL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/fake_time_service_decl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/fake_time_service_decl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_FAKE_TIME_SERVICE_DECL_HPP",
+      "override": false,
+      "refid": "fake__time__service__decl_8hpp_1ad5221ad219f9f7c6b0750ca3475498f3",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_FAKE_TIME_SERVICE_DECL_HPP",
+      "url": "/_autogen/Files/fake__time__service__decl_8hpp/#define-batteries-async-fake-time-service-decl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/fake_time_service_decl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/fake_time_service_decl.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/fake_time_service_decl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022-2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_FAKE_TIME_SERVICE_DECL_HPP\n#define BATTERIES_ASYNC_FAKE_TIME_SERVICE_DECL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/handler.hpp>\n#include <batteries/async/io_result.hpp>\n#include <batteries/bounds.hpp>\n#include <batteries/optional.hpp>\n#include <batteries/suppress.hpp>\n\n#include <batteries/asio/any_io_executor.hpp>\n#include <batteries/asio/execution_context.hpp>\n\nBATT_SUPPRESS_IF_GCC(\"-Wswitch-enum\")\nBATT_SUPPRESS_IF_CLANG(\"-Wswitch-enum\")\n//\n#include <boost/date_time/posix_time/ptime.hpp>\n//\nBATT_UNSUPPRESS_IF_CLANG()\nBATT_UNSUPPRESS_IF_GCC()\n\n#if defined(__GNUC__)\n#pragma GCC diagnostic push\n#pragma GCC diagnostic ignored \"-Wunused-parameter\"\n#if __GNUC__ >= 9\n#pragma GCC diagnostic ignored \"-Wdeprecated-copy\"\n#endif  // __GNUC__ >= 9\n#endif  // __GNUC__\n\n#include <boost/heap/d_ary_heap.hpp>\n#include <boost/heap/policies.hpp>\n\n#include <memory>\n\nnamespace batt {\n\nclass FakeExecutionContext;\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n// A time/timer service that virtualizes the passage of time, to implement simulations and tests.\n//\nclass FakeTimeService : public boost::asio::execution_context::service\n{\n   public:\n    using Self = FakeTimeService;\n    using TimePoint = boost::posix_time::ptime;\n    using Duration = boost::posix_time::time_duration;\n\n    struct TimerInstance {\n        struct Impl {\n            FakeTimeService* service_instance;\n            boost::asio::any_io_executor executor;\n            TimePoint expires_at;\n            UniqueHandler<ErrorCode> handler;\n\n            explicit Impl(FakeTimeService* service, boost::asio::any_io_executor ex, TimePoint expire,\n                          UniqueHandler<ErrorCode> h)\n                : service_instance{service}\n                , executor{ex}\n                , expires_at{expire}\n                , handler{std::move(h)}\n            {\n            }\n        };\n\n        std::shared_ptr<Impl> impl;\n    };\n\n    using TimerQueue = boost::heap::d_ary_heap<TimerInstance,                         //\n                                               boost::heap::arity<2>,                 //\n                                               boost::heap::compare<std::greater<>>,  //\n                                               boost::heap::mutable_<true>            //\n                                               >;\n\n    class State\n    {\n       public:\n        using Lock = std::unique_lock<std::mutex>;\n\n        State();\n\n        TimePoint now();\n\n        template <typename HandlerFn>\n        void schedule_timer(FakeTimeService* service_instance, const boost::asio::any_io_executor& executor,\n                            TimePoint expires_at, HandlerFn&& fn);\n        //\n        // ^^ TODO [tastolfi 2022-01-14] return a timer id of some sort so we can implement cancel\n\n        void advance_time(Duration delta);\n\n        bool has_scheduled_timers() noexcept;\n\n        Optional<TimePoint> next_expiration_time() noexcept;\n\n       private:\n        std::mutex mutex_;\n        TimePoint fake_time_;\n        TimerQueue timer_queue_;\n    };\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    static boost::asio::execution_context::id id;\n\n    static State& state()\n    {\n        static State instance_;\n        return instance_;\n    }\n\n    static TimePoint now()\n    {\n        return Self::state().now();\n    }\n\n    static void advance_time(Duration delta)\n    {\n        Self::state().advance_time(delta);\n    }\n\n    static bool has_scheduled_timers() noexcept\n    {\n        return Self::state().has_scheduled_timers();\n    }\n\n    static Optional<TimePoint> next_expiration_time() noexcept\n    {\n        return Self::state().next_expiration_time();\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    explicit FakeTimeService(boost::asio::execution_context& context);\n\n    void shutdown() override;\n\n    template <typename HandlerFn>\n    void async_wait(const boost::asio::any_io_executor& executor, TimePoint expires_at, HandlerFn&& fn)\n    {\n        Self::state().schedule_timer(this, executor, expires_at, BATT_FORWARD(fn));\n    }\n};\n\nbool operator<(const FakeTimeService::TimerInstance& l, const FakeTimeService::TimerInstance& r);\n\nBATT_TOTALLY_ORDERED((inline), FakeTimeService::TimerInstance, FakeTimeService::TimerInstance)\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_FAKE_TIME_SERVICE_DECL_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "boost::asio::execution_context::service",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::FakeTimeService",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::FakeTimeService",
+      "refid": "classbatt_1_1FakeTimeService",
+      "title": "batt::FakeTimeService",
+      "url": "/_autogen/Classes/classbatt_1_1FakeTimeService/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::FakeTimeService::TimerInstance",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::FakeTimeService::TimerInstance",
+      "refid": "structbatt_1_1FakeTimeService_1_1TimerInstance",
+      "title": "batt::FakeTimeService::TimerInstance",
+      "url": "/_autogen/Classes/structbatt_1_1FakeTimeService_1_1TimerInstance/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::FakeTimeService::TimerInstance::Impl",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::FakeTimeService::TimerInstance::Impl",
+      "refid": "structbatt_1_1FakeTimeService_1_1TimerInstance_1_1Impl",
+      "title": "batt::FakeTimeService::TimerInstance::Impl",
+      "url": "/_autogen/Classes/structbatt_1_1FakeTimeService_1_1TimerInstance_1_1Impl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::FakeTimeService::State",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::FakeTimeService::State",
+      "refid": "classbatt_1_1FakeTimeService_1_1State",
+      "title": "batt::FakeTimeService::State",
+      "url": "/_autogen/Classes/classbatt_1_1FakeTimeService_1_1State/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "fake__time__service__decl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/fake_time_service_decl.hpp",
+  "url": "/_autogen/Files/fake__time__service__decl_8hpp/#file-fake-time-service-decl.hpp",
+  "visibility": "public"
+}

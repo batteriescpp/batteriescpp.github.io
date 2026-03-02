@@ -1,0 +1,125 @@
+{
+  "abstract": false,
+  "anchor": "#file-http-server-connection-decl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-http-http-server-connection-decl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_HTTP_HTTP_SERVER_CONNECTION_DECL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/http_server_connection_decl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/http/http_server_connection_decl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_HTTP_HTTP_SERVER_CONNECTION_DECL_HPP",
+      "override": false,
+      "refid": "http__server__connection__decl_8hpp_1ab739688533c9eaf2811adc13c3ebec49",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_HTTP_HTTP_SERVER_CONNECTION_DECL_HPP",
+      "url": "/_autogen/Files/http__server__connection__decl_8hpp/#define-batteries-http-http-server-connection-decl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/http/http_server_connection_decl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/http/http_server_connection_decl.hpp",
+    "line": 0
+  },
+  "name": "batteries/http/http_server_connection_decl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/http",
+    "category": "dirs",
+    "fullname": "batteries/http",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/http",
+    "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+    "title": "batteries/http",
+    "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/http",
+      "category": "dirs",
+      "fullname": "batteries/http",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/http",
+      "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+      "title": "batteries/http",
+      "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022-2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_HTTP_HTTP_SERVER_CONNECTION_DECL_HPP\n#define BATTERIES_HTTP_HTTP_SERVER_CONNECTION_DECL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/http/http_data.hpp>\n#include <batteries/http/http_request.hpp>\n#include <batteries/http/http_response.hpp>\n#include <batteries/http/http_server_decl.hpp>\n\n#include <batteries/async/buffer_source.hpp>\n#include <batteries/async/queue.hpp>\n#include <batteries/async/stream_buffer.hpp>\n#include <batteries/async/watch.hpp>\n\n#include <batteries/asio/deadline_timer.hpp>\n#include <batteries/asio/ip_tcp.hpp>\n#include <batteries/status.hpp>\n\n#include <tuple>\n\nnamespace batt {\n\nclass HttpServerConnection\n{\n   public:\n    static void spawn(boost::asio::ip::tcp::socket&& socket,\n                      HttpRequestDispatcherFactoryFn&& request_dispatcher_factory,\n                      const HttpServerSettings& settings) noexcept;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    explicit HttpServerConnection(boost::asio::ip::tcp::socket&& socket,\n                                  HttpRequestDispatcherFactoryFn&& request_dispatcher_factory,\n                                  const HttpServerSettings& settings) noexcept;\n\n    ~HttpServerConnection() noexcept;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    /* Data/Control flow diagram:\n\n      ╔════╗\n      ║Task║\n      ╚════╝\n\n            ╔══════════════════════╗   ┌───────────────┐\n        ┌──▶║ fill_input_buffer()  ║──▶│ input_buffer_ │\n        │   ╚══════════════════════╝   └───────────────┘\n        │                                      │\n        │                                      ▼\n        │                          ╔══════════════════════╗     ┌────────────────┐\n        │                       ┌──║   read_requests()    ║◀────│ request_queue_ │◀─┐\n        │                       │  ╚══════════════════════╝     └────────────────┘  │\n  ┌───────────┐                 ▼              │                                    │\n  │  socket_  │        ┌────────────────┐      │          ╔══════════════════════╗  │\n  └───────────┘        │response_queue_ │      │          ║  process_requests()  ╠╗ │\n        ▲              └────────────────┘      │          ║  ┌────────────────┐  ║╠╗│\n        │                       │              └──────────╬─▷│  HttpRequest   │──╬╬╬┤\n        │                       ▼                         ║  └────────────────┘  ║║║│\n        │           ╔══════════════════════╗              ║  ┌────────────────┐  ║║║│\n        └───────────║  write_responses()   ║◁─────────────╬──│  HttpResponse  │──╬╬╬┘\n                    ╚══════════════════════╝              ║  └────────────────┘  ║║║\n                                                          ╚╦═════════════════════╝║║\n                                                           ╚╦═════════════════════╝║\n                                                            ╚══════════════════════╝\n    */\n\n    StatusOr<boost::asio::ip::tcp::endpoint> local_endpoint() const noexcept;\n\n    StatusOr<boost::asio::ip::tcp::endpoint> remote_endpoint() const noexcept;\n\n    void start();\n\n    void halt();\n\n    void join();\n\n    Status fill_input_buffer();\n\n    Status read_requests();\n\n    void try_spawn_request_processor() noexcept;\n\n    Status process_requests(Grant token);\n\n    Status send_responses();\n\n    Status open_connection();\n\n    StatusOr<i32> read_next_request(pico_http::Request& request);\n\n    void idle_connection_timeout_task_main();\n\n    void halt_idle_timeout_task() noexcept;\n\n    void idle_shutdown() noexcept;\n\n    void shutdown_request_queue();\n\n    void shutdown_response_queue();\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    boost::asio::ip::tcp::socket socket_;\n\n    HttpRequestDispatcherFactoryFn request_dispatcher_factory_;\n\n    HttpServerSettings settings_;\n\n    Grant::Issuer request_processor_tokens_;\n\n    boost::asio::deadline_timer idle_timer_;\n\n    StreamBuffer input_buffer_;\n\n    Queue<std::tuple<Pin<HttpRequest>, Pin<HttpResponse>>> request_queue_;\n\n    Queue<Pin<HttpResponse>> response_queue_;\n\n    Watch<bool> halt_requested_{false};\n\n    Watch<usize> request_count_{0};\n\n    Watch<u64> activity_{0};\n\n    Optional<Task> fill_input_buffer_task_;\n\n    Optional<Task> read_requests_task_;\n\n    Optional<Task> send_responses_task_;\n\n    Optional<Task> idle_connection_timeout_task_;\n};\n\n}  // namespace batt\n\n#endif  // BATTERIES_HTTP_HTTP_SERVER_CONNECTION_DECL_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::HttpServerConnection",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::HttpServerConnection",
+      "refid": "classbatt_1_1HttpServerConnection",
+      "title": "batt::HttpServerConnection",
+      "url": "/_autogen/Classes/classbatt_1_1HttpServerConnection/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "http__server__connection__decl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/http/http_server_connection_decl.hpp",
+  "url": "/_autogen/Files/http__server__connection__decl_8hpp/#file-http-server-connection-decl.hpp",
+  "visibility": "public"
+}

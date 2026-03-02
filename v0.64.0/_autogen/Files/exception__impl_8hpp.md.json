@@ -1,0 +1,110 @@
+{
+  "abstract": false,
+  "anchor": "#file-exception-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-exception-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_EXCEPTION_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/exception_impl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/exception_impl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_EXCEPTION_IMPL_HPP",
+      "override": false,
+      "refid": "exception__impl_8hpp_1a37564a3f9c380918cb75ffca7ce240d0",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_EXCEPTION_IMPL_HPP",
+      "url": "/_autogen/Files/exception__impl_8hpp/#define-batteries-exception-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/exception_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/exception_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/exception_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_EXCEPTION_IMPL_HPP\n#define BATTERIES_EXCEPTION_IMPL_HPP\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*explicit*/ StatusException::StatusException(\n    Status status, Optional<std::string_view>&& optional_message) noexcept\n    : std::runtime_error{[&] {\n        if (optional_message) {\n            return to_string(status, \": \", *optional_message);\n        }\n        return to_string(status);\n    }()}\n    , status_{status}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL Status StatusException::status() const noexcept\n{\n    return this->status_;\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------xo\nnamespace detail {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*explicit*/ ThrowWhenDestroyed::ThrowWhenDestroyed() noexcept\n    : status_{None}\n    , message_stream_{None}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*explicit*/ ThrowWhenDestroyed::ThrowWhenDestroyed(Status status) noexcept : status_{status}\n{\n    this->message_stream_.emplace();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL ThrowWhenDestroyed::ThrowWhenDestroyed(ThrowWhenDestroyed&& that) noexcept\n    : status_{std::move(that.status_)}\n    , message_stream_{std::move(that.message_stream_)}\n{\n    that.cancel();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL ThrowWhenDestroyed& ThrowWhenDestroyed::operator=(ThrowWhenDestroyed&& that) noexcept\n{\n    if (BATT_HINT_TRUE(this != &that)) {\n        this->status_ = std::move(that.status_);\n        this->message_stream_ = std::move(that.message_stream_);\n\n        that.cancel();\n    }\n    return *this;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL ThrowWhenDestroyed::~ThrowWhenDestroyed() noexcept(false)\n{\n    if (this->status_) {\n        if (this->message_stream_) {\n            throw StatusException{*this->status_, {this->message_stream_->str()}};\n        } else {\n            throw StatusException{*this->status_, None};\n        }\n    }\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL bool ThrowWhenDestroyed::has_status() const noexcept\n{\n    return this->status_.has_value();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL Status ThrowWhenDestroyed::status() const noexcept\n{\n    return *this->status_;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void ThrowWhenDestroyed::cancel() noexcept\n{\n    this->status_ = None;\n    this->message_stream_ = None;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL std::ostream& ThrowWhenDestroyed::message_out() noexcept\n{\n    if (!this->message_stream_) {\n        this->message_stream_.emplace();\n    }\n    return *this->message_stream_;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL ThrowWhenDestroyed& ThrowWhenDestroyed::operator<<(\n    std::ostream& (&fn)(std::ostream&)) noexcept\n{\n    if (this->status_) {\n        this->message_out() << fn;\n    }\n    return *this;\n}\n\n}  //namespace detail\n}  //namespace batt\n\n#endif  // BATTERIES_EXCEPTION_IMPL_HPP",
+  "refid": "exception__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/exception_impl.hpp",
+  "url": "/_autogen/Files/exception__impl_8hpp/#file-exception-impl.hpp",
+  "visibility": "public"
+}

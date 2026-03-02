@@ -1,0 +1,125 @@
+{
+  "abstract": false,
+  "anchor": "#file-http-client-connection-decl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-http-http-client-connection-decl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_HTTP_HTTP_CLIENT_CONNECTION_DECL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/http_client_connection_decl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/http/http_client_connection_decl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_HTTP_HTTP_CLIENT_CONNECTION_DECL_HPP",
+      "override": false,
+      "refid": "http__client__connection__decl_8hpp_1a8248af0da99911a68682df7f9928cdb6",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_HTTP_HTTP_CLIENT_CONNECTION_DECL_HPP",
+      "url": "/_autogen/Files/http__client__connection__decl_8hpp/#define-batteries-http-http-client-connection-decl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/http/http_client_connection_decl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/http/http_client_connection_decl.hpp",
+    "line": 0
+  },
+  "name": "batteries/http/http_client_connection_decl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/http",
+    "category": "dirs",
+    "fullname": "batteries/http",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/http",
+    "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+    "title": "batteries/http",
+    "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/http",
+      "category": "dirs",
+      "fullname": "batteries/http",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/http",
+      "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+      "title": "batteries/http",
+      "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022-2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_HTTP_HTTP_CLIENT_CONNECTION_DECL_HPP\n#define BATTERIES_HTTP_HTTP_CLIENT_CONNECTION_DECL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/http/http_data.hpp>\n#include <batteries/http/http_request.hpp>\n#include <batteries/http/http_response.hpp>\n#include <batteries/http/ssl_transport.hpp>\n#include <batteries/http/tcp_transport.hpp>\n\n#include <batteries/async/buffer_source.hpp>\n#include <batteries/async/queue.hpp>\n#include <batteries/async/stream_buffer.hpp>\n#include <batteries/async/watch.hpp>\n\n#include <batteries/asio/deadline_timer.hpp>\n#include <batteries/asio/ip_tcp.hpp>\n#include <batteries/status.hpp>\n\nnamespace batt {\n\nclass HttpClientHostContext;\n\ntemplate <typename Transport>\nclass BasicHttpClientConnection\n{\n   public:\n    static void spawn(HttpClientHostContext& context, Watch<usize>& active_connections) noexcept;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    explicit BasicHttpClientConnection(HttpClientHostContext& context) noexcept;\n\n    void run();\n\n    Status process_requests();\n\n    Status fill_input_buffer();\n\n    Status process_responses();\n\n    Status open_connection();\n\n    void halt() noexcept;\n\n    StatusOr<i32> read_next_response(pico_http::Response& response);\n\n    boost::asio::io_context& get_io_context();\n\n    StatusOr<boost::asio::ip::tcp::endpoint> local_endpoint() const noexcept;\n\n    StatusOr<boost::asio::ip::tcp::endpoint> remote_endpoint() const noexcept;\n\n    void idle_connection_timeout_task_main();\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    HttpClientHostContext& context_;\n\n    i32 idle_connection_timeout_ms_;\n\n    Transport transport_;\n\n    boost::asio::deadline_timer idle_timer_;\n\n    Queue<Pin<HttpResponse>> response_queue_;\n\n    StreamBuffer input_buffer_{16 * 1024};\n\n    Watch<usize> response_count_{0};\n\n    Watch<u64> activity_{0};\n};\n\nusing HttpClientConnection = BasicHttpClientConnection<TcpTransport>;\nusing HttpsClientConnection = BasicHttpClientConnection<SslTransport>;\n\n}  // namespace batt\n\n#endif  // BATTERIES_HTTP_HTTP_CLIENT_CONNECTION_DECL_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::BasicHttpClientConnection",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicHttpClientConnection",
+      "refid": "classbatt_1_1BasicHttpClientConnection",
+      "title": "batt::BasicHttpClientConnection",
+      "url": "/_autogen/Classes/classbatt_1_1BasicHttpClientConnection/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "http__client__connection__decl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/http/http_client_connection_decl.hpp",
+  "url": "/_autogen/Files/http__client__connection__decl_8hpp/#file-http-client-connection-decl.hpp",
+  "visibility": "public"
+}

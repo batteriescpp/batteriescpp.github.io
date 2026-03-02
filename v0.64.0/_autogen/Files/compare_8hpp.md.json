@@ -1,0 +1,99 @@
+{
+  "abstract": false,
+  "anchor": "#file-compare.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-compare-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_COMPARE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/compare.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/compare.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_COMPARE_HPP",
+      "override": false,
+      "refid": "compare_8hpp_1a9bbda91a5079620911c1d2b00df35a2d",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_COMPARE_HPP",
+      "url": "/_autogen/Files/compare_8hpp/#define-batteries-compare-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/compare.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/compare.hpp",
+    "line": 0
+  },
+  "name": "batteries/compare.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_COMPARE_HPP\n#define BATTERIES_COMPARE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/bounds.hpp>\n#include <batteries/endian.hpp>\n#include <batteries/hint.hpp>\n#include <batteries/int_types.hpp>\n\n#include <algorithm>\n#include <cstring>\n#include <ostream>\n#include <string_view>\n\nnamespace batt {\n\nenum struct Order : i8 {\n    Less = -1,\n    Equal = 0,\n    Greater = 1,\n};\n\ninline std::ostream& operator<<(std::ostream& out, Order t)\n{\n    switch (t) {\n    case Order::Less:\n        return out << \"Less\";\n    case Order::Equal:\n        return out << \"Equal\";\n    case Order::Greater:\n        return out << \"Greater\";\n    default:\n        break;\n    }\n    return out << \"BAD batt::OrderValue (\" << (int)t << \")!!!\";\n}\n\ninline Order compare(const std::string_view& a, const std::string_view& b) noexcept\n{\n    const usize len = std::min(a.size(), b.size());\n    const auto result = std::memcmp(a.data(), b.data(), len);\n    if (result == 0) {\n        if (a.size() < b.size()) {\n            return Order::Less;\n        }\n        if (a.size() == b.size()) {\n            return Order::Equal;\n        }\n        return Order::Greater;\n    } else if (result < 0) {\n        return Order::Less;\n    } else {\n        return Order::Greater;\n    }\n}\n\n}  //namespace batt\n\n#endif  // BATTERIES_COMPARE_HPP",
+  "refid": "compare_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/compare.hpp",
+  "url": "/_autogen/Files/compare_8hpp/#file-compare.hpp",
+  "visibility": "public"
+}

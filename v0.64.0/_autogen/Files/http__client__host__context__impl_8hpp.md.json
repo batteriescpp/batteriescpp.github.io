@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-http-client-host-context-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-http-http-client-host-context-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_HTTP_HTTP_CLIENT_HOST_CONTEXT_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/http_client_host_context_impl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/http/http_client_host_context_impl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_HTTP_HTTP_CLIENT_HOST_CONTEXT_IMPL_HPP",
+      "override": false,
+      "refid": "http__client__host__context__impl_8hpp_1a993cd8c2e01770d915b4ccfe17226fe0",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_HTTP_HTTP_CLIENT_HOST_CONTEXT_IMPL_HPP",
+      "url": "/_autogen/Files/http__client__host__context__impl_8hpp/#define-batteries-http-http-client-host-context-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/http/http_client_host_context_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/http/http_client_host_context_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/http/http_client_host_context_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/http",
+    "category": "dirs",
+    "fullname": "batteries/http",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/http",
+    "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+    "title": "batteries/http",
+    "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/http",
+      "category": "dirs",
+      "fullname": "batteries/http",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/http",
+      "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+      "title": "batteries/http",
+      "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022-2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_HTTP_HTTP_CLIENT_HOST_CONTEXT_IMPL_HPP\n#define BATTERIES_HTTP_HTTP_CLIENT_HOST_CONTEXT_IMPL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/http/http_client.hpp>\n#include <batteries/http/http_client_connection_decl.hpp>\n#include <batteries/http/http_client_host_context_decl.hpp>\n\n#include <batteries/http/http_client_connection.ipp>\n\n#if BATT_HEADER_ONLY\n#include <batteries/http/http_client_impl.hpp>\n#endif\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*explicit*/ HttpClientHostContext::HttpClientHostContext(\n    HttpClient& client, const HostAddress& host_addr) noexcept\n    : client_{client}\n    , host_address_{host_addr}\n    , request_queue_{}\n    , active_connections_{0}\n    , max_connections_{this->client_.get_default_max_connections_per_host()}\n    , connection_timeout_ms_{this->client_.get_default_connection_timeout_ms()}\n    , task_{this->client_.get_io_context().get_executor(),\n            [this] {\n                this->host_task_main();\n            },\n            \"HttpClientHostContext::host_task_main\"}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL boost::asio::io_context& HttpClientHostContext::get_io_context() noexcept\n{\n    return this->client_.get_io_context();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nstd::function<void(Optional<boost::asio::ssl::context>&, const HostAddress&)>\nHttpClientHostContext::get_ssl_init_fn() const noexcept\n{\n    return this->client_.get_ssl_init_fn();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL Status HttpClientHostContext::submit_request(Pin<HttpRequest>&& request,\n                                                              Pin<HttpResponse>&& response) noexcept\n{\n    BATT_VLOG(1) << \"Request submitted...\";\n    return this->request_queue_.push(std::make_tuple(std::move(request), std::move(response)));\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void HttpClientHostContext::halt()\n{\n    this->request_queue_.close();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void HttpClientHostContext::join()\n{\n    this->task_.join();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL bool HttpClientHostContext::can_grow() const\n{\n    return this->active_connections_.get_value() < this->max_connections_.load();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL const HostAddress& HttpClientHostContext::host_address() const noexcept\n{\n    return this->host_address_;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL StatusOr<std::tuple<Pin<HttpRequest>, Pin<HttpResponse>>>\nHttpClientHostContext::await_next_request() noexcept\n{\n    BATT_VLOG(1) << \"Awaiting next request (client host context)\";\n    auto on_scope_exit = batt::finally([&] {\n        BATT_VLOG(1) << \"Request submitted & claimed by connection\";\n    });\n    return this->request_queue_.await_next();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void HttpClientHostContext::host_task_main()\n{\n    Status status = [&]() -> Status {\n        std::atomic<bool> done{false};\n        boost::asio::deadline_timer heartbeat_timer{this->get_io_context()};\n\n        // Launch a task to repeatedly wait for a configured interval and then poke the request queue to wake\n        // any tasks waiting for work to do.\n        //\n        Task heartbeat_task{\n            //\n            this->get_io_context().get_executor(),\n            [&done, &heartbeat_timer, this] {\n                while (!done.load()) {\n                    this->request_queue_.poke();\n                    ErrorCode ec = Task::await<ErrorCode>([&](auto&& handler) {\n                        const auto timeout_ms = (this->connection_timeout_ms_.load() + 3) / 4;\n\n                        BATT_VLOG(1) << \"Sleeping for \" << timeout_ms << \"ms\";\n\n                        ErrorCode ec;\n                        heartbeat_timer.expires_from_now(boost::posix_time::milliseconds(timeout_ms), ec);\n                        if (ec) {\n                            BATT_FORWARD(handler)(ec);\n                        } else {\n                            heartbeat_timer.async_wait(BATT_FORWARD(handler));\n                        }\n                    });\n\n                    // Cancelling the timer also means we are done.\n                    //\n                    if (ec) {\n                        break;\n                    }\n                }\n            },\n            \"HttpClientHostContext::heartbeat_task\"};\n\n        auto on_scope_exit = batt::finally([&] {\n            done.store(true);\n            {\n                boost::system::error_code ec;\n                heartbeat_timer.cancel(ec);\n            }\n            this->request_queue_.close();\n            heartbeat_task.join();\n        });\n\n        for (;;) {\n            const usize queue_depth = this->request_queue_.size();\n            if (queue_depth > 0 && this->can_grow()) {\n                this->create_connection();\n            }\n\n            BATT_DEBUG_INFO(\"HttpClientHostContext::host_task_main waiting for queue depth to change;\"\n                            << BATT_INSPECT(queue_depth));\n\n            StatusOr<i64> new_queue_depth = this->request_queue_.await_size_is_truly([&](i64 size) {\n                return size != BATT_CHECKED_CAST(i64, queue_depth);\n            });\n            if (new_queue_depth.status() == StatusCode::kPoke) {\n                continue;\n            }\n            BATT_REQUIRE_OK(new_queue_depth);\n        }\n    }();\n\n    status.IgnoreError();  // TODO [tastolfi 2022-03-17] do something better!\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void HttpClientHostContext::create_connection()\n{\n    if (this->host_address_.scheme == \"http\") {\n        HttpClientConnection::spawn(*this, this->active_connections_);\n    } else if (this->host_address_.scheme == \"https\") {\n        HttpsClientConnection::spawn(*this, this->active_connections_);\n    }\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_HTTP_HTTP_CLIENT_HOST_CONTEXT_IMPL_HPP",
+  "refid": "http__client__host__context__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/http/http_client_host_context_impl.hpp",
+  "url": "/_autogen/Files/http__client__host__context__impl_8hpp/#file-http-client-host-context-impl.hpp",
+  "visibility": "public"
+}
