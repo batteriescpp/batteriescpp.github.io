@@ -1,0 +1,125 @@
+{
+  "abstract": false,
+  "anchor": "#file-http-server-settings-decl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-http-http-server-settings-decl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_HTTP_HTTP_SERVER_SETTINGS_DECL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/http_server_settings_decl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/http/http_server_settings_decl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_HTTP_HTTP_SERVER_SETTINGS_DECL_HPP",
+      "override": false,
+      "refid": "http__server__settings__decl_8hpp_1ac1f527d90d5852b02624d8ec028040b8",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_HTTP_HTTP_SERVER_SETTINGS_DECL_HPP",
+      "url": "/_autogen/Files/http__server__settings__decl_8hpp/#define-batteries-http-http-server-settings-decl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/http/http_server_settings_decl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/http/http_server_settings_decl.hpp",
+    "line": 0
+  },
+  "name": "batteries/http/http_server_settings_decl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/http",
+    "category": "dirs",
+    "fullname": "batteries/http",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/http",
+    "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+    "title": "batteries/http",
+    "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/http",
+      "category": "dirs",
+      "fullname": "batteries/http",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/http",
+      "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+      "title": "batteries/http",
+      "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_HTTP_HTTP_SERVER_SETTINGS_DECL_HPP\n#define BATTERIES_HTTP_HTTP_SERVER_SETTINGS_DECL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/constants.hpp>\n#include <batteries/int_types.hpp>\n\nnamespace batt {\n\nstruct HttpServerSettings {\n    static constexpr usize kDefaultMaxConnections = 1024;\n    static constexpr i32 kDefaultIdleConnectionTimeoutMs = 60 * 1000;\n    static constexpr usize kDefaultConnectionBufferSize = 16 * kKiB;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    static HttpServerSettings with_default_values() noexcept;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    usize max_connections;\n    usize max_requests_per_connection;\n    i32 idle_connection_timeout_ms;\n    usize connection_buffer_size;\n};\n\n}  //namespace batt\n\n#endif  // BATTERIES_HTTP_HTTP_SERVER_SETTINGS_DECL_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::HttpServerSettings",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::HttpServerSettings",
+      "refid": "structbatt_1_1HttpServerSettings",
+      "title": "batt::HttpServerSettings",
+      "url": "/_autogen/Classes/structbatt_1_1HttpServerSettings/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "http__server__settings__decl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/http/http_server_settings_decl.hpp",
+  "url": "/_autogen/Files/http__server__settings__decl_8hpp/#file-http-server-settings-decl.hpp",
+  "visibility": "public"
+}

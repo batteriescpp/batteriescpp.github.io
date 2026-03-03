@@ -1,0 +1,125 @@
+{
+  "abstract": false,
+  "anchor": "#file-supported.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-bit-ops-supported-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_BIT_OPS_SUPPORTED_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/bit_ops/supported.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/bit_ops/supported.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_BIT_OPS_SUPPORTED_HPP",
+      "override": false,
+      "refid": "supported_8hpp_1a4459b556135a634e6fda423e39bd90e5",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_BIT_OPS_SUPPORTED_HPP",
+      "url": "/_autogen/Files/supported_8hpp/#define-batteries-bit-ops-supported-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/bit_ops/supported.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/bit_ops/supported.hpp",
+    "line": 0
+  },
+  "name": "batteries/bit_ops/supported.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/bit-ops",
+    "category": "dirs",
+    "fullname": "batteries/bit_ops",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/bit_ops",
+    "refid": "dir_09dc2df44c13d5f8f6954de245bda43d",
+    "title": "batteries/bit_ops",
+    "url": "/_autogen/Files/dir_09dc2df44c13d5f8f6954de245bda43d/#dir-batteries/bit-ops",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/bit-ops",
+      "category": "dirs",
+      "fullname": "batteries/bit_ops",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/bit_ops",
+      "refid": "dir_09dc2df44c13d5f8f6954de245bda43d",
+      "title": "batteries/bit_ops",
+      "url": "/_autogen/Files/dir_09dc2df44c13d5f8f6954de245bda43d/#dir-batteries/bit-ops",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_BIT_OPS_SUPPORTED_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/int_types.hpp>\n#include <batteries/operators.hpp>\n\nnamespace batt {\n\nstruct DumpBitOpsSupported {\n    u32 mmx : 1;\n    u32 sse2 : 1;\n    u32 sse3 : 1;\n    u32 avx : 1;\n    u32 avx512f : 1;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    DumpBitOpsSupported() noexcept\n    {\n#ifdef __MMX__\n        this->mmx = 1;\n#else\n        this->mmx = 0;\n#endif\n#ifdef __SSE2__\n        this->sse2 = 1;\n#else\n        this->sse2 = 0;\n#endif\n#ifdef __SSE3__\n        this->sse3 = 1;\n#else\n        this->sse3 = 0;\n#endif\n#ifdef __AVX__\n        this->avx = 1;\n#else\n        this->avx = 0;\n#endif\n#ifdef __AVX512F__\n        this->avx512f = 1;\n#else\n        this->avx512f = 0;\n#endif\n    }\n};\n\nBATT_OBJECT_PRINT_IMPL((inline), DumpBitOpsSupported, (mmx, sse2, sse3, avx, avx512f))\n\n}  // namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::DumpBitOpsSupported",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::DumpBitOpsSupported",
+      "refid": "structbatt_1_1DumpBitOpsSupported",
+      "title": "batt::DumpBitOpsSupported",
+      "url": "/_autogen/Classes/structbatt_1_1DumpBitOpsSupported/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "supported_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/bit_ops/supported.hpp",
+  "url": "/_autogen/Files/supported_8hpp/#file-supported.hpp",
+  "visibility": "public"
+}

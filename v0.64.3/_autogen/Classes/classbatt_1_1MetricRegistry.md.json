@@ -1,0 +1,1080 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::MetricRegistry",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 462,
+    "bodyFile": "batteries/metrics/metric_registry.hpp",
+    "bodyStart": 243,
+    "column": 1,
+    "file": "batteries/metrics/metric_registry.hpp",
+    "line": 242
+  },
+  "name": "batt::MetricRegistry",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-mutex-",
+      "category": "attributes",
+      "const": false,
+      "definition": "std::mutex batt::MetricRegistry::mutex_",
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::mutex_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 460,
+        "column": 24,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 460
+      },
+      "name": "mutex_",
+      "override": false,
+      "refid": "classbatt_1_1MetricRegistry_1ac52037cb731d512d873ad31047850ec9",
+      "static": false,
+      "strong": false,
+      "title": "mutex_",
+      "type": "std::mutex",
+      "typePlain": "std::mutex",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#variable-mutex-",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-metrics-",
+      "category": "attributes",
+      "const": false,
+      "definition": "std::unordered_multimap<const void*, std::unique_ptr<MetricExporter> > batt::MetricRegistry::metrics_",
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::metrics_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 461,
+        "column": 29,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 461
+      },
+      "name": "metrics_",
+      "override": false,
+      "refid": "classbatt_1_1MetricRegistry_1a9e1abc4c3b941ca528540a4d4c4ffe03",
+      "static": false,
+      "strong": false,
+      "title": "metrics_",
+      "type": "std::unordered_multimap< const void *, std::unique_ptr< [MetricExporter](/_autogen/Classes/classbatt_1_1MetricExporter/) > >",
+      "typePlain": "std::unordered_multimap< const void *, std::unique_ptr< MetricExporter > >",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#variable-metrics-",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-add-exporter",
+      "argsString": "(const void *obj, std::unique_ptr< MetricExporter > exporter, MetricLabelSet &&labels)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::add_exporter",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::add_exporter",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 252,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 245,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 245
+      },
+      "name": "add_exporter",
+      "override": false,
+      "params": [
+        {
+          "name": "obj",
+          "type": "const void *",
+          "typePlain": "const void *"
+        },
+        {
+          "name": "exporter",
+          "type": "std::unique_ptr< [MetricExporter](/_autogen/Classes/classbatt_1_1MetricExporter/) >",
+          "typePlain": "std::unique_ptr< MetricExporter >"
+        },
+        {
+          "name": "labels",
+          "type": "MetricLabelSet &&",
+          "typePlain": "MetricLabelSet &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1a70c3e3a635913ec31b1a533b5e1354a8",
+      "static": false,
+      "strong": false,
+      "title": "add_exporter",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-add-exporter",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-add",
+      "argsString": "(std::string_view name, CountMetric< T > &counter, MetricLabelSet &&labels=MetricLabelSet{})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::add",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::add",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 262,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 255,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 255
+      },
+      "name": "add",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "counter",
+          "type": "[CountMetric](/_autogen/Classes/classbatt_1_1CountMetric/)< T > &",
+          "typePlain": "CountMetric< T > &"
+        },
+        {
+          "defval": "MetricLabelSet{}",
+          "defvalPlain": "MetricLabelSet{}",
+          "name": "labels",
+          "type": "MetricLabelSet &&",
+          "typePlain": "MetricLabelSet &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1a79e8a5fd35a57761be795fc1800fe58b",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "add",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-add",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-add",
+      "argsString": "(std::string_view name, FastCountMetric< T > &counter, MetricLabelSet &&labels=MetricLabelSet{})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::add",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::add",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 272,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 265,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 265
+      },
+      "name": "add",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "counter",
+          "type": "[FastCountMetric](/_autogen/Classes/classbatt_1_1FastCountMetric/)< T > &",
+          "typePlain": "FastCountMetric< T > &"
+        },
+        {
+          "defval": "MetricLabelSet{}",
+          "defvalPlain": "MetricLabelSet{}",
+          "name": "labels",
+          "type": "MetricLabelSet &&",
+          "typePlain": "MetricLabelSet &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1adc2024923de1af2fabab38d63ba726be",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "add",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-add",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-add",
+      "argsString": "(std::string_view name, LatencyMetric &latency, MetricLabelSet &&labels=MetricLabelSet{})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::add",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::add",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 289,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 274,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 274
+      },
+      "name": "add",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "latency",
+          "type": "[LatencyMetric](/_autogen/Classes/classbatt_1_1LatencyMetric/) &",
+          "typePlain": "LatencyMetric &"
+        },
+        {
+          "defval": "MetricLabelSet{}",
+          "defvalPlain": "MetricLabelSet{}",
+          "name": "labels",
+          "type": "MetricLabelSet &&",
+          "typePlain": "MetricLabelSet &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1a79530d207a19a9cf0a66bdaba906c568",
+      "static": false,
+      "strong": false,
+      "title": "add",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-add",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-add",
+      "argsString": "(std::string_view name, GaugeMetric< T > &gauge, MetricLabelSet &&labels=MetricLabelSet{})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::add",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::add",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 301,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 292,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 292
+      },
+      "name": "add",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "gauge",
+          "type": "[GaugeMetric](/_autogen/Classes/classbatt_1_1GaugeMetric/)< T > &",
+          "typePlain": "GaugeMetric< T > &"
+        },
+        {
+          "defval": "MetricLabelSet{}",
+          "defvalPlain": "MetricLabelSet{}",
+          "name": "labels",
+          "type": "MetricLabelSet &&",
+          "typePlain": "MetricLabelSet &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1a5ce85830d29a251659129352d59b1a03",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "add",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-add",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-add",
+      "argsString": "(std::string_view name, StatsMetric< T > &stats, MetricLabelSet &&labels=MetricLabelSet{})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::add",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::add",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 327,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 304,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 304
+      },
+      "name": "add",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "stats",
+          "type": "[StatsMetric](/_autogen/Classes/classbatt_1_1StatsMetric/)< T > &",
+          "typePlain": "StatsMetric< T > &"
+        },
+        {
+          "defval": "MetricLabelSet{}",
+          "defvalPlain": "MetricLabelSet{}",
+          "name": "labels",
+          "type": "MetricLabelSet &&",
+          "typePlain": "MetricLabelSet &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1ac4122460878d733b9dcccea7c656aeef",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "add",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-add",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-add",
+      "argsString": "(std::string_view name, HistogramMetric< T > &histogram, MetricLabelSet &&labels=MetricLabelSet{})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::add",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::add",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 356,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 330,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 330
+      },
+      "name": "add",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "histogram",
+          "type": "[HistogramMetric](/_autogen/Classes/classbatt_1_1HistogramMetric/)< T > &",
+          "typePlain": "HistogramMetric< T > &"
+        },
+        {
+          "defval": "MetricLabelSet{}",
+          "defvalPlain": "MetricLabelSet{}",
+          "name": "labels",
+          "type": "MetricLabelSet &&",
+          "typePlain": "MetricLabelSet &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1ab808dca8be2b637286809f01814ecd00",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "add",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-add",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-add",
+      "argsString": "(std::string_view name, Watch< T > &watch, MetricLabelSet &&labels=MetricLabelSet{})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::add",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::add",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 363,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 359,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 359
+      },
+      "name": "add",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "watch",
+          "type": "[Watch](/_autogen/Classes/classbatt_1_1Watch/)< T > &",
+          "typePlain": "Watch< T > &"
+        },
+        {
+          "defval": "MetricLabelSet{}",
+          "defvalPlain": "MetricLabelSet{}",
+          "name": "labels",
+          "type": "MetricLabelSet &&",
+          "typePlain": "MetricLabelSet &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1a428202df15a7953ddcf9538ed9ddbc73",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "add",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-add",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-add",
+      "argsString": "(std::string_view name, QueueBase &queue, MetricLabelSet &&labels=MetricLabelSet{})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::add",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::add",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 370,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 365,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 365
+      },
+      "name": "add",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "queue",
+          "type": "[QueueBase](/_autogen/Classes/classbatt_1_1QueueBase/) &",
+          "typePlain": "QueueBase &"
+        },
+        {
+          "defval": "MetricLabelSet{}",
+          "defvalPlain": "MetricLabelSet{}",
+          "name": "labels",
+          "type": "MetricLabelSet &&",
+          "typePlain": "MetricLabelSet &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1afaa30d20561836026d27342d8b722517",
+      "static": false,
+      "strong": false,
+      "title": "add",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-add",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-add",
+      "argsString": "(std::string_view name, DerivedMetric< T > &metric, MetricLabelSet &&labels=MetricLabelSet{})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::add",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::add",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 378,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 373,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 373
+      },
+      "name": "add",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "metric",
+          "type": "DerivedMetric< T > &",
+          "typePlain": "DerivedMetric< T > &"
+        },
+        {
+          "defval": "MetricLabelSet{}",
+          "defvalPlain": "MetricLabelSet{}",
+          "name": "labels",
+          "type": "MetricLabelSet &&",
+          "typePlain": "MetricLabelSet &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1addea2e511abb99b4758907a61c93a74f",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "add",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-add",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-add",
+      "argsString": "(std::string_view name, const double &var, MetricLabelSet &&labels=MetricLabelSet{})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::add",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::add",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 384,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 380,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 380
+      },
+      "name": "add",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "var",
+          "type": "const double &",
+          "typePlain": "const double &"
+        },
+        {
+          "defval": "MetricLabelSet{}",
+          "defvalPlain": "MetricLabelSet{}",
+          "name": "labels",
+          "type": "MetricLabelSet &&",
+          "typePlain": "MetricLabelSet &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1ae88333048b2899d4a84b65d2949a4a93",
+      "static": false,
+      "strong": false,
+      "title": "add",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-add",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-add",
+      "argsString": "(std::string_view name, const usize &var, MetricLabelSet &&labels=MetricLabelSet{})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::add",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::add",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 390,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 386,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 386
+      },
+      "name": "add",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "var",
+          "type": "const usize &",
+          "typePlain": "const usize &"
+        },
+        {
+          "defval": "MetricLabelSet{}",
+          "defvalPlain": "MetricLabelSet{}",
+          "name": "labels",
+          "type": "MetricLabelSet &&",
+          "typePlain": "MetricLabelSet &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1ac4f9d612676415fc0aca963145fcf1a4",
+      "static": false,
+      "strong": false,
+      "title": "add",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-add",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-add",
+      "argsString": "(std::string_view name, const isize &var, MetricLabelSet &&labels=MetricLabelSet{})",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::add",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::add",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 396,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 392,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 392
+      },
+      "name": "add",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "var",
+          "type": "const isize &",
+          "typePlain": "const isize &"
+        },
+        {
+          "defval": "MetricLabelSet{}",
+          "defvalPlain": "MetricLabelSet{}",
+          "name": "labels",
+          "type": "MetricLabelSet &&",
+          "typePlain": "MetricLabelSet &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1a83fabfa68b492a9ee85dbb6ea1171ae7",
+      "static": false,
+      "strong": false,
+      "title": "add",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-add",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-read-all",
+      "argsString": "(std::function< void(std::string_view name, double value, const MetricLabelSet &labels)> &&fn) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "void batt::MetricRegistry::read_all",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::read_all",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 422,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 400,
+        "column": 10,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 400
+      },
+      "name": "read_all",
+      "override": false,
+      "params": [
+        {
+          "name": "fn",
+          "type": "std::function< void(std::string_view name, double value, const MetricLabelSet &labels)> &&",
+          "typePlain": "std::function< void(std::string_view name, double value, const MetricLabelSet &labels)> &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1a9d7a2bdb371c724e35ce0a84fcef713b",
+      "static": false,
+      "strong": false,
+      "title": "read_all",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-read-all",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-remove",
+      "argsString": "(T &obj)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::remove",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::remove",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 432,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 427,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 427
+      },
+      "name": "remove",
+      "override": false,
+      "params": [
+        {
+          "name": "obj",
+          "type": "T &",
+          "typePlain": "T &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1a020e8ae51cc6e93c8885cc11b2c6a351",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "remove",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-remove",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-remove",
+      "argsString": "(HistogramMetric< T > &histogram)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "MetricRegistry& batt::MetricRegistry::remove",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::remove",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 444,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 437,
+        "column": 20,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 437
+      },
+      "name": "remove",
+      "override": false,
+      "params": [
+        {
+          "name": "histogram",
+          "type": "[HistogramMetric](/_autogen/Classes/classbatt_1_1HistogramMetric/)< T > &",
+          "typePlain": "HistogramMetric< T > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1a927220cf2590589e2dad49aeebc40877",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "remove",
+      "type": "[MetricRegistry](/_autogen/Classes/classbatt_1_1MetricRegistry/) &",
+      "typePlain": "MetricRegistry &",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-remove",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-scoped-add",
+      "argsString": "(std::string_view name, T &obj)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "auto batt::MetricRegistry::scoped_add",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::MetricRegistry::scoped_add",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 457,
+        "bodyFile": "batteries/metrics/metric_registry.hpp",
+        "bodyStart": 451,
+        "column": 10,
+        "file": "batteries/metrics/metric_registry.hpp",
+        "line": 451
+      },
+      "name": "scoped_add",
+      "override": false,
+      "params": [
+        {
+          "name": "name",
+          "type": "std::string_view",
+          "typePlain": "std::string_view"
+        },
+        {
+          "name": "obj",
+          "type": "T &",
+          "typePlain": "T &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1MetricRegistry_1a89333010660c92e63f2803cb039d286c",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "scoped_add",
+      "type": "auto",
+      "typePlain": "auto",
+      "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/#function-scoped-add",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1MetricRegistry",
+  "static": false,
+  "strong": false,
+  "title": "batt::MetricRegistry",
+  "url": "/_autogen/Classes/classbatt_1_1MetricRegistry/",
+  "visibility": "public"
+}

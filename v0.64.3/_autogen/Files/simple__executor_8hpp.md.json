@@ -1,0 +1,135 @@
+{
+  "abstract": false,
+  "anchor": "#file-simple-executor.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-simple-executor-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_SIMPLE_EXECUTOR_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/simple_executor.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/simple_executor.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_SIMPLE_EXECUTOR_HPP",
+      "override": false,
+      "refid": "simple__executor_8hpp_1aa426a2c0f7c4d876e55770f22939538d",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_SIMPLE_EXECUTOR_HPP",
+      "url": "/_autogen/Files/simple__executor_8hpp/#define-batteries-async-simple-executor-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/simple_executor.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/simple_executor.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/simple_executor.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_SIMPLE_EXECUTOR_HPP\n#define BATTERIES_ASYNC_SIMPLE_EXECUTOR_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/asio/execution_context.hpp>\n#include <batteries/asio/system_executor.hpp>\n#include <batteries/async/basic_executor.hpp>\n#include <batteries/async/handler.hpp>\n#include <batteries/async/mutex.hpp>\n#include <batteries/async/watch.hpp>\n#include <batteries/utility.hpp>\n\n#include <boost/asio/query.hpp>\n\n#include <condition_variable>\n#include <mutex>\n\nnamespace batt {\n\n// Forward-declaration.\n//\nclass SimpleExecutionContext;\n\n// The executor type used by SimpleExecutionContext.\n//\nusing SimpleExecutor = BasicExecutor<SimpleExecutionContext,  //\n                                     boost::asio::execution::outstanding_work_t::untracked_t,\n                                     boost::asio::execution::blocking_t::never_t,\n                                     boost::asio::execution::relationship_t::fork_t>;\n\nclass SimpleExecutionContext : public boost::asio::execution_context\n{\n   public:\n    using Self = SimpleExecutionContext;\n\n    using executor_type = SimpleExecutor;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    static auto inside_run_on_this_thread() noexcept -> SimpleExecutionContext**;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    SimpleExecutionContext() = default;\n    ~SimpleExecutionContext() = default;\n\n    auto get_executor() noexcept -> executor_type;\n\n    auto work_count() noexcept -> Watch<i64>&;  // TODO [tastolfi 2023-07-31] make const &\n\n    auto wake() -> void;\n\n    auto on_work_started() noexcept -> void;\n\n    auto on_work_finished() noexcept -> void;\n\n    auto stop() noexcept -> void;\n\n    auto is_stopped() const noexcept -> bool;\n\n    auto run() noexcept -> usize;\n\n    auto reset() noexcept -> void;\n\n    auto get_allocator() const -> std::allocator<void>;\n\n    template <typename Fn>\n    auto dispatch(Fn&& fn) noexcept -> void;\n\n    template <typename Fn>\n    auto post(Fn&& fn) noexcept -> void;\n\n    template <typename Fn>\n    auto defer(Fn&& fn) noexcept -> void;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    Watch<i64> work_count_{0};\n\n    std::allocator<void> allocator_;\n\n    std::mutex mutex_;\n\n    std::condition_variable cond_;\n\n    HandlerList<> queue_;\n\n    std::atomic<bool> stop_{false};\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\n}  //namespace batt\n\n#include <batteries/async/simple_executor.ipp>\n\n#endif  // BATTERIES_ASYNC_SIMPLE_EXECUTOR_HPP\n\n#include <batteries/config.hpp>\n\n#if BATT_HEADER_ONLY\n#include <batteries/async/simple_executor_impl.hpp>\n#endif",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "boost::asio::execution_context",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "A minimal multi-threaded execution context implementation, suitable for parallel-compute thread pools. ",
+      "category": "classes",
+      "fullname": "batt::SimpleExecutionContext",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::SimpleExecutionContext",
+      "refid": "classbatt_1_1SimpleExecutionContext",
+      "summary": "A minimal multi-threaded execution context implementation, suitable for parallel-compute thread pools. ",
+      "title": "batt::SimpleExecutionContext",
+      "url": "/_autogen/Classes/classbatt_1_1SimpleExecutionContext/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "simple__executor_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/simple_executor.hpp",
+  "url": "/_autogen/Files/simple__executor_8hpp/#file-simple-executor.hpp",
+  "visibility": "public"
+}

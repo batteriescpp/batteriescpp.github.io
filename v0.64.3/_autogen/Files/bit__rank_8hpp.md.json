@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-bit-rank.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-bit-ops-bit-rank-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_BIT_OPS_BIT_RANK_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/bit_ops/bit_rank.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/bit_ops/bit_rank.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_BIT_OPS_BIT_RANK_HPP",
+      "override": false,
+      "refid": "bit__rank_8hpp_1a8689fcca0fe5ce526fe7f1024206af42",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_BIT_OPS_BIT_RANK_HPP",
+      "url": "/_autogen/Files/bit__rank_8hpp/#define-batteries-bit-ops-bit-rank-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/bit_ops/bit_rank.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/bit_ops/bit_count.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/bit_ops/bit_rank.hpp",
+    "line": 0
+  },
+  "name": "batteries/bit_ops/bit_rank.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/bit-ops",
+    "category": "dirs",
+    "fullname": "batteries/bit_ops",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/bit_ops",
+    "refid": "dir_09dc2df44c13d5f8f6954de245bda43d",
+    "title": "batteries/bit_ops",
+    "url": "/_autogen/Files/dir_09dc2df44c13d5f8f6954de245bda43d/#dir-batteries/bit-ops",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/bit-ops",
+      "category": "dirs",
+      "fullname": "batteries/bit_ops",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/bit_ops",
+      "refid": "dir_09dc2df44c13d5f8f6954de245bda43d",
+      "title": "batteries/bit_ops",
+      "url": "/_autogen/Files/dir_09dc2df44c13d5f8f6954de245bda43d/#dir-batteries/bit-ops",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_BIT_OPS_BIT_RANK_HPP\n\n#include <batteries/bit_ops/bit_count.hpp>\n#include <batteries/int_types.hpp>\n\n#ifdef __BMI2__\n#include <x86gprintrin.h>\n#endif  // __BMI2__\n\n#ifdef __MMX__\n#include <mmintrin.h>\n#endif  // __MMX__\n\n#ifdef __SSE2__\n#include <emmintrin.h>\n#endif  // __SSE2__\n\n#ifdef __SSE3__\n#include <pmmintrin.h>\n#endif  // __SSE3__\n\n#ifdef __AVX__\n#include <immintrin.h>\n#endif\n\n#ifdef __AVX512F__\n#include <immintrin.h>  // AVX512 (AVX, AVX2, FMA)\n#endif\n\nnamespace batt {\n\nconstexpr inline i32 bit_rank(u64 bit_set, i32 index)\n{\n    if (index > 63) {\n        index = 63;\n    }\n    return bit_count(bit_set & ((u64{2} << index) - 1)) - 1;\n}\n\n}  // namespace batt",
+  "refid": "bit__rank_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/bit_ops/bit_rank.hpp",
+  "url": "/_autogen/Files/bit__rank_8hpp/#file-bit-rank.hpp",
+  "visibility": "public"
+}

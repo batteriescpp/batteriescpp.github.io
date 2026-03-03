@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-worker-pool-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-worker-pool-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_WORKER_POOL_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/worker_pool_impl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/worker_pool_impl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_WORKER_POOL_IMPL_HPP",
+      "override": false,
+      "refid": "worker__pool__impl_8hpp_1a478939119870e008b0bf02249884bf07",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_WORKER_POOL_IMPL_HPP",
+      "url": "/_autogen/Files/worker__pool__impl_8hpp/#define-batteries-async-worker-pool-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/worker_pool_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/worker_pool_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/worker_pool_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_WORKER_POOL_IMPL_HPP\n#define BATTERIES_ASYNC_WORKER_POOL_IMPL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/cpu_align.hpp>\n#include <batteries/env.hpp>\n#include <batteries/logging.hpp>\n\n#include <batteries/async/simple_executor.hpp>\n#include <batteries/async/worker_pool.hpp>\n\n#include <vector>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*static*/ WorkerPool& WorkerPool::default_pool()\n{\n    static WorkerPool* pool_ = [] {\n        static const usize cpu_count = std::thread::hardware_concurrency();\n\n#ifdef __linux__\n        static const bool is_linux = true;\n#else\n        static const bool is_linux = false;\n#endif\n\n        static const char* thread_spec = std::getenv(\"BATT_WORKER_POOL_SPEC\");\n\n        if (thread_spec) {\n            StatusOr<ThreadSpec> parsed_spec = parse_thread_spec(thread_spec);\n            BATT_CHECK_OK(parsed_spec);\n\n            auto* scoped = new ScopedWorkerThreadPool{*parsed_spec};\n            return std::addressof(scoped->worker_pool());\n        }\n\n        //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\n        static const ThreadPoolConfig config = {\n            .thread_count = getenv_as<usize>(\"BATT_WORKER_POOL_DEFAULT_SIZE\").value_or(cpu_count),\n            .cpu_group_size = getenv_as<usize>(\"BATT_WORKER_POOL_CPU_GROUP_SIZE\").value_or(2),\n            .first_cpu = getenv_as<usize>(\"BATT_WORKER_POOL_FIRST_CPU\").value_or(0),\n            .pin = getenv_as<bool>(\"BATT_WORKER_POOL_PIN_CPU\").value_or(is_linux),\n        };\n\n        // These are intentionally leaked to prevent shutdown issues.\n        //\n        auto* threads = new std::vector<std::thread>;\n        auto* io = new std::vector<std::unique_ptr<SimpleExecutionContext>>;\n        auto* pool = new WorkerPool;\n\n        for (usize i = 0; i < config.thread_count; ++i) {\n            io->emplace_back(std::make_unique<SimpleExecutionContext>());\n            io->back()->get_executor().on_work_started();\n            threads->emplace_back([p_io = io->back().get(), i] {\n                BATT_CHECK_OK(pin_thread_i_of_config(i, config, \"WorkerPool::default_pool().worker\"));\n                p_io->run();\n            });\n            boost::asio::any_io_executor ex{io->back()->get_executor()};\n            pool->workers_.emplace_back(std::make_unique<Worker>(std::move(ex)));\n        }\n\n        return pool;\n    }();\n\n    return *pool_;\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_WORKER_POOL_IMPL_HPP",
+  "refid": "worker__pool__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/worker_pool_impl.hpp",
+  "url": "/_autogen/Files/worker__pool__impl_8hpp/#file-worker-pool-impl.hpp",
+  "visibility": "public"
+}
