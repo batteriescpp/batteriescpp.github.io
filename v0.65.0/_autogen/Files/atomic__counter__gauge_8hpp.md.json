@@ -1,0 +1,129 @@
+{
+  "abstract": false,
+  "anchor": "#file-atomic-counter-gauge.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-atomic-counter-gauge-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ATOMIC_COUNTER_GAUGE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/atomic_counter_gauge.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/atomic_counter_gauge.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ATOMIC_COUNTER_GAUGE_HPP",
+      "override": false,
+      "refid": "atomic__counter__gauge_8hpp_1a45531dc61cea5afbef9856a4f4d568ae",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ATOMIC_COUNTER_GAUGE_HPP",
+      "url": "/_autogen/Files/atomic__counter__gauge_8hpp/#define-batteries-atomic-counter-gauge-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/atomic_counter_gauge.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/atomic_counter_gauge.hpp",
+    "line": 0
+  },
+  "name": "batteries/atomic_counter_gauge.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ATOMIC_COUNTER_GAUGE_HPP\n#define BATTERIES_ATOMIC_COUNTER_GAUGE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/int_types.hpp>\n\nnamespace batt {\n\ntemplate <typename IntT>\nclass AtomicCounterGauge\n{\n   public:\n    using Self = AtomicCounterGauge;\n\n    using value_type = IntT;\n\n    //                      |-------------------------kNumBits--------------------------|\n    //                      |--------kNumCountBits--------|--------kNumCountBits--------|\n    //                      | |                           | |-----kAddOverflowShift-----|\n    //                      | |                           |----------kSubShift----------|\n    //                      | |-------------------kSubOverflowShift---------------------|\n    //\n    // kHalfMask          = |                             |11111111111111111111111111111|\n    // kCountMask         = |                             | 1111111111111111111111111111|\n    // kGaugeMask         = |                             | 1111111111111111111111111111|\n    //\n    // kAddIncrement      = |                             |                            1|\n    // kAddOverflow       = |                             |10000000000000000000000000000|\n    // kAddMask           = |                             |11111111111111111111111111111|\n    //\n    // kSubIncrement      = |                            1|00000000000000000000000000000|\n    // kSubOverflow       = |10000000000000000000000000000|00000000000000000000000000000|\n    // kSubMask           = |11111111111111111111111111111|00000000000000000000000000000|\n    //\n\n    static constexpr usize kNumBits = sizeof(IntT) * 8;\n    static constexpr usize kNumCountBits = kNumBits / 2;\n\n    static_assert(kNumCountBits * 2 == kNumBits);\n\n    static constexpr value_type kHalfMask = ((value_type{1} << kNumCountBits) - 1);\n    static constexpr value_type kCountMask = (value_type{1} << (kNumCountBits - 1)) - 1;\n    static constexpr value_type kGaugeMask = kCountMask;\n\n    static constexpr usize kAddShift = 0;\n    static constexpr usize kAddOverflowShift = kNumCountBits - 1;\n\n    static constexpr usize kSubShift = kNumCountBits;\n    static constexpr usize kSubOverflowShift = kNumBits - 1;\n\n    static constexpr value_type kAddIncrement = value_type{1} << kAddShift;\n    static constexpr value_type kAddOverflow = value_type{1} << kAddOverflowShift;\n    static constexpr value_type kAddMask = kHalfMask << kAddShift;\n\n    static constexpr value_type kSubIncrement = value_type{1} << kSubShift;\n    static constexpr value_type kSubOverflow = value_type{1} << kSubOverflowShift;\n    static constexpr value_type kSubMask = kHalfMask << kSubShift;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    class State\n    {\n       public:\n        friend class AtomicCounterGauge<IntT>;\n\n        //----- --- -- -  -  -   -\n\n        static State from_counts(value_type add_count, value_type sub_count) noexcept\n        {\n            return State{value_type(                       //\n                ((add_count & kGaugeMask) << kAddShift) |  //\n                ((sub_count & kGaugeMask) << kSubShift)    //\n                )};\n        }\n\n        static State from_gauge(value_type gauge_value) noexcept\n        {\n            return State::from_counts(gauge_value, 0);\n        }\n\n        static value_type normalize(value_type observed_state) noexcept\n        {\n            // Extract and align the overflow (most-significant) bits of both the add and subtract counters.\n            //\n            const value_type add_overflow = (observed_state & kAddOverflow) >> kAddShift;\n            const value_type sub_overflow = (observed_state & kSubOverflow) >> kSubShift;\n\n            // Iff the overflow bits of add and sub counters are *both* set, then set the common overflow bit.\n            //\n            const value_type common_overflow = add_overflow & sub_overflow;\n\n            // Subtract any common overflow from both counters.\n            //\n            const value_type normalized_state =\n                observed_state & ~((common_overflow << kAddShift) | (common_overflow << kSubShift));\n\n            return normalized_state;\n        }\n\n        //----- --- -- -  -  -   -\n\n        explicit State(value_type value) noexcept : value_{value}\n        {\n        }\n\n        //----- --- -- -  -  -   -\n\n        value_type get_gauge() const noexcept\n        {\n            return (this->impl_add_count() - this->impl_sub_count()) & kGaugeMask;\n        }\n\n        value_type get_add_count() const noexcept\n        {\n            return ((this->value_ >> kAddShift) & kCountMask);\n        }\n\n        value_type get_sub_count() const noexcept\n        {\n            return ((this->value_ >> kSubShift) & kCountMask);\n        }\n\n        value_type value() const noexcept\n        {\n            return this->value_;\n        }\n\n        //----- --- -- -  -  -   -\n       private:\n        value_type impl_add_count() const noexcept\n        {\n            return ((this->value_ >> kAddShift) & kHalfMask);\n        }\n\n        value_type impl_sub_count() const noexcept\n        {\n            return ((this->value_ >> kSubShift) & kHalfMask);\n        }\n\n        //----- --- -- -  -  -   -\n\n        value_type value_;\n    };\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    explicit AtomicCounterGauge(value_type initial_value = 0) noexcept\n        : state_{State::from_gauge(initial_value).value()}\n    {\n    }\n\n    explicit AtomicCounterGauge(State initial_state) noexcept : state_{initial_state.value()}\n    {\n    }\n\n    State load() noexcept\n    {\n        return State{this->state_.load()};\n    }\n\n    void store(value_type new_value) noexcept\n    {\n        this->store(State::from_gauge(new_value));\n    }\n\n    void store(State new_state) noexcept\n    {\n        this->state_.store(new_state.value());\n    }\n\n    State exchange(State new_state) noexcept\n    {\n        return State{this->state_.exchange(new_state.value())};\n    }\n\n    State exchange(value_type new_value) noexcept\n    {\n        return this->exchange(State::from_gauge(new_value));\n    }\n\n    State fetch_add(value_type delta) noexcept\n    {\n        delta = (delta & kCountMask) << kAddShift;\n\n        const value_type old_state = this->state_.fetch_add(delta);\n        const value_type new_state = old_state + delta;\n\n        BATT_CHECK_LE((u64)State{old_state}.impl_add_count(),                    //\n                      (u64)State{new_state}.impl_add_count())                    //\n            << \"Add (positive) counter overflow detected! old_state=\"            //\n            << std::bitset<kNumBits>{State{old_state}.value()} << \" new_state=\"  //\n            << std::bitset<kNumBits>{State{new_state}.value()};\n\n        this->normalize(new_state);\n\n        return State{old_state};\n    }\n\n    State increment() noexcept\n    {\n        return this->fetch_add(1);\n    }\n\n    State fetch_sub(value_type delta) noexcept\n    {\n        delta = (delta & kCountMask) << kSubShift;\n\n        const value_type old_state = this->state_.fetch_add(delta);\n        const value_type new_state = old_state + delta;\n\n        BATT_CHECK_LE((u64)State{old_state}.impl_sub_count(),                    //\n                      (u64)State{new_state}.impl_sub_count())                    //\n            << \"Sub (negative) counter overflow detected! old_state=\"            //\n            << std::bitset<kNumBits>{State{old_state}.value()} << \" new_state=\"  //\n            << std::bitset<kNumBits>{State{new_state}.value()};\n\n        this->normalize(new_state);\n\n        return State{old_state};\n    }\n\n    State decrement() noexcept\n    {\n        return this->fetch_sub(1);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    value_type normalize(value_type observed_state) noexcept\n    {\n        for (;;) {\n            const value_type normalized_state = State::normalize(observed_state);\n\n            if (BATT_HINT_TRUE(normalized_state == observed_state) ||\n                this->state_.compare_exchange_weak(observed_state, normalized_state)) {\n                return normalized_state;\n            }\n        }\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    std::atomic<value_type> state_;\n};\n\n}  //namespace batt\n\n#endif  // BATTERIES_ATOMIC_COUNTER_GAUGE_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "An atomic variable that maintains a gauge-like value, which can rise and fall over time, by means of two monotonic counters: one for increases, one for decreases. ",
+      "category": "classes",
+      "fullname": "batt::AtomicCounterGauge",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::AtomicCounterGauge",
+      "refid": "classbatt_1_1AtomicCounterGauge",
+      "summary": "An atomic variable that maintains a gauge-like value, which can rise and fall over time, by means of two monotonic counters: one for increases, one for decreases. ",
+      "title": "batt::AtomicCounterGauge",
+      "url": "/_autogen/Classes/classbatt_1_1AtomicCounterGauge/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "A value of the atomic variable that implements [AtomicCounterGauge](/_autogen/Classes/classbatt_1_1AtomicCounterGauge/). ",
+      "category": "classes",
+      "fullname": "batt::AtomicCounterGauge::State",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::AtomicCounterGauge::State",
+      "refid": "classbatt_1_1AtomicCounterGauge_1_1State",
+      "summary": "A value of the atomic variable that implements AtomicCounterGauge. ",
+      "title": "batt::AtomicCounterGauge::State",
+      "url": "/_autogen/Classes/classbatt_1_1AtomicCounterGauge_1_1State/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "atomic__counter__gauge_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/atomic_counter_gauge.hpp",
+  "url": "/_autogen/Files/atomic__counter__gauge_8hpp/#file-atomic-counter-gauge.hpp",
+  "visibility": "public"
+}
