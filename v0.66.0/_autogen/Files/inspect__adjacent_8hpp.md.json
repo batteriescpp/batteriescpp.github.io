@@ -1,0 +1,149 @@
+{
+  "abstract": false,
+  "anchor": "#file-inspect-adjacent.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-inspect-adjacent-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_INSPECT_ADJACENT_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/inspect_adjacent.hpp",
+        "bodyStart": 7,
+        "column": 9,
+        "file": "batteries/seq/inspect_adjacent.hpp",
+        "line": 7
+      },
+      "name": "BATTERIES_SEQ_INSPECT_ADJACENT_HPP",
+      "override": false,
+      "refid": "inspect__adjacent_8hpp_1ad8d0773172d40ac08b3032ee5a2fb703",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_INSPECT_ADJACENT_HPP",
+      "url": "/_autogen/Files/inspect__adjacent_8hpp/#define-batteries-seq-inspect-adjacent-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/inspect_adjacent.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/inspect_adjacent.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/inspect_adjacent.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n\n#pragma once\n#ifndef BATTERIES_SEQ_INSPECT_ADJACENT_HPP\n#define BATTERIES_SEQ_INSPECT_ADJACENT_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/hint.hpp>\n#include <batteries/optional.hpp>\n#include <batteries/seq/seq_item.hpp>\n#include <batteries/utility.hpp>\n\n#include <type_traits>\n#include <utility>\n\nnamespace batt {\nnamespace seq {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// inspect_adjacent(binary_fn)\n//\ntemplate <typename Seq, typename Fn>\nclass InspectAdjacent\n{\n   public:\n    using Item = SeqItem<Seq>;\n\n    explicit InspectAdjacent(Seq&& seq, Fn&& fn) noexcept : seq_(BATT_FORWARD(seq)), fn_(BATT_FORWARD(fn))\n    {\n    }\n\n    InspectAdjacent(InspectAdjacent&& that) noexcept\n        : seq_(BATT_FORWARD(that.seq_))\n        , fn_(BATT_FORWARD(*that.fn_))\n        , next_(BATT_FORWARD(that.next_))\n    {\n    }\n\n    InspectAdjacent& operator=(InspectAdjacent&& that) noexcept\n    {\n        if (BATT_HINT_TRUE(this != &that)) {\n            this->seq_ = BATT_FORWARD(that.seq_);\n            this->fn_.emplace(BATT_FORWARD(*that.fn_));\n            this->next_ = BATT_FORWARD(that.next_);\n        }\n        return *this;\n    }\n\n    InspectAdjacent(const InspectAdjacent& that) : seq_(that.seq_), fn_(*that.fn_), next_(that.next_)\n    {\n    }\n\n    InspectAdjacent& operator=(const InspectAdjacent& that)\n    {\n        if (BATT_HINT_TRUE(this != &that)) {\n            this->seq_ = that.seq_;\n            this->fn_.emplace(*that.fn_);\n            this->next_ = that.next_;\n        }\n        return *this;\n    }\n\n    Optional<Item> peek()\n    {\n        return next_;\n    }\n\n    Optional<Item> next()\n    {\n        auto item = std::move(next_);\n        next_ = seq_.next();\n\n        if (item && next_) {\n            (*fn_)(*item, *next_);\n        }\n\n        return item;\n    }\n\n   private:\n    Seq seq_;\n    Optional<Fn> fn_;\n    Optional<SeqItem<Seq>> next_{seq_.next()};\n};\n\ntemplate <typename Fn>\nstruct InspectAdjacentBinder {\n    Fn fn;\n};\n\ntemplate <typename Fn>\nInspectAdjacentBinder<Fn> inspect_adjacent(Fn&& fn)\n{\n    return {BATT_FORWARD(fn)};\n}\n\ntemplate <typename Seq, typename Fn>\nInspectAdjacent<Seq, Fn> operator|(Seq&& seq, InspectAdjacentBinder<Fn>&& binder)\n{\n    return InspectAdjacent<Seq, Fn>{BATT_FORWARD(seq), BATT_FORWARD(binder.fn)};\n}\n\n}  // namespace seq\n}  // namespace batt\n\n#endif  // BATTERIES_SEQ_INSPECT_ADJACENT_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::InspectAdjacent",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::seq::InspectAdjacent",
+      "refid": "classbatt_1_1seq_1_1InspectAdjacent",
+      "title": "batt::seq::InspectAdjacent",
+      "url": "/_autogen/Classes/classbatt_1_1seq_1_1InspectAdjacent/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::InspectAdjacentBinder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::InspectAdjacentBinder",
+      "refid": "structbatt_1_1seq_1_1InspectAdjacentBinder",
+      "title": "batt::seq::InspectAdjacentBinder",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1InspectAdjacentBinder/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "inspect__adjacent_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/inspect_adjacent.hpp",
+  "url": "/_autogen/Files/inspect__adjacent_8hpp/#file-inspect-adjacent.hpp",
+  "visibility": "public"
+}

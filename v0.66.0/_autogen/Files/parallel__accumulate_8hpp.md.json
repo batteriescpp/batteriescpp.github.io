@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-parallel-accumulate.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-algo-parallel-accumulate-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ALGO_PARALLEL_ACCUMULATE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/algo/parallel_accumulate.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/algo/parallel_accumulate.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ALGO_PARALLEL_ACCUMULATE_HPP",
+      "override": false,
+      "refid": "parallel__accumulate_8hpp_1a2a10d7c8bfc338a07efc9afbb2ad12f4",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ALGO_PARALLEL_ACCUMULATE_HPP",
+      "url": "/_autogen/Files/parallel__accumulate_8hpp/#define-batteries-algo-parallel-accumulate-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/algo/parallel_accumulate.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/async/slice_work.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/algo/parallel_accumulate.hpp",
+    "line": 0
+  },
+  "name": "batteries/algo/parallel_accumulate.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/algo",
+    "category": "dirs",
+    "fullname": "batteries/algo",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/algo",
+    "refid": "dir_23237b2d5d682108d256c42b41036300",
+    "title": "batteries/algo",
+    "url": "/_autogen/Files/dir_23237b2d5d682108d256c42b41036300/#dir-batteries/algo",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/algo",
+      "category": "dirs",
+      "fullname": "batteries/algo",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/algo",
+      "refid": "dir_23237b2d5d682108d256c42b41036300",
+      "title": "batteries/algo",
+      "url": "/_autogen/Files/dir_23237b2d5d682108d256c42b41036300/#dir-batteries/algo",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ALGO_PARALLEL_ACCUMULATE_HPP\n#define BATTERIES_ALGO_PARALLEL_ACCUMULATE_HPP\n\n#include <batteries/async/slice_work.hpp>\n#include <batteries/async/work_context.hpp>\n#include <batteries/async/worker_pool.hpp>\n\n#include <batteries/checked_cast.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/slice.hpp>\n#include <batteries/small_vec.hpp>\n\n#include <algorithm>\n#include <iterator>\n#include <numeric>\n#include <thread>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename Iter, typename T, typename BinaryOp>\nSlice<T> parallel_accumulate_partial(WorkContext& context,                   //\n                                     Iter first, Iter last, T init,          //\n                                     const BinaryOp& binary_op, T identity,  //\n                                     const Slice<T>& task_result_buffer,     //\n                                     const WorkSliceParams& params)\n{\n    if (first == last) {\n        return as_slice(task_result_buffer.begin(), 0);\n    }\n\n    if (params.max_tasks == 1) {\n        BATT_CHECK_GE(task_result_buffer.size(), 1u);\n        task_result_buffer.front() = std::accumulate(first, last, init, binary_op);\n        return as_slice(task_result_buffer.begin(), 1);\n    }\n\n    const WorkSlicePlan plan{params, first, last};\n\n    Slice<T> task_results = as_slice(task_result_buffer.begin(), plan.n_tasks);\n    std::fill(task_results.begin(), task_results.end(), identity);\n    if (!task_results.empty()) {\n        task_results.front() = init;\n    }\n\n    BATT_CHECK_OK(slice_work(context, plan,\n                             /*gen_work_fn=*/\n                             [&](TaskIndex task_index, TaskOffset task_offset, TaskSize task_size) {\n                                 return\n                                     [task_index, task_offset, task_size, first, &binary_op, task_results] {\n                                         auto task_begin = std::next(first, task_offset);\n                                         auto task_end = std::next(task_begin, task_size);\n                                         task_results[task_index] = std::accumulate(\n                                             task_begin, task_end, task_results[task_index], binary_op);\n                                     };\n                             }))\n        << \"context must not be closed!\";\n\n    return task_results;\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename Iter, typename T, typename BinaryOp>\nT parallel_accumulate(WorkerPool& worker_pool,                  //\n                      Iter first, Iter last, T init,            //\n                      const BinaryOp& binary_op, T identity,    //\n                      TaskSize min_task_size = TaskSize{4096},  //\n                      TaskCount max_tasks = TaskCount{std::thread::hardware_concurrency()})\n{\n    if (first == last) {\n        return init;\n    }\n\n    BATT_CHECK_GT(min_task_size, 0);\n    BATT_CHECK_GT(max_tasks, 0);\n\n    const InputSize input_size{BATT_CHECKED_CAST(usize, std::distance(first, last))};\n    if (max_tasks == 1 || input_size <= std::max<usize>(min_task_size, max_tasks)) {\n        return std::accumulate(first, last, init, binary_op);\n    }\n\n    SmallVec<T, 64> task_result_buffer(max_tasks);\n    Slice<T> task_results;\n    {\n        ScopedWorkContext context{worker_pool};\n\n        task_results = parallel_accumulate_partial(context,                       //\n                                                   first, last, init,             //\n                                                   binary_op, identity,           //\n                                                   as_slice(task_result_buffer),  //\n                                                   WorkSliceParams{min_task_size, max_tasks});\n    }\n    BATT_CHECK(!task_results.empty());\n\n    return parallel_accumulate(worker_pool,  //\n                               std::next(task_results.begin()), task_results.end(),\n                               task_results.front(),  //\n                               binary_op, identity,   //\n                               min_task_size,         //\n                               max_tasks);\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_ALGO_PARALLEL_ACCUMULATE_HPP",
+  "refid": "parallel__accumulate_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/algo/parallel_accumulate.hpp",
+  "url": "/_autogen/Files/parallel__accumulate_8hpp/#file-parallel-accumulate.hpp",
+  "visibility": "public"
+}

@@ -1,0 +1,115 @@
+{
+  "abstract": false,
+  "anchor": "#file-instance-counter.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-instance-counter-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_INSTANCE_COUNTER_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/instance_counter.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/instance_counter.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_INSTANCE_COUNTER_HPP",
+      "override": false,
+      "refid": "instance__counter_8hpp_1afc5cd2c2fe7ebd1abe67f381fd57f155",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_INSTANCE_COUNTER_HPP",
+      "url": "/_autogen/Files/instance__counter_8hpp/#define-batteries-instance-counter-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/instance_counter.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/instance_counter.hpp",
+    "line": 0
+  },
+  "name": "batteries/instance_counter.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_INSTANCE_COUNTER_HPP\n#define BATTERIES_INSTANCE_COUNTER_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/int_types.hpp>\n\n#include <atomic>\n\nnamespace batt {\n\ntemplate <typename T>\nclass InstanceCounter\n{\n   public:\n    using Self = InstanceCounter;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    static isize get() noexcept\n    {\n        return Self::instance().load();\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    InstanceCounter() noexcept\n    {\n        Self::instance().fetch_add(1);\n    }\n\n    ~InstanceCounter() noexcept\n    {\n        Self::instance().fetch_sub(1);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    static std::atomic<isize>& instance() noexcept\n    {\n        static std::atomic<isize> instance_{0};\n        return instance_;\n    }\n};\n\n}  //namespace batt\n\n#endif  // BATTERIES_INSTANCE_COUNTER_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "A quick and easy way to track the number of instances of a given type in existence; just add batt::InstanceCounter<T> as a field or base class of T. ",
+      "category": "classes",
+      "fullname": "batt::InstanceCounter",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::InstanceCounter",
+      "refid": "classbatt_1_1InstanceCounter",
+      "summary": "A quick and easy way to track the number of instances of a given type in existence; just add batt::InstanceCounter<T> as a field or base class of T. ",
+      "title": "batt::InstanceCounter",
+      "url": "/_autogen/Classes/classbatt_1_1InstanceCounter/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "instance__counter_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/instance_counter.hpp",
+  "url": "/_autogen/Files/instance__counter_8hpp/#file-instance-counter.hpp",
+  "visibility": "public"
+}
