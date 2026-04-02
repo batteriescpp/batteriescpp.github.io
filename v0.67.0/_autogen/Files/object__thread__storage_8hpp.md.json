@@ -1,0 +1,127 @@
+{
+  "abstract": false,
+  "anchor": "#file-object-thread-storage.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-object-thread-storage-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_OBJECT_THREAD_STORAGE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/object_thread_storage.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/object_thread_storage.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_OBJECT_THREAD_STORAGE_HPP",
+      "override": false,
+      "refid": "object__thread__storage_8hpp_1a680af534cf60aacd9a9aa65b33e05f74",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_OBJECT_THREAD_STORAGE_HPP",
+      "url": "/_autogen/Files/object__thread__storage_8hpp/#define-batteries-object-thread-storage-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/object_thread_storage.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/object_thread_storage.hpp",
+    "line": 0
+  },
+  "name": "batteries/object_thread_storage.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2025 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_OBJECT_THREAD_STORAGE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/async/task.hpp>\n#include <batteries/finally.hpp>\n#include <batteries/hint.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/type_traits.hpp>\n#include <batteries/utility.hpp>\n\n#include <boost/intrusive/list.hpp>\n#include <boost/lockfree/stack.hpp>\n\n#include <memory>\n#include <mutex>\n#include <unordered_set>\n#include <vector>\n\nnamespace batt {\n\nnamespace detail {\n\nclass AttachCount\n{\n   public:\n    void inc(i64 delta)\n    {\n        BATT_CHECK_GE(delta, 0);\n        this->counter_.fetch_add(delta);\n    }\n\n    void dec(i64 delta)\n    {\n        BATT_CHECK_GE(delta, 0);\n        this->counter_.fetch_sub(delta);\n    }\n\n    bool wait_for_inactive() noexcept\n    {\n        bool waited = false;\n        while (this->counter_.load() > 0) {\n            Task::yield();\n            waited = true;\n        }\n        return waited;\n    }\n\n   private:\n    std::atomic<i64> counter_{0};\n};\n\n}  // namespace detail\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T>\nclass ObjectThreadStorage\n{\n   public:\n    using Self = ObjectThreadStorage;\n\n    // Forward-declarations.\n    //\n    class SlotState;\n    class ThreadState;\n    class SlotThreadData;\n    class ScopedSlot;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    class SlotThreadData\n    {\n       public:\n        using Self = SlotThreadData;\n\n        //----- --- -- -  -  -   -\n\n        explicit SlotThreadData(ThreadState* thread_state) noexcept : thread_state_{thread_state}\n        {\n        }\n\n        SlotThreadData(const Self&) = delete;\n\n        Self& operator=(const Self&) = delete;\n\n        //----- --- -- -  -  -   -\n\n        ThreadState* get_thread_state() const noexcept\n        {\n            return this->thread_state_;\n        }\n\n        template <typename... Args>\n        T& construct(Args&&... args)\n        {\n            return *(new (&this->storage_) T(BATT_FORWARD(args)...));\n        }\n\n        void attach_slot(SlotState* slot) noexcept\n        {\n            BATT_CHECK_EQ(this->slot_.exchange(slot), nullptr);\n        }\n\n        SlotState* detach_slot() noexcept\n        {\n            return this->slot_.exchange(nullptr);\n        }\n\n        void destruct() noexcept\n        {\n            BATT_CHECK_EQ(this->slot_.load(), nullptr);\n            this->get().~T();\n        }\n\n        //----- --- -- -  -  -   -\n\n        BATT_ALWAYS_INLINE bool is_valid() const noexcept\n        {\n            return this->slot_.load() != nullptr;\n        }\n\n        BATT_ALWAYS_INLINE T& get() noexcept\n        {\n            return *reinterpret_cast<T*>(&this->storage_);\n        }\n\n        //----- --- -- -  -  -   -\n       private:\n        // The memory where the T instance is constructed. MUST BE FIRST\n        //\n        std::aligned_storage_t<sizeof(T), alignof(T)> storage_;\n\n        // The slot (if any) to which this object is 'attached.'  If this is non-null, then this->storage_\n        // contains a valid instance of T.\n        //\n        std::atomic<SlotState*> slot_{nullptr};\n\n        // Pointer back to the thread that created/owns this object.\n        //\n        ThreadState* const thread_state_{nullptr};\n\n        //----- --- -- -  -  -   -\n       public:\n        // Used to add this object to SlotState-specific linked lists. MUST BE PUBLIC\n        //\n        boost::intrusive::list_member_hook<> list_hook_;\n    };\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    static constexpr usize kInvalidSlot = ~usize{0} >> 24;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    static Self& instance()\n    {\n        // Intentionally leak `instance_` to avoid dtor ordering problems on shutdown.\n        //\n        static Self* instance_ = new Self{};\n\n        return *instance_;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    ObjectThreadStorage() = default;\n\n    usize allocate_slot()\n    {\n        usize slot_i = kInvalidSlot;\n\n        if (this->slot_index_pool_.pop(slot_i)) {\n            BATT_CHECK_NE(slot_i, kInvalidSlot);\n            return slot_i;\n        }\n        return this->next_unused_slot_index_.fetch_add(1);\n    }\n\n    void deallocate_slot(usize slot_i)\n    {\n        this->slot_index_pool_.push(slot_i);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    // The pool of deallocated slot indices which are available for re-allocation.\n    //\n    boost::lockfree::stack<usize> slot_index_pool_{/*initial_nodes=*/16};\n\n    // If we need to allocate a slot index and the pool is empty, this counter is incremented.\n    //\n    std::atomic<usize> next_unused_slot_index_{0};\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T>\nclass ObjectThreadStorage<T>::ThreadState\n{\n   public:\n    using Self = ThreadState;\n\n    static Self& instance() noexcept\n    {\n        thread_local Self instance_;\n        return instance_;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    ThreadState() noexcept\n    {\n    }\n\n    ThreadState(const ThreadState&) = delete;\n    ThreadState& operator=(const ThreadState&) = delete;\n\n    ~ThreadState() noexcept\n    {\n        // Try to detach all active SlotThreadData objects from their SlotState, running the destructors of\n        // the ones for which we 'win' the race to do so.\n        //\n        for (auto& ptr : this->slots_) {\n            if (!ptr) {\n                continue;\n            }\n\n            // Atomically exchange the slot pointer with null; if the prior value is non-null, then the object\n            // *is* in use and we managed to do this before the associated SlotState did the same.  In this\n            // case, we are on the hook to run the object's destructor and then decrease the attach counts for\n            // ThreadState (this) and SlotState.\n            //\n            SlotState* slot = ptr->detach_slot();\n            if (slot != nullptr) {\n                // Note: there is *no* race between these operations and the prior construct and SlotState\n                // attach operations, because by definition they happened on this thread.\n                //\n                slot->detach_thread_data(*ptr);\n                ptr->destruct();\n\n                // It does not matter which order we run these two decrements, but they both *must* come after\n                // detaching from the SlotState's list and calling ~T().\n                //\n                slot->attach_count().dec(1);\n                this->attach_count().dec(1);\n            }\n        }\n\n        // Wait for any SlotStates to whom we lost the race to claim a SlotThreadData object.\n        //\n        [[maybe_unused]] const bool waited = this->attach_count().wait_for_inactive();\n    }\n\n    detail::AttachCount& attach_count() noexcept\n    {\n        return this->attach_count_;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    BATT_ALWAYS_INLINE SlotThreadData& get_slot(usize slot_i)\n    {\n        if (BATT_HINT_FALSE(this->slots_.size() <= slot_i)) {\n            this->slots_.resize(slot_i + 1);\n        }\n\n        std::unique_ptr<SlotThreadData>& ptr = this->slots_[slot_i];\n\n        if (ptr == nullptr) {\n            ptr = std::make_unique<SlotThreadData>(this);\n        }\n\n        return *ptr;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    detail::AttachCount attach_count_;\n    std::vector<std::unique_ptr<SlotThreadData>> slots_;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T>\nclass ObjectThreadStorage<T>::SlotState\n{\n   public:\n    static constexpr usize kInvalidSlot = ObjectThreadStorage<T>::kInvalidSlot;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    SlotState() noexcept = default;\n\n    ~SlotState() noexcept\n    {\n        {\n            ThreadDataList tmp_list;\n\n            // Transfer to `tmp_list` all data objects for we can claim exclusive rights to detach.\n            //\n            {\n                std::unique_lock<std::mutex> lock{this->mutex_};\n\n                // Try to claim all elements of the list by calling `detach_slot()`; note, we are racing\n                // with each of the individual ThreadState objects, which may be scoped to threads in the\n                // process of exiting.  This is why we only retain the objects successfully 'claimed' via\n                // `detach_slot()`.\n                //\n                auto next = this->thread_data_list_.begin();\n                const auto last = this->thread_data_list_.end();\n                while (next != last) {\n                    SlotThreadData& data = *next;\n                    SlotState* const prev_slot = data.detach_slot();\n                    if (prev_slot != nullptr) {\n                        // Success!  Sanity check and continue.\n                        //\n                        // (We will run destructors and decrease attach counts below, once the mutex is\n                        // released).\n                        //\n                        BATT_CHECK_EQ(prev_slot, this);\n\n                        next = this->thread_data_list_.erase(next);\n                        tmp_list.push_back(data);\n\n                    } else {\n                        // Lost the race; on to the next one...\n                        //\n                        ++next;\n                    }\n                }\n\n            }  // Release the mutex.\n\n            // Run destructors without locks held.  Note, we have to iterate through the list in this awkward\n            // way of popping the first one until it is empty, because as soon as we decrease the thread state\n            // attach counter, the SlotThreadData object may be immediately deleted, taking its list node\n            // pointers with it.\n            //\n            while (!tmp_list.empty()) {\n                // Remove the node from the list *before* calling destruct and decrementing the attach counts.\n                //\n                SlotThreadData& data = tmp_list.front();\n                tmp_list.pop_front();\n\n                // Run type-specific destructor (~T()).\n                //\n                data.destruct();\n\n                // Now the attach counts can be decremented.\n                //\n                this->attach_count().dec(1);\n                data.get_thread_state()->attach_count().dec(1);\n            }\n        }\n\n        // Here we wait for any threads to whom we lost the race (above) to detach a SlotThreadData object.\n        // This is how we guarantee that by the time ~SlotState() returns, all destructors for thread-local\n        // objects have run.\n        //\n        // Note, because ThreadState has no way of knowing that SlotState is destructing, we must allow\n        // ThreadState to remove each remaining list node via SlotState::detach_thread_data.\n        //\n        [[maybe_unused]] const bool waited = this->attach_count_.wait_for_inactive();\n\n        // Now we can assert that the list is empty.\n        //\n        {\n            std::unique_lock<std::mutex> lock{this->mutex_};\n            BATT_CHECK(this->thread_data_list_.empty());\n        }\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    SlotState(const SlotState&) = delete;\n\n    SlotState& operator=(const SlotState&) = delete;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    detail::AttachCount& attach_count() noexcept\n    {\n        return this->attach_count_;\n    }\n\n    template <typename Fn>\n#if BATT_CPP_20\n        requires std::invocable<Fn, T&> && std::convertible_to<std::invoke_result_t<Fn, T&>, bool>\n#endif\n    bool visit_each(Fn&& fn)\n    {\n        std::unique_lock<std::mutex> lock{this->mutex_};\n\n        for (SlotThreadData& thread_data : this->thread_data_list_) {\n            if (fn(thread_data.get())) {\n                return true;\n            }\n        }\n\n        return false;\n    }\n\n    void attach_thread_data(SlotThreadData& data)\n    {\n        std::unique_lock<std::mutex> lock{this->mutex_};\n        this->thread_data_list_.push_front(data);\n    }\n\n    void detach_thread_data(SlotThreadData& data)\n    {\n        std::unique_lock<std::mutex> lock{this->mutex_};\n        this->thread_data_list_.erase(this->thread_data_list_.iterator_to(data));\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    using ThreadDataList = boost::intrusive::list<                           //\n        SlotThreadData,                                                      //\n        boost::intrusive::member_hook<SlotThreadData,                        //\n                                      boost::intrusive::list_member_hook<>,  //\n                                      &SlotThreadData::list_hook_>>;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    // Tracks number of active attached slot data objects.\n    //\n    detail::AttachCount attach_count_;\n\n    // Slot-scoped mutex.\n    //\n    std::mutex mutex_;\n\n    // Double-linked list of slot thread data objects.\n    //\n    ThreadDataList thread_data_list_;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T>\nclass ObjectThreadStorage<T>::ScopedSlot\n{\n   public:\n    static constexpr usize kInvalidSlot = ObjectThreadStorage<T>::kInvalidSlot;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    ScopedSlot() noexcept : slot_i_{ObjectThreadStorage<T>::instance().allocate_slot()}\n    {\n    }\n\n    ~ScopedSlot() noexcept\n    {\n        if (this->is_valid()) {\n            this->state_.reset();\n            ObjectThreadStorage<T>::instance().deallocate_slot(this->slot_i_);\n        }\n    }\n\n    ScopedSlot(const ScopedSlot&) = delete;\n    ScopedSlot& operator=(const ScopedSlot&) = delete;\n\n    ScopedSlot(ScopedSlot&& other) noexcept\n        : slot_i_{std::exchange(other.slot_i_, kInvalidSlot)}\n        , state_{std::move(other.state_)}\n    {\n    }\n\n    ScopedSlot& operator=(ScopedSlot&& other) noexcept\n    {\n        if (this != &other) {\n            this->slot_i_ = std::exchange(other.slot_i_, kInvalidSlot);\n            this->state_ = std::move(other.state_);\n        }\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    bool is_valid() const noexcept\n    {\n        return this->state_ != nullptr;\n    }\n\n    usize index() const noexcept\n    {\n        return this->slot_i_;\n    }\n\n    template <typename... Args>\n    T& get(Args&&... args)\n    {\n        ThreadState& thread_state = ObjectThreadStorage<T>::ThreadState::instance();\n        SlotThreadData& data = thread_state.get_slot(this->slot_i_);\n\n        if (BATT_HINT_FALSE(!data.is_valid())) {\n            // First, increment the attachment count for both the slot and the thread, to prevent dangling\n            // references.\n            //\n            thread_state.attach_count().inc(1);\n            this->state_->attach_count().inc(1);\n\n            // Initialize this thread/slot's instance of T.\n            //\n            data.construct(BATT_FORWARD(args)...);\n\n            // Link the SlotThreadData object to this.\n            //\n            data.attach_slot(this->state_.get());\n            this->state_->attach_thread_data(data);\n        }\n\n        return data.get();\n    }\n\n    template <typename Fn>\n#if BATT_CPP_20\n        requires std::invocable<Fn, T&> && std::convertible_to<std::invoke_result_t<Fn, T&>, bool>\n#endif\n    bool visit_each(Fn&& fn)\n    {\n        return this->state_->visit_each(BATT_FORWARD(fn));\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    // The slot index.\n    //\n    usize slot_i_;\n\n    std::unique_ptr<SlotState> state_ = std::make_unique<SlotState>();\n};\n\n}  // namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "Both ScopedSlot and ThreadState have one of these to track attachments to SlotThreadData objects. ",
+      "category": "classes",
+      "fullname": "batt::detail::AttachCount",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::AttachCount",
+      "refid": "classbatt_1_1detail_1_1AttachCount",
+      "summary": "Both ScopedSlot and ThreadState have one of these to track attachments to SlotThreadData objects. ",
+      "title": "batt::detail::AttachCount",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AttachCount/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "object__thread__storage_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/object_thread_storage.hpp",
+  "url": "/_autogen/Files/object__thread__storage_8hpp/#file-object-thread-storage.hpp",
+  "visibility": "public"
+}

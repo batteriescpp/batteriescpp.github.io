@@ -1,0 +1,525 @@
+{
+  "abstract": false,
+  "anchor": "#file-watch-decl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-watch-decl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_WATCH_DECL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_WATCH_DECL_HPP",
+      "override": false,
+      "refid": "watch__decl_8hpp_1ab9ba00b0155f0ea051b2319b867aeca2",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_WATCH_DECL_HPP",
+      "url": "/_autogen/Files/watch__decl_8hpp/#define-batteries-async-watch-decl-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-watch-hold-impl",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_WATCH_HOLD_IMPL",
+      "hasDetails": false,
+      "initializer": "    T old_value = old_value_expr;                                                                            \\\n    T new_value = new_value_expr;                                                                            \\\n    if (new_value != old_value) {                                                                            \\\n        this->notify(new_value);                                                                             \\\n    }                                                                                                        \\\n    return old_value",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 474,
+        "column": 9,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 474
+      },
+      "name": "BATT_WATCH_HOLD_IMPL",
+      "override": false,
+      "params": [
+        {
+          "name": "old_value_expr",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "new_value_expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "watch__decl_8hpp_1a96c55846e3a53bc0809d8e9ed210f6d1",
+      "static": false,
+      "strong": false,
+      "title": "BATT_WATCH_HOLD_IMPL",
+      "url": "/_autogen/Files/watch__decl_8hpp/#define-batt-watch-hold-impl",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-watch-release-impl",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_WATCH_RELEASE_IMPL",
+      "hasDetails": false,
+      "initializer": "    HandlerList<StatusOr<T>> local_observers;                                                                \\\n    T old_value;                                                                                             \\\n    T new_value;                                                                                             \\\n    {                                                                                                        \\\n        const auto pre_lock_state = this->lock_observers();                                                  \\\n        old_value = old_value_expr;                                                                          \\\n        new_value = new_value_expr;                                                                          \\\n        if (new_value != old_value) {                                                                        \\\n            std::swap(local_observers, this->observers_);                                                    \\\n        }                                                                                                    \\\n        this->unlock_observers(pre_lock_state & ~(kWaiting));                                                \\\n    }                                                                                                        \\\n    invoke_all_handlers(&local_observers, new_value);                                                        \\\n    return old_value",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 482,
+        "column": 9,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 482
+      },
+      "name": "BATT_WATCH_RELEASE_IMPL",
+      "override": false,
+      "params": [
+        {
+          "name": "old_value_expr",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "new_value_expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "watch__decl_8hpp_1ab3dce99877948d388528358cf304ac2f",
+      "static": false,
+      "strong": false,
+      "title": "BATT_WATCH_RELEASE_IMPL",
+      "url": "/_autogen/Files/watch__decl_8hpp/#define-batt-watch-release-impl",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-specialize-watch-atomic",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_SPECIALIZE_WATCH_ATOMIC",
+      "hasDetails": false,
+      "initializer": "    template <>                                                                                              \\\n    class Watch<type> : public WatchAtomic<type>                                                             \\\n    {                                                                                                        \\\n       public:                                                                                               \\\n        using WatchAtomic<type>::WatchAtomic;                                                                \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/watch_decl.hpp",
+        "bodyStart": 952,
+        "column": 9,
+        "file": "batteries/async/watch_decl.hpp",
+        "line": 952
+      },
+      "name": "BATT_SPECIALIZE_WATCH_ATOMIC",
+      "override": false,
+      "params": [
+        {
+          "name": "type",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "watch__decl_8hpp_1a847695eed1be31d5d05742f36e7345a9",
+      "static": false,
+      "strong": false,
+      "title": "BATT_SPECIALIZE_WATCH_ATOMIC",
+      "url": "/_autogen/Files/watch__decl_8hpp/#define-batt-specialize-watch-atomic",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/watch_decl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/watch_decl.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/watch_decl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_WATCH_DECL_HPP\n#define BATTERIES_ASYNC_WATCH_DECL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/async/handler.hpp>\n#include <batteries/cpu_align.hpp>\n#include <batteries/finally.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/math.hpp>\n#include <batteries/optional.hpp>\n#include <batteries/seq/natural_order.hpp>\n#include <batteries/status.hpp>\n#include <batteries/type_traits.hpp>\n\n#include <bitset>\n#include <mutex>\n#include <ostream>\n#include <thread>\n#include <type_traits>\n\nnamespace batt {\n\ntemplate <typename T>\nclass Watch\n{\n   public:\n    Watch(const Watch&) = delete;\n\n    Watch& operator=(const Watch&) = delete;\n\n    Watch() = default;\n\n    template <typename Init, typename = EnableIfNoShadow<Watch, Init>>\n    explicit Watch(Init&& init_value) noexcept : value_(BATT_FORWARD(init_value))\n    {\n    }\n\n    ~Watch()\n    {\n        this->close();\n    }\n\n    void close()\n    {\n        HandlerList<StatusOr<T>> local_observers;\n        {\n            std::unique_lock<std::mutex> lock{mutex_};\n            this->closed_ = true;\n            std::swap(local_observers, this->observers_);\n        }\n\n        invoke_all_handlers(&local_observers, Status{StatusCode::kClosed});\n    }\n\n    bool is_closed() const\n    {\n        std::unique_lock<std::mutex> lock{mutex_};\n        return this->closed_;\n    }\n\n    void set_value(const T& new_value)\n    {\n        HandlerList<StatusOr<T>> local_observers;\n        {\n            std::unique_lock<std::mutex> lock{mutex_};\n            if (new_value != this->value_) {\n                value_ = new_value;\n                std::swap(local_observers, this->observers_);\n            }\n        }\n        invoke_all_handlers(&local_observers, new_value);\n    }\n\n    T get_value() const\n    {\n        std::unique_lock<std::mutex> lock{mutex_};\n        return value_;\n    }\n\n    template <typename Fn>\n    T modify(Fn&& fn)\n    {\n        Optional<T> new_value;\n        HandlerList<StatusOr<T>> local_observers;\n        {\n            std::unique_lock<std::mutex> lock{mutex_};\n            new_value.emplace(BATT_FORWARD(fn)(value_));\n            if (*new_value != value_) {\n                value_ = *new_value;\n                std::swap(local_observers, this->observers_);\n            }\n        }\n        invoke_all_handlers(&local_observers, *new_value);\n        return std::move(*new_value);\n    }\n\n    template <typename Handler>\n    void async_wait(const T& last_seen, Handler&& fn)\n    {\n        bool local_closed = false;\n        bool changed = false;\n        T new_value;\n        {\n            std::unique_lock<std::mutex> lock{mutex_};\n            if (this->closed_) {\n                local_closed = true;\n            } else if (value_ == last_seen && !this->closed_) {\n                push_handler(&this->observers_, BATT_FORWARD(fn));\n            } else {\n                changed = true;\n                new_value = value_;\n            }\n        }\n\n        if (local_closed) {\n            BATT_FORWARD(fn)(Status{StatusCode::kClosed});\n        } else if (changed) {\n            BATT_FORWARD(fn)(new_value);\n        }\n    }\n\n    StatusOr<T> await_not_equal(const T& last_seen);\n\n    template <typename Pred>\n    StatusOr<T> await_true(Pred&& pred)\n    {\n        StatusOr<T> last_seen = this->get_value();\n\n        while (last_seen.ok() && !pred(*last_seen)) {\n            last_seen = this->await_not_equal(*last_seen);\n        }\n\n        return last_seen;\n    }\n\n    template <typename OrderFn = bool(const T&, const T&)>\n    void clamp_min_value(const T& lower_bound, OrderFn&& order_fn)\n    {\n        this->modify([&](const T& observed) -> const T& {\n            if (order_fn(observed, lower_bound)) {\n                return lower_bound;\n            }\n            return observed;\n        });\n    }\n\n    template <typename OrderFn = bool(const T&, const T&)>\n    void clamp_max_value(const T& upper_bound, OrderFn&& order_fn)\n    {\n        this->modify([&](const T& observed) -> const T& {\n            if (order_fn(upper_bound, observed)) {\n                return upper_bound;\n            }\n            return observed;\n        });\n    }\n\n    void clamp_min_value(const T& lower_bound)\n    {\n        this->clamp_min_value(lower_bound, seq::NaturalOrder{});\n    }\n\n    void clamp_max_value(const T& upper_bound)\n    {\n        this->clamp_max_value(upper_bound, seq::NaturalOrder{});\n    }\n\n   private:\n    mutable std::mutex mutex_;\n    bool closed_ = false;\n    T value_;\n    HandlerList<StatusOr<T>> observers_;\n};\n\ntemplate <typename T>\ninline std::ostream& operator<<(std::ostream& out, const Watch<T>& w)\n{\n    return out << make_printable(w.get_value());\n}\n\nstruct HoldOwnership {\n};\n\nstruct ReleaseOwnership {\n};\n\ntemplate <typename T>\nclass WatchAtomic\n{\n   public:\n    using value_type = T;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    static constexpr u32 kLocked = 0x01;\n\n    static constexpr u32 kOpen = 0x02;\n\n    static constexpr u32 kWaiting = 0x04;\n\n    static constexpr u32 kClosedAtEnd = 0x08;\n\n    static constexpr u32 kClosedBeforeEnd = 0x10;\n\n    static constexpr u32 kPoked = 0x20;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    WatchAtomic(const WatchAtomic&) = delete;\n\n    WatchAtomic& operator=(const WatchAtomic&) = delete;\n\n    WatchAtomic() = default;\n\n    template <typename Init, typename = EnableIfNoShadow<WatchAtomic, Init>>\n    explicit WatchAtomic(Init&& init_value) noexcept : value_(BATT_FORWARD(init_value))\n    {\n        static_assert(kLocked != (kLocked | kOpen));\n        static_assert((kLocked | kOpen) != (kLocked | kOpen | kWaiting));\n        static_assert((kLocked | kOpen | kWaiting) != (kLocked | kOpen | kWaiting | kClosedAtEnd));\n        static_assert((kLocked | kOpen | kWaiting | kClosedAtEnd) !=\n                      (kLocked | kOpen | kWaiting | kClosedAtEnd | kClosedBeforeEnd));\n        static_assert((kLocked | kOpen | kWaiting | kClosedAtEnd | kClosedBeforeEnd) !=\n                      (kLocked | kOpen | kWaiting | kClosedAtEnd | kClosedBeforeEnd | kPoked));\n    }\n\n    ~WatchAtomic() noexcept\n    {\n        this->close();\n    }\n\n    void close(StatusCode final_status_code = StatusCode::kClosed)\n    {\n        HandlerList<StatusOr<T>> local_observers;\n        {\n            const u32 prior_state = this->lock_observers();\n            std::swap(local_observers, this->observers_);\n\n            const u32 desired_state = (prior_state & ~(kOpen | kWaiting)) | ([&]() -> u32 {\n                                          // If already closed, don't change the closed status.\n                                          //\n                                          if ((prior_state & kOpen) != kOpen) {\n                                              return 0;\n                                          }\n\n                                          BATT_SUPPRESS_IF_GCC(\"-Wswitch-enum\")\n                                          BATT_SUPPRESS_IF_CLANG(\"-Wswitch-enum\")\n                                          {\n                                              switch (final_status_code) {\n                                              case StatusCode::kEndOfStream:\n                                                  return WatchAtomic::kClosedAtEnd;\n\n                                              case StatusCode::kClosedBeforeEndOfStream:\n                                                  return WatchAtomic::kClosedBeforeEnd;\n\n                                              case StatusCode::kClosed:  // fall-through\n                                              default:\n                                                  // All other StatusCode values are ignored; set status\n                                                  // StatusCode::kClosed.\n                                                  //\n                                                  return 0;\n                                              }\n                                          }\n                                          BATT_UNSUPPRESS_IF_CLANG()\n                                          BATT_UNSUPPRESS_IF_GCC()\n                                      }());\n\n            this->unlock_observers(desired_state);\n        }\n\n        invoke_all_handlers(&local_observers, this->get_final_status());\n        //\n        // IMPORTANT: Nothing can come after invoking observers, since we must allow one observer to delete\n        // the WatchAtomic object (`this`).\n    }\n\n    void poke() noexcept\n    {\n        HandlerList<StatusOr<T>> local_observers;\n        {\n            const u32 prior_state = this->lock_observers();\n            std::swap(local_observers, this->observers_);\n\n            // If we have an observer to invoke, then clear the waiting bit when we unlock; otherwise, set the\n            // poked bit so that the next observer will be poked instead of waiting.  This resolves the race\n            // condition:\n            //\n            // 1. (task A) check STATE\n            // 2. (task B) update STATE\n            // 3. (task B) poke (to force A to recheck STATE before awaiting on watch to change)\n            // 4. (task A) watch.await_true(...)\n            //\n            const u32 desired_state = [&] {\n                if ((prior_state & kWaiting) == kWaiting) {\n                    return prior_state & ~kWaiting;\n                }\n                return prior_state | kPoked;\n            }();\n            this->unlock_observers(desired_state);\n        }\n        invoke_all_handlers(&local_observers, Status{StatusCode::kPoke});\n    }\n\n    bool is_poked() const noexcept\n    {\n        return (this->spin_state_.load() & kPoked) == kPoked;\n    }\n\n    void reset()\n    {\n        const u32 prior_state = this->lock_observers();\n\n        // Set the open bit again.\n        //\n        const u32 desired_state = prior_state | kOpen;\n\n        this->unlock_observers(desired_state);\n    }\n\n    bool is_closed() const\n    {\n        return !(this->spin_state_.load() & kOpen);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n#define BATT_WATCH_HOLD_IMPL(old_value_expr, new_value_expr)                                                 \\\n    T old_value = old_value_expr;                                                                            \\\n    T new_value = new_value_expr;                                                                            \\\n    if (new_value != old_value) {                                                                            \\\n        this->notify(new_value);                                                                             \\\n    }                                                                                                        \\\n    return old_value\n\n#define BATT_WATCH_RELEASE_IMPL(old_value_expr, new_value_expr)                                              \\\n    HandlerList<StatusOr<T>> local_observers;                                                                \\\n    T old_value;                                                                                             \\\n    T new_value;                                                                                             \\\n    {                                                                                                        \\\n        const auto pre_lock_state = this->lock_observers();                                                  \\\n        old_value = old_value_expr;                                                                          \\\n        new_value = new_value_expr;                                                                          \\\n        if (new_value != old_value) {                                                                        \\\n            std::swap(local_observers, this->observers_);                                                    \\\n        }                                                                                                    \\\n        this->unlock_observers(pre_lock_state & ~(kWaiting));                                                \\\n    }                                                                                                        \\\n    invoke_all_handlers(&local_observers, new_value);                                                        \\\n    return old_value\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    T set_value(T arg, HoldOwnership = {}) noexcept\n    {\n        BATT_WATCH_HOLD_IMPL(this->value().exchange(arg), arg);\n    }\n\n    T set_value(T arg, ReleaseOwnership) noexcept\n    {\n        BATT_WATCH_RELEASE_IMPL(this->value().exchange(arg), arg);\n    }\n\n    T set_value_and_release(T new_value) noexcept\n    {\n        return this->set_value(new_value, ReleaseOwnership{});\n    }\n\n    T get_value() const noexcept\n    {\n        return this->value().load();\n    }\n\n    T fetch_add(T arg, HoldOwnership = {}) noexcept\n    {\n        BATT_WATCH_HOLD_IMPL(this->value().fetch_add(arg), old_value + arg);\n    }\n\n    T fetch_add(T arg, ReleaseOwnership) noexcept\n    {\n        BATT_WATCH_RELEASE_IMPL(this->value().fetch_add(arg), old_value + arg);\n    }\n\n    T fetch_or(T arg, HoldOwnership = {}) noexcept\n    {\n        BATT_WATCH_HOLD_IMPL(this->value().fetch_or(arg), old_value | arg);\n    }\n\n    T fetch_or(T arg, ReleaseOwnership) noexcept\n    {\n        BATT_WATCH_RELEASE_IMPL(this->value().fetch_or(arg), old_value | arg);\n    }\n\n    T fetch_sub(T arg, HoldOwnership = {}) noexcept\n    {\n        BATT_WATCH_HOLD_IMPL(this->value().fetch_sub(arg), old_value - arg);\n    }\n\n    T fetch_sub(T arg, ReleaseOwnership) noexcept\n    {\n        BATT_WATCH_RELEASE_IMPL(this->value().fetch_sub(arg), old_value - arg);\n    }\n\n    T fetch_and(T arg, HoldOwnership = {})\n    {\n        BATT_WATCH_HOLD_IMPL(this->value().fetch_and(arg), old_value & arg);\n    }\n\n    T fetch_and(T arg, ReleaseOwnership)\n    {\n        BATT_WATCH_RELEASE_IMPL(this->value().fetch_and(arg), old_value & arg);\n    }\n\n    template <typename Fn = T(T)>\n    T modify(Fn&& fn)\n    {\n        T old_value = this->value().load();\n        bool changed = false;\n\n        const T new_value = [&] {\n            for (;;) {\n                const T modified_value = fn(old_value);\n                changed = changed || (modified_value != old_value);\n                if (this->value().compare_exchange_weak(old_value, modified_value)) {\n                    return modified_value;\n                }\n            }\n        }();\n\n        if (changed) {\n            this->notify(new_value);\n            //\n            // IMPORTANT: we must not touch *anything* in this after `notify`, since a handler may have\n            // deleted this Watch object.\n        }\n\n        // TODO [tastolfi 2021-10-14] make the non-atomic version of modify consistent with this behavior!\n        return old_value;\n    }\n\n    bool compare_exchange(T& old_value, T new_value)\n    {\n        const T init_old_value = old_value;\n        for (;;) {\n            if (this->value().compare_exchange_weak(old_value, new_value)) {\n                break;\n            }\n            if (old_value != init_old_value) {\n                return false;\n            }\n        }\n\n        if (init_old_value != new_value) {\n            this->notify(new_value);\n        }\n        return true;\n    }\n\n    template <typename Fn = Optional<T>(T)>\n    StatusOr<T> await_modify(Fn&& fn);\n\n    template <typename Fn = Optional<T>(T)>\n    Optional<T> modify_if(Fn&& fn)\n    {\n        T old_value = this->value().load();\n        bool changed = false;\n\n        const Optional<T> new_value = [&] {\n            for (;;) {\n                const Optional<T> modified_value = fn(old_value);\n                changed = changed || (modified_value && *modified_value != old_value);\n                if (!modified_value || this->value().compare_exchange_weak(old_value, *modified_value)) {\n                    return modified_value;\n                }\n            }\n        }();\n\n        if (!new_value) {\n            return None;\n        }\n\n        if (changed) {\n            this->notify(*new_value);\n            //\n            // IMPORTANT: we must not touch *anything* in this after `notify`, since a handler may have\n            // deleted this Watch object.\n        }\n        return old_value;\n    }\n\n    template <typename Handler>\n    void async_wait(T last_seen, Handler&& fn) const\n    {\n        T now_seen = this->value().load();\n\n        bool changed = (now_seen != last_seen);\n\n        if (!changed) {\n            u32 prior_state = this->lock_observers();\n\n            if (!(prior_state & kOpen)) {\n                this->unlock_observers(prior_state);\n                BATT_FORWARD(fn)(this->get_final_status());\n                return;\n            }\n            if ((prior_state & kPoked) == kPoked) {\n                this->unlock_observers(prior_state & ~kPoked);\n                BATT_FORWARD(fn)(Status{StatusCode::kPoke});\n                return;\n            }\n            auto unlock_guard = finally([&] {\n                this->unlock_observers(prior_state);\n            });\n\n            now_seen = this->value().load();\n            changed = (now_seen != last_seen);\n\n            if (!changed) {\n                push_handler(&this->observers_, BATT_FORWARD(fn));\n                prior_state |= kWaiting;\n                return;\n                //\n                // The dtor of `unlock_guard` will atomically clear the `kLocked` flag and set `kWaiting`.\n            }\n        }\n        //\n        // If we get here, either the initial `changed` check was true, we are closed, or the second `changed`\n        // check (with the spin lock held) must have succeeded; in any case, invoke the handler immediately.\n\n        BATT_FORWARD(fn)(now_seen);\n    }\n\n    StatusOr<T> await_not_equal(const T& last_seen) const;\n\n    template <typename Pred>\n    StatusOr<T> await_true(Pred&& pred) const\n    {\n        StatusOr<T> last_seen = this->get_value();\n\n        while (last_seen.ok() && !pred(*last_seen)) {\n            last_seen = this->await_not_equal(*last_seen);\n        }\n\n        return last_seen;\n    }\n\n    Status await_equal(T val) const\n    {\n        return this\n            ->await_true([val](T observed) {\n                return observed == val;\n            })\n            .status();\n    }\n\n    template <typename OrderFn = bool(T, T)>\n    void clamp_min_value(T lower_bound, OrderFn&& order_fn)\n    {\n        this->modify([&](T observed) -> T {\n            if (order_fn(observed, lower_bound)) {\n                return lower_bound;\n            }\n            return observed;\n        });\n    }\n\n    template <typename OrderFn = bool(T, T)>\n    void clamp_max_value(T upper_bound, OrderFn&& order_fn)\n    {\n        this->modify([&](T observed) -> T {\n            if (order_fn(upper_bound, observed)) {\n                return upper_bound;\n            }\n            return observed;\n        });\n    }\n\n    void clamp_min_value(T lower_bound)\n    {\n        this->clamp_min_value(lower_bound, seq::NaturalOrder{});\n    }\n\n    void clamp_max_value(T upper_bound)\n    {\n        this->clamp_max_value(upper_bound, seq::NaturalOrder{});\n    }\n\n    T poll() noexcept;\n\n   private:\n    BATT_ALWAYS_INLINE std::atomic<T>& value() noexcept\n    {\n        return this->value_;\n    }\n\n    BATT_ALWAYS_INLINE const std::atomic<T>& value() const noexcept\n    {\n        return this->value_;\n    }\n\n    Status get_final_status() const\n    {\n        constexpr u32 mask = WatchAtomic::kClosedAtEnd | WatchAtomic::kClosedBeforeEnd;\n\n        switch (this->spin_state_.load() & mask) {\n        case WatchAtomic::kClosedBeforeEnd:\n            return Status{StatusCode::kClosedBeforeEndOfStream};\n\n        case WatchAtomic::kClosedAtEnd:\n            return Status{StatusCode::kEndOfStream};\n\n        default:\n            break;\n        }\n\n        return Status{StatusCode::kClosed};\n    }\n\n    u32 lock_observers() const\n    {\n        for (;;) {\n            const u32 prior_state = this->spin_state_.fetch_or(kLocked);\n            if ((prior_state & kLocked) == 0) {\n                return prior_state;\n            }\n            std::this_thread::yield();\n        }\n    }\n\n    void unlock_observers(u32 desired_state) const\n    {\n        this->spin_state_.store(desired_state & ~kLocked);\n    }\n\n    void notify(T new_value)\n    {\n        const auto post_change_state = this->spin_state_.load();\n        if ((post_change_state & (kLocked | kWaiting)) == 0) {\n            //\n            // If there is a concurrent call to async_wait that results in a handler being added to the\n            // `observers_` list, it must go through the following atomic events:\n            //\n            //  1. load value (phase 1), no change\n            //  2. set kLocked\n            //  3. load value (phase 2), no change\n            //  4. set kWaiting\n            //\n            // The notifier thread (this call), when not waking observers, goes through the following atomic\n            // events:\n            //\n            //  a. change value\n            //  b. load spin state, observe not kLocked and not kWaiting\n            //\n            // (b) must occur before (1) [therefore (a) < (1)] or between (1) and (2) [(a) < (3)].  In either\n            // case, the async_wait call will load the value *after* this thread changes it (a), so there will\n            // be no spurious deadlocks.\n            //\n            return;\n        }\n\n        // Acquire the spinlock.\n        //\n        const auto pre_lock_state = this->lock_observers();\n        HandlerList<StatusOr<T>> local_observers;\n        std::swap(local_observers, this->observers_);\n        this->unlock_observers(pre_lock_state & ~(kWaiting));\n\n        invoke_all_handlers(&local_observers, new_value);\n        //\n        // IMPORTANT: we must not touch *anything* in `this` after invoking handlers, since one of the\n        // handlers may delete this Watch object.\n    }\n\n    std::atomic<T> value_{0};\n    mutable std::atomic<u32> spin_state_{kOpen};\n    mutable HandlerList<StatusOr<T>> observers_;\n};\n\ntemplate <typename T>\ninline std::ostream& operator<<(std::ostream& out, const WatchAtomic<T>& w)\n{\n    return out << w.get_value();\n}\n\n#define BATT_SPECIALIZE_WATCH_ATOMIC(type)                                                                   \\\n    template <>                                                                                              \\\n    class Watch<type> : public WatchAtomic<type>                                                             \\\n    {                                                                                                        \\\n       public:                                                                                               \\\n        using WatchAtomic<type>::WatchAtomic;                                                                \\\n    }\n\nBATT_SPECIALIZE_WATCH_ATOMIC(bool);\n\nBATT_SPECIALIZE_WATCH_ATOMIC(i8);\nBATT_SPECIALIZE_WATCH_ATOMIC(i16);\nBATT_SPECIALIZE_WATCH_ATOMIC(i32);\nBATT_SPECIALIZE_WATCH_ATOMIC(i64);\n\nBATT_SPECIALIZE_WATCH_ATOMIC(u8);\nBATT_SPECIALIZE_WATCH_ATOMIC(u16);\nBATT_SPECIALIZE_WATCH_ATOMIC(u32);\nBATT_SPECIALIZE_WATCH_ATOMIC(u64);\n\n#if BATT_COMPILER_IS_CLANG\nBATT_SPECIALIZE_WATCH_ATOMIC(signed long);\nBATT_SPECIALIZE_WATCH_ATOMIC(unsigned long);\n#endif  // BATT_COMPILER_IS_CLANG\n\nBATT_SPECIALIZE_WATCH_ATOMIC(void*);\n\n#undef BATT_SPECIALIZE_WATCH_ATOMIC\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n// Specialize Watch for all raw pointer types, based on void*.\n//\ntemplate <typename T>\nclass Watch<T*> : public WatchAtomic<void*>\n{\n   public:\n    using Super = WatchAtomic<void*>;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    Watch() = default;\n\n    explicit Watch(T* init_value) noexcept : Super{init_value}\n    {\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    T* set_value(T* new_value) noexcept\n    {\n        return static_cast<T*>(this->Super::set_value(new_value));\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    T* set_value_and_release(T* new_value) noexcept\n    {\n        return static_cast<T*>(this->Super::set_value_and_release(new_value));\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    T* get_value() const noexcept\n    {\n        return static_cast<T*>(this->Super::get_value());\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    template <typename Fn = T*(T*)>\n    T* modify(Fn&& fn)\n    {\n        return static_cast<T*>(this->Super::modify([&fn](void* observed_value) -> void* {\n            return fn(static_cast<T*>(observed_value));\n        }));\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    template <typename Fn = Optional<T*>(T*)>\n    StatusOr<T*> await_modify(Fn&& fn)\n    {\n        BATT_ASSIGN_OK_RESULT(void* old_value,\n                              this->Super::await_modify([&fn](void* observed_value) -> Optional<void*> {\n                                  return fn(static_cast<T*>(observed_value));\n                              }));\n\n        return {static_cast<T*>(old_value)};\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    template <typename Fn = Optional<T*>(T*)>\n    Optional<T*> modify_if(Fn&& fn)\n    {\n        Optional<void*> old_value = this->Super::modify_if([&fn](void* observed_value) -> Optional<void*> {\n            return fn(static_cast<T*>(observed_value));\n        });\n        if (!old_value) {\n            return None;\n        }\n        return static_cast<T*>(*old_value);\n    }\n\n    //==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n    //\n    StatusOr<T*> await_not_equal(T* old_value)\n    {\n        BATT_ASSIGN_OK_RESULT(void* new_value, this->Super::await_not_equal(old_value));\n\n        return static_cast<T*>(new_value);\n    }\n};\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_WATCH_DECL_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "A [batt::Watch]() is like a `std::atomic` that you can block on, synchronously and asynchronously; see also [batt::WatchAtomic](/_autogen/Classes/classbatt_1_1WatchAtomic). ",
+      "category": "classes",
+      "fullname": "batt::Watch",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch",
+      "refid": "classbatt_1_1Watch",
+      "summary": "A batt::Watch is like a std::atomic that you can block on, synchronously and asynchronously; see also batt::WatchAtomic. ",
+      "title": "batt::Watch",
+      "url": "/_autogen/Classes/classbatt_1_1Watch/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::HoldOwnership",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::HoldOwnership",
+      "refid": "structbatt_1_1HoldOwnership",
+      "title": "batt::HoldOwnership",
+      "url": "/_autogen/Classes/structbatt_1_1HoldOwnership/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::ReleaseOwnership",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::ReleaseOwnership",
+      "refid": "structbatt_1_1ReleaseOwnership",
+      "title": "batt::ReleaseOwnership",
+      "url": "/_autogen/Classes/structbatt_1_1ReleaseOwnership/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "[Watch](/_autogen/Classes/classbatt_1_1Watch/) for atomic primitive type. ",
+      "category": "classes",
+      "fullname": "batt::WatchAtomic",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::WatchAtomic",
+      "refid": "classbatt_1_1WatchAtomic",
+      "summary": "Watch for atomic primitive type. ",
+      "title": "batt::WatchAtomic",
+      "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< bool >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< bool >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< bool >",
+      "refid": "classbatt_1_1Watch_3_01bool_01_4",
+      "title": "batt::Watch< bool >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01bool_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< i8 >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< i8 >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< i8 >",
+      "refid": "classbatt_1_1Watch_3_01i8_01_4",
+      "title": "batt::Watch< i8 >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01i8_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< i16 >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< i16 >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< i16 >",
+      "refid": "classbatt_1_1Watch_3_01i16_01_4",
+      "title": "batt::Watch< i16 >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01i16_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< i32 >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< i32 >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< i32 >",
+      "refid": "classbatt_1_1Watch_3_01i32_01_4",
+      "title": "batt::Watch< i32 >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01i32_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< i64 >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< i64 >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< i64 >",
+      "refid": "classbatt_1_1Watch_3_01i64_01_4",
+      "title": "batt::Watch< i64 >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01i64_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< u8 >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< u8 >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< u8 >",
+      "refid": "classbatt_1_1Watch_3_01u8_01_4",
+      "title": "batt::Watch< u8 >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01u8_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< u16 >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< u16 >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< u16 >",
+      "refid": "classbatt_1_1Watch_3_01u16_01_4",
+      "title": "batt::Watch< u16 >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01u16_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< u32 >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< u32 >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< u32 >",
+      "refid": "classbatt_1_1Watch_3_01u32_01_4",
+      "title": "batt::Watch< u32 >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01u32_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< u64 >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< u64 >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< u64 >",
+      "refid": "classbatt_1_1Watch_3_01u64_01_4",
+      "title": "batt::Watch< u64 >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01u64_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< void * >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< void * >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< void * >",
+      "refid": "classbatt_1_1Watch_3_01void_01_5_01_4",
+      "title": "batt::Watch< void * >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01void_01_5_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::WatchAtomic< void * >",
+          "refid": "classbatt_1_1WatchAtomic",
+          "url": "/_autogen/Classes/classbatt_1_1WatchAtomic/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::Watch< T * >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Watch< T * >",
+      "refid": "classbatt_1_1Watch_3_01T_01_5_01_4",
+      "title": "batt::Watch< T * >",
+      "url": "/_autogen/Classes/classbatt_1_1Watch_3_01T_01_5_01_4/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "watch__decl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/watch_decl.hpp",
+  "url": "/_autogen/Files/watch__decl_8hpp/#file-watch-decl.hpp",
+  "visibility": "public"
+}

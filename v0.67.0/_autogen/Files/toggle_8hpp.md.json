@@ -1,0 +1,297 @@
+{
+  "abstract": false,
+  "anchor": "#file-toggle.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-toggle-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_TOGGLE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/toggle.hpp",
+        "bodyStart": 12,
+        "column": 10,
+        "file": "batteries/async/toggle.hpp",
+        "line": 12
+      },
+      "name": "BATTERIES_ASYNC_TOGGLE_HPP",
+      "override": false,
+      "refid": "toggle_8hpp_1a81c413ae74e40eeb7792722b5eb271c6",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_TOGGLE_HPP",
+      "url": "/_autogen/Files/toggle_8hpp/#define-batteries-async-toggle-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/toggle.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/toggle.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/toggle.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n// Provides batt::Toggle<T>, a scalable reader/writer synchronization primitive inspired by the Rust\n// left-right crate by Jon Gjengset.\n//\n// See:\n//   https://crates.io/crates/left-right\n//   https://github.com/jonhoo/left-right\n//\n#pragma once\n#define BATTERIES_ASYNC_TOGGLE_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/assert.hpp>\n#include <batteries/cpu_align.hpp>\n#include <batteries/object_thread_storage.hpp>\n#include <batteries/small_vec.hpp>\n\n#include <algorithm>\n#include <array>\n#include <atomic>\n#include <concepts>\n\nnamespace batt {\n\nnamespace detail {\n\n// Forward-declarations.\n//\ntemplate <bool kRecursive>\nclass ToggleReaderBase;\n\nclass ToggleWriterBase;\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\nstruct ToggleReaderState {\n    static i64 next_id() noexcept\n    {\n        static std::atomic<i64> id_{1};\n        return id_.fetch_add(1);\n    }\n\n    //----- --- -- -  -  -   -\n\n    const i64 id = next_id();\n\n    std::atomic<i64> counter = 0;\n\n    usize recursion_depth = 0;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\nstruct ToggleReaderSnapshot {\n    i64 id;\n\n    i64 counter;\n\n    bool seen;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\nclass ToggleBase\n{\n    template <bool kRecursive>\n    friend class ToggleReaderBase;\n\n    friend class ToggleWriterBase;\n\n   public:\n    static constexpr usize kMaxThreadsHint = 32;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   protected:\n    void initialize_pointers(const void* init_active, void* init_future) noexcept\n    {\n        this->active_->store(init_active);\n        this->future_->store(init_future);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n   private:\n    CpuCacheLineIsolated<std::atomic<const void*>> active_{nullptr};\n\n    CpuCacheLineIsolated<std::atomic<void*>> future_{nullptr};\n\n    ObjectThreadStorage<ToggleReaderState>::ScopedSlot reader_state_slot_;\n\n    SmallVec<ToggleReaderSnapshot, kMaxThreadsHint> waiting_for_;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <bool kRecursive>\nclass ToggleReaderBase\n{\n   public:\n    using Self = ToggleReaderBase;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    ToggleReaderBase() noexcept;\n\n    explicit ToggleReaderBase(ToggleBase& toggle) noexcept;\n\n    ToggleReaderBase(const Self&) = delete;\n\n    Self& operator=(const Self&) = delete;\n\n    ToggleReaderBase(Self&& other) noexcept;\n\n    Self& operator=(Self&& other) noexcept;\n\n    ~ToggleReaderBase() noexcept;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    bool is_active() const noexcept\n    {\n        return this->state_ != nullptr;\n    }\n\n    explicit operator bool() const noexcept\n    {\n        return this->is_active();\n    }\n\n    void clear() noexcept;\n\n    usize local_depth() const noexcept\n    {\n        if (!this->state_) {\n            return 0;\n        }\n        if constexpr (kRecursive) {\n            return 1 + this->state_->recursion_depth;\n        } else {\n            return 1;\n        }\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   protected:\n    const void* get_addr() const\n    {\n        return this->observed_;\n    }\n\n    void activate_impl(ToggleBase& toggle) noexcept;\n\n    ToggleBase* toggle_addr() const\n    {\n        return this->toggle_;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    void activate_no_clear(ToggleBase& toggle) noexcept;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    ToggleBase* toggle_;\n\n    ToggleReaderState* state_;\n\n    const void* observed_;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\nclass ToggleWriterBase\n{\n   public:\n    using Self = ToggleWriterBase;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    explicit ToggleWriterBase(ToggleBase& toggle) noexcept;\n\n    ~ToggleWriterBase() noexcept;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    bool is_cancelled() const noexcept\n    {\n        return this->cancelled_;\n    }\n\n    void cancel() noexcept\n    {\n        this->cancelled_ = true;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   protected:\n    void* new_value_addr() const\n    {\n        return this->observed_future_;\n    }\n\n    const void* old_value_addr() const\n    {\n        return this->observed_active_;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    ToggleBase& toggle_;\n\n    bool cancelled_;\n\n    void* observed_future_;\n\n    void* observed_active_;\n};\n\n}  // namespace detail\n\ntemplate <typename T, bool kRecursive>\nclass TypedToggleReader;\n\ntemplate <typename T>\nusing ToggleReader = TypedToggleReader<T, /*kRecursive=*/false>;\n\ntemplate <typename T>\nusing ToggleRecursiveReader = TypedToggleReader<T, /*kRecursive=*/true>;\n\ntemplate <typename T>\nclass ToggleWriter;\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T>\n#if BATT_CPP_20\n    requires std::default_initializable<T>\n#endif\nclass Toggle : public detail::ToggleBase\n{\n   public:\n    using Self = Toggle;\n    using Super = detail::ToggleBase;\n    using Reader = ToggleReader<T>;\n    using RecursiveReader = ToggleRecursiveReader<T>;\n    using Writer = ToggleWriter<T>;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    explicit Toggle() noexcept : Super{}\n    {\n        this->Super::initialize_pointers(this->positions_[0].get(), this->positions_[1].get());\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    std::array<CpuCacheLineIsolated<T>, 2> positions_;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T, bool kRecursive>\nclass TypedToggleReader : public detail::ToggleReaderBase<kRecursive>\n{\n   public:\n    using Self = TypedToggleReader;\n    using Super = detail::ToggleReaderBase<kRecursive>;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    TypedToggleReader() noexcept : Super{}\n    {\n    }\n\n    explicit TypedToggleReader(Toggle<T>& toggle) noexcept : Super{toggle}\n    {\n    }\n\n    TypedToggleReader(Self&& other) noexcept : Super{std::move(other)}\n    {\n    }\n\n    Self& operator=(Self&& other) noexcept\n    {\n        Super::operator=(std::move(other));\n        return *this;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    Toggle<T>& toggle() const\n    {\n        return *static_cast<Toggle<T>*>(this->Super::toggle_addr());\n    }\n\n    void activate(Toggle<T>& toggle) noexcept\n    {\n        this->Super::activate_impl(toggle);\n    }\n\n    const T* get() const\n    {\n        return static_cast<const T*>(this->Super::get_addr());\n    }\n\n    const T& operator*() const\n    {\n        return *this->get();\n    }\n\n    const T* operator->() const\n    {\n        return this->get();\n    }\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T>\nclass ToggleWriter : public detail::ToggleWriterBase\n{\n   public:\n    using Self = ToggleWriter;\n    using Super = detail::ToggleWriterBase;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    explicit ToggleWriter(Toggle<T>& toggle) noexcept : Super{toggle}\n    {\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    T& new_value() const\n    {\n        return *static_cast<T*>(this->Super::new_value_addr());\n    }\n\n    const T& old_value() const\n    {\n        return *static_cast<const T*>(this->Super::old_value_addr());\n    }\n};\n\n}  //namespace batt\n\n#include <batteries/config.hpp>\n//\n#if BATT_HEADER_ONLY\n#include <batteries/async/toggle_impl.hpp>\n#endif",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "The per-thread reader state; placed on a difference cache line for each reading thread to avoid cache line thrashing. ",
+      "category": "classes",
+      "fullname": "batt::detail::ToggleReaderState",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::ToggleReaderState",
+      "refid": "structbatt_1_1detail_1_1ToggleReaderState",
+      "summary": "The per-thread reader state; placed on a difference cache line for each reading thread to avoid cache line thrashing. ",
+      "title": "batt::detail::ToggleReaderState",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1ToggleReaderState/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Writers leave a list of reader state snapshots (this struct) for any reading threads they suspect might be still using the old value when the Writer releases its exclusive lock. ",
+      "category": "classes",
+      "fullname": "batt::detail::ToggleReaderSnapshot",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::ToggleReaderSnapshot",
+      "refid": "structbatt_1_1detail_1_1ToggleReaderSnapshot",
+      "summary": "Writers leave a list of reader state snapshots (this struct) for any reading threads they suspect might be still using the old value when the Writer releases its exclusive lock. ",
+      "title": "batt::detail::ToggleReaderSnapshot",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1ToggleReaderSnapshot/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Type-erased base class for Toggle<T>. ",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::Toggle< T >",
+          "refid": "classbatt_1_1Toggle",
+          "url": "/_autogen/Classes/classbatt_1_1Toggle/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::detail::ToggleBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::ToggleBase",
+      "refid": "classbatt_1_1detail_1_1ToggleBase",
+      "summary": "Type-erased base class for Toggle<T>. ",
+      "title": "batt::detail::ToggleBase",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1ToggleBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Type-erased base class for Toggle<T>::Reader. ",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::TypedToggleReader< T, kRecursive >",
+          "refid": "classbatt_1_1TypedToggleReader",
+          "url": "/_autogen/Classes/classbatt_1_1TypedToggleReader/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::detail::ToggleReaderBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::ToggleReaderBase",
+      "refid": "classbatt_1_1detail_1_1ToggleReaderBase",
+      "summary": "Type-erased base class for Toggle<T>::Reader. ",
+      "title": "batt::detail::ToggleReaderBase",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1ToggleReaderBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Type-erased base class for Toggle<T>::Writer. ",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::ToggleWriter< T >",
+          "refid": "classbatt_1_1ToggleWriter",
+          "url": "/_autogen/Classes/classbatt_1_1ToggleWriter/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::detail::ToggleWriterBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::detail::ToggleWriterBase",
+      "refid": "classbatt_1_1detail_1_1ToggleWriterBase",
+      "summary": "Type-erased base class for Toggle<T>::Writer. ",
+      "title": "batt::detail::ToggleWriterBase",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1ToggleWriterBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::ToggleBase",
+          "refid": "classbatt_1_1detail_1_1ToggleBase",
+          "url": "/_autogen/Classes/classbatt_1_1detail_1_1ToggleBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "Synchronization primitive that provides highly scalable concurrent read access to state which is infrequently updated. ",
+      "category": "classes",
+      "fullname": "batt::Toggle",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Toggle",
+      "refid": "classbatt_1_1Toggle",
+      "summary": "Synchronization primitive that provides highly scalable concurrent read access to state which is infrequently updated. ",
+      "title": "batt::Toggle",
+      "url": "/_autogen/Classes/classbatt_1_1Toggle/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::ToggleReaderBase< kRecursive >",
+          "refid": "classbatt_1_1detail_1_1ToggleReaderBase",
+          "url": "/_autogen/Classes/classbatt_1_1detail_1_1ToggleReaderBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "RAII-style Lock-free, wait-free reader critical section guard for Toggles. ",
+      "category": "classes",
+      "fullname": "batt::TypedToggleReader",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::TypedToggleReader",
+      "refid": "classbatt_1_1TypedToggleReader",
+      "summary": "RAII-style Lock-free, wait-free reader critical section guard for Toggles. ",
+      "title": "batt::TypedToggleReader",
+      "url": "/_autogen/Classes/classbatt_1_1TypedToggleReader/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::detail::ToggleWriterBase",
+          "refid": "classbatt_1_1detail_1_1ToggleWriterBase",
+          "url": "/_autogen/Classes/classbatt_1_1detail_1_1ToggleWriterBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "RAII-style Lock that grants exclusive write access to the future value of a [Toggle](). ",
+      "category": "classes",
+      "fullname": "batt::ToggleWriter",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::ToggleWriter",
+      "refid": "classbatt_1_1ToggleWriter",
+      "summary": "RAII-style Lock that grants exclusive write access to the future value of a Toggle. ",
+      "title": "batt::ToggleWriter",
+      "url": "/_autogen/Classes/classbatt_1_1ToggleWriter/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "toggle_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/toggle.hpp",
+  "url": "/_autogen/Files/toggle_8hpp/#file-toggle.hpp",
+  "visibility": "public"
+}

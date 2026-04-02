@@ -1,0 +1,138 @@
+{
+  "abstract": false,
+  "anchor": "#file-toggle-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-toggle-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_TOGGLE_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/toggle_impl.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/async/toggle_impl.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_ASYNC_TOGGLE_IMPL_HPP",
+      "override": false,
+      "refid": "toggle__impl_8hpp_1ae4f2a9a07d2aa2d68e0211cf6773e1b7",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_TOGGLE_IMPL_HPP",
+      "url": "/_autogen/Files/toggle__impl_8hpp/#define-batteries-async-toggle-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/toggle_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/toggle_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/toggle_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_ASYNC_TOGGLE_IMPL_HPP\n\n#ifndef BATTERIES_ASYNC_TOGGLE_HPP\n#error MUST BE INCLUDED VIA toggle.hpp or toggle.cpp!\n#endif\n\nnamespace batt {\nnamespace detail {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline i64 get_toggle_reader_id(const ToggleReaderState& state)\n{\n    return state.id;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline i64 get_toggle_reader_id(const ToggleReaderSnapshot& snapshot)\n{\n    return snapshot.id;\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\nstruct OrderByToggleReaderId {\n    template <typename L, typename R>\n    bool operator()(const L& l, const R& r) const noexcept\n    {\n        return get_toggle_reader_id(l) < get_toggle_reader_id(r);\n    }\n};\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <bool kRecursive>\nBATT_INLINE_IMPL ToggleReaderBase<kRecursive>::ToggleReaderBase() noexcept\n    : toggle_{nullptr}\n    , state_{nullptr}\n    , observed_{nullptr}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <bool kRecursive>\nBATT_INLINE_IMPL ToggleReaderBase<kRecursive>::ToggleReaderBase(ToggleBase& toggle) noexcept\n{\n    this->activate_no_clear(toggle);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <bool kRecursive>\nBATT_INLINE_IMPL void ToggleReaderBase<kRecursive>::activate_impl(ToggleBase& toggle) noexcept\n{\n    this->clear();\n    this->activate_no_clear(toggle);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <bool kRecursive>\nBATT_INLINE_IMPL void ToggleReaderBase<kRecursive>::activate_no_clear(ToggleBase& toggle) noexcept\n{\n    this->toggle_ = std::addressof(toggle);\n    this->state_ = std::addressof(toggle.reader_state_slot_.get());\n\n    const i64 old_counter = this->state_->counter.fetch_or(1);\n\n    if constexpr (kRecursive) {\n        if ((old_counter & 1) != 0) {\n            this->state_->recursion_depth += 1;\n        }\n    } else {\n        BATT_CHECK_EQ(old_counter & 1, 0) << \"Only one Reader is allowed per thread at a time!\";\n        BATT_CHECK_EQ(this->state_->recursion_depth, 0)\n            << \"Reader and RecursiveReader must not be used together on the same thread!\";  // LCOV_EXCL_LINE\n    }\n\n    // Now that this thread's local counter has been incremented (marking it as active), load the\n    // active state.\n    //\n    this->observed_ = toggle.active_->load();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <bool kRecursive>\nBATT_INLINE_IMPL void ToggleReaderBase<kRecursive>::clear() noexcept\n{\n    if (this->state_) {\n        if constexpr (kRecursive) {\n            if (this->state_->recursion_depth == 0) {\n                const i64 old_counter = this->state_->counter.fetch_add(1);\n                BATT_CHECK_EQ(old_counter & 1, 1)\n                    << \"Recursion depth seems incorrect?\"            // LCOV_EXCL_LINE\n                    << BATT_INSPECT(this->state_->recursion_depth);  // LCOV_EXCL_LINE\n            } else {\n                this->state_->recursion_depth -= 1;\n            }\n        } else {\n            const i64 old_counter = this->state_->counter.fetch_add(1);\n            BATT_CHECK_EQ(old_counter & 1, 1) << \"Only one Reader is allowed per thread at a time!\";\n            BATT_CHECK_EQ(this->state_->recursion_depth, 0)\n                << \"Reader and RecursiveReader must not be used together on the same thread!\";  // LCOV_EXCL_LINE\n        }\n\n        this->state_ = nullptr;\n        this->observed_ = nullptr;\n    }\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <bool kRecursive>\nBATT_INLINE_IMPL ToggleReaderBase<kRecursive>::ToggleReaderBase(Self&& other) noexcept\n    : toggle_{std::exchange(other.toggle_, nullptr)}\n    , state_{std::exchange(other.state_, nullptr)}\n    , observed_{std::exchange(other.observed_, nullptr)}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <bool kRecursive>\nBATT_INLINE_IMPL ToggleReaderBase<kRecursive>& ToggleReaderBase<kRecursive>::operator=(Self&& other) noexcept\n{\n    if (this != &other) {\n        this->clear();\n        this->toggle_ = std::exchange(other.toggle_, nullptr);\n        this->state_ = std::exchange(other.state_, nullptr);\n        this->observed_ = std::exchange(other.observed_, nullptr);\n    }\n    return *this;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <bool kRecursive>\nBATT_INLINE_IMPL ToggleReaderBase<kRecursive>::~ToggleReaderBase() noexcept\n{\n    this->clear();\n}\n\n//+++++++++++-+-+--+----- --- -- -  -  -   -\n// IMPORTANT: explicitly instantiate recursive and non-recursive reader templates.\n//  (if we don't do this, we get linker errors in non-header-only mode)\n\ntemplate class ToggleReaderBase</*kRecursive=*/false>;\ntemplate class ToggleReaderBase</*kRecursive=*/true>;\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL ToggleWriterBase::ToggleWriterBase(ToggleBase& toggle) noexcept\n    : toggle_{toggle}\n    , cancelled_{false}\n    , observed_future_{}\n    , observed_active_{}\n{\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    // First spin on ToggleBase::future_ until we claim exclusive access to write the future state.\n    //\n    for (;;) {\n        this->observed_future_ = this->toggle_.future_->exchange(nullptr);\n        if (this->observed_future_ != nullptr) {\n            this->observed_active_ = const_cast<void*>(this->toggle_.active_->load());\n            break;\n        }\n        batt::Task::yield();\n    }\n    BATT_CHECK_NE(this->observed_future_, this->observed_active_);\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n    // Wait for any Readers who may still be accessing the prior value.\n    //\n    while (!this->toggle_.waiting_for_.empty()) {\n        usize n_remaining = this->toggle_.waiting_for_.size();\n\n        // Set the `seen` flag for all readers to false so we can detect readers whose threads have gone away.\n        //\n        for (ToggleReaderSnapshot& snapshot : this->toggle_.waiting_for_) {\n            snapshot.seen = false;\n        }\n\n        // Check all reader states to try to resolve the ones in `waiting_for`.\n        //\n        const bool done = this->toggle_.reader_state_slot_.visit_each(  //\n            [this, &n_remaining](const ToggleReaderState& reader_state) {\n                // Binary search for this reader.\n                //\n                auto iter = std::lower_bound(this->toggle_.waiting_for_.begin(),  //\n                                             this->toggle_.waiting_for_.end(),    //\n                                             reader_state, OrderByToggleReaderId{});\n\n                // If this reader isn't in the waiting_for list, continue.\n                //\n                if (iter == this->toggle_.waiting_for_.end() || iter->id != reader_state.id) {\n                    return false;\n                }\n\n                // Mark this one as seen so we don't remove it for the next round.\n                //\n                iter->seen = true;\n\n                // If the counter is unchanged, then continue.\n                //\n                if (reader_state.counter.load() == iter->counter) {\n                    return false;\n                }\n\n                // Since we only inserted odd reader counts into `waiting_for`, this will make it\n                // even.  We will do another pass on the waiting_for list to remove this below.\n                //\n                ++iter->counter;\n\n                --n_remaining;\n                return n_remaining == 0;\n            });\n\n        // If we resolved all readers, then clear `waiting_for_` and return!\n        //\n        if (done) {\n            this->toggle_.waiting_for_.clear();\n            break;\n        }\n\n        // Remove all the readers whose state changed (including any who disappeared from the list).\n        //\n        this->toggle_.waiting_for_.erase(\n            std::remove_if(this->toggle_.waiting_for_.begin(), this->toggle_.waiting_for_.end(),\n                           [](const ToggleReaderSnapshot& snapshot) {\n                               return /* resolved? */ (snapshot.counter % 2) == 0 ||\n                                      /* not seen? */ (snapshot.seen == false);\n                           }),\n            this->toggle_.waiting_for_.end());\n\n        // Give readers a chance to make progress.\n        //\n        batt::Task::yield();\n    }\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL ToggleWriterBase::~ToggleWriterBase() noexcept\n{\n    BATT_CHECK(this->toggle_.waiting_for_.empty())\n        << \"The prior call to ToggleWriter::ToggleWriter() should \"  // LCOV_EXCL_LINE\n           \"have cleared the waiting_for_ list!\";                    // LCOV_EXCL_LINE\n\n    // If the write was cancelled, then just restore the observed future.\n    //\n    if (this->cancelled_) {\n        BATT_CHECK_EQ(this->toggle_.future_->exchange(this->observed_future_), nullptr)\n            << \"Multiple concurrent writers detected!\";  // LCOV_EXCL_LINE\n        return;\n    }\n\n    // Make the new value visible to readers.\n    //\n    this->toggle_.active_->store(this->observed_future_);\n\n    // When we return, restore the `future_` pointer to unblock any other writers.\n    //\n    auto on_scope_exit = batt::finally([this] {\n        BATT_CHECK_EQ(this->toggle_.future_->exchange(this->observed_active_), nullptr)\n            << \"Multiple concurrent writers detected!\";  // LCOV_EXCL_LINE\n        ;\n    });\n\n    // Collect a list of any readers we observe to be active *after* updating the current value.\n    //\n    this->toggle_.reader_state_slot_.visit_each([this](const ToggleReaderState& reader_state) {\n        const i64 observed_count = reader_state.counter.load();\n        if ((observed_count % 2) != 0) {\n            this->toggle_.waiting_for_.push_back(ToggleReaderSnapshot{\n                .id = get_toggle_reader_id(reader_state),\n                .counter = observed_count,\n                .seen = true,\n            });\n        }\n        return false;\n    });\n\n    // The list must be maintained in sorted order to make queries fast.\n    //\n    std::sort(this->toggle_.waiting_for_.begin(),  //\n              this->toggle_.waiting_for_.end(),    //\n              OrderByToggleReaderId{});\n}\n\n}  // namespace detail\n}  // namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "Comparitor (less-than) which orders objects by their toggle reader id. ",
+      "category": "classes",
+      "fullname": "batt::detail::OrderByToggleReaderId",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::OrderByToggleReaderId",
+      "refid": "structbatt_1_1detail_1_1OrderByToggleReaderId",
+      "summary": "Comparitor (less-than) which orders objects by their toggle reader id. ",
+      "title": "batt::detail::OrderByToggleReaderId",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1OrderByToggleReaderId/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "toggle__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/toggle_impl.hpp",
+  "url": "/_autogen/Files/toggle__impl_8hpp/#file-toggle-impl.hpp",
+  "visibility": "public"
+}
