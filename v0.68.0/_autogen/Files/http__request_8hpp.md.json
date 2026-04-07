@@ -1,0 +1,143 @@
+{
+  "abstract": false,
+  "anchor": "#file-http-request.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-http-request-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_HTTP_REQUEST_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/http_request.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/http/http_request.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_HTTP_REQUEST_HPP",
+      "override": false,
+      "refid": "http__request_8hpp_1a4637f1abf2145ab68dce6da408166ea8",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_HTTP_REQUEST_HPP",
+      "url": "/_autogen/Files/http__request_8hpp/#define-batteries-http-request-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/http/http_request.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/http/http_request.hpp",
+    "line": 0
+  },
+  "name": "batteries/http/http_request.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/http",
+    "category": "dirs",
+    "fullname": "batteries/http",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/http",
+    "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+    "title": "batteries/http",
+    "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/http",
+      "category": "dirs",
+      "fullname": "batteries/http",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/http",
+      "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+      "title": "batteries/http",
+      "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_HTTP_REQUEST_HPP\n#define BATTERIES_HTTP_REQUEST_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/buffer_source.hpp>\n\n#include <batteries/http/http_data.hpp>\n#include <batteries/http/http_header.hpp>\n#include <batteries/http/http_message_base.hpp>\n\n#include <batteries/int_types.hpp>\n#include <batteries/status.hpp>\n#include <batteries/stream_util.hpp>\n\n#include <string_view>\n\nnamespace batt {\n\nclass HttpRequest : public HttpMessageBase<pico_http::Request>\n{\n   public:\n    using HttpMessageBase<pico_http::Request>::HttpMessageBase;\n    using HttpMessageBase<pico_http::Request>::major_version;\n    using HttpMessageBase<pico_http::Request>::minor_version;\n    using HttpMessageBase<pico_http::Request>::headers;\n    using HttpMessageBase<pico_http::Request>::find_header;\n\n    const std::string_view& method()\n    {\n        return this->await_message_or_panic().method;\n    }\n\n    const std::string_view& path()\n    {\n        return this->await_message_or_panic().path;\n    }\n};\n\n}  // namespace batt\n\n#endif  // BATTERIES_HTTP_REQUEST_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::HttpMessageBase< pico_http::Request >",
+          "refid": "classbatt_1_1HttpMessageBase",
+          "url": "/_autogen/Classes/classbatt_1_1HttpMessageBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::Pinnable",
+          "refid": "classbatt_1_1Pinnable",
+          "url": "/_autogen/Classes/classbatt_1_1Pinnable/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::HttpRequest",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::HttpRequest",
+      "refid": "classbatt_1_1HttpRequest",
+      "title": "batt::HttpRequest",
+      "url": "/_autogen/Classes/classbatt_1_1HttpRequest/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "http__request_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/http/http_request.hpp",
+  "url": "/_autogen/Files/http__request_8hpp/#file-http-request.hpp",
+  "visibility": "public"
+}

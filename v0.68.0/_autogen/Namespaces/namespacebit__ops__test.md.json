@@ -1,0 +1,829 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "namespaces",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "bit_ops_test",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "namespace",
+  "language": "cpp",
+  "location": {
+    "column": 1,
+    "file": "batteries/bit_ops.test.hpp",
+    "line": 13
+  },
+  "name": "bit_ops_test",
+  "override": false,
+  "parent": null,
+  "publicClasses": [
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "testing::Test",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "A class used to create a GTest Typed Test Suite to test different bit operation functions for different overloads. ",
+      "category": "classes",
+      "fullname": "bit_ops_test::BitOpsOverloadTest",
+      "kind": "class",
+      "language": "cpp",
+      "name": "bit_ops_test::BitOpsOverloadTest",
+      "refid": "classbit__ops__test_1_1BitOpsOverloadTest",
+      "summary": "A class used to create a GTest Typed Test Suite to test different bit operation functions for different overloads. ",
+      "title": "bit_ops_test::BitOpsOverloadTest",
+      "url": "/_autogen/Classes/classbit__ops__test_1_1BitOpsOverloadTest/",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-slow-next-bit",
+      "argsString": "(u64 bit_set, i32 index)",
+      "brief": "A slow but trivially correct implementation of next_bit. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "i32 bit_ops_test::slow_next_bit",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "bit_ops_test::slow_next_bit",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 28,
+        "bodyFile": "batteries/bit_ops.test.hpp",
+        "bodyStart": 20,
+        "column": 12,
+        "file": "batteries/bit_ops.test.hpp",
+        "line": 20
+      },
+      "name": "slow_next_bit",
+      "override": false,
+      "params": [
+        {
+          "name": "bit_set",
+          "type": "u64",
+          "typePlain": "u64"
+        },
+        {
+          "name": "index",
+          "type": "i32",
+          "typePlain": "i32"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bit__ops_8test_8hpp_1af8d2f85641a84aac6a38bcd32fddc474",
+      "static": false,
+      "strong": false,
+      "summary": "A slow but trivially correct implementation of next_bit. ",
+      "title": "slow_next_bit",
+      "type": "i32",
+      "typePlain": "i32",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/#function-slow-next-bit",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-slow-next-bit",
+      "argsString": "(const std::array< u64, N > &bit_set, i32 index)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "i32 bit_ops_test::slow_next_bit",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "bit_ops_test::slow_next_bit",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 40,
+        "bodyFile": "batteries/bit_ops.test.hpp",
+        "bodyStart": 31,
+        "column": 12,
+        "file": "batteries/bit_ops.test.hpp",
+        "line": 31
+      },
+      "name": "slow_next_bit",
+      "override": false,
+      "params": [
+        {
+          "name": "bit_set",
+          "type": "const std::array< u64, N > &",
+          "typePlain": "const std::array< u64, N > &"
+        },
+        {
+          "name": "index",
+          "type": "i32",
+          "typePlain": "i32"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bit__ops_8test_8hpp_1a0a5a904277598290dbc4d2b8f6296bd1",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "N",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "title": "slow_next_bit",
+      "type": "i32",
+      "typePlain": "i32",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/#function-slow-next-bit",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-slow-prev-bit",
+      "argsString": "(u64 bit_set, i32 index)",
+      "brief": "A slow but trivially correct implementation of last_bit. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "i32 bit_ops_test::slow_prev_bit",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "bit_ops_test::slow_prev_bit",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 52,
+        "bodyFile": "batteries/bit_ops.test.hpp",
+        "bodyStart": 44,
+        "column": 12,
+        "file": "batteries/bit_ops.test.hpp",
+        "line": 44
+      },
+      "name": "slow_prev_bit",
+      "override": false,
+      "params": [
+        {
+          "name": "bit_set",
+          "type": "u64",
+          "typePlain": "u64"
+        },
+        {
+          "name": "index",
+          "type": "i32",
+          "typePlain": "i32"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bit__ops_8test_8hpp_1adf5dcdaaa9091aa584a541ec9d31c061",
+      "static": false,
+      "strong": false,
+      "summary": "A slow but trivially correct implementation of last_bit. ",
+      "title": "slow_prev_bit",
+      "type": "i32",
+      "typePlain": "i32",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/#function-slow-prev-bit",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-slow-prev-bit",
+      "argsString": "(const std::array< u64, N > &bit_set, i32 index)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "i32 bit_ops_test::slow_prev_bit",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "bit_ops_test::slow_prev_bit",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 64,
+        "bodyFile": "batteries/bit_ops.test.hpp",
+        "bodyStart": 55,
+        "column": 12,
+        "file": "batteries/bit_ops.test.hpp",
+        "line": 55
+      },
+      "name": "slow_prev_bit",
+      "override": false,
+      "params": [
+        {
+          "name": "bit_set",
+          "type": "const std::array< u64, N > &",
+          "typePlain": "const std::array< u64, N > &"
+        },
+        {
+          "name": "index",
+          "type": "i32",
+          "typePlain": "i32"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bit__ops_8test_8hpp_1a74dc0799e824b641832a4d95dd2a18fa",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "N",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "title": "slow_prev_bit",
+      "type": "i32",
+      "typePlain": "i32",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/#function-slow-prev-bit",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-slow-first-bit",
+      "argsString": "(u64 bit_set)",
+      "brief": "A slow but trivially correct implementation of first_bit. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "i32 bit_ops_test::slow_first_bit",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "bit_ops_test::slow_first_bit",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 76,
+        "bodyFile": "batteries/bit_ops.test.hpp",
+        "bodyStart": 68,
+        "column": 12,
+        "file": "batteries/bit_ops.test.hpp",
+        "line": 68
+      },
+      "name": "slow_first_bit",
+      "override": false,
+      "params": [
+        {
+          "name": "bit_set",
+          "type": "u64",
+          "typePlain": "u64"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bit__ops_8test_8hpp_1a9fa480c6d15748cd5fbdda871b191444",
+      "static": false,
+      "strong": false,
+      "summary": "A slow but trivially correct implementation of first_bit. ",
+      "title": "slow_first_bit",
+      "type": "i32",
+      "typePlain": "i32",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/#function-slow-first-bit",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-slow-first-bit",
+      "argsString": "(const std::array< u64, N > &bit_set)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "i32 bit_ops_test::slow_first_bit",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "bit_ops_test::slow_first_bit",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 88,
+        "bodyFile": "batteries/bit_ops.test.hpp",
+        "bodyStart": 79,
+        "column": 12,
+        "file": "batteries/bit_ops.test.hpp",
+        "line": 79
+      },
+      "name": "slow_first_bit",
+      "override": false,
+      "params": [
+        {
+          "name": "bit_set",
+          "type": "const std::array< u64, N > &",
+          "typePlain": "const std::array< u64, N > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bit__ops_8test_8hpp_1a59a46e0fcaf958d4069400b2d600b612",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "N",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "title": "slow_first_bit",
+      "type": "i32",
+      "typePlain": "i32",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/#function-slow-first-bit",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-slow-last-bit",
+      "argsString": "(u64 bit_set)",
+      "brief": "A slow but trivially correct implementation of last_bit. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "i32 bit_ops_test::slow_last_bit",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "bit_ops_test::slow_last_bit",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 101,
+        "bodyFile": "batteries/bit_ops.test.hpp",
+        "bodyStart": 92,
+        "column": 12,
+        "file": "batteries/bit_ops.test.hpp",
+        "line": 92
+      },
+      "name": "slow_last_bit",
+      "override": false,
+      "params": [
+        {
+          "name": "bit_set",
+          "type": "u64",
+          "typePlain": "u64"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bit__ops_8test_8hpp_1a0cb5ac14382f1bcdfc8425ee95b1b099",
+      "static": false,
+      "strong": false,
+      "summary": "A slow but trivially correct implementation of last_bit. ",
+      "title": "slow_last_bit",
+      "type": "i32",
+      "typePlain": "i32",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/#function-slow-last-bit",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-slow-last-bit",
+      "argsString": "(const std::array< u64, N > &bit_set)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "i32 bit_ops_test::slow_last_bit",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "bit_ops_test::slow_last_bit",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 114,
+        "bodyFile": "batteries/bit_ops.test.hpp",
+        "bodyStart": 104,
+        "column": 12,
+        "file": "batteries/bit_ops.test.hpp",
+        "line": 104
+      },
+      "name": "slow_last_bit",
+      "override": false,
+      "params": [
+        {
+          "name": "bit_set",
+          "type": "const std::array< u64, N > &",
+          "typePlain": "const std::array< u64, N > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bit__ops_8test_8hpp_1a222b7b9fd37613400052d88a9747f28e",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "N",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "title": "slow_last_bit",
+      "type": "i32",
+      "typePlain": "i32",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/#function-slow-last-bit",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-slow-bit-rank",
+      "argsString": "(u64 bit_set, i32 index)",
+      "brief": "A slow but trivially correct implementation of bit_rank. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "i32 bit_ops_test::slow_bit_rank",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "bit_ops_test::slow_bit_rank",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 128,
+        "bodyFile": "batteries/bit_ops.test.hpp",
+        "bodyStart": 118,
+        "column": 12,
+        "file": "batteries/bit_ops.test.hpp",
+        "line": 118
+      },
+      "name": "slow_bit_rank",
+      "override": false,
+      "params": [
+        {
+          "name": "bit_set",
+          "type": "u64",
+          "typePlain": "u64"
+        },
+        {
+          "name": "index",
+          "type": "i32",
+          "typePlain": "i32"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bit__ops_8test_8hpp_1a072c3b0d85634e5a1068d88533ea87b7",
+      "static": false,
+      "strong": false,
+      "summary": "A slow but trivially correct implementation of bit_rank. ",
+      "title": "slow_bit_rank",
+      "type": "i32",
+      "typePlain": "i32",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/#function-slow-bit-rank",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-slow-bit-rank",
+      "argsString": "(const std::array< u64, N > &bit_set, i32 index)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "i32 bit_ops_test::slow_bit_rank",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "bit_ops_test::slow_bit_rank",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 141,
+        "bodyFile": "batteries/bit_ops.test.hpp",
+        "bodyStart": 131,
+        "column": 12,
+        "file": "batteries/bit_ops.test.hpp",
+        "line": 131
+      },
+      "name": "slow_bit_rank",
+      "override": false,
+      "params": [
+        {
+          "name": "bit_set",
+          "type": "const std::array< u64, N > &",
+          "typePlain": "const std::array< u64, N > &"
+        },
+        {
+          "name": "index",
+          "type": "i32",
+          "typePlain": "i32"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bit__ops_8test_8hpp_1abe96c56443ad3163f5e16182ef304ad2",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "N",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "title": "slow_bit_rank",
+      "type": "i32",
+      "typePlain": "i32",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/#function-slow-bit-rank",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-slow-bit-select",
+      "argsString": "(u64 bit_set, i32 rank)",
+      "brief": "A slow but trivially correct implementation of bit_select. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "i32 bit_ops_test::slow_bit_select",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "bit_ops_test::slow_bit_select",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 153,
+        "bodyFile": "batteries/bit_ops.test.hpp",
+        "bodyStart": 145,
+        "column": 12,
+        "file": "batteries/bit_ops.test.hpp",
+        "line": 145
+      },
+      "name": "slow_bit_select",
+      "override": false,
+      "params": [
+        {
+          "name": "bit_set",
+          "type": "u64",
+          "typePlain": "u64"
+        },
+        {
+          "name": "rank",
+          "type": "i32",
+          "typePlain": "i32"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bit__ops_8test_8hpp_1aec0ff7470b393b52097bdeeffcf92c4a",
+      "static": false,
+      "strong": false,
+      "summary": "A slow but trivially correct implementation of bit_select. ",
+      "title": "slow_bit_select",
+      "type": "i32",
+      "typePlain": "i32",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/#function-slow-bit-select",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-slow-bit-select",
+      "argsString": "(const std::array< u64, N > &bit_set, i32 rank)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "i32 bit_ops_test::slow_bit_select",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "bit_ops_test::slow_bit_select",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 164,
+        "bodyFile": "batteries/bit_ops.test.hpp",
+        "bodyStart": 156,
+        "column": 12,
+        "file": "batteries/bit_ops.test.hpp",
+        "line": 156
+      },
+      "name": "slow_bit_select",
+      "override": false,
+      "params": [
+        {
+          "name": "bit_set",
+          "type": "const std::array< u64, N > &",
+          "typePlain": "const std::array< u64, N > &"
+        },
+        {
+          "name": "rank",
+          "type": "i32",
+          "typePlain": "i32"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bit__ops_8test_8hpp_1a61c0e68acea7d82006f738ad349d24f2",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "N",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "title": "slow_bit_select",
+      "type": "i32",
+      "typePlain": "i32",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/#function-slow-bit-select",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-bit-set-string",
+      "argsString": "(u64 bit_set)",
+      "brief": "Converts a 64-bit bit set to a printable string. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::string bit_ops_test::bit_set_string",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "bit_ops_test::bit_set_string",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 171,
+        "bodyFile": "batteries/bit_ops.test.hpp",
+        "bodyStart": 168,
+        "column": 20,
+        "file": "batteries/bit_ops.test.hpp",
+        "line": 168
+      },
+      "name": "bit_set_string",
+      "override": false,
+      "params": [
+        {
+          "name": "bit_set",
+          "type": "u64",
+          "typePlain": "u64"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bit__ops_8test_8hpp_1a61b87e8135c64f495851136c10d8f04e",
+      "static": false,
+      "strong": false,
+      "summary": "Converts a 64-bit bit set to a printable string. ",
+      "title": "bit_set_string",
+      "type": "std::string",
+      "typePlain": "std::string",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/#function-bit-set-string",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-bit-set-string",
+      "argsString": "(const std::array< u64, 2 > &bit_set)",
+      "brief": "Converts a 128-bit bit set to a printable string. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "std::string bit_ops_test::bit_set_string",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "bit_ops_test::bit_set_string",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 178,
+        "bodyFile": "batteries/bit_ops.test.hpp",
+        "bodyStart": 175,
+        "column": 20,
+        "file": "batteries/bit_ops.test.hpp",
+        "line": 175
+      },
+      "name": "bit_set_string",
+      "override": false,
+      "params": [
+        {
+          "name": "bit_set",
+          "type": "const std::array< u64, 2 > &",
+          "typePlain": "const std::array< u64, 2 > &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bit__ops_8test_8hpp_1a5c69c38647803bf031647f651ea79b4e",
+      "static": false,
+      "strong": false,
+      "summary": "Converts a 128-bit bit set to a printable string. ",
+      "title": "bit_set_string",
+      "type": "std::string",
+      "typePlain": "std::string",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/#function-bit-set-string",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-typed-test-suite",
+      "argsString": "(BitOpsOverloadTest, TestType)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "bit_ops_test::TYPED_TEST_SUITE",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "bit_ops_test::TYPED_TEST_SUITE",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 1,
+        "file": "batteries/bit_ops.test.hpp",
+        "line": 191
+      },
+      "name": "TYPED_TEST_SUITE",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[BitOpsOverloadTest](/_autogen/Classes/classbit__ops__test_1_1BitOpsOverloadTest/)",
+          "typePlain": "BitOpsOverloadTest"
+        },
+        {
+          "name": "",
+          "type": "TestType",
+          "typePlain": "TestType"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "bit__ops_8test_8hpp_1aaa93e547de5651d1621f9505d61015ef",
+      "static": false,
+      "strong": false,
+      "title": "TYPED_TEST_SUITE",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/#function-typed-test-suite",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-testtype",
+      "category": "types",
+      "const": false,
+      "definition": "using bit_ops_test::TestType = typedef ::testing::Types<u64, std::array<u64, 2> >",
+      "explicit": false,
+      "fullname": "bit_ops_test::TestType",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/bit_ops.test.hpp",
+        "bodyStart": 190,
+        "column": 1,
+        "file": "batteries/bit_ops.test.hpp",
+        "line": 190
+      },
+      "name": "TestType",
+      "override": false,
+      "refid": "bit__ops_8test_8hpp_1a3e683641d5d1d3186324b66843279745",
+      "static": false,
+      "strong": false,
+      "title": "TestType",
+      "type": "::testing::Types< u64, std::array< u64, 2 > >",
+      "typePlain": "::testing::Types< u64, std::array< u64, 2 > >",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/#using-testtype",
+      "visibility": "public"
+    }
+  ],
+  "refid": "namespacebit__ops__test",
+  "static": false,
+  "strong": false,
+  "title": "bit_ops_test",
+  "url": "/_autogen/Namespaces/namespacebit__ops__test/",
+  "visibility": "public"
+}

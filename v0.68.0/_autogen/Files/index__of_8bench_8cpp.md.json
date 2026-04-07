@@ -1,0 +1,81 @@
+{
+  "abstract": false,
+  "anchor": "#file-index-of.bench.cpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/bit_ops/index_of.bench.cpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/bit_ops/index_of.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/bit_ops/index_of.bench.cpp",
+    "line": 0
+  },
+  "name": "batteries/bit_ops/index_of.bench.cpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "diy",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "diy",
+      "refid": "namespacediy",
+      "title": "diy",
+      "url": "/_autogen/Namespaces/namespacediy/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/bit-ops",
+    "category": "dirs",
+    "fullname": "batteries/bit_ops",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/bit_ops",
+    "refid": "dir_09dc2df44c13d5f8f6954de245bda43d",
+    "title": "batteries/bit_ops",
+    "url": "/_autogen/Files/dir_09dc2df44c13d5f8f6954de245bda43d/#dir-batteries/bit-ops",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/bit-ops",
+      "category": "dirs",
+      "fullname": "batteries/bit_ops",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/bit_ops",
+      "refid": "dir_09dc2df44c13d5f8f6954de245bda43d",
+      "title": "batteries/bit_ops",
+      "url": "/_autogen/Files/dir_09dc2df44c13d5f8f6954de245bda43d/#dir-batteries/bit-ops",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#include <batteries/bit_ops/index_of.hpp>\n\n#include <benchmark/benchmark.h>\n\n#include <batteries/assert.hpp>\n\n#ifdef __BMI2__\n#include <x86gprintrin.h>\n#endif  // __BMI2__\n\n#ifdef __MMX__\n#include <mmintrin.h>\n#endif  // __MMX__\n\n#ifdef __SSE2__\n#include <emmintrin.h>\n#endif  // __SSE2__\n\n#ifdef __SSE3__\n#include <pmmintrin.h>\n#endif  // __SSE3__\n\n#ifdef __AVX__\n#include <immintrin.h>\n#endif\n\n#ifdef __AVX512F__\n#include <immintrin.h>  // AVX512 (AVX, AVX2, FMA)\n#endif\n\nnamespace {\n\nusing namespace batt::int_types;\n\nnamespace diy {\n\ninline usize index_of(i8 key_byte, const std::array<i8, 4>& keys)\n{\n#ifdef __MMX__\n\n    __m64 pattern = _mm_set1_pi8(key_byte);\n    u64 extended = *((const u32*)keys.data());\n    __m64 values = _mm_cvtsi64_m64(extended);\n    __m64 result = _m_pcmpeqb(pattern, values);\n\n    return ((__builtin_ffsll((i64)result) - 1) >> 3) & 7;\n\n#else\n    return ::batt::slow_index_of(key_byte, keys);\n#endif  // __MMX__\n}\n\nBATT_ALWAYS_INLINE inline usize index_of(u8 key_byte, const std::array<u8, 4>& keys)\n{\n    return index_of(static_cast<i8>(key_byte), reinterpret_cast<const std::array<i8, 4>&>(keys));\n}\n\ninline usize index_of(u8 key_byte, const std::array<u8, 8>& keys)\n{\n#ifdef __MMX__\n\n    __m64 pattern = _mm_set1_pi8((char)key_byte);\n    u64 extended = *((const u64*)keys.data());\n    __m64 values = _mm_cvtsi64_m64(extended);\n    __m64 result = _m_pcmpeqb(pattern, values);\n\n    return ((__builtin_ffsll((i64)result) - 1) >> 3) & 15;\n\n#else\n    return ::batt::slow_index_of(key_byte, keys);\n#endif  // __MMX__\n}\n\ninline usize index_of(u8 key_byte, const std::array<u8, 16>& keys)\n{\n#if defined(__SSE2__) && defined(__SSE3__)\n    __m128i pattern = _mm_set1_epi8((char)key_byte);\n    __m128i values = _mm_lddqu_si128((const __m128i*)keys.data());\n\n#if defined(__AVX512F__)\n    __mmask16 result = _mm_cmpeq_epi8_mask(pattern, values);\n#else\n    int result = _mm_movemask_epi8(_mm_cmpeq_epi8(pattern, values));\n#endif\n\n    return (__builtin_ffs(result) - 1) & 31;\n\n#else\n    return ::batt::slow_index_of(key_byte, keys);\n#endif\n}\n\ninline usize index_of(u8 key_byte, const std::array<u8, 32>& keys)\n{\n#if defined(__AVX__)\n    __m256i pattern = _mm256_set1_epi8((char)key_byte);\n    __m256i values = _mm256_lddqu_si256((const __m256i*)keys.data());\n\n#if defined(__AVX512F__)\n    __mmask32 result = _mm256_cmpeq_epi8_mask(pattern, values);\n#else\n    int result = _mm256_movemask_epi8(_mm256_cmpeq_epi8(pattern, values));\n#endif\n\n    return (__builtin_ffs(result) - 1) & 63;\n\n#else\n    return ::batt::slow_index_of(key_byte, keys);\n#endif\n}\n\ninline usize index_of(u8 key_byte, const std::array<u8, 64>& keys)\n{\n#if defined(__AVX512F__)\n\n    __m512i pattern = _mm512_set1_epi8((char)key_byte);\n    __m512i values = _mm512_loadu_si512((const __m512i*)keys.data());\n\n    __mmask64 result = _mm512_cmpeq_epi8_mask(pattern, values);\n\n    return (__builtin_ffsll(result) - 1) & 127;\n\n#else\n    return ::batt::slow_index_of(key_byte, keys);\n#endif\n}\n\n}  //namespace diy\n\nconstexpr u64 kPrime = 7829;\n\ntemplate <typename T, usize N, bool kDiy>\nvoid Benchmark_IndexOf_Impl(benchmark::State& state)\n{\n    for (auto _ : state) {\n        std::array<T, N> val;\n        static_assert(sizeof(val) >= 4);\n        usize total = 0;\n        for (usize i = 0; i < state.range(0); ++i) {\n            total += kDiy ? diy::index_of(T{99}, val) : batt::index_of(T{99}, val);\n            *(u32*)(val.data() + (i & (sizeof(val) / 4 - 1))) += kPrime;\n        }\n        BATT_CHECK_NE(total, 0);\n    }\n}\n\nvoid Benchmark_IndexOf4(benchmark::State& state)\n{\n    Benchmark_IndexOf_Impl<u8, 4, false>(state);\n}\n\nvoid Benchmark_IndexOf4_Diy(benchmark::State& state)\n{\n    Benchmark_IndexOf_Impl<u8, 4, true>(state);\n}\n\nvoid Benchmark_IndexOf8(benchmark::State& state)\n{\n    Benchmark_IndexOf_Impl<u8, 8, false>(state);\n}\n\nvoid Benchmark_IndexOf8_Diy(benchmark::State& state)\n{\n    Benchmark_IndexOf_Impl<u8, 8, true>(state);\n}\n\nvoid Benchmark_IndexOf16(benchmark::State& state)\n{\n    Benchmark_IndexOf_Impl<u8, 16, false>(state);\n}\n\nvoid Benchmark_IndexOf16_Diy(benchmark::State& state)\n{\n    Benchmark_IndexOf_Impl<u8, 16, true>(state);\n}\n\nvoid Benchmark_IndexOf32(benchmark::State& state)\n{\n    Benchmark_IndexOf_Impl<u8, 32, false>(state);\n}\n\nvoid Benchmark_IndexOf32_Diy(benchmark::State& state)\n{\n    Benchmark_IndexOf_Impl<u8, 32, true>(state);\n}\n\nvoid Benchmark_IndexOf64(benchmark::State& state)\n{\n    Benchmark_IndexOf_Impl<u8, 64, false>(state);\n}\n\nvoid Benchmark_IndexOf64_Diy(benchmark::State& state)\n{\n    Benchmark_IndexOf_Impl<u8, 64, true>(state);\n}\n\nBENCHMARK(Benchmark_IndexOf4)->Range(16, 4096);\nBENCHMARK(Benchmark_IndexOf4_Diy)->Range(16, 4096);\nBENCHMARK(Benchmark_IndexOf8)->Range(16, 4096);\nBENCHMARK(Benchmark_IndexOf8_Diy)->Range(16, 4096);\nBENCHMARK(Benchmark_IndexOf16)->Range(16, 4096);\nBENCHMARK(Benchmark_IndexOf16_Diy)->Range(16, 4096);\nBENCHMARK(Benchmark_IndexOf32)->Range(16, 4096);\nBENCHMARK(Benchmark_IndexOf32_Diy)->Range(16, 4096);\nBENCHMARK(Benchmark_IndexOf64)->Range(16, 4096);\nBENCHMARK(Benchmark_IndexOf64_Diy)->Range(16, 4096);\n\n}  // namespace",
+  "refid": "index__of_8bench_8cpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/bit_ops/index_of.bench.cpp",
+  "url": "/_autogen/Files/index__of_8bench_8cpp/#file-index-of.bench.cpp",
+  "visibility": "public"
+}

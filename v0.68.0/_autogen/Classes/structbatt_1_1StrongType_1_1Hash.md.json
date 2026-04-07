@@ -1,0 +1,197 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::StrongType::Hash",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "struct",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 83,
+    "bodyFile": "batteries/strong_typedef.hpp",
+    "bodyStart": 73,
+    "column": 5,
+    "file": "batteries/strong_typedef.hpp",
+    "line": 73
+  },
+  "name": "batt::StrongType::Hash",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "classes",
+    "derivedClasses": [
+      {
+        "external": false,
+        "name": "batt::StrongType< T, Tag >::Delta",
+        "refid": "structbatt_1_1StrongType_1_1Delta",
+        "url": "/_autogen/Classes/structbatt_1_1StrongType_1_1Delta/",
+        "virtual": "non-virtual",
+        "visibility": "public"
+      }
+    ],
+    "fullname": "batt::StrongType",
+    "kind": "class",
+    "language": "cpp",
+    "name": "batt::StrongType",
+    "refid": "classbatt_1_1StrongType",
+    "title": "batt::StrongType",
+    "url": "/_autogen/Classes/classbatt_1_1StrongType/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::StrongType< T, Tag >::Delta",
+          "refid": "structbatt_1_1StrongType_1_1Delta",
+          "url": "/_autogen/Classes/structbatt_1_1StrongType_1_1Delta/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::StrongType",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::StrongType",
+      "refid": "classbatt_1_1StrongType",
+      "title": "batt::StrongType",
+      "url": "/_autogen/Classes/classbatt_1_1StrongType/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-impl-",
+      "category": "attributes",
+      "const": false,
+      "definition": "std::hash<T> batt::StrongType< T, Tag >::Hash::impl_",
+      "explicit": false,
+      "fullname": "batt::StrongType::Hash::impl_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/strong_typedef.hpp",
+        "bodyStart": 82,
+        "column": 19,
+        "file": "batteries/strong_typedef.hpp",
+        "line": 82
+      },
+      "name": "impl_",
+      "override": false,
+      "refid": "structbatt_1_1StrongType_1_1Hash_1a1d2c39b214724e6ab086dea0890b339e",
+      "static": false,
+      "strong": false,
+      "title": "impl_",
+      "type": "std::hash< T >",
+      "typePlain": "std::hash< T >",
+      "url": "/_autogen/Classes/structbatt_1_1StrongType_1_1Hash/#variable-impl-",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-operator()",
+      "argsString": "(const StrongType &obj) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "result_type batt::StrongType< T, Tag >::Hash::operator()",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::StrongType::Hash::operator()",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 79,
+        "bodyFile": "batteries/strong_typedef.hpp",
+        "bodyStart": 76,
+        "column": 21,
+        "file": "batteries/strong_typedef.hpp",
+        "line": 76
+      },
+      "name": "operator()",
+      "override": false,
+      "params": [
+        {
+          "name": "obj",
+          "type": "const [StrongType](/_autogen/Classes/classbatt_1_1StrongType/) &",
+          "typePlain": "const StrongType &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1StrongType_1_1Hash_1a16b2f5b7a85ab4f6018b5e9fe634439c",
+      "static": false,
+      "strong": false,
+      "title": "operator()",
+      "type": "result_type",
+      "typePlain": "result_type",
+      "url": "/_autogen/Classes/structbatt_1_1StrongType_1_1Hash/#function-operator()",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-result-type",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::StrongType< T, Tag >::Hash::result_type =  typename std::hash<T>::result_type",
+      "explicit": false,
+      "fullname": "batt::StrongType::Hash::result_type",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/strong_typedef.hpp",
+        "bodyStart": 74,
+        "column": 9,
+        "file": "batteries/strong_typedef.hpp",
+        "line": 74
+      },
+      "name": "result_type",
+      "override": false,
+      "refid": "structbatt_1_1StrongType_1_1Hash_1ad003a3ca2350d94ee66cfd89b0d15b8e",
+      "static": false,
+      "strong": false,
+      "title": "result_type",
+      "type": "typename std::hash< T >::result_type",
+      "typePlain": "typename std::hash< T >::result_type",
+      "url": "/_autogen/Classes/structbatt_1_1StrongType_1_1Hash/#using-result-type",
+      "visibility": "public"
+    }
+  ],
+  "refid": "structbatt_1_1StrongType_1_1Hash",
+  "static": false,
+  "strong": false,
+  "title": "batt::StrongType::Hash",
+  "url": "/_autogen/Classes/structbatt_1_1StrongType_1_1Hash/",
+  "visibility": "public"
+}
