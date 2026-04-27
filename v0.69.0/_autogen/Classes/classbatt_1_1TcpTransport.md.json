@@ -1,0 +1,581 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "brief": "A thread-safe socket based TCP connection for HTTP clients. ",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::TcpTransport",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/http/tcp_transport.hpp>",
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 112,
+    "bodyFile": "batteries/http/tcp_transport.hpp",
+    "bodyStart": 23,
+    "column": 1,
+    "file": "batteries/http/tcp_transport.hpp",
+    "line": 22
+  },
+  "name": "batt::TcpTransport",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-mutex-",
+      "brief": "Protects access to `this->socket_`. ",
+      "category": "attributes",
+      "const": false,
+      "definition": "std::mutex batt::TcpTransport::mutex_",
+      "explicit": false,
+      "fullname": "batt::TcpTransport::mutex_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/tcp_transport.hpp",
+        "bodyStart": 107,
+        "column": 24,
+        "file": "batteries/http/tcp_transport.hpp",
+        "line": 107
+      },
+      "name": "mutex_",
+      "override": false,
+      "refid": "classbatt_1_1TcpTransport_1afb8e56c0bf97d13bdfca530af881ae38",
+      "static": false,
+      "strong": false,
+      "summary": "Protects access to this->socket_. ",
+      "title": "mutex_",
+      "type": "std::mutex",
+      "typePlain": "std::mutex",
+      "url": "/_autogen/Classes/classbatt_1_1TcpTransport/#variable-mutex-",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-socket-",
+      "brief": "The underlying socket stream. ",
+      "category": "attributes",
+      "const": false,
+      "definition": "boost::asio::ip::tcp::socket batt::TcpTransport::socket_",
+      "explicit": false,
+      "fullname": "batt::TcpTransport::socket_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/tcp_transport.hpp",
+        "bodyStart": 111,
+        "column": 34,
+        "file": "batteries/http/tcp_transport.hpp",
+        "line": 111
+      },
+      "name": "socket_",
+      "override": false,
+      "refid": "classbatt_1_1TcpTransport_1a4b5039c5a50ae1dd8ce71645adb12f29",
+      "static": false,
+      "strong": false,
+      "summary": "The underlying socket stream. ",
+      "title": "socket_",
+      "type": "boost::asio::ip::tcp::socket",
+      "typePlain": "boost::asio::ip::tcp::socket",
+      "url": "/_autogen/Classes/classbatt_1_1TcpTransport/#variable-socket-",
+      "visibility": "private"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-tcptransport",
+      "argsString": "(HttpClientHostContext &host_context) noexcept",
+      "brief": "Construct a new [TcpTransport](/_autogen/Classes/classbatt_1_1TcpTransport/) that uses the passed io_context for socket communication. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::TcpTransport::TcpTransport",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::TcpTransport::TcpTransport",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 30,
+        "bodyFile": "batteries/http/tcp_transport.hpp",
+        "bodyStart": 27,
+        "column": 14,
+        "file": "batteries/http/tcp_transport.hpp",
+        "line": 27
+      },
+      "name": "TcpTransport",
+      "override": false,
+      "params": [
+        {
+          "name": "host_context",
+          "type": "[HttpClientHostContext](/_autogen/Classes/classbatt_1_1HttpClientHostContext/) &",
+          "typePlain": "HttpClientHostContext &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1TcpTransport_1a457e617bdd49b0d76812f74ff1b3bd5e",
+      "static": false,
+      "strong": false,
+      "summary": "Construct a new TcpTransport that uses the passed io_context for socket communication. ",
+      "title": "TcpTransport",
+      "url": "/_autogen/Classes/classbatt_1_1TcpTransport/#function-tcptransport",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-local-endpoint",
+      "argsString": "(ErrorCode &ec) const noexcept",
+      "brief": "Returns the local endpoint associated with this connection, if connected; otherwise returns a default endpoint value and sets the passed ErrorCode value. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "boost::asio::ip::tcp::endpoint batt::TcpTransport::local_endpoint",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::TcpTransport::local_endpoint",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 41,
+        "bodyFile": "batteries/http/tcp_transport.hpp",
+        "bodyStart": 37,
+        "column": 36,
+        "file": "batteries/http/tcp_transport.hpp",
+        "line": 37
+      },
+      "name": "local_endpoint",
+      "override": false,
+      "params": [
+        {
+          "name": "ec",
+          "type": "ErrorCode &",
+          "typePlain": "ErrorCode &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1TcpTransport_1ac9ec8d76894257633abc47fccce08e38",
+      "static": false,
+      "strong": false,
+      "summary": "Returns the local endpoint associated with this connection, if connected; otherwise returns a default endpoint value and sets the passed ErrorCode value. ",
+      "title": "local_endpoint",
+      "type": "boost::asio::ip::tcp::endpoint",
+      "typePlain": "boost::asio::ip::tcp::endpoint",
+      "url": "/_autogen/Classes/classbatt_1_1TcpTransport/#function-local-endpoint",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-remote-endpoint",
+      "argsString": "(ErrorCode &ec) const noexcept",
+      "brief": "Returns the remote endpoint associated with this connection, if connected; otherwise returns a default endpoint value and sets the passed ErrorCode value. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "boost::asio::ip::tcp::endpoint batt::TcpTransport::remote_endpoint",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::TcpTransport::remote_endpoint",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 50,
+        "bodyFile": "batteries/http/tcp_transport.hpp",
+        "bodyStart": 46,
+        "column": 36,
+        "file": "batteries/http/tcp_transport.hpp",
+        "line": 46
+      },
+      "name": "remote_endpoint",
+      "override": false,
+      "params": [
+        {
+          "name": "ec",
+          "type": "ErrorCode &",
+          "typePlain": "ErrorCode &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1TcpTransport_1ad77e5d282a9ce9c711ff056144501dc1",
+      "static": false,
+      "strong": false,
+      "summary": "Returns the remote endpoint associated with this connection, if connected; otherwise returns a default endpoint value and sets the passed ErrorCode value. ",
+      "title": "remote_endpoint",
+      "type": "boost::asio::ip::tcp::endpoint",
+      "typePlain": "boost::asio::ip::tcp::endpoint",
+      "url": "/_autogen/Classes/classbatt_1_1TcpTransport/#function-remote-endpoint",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-is-open",
+      "argsString": "() const noexcept",
+      "brief": "Returns true iff this socket is open. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "bool batt::TcpTransport::is_open",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::TcpTransport::is_open",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 58,
+        "bodyFile": "batteries/http/tcp_transport.hpp",
+        "bodyStart": 54,
+        "column": 10,
+        "file": "batteries/http/tcp_transport.hpp",
+        "line": 54
+      },
+      "name": "is_open",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1TcpTransport_1ab828e56a5270abe46a67687996f3c6b1",
+      "static": false,
+      "strong": false,
+      "summary": "Returns true iff this socket is open. ",
+      "title": "is_open",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/classbatt_1_1TcpTransport/#function-is-open",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-close",
+      "argsString": "(ErrorCode &ec) noexcept",
+      "brief": "Closes the socket (both directions). ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::TcpTransport::close",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::TcpTransport::close",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 66,
+        "bodyFile": "batteries/http/tcp_transport.hpp",
+        "bodyStart": 62,
+        "column": 10,
+        "file": "batteries/http/tcp_transport.hpp",
+        "line": 62
+      },
+      "name": "close",
+      "override": false,
+      "params": [
+        {
+          "name": "ec",
+          "type": "ErrorCode &",
+          "typePlain": "ErrorCode &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1TcpTransport_1ac3be225457ae61508d56c09791deb53d",
+      "static": false,
+      "strong": false,
+      "summary": "Closes the socket (both directions). ",
+      "title": "close",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1TcpTransport/#function-close",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-shutdown",
+      "argsString": "(boost::asio::socket_base::shutdown_type mode, ErrorCode &ec) noexcept",
+      "brief": "Performs a protocol shutdown in one or both directions for the underlying socket. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::TcpTransport::shutdown",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::TcpTransport::shutdown",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 74,
+        "bodyFile": "batteries/http/tcp_transport.hpp",
+        "bodyStart": 70,
+        "column": 10,
+        "file": "batteries/http/tcp_transport.hpp",
+        "line": 70
+      },
+      "name": "shutdown",
+      "override": false,
+      "params": [
+        {
+          "name": "mode",
+          "type": "boost::asio::socket_base::shutdown_type",
+          "typePlain": "boost::asio::socket_base::shutdown_type"
+        },
+        {
+          "name": "ec",
+          "type": "ErrorCode &",
+          "typePlain": "ErrorCode &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1TcpTransport_1a366907c5146423b4727fa2790e806cc8",
+      "static": false,
+      "strong": false,
+      "summary": "Performs a protocol shutdown in one or both directions for the underlying socket. ",
+      "title": "shutdown",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1TcpTransport/#function-shutdown",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-async-connect",
+      "argsString": "(const boost::asio::ip::tcp::endpoint &ep, Handler &&handler)",
+      "brief": "Starts an asynchronous connect operation for this socket, invoking `handler` when complete. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::TcpTransport::async_connect",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::TcpTransport::async_connect",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 83,
+        "bodyFile": "batteries/http/tcp_transport.hpp",
+        "bodyStart": 79,
+        "column": 10,
+        "file": "batteries/http/tcp_transport.hpp",
+        "line": 79
+      },
+      "name": "async_connect",
+      "override": false,
+      "params": [
+        {
+          "name": "ep",
+          "type": "const boost::asio::ip::tcp::endpoint &",
+          "typePlain": "const boost::asio::ip::tcp::endpoint &"
+        },
+        {
+          "name": "handler",
+          "type": "Handler &&",
+          "typePlain": "Handler &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1TcpTransport_1acca4254c51eda76dd286bb764a42df98",
+      "static": false,
+      "strong": false,
+      "summary": "Starts an asynchronous connect operation for this socket, invoking handler when complete. ",
+      "templateParams": [
+        {
+          "defval": "void(const ErrorCode&)",
+          "defvalPlain": "void(const ErrorCode&)",
+          "name": "",
+          "type": "typename Handler",
+          "typePlain": "typename Handler"
+        }
+      ],
+      "title": "async_connect",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1TcpTransport/#function-async-connect",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-async-read-some",
+      "argsString": "(MutableBufferSequence &&buffers, Handler &&handler)",
+      "brief": "Starts reading some data from the connection, asychronously. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::TcpTransport::async_read_some",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::TcpTransport::async_read_some",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 92,
+        "bodyFile": "batteries/http/tcp_transport.hpp",
+        "bodyStart": 88,
+        "column": 10,
+        "file": "batteries/http/tcp_transport.hpp",
+        "line": 88
+      },
+      "name": "async_read_some",
+      "override": false,
+      "params": [
+        {
+          "name": "buffers",
+          "type": "MutableBufferSequence &&",
+          "typePlain": "MutableBufferSequence &&"
+        },
+        {
+          "name": "handler",
+          "type": "Handler &&",
+          "typePlain": "Handler &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1TcpTransport_1aa31a023d7cf17e1b405809d0f0d8e633",
+      "static": false,
+      "strong": false,
+      "summary": "Starts reading some data from the connection, asychronously. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename MutableBufferSequence",
+          "typePlain": "typename MutableBufferSequence"
+        },
+        {
+          "defval": "void(const ErrorCode&, usize)",
+          "defvalPlain": "void(const ErrorCode&, usize)",
+          "name": "",
+          "type": "typename Handler",
+          "typePlain": "typename Handler"
+        }
+      ],
+      "title": "async_read_some",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1TcpTransport/#function-async-read-some",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-async-write-some",
+      "argsString": "(ConstBufferSequence &&buffers, Handler &&handler)",
+      "brief": "Starts writing some data to the connection, asychronously. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::TcpTransport::async_write_some",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::TcpTransport::async_write_some",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 101,
+        "bodyFile": "batteries/http/tcp_transport.hpp",
+        "bodyStart": 97,
+        "column": 10,
+        "file": "batteries/http/tcp_transport.hpp",
+        "line": 97
+      },
+      "name": "async_write_some",
+      "override": false,
+      "params": [
+        {
+          "name": "buffers",
+          "type": "ConstBufferSequence &&",
+          "typePlain": "ConstBufferSequence &&"
+        },
+        {
+          "name": "handler",
+          "type": "Handler &&",
+          "typePlain": "Handler &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1TcpTransport_1a83fe9b091a5f7515a27d87be304000b2",
+      "static": false,
+      "strong": false,
+      "summary": "Starts writing some data to the connection, asychronously. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename ConstBufferSequence",
+          "typePlain": "typename ConstBufferSequence"
+        },
+        {
+          "defval": "void(const ErrorCode&, usize)",
+          "defvalPlain": "void(const ErrorCode&, usize)",
+          "name": "",
+          "type": "typename Handler",
+          "typePlain": "typename Handler"
+        }
+      ],
+      "title": "async_write_some",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1TcpTransport/#function-async-write-some",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1TcpTransport",
+  "static": false,
+  "strong": false,
+  "summary": "A thread-safe socket based TCP connection for HTTP clients. ",
+  "title": "batt::TcpTransport",
+  "url": "/_autogen/Classes/classbatt_1_1TcpTransport/",
+  "visibility": "public"
+}

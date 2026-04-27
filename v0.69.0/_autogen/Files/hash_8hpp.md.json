@@ -1,0 +1,99 @@
+{
+  "abstract": false,
+  "anchor": "#file-hash.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-hash-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_HASH_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/hash.hpp",
+        "bodyStart": 5,
+        "column": 9,
+        "file": "batteries/hash.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_HASH_HPP",
+      "override": false,
+      "refid": "hash_8hpp_1abe4feaa3ccee29fe9314ed035ca51fb6",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_HASH_HPP",
+      "url": "/_autogen/Files/hash_8hpp/#define-batteries-hash-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/hash.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/hash.hpp",
+    "line": 0
+  },
+  "name": "batteries/hash.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_HASH_HPP\n#define BATTERIES_HASH_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/int_types.hpp>\n#include <batteries/utility.hpp>\n\n#include <boost/functional/hash.hpp>\n\n#include <type_traits>\n\nnamespace batt {\n\ninline usize hash()\n{\n    return 0;\n}\n\ntemplate <typename T>\nusize hash(T&& obj)\n{\n    return boost::hash<T>{}(BATT_FORWARD(obj));\n}\n\ntemplate <typename T, typename HashT = typename std::decay_t<T>::Hash>\nusize hash_value(T&& obj)\n{\n    static const HashT hash_impl;\n    return hash_impl(obj);\n}\n\ntemplate <typename First, typename... Rest>\nusize hash(First&& first, Rest&&... rest)\n{\n    usize seed = batt::hash(BATT_FORWARD(first));\n    boost::hash_combine(seed, batt::hash(BATT_FORWARD(rest)...));\n    return seed;\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_HASH_HPP",
+  "refid": "hash_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/hash.hpp",
+  "url": "/_autogen/Files/hash_8hpp/#file-hash.hpp",
+  "visibility": "public"
+}

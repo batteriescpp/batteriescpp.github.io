@@ -1,0 +1,67 @@
+{
+  "abstract": false,
+  "anchor": "#file-toggle.bench.cpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/toggle.bench.cpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/async/toggle.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/toggle.bench.cpp",
+    "line": 0
+  },
+  "name": "batteries/async/toggle.bench.cpp",
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#include <batteries/async/toggle.hpp>\n//\n\n#include <batteries/int_types.hpp>\n#include <batteries/optional.hpp>\n#include <batteries/shared_ptr.hpp>\n\n#include <benchmark/benchmark.h>\n\n#include <chrono>\n#include <memory>\n#include <random>\n#include <shared_mutex>\n#include <thread>\n#include <unordered_map>\n\nnamespace {\n\nusing namespace batt::int_types;\n\nusing batt::None;\nusing batt::Optional;\n\nconstexpr usize kNumWriterThreads = 1;\nconstexpr usize kNumRefresh = usize{1} << 10;\nconstexpr usize kMinOpCount = usize{1} << 24;\nconstexpr usize kMaxOpCount = usize{1} << 24;\n\nstruct SharedState : batt::RefCounted<SharedState> {\n    std::unordered_map<u64, u64> map_;\n};\n\nclass ReadScalabililty : public ::benchmark::Fixture\n{\n   public:\n    void SetUp(::benchmark::State& state) override\n    {\n        this->n_ops = state.range(0);\n        this->refresh_every_n = this->n_ops / kNumRefresh;\n    }\n\n    void TearDown(::benchmark::State& state [[maybe_unused]]) override\n    {\n    }\n\n    //----- --- -- -  -  -   -\n\n    template <typename Rng, typename Dist>\n    void make_new_map(Rng& rng, Dist& pick_key, usize n_items, std::unordered_map<u64, u64>& map_out)\n    {\n        map_out.clear();\n        for (usize item_i = 0; item_i < n_items; ++item_i) {\n            map_out[pick_key(rng)] = item_i;\n        }\n    }\n\n    template <typename Rng, typename Dist>\n    SharedState* make_new_shared_state(Rng& rng, Dist& pick_key)\n    {\n        auto* new_state = new SharedState;\n        intrusive_ptr_add_ref(new_state);\n        this->make_new_map(rng, pick_key, this->refresh_every_n, new_state->map_);\n        return new_state;\n    }\n\n    void reclamation_thread_main()\n    {\n        boost::intrusive_ptr<SharedState> to_delete = nullptr;\n\n        while (this->stopping_.load() == false) {\n            boost::intrusive_ptr<SharedState> expired = nullptr;\n\n            // Remove the first item from the queue (if there is one).\n            //\n            {\n                std::unique_lock<std::mutex> lock{this->queue_mutex_};\n                if (!this->queue_.empty()) {\n                    expired = std::move(this->queue_.front());\n                    this->queue_.pop_front();\n                }\n            }\n\n            // Hold `expired` for one period.\n            //\n            std::this_thread::sleep_for(std::chrono::microseconds(this->epoch_period_usec_));\n\n            // Release `to_delete`, scheduling `expired` to be deleted on the next iteration of this loop.\n            //\n            to_delete = std::move(expired);\n        }\n    }\n\n    void retire(boost::intrusive_ptr<SharedState>&& to_retire)\n    {\n        std::unique_lock<std::mutex> lock{this->queue_mutex_};\n        this->queue_.emplace_back(std::move(to_retire));\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    // General parameters.\n    //\n    usize n_ops = 0;\n    usize refresh_every_n = 0;\n\n    // This must be set long enough to cover the period of time between when a thread loads the active state\n    // pointer from the atomic variable (`this->active_state_`) and incrementing its ref count.\n    //\n    i64 epoch_period_usec_ = 150;\n\n    // For the Toggle implementation.\n    //\n    batt::Toggle<std::unordered_map<u64, u64>> toggle;\n\n    // For the EBR implementation.\n    //\n    std::atomic<bool> stopping_ = false;\n    std::mutex queue_mutex_;\n    std::deque<boost::intrusive_ptr<SharedState>> queue_;\n    std::atomic<SharedState*> active_state_ = nullptr;\n    Optional<std::thread> reclamation_thread_;\n};\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBENCHMARK_DEFINE_F(ReadScalabililty, Toggle)(benchmark::State& state)\n{\n    const bool is_writer = state.thread_index() < kNumWriterThreads;\n    std::default_random_engine rng{/*seed=*/(u32)state.thread_index()};\n    std::uniform_int_distribution<u64> pick_key{0, 9999};\n\n    if (is_writer) {\n        batt::Toggle<std::unordered_map<u64, u64>>::Writer writer{this->toggle};\n        this->make_new_map(rng, pick_key, this->refresh_every_n, writer.new_value());\n    }\n\n    for (auto _ : state) {\n        if (is_writer) {\n            for (usize refresh_i = 0; refresh_i < kNumRefresh; ++refresh_i) {\n                batt::Toggle<std::unordered_map<u64, u64>>::Writer writer{this->toggle};\n                this->make_new_map(rng, pick_key, this->refresh_every_n, writer.new_value());\n            }\n        } else {\n            for (usize op_i = 0; op_i < this->n_ops; ++op_i) {\n                batt::Toggle<std::unordered_map<u64, u64>>::Reader reader{this->toggle};\n\n                u64 key = pick_key(rng);\n                auto iter = reader->find(key);\n\n                benchmark::DoNotOptimize(iter);\n            }\n        }\n    }\n}\n\nBENCHMARK_REGISTER_F(ReadScalabililty, Toggle)\n    ->ThreadRange(1 + kNumWriterThreads, std::thread::hardware_concurrency())\n    ->Range(kMinOpCount, kMaxOpCount);\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBENCHMARK_DEFINE_F(ReadScalabililty, EBR)(benchmark::State& state)\n{\n    const bool is_writer = state.thread_index() < kNumWriterThreads;\n    std::default_random_engine rng{/*seed=*/(u32)state.thread_index()};\n    std::uniform_int_distribution<u64> pick_key{0, 9999};\n\n    if (is_writer) {\n        this->active_state_.store(this->make_new_shared_state(rng, pick_key));\n        this->reclamation_thread_.emplace([this] {\n            this->reclamation_thread_main();\n        });\n    }\n    auto on_scope_exit = batt::finally([&] {\n        if (is_writer) {\n            this->stopping_.store(true);\n            this->reclamation_thread_->join();\n        }\n    });\n\n    for (auto _ : state) {\n        if (is_writer) {\n            for (usize refresh_i = 0; refresh_i < kNumRefresh; ++refresh_i) {\n                SharedState* next_state = this->make_new_shared_state(rng, pick_key);\n                boost::intrusive_ptr<SharedState> prev_state{this->active_state_.exchange(next_state),\n                                                             /*add_ref_count=*/false};\n                this->retire(std::move(prev_state));\n            }\n        } else {\n            for (usize op_i = 0; op_i < this->n_ops; ++op_i) {\n                boost::intrusive_ptr<const SharedState> observed_state{this->active_state_.load()};\n\n                u64 key = pick_key(rng);\n                auto iter = observed_state->map_.find(key);\n\n                benchmark::DoNotOptimize(iter);\n            }\n        }\n    }\n}\n\nBENCHMARK_REGISTER_F(ReadScalabililty, EBR)\n    ->ThreadRange(1 + kNumWriterThreads, std::thread::hardware_concurrency())\n    ->Range(kMinOpCount, kMaxOpCount);\n\n}  //namespace",
+  "refid": "toggle_8bench_8cpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/toggle.bench.cpp",
+  "url": "/_autogen/Files/toggle_8bench_8cpp/#file-toggle.bench.cpp",
+  "visibility": "public"
+}
