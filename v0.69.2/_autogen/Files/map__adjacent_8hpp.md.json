@@ -1,0 +1,149 @@
+{
+  "abstract": false,
+  "anchor": "#file-map-adjacent.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-map-adjacent-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_MAP_ADJACENT_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/map_adjacent.hpp",
+        "bodyStart": 7,
+        "column": 9,
+        "file": "batteries/seq/map_adjacent.hpp",
+        "line": 7
+      },
+      "name": "BATTERIES_SEQ_MAP_ADJACENT_HPP",
+      "override": false,
+      "refid": "map__adjacent_8hpp_1ae8cdfe4812240c119668ea374b8dd223",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_MAP_ADJACENT_HPP",
+      "url": "/_autogen/Files/map__adjacent_8hpp/#define-batteries-seq-map-adjacent-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/map_adjacent.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/map_adjacent.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/map_adjacent.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n\n#pragma once\n#ifndef BATTERIES_SEQ_MAP_ADJACENT_HPP\n#define BATTERIES_SEQ_MAP_ADJACENT_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/optional.hpp>\n#include <batteries/seq/seq_item.hpp>\n#include <batteries/utility.hpp>\n\n#include <type_traits>\n#include <utility>\n\nnamespace batt {\nnamespace seq {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// map_adjacent(binary_map_fn) -\n//  Transform [i0, i1, i2, i3, i4, ...]\n//       into [f(i0, i1), f(i1, i2), f(i2, i3), ...]\n//\ntemplate <typename Seq, typename Fn>\nclass MapAdjacent\n{\n   public:\n    using Item = decltype(std::declval<Fn&>()(std::declval<const SeqItem<Seq>&>(),\n                                              std::declval<const SeqItem<Seq>&>()));\n\n    explicit MapAdjacent(Seq&& seq, Fn&& fn) noexcept : seq_(BATT_FORWARD(seq)), fn_(BATT_FORWARD(fn))\n    {\n    }\n\n    Optional<Item> peek()\n    {\n        return item_.map([&](const auto& first) {\n            return seq_.peek().map([&](const auto& second) {\n                return fn_(first, second);\n            });\n        });\n    }\n    Optional<Item> next()\n    {\n        if (!item_) {\n            return None;\n        }\n        auto first = std::move(*item_);\n        item_ = seq_.next();\n        return item_.map([&](const auto& second) {\n            return fn_(first, second);\n        });\n    }\n\n   private:\n    Seq seq_;\n    Fn fn_;\n    Optional<SeqItem<Seq>> item_{seq_.next()};\n};\n\ntemplate <typename Fn>\nstruct MapAdjacentBinder {\n    Fn fn;\n};\n\ntemplate <typename Fn>\nMapAdjacentBinder<Fn> map_adjacent(Fn&& fn)\n{\n    return {BATT_FORWARD(fn)};\n}\n\ntemplate <typename Seq, typename Fn>\n[[nodiscard]] MapAdjacent<Seq, Fn> operator|(Seq&& seq, MapAdjacentBinder<Fn>&& binder)\n{\n    return MapAdjacent<Seq, Fn>{BATT_FORWARD(seq), BATT_FORWARD(binder.fn)};\n}\n\n}  // namespace seq\n}  // namespace batt\n\n#endif  // BATTERIES_SEQ_MAP_ADJACENT_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::MapAdjacent",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::seq::MapAdjacent",
+      "refid": "classbatt_1_1seq_1_1MapAdjacent",
+      "title": "batt::seq::MapAdjacent",
+      "url": "/_autogen/Classes/classbatt_1_1seq_1_1MapAdjacent/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::MapAdjacentBinder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::MapAdjacentBinder",
+      "refid": "structbatt_1_1seq_1_1MapAdjacentBinder",
+      "title": "batt::seq::MapAdjacentBinder",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1MapAdjacentBinder/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "map__adjacent_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/map_adjacent.hpp",
+  "url": "/_autogen/Files/map__adjacent_8hpp/#file-map-adjacent.hpp",
+  "visibility": "public"
+}

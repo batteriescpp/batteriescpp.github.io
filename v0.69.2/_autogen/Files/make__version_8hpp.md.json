@@ -1,0 +1,146 @@
+{
+  "abstract": false,
+  "anchor": "#file-make-version.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-make-version-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_MAKE_VERSION_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/make_version.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/make_version.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_MAKE_VERSION_HPP",
+      "override": false,
+      "refid": "make__version_8hpp_1ac28aea0d19b1f366c79d8d22011c2071",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_MAKE_VERSION_HPP",
+      "url": "/_autogen/Files/make__version_8hpp/#define-batteries-make-version-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-make-version",
+      "brief": "Constructs a Batteries version number from x.y.z components. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_MAKE_VERSION",
+      "hasDetails": false,
+      "initializer": "((major_x) * 1000000ul + (minor_y) * 1000ul + (patch_z))",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/make_version.hpp",
+        "bodyStart": 14,
+        "column": 9,
+        "file": "batteries/make_version.hpp",
+        "line": 14
+      },
+      "name": "BATT_MAKE_VERSION",
+      "override": false,
+      "params": [
+        {
+          "name": "major_x",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "minor_y",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "patch_z",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "make__version_8hpp_1a8cbc27e81ba55777427077abdc44bd57",
+      "static": false,
+      "strong": false,
+      "summary": "Constructs a Batteries version number from x.y.z components. ",
+      "title": "BATT_MAKE_VERSION",
+      "url": "/_autogen/Files/make__version_8hpp/#define-batt-make-version",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/make_version.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/make_version.hpp",
+    "line": 0
+  },
+  "name": "batteries/make_version.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_MAKE_VERSION_HPP\n\nnamespace batt {\n\nstatic_assert(sizeof(int) >= 4,\n              \"int must be large enough to hold 3 digits for each of major.minor.patch version parts\");\n\n#define BATT_MAKE_VERSION(major_x, minor_y, patch_z) ((major_x) * 1000000ul + (minor_y) * 1000ul + (patch_z))\n\n}  // namespace batt",
+  "refid": "make__version_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/make_version.hpp",
+  "url": "/_autogen/Files/make__version_8hpp/#file-make-version.hpp",
+  "visibility": "public"
+}
