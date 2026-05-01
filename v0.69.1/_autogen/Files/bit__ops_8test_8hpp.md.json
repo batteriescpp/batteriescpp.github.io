@@ -1,0 +1,93 @@
+{
+  "abstract": false,
+  "anchor": "#file-bit-ops.test.hpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/bit_ops.test.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/bit_ops.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/bit_ops.test.hpp",
+    "line": 0
+  },
+  "name": "batteries/bit_ops.test.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "bit_ops_test",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "bit_ops_test",
+      "refid": "namespacebit__ops__test",
+      "title": "bit_ops_test",
+      "url": "/_autogen/Namespaces/namespacebit__ops__test/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2025-2026 Anthony Paul Astolfi\n//\n#include <batteries/bit_ops.hpp>\n//\n#include <batteries/bit_ops.hpp>\n\n#include <gmock/gmock.h>\n#include <gtest/gtest.h>\n\n#include <type_traits>\n\nnamespace bit_ops_test {\nusing namespace batt::int_types;\n\nusing batt::get_bit;\n\ninline i32 slow_next_bit(u64 bit_set, i32 index)\n{\n    for (++index; index < 64; ++index) {\n        if (get_bit(bit_set, index)) {\n            return index;\n        }\n    }\n    return 64;\n}\n\ntemplate <usize N>\ninline i32 slow_next_bit(const std::array<u64, N>& bit_set, i32 index)\n{\n    for (++index; index < N * 64; ++index) {\n        if (get_bit(bit_set[index / 64], index % 64)) {\n            return index;\n        }\n    }\n\n    return N * 64;\n}\n\ninline i32 slow_prev_bit(u64 bit_set, i32 index)\n{\n    for (--index; index >= 0; --index) {\n        if (get_bit(bit_set, index)) {\n            return index;\n        }\n    }\n    return -1;\n}\n\ntemplate <usize N>\ninline i32 slow_prev_bit(const std::array<u64, N>& bit_set, i32 index)\n{\n    for (--index; index >= 0; --index) {\n        if (get_bit(bit_set[index / 64], index % 64)) {\n            return index;\n        }\n    }\n\n    return -1;\n}\n\ninline i32 slow_first_bit(u64 bit_set)\n{\n    for (i32 index = 0; index < 64; ++index) {\n        if (get_bit(bit_set, index)) {\n            return index;\n        }\n    }\n    return 64;\n}\n\ntemplate <usize N>\ninline i32 slow_first_bit(const std::array<u64, N>& bit_set)\n{\n    for (i32 index = 0; index < N * 64; ++index) {\n        if (get_bit(bit_set[index / 64], index % 64)) {\n            return index;\n        }\n    }\n\n    return N * 64;\n}\n\ninline i32 slow_last_bit(u64 bit_set)\n{\n    for (i32 index = 64; index > 0;) {\n        --index;\n        if (get_bit(bit_set, index)) {\n            return index;\n        }\n    }\n    return -1;\n}\n\ntemplate <usize N>\ninline i32 slow_last_bit(const std::array<u64, N>& bit_set)\n{\n    for (i32 index = N * 64; index > 0;) {\n        --index;\n        if (get_bit(bit_set[index / 64], index % 64)) {\n            return index;\n        }\n    }\n\n    return -1;\n}\n\ninline i32 slow_bit_rank(u64 bit_set, i32 index)\n{\n    index = std::min<i32>(index, 63);\n    i32 rank = -1;\n    for (i32 j = 0; j <= index; ++j) {\n        if (get_bit(bit_set, j)) {\n            ++rank;\n        }\n    }\n    return rank;\n}\n\ntemplate <usize N>\ninline i32 slow_bit_rank(const std::array<u64, N>& bit_set, i32 index)\n{\n    i32 rank = -1;\n    for (i32 j = 0; j <=index; ++j) {\n        if (get_bit(bit_set[j / 64], j % 64)) {\n            ++rank;\n        }\n    }\n\n    return rank;\n}\n\ninline i32 slow_bit_select(u64 bit_set, i32 rank)\n{\n    for (i32 index = 0; index < 64; ++index) {\n        if (slow_bit_rank(bit_set, index) == rank) {\n            return index;\n        }\n    }\n    return 64;\n}\n\ntemplate <usize N>\ninline i32 slow_bit_select(const std::array<u64, N>& bit_set, i32 rank)\n{\n    for (i32 index = 0; index < N * 64; ++index) {\n        if (slow_bit_rank(bit_set, index) == rank) {\n            return index;\n        }\n    }\n    return N * 64;\n}\n\ninline std::string bit_set_string(u64 bit_set)\n{\n    return std::bitset<64>(bit_set).to_string();\n}\n\ninline std::string bit_set_string(const std::array<u64, 2>& bit_set)\n{\n    return bit_set_string(bit_set[1]) + bit_set_string(bit_set[0]);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename T>\nclass BitOpsOverloadTest : public ::testing::Test\n{\n};\n\nusing TestType = ::testing::Types<u64, std::array<u64, 2>>;\nTYPED_TEST_SUITE(BitOpsOverloadTest, TestType);\n}  //namespace",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "testing::Test",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "A class used to create a GTest Typed Test Suite to test different bit operation functions for different overloads. ",
+      "category": "classes",
+      "fullname": "bit_ops_test::BitOpsOverloadTest",
+      "kind": "class",
+      "language": "cpp",
+      "name": "bit_ops_test::BitOpsOverloadTest",
+      "refid": "classbit__ops__test_1_1BitOpsOverloadTest",
+      "summary": "A class used to create a GTest Typed Test Suite to test different bit operation functions for different overloads. ",
+      "title": "bit_ops_test::BitOpsOverloadTest",
+      "url": "/_autogen/Classes/classbit__ops__test_1_1BitOpsOverloadTest/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "bit__ops_8test_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/bit_ops.test.hpp",
+  "url": "/_autogen/Files/bit__ops_8test_8hpp/#file-bit-ops.test.hpp",
+  "visibility": "public"
+}

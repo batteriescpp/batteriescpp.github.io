@@ -1,0 +1,133 @@
+{
+  "abstract": false,
+  "anchor": "#file-verbose.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-state-machine-model-verbose-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_STATE_MACHINE_MODEL_VERBOSE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/state_machine_model/verbose.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/state_machine_model/verbose.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_STATE_MACHINE_MODEL_VERBOSE_HPP",
+      "override": false,
+      "refid": "verbose_8hpp_1ac8fe5199dc07dd097d48cc29ea6a0b87",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_STATE_MACHINE_MODEL_VERBOSE_HPP",
+      "url": "/_autogen/Files/verbose_8hpp/#define-batteries-state-machine-model-verbose-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-state-machine-verbose",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_STATE_MACHINE_VERBOSE",
+      "hasDetails": false,
+      "initializer": "    for (; false;)                                                                                           \\\n    std::cout",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/state_machine_model/verbose.hpp",
+        "bodyStart": 16,
+        "column": 10,
+        "file": "batteries/state_machine_model/verbose.hpp",
+        "line": 16
+      },
+      "name": "BATT_STATE_MACHINE_VERBOSE",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "verbose_8hpp_1a30592c8c1f6edfa2eaeda45a51890db9",
+      "static": false,
+      "strong": false,
+      "title": "BATT_STATE_MACHINE_VERBOSE",
+      "url": "/_autogen/Files/verbose_8hpp/#define-batt-state-machine-verbose",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/state_machine_model/verbose.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<iostream>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/state_machine_model/verbose.hpp",
+    "line": 0
+  },
+  "name": "batteries/state_machine_model/verbose.hpp",
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/state-machine-model",
+    "category": "dirs",
+    "fullname": "batteries/state_machine_model",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/state_machine_model",
+    "refid": "dir_a632bc4ac9c412aedbec832ef7391aeb",
+    "title": "batteries/state_machine_model",
+    "url": "/_autogen/Files/dir_a632bc4ac9c412aedbec832ef7391aeb/#dir-batteries/state-machine-model",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/state-machine-model",
+      "category": "dirs",
+      "fullname": "batteries/state_machine_model",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/state_machine_model",
+      "refid": "dir_a632bc4ac9c412aedbec832ef7391aeb",
+      "title": "batteries/state_machine_model",
+      "url": "/_autogen/Files/dir_a632bc4ac9c412aedbec832ef7391aeb/#dir-batteries/state-machine-model",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_STATE_MACHINE_MODEL_VERBOSE_HPP\n#define BATTERIES_STATE_MACHINE_MODEL_VERBOSE_HPP\n\n#include <iostream>\n\n#if 0\n#define BATT_STATE_MACHINE_VERBOSE() \n\nfor (bool b_VerBOSe_vAR = true; b_VerBOSe_vAR; std::cout << std::endl, b_VerBOSe_vAR = false)                \\\n    std::cout\n#else\n#define BATT_STATE_MACHINE_VERBOSE()                                                                         \\\n    for (; false;)                                                                                           \\\n    std::cout\n#endif\n\n#endif  // BATTERIES_STATE_MACHINE_MODEL_VERBOSE_HPP",
+  "refid": "verbose_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/state_machine_model/verbose.hpp",
+  "url": "/_autogen/Files/verbose_8hpp/#file-verbose.hpp",
+  "visibility": "public"
+}

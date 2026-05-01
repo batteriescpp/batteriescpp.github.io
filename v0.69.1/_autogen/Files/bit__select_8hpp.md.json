@@ -1,0 +1,145 @@
+{
+  "abstract": false,
+  "anchor": "#file-bit-select.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-bit-ops-bit-select-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_BIT_OPS_BIT_SELECT_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/bit_ops/bit_select.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/bit_ops/bit_select.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_BIT_OPS_BIT_SELECT_HPP",
+      "override": false,
+      "refid": "bit__select_8hpp_1aa67cda31503c1e65e78cabcbc9317094",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_BIT_OPS_BIT_SELECT_HPP",
+      "url": "/_autogen/Files/bit__select_8hpp/#define-batteries-bit-ops-bit-select-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-bit-select-iter",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_BIT_SELECT_ITER",
+      "hasDetails": false,
+      "initializer": "    ans = bit_rank(bit_set, probe);                                                                          \\\n    if (ans < rank) {                                                                                        \\\n        probe += step;                                                                                       \\\n    } else {                                                                                                 \\\n        probe -= step;                                                                                       \\\n    }",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "column": 9,
+        "file": "batteries/bit_ops/bit_select.hpp",
+        "line": 110
+      },
+      "name": "BATT_BIT_SELECT_ITER",
+      "override": false,
+      "params": [
+        {
+          "name": "step",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "bit__select_8hpp_1ada1a39bad4d01c34084bf84060f8e465",
+      "static": false,
+      "strong": false,
+      "title": "BATT_BIT_SELECT_ITER",
+      "url": "/_autogen/Files/bit__select_8hpp/#define-batt-bit-select-iter",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/bit_ops/bit_select.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/bit_ops/bit_select.hpp",
+    "line": 0
+  },
+  "name": "batteries/bit_ops/bit_select.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/bit-ops",
+    "category": "dirs",
+    "fullname": "batteries/bit_ops",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/bit_ops",
+    "refid": "dir_09dc2df44c13d5f8f6954de245bda43d",
+    "title": "batteries/bit_ops",
+    "url": "/_autogen/Files/dir_09dc2df44c13d5f8f6954de245bda43d/#dir-batteries/bit-ops",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/bit-ops",
+      "category": "dirs",
+      "fullname": "batteries/bit_ops",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/bit_ops",
+      "refid": "dir_09dc2df44c13d5f8f6954de245bda43d",
+      "title": "batteries/bit_ops",
+      "url": "/_autogen/Files/dir_09dc2df44c13d5f8f6954de245bda43d/#dir-batteries/bit-ops",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_BIT_OPS_BIT_SELECT_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/bit_ops/bit_count.hpp>\n#include <batteries/bit_ops/bit_rank.hpp>\n\n#include <batteries/int_types.hpp>\n\n#ifdef __BMI2__\n#include <x86gprintrin.h>\n#endif  // __BMI2__\n\n#ifdef __MMX__\n#include <mmintrin.h>\n#endif  // __MMX__\n\n#ifdef __SSE2__\n#include <emmintrin.h>\n#endif  // __SSE2__\n\n#ifdef __SSE3__\n#include <pmmintrin.h>\n#endif  // __SSE3__\n\n#ifdef __AVX__\n#include <immintrin.h>\n#endif\n\n#ifdef __AVX512F__\n#include <immintrin.h>  // AVX512 (AVX, AVX2, FMA)\n#endif\n\nnamespace batt {\n\nconstexpr inline i32 bit_select(u64 bit_set, i32 rank)\n{\n#ifdef __BMI2__\n\n    if (rank == -1) {\n        return 0;\n    }\n\n    // Use BMI2 instructions to accelerate this operation, if available.\n    //\n    const u64 tmp = _pdep_u64((u64{2} << rank) - 1, bit_set);\n    if (tmp == 0) {\n        return 0;\n    }\n    return (63 - leading_zero_bits(tmp));\n\n#else\n\n    // Fall-back portable implementation: do O(log_2(64)) probes using bit_rank to quickly\n    // narrow in on the correct value.  This could be written as a loop, but since we know\n    // the maximum number of iterations (log_2(64)==6), we just manually unroll.\n    //\n    i32 ans = 0;\n    i32 probe = 31;\n\n    // Starting at the middle (bit 31), probe bit_rank and move up or down by an exponentially decreasing\n    // amount each iteration.  NOTE: because `bit_select` must return the _least_ index with the specified\n    // rank, we can't return early if we find a perfect match, since there may be a lower-valued one.  This\n    // also means that the way the conditional in the macro below is written is very important: if ans ==\n    // rank, we must move DOWN.\n    //\n#define BATT_BIT_SELECT_ITER(step)                                                                           \\\n    ans = bit_rank(bit_set, probe);                                                                          \\\n    if (ans < rank) {                                                                                        \\\n        probe += step;                                                                                       \\\n    } else {                                                                                                 \\\n        probe -= step;                                                                                       \\\n    }\n\n    BATT_BIT_SELECT_ITER(16)\n    BATT_BIT_SELECT_ITER(8)\n    BATT_BIT_SELECT_ITER(4)\n    BATT_BIT_SELECT_ITER(2)\n    BATT_BIT_SELECT_ITER(1)\n    BATT_BIT_SELECT_ITER(0)\n\n    // Do the cheapest check first; is probe exactly right?\n    //\n    if (ans == rank) {\n        return probe;\n    }\n\n    // Otherwise, since we have narrowed the `step` down to 0 by repeated divisions by 2, we know that the\n    // correct value is at most off by one.  Handle both cases below.\n    //\n    if (ans < rank) {\n        return probe + 1;\n    }\n    return probe - 1;\n\n#undef BATT_BIT_SELECT_ITER\n\n#endif  // __BMI2__\n}\n\ntemplate <usize N>\nconstexpr inline i32 bit_select(const std::array<u64, N>& bit_set, i32 rank)\n{\n    i32 current_rank = rank;\n    for (i32 word_i = 0; word_i < N; ++word_i) {\n        i32 word_bit_count = bit_count(bit_set[word_i]);\n        if (word_bit_count > current_rank) {\n            i32 bit_i = bit_select(bit_set[word_i], current_rank);\n            return word_i * 64 + bit_i;\n        }\n        current_rank -= word_bit_count;\n    }\n\n    return N * 64;\n}\n\n}  // namespace batt",
+  "refid": "bit__select_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/bit_ops/bit_select.hpp",
+  "url": "/_autogen/Files/bit__select_8hpp/#file-bit-select.hpp",
+  "visibility": "public"
+}
