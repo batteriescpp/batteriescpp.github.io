@@ -1,0 +1,391 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "baseClasses": [
+    {
+      "external": false,
+      "name": "batt::detail::SecondPhase",
+      "publicFunctions": [
+        {
+          "abstract": false,
+          "anchor": "#function-fixed-iter",
+          "argsString": "(const Src0 &, const Src1 &src_1)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static const Src1& batt::detail::SecondPhase::fixed_iter",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::detail::SecondPhase::fixed_iter",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 65,
+            "bodyFile": "batteries/algo/parallel_merge.hpp",
+            "bodyStart": 62,
+            "column": 23,
+            "file": "batteries/algo/parallel_merge.hpp",
+            "line": 62
+          },
+          "name": "fixed_iter",
+          "override": false,
+          "params": [
+            {
+              "name": "",
+              "type": "const Src0 &",
+              "typePlain": "const Src0 &"
+            },
+            {
+              "name": "src_1",
+              "type": "const Src1 &",
+              "typePlain": "const Src1 &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1detail_1_1SecondPhase_1ae44face31bf6bce9412acc9df31eb507",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename Src0",
+              "typePlain": "typename Src0"
+            },
+            {
+              "name": "",
+              "type": "typename Src1",
+              "typePlain": "typename Src1"
+            }
+          ],
+          "title": "fixed_iter",
+          "type": "const Src1 &",
+          "typePlain": "const Src1 &",
+          "url": "/_autogen/Classes/structbatt_1_1detail_1_1SecondPhase/#function-fixed-iter",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-search-iter",
+          "argsString": "(const Src0 &src_0, const Src1 &)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static const Src0& batt::detail::SecondPhase::search_iter",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::detail::SecondPhase::search_iter",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 70,
+            "bodyFile": "batteries/algo/parallel_merge.hpp",
+            "bodyStart": 67,
+            "column": 23,
+            "file": "batteries/algo/parallel_merge.hpp",
+            "line": 67
+          },
+          "name": "search_iter",
+          "override": false,
+          "params": [
+            {
+              "name": "src_0",
+              "type": "const Src0 &",
+              "typePlain": "const Src0 &"
+            },
+            {
+              "name": "",
+              "type": "const Src1 &",
+              "typePlain": "const Src1 &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1detail_1_1SecondPhase_1a80ef7f485428b4bdb4ddcc606eb875f9",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename Src0",
+              "typePlain": "typename Src0"
+            },
+            {
+              "name": "",
+              "type": "typename Src1",
+              "typePlain": "typename Src1"
+            }
+          ],
+          "title": "search_iter",
+          "type": "const Src0 &",
+          "typePlain": "const Src0 &",
+          "url": "/_autogen/Classes/structbatt_1_1detail_1_1SecondPhase/#function-search-iter",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-src-0-iter",
+          "argsString": "(const Fixed &, const Search &search)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static const Search& batt::detail::SecondPhase::src_0_iter",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::detail::SecondPhase::src_0_iter",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 75,
+            "bodyFile": "batteries/algo/parallel_merge.hpp",
+            "bodyStart": 72,
+            "column": 25,
+            "file": "batteries/algo/parallel_merge.hpp",
+            "line": 72
+          },
+          "name": "src_0_iter",
+          "override": false,
+          "params": [
+            {
+              "name": "",
+              "type": "const Fixed &",
+              "typePlain": "const Fixed &"
+            },
+            {
+              "name": "search",
+              "type": "const Search &",
+              "typePlain": "const Search &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1detail_1_1SecondPhase_1a570a06c28caff07f98fc535ba4e200a3",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename Fixed",
+              "typePlain": "typename Fixed"
+            },
+            {
+              "name": "",
+              "type": "typename Search",
+              "typePlain": "typename Search"
+            }
+          ],
+          "title": "src_0_iter",
+          "type": "const Search &",
+          "typePlain": "const Search &",
+          "url": "/_autogen/Classes/structbatt_1_1detail_1_1SecondPhase/#function-src-0-iter",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-src-1-iter",
+          "argsString": "(const Fixed &fixed, const Search &)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static const Fixed& batt::detail::SecondPhase::src_1_iter",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::detail::SecondPhase::src_1_iter",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 80,
+            "bodyFile": "batteries/algo/parallel_merge.hpp",
+            "bodyStart": 77,
+            "column": 24,
+            "file": "batteries/algo/parallel_merge.hpp",
+            "line": 77
+          },
+          "name": "src_1_iter",
+          "override": false,
+          "params": [
+            {
+              "name": "fixed",
+              "type": "const Fixed &",
+              "typePlain": "const Fixed &"
+            },
+            {
+              "name": "",
+              "type": "const Search &",
+              "typePlain": "const Search &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1detail_1_1SecondPhase_1a3d81a22eec0538037fec195a97405dab",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename Fixed",
+              "typePlain": "typename Fixed"
+            },
+            {
+              "name": "",
+              "type": "typename Search",
+              "typePlain": "typename Search"
+            }
+          ],
+          "title": "src_1_iter",
+          "type": "const Fixed &",
+          "typePlain": "const Fixed &",
+          "url": "/_autogen/Classes/structbatt_1_1detail_1_1SecondPhase/#function-src-1-iter",
+          "virtual": false,
+          "visibility": "public"
+        }
+      ],
+      "publicTypes": [
+        {
+          "abstract": false,
+          "anchor": "#using-nextphase",
+          "category": "types",
+          "const": false,
+          "definition": "using batt::detail::SecondPhase::NextPhase =  ThirdPhase",
+          "explicit": false,
+          "fullname": "batt::detail::SecondPhase::NextPhase",
+          "hasDetails": false,
+          "inline": false,
+          "kind": "using",
+          "language": "cpp",
+          "location": {
+            "bodyFile": "batteries/algo/parallel_merge.hpp",
+            "bodyStart": 59,
+            "column": 5,
+            "file": "batteries/algo/parallel_merge.hpp",
+            "line": 59
+          },
+          "name": "NextPhase",
+          "override": false,
+          "refid": "structbatt_1_1detail_1_1SecondPhase_1a8c95b8fa727aa9626a74327c8e6b9fc0",
+          "static": false,
+          "strong": false,
+          "title": "NextPhase",
+          "type": "[ThirdPhase](/_autogen/Classes/structbatt_1_1detail_1_1ThirdPhase/)",
+          "typePlain": "ThirdPhase",
+          "url": "/_autogen/Classes/structbatt_1_1detail_1_1SecondPhase/#using-nextphase",
+          "visibility": "public"
+        }
+      ],
+      "refid": "structbatt_1_1detail_1_1SecondPhase",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1SecondPhase/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::detail::ThirdPhase",
+  "hasAdditionalMembers": true,
+  "hasDetails": false,
+  "inline": false,
+  "kind": "struct",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 88,
+    "bodyFile": "batteries/algo/parallel_merge.hpp",
+    "bodyStart": 83,
+    "column": 1,
+    "file": "batteries/algo/parallel_merge.hpp",
+    "line": 83
+  },
+  "name": "batt::detail::ThirdPhase",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt::detail",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt::detail",
+    "refid": "namespacebatt_1_1detail",
+    "title": "batt::detail",
+    "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-name",
+      "argsString": "()",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static const char* batt::detail::ThirdPhase::name",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::ThirdPhase::name",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 87,
+        "bodyFile": "batteries/algo/parallel_merge.hpp",
+        "bodyStart": 84,
+        "column": 23,
+        "file": "batteries/algo/parallel_merge.hpp",
+        "line": 84
+      },
+      "name": "name",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1detail_1_1ThirdPhase_1a3f042e7a2cac6a7e98521e369df0e5df",
+      "static": true,
+      "strong": false,
+      "title": "name",
+      "type": "const char *",
+      "typePlain": "const char *",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1ThirdPhase/#function-name",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "refid": "structbatt_1_1detail_1_1ThirdPhase",
+  "static": false,
+  "strong": false,
+  "title": "batt::detail::ThirdPhase",
+  "url": "/_autogen/Classes/structbatt_1_1detail_1_1ThirdPhase/",
+  "visibility": "public"
+}
