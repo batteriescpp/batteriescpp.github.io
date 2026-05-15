@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-metric-dumper-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-metrics-metric-dumper-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_METRICS_METRIC_DUMPER_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/metrics/metric_dumper_impl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/metrics/metric_dumper_impl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_METRICS_METRIC_DUMPER_IMPL_HPP",
+      "override": false,
+      "refid": "metric__dumper__impl_8hpp_1a3d2c1ac9e45113b983d968c7674084d2",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_METRICS_METRIC_DUMPER_IMPL_HPP",
+      "url": "/_autogen/Files/metric__dumper__impl_8hpp/#define-batteries-metrics-metric-dumper-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/metrics/metric_dumper_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/metrics/metric_dumper_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/metrics/metric_dumper_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/metrics",
+    "category": "dirs",
+    "fullname": "batteries/metrics",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/metrics",
+    "refid": "dir_5ba863940ce6067bb787d1b849676df9",
+    "title": "batteries/metrics",
+    "url": "/_autogen/Files/dir_5ba863940ce6067bb787d1b849676df9/#dir-batteries/metrics",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/metrics",
+      "category": "dirs",
+      "fullname": "batteries/metrics",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/metrics",
+      "refid": "dir_5ba863940ce6067bb787d1b849676df9",
+      "title": "batteries/metrics",
+      "url": "/_autogen/Files/dir_5ba863940ce6067bb787d1b849676df9/#dir-batteries/metrics",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_METRICS_METRIC_DUMPER_IMPL_HPP\n#define BATTERIES_METRICS_METRIC_DUMPER_IMPL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/metrics/metric_dumper.hpp>\n\n#include <algorithm>\n#include <chrono>\n#include <future>\n#include <map>\n#include <memory>\n#include <unordered_map>\n#include <utility>\n#include <vector>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL MetricDumper::MetricDumper(MetricRegistry& registry, double rows_per_sec, std::ostream& out,\n                                            std::unique_ptr<MetricFormatter> formatter) noexcept\n    : registry_{registry}\n    , rows_per_sec_{rows_per_sec}\n    , out_{out}\n    , formatter_{std::move(formatter)}\n    , done_{}\n    , thread_{[this] {\n        std::future<bool> done = this->done_.get_future();\n\n        this->formatter_->initialize(this->registry_, this->out_);\n\n        for (;;) {\n            const bool stop_requested =\n                done.wait_for(std::chrono::microseconds(i64(1000000.0 / this->rows_per_sec_))) !=\n                std::future_status::timeout;\n\n            this->formatter_->format_values(this->registry_, this->out_);\n\n            if (stop_requested) {\n                break;\n            }\n        }\n\n        this->formatter_->finished(this->registry_, this->out_);\n    }}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL MetricDumper::~MetricDumper() noexcept\n{\n    this->stop();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void MetricDumper::halt()\n{\n    this->done_.set_value(true);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void MetricDumper::join()\n{\n    if (this->thread_) {\n        this->thread_->join();\n        this->thread_ = None;\n    }\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_METRICS_METRIC_DUMPER_IMPL_HPP",
+  "refid": "metric__dumper__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/metrics/metric_dumper_impl.hpp",
+  "url": "/_autogen/Files/metric__dumper__impl_8hpp/#file-metric-dumper-impl.hpp",
+  "visibility": "public"
+}
