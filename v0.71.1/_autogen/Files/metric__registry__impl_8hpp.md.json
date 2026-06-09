@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-metric-registry-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-metrics-metric-registry-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_METRICS_METRIC_REGISTRY_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/metrics/metric_registry_impl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/metrics/metric_registry_impl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_METRICS_METRIC_REGISTRY_IMPL_HPP",
+      "override": false,
+      "refid": "metric__registry__impl_8hpp_1a6b026a3dec7fdc971281e0d086b953c4",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_METRICS_METRIC_REGISTRY_IMPL_HPP",
+      "url": "/_autogen/Files/metric__registry__impl_8hpp/#define-batteries-metrics-metric-registry-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/metrics/metric_registry_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/metrics/metric_registry_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/metrics/metric_registry_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/metrics",
+    "category": "dirs",
+    "fullname": "batteries/metrics",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/metrics",
+    "refid": "dir_5ba863940ce6067bb787d1b849676df9",
+    "title": "batteries/metrics",
+    "url": "/_autogen/Files/dir_5ba863940ce6067bb787d1b849676df9/#dir-batteries/metrics",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/metrics",
+      "category": "dirs",
+      "fullname": "batteries/metrics",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/metrics",
+      "refid": "dir_5ba863940ce6067bb787d1b849676df9",
+      "title": "batteries/metrics",
+      "url": "/_autogen/Files/dir_5ba863940ce6067bb787d1b849676df9/#dir-batteries/metrics",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_METRICS_METRIC_REGISTRY_IMPL_HPP\n#define BATTERIES_METRICS_METRIC_REGISTRY_IMPL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/metrics/metric_registry.hpp>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL MetricRegistry& global_metric_registry()\n{\n    static MetricRegistry instance_;\n    return instance_;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL MetricLabelSet normalize_labels(MetricLabelSet&& labels)\n{\n    std::sort(labels.begin(), labels.end(), [](const MetricLabel& left, const MetricLabel& right) {\n        return left.key < right.key;\n    });\n\n    labels.erase(std::unique(labels.begin(), labels.end(),\n                             [](const MetricLabel& left, const MetricLabel& right) {\n                                 return left.key == right.key;\n                             }),\n                 labels.end());\n\n    return std::move(labels);\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_METRICS_METRIC_REGISTRY_IMPL_HPP",
+  "refid": "metric__registry__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/metrics/metric_registry_impl.hpp",
+  "url": "/_autogen/Files/metric__registry__impl_8hpp/#file-metric-registry-impl.hpp",
+  "visibility": "public"
+}

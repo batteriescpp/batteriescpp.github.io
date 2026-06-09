@@ -1,0 +1,125 @@
+{
+  "abstract": false,
+  "anchor": "#file-sub-range-seq.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-sub-range-seq-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_SUB_RANGE_SEQ_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/sub_range_seq.hpp",
+        "bodyStart": 5,
+        "column": 9,
+        "file": "batteries/seq/sub_range_seq.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_SEQ_SUB_RANGE_SEQ_HPP",
+      "override": false,
+      "refid": "sub__range__seq_8hpp_1aea8062c59ff2e96c65ec76a6ef4acf22",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_SUB_RANGE_SEQ_HPP",
+      "url": "/_autogen/Files/sub__range__seq_8hpp/#define-batteries-seq-sub-range-seq-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/sub_range_seq.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/sub_range_seq.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/sub_range_seq.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_SEQ_SUB_RANGE_SEQ_HPP\n#define BATTERIES_SEQ_SUB_RANGE_SEQ_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/optional.hpp>\n#include <batteries/seq/count.hpp>\n#include <batteries/seq/for_each.hpp>\n#include <batteries/utility.hpp>\n\n#include <type_traits>\n\nnamespace batt {\n\ntemplate <typename T>\nclass SubRangeSeq\n{\n   public:\n    using Item = decltype(std::declval<T>().front());\n\n    explicit SubRangeSeq(T&& sub_range) noexcept : sub_range_{BATT_FORWARD(sub_range)}\n    {\n    }\n\n    Optional<Item> peek()\n    {\n        if (this->sub_range_.empty()) {\n            return None;\n        }\n        return {this->sub_range_.front()};\n    }\n\n    Optional<Item> next()\n    {\n        auto n = this->peek();\n        if (n) {\n            this->sub_range_.drop_front();\n        }\n        return n;\n    }\n\n#if BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n    template <typename T_>\n    friend std::size_t operator|(const SubRangeSeq<T_>&, seq::CountBinder);\n\n    template <typename T_, typename Fn>\n    friend seq::LoopControl operator|(const SubRangeSeq<T_>&, seq::ForEachBinder<Fn>&&);\n\n#endif  // BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n   private:\n    T sub_range_;\n};\n\ntemplate <typename T,  //\n          typename = decltype(std::declval<T>().front()), typename = decltype(std::declval<T>().drop_front())>\nSubRangeSeq<T> as_seq(T&& sub_range)\n{\n    return SubRangeSeq<T>{BATT_FORWARD(sub_range)};\n}\n\n#if BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\ntemplate <typename T>\n[[nodiscard]] std::size_t operator|(const SubRangeSeq<T>& sub_range_seq, seq::CountBinder)\n{\n    return sub_range_seq.sub_range_.size();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\ntemplate <typename T, typename Fn>\nseq::LoopControl operator|(const SubRangeSeq<T>& sub_range_seq, seq::ForEachBinder<Fn>&& binder)\n{\n    for (const auto& item : sub_range_seq.sub_range_) {\n        if (BATT_HINT_FALSE(seq::run_loop_fn(binder.fn, item) == seq::kBreak)) {\n            return seq::kBreak;\n        }\n    }\n    return seq::kContinue;\n}\n\n#endif  // BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n}  // namespace batt\n\n#endif  // BATTERIES_SEQ_SUB_RANGE_SEQ_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::SubRangeSeq",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::SubRangeSeq",
+      "refid": "classbatt_1_1SubRangeSeq",
+      "title": "batt::SubRangeSeq",
+      "url": "/_autogen/Classes/classbatt_1_1SubRangeSeq/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "sub__range__seq_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/sub_range_seq.hpp",
+  "url": "/_autogen/Files/sub__range__seq_8hpp/#file-sub-range-seq.hpp",
+  "visibility": "public"
+}
