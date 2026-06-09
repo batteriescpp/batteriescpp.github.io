@@ -1,0 +1,859 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "brief": "[Mutex](/_autogen/Classes/classbatt_1_1Mutex/) wrapper for a value of type T, providing exclusive read/write access and non-exclusive read-only access. ",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "friends": [
+    {
+      "abstract": false,
+      "anchor": "#friend-scopedreadwritelockimpl",
+      "argsString": "",
+      "category": "friends",
+      "const": false,
+      "default": false,
+      "definition": "friend class ScopedReadWriteLockImpl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::ReadWriteMutex::ScopedReadWriteLockImpl",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "friend",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/read_write_lock.hpp",
+        "bodyStart": 451,
+        "column": 5,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 451
+      },
+      "name": "ScopedReadWriteLockImpl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[ScopedReadWriteLockImpl](/_autogen/Classes/classbatt_1_1ScopedReadWriteLockImpl/)",
+          "typePlain": "ScopedReadWriteLockImpl"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1affc5a8618f3bea266eca461e510489dd",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        },
+        {
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "ScopedReadWriteLockImpl",
+      "type": "class",
+      "typePlain": "class",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#friend-scopedreadwritelockimpl",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "fullname": "batt::ReadWriteMutex",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "includes": "<batteries/async/read_write_lock.hpp>",
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 569,
+    "bodyFile": "batteries/async/read_write_lock.hpp",
+    "bodyStart": 448,
+    "column": 1,
+    "file": "batteries/async/read_write_lock.hpp",
+    "line": 447
+  },
+  "name": "batt::ReadWriteMutex",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-lock-",
+      "category": "attributes",
+      "const": false,
+      "definition": "ReadWriteLock batt::ReadWriteMutex< T >::lock_",
+      "explicit": false,
+      "fullname": "batt::ReadWriteMutex::lock_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/read_write_lock.hpp",
+        "bodyStart": 567,
+        "column": 19,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 567
+      },
+      "name": "lock_",
+      "override": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1a45f71c75fd3f48b9f034dc7e225746e2",
+      "static": false,
+      "strong": false,
+      "title": "lock_",
+      "type": "[ReadWriteLock](/_autogen/Classes/classbatt_1_1BasicReadWriteLock/)",
+      "typePlain": "ReadWriteLock",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#variable-lock-",
+      "visibility": "private"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-value-",
+      "category": "attributes",
+      "const": false,
+      "definition": "T batt::ReadWriteMutex< T >::value_",
+      "explicit": false,
+      "fullname": "batt::ReadWriteMutex::value_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/read_write_lock.hpp",
+        "bodyStart": 568,
+        "column": 7,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 568
+      },
+      "name": "value_",
+      "override": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1aff60dc83956e239f92d722b907c90cee",
+      "static": false,
+      "strong": false,
+      "title": "value_",
+      "type": "T",
+      "typePlain": "T",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#variable-value-",
+      "visibility": "private"
+    }
+  ],
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "Returned by [Mutex::thread_safe_base](/_autogen/Classes/classbatt_1_1Mutex/#function-thread-safe-base) when no-lock access isn't enabled; the name of this type is designed to produce a compilation error that makes it obvious what the problem is. ",
+      "category": "classes",
+      "fullname": "batt::ReadWriteMutex::ThreadSafeBaseIsNotSupportedByType",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::ReadWriteMutex::ThreadSafeBaseIsNotSupportedByType",
+      "refid": "structbatt_1_1ReadWriteMutex_1_1ThreadSafeBaseIsNotSupportedByType",
+      "summary": "Returned by Mutex::thread_safe_base when no-lock access isn't enabled; the name of this type is designed to produce a compilation error that makes it obvious what the problem is. ",
+      "title": "batt::ReadWriteMutex::ThreadSafeBaseIsNotSupportedByType",
+      "url": "/_autogen/Classes/structbatt_1_1ReadWriteMutex_1_1ThreadSafeBaseIsNotSupportedByType/",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-thread-safe-base",
+      "argsString": "(Self *ptr)",
+      "brief": "(INTERNAL USE ONLY) Return a pointer to the thread-safe base class of the protected object. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static Base* batt::ReadWriteMutex< T >::thread_safe_base",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::ReadWriteMutex::thread_safe_base",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 470,
+        "bodyFile": "batteries/async/read_write_lock.hpp",
+        "bodyStart": 467,
+        "column": 17,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 467
+      },
+      "name": "thread_safe_base",
+      "override": false,
+      "params": [
+        {
+          "name": "ptr",
+          "type": "[Self](/_autogen/Classes/classbatt_1_1ReadWriteMutex/) *",
+          "typePlain": "Self *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1ae1807a00eefbad0e4c1ff9ae59eb0c32",
+      "static": true,
+      "strong": false,
+      "summary": "(INTERNAL USE ONLY) Return a pointer to the thread-safe base class of the protected object. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename [Self](/_autogen/Classes/classbatt_1_1ReadWriteMutex/)",
+          "typePlain": "typename Self"
+        },
+        {
+          "defval": "typename Self::ThreadSafeBase",
+          "defvalPlain": "typename Self::ThreadSafeBase",
+          "name": "",
+          "type": "typename Base",
+          "typePlain": "typename Base"
+        }
+      ],
+      "title": "thread_safe_base",
+      "type": "Base *",
+      "typePlain": "Base *",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#function-thread-safe-base",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-thread-safe-base",
+      "argsString": "(const Self *ptr)",
+      "brief": "(INTERNAL USE ONLY) Return a const pointer to the thread-safe base class of the protected object. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static const Base* batt::ReadWriteMutex< T >::thread_safe_base",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::ReadWriteMutex::thread_safe_base",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 479,
+        "bodyFile": "batteries/async/read_write_lock.hpp",
+        "bodyStart": 476,
+        "column": 23,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 476
+      },
+      "name": "thread_safe_base",
+      "override": false,
+      "params": [
+        {
+          "name": "ptr",
+          "type": "const [Self](/_autogen/Classes/classbatt_1_1ReadWriteMutex/) *",
+          "typePlain": "const Self *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1a980790cdeef77b74c0bb8c326fd5aa49",
+      "static": true,
+      "strong": false,
+      "summary": "(INTERNAL USE ONLY) Return a const pointer to the thread-safe base class of the protected object. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename [Self](/_autogen/Classes/classbatt_1_1ReadWriteMutex/)",
+          "typePlain": "typename Self"
+        },
+        {
+          "defval": "typename Self::ThreadSafeBase",
+          "defvalPlain": "typename Self::ThreadSafeBase",
+          "name": "",
+          "type": "typename Base",
+          "typePlain": "typename Base"
+        }
+      ],
+      "title": "thread_safe_base",
+      "type": "const Base *",
+      "typePlain": "const Base *",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#function-thread-safe-base",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-thread-safe-base",
+      "argsString": "(const std::unique_ptr< Self > *ptr)",
+      "brief": "(INTERNAL USE ONLY) Return a pointer to the thread-safe base class of the protected object (std::unique_ptr variant). ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static Base* batt::ReadWriteMutex< T >::thread_safe_base",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::ReadWriteMutex::thread_safe_base",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 488,
+        "bodyFile": "batteries/async/read_write_lock.hpp",
+        "bodyStart": 485,
+        "column": 17,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 485
+      },
+      "name": "thread_safe_base",
+      "override": false,
+      "params": [
+        {
+          "name": "ptr",
+          "type": "const std::unique_ptr< [Self](/_autogen/Classes/classbatt_1_1ReadWriteMutex/) > *",
+          "typePlain": "const std::unique_ptr< Self > *"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1a19bde71e1c92e701bddca81ee0d167ef",
+      "static": true,
+      "strong": false,
+      "summary": "(INTERNAL USE ONLY) Return a pointer to the thread-safe base class of the protected object (std::unique_ptr variant). ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename [Self](/_autogen/Classes/classbatt_1_1ReadWriteMutex/)",
+          "typePlain": "typename Self"
+        },
+        {
+          "defval": "typename Self::ThreadSafeBase",
+          "defvalPlain": "typename Self::ThreadSafeBase",
+          "name": "",
+          "type": "typename Base",
+          "typePlain": "typename Base"
+        },
+        {
+          "defval": "void",
+          "defvalPlain": "void",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "thread_safe_base",
+      "type": "Base *",
+      "typePlain": "Base *",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#function-thread-safe-base",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-thread-safe-base",
+      "argsString": "(...)",
+      "brief": "(INTERNAL USE ONLY) Overload that is selected in the \"not supported\" case - designed to produce an error message that elucidates the root cause of the problem. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static ThreadSafeBaseIsNotSupportedByType<T>* batt::ReadWriteMutex< T >::thread_safe_base",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::ReadWriteMutex::thread_safe_base",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 496,
+        "bodyFile": "batteries/async/read_write_lock.hpp",
+        "bodyStart": 493,
+        "column": 47,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 493
+      },
+      "name": "thread_safe_base",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "...",
+          "typePlain": "..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1abafb3940f4c52386b0bb9a708e1556ae",
+      "static": true,
+      "strong": false,
+      "summary": "(INTERNAL USE ONLY) Overload that is selected in the \"not supported\" case - designed to produce an error message that elucidates the root cause of the problem. ",
+      "title": "thread_safe_base",
+      "type": "[ThreadSafeBaseIsNotSupportedByType](/_autogen/Classes/structbatt_1_1ReadWriteMutex_1_1ThreadSafeBaseIsNotSupportedByType/)< T > *",
+      "typePlain": "ThreadSafeBaseIsNotSupportedByType< T > *",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#function-thread-safe-base",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-readwritemutex",
+      "argsString": "(const ReadWriteMutex &)=delete",
+      "brief": "[ReadWriteMutex](/_autogen/Classes/classbatt_1_1ReadWriteMutex/) is not copy-constructible. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::ReadWriteMutex< T >::ReadWriteMutex",
+      "deleted": true,
+      "explicit": false,
+      "fullname": "batt::ReadWriteMutex::ReadWriteMutex",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 502
+      },
+      "name": "ReadWriteMutex",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [ReadWriteMutex](/_autogen/Classes/classbatt_1_1ReadWriteMutex/) &",
+          "typePlain": "const ReadWriteMutex &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1a24a4585fac842af795a27bf8c2b767bd",
+      "static": false,
+      "strong": false,
+      "summary": "ReadWriteMutex is not copy-constructible. ",
+      "title": "ReadWriteMutex",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#function-readwritemutex",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(const ReadWriteMutex &)=delete",
+      "brief": "[ReadWriteMutex](/_autogen/Classes/classbatt_1_1ReadWriteMutex/) is not copy-assignable. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "ReadWriteMutex& batt::ReadWriteMutex< T >::operator=",
+      "deleted": true,
+      "explicit": false,
+      "fullname": "batt::ReadWriteMutex::operator=",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 20,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 506
+      },
+      "name": "operator=",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [ReadWriteMutex](/_autogen/Classes/classbatt_1_1ReadWriteMutex/) &",
+          "typePlain": "const ReadWriteMutex &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1a4c6956dde169c004cfafcfc14afa7f3a",
+      "static": false,
+      "strong": false,
+      "summary": "ReadWriteMutex is not copy-assignable. ",
+      "title": "operator=",
+      "type": "[ReadWriteMutex](/_autogen/Classes/classbatt_1_1ReadWriteMutex/) &",
+      "typePlain": "ReadWriteMutex &",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-readwritemutex",
+      "argsString": "()=default",
+      "brief": "Default-constructs a protected instance of T. ",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::ReadWriteMutex< T >::ReadWriteMutex",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::ReadWriteMutex::ReadWriteMutex",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 510
+      },
+      "name": "ReadWriteMutex",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1acf428924f655f1e4afd427307ca99d81",
+      "static": false,
+      "strong": false,
+      "summary": "Default-constructs a protected instance of T. ",
+      "title": "ReadWriteMutex",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#function-readwritemutex",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-readwritemutex",
+      "argsString": "(Args &&... args) noexcept",
+      "brief": "Initializes the protected object by forwarding the args to T's constructor. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::ReadWriteMutex< T >::ReadWriteMutex",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::ReadWriteMutex::ReadWriteMutex",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 517,
+        "bodyFile": "batteries/async/read_write_lock.hpp",
+        "bodyStart": 515,
+        "column": 14,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 515
+      },
+      "name": "ReadWriteMutex",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1af2adb50cec5c219e733f312807cf752c",
+      "static": false,
+      "strong": false,
+      "summary": "Initializes the protected object by forwarding the args to T's constructor. ",
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        },
+        {
+          "defval": "EnableIfNoShadow<[Self](/_autogen/Classes/classbatt_1_1ReadWriteMutex/), Args...>",
+          "defvalPlain": "EnableIfNoShadow<Self, Args...>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "ReadWriteMutex",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#function-readwritemutex",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-with-read-lock",
+      "argsString": "(Action &&action)",
+      "brief": "Performs the specified action while holding a reader lock on the [Mutex](/_autogen/Classes/classbatt_1_1Mutex/), by passing a const reference to the protected object to the specified action. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "decltype(auto) batt::ReadWriteMutex< T >::with_read_lock",
+      "deleted": false,
+      "details": "This function first locks the [Mutex](/_autogen/Classes/classbatt_1_1Mutex/), guaranteeing that the current [Task](/_autogen/Classes/classbatt_1_1Task/) will have read-only access to the protected object (T). Then it passes a non-const reference to the supplied function, whose signature should be `Result (const T& obj)`. When `action` returns, the [Mutex](/_autogen/Classes/classbatt_1_1Mutex/) reader lock is released, and the return value of `action` is passed back to the caller.",
+      "explicit": false,
+      "fullname": "batt::ReadWriteMutex::with_read_lock",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 14,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 530
+      },
+      "name": "with_read_lock",
+      "override": false,
+      "params": [
+        {
+          "name": "action",
+          "type": "Action &&",
+          "typePlain": "Action &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1a25d5b2e9a9b5e114c91861256ca8f767",
+      "returns": [
+        "The value returned by `action`. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Performs the specified action while holding a reader lock on the Mutex, by passing a const reference to the protected object to the specified action. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Action",
+          "typePlain": "typename Action"
+        }
+      ],
+      "title": "with_read_lock",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#function-with-read-lock",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-with-write-lock",
+      "argsString": "(Action &&action)",
+      "brief": "Performs the specified action while holding a writer lock on the [Mutex](/_autogen/Classes/classbatt_1_1Mutex/), by passing a reference to the protected object to the specified action. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "decltype(auto) batt::ReadWriteMutex< T >::with_write_lock",
+      "deleted": false,
+      "details": "This function first locks the [Mutex](/_autogen/Classes/classbatt_1_1Mutex/), guaranteeing that the current [Task](/_autogen/Classes/classbatt_1_1Task/) will have exclusive access to the protected object (T). Then it passes a non-const reference to the supplied function, whose signature should be `Result (T& obj)`. When `action` returns, the [Mutex](/_autogen/Classes/classbatt_1_1Mutex/) writer lock is released, and the return value of `action` is passed back to the caller.",
+      "explicit": false,
+      "fullname": "batt::ReadWriteMutex::with_write_lock",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 14,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 543
+      },
+      "name": "with_write_lock",
+      "override": false,
+      "params": [
+        {
+          "name": "action",
+          "type": "Action &&",
+          "typePlain": "Action &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1a7c28a42f91c0d413b695b970cc50537d",
+      "returns": [
+        "The value returned by `action`. "
+      ],
+      "static": false,
+      "strong": false,
+      "summary": "Performs the specified action while holding a writer lock on the Mutex, by passing a reference to the protected object to the specified action. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename Action",
+          "typePlain": "typename Action"
+        }
+      ],
+      "title": "with_write_lock",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#function-with-write-lock",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator->",
+      "argsString": "()",
+      "brief": "Accesses the protected object's thread-safe base class members. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "auto batt::ReadWriteMutex< T >::operator->",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::ReadWriteMutex::operator->",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 550,
+        "bodyFile": "batteries/async/read_write_lock.hpp",
+        "bodyStart": 547,
+        "column": 10,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 547
+      },
+      "name": "operator->",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1ad7f229b1753c28e308336b36d7e143e5",
+      "static": false,
+      "strong": false,
+      "summary": "Accesses the protected object's thread-safe base class members. ",
+      "title": "operator->",
+      "type": "auto",
+      "typePlain": "auto",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#function-operator->",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-no-lock",
+      "argsString": "()",
+      "brief": "Accesses the protected object's thread-safe base class by reference. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "decltype(auto) batt::ReadWriteMutex< T >::no_lock",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::ReadWriteMutex::no_lock",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 557,
+        "bodyFile": "batteries/async/read_write_lock.hpp",
+        "bodyStart": 554,
+        "column": 14,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 554
+      },
+      "name": "no_lock",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1aed76f3429f31709afb6259c964956844",
+      "static": false,
+      "strong": false,
+      "summary": "Accesses the protected object's thread-safe base class by reference. ",
+      "title": "no_lock",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#function-no-lock",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-no-lock",
+      "argsString": "() const",
+      "brief": "Accesses the protected object's thread-safe base class by pointer. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "decltype(auto) batt::ReadWriteMutex< T >::no_lock",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::ReadWriteMutex::no_lock",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 564,
+        "bodyFile": "batteries/async/read_write_lock.hpp",
+        "bodyStart": 561,
+        "column": 14,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 561
+      },
+      "name": "no_lock",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1afc86d8a0d9833830f671d374726bb272",
+      "static": false,
+      "strong": false,
+      "summary": "Accesses the protected object's thread-safe base class by pointer. ",
+      "title": "no_lock",
+      "type": "decltype(auto)",
+      "typePlain": "decltype(auto)",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#function-no-lock",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-self",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::ReadWriteMutex< T >::Self =  ReadWriteMutex",
+      "explicit": false,
+      "fullname": "batt::ReadWriteMutex::Self",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/read_write_lock.hpp",
+        "bodyStart": 453,
+        "column": 5,
+        "file": "batteries/async/read_write_lock.hpp",
+        "line": 453
+      },
+      "name": "Self",
+      "override": false,
+      "refid": "classbatt_1_1ReadWriteMutex_1a91f9b3aea610f4b5c8c2eb0d1a8b83c1",
+      "static": false,
+      "strong": false,
+      "title": "Self",
+      "type": "[ReadWriteMutex](/_autogen/Classes/classbatt_1_1ReadWriteMutex/)",
+      "typePlain": "ReadWriteMutex",
+      "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/#using-self",
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1ReadWriteMutex",
+  "static": false,
+  "strong": false,
+  "summary": "Mutex wrapper for a value of type T, providing exclusive read/write access and non-exclusive read-only access. ",
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename T",
+      "typePlain": "typename T"
+    }
+  ],
+  "title": "batt::ReadWriteMutex",
+  "url": "/_autogen/Classes/classbatt_1_1ReadWriteMutex/",
+  "visibility": "public"
+}

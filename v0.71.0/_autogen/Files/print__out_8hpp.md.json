@@ -1,0 +1,137 @@
+{
+  "abstract": false,
+  "anchor": "#file-print-out.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-print-out-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_PRINT_OUT_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/print_out.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/seq/print_out.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_SEQ_PRINT_OUT_HPP",
+      "override": false,
+      "refid": "print__out_8hpp_1abf73d6e0d61fee38e559dedb8521f552",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_PRINT_OUT_HPP",
+      "url": "/_autogen/Files/print__out_8hpp/#define-batteries-seq-print-out-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/print_out.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/print_out.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/print_out.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_SEQ_PRINT_OUT_HPP\n#define BATTERIES_SEQ_PRINT_OUT_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/seq/for_each.hpp>\n#include <batteries/seq/map.hpp>\n#include <batteries/seq/requirements.hpp>\n\n#include <batteries/stream_util.hpp>\n#include <batteries/utility.hpp>\n\nnamespace batt {\nnamespace seq {\n\n// print_out\n//\nstruct PrintOut {\n    std::ostream& out;\n    std::string_view sep;\n};\n\ninline auto print_out(std::ostream& out, std::string_view sep = \" \")\n{\n    return PrintOut{out, sep};\n}\n\ntemplate <typename Seq, typename = EnableIfSeq<Seq>>\ninline auto operator|(Seq&& seq, PrintOut p)\n{\n    return BATT_FORWARD(seq) | for_each([&](auto&& item) {\n               p.out << item << p.sep;\n           });\n}\n\ninline auto debug_out(std::ostream& out, std::string_view sep = \" \")\n{\n    return map([&out, sep ](auto&& item) -> auto{\n        out << item << sep;\n        return BATT_FORWARD(item);\n    });\n}\n\n}  // namespace seq\n}  // namespace batt\n\n#endif  // BATTERIES_SEQ_PRINT_OUT_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::PrintOut",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::PrintOut",
+      "refid": "structbatt_1_1seq_1_1PrintOut",
+      "title": "batt::seq::PrintOut",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1PrintOut/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "print__out_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/print_out.hpp",
+  "url": "/_autogen/Files/print__out_8hpp/#file-print-out.hpp",
+  "visibility": "public"
+}

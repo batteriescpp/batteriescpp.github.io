@@ -1,0 +1,239 @@
+{
+  "abstract": false,
+  "anchor": "#file-kmerge.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-kmerge-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_KMERGE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/kmerge.hpp",
+        "bodyStart": 7,
+        "column": 9,
+        "file": "batteries/seq/kmerge.hpp",
+        "line": 7
+      },
+      "name": "BATTERIES_SEQ_KMERGE_HPP",
+      "override": false,
+      "refid": "kmerge_8hpp_1a625b0eec80a632cb6b97ee72809ec9a9",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_KMERGE_HPP",
+      "url": "/_autogen/Files/kmerge_8hpp/#define-batteries-seq-kmerge-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/kmerge.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/kmerge.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/kmerge.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq::detail",
+      "refid": "namespacebatt_1_1seq_1_1detail",
+      "title": "batt::seq::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n\n#pragma once\n#ifndef BATTERIES_SEQ_KMERGE_HPP\n#define BATTERIES_SEQ_KMERGE_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/seq/cache_next.hpp>\n\n#include <batteries/assert.hpp>\n#include <batteries/optional.hpp>\n#include <batteries/utility.hpp>\n\nnamespace batt {\nnamespace seq {\n\nnamespace detail {\n\ntemplate <typename Compare>\nstruct HeapOrderBase {\n    Compare& compare() noexcept\n    {\n        return this->compare_;\n    }\n\n    const Compare& compare() const noexcept\n    {\n        return this->compare_;\n    }\n\n    Compare compare_;\n};\n\ntemplate <typename Compare>\nstruct HeapOrderEmptyBase : Compare {\n    Compare& compare() noexcept\n    {\n        return *this;\n    }\n\n    const Compare& compare() const noexcept\n    {\n        return *this;\n    }\n};\n\ntemplate <typename Compare>\nstruct HeapOrder\n    : std::conditional_t<                //\n          can_be_empty_base<Compare>(),  //\n          HeapOrderEmptyBase<Compare>,   //\n          HeapOrderBase<Compare>         //\n          > {\n    template <typename L, typename R>\n    bool operator()(L* l, R* r) const\n    {\n        // Reversed because it's a max-heap.\n        return this->compare()(*r->peek(), *l->peek());\n    }\n\n    HeapOrder& order() noexcept\n    {\n        return *this;\n    }\n\n    const HeapOrder& order() const noexcept\n    {\n        return *this;\n    }\n};\n\n}  //namespace detail\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// kmerge, kmerge_by\n//\n\ntemplate <typename Seq, typename Compare>\nclass KMergeBy : private detail::HeapOrder<Compare>\n{\n   public:\n    using Item = SeqItem<Seq>;\n\n    template <typename KSeqs>\n    explicit KMergeBy(KSeqs&& k_seqs, Compare&& compare) noexcept\n        : detail::HeapOrder<Compare>{BATT_FORWARD(compare)}\n        , k_seqs_(BATT_FORWARD(k_seqs) | decayed() | map([](auto&& seq) {\n                      return BATT_FORWARD(seq) | cache_next();\n                  }) |\n                  collect_vec())\n    {\n        static_assert(std::is_same_v<Seq, SeqItem<KSeqs>>, \"\");\n\n        as_seq(k_seqs_) | for_each([this](CacheNext<std::decay_t<Seq>>& seq) {\n            if (!seq.peek()) {\n                return;\n            }\n            this->heap_.emplace_back(&seq);\n            std::push_heap(this->heap_.begin(), this->heap_.end(), this->order());\n        });\n\n        BATT_ASSERT_LE(this->heap_.size(), this->k_seqs_.size());\n    }\n\n    KMergeBy(const KMergeBy& that) noexcept\n        : detail::HeapOrder<Compare>(that.order())\n        , k_seqs_(that.k_seqs_)\n        , heap_(that.heap_)\n    {\n        fix_heap_pointers(that);\n    }\n\n    KMergeBy& operator=(const KMergeBy& that) noexcept\n    {\n        if (BATT_HINT_TRUE(this != &that)) {\n            this->order() = that.order();\n            this->k_seqs_ = that.k_seqs_;\n            this->heap_ = that.heap_;\n            fix_heap_pointers(that);\n        }\n        return *this;\n    }\n\n    Optional<Item> next()\n    {\n        if (this->heap_.empty()) {\n            return None;\n        }\n\n        // The lowest key is at the front of the level heap.  Pop it off the heap\n        // first, then remove it from that level's sequence and replace the level\n        // in the heap if it isn't empty.\n        //\n        std::pop_heap(this->heap_.begin(), this->heap_.end(), this->order());\n\n        CacheNext<std::decay_t<Seq>>* next_seq = this->heap_.back();\n        BATT_ASSERT_NOT_NULLPTR(next_seq);\n\n        auto next_item = next_seq->next();\n        BATT_ASSERT_NE(next_item, None);\n\n        if (!next_seq->peek()) {\n            this->heap_.pop_back();\n        } else {\n            std::push_heap(this->heap_.begin(), this->heap_.end(), this->order());\n        }\n\n        return next_item;\n    }\n\n    Optional<Item> peek()\n    {\n        if (this->heap_.empty()) {\n            return None;\n        }\n        return this->heap_.front()->peek();\n    }\n\n   private:\n    void fix_heap_pointers(const KMergeBy& that)\n    {\n        for (std::size_t i = 0; i < this->heap_.size(); ++i) {\n            BATT_ASSERT_GE(this->heap_[i], that.k_seqs_.data());\n            BATT_ASSERT_LT(this->heap_[i], that.k_seqs_.data() + that.k_seqs_.size());\n        }\n\n        for (auto& ptr : this->heap_) {\n            ptr = this->k_seqs_.data() + (ptr - that.k_seqs_.data());\n        }\n\n        for (std::size_t i = 0; i < this->heap_.size(); ++i) {\n            BATT_ASSERT_GE(this->heap_[i], this->k_seqs_.data());\n            BATT_ASSERT_LT(this->heap_[i], this->k_seqs_.data() + this->k_seqs_.size());\n            BATT_ASSERT_EQ(this->heap_[i] - this->k_seqs_.data(), that.heap_[i] - that.k_seqs_.data());\n        }\n    }\n\n    // The stack of sequences we are merging.\n    //\n    std::vector<CacheNext<std::decay_t<Seq>>> k_seqs_;\n\n    // A min-heap (by key) of per-level edit sequences, so we can quickly know\n    // where the next lowest key is.\n    //\n    SmallVec<CacheNext<std::decay_t<Seq>>*, 6> heap_;\n};\n\ntemplate <typename Compare>\nstruct KMergeByBinder {\n    Compare compare;\n};\n\ntemplate <typename Compare>\nKMergeByBinder<Compare> kmerge_by(Compare&& compare)\n{\n    return {BATT_FORWARD(compare)};\n}\n\ninline auto kmerge()\n{\n    return kmerge_by(NaturalOrder{});\n}\n\ntemplate <typename KSeqs, typename Compare>\n[[nodiscard]] KMergeBy<SeqItem<KSeqs>, Compare> operator|(KSeqs&& k_seqs, KMergeByBinder<Compare>&& binder)\n{\n    static_assert(std::is_same_v<KSeqs, std::decay_t<KSeqs>>,\n                  \"Merged sequences may not be captured implicitly by reference.\");\n\n    return KMergeBy<SeqItem<KSeqs>, Compare>{BATT_FORWARD(k_seqs), BATT_FORWARD(binder.compare)};\n}\n\n}  // namespace seq\n}  // namespace batt\n\n#endif  // BATTERIES_SEQ_KMERGE_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::detail::HeapOrderBase",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::detail::HeapOrderBase",
+      "refid": "structbatt_1_1seq_1_1detail_1_1HeapOrderBase",
+      "title": "batt::seq::detail::HeapOrderBase",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrderBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "Compare",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::seq::detail::HeapOrderEmptyBase",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::detail::HeapOrderEmptyBase",
+      "refid": "structbatt_1_1seq_1_1detail_1_1HeapOrderEmptyBase",
+      "title": "batt::seq::detail::HeapOrderEmptyBase",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrderEmptyBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::conditional_t< can_be_empty_base< Compare >(), HeapOrderEmptyBase< Compare >, HeapOrderBase< Compare > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::seq::KMergeBy< Seq, Compare >",
+          "refid": "classbatt_1_1seq_1_1KMergeBy",
+          "url": "/_autogen/Classes/classbatt_1_1seq_1_1KMergeBy/",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "fullname": "batt::seq::detail::HeapOrder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::detail::HeapOrder",
+      "refid": "structbatt_1_1seq_1_1detail_1_1HeapOrder",
+      "title": "batt::seq::detail::HeapOrder",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrder/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::seq::detail::HeapOrder< Compare >",
+          "refid": "structbatt_1_1seq_1_1detail_1_1HeapOrder",
+          "url": "/_autogen/Classes/structbatt_1_1seq_1_1detail_1_1HeapOrder/",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        },
+        {
+          "external": true,
+          "name": "std::conditional_t< can_be_empty_base< Compare >(), HeapOrderEmptyBase< Compare >, HeapOrderBase< Compare > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::seq::KMergeBy",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::seq::KMergeBy",
+      "refid": "classbatt_1_1seq_1_1KMergeBy",
+      "title": "batt::seq::KMergeBy",
+      "url": "/_autogen/Classes/classbatt_1_1seq_1_1KMergeBy/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::KMergeByBinder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::KMergeByBinder",
+      "refid": "structbatt_1_1seq_1_1KMergeByBinder",
+      "title": "batt::seq::KMergeByBinder",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1KMergeByBinder/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "kmerge_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/kmerge.hpp",
+  "url": "/_autogen/Files/kmerge_8hpp/#file-kmerge.hpp",
+  "visibility": "public"
+}

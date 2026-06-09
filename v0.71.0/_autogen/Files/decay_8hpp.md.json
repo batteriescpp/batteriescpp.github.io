@@ -1,0 +1,137 @@
+{
+  "abstract": false,
+  "anchor": "#file-decay.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-decay-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_DECAY_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/decay.hpp",
+        "bodyStart": 7,
+        "column": 9,
+        "file": "batteries/seq/decay.hpp",
+        "line": 7
+      },
+      "name": "BATTERIES_SEQ_DECAY_HPP",
+      "override": false,
+      "refid": "decay_8hpp_1a9aac3ed550a26e305edcfc67e6a98bb9",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_DECAY_HPP",
+      "url": "/_autogen/Files/decay_8hpp/#define-batteries-seq-decay-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/decay.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/decay.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/decay.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n\n#pragma once\n#ifndef BATTERIES_SEQ_DECAY_HPP\n#define BATTERIES_SEQ_DECAY_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/seq/map.hpp>\n#include <batteries/type_traits.hpp>\n\nnamespace batt {\nnamespace seq {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// decayed\n//\n\nstruct DecayItem {\n    template <typename T>\n    std::decay_t<T> operator()(T&& val) const\n    {\n        return BATT_FORWARD(val);\n    }\n};\n\ninline auto decayed()\n{\n    return map(DecayItem{});\n}\n\n}  // namespace seq\n}  // namespace batt\n\n#endif  // BATTERIES_SEQ_DECAY_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::DecayItem",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::DecayItem",
+      "refid": "structbatt_1_1seq_1_1DecayItem",
+      "title": "batt::seq::DecayItem",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1DecayItem/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "decay_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/decay.hpp",
+  "url": "/_autogen/Files/decay_8hpp/#file-decay.hpp",
+  "visibility": "public"
+}

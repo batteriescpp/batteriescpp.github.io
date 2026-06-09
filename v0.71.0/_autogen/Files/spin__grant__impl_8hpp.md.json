@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-spin-grant-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-spin-grant-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_SPIN_GRANT_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/spin_grant_impl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/spin_grant_impl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_SPIN_GRANT_IMPL_HPP",
+      "override": false,
+      "refid": "spin__grant__impl_8hpp_1a5c413c27707b9e6f5c79723e5e7fa48b",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_SPIN_GRANT_IMPL_HPP",
+      "url": "/_autogen/Files/spin__grant__impl_8hpp/#define-batteries-async-spin-grant-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/spin_grant_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/spin_grant_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/spin_grant_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_SPIN_GRANT_IMPL_HPP\n#define BATTERIES_ASYNC_SPIN_GRANT_IMPL_HPP\n\n#include <batteries/config.hpp>\n//\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL SpinGrant::Issuer::Issuer(u64 initial_count) noexcept\n    : available_{initial_count}\n    , total_size_{initial_count}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL SpinGrant::Issuer::~Issuer() noexcept\n{\n    BATT_CHECK_EQ(this->total_size_.load(), this->available_.get_value())\n        << \"This may indicate a Grant is still active!\";\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL StatusOr<SpinGrant> SpinGrant::Issuer::issue_grant(u64 count,\n                                                                    WaitForResource wait_for_resource)\n{\n    BATT_DEBUG_INFO(\"[SpinGrant::Issuer::issue_grant]\");\n\n    return transfer_impl(/*issuer=*/this, /*source=*/this->available_, /*count=*/count,\n                         /*wait_for_resource=*/wait_for_resource);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void SpinGrant::Issuer::grow(u64 count)\n{\n    [[maybe_unused]] const u64 old_size = this->total_size_.fetch_add(count);\n    BATT_ASSERT_GT(u64{old_size + count}, old_size) << \"Integer overflow detected!\";\n    this->recycle(count);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void SpinGrant::Issuer::recycle(u64 count)\n{\n    this->available_.fetch_add(count);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void SpinGrant::Issuer::close()\n{\n    this->available_.close();\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL SpinGrant::SpinGrant(Issuer* issuer, u64 size) noexcept : issuer_{issuer}, size_{size}\n{\n    BATT_CHECK_NOT_NULLPTR(issuer);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL SpinGrant::SpinGrant(SpinGrant&& that) noexcept\n    : issuer_{std::move(that.issuer_)}\n    , size_{that.size_.set_value(0)}\n{\n    BATT_CHECK_EQ(that.issuer_, nullptr);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL SpinGrant::~SpinGrant() noexcept\n{\n    this->revoke();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void SpinGrant::revoke()\n{\n    this->spend_all();\n    this->size_.close();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void SpinGrant::swap(SpinGrant& that)\n{\n    std::swap(this->issuer_, that.issuer_);\n    that.size_.set_value(this->size_.set_value(that.size_.set_value(0)));\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL u64 SpinGrant::size() const\n{\n    return this->size_.get_value();\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL StatusOr<SpinGrant> SpinGrant::spend(u64 count, WaitForResource wait_for_resource)\n{\n    return transfer_impl(/*issuer=*/this->issuer_.get(), /*source=*/this->size_, /*count=*/count,\n                         /*wait_for_resource=*/wait_for_resource);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL u64 SpinGrant::spend_all()\n{\n    if (!this->issuer_) {\n        return 0;\n    }\n\n    const u64 previous_size = this->size_.set_value(0);\n\n    this->issuer_->recycle(previous_size);\n\n    return previous_size;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL SpinGrant& SpinGrant::subsume(SpinGrant&& that)\n{\n    if (!that.issuer_) {\n        return *this;\n    }\n\n    BATT_CHECK_NOT_NULLPTR(this->issuer_) << \"It is NOT legal to subsume a Grant into an invalidated Grant.\";\n    BATT_CHECK_EQ(this->issuer_, that.issuer_);\n\n    const u64 count = that.size_.set_value(0);\n    this->size_.fetch_add(count);\n\n    return *this;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*static*/ StatusOr<SpinGrant> SpinGrant::transfer_impl(SpinGrant::Issuer* issuer,\n                                                                         Watch<u64>& source, u64 count,\n                                                                         WaitForResource wait_for_resource)\n{\n    if (issuer == nullptr) {\n        return {StatusCode::kFailedPrecondition};\n    }\n\n    for (;;) {\n        BATT_DEBUG_INFO(\"[SpinGrant::transfer_impl] count=\"\n                        << count << \" wait_for_resource=\" << (bool)wait_for_resource\n                        << \" available=\" << source.get_value() << \" of total=\" << issuer->total_size());\n\n        const Optional<u64> pre_transfer_count = source.modify_if([count](u64 observed) -> Optional<u64> {\n            if (observed >= count) {\n                return observed - count;\n            }\n            return None;\n        });\n\n        // If the spend succeeded, return a new SpinGrant representing the spent amount.\n        //\n        if (pre_transfer_count) {\n            return SpinGrant{issuer, count};\n        }\n\n        // At this point, we must wait for the SpinGrant to be increased in size, so if we are in non-blocking\n        // mode, fail now.\n        //\n        if (wait_for_resource == WaitForResource::kFalse) {\n            if (source.is_closed()) {\n                return {StatusCode::kGrantRevoked};\n            }\n            return {StatusCode::kGrantUnavailable};\n        }\n\n        // Await the increase of the grant size.\n        //\n        StatusOr<u64> available = source.await_true([count](u64 observed) {\n            return observed >= count;\n        });\n        BATT_REQUIRE_OK(available);\n    }\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_SPIN_GRANT_IMPL_HPP",
+  "refid": "spin__grant__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/spin_grant_impl.hpp",
+  "url": "/_autogen/Files/spin__grant__impl_8hpp/#file-spin-grant-impl.hpp",
+  "visibility": "public"
+}
