@@ -1,0 +1,927 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.11">
+    
+    
+      
+        <title><batteries/seq/...>: Fast, Ergonomic Sequence Processing - Batteries C++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#intro-example" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Batteries C++" class="md-header__button md-logo" aria-label="Batteries C++" data-md-component="logo">
+      <img width="100px" src="/images/BatteriesLogo.png">
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/releaseNavOptions.js" type="application/javascript"></script>
+<script src="/releaseNav.js" type="application/javascript"></script>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Batteries C++
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              &lt;batteries/seq/...&gt;: Fast, Ergonomic Sequence Processing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Batteries C++" class="md-nav__button md-logo" aria-label="Batteries C++" data-md-component="logo">
+      <img width="100px" src="/images/BatteriesLogo.png">
+<script src="/jquery-3.6.0.min.js"></script>
+<script src="/releaseNavOptions.js" type="application/javascript"></script>
+<script src="/releaseNav.js" type="application/javascript"></script>
+    </a>
+    Batteries C++
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://gitlab.com/batteriescpp/batteries/" class="md-nav__link">
+        GitLab Repo
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Headers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Headers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assert.hpp" class="md-nav__link">
+        batteries/assert.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../async" class="md-nav__link">
+        batteries/async/*
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../case_of.hpp" class="md-nav__link">
+        batteries/case_of.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cpu_align.hpp" class="md-nav__link">
+        batteries/cpu_align.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="." class="md-nav__link">
+        batteries/seq.hpp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../status.hpp" class="md-nav__link">
+        batteries/status.hpp
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_autogen/Files/" class="md-nav__link">
+        Files
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_autogen/Classes/" class="md-nav__link">
+        Classes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release_notes" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Developers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Developers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coding_style" class="md-nav__link">
+        Coding Style
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/configure-ci-pipelines" class="md-nav__link">
+        Configuring CI Pipelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to/write-the-docs" class="md-nav__link">
+        Writing Documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intro-example" class="md-nav__link">
+    Intro Example
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seqt-concept" class="md-nav__link">
+    Seq&lt;T&gt; Concept
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stl-ranges-to-sequences" class="md-nav__link">
+    STL Ranges to Sequences
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composing-sequences" class="md-nav__link">
+    Composing Sequences
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sequence-operator-reference" class="md-nav__link">
+    Sequence Operator Reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-functionsclasses" class="md-nav__link">
+    Other Functions/Classes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>&lt;batteries/seq/...&gt;: Fast, Ergonomic Sequence Processing</h1>
+
+<h1 id="batteriesseq-fast-ergonomic-sequence-processing">&lt;batteries/seq/...&gt;: Fast, Ergonomic Sequence Processing<a class="headerlink" href="#batteriesseq-fast-ergonomic-sequence-processing" title="Permanent link">&#128279;</a></h1>
+<p>The Batteries Seq abstraction builds on top of STL iterator ranges, seeking to offer more readable and maintainable code without sacrificing efficiency.</p>
+<h2 id="intro-example">Intro Example<a class="headerlink" href="#intro-example" title="Permanent link">&#128279;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq.hpp&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;utility&gt;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">nums</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">-3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">-2</span><span class="p">};</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">as_seq</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="w">         </span><span class="c1">// Take only non-negative items.</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="w">         </span><span class="c1">//</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">         </span><span class="o">|</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">seq</span><span class="o">::</span><span class="n">filter</span><span class="p">([](</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">             </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">           </span><span class="p">})</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="w">         </span><span class="c1">// Calculate a running total plus count.</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">         </span><span class="c1">//</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">         </span><span class="o">|</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">seq</span><span class="o">::</span><span class="n">reduce</span><span class="p">(</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">             </span><span class="c1">// Initial state ({total, count}):</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">             </span><span class="c1">//</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">             </span><span class="n">std</span><span class="o">::</span><span class="n">make_pair</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">             </span><span class="c1">// Reduce function:</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">             </span><span class="c1">//</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">             </span><span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">totals</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_pair</span><span class="p">(</span><span class="n">totals</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">totals</span><span class="p">.</span><span class="n">second</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">             </span><span class="p">})</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">         </span><span class="c1">// Divide total by count to get the final answer.</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">         </span><span class="c1">//</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">         </span><span class="o">|</span><span class="w"> </span><span class="n">batt</span><span class="o">::</span><span class="n">seq</span><span class="o">::</span><span class="n">apply</span><span class="p">([](</span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">final_totals</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">             </span><span class="k">return</span><span class="w"> </span><span class="n">final_totals</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">final_totals</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">           </span><span class="p">});</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;The average value of non-negative elements is: &quot;</span><span class="w"> </span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">            </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">answer</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Output:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>The average value of non-negative elements is: 3
+</code></pre></div></td></tr></table></div>
+<h2 id="seqt-concept">Seq&lt;T&gt; Concept<a class="headerlink" href="#seqt-concept" title="Permanent link">&#128279;</a></h2>
+<p><code>Seq&lt;T&gt;</code> is a concept that represents an ordered sequence of objects of type <code>T</code>.  The class <a href="/">batt::BoxedSeq<T></a> is a type-erased container for an object that models this concept.  The type requirements/interface of <code>batt::BoxedSeq&lt;T&gt;</code> are:</p>
+<ul>
+<li><code>Seq&lt;T&gt;</code> must be copy-constructible, copy-assignable, and publically destructible</li>
+<li><code>Seq&lt;T&gt;</code> must have a public type member or type alias/typedef named <code>Item</code>, equivalent to <code>T</code></li>
+<li>Given an object <code>seq</code> of type <code>Seq&lt;T&gt;</code>:<ul>
+<li><code>seq.peek()</code> must return a value of type <code>batt::Optional&lt;T&gt;</code>; if the sequence is empty or at its end, <code>batt::None</code> is returned, otherwise the next item in the sequence is returned</li>
+<li><code>seq.next()</code> is the same in terms of returned value, but it additionally has the side effect of consuming the returned item from the sequence</li>
+</ul>
+</li>
+</ul>
+<h2 id="stl-ranges-to-sequences">STL Ranges to Sequences<a class="headerlink" href="#stl-ranges-to-sequences" title="Permanent link">&#128279;</a></h2>
+<p>The function <code>batt::as_seq</code> is used to create a <code>Seq</code> from STL containers and ranges in order to access the rest of the Seq API.  You can pass a range, a pair of iterators, or a starting iterator and a size to overloads of <code>batt::as_seq</code> to do this.</p>
+<h2 id="composing-sequences">Composing Sequences<a class="headerlink" href="#composing-sequences" title="Permanent link">&#128279;</a></h2>
+<p>Sequences are composed by applying one or more "operators" to transform the sequence or aggregate its values.  A given sequence operator <code class="highlight"><span class="n">Op</span><span class="p">()</span></code> is applied to an input sequence <code class="highlight"><span class="n">seq</span></code> by using the expression: <code class="highlight"><span class="n">seq</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Op</span><span class="p">()</span></code>.  The resulting expression is usually another sequence, but it may be a single value (e.g., <a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-count">count()</a>, <a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-collect">collect()</a>, etc.).  The set of operators defined by batteries is shown the table below.  It is possible for your application code to define additional operators by composing the ones included in Batteries, or by following the conventions used to define the included operators.</p>
+<h2 id="sequence-operator-reference">Sequence Operator Reference<a class="headerlink" href="#sequence-operator-reference" title="Permanent link">&#128279;</a></h2>
+<p><em><strong> NOTE: </strong> All of the functions below are defined in the namespace <code>batt::seq::</code>, which has been omitted for brevity.</em></p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-all_true">all_true()</a></nobr></td>
+<td align="left">Returns <code class="highlight"><span class="nb">true</span></code> iff all items in the input sequence are <code class="highlight"><span class="nb">true</span></code> when evaluated in a boolean context.  This operator supports short-circuit; i.e., it stops as soon as it encounters the first <code class="highlight"><span class="nb">false</span></code>-valued item.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/all_true.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-any_true">any_true()</a></nobr></td>
+<td align="left">Returns <code class="highlight"><span class="nb">true</span></code> iff any items in the input sequence are <code class="highlight"><span class="nb">true</span></code> when evaluated in a boolean context.  This operator supports short-circuit; i.e., it stops as soon as it encounters the first <code class="highlight"><span class="nb">true</span></code>-valued item.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/any_true.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-apply">apply(Fn)</a></nobr></td>
+<td align="left">Applies the passed function to the <em>entire</em> sequence as a single value, returning the result.  Not to be confused with <a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-map">map(Fn)</a> which applies a function to each item in the sequence to produce a new sequence.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/apply.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-attach">attach(Data&amp;&amp; data)</a></nobr></td>
+<td align="left">Produces a sequence identical to the input except that a copy of <code class="highlight"><span class="n">data</span></code> is stored in the sequence object.  Useful for extending the lifetimes of objects that a sequence may depend on, but doesn't explicitly capture.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/attach.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-boxed">boxed()</a></nobr></td>
+<td align="left">Transforms a templated sequence type to a type-erased container of concrete type <code class="highlight"><span class="n">batt</span><span class="o">::</span><span class="n">BoxedSeq</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span></code>, hiding the details of how the sequence was composed.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/boxed.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-cache_next">cache_next()</a></nobr></td>
+<td align="left">Lazily caches a copy of the next item in the input sequence, to speed up repeated calls to <code>peek()</code>.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/cache_next.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-chain">chain(seq2)</a></nobr></td>
+<td align="left">Concatenates <code>seq2</code> onto the end of the input sequence.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/chain.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-collect">collect(batt::StaticType&lt;T&gt;)</a></nobr></td>
+<td align="left">Collects all the items in the sequence by repeatedly calling <code>T::emplace_back</code> on a default-constructed instance of container type <code>T</code>. <br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/collect.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-collect_vec">collect_vec()</a></nobr></td>
+<td align="left">Collects all the items in the input sequence into a <code class="highlight"><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span></code>, where <code>T</code> is the declared Item type of the sequence.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/collect_vec.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-consume">consume()</a></nobr></td>
+<td align="left">Consumes the entire input sequence, throwing away all values and returning <code>void</code>.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/consume.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-count">count()</a></nobr></td>
+<td align="left">Returns the number of items in the sequence, consuming all items in the process.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/count.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-debug_out">debug_out(out, sep=" ")</a></nobr></td>
+<td align="left">Prints all items in the input sequence to the passed <code class="highlight"><span class="n">std</span><span class="o">::</span><span class="n">ostream</span></code> as a side-effect, leaving the input otherwise unmodified.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/print_out.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-decayed">decayed()</a></nobr></td>
+<td align="left">Transforms a sequence comprised of value references into an equivalent sequence of value-copies, similar to <code class="highlight"><span class="n">std</span><span class="o">::</span><span class="n">decay</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span></code>.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/decay.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-deref">deref()</a></nobr></td>
+<td align="left">Transforms a sequence by dereferencing all items, i.e. <code class="highlight"><span class="n">item</span></code> becomes <code class="highlight"><span class="o">*</span><span class="n">item</span></code>.  The Item type may be anything which defines <code class="highlight"><span class="k">operator</span><span class="o">*</span></code>, including all built-in pointers, smart pointers, optionals, iterators, etc.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/deref.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-emplace_back">emplace_back(T&amp; container)</a></nobr></td>
+<td align="left">Invokes <code class="highlight"><span class="n">container</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">item</span><span class="p">)</span></code> for each item in the input sequence, fully consuming the sequence.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/emplace_back.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-filter">filter(PredFn)</a></nobr></td>
+<td align="left">Removes any items from the input sequence for which the passed <code class="highlight"><span class="n">PredFn</span></code> returns <code class="highlight"><span class="nb">false</span></code>, producing a filtered sequence.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/filter.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-filter_map">filter_map(Fn)</a></nobr></td>
+<td align="left">Combines the effect of <a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-map">map</a> and <a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-filter">filter</a> by invoking the passed <code class="highlight"><span class="n">Fn</span></code> on each item of the input sequence, producing a temporary sequence of <code class="highlight"><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">&gt;</span></code> values, from which all <code class="highlight"><span class="n">None</span></code> values are removed. <br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/filter_map.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-first">first()</a></nobr></td>
+<td align="left">Returns the first item in the sequence; equivalent to calling <code class="highlight"><span class="n">seq</span><span class="p">.</span><span class="n">next</span><span class="p">()</span></code>.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/first.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-flatten">flatten()</a></nobr></td>
+<td align="left">Transforms a sequence of sequences into a flat sequence of the nested items by concatenating all the sub-sequences together.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/flatten.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-for_each">for_each(Fn)</a></nobr></td>
+<td align="left">Invokes the passed function on each item of the sequence, consuming the input.  <code class="highlight"><span class="n">Fn</span></code> may return type <code class="highlight"><span class="kt">void</span></code> or value of type <code class="highlight"><span class="n">batt</span><span class="o">::</span><span class="n">seq</span><span class="o">::</span><span class="n">LoopControl</span></code> (i.e., <code class="highlight"><span class="n">LoopControl</span><span class="o">::</span><span class="n">kContinue</span></code> or <code class="highlight"><span class="n">LoopControl</span><span class="o">::</span><span class="n">kBreak</span></code>) to control how much of the input sequence to consume, similar to the C++ keywords <code class="highlight"><span class="k">continue</span></code> and <code class="highlight"><span class="k">break</span></code> within a built-in loop.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/for_each.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-fuse">fuse()</a></nobr></td>
+<td align="left">Transforms a sequence with item type <code class="highlight"><span class="n">Optional</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span></code> into a sequence of <code class="highlight"><span class="n">T</span></code>, terminating the sequence when the first <code class="highlight"><span class="n">None</span></code> value is encountered.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/fuse.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-group_by">group_by(BinaryPredFn)</a></nobr></td>
+<td align="left">Transforms a sequence into a sequence of sequences by invoking <code>BinaryPredFn</code> on each pair of adjacent items in the input, creating a split wherever <code>BinaryPredFn</code> returns false.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/group_by.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-inner_reduce">inner_reduce(Fn)</a></nobr></td>
+<td align="left">Given input sequence <code class="highlight"><span class="n">xs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="n">x3</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">xN</span></code>, the expression <code class="highlight"><span class="n">xs</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">inner_reduce</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span></code> produces the return value of the expression <code class="highlight"><span class="n">fn</span><span class="p">(...</span><span class="n">fn</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">x1</span><span class="p">),</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="n">x3</span><span class="p">)...,</span><span class="w"> </span><span class="n">xN</span><span class="p">)</span></code>.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/inner_reduce.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-inspect">inspect(Fn)</a></nobr></td>
+<td align="left">Calls the given <code class="highlight"><span class="n">Fn</span></code> on each item of the input sequence, producing a sequence equivalent to the original input.  This differs from <a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-for_each">for_each</a>, which also invokes a function for each input item, but does not produce a sequence.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/inspect.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-inspect_adjacent">inspect_adjacent(BinaryFn)</a></nobr></td>
+<td align="left">Calls the given <code class="highlight"><span class="n">BinaryFn</span></code> on each sequentially adjacent pair of items of the input, producing a sequence equivalent to the original sequence (similar to <a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-inspect">inspect</a>).<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/inspect_adjacent.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-is_sorted">is_sorted()</a></nobr></td>
+<td align="left">Returns <code class="highlight"><span class="nb">true</span></code> iff the input sequence is sorted.  The item type of the input sequence must support <code class="highlight"><span class="k">operator</span><span class="o">&lt;</span></code>.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/is_sorted.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-is_sorted_by">is_sorted_by(OrderFn)</a></nobr></td>
+<td align="left">Returns <code class="highlight"><span class="nb">true</span></code> iff the input sequence is sorted according to the passed <code class="highlight"><span class="n">OrderFn</span></code>, which should behave like the less-than operator.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/is_sorted.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-kmerge">kmerge()</a></nobr></td>
+<td align="left">Performs a k-way merge of a sequence of sorted sequences, producing a single sorted sequence.  The built in comparison operators (e.g. <code class="highlight"><span class="o">&lt;</span></code>, <code class="highlight"><span class="o">&lt;=</span></code>, <code class="highlight"><span class="o">&gt;</span></code>, etc.) are used to define the ordering of nested items.  Behavior is unspecified if the input sequences are not sorted!  The input sequences must be copyable, with each copy able to iterate through independent of the others.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/kmerge.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-kmerge_by">kmerge_by(OrderFn)</a></nobr></td>
+<td align="left">Like <a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-kmerge">kmerge()</a>, except the ordering is defined by the passed binary predicate <code>OrderFn</code>, which should behave like the less-than operator (<code class="highlight"><span class="k">operator</span><span class="o">&lt;</span></code>).<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/kmerge.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-last">last()</a></nobr></td>
+<td align="left">Returns the final item in the sequence if the input is non-empty, else <code class="highlight"><span class="n">batt</span><span class="o">::</span><span class="n">None</span></code>.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/last.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-map">map(Fn)</a></nobr></td>
+<td align="left">Transforms the input sequence by applying the passed <code>Fn</code> to each item in the input to produce the output.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/map.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-map_adjacent">map_adjacent(Fn)</a></nobr></td>
+<td align="left">Transforms <code class="highlight"><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="n">x3</span><span class="p">,</span><span class="w"> </span><span class="p">...</span></code> into <code class="highlight"><span class="n">fn</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">x1</span><span class="p">),</span><span class="w"> </span><span class="n">fn</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span><span class="w"> </span><span class="n">x2</span><span class="p">),</span><span class="w"> </span><span class="n">fn</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="w"> </span><span class="n">x3</span><span class="p">),</span><span class="w"> </span><span class="p">...</span></code><br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/map_adjacent.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-map_fold">map_fold(state0, fn)</a></nobr></td>
+<td align="left">Similar to <code class="highlight"><span class="n">map</span><span class="p">(</span><span class="n">Fn</span><span class="o">:</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">U</span><span class="p">)</span></code>, except that the <code>fn</code> takes an additional first argument, the <code>state</code>, and returns a <code class="highlight"><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span></code>.  This produces both a sequence of output values <code class="highlight"><span class="n">u0</span><span class="p">,</span><span class="w"> </span><span class="n">u1</span><span class="p">,</span><span class="w"> </span><span class="n">u2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span></code> and also a series of state values, <code class="highlight"><span class="n">state1</span><span class="p">,</span><span class="w"> </span><span class="n">state2</span><span class="p">,</span><span class="w"> </span><span class="n">state3</span><span class="p">,</span><span class="w"> </span><span class="p">...</span></code>, with each item's state output passed into the next item's call to <code>fn</code>.  This operator is preferable to using <code>map</code> with an <code>Fn</code> that uses mutable state in its implementation.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/map_fold.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-map">map_pairwise(SeqB, Fn)</a></nobr></td>
+<td align="left">Given two sequences <code class="highlight"><span class="n">seqA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a0</span><span class="p">,</span><span class="w"> </span><span class="n">a1</span><span class="p">,</span><span class="w"> </span><span class="n">a2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span></code> and <code class="highlight"><span class="n">seqB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b0</span><span class="p">,</span><span class="w"> </span><span class="n">b1</span><span class="p">,</span><span class="w"> </span><span class="n">b2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span></code>, the expression <code class="highlight"><span class="n">seqA</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">map_pairwise</span><span class="p">(</span><span class="n">seqB</span><span class="p">,</span><span class="w"> </span><span class="n">fn</span><span class="p">)</span></code> produces a sequence with items <code class="highlight"><span class="n">fn</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span><span class="w"> </span><span class="n">b0</span><span class="p">),</span><span class="w"> </span><span class="n">fn</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="w"> </span><span class="n">b1</span><span class="p">),</span><span class="w"> </span><span class="n">fn</span><span class="p">(</span><span class="n">a2</span><span class="p">,</span><span class="w"> </span><span class="n">b2</span><span class="p">),</span><span class="w"> </span><span class="p">...</span></code><br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/map_pairwise.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-prepend">prepend(seq0)</a></nobr></td>
+<td align="left">Forms a new sequence by concatenating the input sequence onto the end of <code>seq0</code>; this is the opposite of <a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-chain">chain</a>.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/prepend.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-print_out">print_out(out, sep=" ")</a></nobr></td>
+<td align="left">Consumes all items in the input stream, printing them to the passed <code class="highlight"><span class="n">std</span><span class="o">::</span><span class="n">ostream</span><span class="w"> </span><span class="n">out</span></code>, inserting the passed separator string <code>sep</code> in between each item.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/print_out.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-printable">printable()</a></nobr></td>
+<td align="left">Turns the input sequence into a value that can be <code class="highlight"><span class="o">&lt;&lt;</span></code>-inserted to any <code class="highlight"><span class="n">std</span><span class="o">::</span><span class="n">ostream</span></code> to print out all items.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/printable.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-sum">product()</a></nobr></td>
+<td align="left">Returns the arithmetic product of the items in the input sequence.  The item type <code>T</code> of the input sequence must support built-in multiplication (<code class="highlight"><span class="k">operator</span><span class="o">*</span></code>), and <code>T{1}</code> must be the multiplicative identity value of <code>T</code> (i.e., "one").<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/product.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-reduce">reduce(state, fn)</a></nobr></td>
+<td align="left">Transforms a sequence of items <code class="highlight"><span class="n">item0</span><span class="p">,</span><span class="w"> </span><span class="n">item1</span><span class="p">,</span><span class="w"> </span><span class="n">item2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">itemN</span></code> into the result of calling: <code class="highlight"><span class="n">fn</span><span class="p">(...</span><span class="n">fn</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">fn</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">item0</span><span class="p">),</span><span class="w"> </span><span class="n">item1</span><span class="p">),</span><span class="w"> </span><span class="n">item2</span><span class="p">)...,</span><span class="w"> </span><span class="n">itemN</span><span class="p">)</span></code>; this operation is sometimes called <em>left-fold</em> or <em>foldl</em>.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/reduce.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-rolling">rolling(Fn, init = {})</a></nobr></td>
+<td align="left">Like <a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-reduce">reduce</a>, but instead of evaluating to the single final value, produces a sequence starting with <code class="highlight"><span class="n">init</span></code> followed by all intermediate values calculated by <code class="highlight"><span class="n">Fn</span></code> (Note: this means <a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-rolling">rolling</a> produces a sequence one larger than the input sequence).  The type of the <code class="highlight"><span class="n">init</span></code> param should be the Item type <code>T</code> of the sequence; <code class="highlight"><span class="n">Fn</span></code> should have the signature: <code class="highlight"><span class="k">auto</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">T</span></code>.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/rolling.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-rolling_sum">rolling_sum(Fn)</a></nobr></td>
+<td align="left">Produces a sequence that begins with a default-initialized item (i.e. "zero"), followed by a running total of all the items up to that point in the input.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/rolling_sum.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt/#function-skip_n">skip_n(n)</a></nobr></td>
+<td align="left">Produces a new sequence that doesn't include the first <code>n</code> items of the input sequence.  This is the complement of <a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-take_n">take_n(n)</a>.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/skip_n.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-splice">splice(n, InnerSeq)</a></nobr></td>
+<td align="left">Inserts the items of <code class="highlight"><span class="n">InnerSeq</span></code> into the input sequence at position <code class="highlight"><span class="n">n</span></code>.  This is a more general version of <a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-chain">chain</a> and <a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-prepend">prepend</a>.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/splice.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-status_ok">status_ok()</a></nobr></td>
+<td align="left">Transforms a sequence <code>a</code> with item type <code class="highlight"><span class="n">batt</span><span class="o">::</span><span class="n">StatusOr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span></code> into a sequence <code>b</code> with item type <code class="highlight"><span class="n">T</span></code> by unwrapping each input item until one with non-ok status is encountered, at which point <code>b</code> is terminated.  If the <code>b</code> ends because of a non-ok item from <code>a</code>, then <code>b.status()</code> may be used to retrieve the error status value. <br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/status_ok.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-sum">sum()</a></nobr></td>
+<td align="left">Returns the arithmetic sum of the items in the input sequence.  The item type <code>T</code> of the input sequence must support built-in addition (<code class="highlight"><span class="k">operator</span><span class="o">+</span></code>), and <code>T{}</code> must be the additive identity value of <code>T</code> (i.e., "zero").<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/sum.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-take_n">take_n(n)</a></nobr></td>
+<td align="left">Produces a new sequence comprised of only the first <code>n</code> items of the input sequence.  This is the complement of <a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt/#function-skip_n">skip_n(n)</a>.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/take_n.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-take_while">take_while(PredFn)</a></nobr></td>
+<td align="left">Produces a sequence with the same items as the input up until the passed <code>PredFn</code> returns <code class="highlight"><span class="nb">false</span></code>, at which point the sequence is terminated.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/take_while.hpp&gt;</span></code></td>
+</tr>
+<tr>
+<td align="left"><nobr><a class="autorefs autorefs-internal" href="../_autogen/Namespaces/namespacebatt_1_1seq/#function-zip">zip(Seqs...)</a></nobr></td>
+<td align="left">Produces a sequence of tuples constructed from items pulled in unison from all zipped sequences.<br><br><code class="highlight"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;batteries/seq/zip.hpp&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="other-functionsclasses">Other Functions/Classes<a class="headerlink" href="#other-functionsclasses" title="Permanent link">&#128279;</a></h2>
+<ul>
+<li><code>Addition</code></li>
+<li><code>Empty&lt;T&gt;</code></li>
+<li><code>lazy</code></li>
+<li><code>NaturalOrder</code></li>
+<li><code>NaturalEqual</code></li>
+<li><code>single_item</code></li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.6df46069.min.js"></script>
+      
+    
+  </body>
+</html>

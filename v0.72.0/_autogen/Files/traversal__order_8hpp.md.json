@@ -1,0 +1,185 @@
+{
+  "abstract": false,
+  "anchor": "#file-traversal-order.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-algo-traversal-order-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ALGO_TRAVERSAL_ORDER_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/algo/traversal_order.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/algo/traversal_order.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_ALGO_TRAVERSAL_ORDER_HPP",
+      "override": false,
+      "refid": "traversal__order_8hpp_1a168b71e207fae7bba75c36e96ce88583",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ALGO_TRAVERSAL_ORDER_HPP",
+      "url": "/_autogen/Files/traversal__order_8hpp/#define-batteries-algo-traversal-order-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/algo/traversal_order.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/algo/traversal_order.hpp",
+    "line": 0
+  },
+  "name": "batteries/algo/traversal_order.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::algo",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::algo",
+      "refid": "namespacebatt_1_1algo",
+      "title": "batt::algo",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1algo/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/algo",
+    "category": "dirs",
+    "fullname": "batteries/algo",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/algo",
+    "refid": "dir_23237b2d5d682108d256c42b41036300",
+    "title": "batteries/algo",
+    "url": "/_autogen/Files/dir_23237b2d5d682108d256c42b41036300/#dir-batteries/algo",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/algo",
+      "category": "dirs",
+      "fullname": "batteries/algo",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/algo",
+      "refid": "dir_23237b2d5d682108d256c42b41036300",
+      "title": "batteries/algo",
+      "url": "/_autogen/Files/dir_23237b2d5d682108d256c42b41036300/#dir-batteries/algo",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_ALGO_TRAVERSAL_ORDER_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/bit_ops/bit_count.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/utility.hpp>\n\n#include <algorithm>\n#include <deque>\n#include <vector>\n\nnamespace batt {\nnamespace algo {\n\ntemplate <typename T>\nstruct TraversalItem {\n    T item;\n    usize insert_order;\n    i32 insert_depth;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\ntemplate <typename T>\nclass BreadthFirstOrder\n{\n   public:\n    using Item = TraversalItem<T>;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    bool empty() const noexcept\n    {\n        return this->queue_.empty();\n    }\n\n    template <typename... Args>\n    void push(Args&&... args)\n    {\n        this->queue_.emplace_back(Item{\n            T{BATT_FORWARD(args)...},\n            this->insert_count_,\n            this->current_depth_ + 1,\n        });\n        this->insert_count_ += 1;\n    }\n\n    T pop()\n    {\n        Item& next = this->queue_.front();\n        this->current_depth_ = next.insert_depth;\n\n        T item = std::move(next.item);\n\n        this->queue_.pop_front();\n\n        return item;\n    }\n\n   private:\n    usize insert_count_ = 0;\n    i32 current_depth_ = -1;\n    std::deque<Item> queue_;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\ntemplate <typename T>\nclass DepthFirstOrder\n{\n   public:\n    using Item = TraversalItem<T>;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    bool empty() const noexcept\n    {\n        return this->stack_.empty();\n    }\n\n    template <typename... Args>\n    void push(Args&&... args)\n    {\n        this->stack_.emplace_back(Item{\n            T{BATT_FORWARD(args)...},\n            this->insert_count_,\n            this->current_depth_ + 1,\n        });\n        this->insert_count_ += 1;\n    }\n\n    T pop()\n    {\n        // The most recent parent item's direct descendants were pushed in \"natural\" order, which means they\n        // are reversed if we are going to visit them by popping them off the stack.  Reverse them to correct\n        // this.\n        //\n        std::reverse(&this->stack_[this->last_pop_index_], &this->stack_[this->stack_.size()]);\n\n        Item& next = this->stack_.back();\n        this->current_depth_ = next.insert_depth;\n\n        T item = std::move(next.item);\n\n        this->stack_.pop_back();\n        this->last_pop_index_ = this->stack_.size();\n\n        return item;\n    }\n\n   private:\n    usize insert_count_ = 0;\n    i32 current_depth_ = -1;\n    usize last_pop_index_ = 0;\n    std::vector<Item> stack_;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\ntemplate <typename T>\nclass VanEmdeBoasOrder\n{\n   public:\n    using Item = TraversalItem<T>;\n\n    static i32 get_priority(i32 depth)\n    {\n        if (depth == 0) {\n            return 64;\n        }\n\n        // Find the position of the most significant bit that differs between depth and parent_depth\n        // (depth - 1); the more leading zeroes (i.e., the lower that bit's position), the _higher_ the\n        // priority in the heap.\n        //\n        const i32 parent_depth = depth - 1;\n        return leading_zero_bits(parent_depth ^ depth);\n    }\n\n    struct CompareFn {\n        bool operator()(const Item& l, const Item& r) const\n        {\n            i32 l_priority = get_priority(l.insert_depth);\n            i32 r_priority = get_priority(r.insert_depth);\n\n            return l_priority < r_priority || (l_priority == r_priority && (l.insert_order > r.insert_order));\n        }\n    };\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    bool empty() const noexcept\n    {\n        return this->heap_.empty();\n    }\n\n    template <typename... Args>\n    void push(Args&&... args)\n    {\n        this->heap_.push_back(Item{\n            T{BATT_FORWARD(args)...},\n            this->insert_count_,\n            this->current_depth_ + 1,\n        });\n        this->insert_count_ += 1;\n\n        std::push_heap(this->heap_.begin(), this->heap_.end(), VanEmdeBoasOrder::CompareFn{});\n    }\n\n    T pop()\n    {\n        std::pop_heap(this->heap_.begin(), this->heap_.end(), VanEmdeBoasOrder::CompareFn{});\n\n        Item& next = this->heap_.back();\n        this->current_depth_ = next.insert_depth;\n\n        T item = std::move(next.item);\n\n        this->heap_.pop_back();\n\n        return item;\n    }\n\n   private:\n    usize insert_count_ = 0;\n    i32 current_depth_ = -1;\n    std::vector<Item> heap_;\n};\n\n}  // namespace algo\n}  // namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::algo::TraversalItem",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::algo::TraversalItem",
+      "refid": "structbatt_1_1algo_1_1TraversalItem",
+      "title": "batt::algo::TraversalItem",
+      "url": "/_autogen/Classes/structbatt_1_1algo_1_1TraversalItem/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::algo::BreadthFirstOrder",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::algo::BreadthFirstOrder",
+      "refid": "classbatt_1_1algo_1_1BreadthFirstOrder",
+      "title": "batt::algo::BreadthFirstOrder",
+      "url": "/_autogen/Classes/classbatt_1_1algo_1_1BreadthFirstOrder/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::algo::DepthFirstOrder",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::algo::DepthFirstOrder",
+      "refid": "classbatt_1_1algo_1_1DepthFirstOrder",
+      "title": "batt::algo::DepthFirstOrder",
+      "url": "/_autogen/Classes/classbatt_1_1algo_1_1DepthFirstOrder/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::algo::VanEmdeBoasOrder",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::algo::VanEmdeBoasOrder",
+      "refid": "classbatt_1_1algo_1_1VanEmdeBoasOrder",
+      "title": "batt::algo::VanEmdeBoasOrder",
+      "url": "/_autogen/Classes/classbatt_1_1algo_1_1VanEmdeBoasOrder/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::algo::VanEmdeBoasOrder::CompareFn",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::algo::VanEmdeBoasOrder::CompareFn",
+      "refid": "structbatt_1_1algo_1_1VanEmdeBoasOrder_1_1CompareFn",
+      "title": "batt::algo::VanEmdeBoasOrder::CompareFn",
+      "url": "/_autogen/Classes/structbatt_1_1algo_1_1VanEmdeBoasOrder_1_1CompareFn/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "traversal__order_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/algo/traversal_order.hpp",
+  "url": "/_autogen/Files/traversal__order_8hpp/#file-traversal-order.hpp",
+  "visibility": "public"
+}
