@@ -1,0 +1,958 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "baseClasses": [
+    {
+      "external": false,
+      "name": "batt::CompressedTupleElement<(N -(1+sizeof...(Rest))), First >",
+      "publicTypes": [
+        {
+          "abstract": false,
+          "anchor": "#using-value-type",
+          "category": "types",
+          "const": false,
+          "definition": "using batt::CompressedTupleElement< I, T >::value_type =  T",
+          "explicit": false,
+          "fullname": "batt::CompressedTupleElement::value_type",
+          "hasDetails": false,
+          "inline": false,
+          "kind": "using",
+          "language": "cpp",
+          "location": {
+            "bodyFile": "batteries/compressed_tuple.hpp",
+            "bodyStart": 38,
+            "column": 5,
+            "file": "batteries/compressed_tuple.hpp",
+            "line": 38
+          },
+          "name": "value_type",
+          "override": false,
+          "refid": "structbatt_1_1CompressedTupleElement_1a74e2152355e9d268efb6e10599c8f26b",
+          "static": false,
+          "strong": false,
+          "title": "value_type",
+          "type": "T",
+          "typePlain": "T",
+          "url": "/_autogen/Classes/structbatt_1_1CompressedTupleElement/#using-value-type",
+          "visibility": "public"
+        }
+      ],
+      "refid": "structbatt_1_1CompressedTupleElement",
+      "url": "/_autogen/Classes/structbatt_1_1CompressedTupleElement/",
+      "virtual": "non-virtual",
+      "visibility": "protected"
+    },
+    {
+      "external": false,
+      "name": "batt::CompressedTupleImpl< N, Rest... >",
+      "refid": "classbatt_1_1CompressedTupleImpl",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    },
+    {
+      "external": true,
+      "name": "T",
+      "refid": null,
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
+  "brief": "Implementation of CompressedTuple. ",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "details": "Uses the following inheritence structure:\n\n(For brevity, `Element<...>` == `[CompressedTupleElement](/_autogen/Classes/structbatt_1_1CompressedTupleElement/)<...>` and `Impl<...>` == `[CompressedTupleImpl](/_autogen/Classes/classbatt_1_1CompressedTupleImpl/)<...>`)\n\n\n\n```cpp\n     ┌────┐          ┌────┐          ┌────┐          ┌────┐\n     │ T0 │          │ T1 │          │ T2 │          │ T3 │\n     └────┘          └────┘          └────┘          └────┘\n        △               △               △               △\n┌───────┴──────┐┌───────┴──────┐┌───────┴──────┐┌───────┴──────┐┌───────┐\n│Element<0, T0>││Element<1, T1>││Element<2, T2>││Element<3, T3>││Impl<4>│\n└──────────────┘└──────────────┘└──────────────┘└──────────────┘└───────┘\n        △               △               △               △           △\n        │               │               │               ├───────────┘\n        │               │               │         ┌─────┴─────┐\n        │               │               │         │Impl<4, T3>│\n        │               │               │         └───────────┘\n        │               │               │               △\n        │               │               ├───────────────┘\n        │               │       ┌───────┴───────┐\n        │               │       │Impl<4, T2, T3>│\n        │               │       └───────────────┘\n        │               │               △\n        │               ├───────────────┘\n        │     ┌─────────┴─────────┐\n        │     │Impl<4, T1, T2, T3>│\n        │     └───────────────────┘\n        │               △\n        ├───────────────┘\n┌───────┴───────────────┐\n│Impl<4, T0, T1, T2, T3>│\n└───────────────────────┘\n```",
+  "explicit": false,
+  "fullname": "batt::CompressedTupleImpl< N, First, Rest... >",
+  "hasAdditionalMembers": true,
+  "hasDetails": true,
+  "includes": "<batteries/compressed_tuple.hpp>",
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 214,
+    "bodyFile": "batteries/compressed_tuple.hpp",
+    "bodyStart": 88,
+    "column": 1,
+    "file": "batteries/compressed_tuple.hpp",
+    "line": 85
+  },
+  "name": "batt::CompressedTupleImpl< N, First, Rest... >",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "publicAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-kindex",
+      "brief": "The index (zero-based) of this type in the tuple hierarchy. ",
+      "category": "attributes",
+      "const": false,
+      "definition": "constexpr usize batt::CompressedTupleImpl< N, First, Rest... >::kIndex",
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::kIndex",
+      "hasDetails": false,
+      "initializer": "= (N - (1 + sizeof...(Rest)))",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/compressed_tuple.hpp",
+        "bodyStart": 96,
+        "column": 28,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 96
+      },
+      "name": "kIndex",
+      "override": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1a820c6753f89d00f528133eaa12665256",
+      "static": true,
+      "strong": false,
+      "summary": "The index (zero-based) of this type in the tuple hierarchy. ",
+      "title": "kIndex",
+      "type": "constexpr usize",
+      "typePlain": "constexpr usize",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#variable-kindex",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-from-element",
+      "argsString": "(T &value) noexcept",
+      "brief": "Given a reference to the `I`-th member of a compressed tuple, returns the tuple. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static Self& batt::CompressedTupleImpl< N, First, Rest... >::from_element",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::from_element",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 121,
+        "bodyFile": "batteries/compressed_tuple.hpp",
+        "bodyStart": 116,
+        "column": 17,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 116
+      },
+      "name": "from_element",
+      "override": false,
+      "params": [
+        {
+          "name": "value",
+          "type": "T &",
+          "typePlain": "T &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1a9a4b10bd306704678e42636bf07117aa",
+      "static": true,
+      "strong": false,
+      "summary": "Given a reference to the I-th member of a compressed tuple, returns the tuple. ",
+      "templateParams": [
+        {
+          "name": "I",
+          "type": "usize",
+          "typePlain": "usize"
+        },
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "from_element",
+      "type": "[Self](/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#using-self) &",
+      "typePlain": "Self &",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#function-from-element",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-from-element",
+      "argsString": "(const T &value) noexcept",
+      "brief": "Given a reference to the `I`-th member of a compressed tuple, returns the tuple. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static const Self& batt::CompressedTupleImpl< N, First, Rest... >::from_element",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::from_element",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 131,
+        "bodyFile": "batteries/compressed_tuple.hpp",
+        "bodyStart": 126,
+        "column": 23,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 126
+      },
+      "name": "from_element",
+      "override": false,
+      "params": [
+        {
+          "name": "value",
+          "type": "const T &",
+          "typePlain": "const T &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1ac2e962c0bde6f0c75b181ab2d6acd2f3",
+      "static": true,
+      "strong": false,
+      "summary": "Given a reference to the I-th member of a compressed tuple, returns the tuple. ",
+      "templateParams": [
+        {
+          "name": "I",
+          "type": "usize",
+          "typePlain": "usize"
+        },
+        {
+          "name": "",
+          "type": "typename T",
+          "typePlain": "typename T"
+        }
+      ],
+      "title": "from_element",
+      "type": "const [Self](/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#using-self) &",
+      "typePlain": "const Self &",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#function-from-element",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-size",
+      "argsString": "() noexcept",
+      "brief": "Returns the number of elements in the tuple. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static constexpr usize batt::CompressedTupleImpl< N, First, Rest... >::size",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::size",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 138,
+        "bodyFile": "batteries/compressed_tuple.hpp",
+        "bodyStart": 135,
+        "column": 28,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 135
+      },
+      "name": "size",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1a2eb9e9f9f51b6c541f40cb8d6d0851f1",
+      "static": true,
+      "strong": false,
+      "summary": "Returns the number of elements in the tuple. ",
+      "title": "size",
+      "type": "constexpr usize",
+      "typePlain": "constexpr usize",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#function-size",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-compressedtupleimpl",
+      "argsString": "()=default",
+      "brief": "Default constructs a compressed tuple. ",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::CompressedTupleImpl< N, First, Rest... >::CompressedTupleImpl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::CompressedTupleImpl",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 144
+      },
+      "name": "CompressedTupleImpl",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1a313acff6e63545dc98acc446eb9fa7d4",
+      "static": false,
+      "strong": false,
+      "summary": "Default constructs a compressed tuple. ",
+      "title": "CompressedTupleImpl",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#function-compressedtupleimpl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-compressedtupleimpl",
+      "argsString": "(const Self &)=default",
+      "brief": "Copy constructs a compressed tuple. ",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::CompressedTupleImpl< N, First, Rest... >::CompressedTupleImpl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::CompressedTupleImpl",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 148
+      },
+      "name": "CompressedTupleImpl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [Self](/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#using-self) &",
+          "typePlain": "const Self &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1abbf8a978325fd62037f20051d43e36a3",
+      "static": false,
+      "strong": false,
+      "summary": "Copy constructs a compressed tuple. ",
+      "title": "CompressedTupleImpl",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#function-compressedtupleimpl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-compressedtupleimpl",
+      "argsString": "(Self &&)=default",
+      "brief": "Move constructs a compressed tuple. ",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::CompressedTupleImpl< N, First, Rest... >::CompressedTupleImpl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::CompressedTupleImpl",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 152
+      },
+      "name": "CompressedTupleImpl",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[Self](/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#using-self) &&",
+          "typePlain": "Self &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1abf3e80fe566dded125edd7701e2cda32",
+      "static": false,
+      "strong": false,
+      "summary": "Move constructs a compressed tuple. ",
+      "title": "CompressedTupleImpl",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#function-compressedtupleimpl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(const Self &)=default",
+      "brief": "Copy assigns a compressed tuple. ",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "Self& batt::CompressedTupleImpl< N, First, Rest... >::operator=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::operator=",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 10,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 156
+      },
+      "name": "operator=",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [Self](/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#using-self) &",
+          "typePlain": "const Self &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1a72d3c8f0e8d4010225918861d19f9983",
+      "static": false,
+      "strong": false,
+      "summary": "Copy assigns a compressed tuple. ",
+      "title": "operator=",
+      "type": "[Self](/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#using-self) &",
+      "typePlain": "Self &",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(Self &&)=default",
+      "brief": "Move assigns a compressed tuple. ",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "Self& batt::CompressedTupleImpl< N, First, Rest... >::operator=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::operator=",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 10,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 160
+      },
+      "name": "operator=",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[Self](/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#using-self) &&",
+          "typePlain": "Self &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1a5fab665ab23a89f954eb9ac062ffdfef",
+      "static": false,
+      "strong": false,
+      "summary": "Move assigns a compressed tuple. ",
+      "title": "operator=",
+      "type": "[Self](/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#using-self) &",
+      "typePlain": "Self &",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-~compressedtupleimpl",
+      "argsString": "()=default",
+      "brief": "Destructs the tuple. ",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::CompressedTupleImpl< N, First, Rest... >::~CompressedTupleImpl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::~CompressedTupleImpl",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 164
+      },
+      "name": "~CompressedTupleImpl",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1a16dae2f600d4331a67cb0a3dff9e3ac2",
+      "static": false,
+      "strong": false,
+      "summary": "Destructs the tuple. ",
+      "title": "~CompressedTupleImpl",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#function-~compressedtupleimpl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-compressedtupleimpl",
+      "argsString": "(FirstArg &&first, RestOfArgs &&... rest)",
+      "brief": "Constructs a compressed tuple by forwarding exactly one argument per element. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::CompressedTupleImpl< N, First, Rest... >::CompressedTupleImpl",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::CompressedTupleImpl",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 175,
+        "bodyFile": "batteries/compressed_tuple.hpp",
+        "bodyStart": 171,
+        "column": 5,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 171
+      },
+      "name": "CompressedTupleImpl",
+      "override": false,
+      "params": [
+        {
+          "name": "first",
+          "type": "FirstArg &&",
+          "typePlain": "FirstArg &&"
+        },
+        {
+          "name": "rest",
+          "type": "RestOfArgs &&...",
+          "typePlain": "RestOfArgs &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1a788616e01c013ab750eaeb7183635b22",
+      "static": false,
+      "strong": false,
+      "summary": "Constructs a compressed tuple by forwarding exactly one argument per element. ",
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename FirstArg",
+          "typePlain": "typename FirstArg"
+        },
+        {
+          "name": "RestOfArgs",
+          "type": "typename...",
+          "typePlain": "typename..."
+        },
+        {
+          "defval": "EnableIfNoShadow<[Self](/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#using-self), FirstArg, RestOfArgs...>",
+          "defvalPlain": "EnableIfNoShadow<Self, FirstArg, RestOfArgs...>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "CompressedTupleImpl",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#function-compressedtupleimpl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get",
+      "argsString": "() &noexcept",
+      "brief": "Returns a reference to the `I`-th tuple element. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "BATT_ALWAYS_INLINE auto& batt::CompressedTupleImpl< N, First, Rest... >::get",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::get",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 186,
+        "bodyFile": "batteries/compressed_tuple.hpp",
+        "bodyStart": 183,
+        "column": 29,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 183
+      },
+      "name": "get",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1ac014f3817225e2bdee63a8601d92b32b",
+      "static": false,
+      "strong": false,
+      "summary": "Returns a reference to the I-th tuple element. ",
+      "templateParams": [
+        {
+          "name": "I",
+          "type": "isize",
+          "typePlain": "isize"
+        }
+      ],
+      "title": "get",
+      "type": "BATT_ALWAYS_INLINE auto &",
+      "typePlain": "BATT_ALWAYS_INLINE auto &",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#function-get",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get",
+      "argsString": "() const &noexcept",
+      "brief": "Returns a reference to the `I`-th tuple element. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "BATT_ALWAYS_INLINE const auto& batt::CompressedTupleImpl< N, First, Rest... >::get",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::get",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 195,
+        "bodyFile": "batteries/compressed_tuple.hpp",
+        "bodyStart": 192,
+        "column": 35,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 192
+      },
+      "name": "get",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1a19259fe98bb1f6798a4f42ec77ad8aa3",
+      "static": false,
+      "strong": false,
+      "summary": "Returns a reference to the I-th tuple element. ",
+      "templateParams": [
+        {
+          "name": "I",
+          "type": "isize",
+          "typePlain": "isize"
+        }
+      ],
+      "title": "get",
+      "type": "BATT_ALWAYS_INLINE const auto &",
+      "typePlain": "BATT_ALWAYS_INLINE const auto &",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#function-get",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get",
+      "argsString": "() &&noexcept",
+      "brief": "Returns a reference to the `I`-th tuple element. ",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "BATT_ALWAYS_INLINE auto&& batt::CompressedTupleImpl< N, First, Rest... >::get",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::get",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 204,
+        "bodyFile": "batteries/compressed_tuple.hpp",
+        "bodyStart": 201,
+        "column": 29,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 201
+      },
+      "name": "get",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1ab4a4434a1d3c1226d10245d50e8dc10b",
+      "static": false,
+      "strong": false,
+      "summary": "Returns a reference to the I-th tuple element. ",
+      "templateParams": [
+        {
+          "name": "I",
+          "type": "isize",
+          "typePlain": "isize"
+        }
+      ],
+      "title": "get",
+      "type": "BATT_ALWAYS_INLINE auto &&",
+      "typePlain": "BATT_ALWAYS_INLINE auto &&",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#function-get",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-get",
+      "argsString": "() const &&noexcept",
+      "brief": "Returns a reference to the `I`-th tuple element. ",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "BATT_ALWAYS_INLINE const auto&& batt::CompressedTupleImpl< N, First, Rest... >::get",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::get",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 213,
+        "bodyFile": "batteries/compressed_tuple.hpp",
+        "bodyStart": 210,
+        "column": 35,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 210
+      },
+      "name": "get",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1a131bc9f8b47a2581aada3bd4f6320df4",
+      "static": false,
+      "strong": false,
+      "summary": "Returns a reference to the I-th tuple element. ",
+      "templateParams": [
+        {
+          "name": "I",
+          "type": "isize",
+          "typePlain": "isize"
+        }
+      ],
+      "title": "get",
+      "type": "BATT_ALWAYS_INLINE const auto &&",
+      "typePlain": "BATT_ALWAYS_INLINE const auto &&",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#function-get",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-self",
+      "brief": "This type. ",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::CompressedTupleImpl< N, First, Rest... >::Self =  CompressedTupleImpl<N, First, Rest...>",
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::Self",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/compressed_tuple.hpp",
+        "bodyStart": 92,
+        "column": 5,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 92
+      },
+      "name": "Self",
+      "override": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1a4aae4bf5c98a121f586fad358e1b2441",
+      "static": false,
+      "strong": false,
+      "summary": "This type. ",
+      "title": "Self",
+      "type": "[CompressedTupleImpl](/_autogen/Classes/classbatt_1_1CompressedTupleImpl/)< N, First, Rest... >",
+      "typePlain": "CompressedTupleImpl< N, First, Rest... >",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#using-self",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-element",
+      "brief": "The wrapper base class for the next type in the tuple. ",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::CompressedTupleImpl< N, First, Rest... >::Element =  CompressedTupleElement<kIndex, First>",
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::Element",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/compressed_tuple.hpp",
+        "bodyStart": 100,
+        "column": 5,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 100
+      },
+      "name": "Element",
+      "override": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1a2113339265c550f760147809825fd9a1",
+      "static": false,
+      "strong": false,
+      "summary": "The wrapper base class for the next type in the tuple. ",
+      "title": "Element",
+      "type": "[CompressedTupleElement](/_autogen/Classes/structbatt_1_1CompressedTupleElement/)< [kIndex](/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#variable-kindex), First >",
+      "typePlain": "CompressedTupleElement< kIndex, First >",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#using-element",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-super",
+      "brief": "Base class that holds the tuple elements after this one. ",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::CompressedTupleImpl< N, First, Rest... >::Super =  CompressedTupleImpl<N, Rest...>",
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::Super",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/compressed_tuple.hpp",
+        "bodyStart": 104,
+        "column": 5,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 104
+      },
+      "name": "Super",
+      "override": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1ababd67ec9c3102b26bd09fbee65ff428",
+      "static": false,
+      "strong": false,
+      "summary": "Base class that holds the tuple elements after this one. ",
+      "title": "Super",
+      "type": "[CompressedTupleImpl](/_autogen/Classes/classbatt_1_1CompressedTupleImpl/)< N, Rest... >",
+      "typePlain": "CompressedTupleImpl< N, Rest... >",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#using-super",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-findelement",
+      "brief": "Alias that recursively locates (compile-time) the Element base class for the given index. ",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::CompressedTupleImpl< N, First, Rest... >::FindElement =  std::conditional_t<(I == kIndex), Element, typename Super::template FindElement<I> >",
+      "explicit": false,
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >::FindElement",
+      "hasDetails": true,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/compressed_tuple.hpp",
+        "bodyStart": 109,
+        "column": 5,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 109
+      },
+      "name": "FindElement",
+      "override": false,
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4_1a2bc5d42e69bb388906ef43e8daa544b8",
+      "static": false,
+      "strong": false,
+      "summary": "Alias that recursively locates (compile-time) the Element base class for the given index. ",
+      "templateParams": [
+        {
+          "name": "I",
+          "type": "usize",
+          "typePlain": "usize"
+        }
+      ],
+      "title": "FindElement",
+      "type": "std::conditional_t<(I==[kIndex](/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#variable-kindex)), [Element](/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#using-element), typename Super::template [FindElement](/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#using-findelement)< I > >",
+      "typePlain": "std::conditional_t<(I==kIndex), Element, typename Super::template FindElement< I > >",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/#using-findelement",
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4",
+  "static": false,
+  "strong": false,
+  "summary": "Implementation of CompressedTuple. ",
+  "templateParams": [
+    {
+      "name": "N",
+      "type": "usize",
+      "typePlain": "usize"
+    },
+    {
+      "name": "",
+      "type": "typename First",
+      "typePlain": "typename First"
+    },
+    {
+      "name": "Rest",
+      "type": "typename...",
+      "typePlain": "typename..."
+    }
+  ],
+  "templateParamsList": [
+    {
+      "name": "N",
+      "text": "The total number of elements in the tuple "
+    },
+    {
+      "name": "First",
+      "text": "The first type of the tuple "
+    },
+    {
+      "name": "Rest...",
+      "text": "The remaining types after this one "
+    }
+  ],
+  "title": "batt::CompressedTupleImpl< N, First, Rest... >",
+  "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/",
+  "visibility": "public"
+}

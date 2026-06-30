@@ -1,0 +1,215 @@
+{
+  "abstract": false,
+  "anchor": "#file-compressed-tuple.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-compressed-tuple-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_COMPRESSED_TUPLE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/compressed_tuple.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/compressed_tuple.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_COMPRESSED_TUPLE_HPP",
+      "override": false,
+      "refid": "compressed__tuple_8hpp_1a2ca43f35f03abcdddc494151be515850",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_COMPRESSED_TUPLE_HPP",
+      "url": "/_autogen/Files/compressed__tuple_8hpp/#define-batteries-compressed-tuple-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/compressed_tuple.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/compressed_tuple.hpp",
+    "line": 0
+  },
+  "name": "batteries/compressed_tuple.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_COMPRESSED_TUPLE_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/int_types.hpp>\n#include <batteries/type_traits.hpp>\n#include <batteries/utility.hpp>\n\nnamespace batt {\n\n// Forward-declaration of CompressedTuple implementation template.\n//\ntemplate <usize N, typename... Ts>\nclass CompressedTupleImpl;\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename... Ts>\nusing CompressedTuple = CompressedTupleImpl<sizeof...(Ts), Ts...>;\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <usize I, typename T>\nstruct BATT_IF_MSVC(__declspec(empty_bases)) CompressedTupleElement : T {\n    using value_type = T;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <usize N, typename First, typename... Rest>\nclass BATT_IF_MSVC(__declspec(empty_bases)) CompressedTupleImpl<N, First, Rest...>\n    : protected CompressedTupleElement<(N - (1 + sizeof...(Rest))), First>\n    , public CompressedTupleImpl<N, Rest...>\n{\n   public:\n    using Self = CompressedTupleImpl<N, First, Rest...>;\n\n    static constexpr usize kIndex = (N - (1 + sizeof...(Rest)));\n\n    using Element = CompressedTupleElement<kIndex, First>;\n\n    using Super = CompressedTupleImpl<N, Rest...>;\n\n    template <usize I>\n    using FindElement = std::conditional_t<(I == kIndex), Element, typename Super::template FindElement<I>>;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    template <usize I, typename T>\n    static Self& from_element(T& value) noexcept\n    {\n        return *static_cast<Self*>(                      //\n            static_cast<CompressedTupleElement<I, T>*>(  //\n                std::addressof(value)));\n    }\n\n    template <usize I, typename T>\n    static const Self& from_element(const T& value) noexcept\n    {\n        return *static_cast<const Self*>(                      //\n            static_cast<const CompressedTupleElement<I, T>*>(  //\n                std::addressof(value)));\n    }\n\n    static constexpr usize size() noexcept\n    {\n        return N;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    CompressedTupleImpl() = default;\n\n    CompressedTupleImpl(const Self&) = default;\n\n    CompressedTupleImpl(Self&&) = default;\n\n    Self& operator=(const Self&) = default;\n\n    Self& operator=(Self&&) = default;\n\n    ~CompressedTupleImpl() = default;\n\n    template <typename FirstArg, typename... RestOfArgs,\n              typename = EnableIfNoShadow<Self, FirstArg, RestOfArgs...>>\n    BATT_REQUIRES((sizeof...(RestOfArgs) == sizeof...(Rest)) && (!std::same_as<std::decay_t<FirstArg>, Self>))\n    CompressedTupleImpl(FirstArg&& first, RestOfArgs&&... rest)\n        : Element{BATT_FORWARD(first)}\n        , Super{BATT_FORWARD(rest)...}\n    {\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    template <isize I>\n    BATT_REQUIRES(I >= 0 && I < N)\n    BATT_ALWAYS_INLINE auto& get() & noexcept\n    {\n        return *static_cast<FindElement<I>*>(this);\n    }\n\n    template <isize I>\n    BATT_REQUIRES(I >= 0 && I < N)\n    BATT_ALWAYS_INLINE const auto& get() const& noexcept\n    {\n        return *static_cast<const FindElement<I>*>(this);\n    }\n\n    template <isize I>\n    BATT_REQUIRES(I >= 0 && I < N)\n    BATT_ALWAYS_INLINE auto&& get() && noexcept\n    {\n        return std::move(*static_cast<FindElement<I>*>(this));\n    }\n\n    template <isize I>\n    BATT_REQUIRES(I >= 0 && I < N)\n    BATT_ALWAYS_INLINE const auto&& get() const&& noexcept\n    {\n        return std::move(*static_cast<const FindElement<I>*>(this));\n    }\n};\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <usize N>\nclass CompressedTupleImpl<N>\n{\n   public:\n    template <usize I>\n    using FindElement = void;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T>\nstruct tuple_size;\n\ntemplate <typename... Ts>\nstruct tuple_size<CompressedTuple<Ts...>> : std::integral_constant<usize, CompressedTuple<Ts...>::size()> {\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <usize I, typename T>\nstruct tuple_element;\n\ntemplate <usize I, typename... Ts>\nstruct tuple_element<I, CompressedTuple<Ts...>> : std::tuple_element<I, std::tuple<Ts...>> {\n};\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <usize I, typename T>\nusing tuple_element_t = typename tuple_element<I, T>::type;\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <usize I, typename T>\ndecltype(auto) get(T&& t) noexcept\n{\n    return BATT_FORWARD(t).template get<I>();\n}\n\n}  // namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "T",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "Helper template; allows duplicate types to co-exist in the same CompressedTuple. ",
+      "category": "classes",
+      "fullname": "batt::CompressedTupleElement",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::CompressedTupleElement",
+      "refid": "structbatt_1_1CompressedTupleElement",
+      "summary": "Helper template; allows duplicate types to co-exist in the same CompressedTuple. ",
+      "title": "batt::CompressedTupleElement",
+      "url": "/_autogen/Classes/structbatt_1_1CompressedTupleElement/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::CompressedTupleElement<(N -(1+sizeof...(Rest))), First >",
+          "refid": "structbatt_1_1CompressedTupleElement",
+          "url": "/_autogen/Classes/structbatt_1_1CompressedTupleElement/",
+          "virtual": "non-virtual",
+          "visibility": "protected"
+        },
+        {
+          "external": false,
+          "name": "batt::CompressedTupleImpl< N, Rest... >",
+          "refid": "classbatt_1_1CompressedTupleImpl",
+          "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": true,
+          "name": "T",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "Implementation of CompressedTuple. ",
+      "category": "classes",
+      "fullname": "batt::CompressedTupleImpl< N, First, Rest... >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::CompressedTupleImpl< N, First, Rest... >",
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4",
+      "summary": "Implementation of CompressedTuple. ",
+      "title": "batt::CompressedTupleImpl< N, First, Rest... >",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_00_01First_00_01Rest_8_8_8_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Base case of [CompressedTupleImpl](/_autogen/Classes/classbatt_1_1CompressedTupleImpl/). ",
+      "category": "classes",
+      "fullname": "batt::CompressedTupleImpl< N >",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::CompressedTupleImpl< N >",
+      "refid": "classbatt_1_1CompressedTupleImpl_3_01N_01_4",
+      "summary": "Base case of CompressedTupleImpl. ",
+      "title": "batt::CompressedTupleImpl< N >",
+      "url": "/_autogen/Classes/classbatt_1_1CompressedTupleImpl_3_01N_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::integral_constant< usize, CompressedTuple< Ts... >::size()>",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::tuple_size< CompressedTuple< Ts... > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::tuple_size< CompressedTuple< Ts... > >",
+      "refid": "structbatt_1_1tuple__size_3_01CompressedTuple_3_01Ts_8_8_8_01_4_01_4",
+      "title": "batt::tuple_size< CompressedTuple< Ts... > >",
+      "url": "/_autogen/Classes/structbatt_1_1tuple__size_3_01CompressedTuple_3_01Ts_8_8_8_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::tuple_element< I, std::tuple< Ts... > >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::tuple_element< I, CompressedTuple< Ts... > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::tuple_element< I, CompressedTuple< Ts... > >",
+      "refid": "structbatt_1_1tuple__element_3_01I_00_01CompressedTuple_3_01Ts_8_8_8_01_4_01_4",
+      "title": "batt::tuple_element< I, CompressedTuple< Ts... > >",
+      "url": "/_autogen/Classes/structbatt_1_1tuple__element_3_01I_00_01CompressedTuple_3_01Ts_8_8_8_01_4_01_4/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "compressed__tuple_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/compressed_tuple.hpp",
+  "url": "/_autogen/Files/compressed__tuple_8hpp/#file-compressed-tuple.hpp",
+  "visibility": "public"
+}

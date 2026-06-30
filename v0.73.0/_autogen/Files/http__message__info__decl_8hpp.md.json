@@ -1,0 +1,127 @@
+{
+  "abstract": false,
+  "anchor": "#file-http-message-info-decl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-http-http-message-info-decl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_HTTP_HTTP_MESSAGE_INFO_DECL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/http_message_info_decl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/http/http_message_info_decl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_HTTP_HTTP_MESSAGE_INFO_DECL_HPP",
+      "override": false,
+      "refid": "http__message__info__decl_8hpp_1af1b031fbf3654b192f79536b07cd3950",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_HTTP_HTTP_MESSAGE_INFO_DECL_HPP",
+      "url": "/_autogen/Files/http__message__info__decl_8hpp/#define-batteries-http-http-message-info-decl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/http/http_message_info_decl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/http/http_message_info_decl.hpp",
+    "line": 0
+  },
+  "name": "batteries/http/http_message_info_decl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/http",
+    "category": "dirs",
+    "fullname": "batteries/http",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/http",
+    "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+    "title": "batteries/http",
+    "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/http",
+      "category": "dirs",
+      "fullname": "batteries/http",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/http",
+      "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+      "title": "batteries/http",
+      "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_HTTP_HTTP_MESSAGE_INFO_DECL_HPP\n#define BATTERIES_HTTP_HTTP_MESSAGE_INFO_DECL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/stream_buffer.hpp>\n#include <batteries/http/http_data.hpp>\n#include <batteries/operators.hpp>\n#include <batteries/optional.hpp>\n#include <batteries/pico_http/parser.hpp>\n#include <batteries/small_vec.hpp>\n\nnamespace batt {\n\nstruct HttpMessageInfo {\n    explicit HttpMessageInfo(const pico_http::Response& response) noexcept;\n    explicit HttpMessageInfo(const pico_http::Request& request) noexcept;\n\n    HttpMessageInfo(int major_version, int minor_version,\n                    const batt::SmallVecBase<pico_http::MessageHeader>& headers) noexcept;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    bool is_valid() const\n    {\n        return this->content_length || this->chunked_encoding || !this->keep_alive;\n    }\n\n    HttpData get_data(StreamBuffer& input_buffer);\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    Optional<usize> content_length;\n\n    bool keep_alive;\n\n    bool chunked_encoding;\n};\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\nBATT_OBJECT_PRINT_IMPL((inline), HttpMessageInfo, (content_length, keep_alive, chunked_encoding));\n\n}  //namespace batt\n\n#endif  // BATTERIES_HTTP_HTTP_MESSAGE_INFO_DECL_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "A summary of information about a response message that is necessary for the connection to correctly handle it. ",
+      "category": "classes",
+      "fullname": "batt::HttpMessageInfo",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::HttpMessageInfo",
+      "refid": "structbatt_1_1HttpMessageInfo",
+      "summary": "A summary of information about a response message that is necessary for the connection to correctly handle it. ",
+      "title": "batt::HttpMessageInfo",
+      "url": "/_autogen/Classes/structbatt_1_1HttpMessageInfo/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "http__message__info__decl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/http/http_message_info_decl.hpp",
+  "url": "/_autogen/Files/http__message__info__decl_8hpp/#file-http-message-info-decl.hpp",
+  "visibility": "public"
+}

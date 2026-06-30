@@ -1,0 +1,143 @@
+{
+  "abstract": false,
+  "anchor": "#file-parser-decl.hpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/pico_http/parser_decl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/pico_http/parser_decl.hpp",
+    "line": 0
+  },
+  "name": "batteries/pico_http/parser_decl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "pico_http",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "pico_http",
+      "refid": "namespacepico__http",
+      "title": "pico_http",
+      "url": "/_autogen/Namespaces/namespacepico__http/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/pico-http",
+    "category": "dirs",
+    "fullname": "batteries/pico_http",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/pico_http",
+    "refid": "dir_c14a1d4d12bee09dc523319537c13e97",
+    "title": "batteries/pico_http",
+    "url": "/_autogen/Files/dir_c14a1d4d12bee09dc523319537c13e97/#dir-batteries/pico-http",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/pico-http",
+      "category": "dirs",
+      "fullname": "batteries/pico_http",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/pico_http",
+      "refid": "dir_c14a1d4d12bee09dc523319537c13e97",
+      "title": "batteries/pico_http",
+      "url": "/_autogen/Files/dir_c14a1d4d12bee09dc523319537c13e97/#dir-batteries/pico-http",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "/*\n * Copyright (c) 2009-2014 Kazuho Oku, Tokuhiro Matsuno, Daisuke Murase,\n *                         Shigeo Mitsunari\n *\n * The software is licensed under either the MIT License (below) or the Perl\n * license.\n *\n * Permission is hereby granted, free of charge, to any person obtaining a copy\n * of this software and associated documentation files (the \"Software\"), to\n * deal in the Software without restriction, including without limitation the\n * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or\n * sell copies of the Software, and to permit persons to whom the Software is\n * furnished to do so, subject to the following conditions:\n *\n * The above copyright notice and this permission notice shall be included in\n * all copies or substantial portions of the Software.\n *\n * THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS\n * IN THE SOFTWARE.\n */\n\n#ifndef BATTERIES_PICO_HTTP_PARSER_DECL_HPP\n#define BATTERIES_PICO_HTTP_PARSER_DECL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/buffer.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/small_vec.hpp>\n#include <batteries/status.hpp>\n\n#include <string_view>\n\n#include <sys/types.h>\n\n#ifdef _MSC_VER\n#define ssize_t intptr_t\n#endif\n\nnamespace pico_http {\n\nusing namespace batt::int_types;\n\n/* contains name and value of a header (name == NULL if is a continuing line\n * of a multiline header */\nstruct MessageHeader {\n    std::string_view name;\n    std::string_view value;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    MessageHeader() = default;\n\n    MessageHeader(std::string_view name, std::string_view value) noexcept : name{name}, value{value}\n    {\n    }\n};\n\nstd::ostream& operator<<(std::ostream& out, const MessageHeader& t);\nstd::ostream& operator<<(std::ostream& out, const batt::SmallVecBase<MessageHeader>& t);\n\nconstexpr usize kDefaultNumHeaders = 16;\n\nconstexpr int kParseOk = 0;\nconstexpr int kParseFailed = -1;\nconstexpr int kParseIncomplete = -2;\n\nstruct Request {\n    std::string_view method;\n    std::string_view path;\n    int major_version;\n    int minor_version;\n    batt::SmallVec<MessageHeader, kDefaultNumHeaders> headers;\n\n    /* returns number of bytes consumed if successful, kParseIncomplete if request is partial,\n     * kParseFailed if failed\n     */\n    int parse(const char* buf, usize len, usize last_len = 0);\n\n    // Convenience.\n    //\n    int parse(const batt::ConstBuffer& buf)\n    {\n        return this->parse(static_cast<const char*>(buf.data()), buf.size());\n    }\n};\n\nstd::ostream& operator<<(std::ostream& out, const Request& t);\n\nstruct Response {\n    int major_version;\n    int minor_version;\n    int status;\n    std::string_view message;\n    batt::SmallVec<MessageHeader, kDefaultNumHeaders> headers;\n\n    /* returns number of bytes consumed if successful, kParseIncomplete if request is partial,\n     * kParseFailed if failed\n     */\n    int parse(const char* buf, usize len, usize last_len = 0);\n\n    // Convenience.\n    //\n    int parse(const batt::ConstBuffer& buf)\n    {\n        return this->parse(static_cast<const char*>(buf.data()), buf.size());\n    }\n};\n\nstd::ostream& operator<<(std::ostream& out, const Response& t);\n\n/* returns number of bytes consumed if successful, kParseIncomplete if request is partial,\n * kParseFailed if failed\n */\nint parse_headers(const char* buf, usize len, batt::SmallVecBase<MessageHeader>* headers, usize last_len = 0);\n\n/* should be zero-filled before start */\nstruct ChunkedDecoder {\n    usize bytes_left_in_chunk; /* number of bytes left in current chunk */\n    bool consume_trailer;      /* if trailing headers should be consumed */\n    i8 hex_count_;\n    i8 state_;\n};\n\nstruct DecodeResult {\n    bool done;\n    usize bytes_consumed;\n};\n\n/* the function rewrites the buffer given as (buf, bufsz) removing the chunked-\n * encoding headers.  When the function returns without an error, bufsz is\n * updated to the length of the decoded data available.  Applications should\n * repeatedly call the function while it returns kParseIncomplete (incomplete) every time\n * supplying newly arrived data.  If the end of the chunked-encoded data is\n * found, the function returns a non-negative number indicating the number of\n * octets left undecoded, that starts from the offset returned by `*bufsz`.\n * Returns kParseFailed on error.\n */\nbatt::StatusOr<DecodeResult> decode_chunked(ChunkedDecoder* decoder, const batt::ConstBuffer& input,\n                                            batt::SmallVecBase<batt::ConstBuffer>* output);\n\n/* returns if the chunked decoder is in middle of chunked data */\nint decode_chunked_is_in_data(ChunkedDecoder* decoder);\n\n}  // namespace pico_http\n\n#endif  // BATTERIES_PICO_HTTP_PARSER_DECL_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "pico_http::MessageHeader",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "pico_http::MessageHeader",
+      "refid": "structpico__http_1_1MessageHeader",
+      "title": "pico_http::MessageHeader",
+      "url": "/_autogen/Classes/structpico__http_1_1MessageHeader/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "pico_http::Request",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "pico_http::Request",
+      "refid": "structpico__http_1_1Request",
+      "title": "pico_http::Request",
+      "url": "/_autogen/Classes/structpico__http_1_1Request/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "pico_http::Response",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "pico_http::Response",
+      "refid": "structpico__http_1_1Response",
+      "title": "pico_http::Response",
+      "url": "/_autogen/Classes/structpico__http_1_1Response/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "pico_http::ChunkedDecoder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "pico_http::ChunkedDecoder",
+      "refid": "structpico__http_1_1ChunkedDecoder",
+      "title": "pico_http::ChunkedDecoder",
+      "url": "/_autogen/Classes/structpico__http_1_1ChunkedDecoder/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "pico_http::DecodeResult",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "pico_http::DecodeResult",
+      "refid": "structpico__http_1_1DecodeResult",
+      "title": "pico_http::DecodeResult",
+      "url": "/_autogen/Classes/structpico__http_1_1DecodeResult/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "parser__decl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/pico_http/parser_decl.hpp",
+  "url": "/_autogen/Files/parser__decl_8hpp/#file-parser-decl.hpp",
+  "visibility": "public"
+}

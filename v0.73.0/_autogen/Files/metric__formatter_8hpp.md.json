@@ -1,0 +1,143 @@
+{
+  "abstract": false,
+  "anchor": "#file-metric-formatter.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-metrics-metric-formatter-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_METRICS_METRIC_FORMATTER_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/metrics/metric_formatter.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/metrics/metric_formatter.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_METRICS_METRIC_FORMATTER_HPP",
+      "override": false,
+      "refid": "metric__formatter_8hpp_1a0ad59d4b8d3bbcefbbddd09ef67dd2fe",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_METRICS_METRIC_FORMATTER_HPP",
+      "url": "/_autogen/Files/metric__formatter_8hpp/#define-batteries-metrics-metric-formatter-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/metrics/metric_formatter.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/metrics/metric_formatter.hpp",
+    "line": 0
+  },
+  "name": "batteries/metrics/metric_formatter.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/metrics",
+    "category": "dirs",
+    "fullname": "batteries/metrics",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/metrics",
+    "refid": "dir_5ba863940ce6067bb787d1b849676df9",
+    "title": "batteries/metrics",
+    "url": "/_autogen/Files/dir_5ba863940ce6067bb787d1b849676df9/#dir-batteries/metrics",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/metrics",
+      "category": "dirs",
+      "fullname": "batteries/metrics",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/metrics",
+      "refid": "dir_5ba863940ce6067bb787d1b849676df9",
+      "title": "batteries/metrics",
+      "url": "/_autogen/Files/dir_5ba863940ce6067bb787d1b849676df9/#dir-batteries/metrics",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2023 Anthony Paul Astolfi, Eitan Steiner\n//\n#pragma once\n#ifndef BATTERIES_METRICS_METRIC_FORMATTER_HPP\n#define BATTERIES_METRICS_METRIC_FORMATTER_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/metrics/metric_registry.hpp>\n\n#include <boost/algorithm/string/replace.hpp>\n#include <ostream>\n\nnamespace batt {\n\nclass MetricFormatter\n{\n   public:\n    MetricFormatter(const MetricFormatter&) = delete;\n    MetricFormatter& operator=(const MetricFormatter&) = delete;\n\n    virtual ~MetricFormatter() = default;\n\n    // Called once per ostream before any calls to `format_values` for that ostream.\n    //\n    virtual void initialize(MetricRegistry& src, std::ostream& dst) = 0;\n\n    // Called any number of times to format the current metric values in `src` to `dst`.\n    //\n    virtual void format_values(MetricRegistry& src, std::ostream& dst) = 0;\n\n    // Called once per ostream after all calls to `format_values` for that ostream.\n    //\n    virtual void finished(MetricRegistry& src, std::ostream& dst) = 0;\n\n   protected:\n    MetricFormatter() = default;\n\n    // Fully qualified metric name with label keys and values, i.e.: name_key1_value1_key2_value2\n    // Sanitize the key/value tokens to not contain ',' chars.\n    //\n    std::string fully_qualified_name(std::string_view name, const MetricLabelSet& labels)\n    {\n        std::ostringstream fqn;\n        fqn << name;\n\n        if (labels.size() > 0) {\n            for (const auto& l : labels) {\n                std::string key(l.key);\n                std::string value(l.value);\n\n                boost::algorithm::replace_all(key, \",\", \"_\");\n                boost::algorithm::replace_all(value, \",\", \"_\");\n\n                fqn << \"_\" << key << \"_\" << value;\n            }\n        }\n        return fqn.str();\n    }\n};\n\n}  // namespace batt\n\n#endif  // BATTERIES_METRICS_METRIC_FORMATTER_HPP\n\n#if BATT_HEADER_ONLY\n#include <batteries/metrics/metric_formatter_impl.hpp>\n#endif  // BATT_HEADER_ONLY",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::MetricCsvFormatter",
+          "refid": "classbatt_1_1MetricCsvFormatter",
+          "url": "/_autogen/Classes/classbatt_1_1MetricCsvFormatter/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::MetricOpenTelemetryFormatter",
+          "refid": "classbatt_1_1MetricOpenTelemetryFormatter",
+          "url": "/_autogen/Classes/classbatt_1_1MetricOpenTelemetryFormatter/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::MetricFormatter",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::MetricFormatter",
+      "refid": "classbatt_1_1MetricFormatter",
+      "title": "batt::MetricFormatter",
+      "url": "/_autogen/Classes/classbatt_1_1MetricFormatter/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "metric__formatter_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/metrics/metric_formatter.hpp",
+  "url": "/_autogen/Files/metric__formatter_8hpp/#file-metric-formatter.hpp",
+  "visibility": "public"
+}
