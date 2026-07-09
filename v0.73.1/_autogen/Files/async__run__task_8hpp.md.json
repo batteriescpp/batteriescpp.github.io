@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-async-run-task.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-async-run-task-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_ASYNC_RUN_TASK_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/async_run_task.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/async_run_task.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_ASYNC_RUN_TASK_HPP",
+      "override": false,
+      "refid": "async__run__task_8hpp_1a9845ae41b83f28f8b4f8e752254b0582",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_ASYNC_RUN_TASK_HPP",
+      "url": "/_autogen/Files/async__run__task_8hpp/#define-batteries-async-async-run-task-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/async_run_task.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/async_run_task.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/async_run_task.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_ASYNC_RUN_TASK_HPP\n#define BATTERIES_ASYNC_ASYNC_RUN_TASK_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/async/preallocated_task.hpp>\n#include <batteries/utility.hpp>\n\nnamespace batt {\n\ntemplate <typename BodyFn = void(), typename... TaskArgsAndHandler>\nTask* async_run_task(const boost::asio::any_io_executor& ex, StackSize stack_byte_size, BodyFn&& body_fn,\n                     TaskArgsAndHandler&&... task_args_and_handler)\n{\n    auto* preallocated_task = rotate_args_right(\n        [](auto&& completion_handler, const boost::asio::any_io_executor& ex, StackSize stack_byte_size,\n           BodyFn&& body_fn, auto&&... task_args) {\n            using CompletionHandlerFn = std::decay_t<decltype(completion_handler)>;\n\n            static_assert(std::is_same_v<decltype(completion_handler), CompletionHandlerFn&&>);\n\n            return PreallocatedTask<CompletionHandlerFn>::make_new(ex, BATT_FORWARD(completion_handler),\n                                                                   stack_byte_size, BATT_FORWARD(body_fn),\n                                                                   BATT_FORWARD(task_args)...);\n        },\n        ex, stack_byte_size, BATT_FORWARD(body_fn), BATT_FORWARD(task_args_and_handler)...);\n\n    return preallocated_task->task_pointer();\n}\n\n}  //namespace batt\n\n#endif  // BATTERIES_ASYNC_ASYNC_RUN_TASK_HPP",
+  "refid": "async__run__task_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/async_run_task.hpp",
+  "url": "/_autogen/Files/async__run__task_8hpp/#file-async-run-task.hpp",
+  "visibility": "public"
+}
