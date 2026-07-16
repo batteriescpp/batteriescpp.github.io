@@ -1,0 +1,203 @@
+{
+  "abstract": false,
+  "anchor": "#file-loop-control.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-loop-control-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_LOOP_CONTROL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/loop_control.hpp",
+        "bodyStart": 5,
+        "column": 9,
+        "file": "batteries/seq/loop_control.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_SEQ_LOOP_CONTROL_HPP",
+      "override": false,
+      "refid": "loop__control_8hpp_1acc962110f970443e7348f99db9a48dd9",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_LOOP_CONTROL_HPP",
+      "url": "/_autogen/Files/loop__control_8hpp/#define-batteries-seq-loop-control-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-invoke-loop-fn",
+      "brief": "Invokes a batt::seq loop function in the context of a loop. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "details": "args MUST be a preprocessor tuple (i.e., it must be a comma-separated list enclosed in parentheses), having the form: (fn, arg0, arg1, ...). The first tuple element, the function `fn`, may return batt::Optional<batt::seq::LoopControl> or any other type.\n\nIf `fn` returns batt::Optional<batt::seq::LoopControl>, the return value is used to determine whether to inject a `break` or `continue` statement. If `fn` returns None, then _neither_ a break _nor_ a continue is injected and control moves forward to the next line of the loop.\n\nReturning anything other than batt::Optional<batt::seq::LoopControl> has the same semantics as returning None.\n\nExample:\n\n\n\n```cpp\n {c++}\nusing batt::Optional;\nusing batt::None;\nusing batt::seq::LoopControl;\n\n// Invokes the passed fn repeatedly with int values 0..n-1 (inclusive).\n//\ntemplate <typename Fn>\nvoid repeat(int n, Fn&& fn)\n{\n    for (int i=0; i < n; ++i) {\n        BATT_INVOKE_LOOP_FN((fn, i));\n        //                  ^     ^\n        // NOTE: the extra parentheses!\n\n        std::cout << \",\";\n    }\n}\n\n// Outputs: \"0,1,2,3,4,5,6,7,8,9,\"\n//\nrepeat(10, [](int i) {\n    std::cout << i;\n});\n\n// Outputs: \"0123\"\n//\nrepeat(10, [](int i) -> LoopControl {\n    if (i > 3) {\n        return LoopControl::kBreak;\n    }\n    std::cout << i;\n    return LoopControl::kContinue;\n});\n\n// Outputs: \"0,2,4,6,\"\n//\nrepeat(10, [](int i) -> Optional<LoopControl> {\n    if (i > 6) {\n        return LoopControl::kBreak;\n    }\n    if ((i % 2) == 1) {\n        return LoopControl::kContinue;\n    }\n    std::cout << i;\n    return None;\n});\n```",
+      "explicit": false,
+      "fullname": "BATT_INVOKE_LOOP_FN",
+      "hasDetails": true,
+      "initializer": "    BATT_INVOKE_LOOP_FN_IMPL_(BOOST_PP_CAT(BaTTeRieS_lOOp_CONtrol_vAR_, __LINE__), fn_and_args)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/loop_control.hpp",
+        "bodyStart": 123,
+        "column": 9,
+        "file": "batteries/seq/loop_control.hpp",
+        "line": 123
+      },
+      "name": "BATT_INVOKE_LOOP_FN",
+      "override": false,
+      "params": [
+        {
+          "name": "fn_and_args",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "loop__control_8hpp_1aab74171c4cfde64d975f8c40e62f0140",
+      "static": false,
+      "strong": false,
+      "summary": "Invokes a batt::seq loop function in the context of a loop. ",
+      "title": "BATT_INVOKE_LOOP_FN",
+      "url": "/_autogen/Files/loop__control_8hpp/#define-batt-invoke-loop-fn",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-invoke-loop-fn-impl-",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_INVOKE_LOOP_FN_IMPL_",
+      "hasDetails": false,
+      "initializer": "    const ::batt::Optional<::batt::seq::LoopControl> result_var = (::batt::seq::invoke_loop_fn fn_and_args); \\\n    if (result_var && *result_var == ::batt::seq::LoopControl::kBreak) {                                     \\\n        break;                                                                                               \\\n    } else if (result_var && *result_var == ::batt::seq::LoopControl::kContinue)                             \\\n    continue",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/loop_control.hpp",
+        "bodyStart": 126,
+        "column": 9,
+        "file": "batteries/seq/loop_control.hpp",
+        "line": 126
+      },
+      "name": "BATT_INVOKE_LOOP_FN_IMPL_",
+      "override": false,
+      "params": [
+        {
+          "name": "result_var",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "fn_and_args",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "loop__control_8hpp_1ab67fedda29746deb69a8fc7832810bc3",
+      "static": false,
+      "strong": false,
+      "title": "BATT_INVOKE_LOOP_FN_IMPL_",
+      "url": "/_autogen/Files/loop__control_8hpp/#define-batt-invoke-loop-fn-impl-",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/loop_control.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/loop_control.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/loop_control.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2021-2025 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_SEQ_LOOP_CONTROL_HPP\n#define BATTERIES_SEQ_LOOP_CONTROL_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/optional.hpp>\n#include <batteries/utility.hpp>\n\n#include <boost/preprocessor/cat.hpp>\n\n#include <type_traits>\n#include <utility>\n\nnamespace batt {\nnamespace seq {\n\nenum LoopControl {\n    kContinue = 0,\n    kBreak = 1,\n};\n\ntemplate <typename Fn, typename... Args,\n          typename = std::enable_if_t<                                      //\n              std::is_convertible_v<std::invoke_result_t<Fn&&, Args&&...>,  //\n                                    Optional<LoopControl>>>>\nOptional<LoopControl> invoke_loop_fn(Fn&& fn, Args&&... args) noexcept(\n    noexcept(std::declval<Fn>()(std::declval<Args>()...)))\n{\n    return BATT_FORWARD(fn)(BATT_FORWARD(args)...);\n}\n\ntemplate <typename Fn, typename... Args,\n          typename = std::enable_if_t<                                       //\n              !std::is_convertible_v<std::invoke_result_t<Fn&&, Args&&...>,  //\n                                     Optional<LoopControl>>>,\n          typename = void>\nOptional<LoopControl> invoke_loop_fn(Fn&& fn, Args&&... args) noexcept(\n    noexcept(std::declval<Fn>()(std::declval<Args>()...)))\n{\n    BATT_FORWARD(fn)(BATT_FORWARD(args)...);\n    return None;\n}\n\ntemplate <typename Fn, typename... Args>\nLoopControl run_loop_fn(Fn&& fn, Args&&... args)\n{\n    return invoke_loop_fn(BATT_FORWARD(fn), BATT_FORWARD(args)...)  //\n        .value_or(LoopControl::kContinue);\n}\n\n}  // namespace seq\n}  // namespace batt\n\n#define BATT_INVOKE_LOOP_FN(fn_and_args)                                                                     \\\n    BATT_INVOKE_LOOP_FN_IMPL_(BOOST_PP_CAT(BaTTeRieS_lOOp_CONtrol_vAR_, __LINE__), fn_and_args)\n\n#define BATT_INVOKE_LOOP_FN_IMPL_(result_var, fn_and_args)                                                   \\\n    const ::batt::Optional<::batt::seq::LoopControl> result_var = (::batt::seq::invoke_loop_fn fn_and_args); \\\n    if (result_var && *result_var == ::batt::seq::LoopControl::kBreak) {                                     \\\n        break;                                                                                               \\\n    } else if (result_var && *result_var == ::batt::seq::LoopControl::kContinue)                             \\\n    continue\n\n#endif  // BATTERIES_SEQ_LOOP_CONTROL_HPP",
+  "refid": "loop__control_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/loop_control.hpp",
+  "url": "/_autogen/Files/loop__control_8hpp/#file-loop-control.hpp",
+  "visibility": "public"
+}

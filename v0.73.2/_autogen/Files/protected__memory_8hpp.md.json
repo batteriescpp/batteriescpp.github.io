@@ -1,0 +1,115 @@
+{
+  "abstract": false,
+  "anchor": "#file-protected-memory.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-protected-memory-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_PROTECTED_MEMORY_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/protected_memory.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/protected_memory.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_PROTECTED_MEMORY_HPP",
+      "override": false,
+      "refid": "protected__memory_8hpp_1a9b81ce74a8f188dd8b6f807d0b392366",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_PROTECTED_MEMORY_HPP",
+      "url": "/_autogen/Files/protected__memory_8hpp/#define-batteries-protected-memory-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/protected_memory.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/protected_memory.hpp",
+    "line": 0
+  },
+  "name": "batteries/protected_memory.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_PROTECTED_MEMORY_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/buffer.hpp>\n#include <batteries/status.hpp>\n#include <batteries/strong_typedef.hpp>\n#include <batteries/typed_args.hpp>\n\n#if BATT_PLATFORM_IS_LINUX\n#include <sys/mman.h>\n#endif\n\nnamespace batt {\n\nclass ProtectedMemory\n{\n   public:\n    using Self = ProtectedMemory;\n\n    BATT_STRONG_TYPEDEF(bool, DisableAccess);\n\n    BATT_STRONG_TYPEDEF(bool, DisableWrite);\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    template <typename... Args>\n    static unsigned int translate_access(Args&&... args [[maybe_unused]]) noexcept\n    {\n        unsigned int access_rights = 0;\n\n#if BATT_PLATFORM_IS_LINUX\n\n        if (get_typed_arg(DisableAccess{false}, args...)) {\n            access_rights |= PKEY_DISABLE_ACCESS;\n        }\n        if (get_typed_arg(DisableWrite{false}, args...)) {\n            access_rights |= PKEY_DISABLE_WRITE;\n        }\n\n#endif  // BATT_PLATFORM_IS_LINUX\n\n        return access_rights;\n    }\n\n    template <typename... Args>\n    static StatusOr<ProtectedMemory> initialize(Args&&... args [[maybe_unused]]) noexcept\n    {\n        int pkey = -1;\n\n#if BATT_PLATFORM_IS_LINUX\n\n        pkey = pkey_alloc(/*flags(must be 0)=*/0, Self::translate_access(BATT_FORWARD(args)...));\n        BATT_REQUIRE_OK(status_from_retval(pkey));\n\n#endif  // BATT_PLATFORM_IS_LINUX\n\n        return {ProtectedMemory{pkey}};\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    ProtectedMemory(const Self&) = delete;\n    ProtectedMemory& operator=(const Self&) = delete;\n\n    ProtectedMemory(Self&& other) noexcept : pkey_{std::exchange(other.pkey_, -1)}\n    {\n    }\n\n    ~ProtectedMemory() noexcept\n    {\n#if BATT_PLATFORM_IS_LINUX\n        if (this->pkey_ != -1) {\n            BATT_CHECK_EQ(::pkey_free(this->pkey_), 0);\n        }\n#endif\n    }\n\n    Self& operator=(Self&& other) noexcept\n    {\n        if (this != &other) {\n            this->pkey_ = std::exchange(other.pkey_, -1);\n        }\n        return *this;\n    }\n\n    template <typename... Args>\n    Status set_access(Args&&... args [[maybe_unused]]) noexcept\n    {\n#if BATT_PLATFORM_IS_LINUX\n        BATT_REQUIRE_OK(\n            status_from_retval(::pkey_set(this->pkey_, Self::translate_access(BATT_FORWARD(args)...))));\n#endif\n        return OkStatus();\n    }\n\n    Status add_region(MutableBuffer buffer [[maybe_unused]]) noexcept\n    {\n#if BATT_PLATFORM_IS_LINUX\n        BATT_REQUIRE_OK(status_from_retval(\n            ::pkey_mprotect(buffer.data(), buffer.size(), PROT_READ | PROT_WRITE, this->pkey_)));\n#endif\n        return OkStatus();\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    explicit ProtectedMemory(int pkey [[maybe_unused]]) noexcept : pkey_{pkey}\n    {\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    int pkey_ = -1;\n};\n\n}  // namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "Provides fast user-space control over memory page protection, on platforms that support the required hardware features. ",
+      "category": "classes",
+      "fullname": "batt::ProtectedMemory",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::ProtectedMemory",
+      "refid": "classbatt_1_1ProtectedMemory",
+      "summary": "Provides fast user-space control over memory page protection, on platforms that support the required hardware features. ",
+      "title": "batt::ProtectedMemory",
+      "url": "/_autogen/Classes/classbatt_1_1ProtectedMemory/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "protected__memory_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/protected_memory.hpp",
+  "url": "/_autogen/Files/protected__memory_8hpp/#file-protected-memory.hpp",
+  "visibility": "public"
+}

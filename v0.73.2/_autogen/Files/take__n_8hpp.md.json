@@ -1,0 +1,149 @@
+{
+  "abstract": false,
+  "anchor": "#file-take-n.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-take-n-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_TAKE_N_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/take_n.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/seq/take_n.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_SEQ_TAKE_N_HPP",
+      "override": false,
+      "refid": "take__n_8hpp_1acb19eca9759fdc31a242afa9b85e3792",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_TAKE_N_HPP",
+      "url": "/_autogen/Files/take__n_8hpp/#define-batteries-seq-take-n-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/take_n.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/take_n.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/take_n.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_SEQ_TAKE_N_HPP\n#define BATTERIES_SEQ_TAKE_N_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/seq/requirements.hpp>\n#include <batteries/seq/seq_item.hpp>\n\n#include <batteries/int_types.hpp>\n#include <batteries/optional.hpp>\n#include <batteries/utility.hpp>\n\nnamespace batt {\nnamespace seq {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// take(n)\n//\nstruct TakeNBinder {\n    usize n;\n};\n\ninline TakeNBinder take_n(usize n)\n{\n    return {n};\n}\n\ntemplate <typename Seq>\nclass TakeN\n{\n   public:\n    using Item = SeqItem<Seq>;\n\n    explicit TakeN(Seq&& seq, usize n) noexcept : seq_(BATT_FORWARD(seq)), n_{n}\n    {\n    }\n\n    Optional<Item> peek()\n    {\n        if (n_ == 0) {\n            return None;\n        }\n        return seq_.peek();\n    }\n    Optional<Item> next()\n    {\n        if (n_ == 0) {\n            return None;\n        }\n        --n_;\n        return seq_.next();\n    }\n\n   private:\n    Seq seq_;\n    usize n_;\n};\n\ntemplate <typename Seq, typename = EnableIfSeq<Seq>>\n[[nodiscard]] TakeN<Seq> operator|(Seq&& seq, const TakeNBinder& binder)\n{\n    return TakeN<Seq>{BATT_FORWARD(seq), binder.n};\n}\n\n}  // namespace seq\n}  // namespace batt\n\n#endif  // BATTERIES_SEQ_TAKE_N_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::TakeNBinder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::TakeNBinder",
+      "refid": "structbatt_1_1seq_1_1TakeNBinder",
+      "title": "batt::seq::TakeNBinder",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1TakeNBinder/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::TakeN",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::seq::TakeN",
+      "refid": "classbatt_1_1seq_1_1TakeN",
+      "title": "batt::seq::TakeN",
+      "url": "/_autogen/Classes/classbatt_1_1seq_1_1TakeN/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "take__n_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/take_n.hpp",
+  "url": "/_autogen/Files/take__n_8hpp/#file-take-n.hpp",
+  "visibility": "public"
+}
