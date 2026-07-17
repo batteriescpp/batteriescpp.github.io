@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-backoff-impl.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-backoff-impl-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_BACKOFF_IMPL_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/backoff_impl.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/backoff_impl.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_BACKOFF_IMPL_HPP",
+      "override": false,
+      "refid": "backoff__impl_8hpp_1a9b9cc6d371812f3cfc29bec96f30a2ee",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_BACKOFF_IMPL_HPP",
+      "url": "/_autogen/Files/backoff__impl_8hpp/#define-batteries-async-backoff-impl-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/backoff_impl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/backoff_impl.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/backoff_impl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_BACKOFF_IMPL_HPP\n#define BATTERIES_ASYNC_BACKOFF_IMPL_HPP\n\n#include <batteries/config.hpp>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL /*static*/ ExponentialBackoff ExponentialBackoff::with_default_params()\n{\n    ExponentialBackoff p;\n\n    p.max_attempts = 40;\n    p.initial_delay_usec = 10;\n    p.backoff_factor = 2;\n    p.backoff_divisor = 1;\n    p.max_delay_usec = 250 * 1000;  // 250ms\n\n    return p;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\nBATT_INLINE_IMPL void update_retry_state(RetryState& state, const ExponentialBackoff& policy)\n{\n    if (policy.max_attempts != 0 && state.n_attempts >= policy.max_attempts) {\n        state.should_retry = false;\n        return;\n    }\n\n    state.should_retry = true;\n    state.n_attempts += 1;\n    state.prev_delay_usec = state.next_delay_usec;\n    if (state.n_attempts == 1) {\n        state.next_delay_usec = policy.initial_delay_usec;\n    } else {\n        state.next_delay_usec = std::min(\n            policy.max_delay_usec, state.prev_delay_usec * policy.backoff_factor / policy.backoff_divisor);\n    }\n}\n\n}  //namespace batt\n\n#endif  // BATTERIES_ASYNC_BACKOFF_IMPL_HPP",
+  "refid": "backoff__impl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/backoff_impl.hpp",
+  "url": "/_autogen/Files/backoff__impl_8hpp/#file-backoff-impl.hpp",
+  "visibility": "public"
+}

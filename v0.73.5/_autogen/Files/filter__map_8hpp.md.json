@@ -1,0 +1,161 @@
+{
+  "abstract": false,
+  "anchor": "#file-filter-map.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-filter-map-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_FILTER_MAP_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/filter_map.hpp",
+        "bodyStart": 5,
+        "column": 9,
+        "file": "batteries/seq/filter_map.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_SEQ_FILTER_MAP_HPP",
+      "override": false,
+      "refid": "filter__map_8hpp_1aed02009c9fc78878f334f469a90a917e",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_FILTER_MAP_HPP",
+      "url": "/_autogen/Files/filter__map_8hpp/#define-batteries-seq-filter-map-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/filter_map.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/filter_map.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/filter_map.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2021 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_SEQ_FILTER_MAP_HPP\n#define BATTERIES_SEQ_FILTER_MAP_HPP\n\n#include <batteries/config.hpp>\n#include <batteries/seq/deref.hpp>\n#include <batteries/seq/filter.hpp>\n#include <batteries/seq/for_each.hpp>\n#include <batteries/seq/map.hpp>\n#include <batteries/seq/seq_item.hpp>\n#include <batteries/utility.hpp>\n\n#include <type_traits>\n\nnamespace batt {\nnamespace seq {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// filter_map\n//\n\nstruct IsNotFalse {\n    template <typename T>\n    bool operator()(T&& val) const\n    {\n        return bool{val};\n    }\n};\n\ntemplate <typename Seq, typename Fn>\nauto filter_map_impl(Seq&& seq, Fn&& fn)\n{\n    return BATT_FORWARD(seq)        //\n           | map(BATT_FORWARD(fn))  //\n           | filter(IsNotFalse{})   //\n           | deref();\n}\n\ntemplate <typename Seq, typename Fn>\nclass FilterMap\n{\n   public:\n    using impl_type = decltype(filter_map_impl<Seq, Fn>(std::declval<Seq>(), std::declval<Fn>()));\n\n    using Item = SeqItem<impl_type>;\n\n    explicit FilterMap(Seq&& seq, Fn&& fn) noexcept\n        : impl_{filter_map_impl(BATT_FORWARD(seq), BATT_FORWARD(fn))}\n    {\n    }\n\n    Optional<Item> peek()\n    {\n        return impl_.peek();\n    }\n    Optional<Item> next()\n    {\n        return impl_.next();\n    }\n\n    //--------------------------------\n\n#if BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n    template <typename Seq_, typename MapFn, typename EachFn>\n    friend LoopControl operator|(FilterMap<Seq_, MapFn>&& filter_map_seq, ForEachBinder<EachFn>&& binder);\n\n#endif  // BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n   private:\n    impl_type impl_;\n};\n\ntemplate <typename Fn>\nstruct FilterMapBinder {\n    Fn fn;\n};\n\ntemplate <typename Fn>\nFilterMapBinder<Fn> filter_map(Fn&& fn)\n{\n    return {BATT_FORWARD(fn)};\n}\n\ntemplate <typename Seq, typename Fn>\n[[nodiscard]] FilterMap<Seq, Fn> operator|(Seq&& seq, FilterMapBinder<Fn>&& binder)\n{\n    static_assert(std::is_same_v<Seq, std::decay_t<Seq>>,\n                  \"Filtered/mapped sequences may not be captured implicitly by reference.\");\n\n    static_assert(std::is_same_v<Fn, std::decay_t<Fn>>,\n                  \"Filter/map functions may not be captured implicitly by reference.\");\n\n    return FilterMap<Seq, Fn>{BATT_FORWARD(seq), BATT_FORWARD(binder.fn)};\n}\n\n#if BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// filter_map(...) | for_each(...)\n//\ntemplate <typename Seq, typename MapFn, typename EachFn>\nLoopControl operator|(FilterMap<Seq, MapFn>&& filter_map_seq, ForEachBinder<EachFn>&& binder)\n{\n    return BATT_FORWARD(filter_map_seq.impl_) | BATT_FORWARD(binder);\n}\n\n#endif  // BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n}  // namespace seq\n}  // namespace batt\n\n#endif  // BATTERIES_SEQ_FILTER_MAP_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::IsNotFalse",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::IsNotFalse",
+      "refid": "structbatt_1_1seq_1_1IsNotFalse",
+      "title": "batt::seq::IsNotFalse",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1IsNotFalse/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::FilterMap",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::seq::FilterMap",
+      "refid": "classbatt_1_1seq_1_1FilterMap",
+      "title": "batt::seq::FilterMap",
+      "url": "/_autogen/Classes/classbatt_1_1seq_1_1FilterMap/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::FilterMapBinder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::FilterMapBinder",
+      "refid": "structbatt_1_1seq_1_1FilterMapBinder",
+      "title": "batt::seq::FilterMapBinder",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1FilterMapBinder/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "filter__map_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/filter_map.hpp",
+  "url": "/_autogen/Files/filter__map_8hpp/#file-filter-map.hpp",
+  "visibility": "public"
+}
