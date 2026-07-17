@@ -1,0 +1,239 @@
+{
+  "abstract": false,
+  "anchor": "#file-boxed.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-boxed-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_BOXED_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/boxed.hpp",
+        "bodyStart": 5,
+        "column": 9,
+        "file": "batteries/seq/boxed.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_SEQ_BOXED_HPP",
+      "override": false,
+      "refid": "boxed_8hpp_1ae87bf35bbe2e07664fa06d616bdc6c0b",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_BOXED_HPP",
+      "url": "/_autogen/Files/boxed_8hpp/#define-batteries-seq-boxed-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/boxed.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/boxed.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/boxed.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_SEQ_BOXED_HPP\n#define BATTERIES_SEQ_BOXED_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/hint.hpp>\n#include <batteries/optional.hpp>\n#include <batteries/seq/requirements.hpp>\n#include <batteries/seq/seq_item.hpp>\n#include <batteries/type_erasure.hpp>\n#include <batteries/type_traits.hpp>\n#include <batteries/utility.hpp>\n\n#include <memory>\n#include <type_traits>\n\nnamespace batt {\n\nclass Status;\nenum struct StatusCode;\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n// BoxedSeq<ItemT>\n//\ntemplate <typename ItemT>\nclass BoxedSeq\n{\n   public:\n    class AbstractSeq;\n\n    template <typename T>\n    class SeqImpl;\n\n    using storage_type = TypeErasedStorage<AbstractSeq, SeqImpl>;\n\n    class AbstractSeq : public AbstractValue<AbstractSeq>\n    {\n       public:\n        AbstractSeq() = default;\n\n        AbstractSeq(const AbstractSeq&) = delete;\n        AbstractSeq& operator=(const AbstractSeq&) = delete;\n\n        virtual ~AbstractSeq() = default;\n\n        virtual Optional<ItemT> peek() = 0;\n\n        virtual Optional<ItemT> next() = 0;\n    };\n\n    template <typename T>\n    class SeqImpl : public AbstractValueImpl<AbstractSeq, SeqImpl, T>\n    {\n       public:\n        using Super = AbstractValueImpl<AbstractSeq, SeqImpl, T>;\n\n        static_assert(std::is_same_v<std::decay_t<T>, T>, \"BoxedSeq<T&> is not supported\");\n\n        explicit SeqImpl(T&& seq) noexcept : Super{BATT_FORWARD(seq)}\n        {\n        }\n\n        Optional<ItemT> peek() override\n        {\n            return this->obj_.peek();\n        }\n\n        Optional<ItemT> next() override\n        {\n            return this->obj_.next();\n        }\n    };\n\n    using Item = ItemT;\n\n    BoxedSeq() = default;\n\n    template <typename T,                                  //\n              typename = EnableIfNoShadow<BoxedSeq, T&&>,  //\n              typename = EnableIfSeq<T>,                   //\n              typename = std::enable_if_t<!std::is_same_v<std::decay_t<T>, Status> &&\n                                          !std::is_same_v<std::decay_t<T>, StatusCode>>>\n    explicit BoxedSeq(T&& seq) : storage_{StaticType<T>{}, BATT_FORWARD(seq)}\n    {\n        static_assert(std::is_same<T, std::decay_t<T>>{}, \"BoxedSeq may not be used to capture a reference\");\n    }\n\n    template <typename U, typename = std::enable_if_t<!std::is_same_v<ItemT, U>>>\n    BoxedSeq(const BoxedSeq<U>& other_seq) = delete;\n\n    template <typename U, typename = std::enable_if_t<!std::is_same_v<ItemT, U>>>\n    BoxedSeq(BoxedSeq<U>&& other_seq) = delete;\n\n    // Copyable.\n    //\n    BoxedSeq(BoxedSeq&&) = default;\n    BoxedSeq(const BoxedSeq& that) = default;\n\n    BoxedSeq& operator=(BoxedSeq&&) = default;\n    BoxedSeq& operator=(const BoxedSeq& that) = default;\n\n    bool is_valid() const\n    {\n        return this->storage_.is_valid();\n    }\n\n    explicit operator bool() const\n    {\n        return this->is_valid();\n    }\n\n    Optional<Item> peek()\n    {\n        return this->storage_->peek();\n    }\n\n    Optional<Item> next()\n    {\n        return this->storage_->next();\n    }\n\n   private:\n    storage_type storage_;\n};\n\ntemplate <typename T>\nstruct IsBoxedSeq : std::false_type {\n};\n\ntemplate <typename T>\nstruct IsBoxedSeq<BoxedSeq<T>> : std::true_type {\n};\n\nnamespace seq {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// boxed\n//\n\nstruct BoxedBinder {\n};\n\ninline BoxedBinder boxed()\n{\n    return {};\n}\n\ntemplate <\n    typename Seq, typename = EnableIfSeq<Seq>,\n    typename Item = typename std::conditional_t<has_seq_requirements<Seq>(),  //\n                                                /*then*/ SeqItem_Impl<Seq>, /*else*/ StaticType<void>>::type>\n[[nodiscard]] inline BoxedSeq<Item> operator|(Seq&& seq, BoxedBinder)\n{\n    static_assert(std::is_same_v<Seq, std::decay_t<Seq>>,\n                  \"Boxed sequences may not be captured implicitly by reference.\");\n\n    return BoxedSeq<Item>{BATT_FORWARD(seq)};\n}\n\n}  // namespace seq\n}  // namespace batt\n\n#endif  // BATTERIES_SEQ_BOXED_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::BoxedSeq",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BoxedSeq",
+      "refid": "classbatt_1_1BoxedSeq",
+      "title": "batt::BoxedSeq",
+      "url": "/_autogen/Classes/classbatt_1_1BoxedSeq/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::AbstractValue< AbstractSeq >",
+          "refid": "classbatt_1_1AbstractValue",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValue/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::BoxedSeq::AbstractSeq",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BoxedSeq::AbstractSeq",
+      "refid": "classbatt_1_1BoxedSeq_1_1AbstractSeq",
+      "title": "batt::BoxedSeq::AbstractSeq",
+      "url": "/_autogen/Classes/classbatt_1_1BoxedSeq_1_1AbstractSeq/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::AbstractValueImpl< AbstractSeq, SeqImpl, T >",
+          "refid": "classbatt_1_1AbstractValueImpl",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": true,
+          "name": "AbstractType",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::BoxedSeq::SeqImpl",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BoxedSeq::SeqImpl",
+      "refid": "classbatt_1_1BoxedSeq_1_1SeqImpl",
+      "title": "batt::BoxedSeq::SeqImpl",
+      "url": "/_autogen/Classes/classbatt_1_1BoxedSeq_1_1SeqImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::false_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::IsBoxedSeq",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IsBoxedSeq",
+      "refid": "structbatt_1_1IsBoxedSeq",
+      "title": "batt::IsBoxedSeq",
+      "url": "/_autogen/Classes/structbatt_1_1IsBoxedSeq/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::true_type",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::IsBoxedSeq< BoxedSeq< T > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::IsBoxedSeq< BoxedSeq< T > >",
+      "refid": "structbatt_1_1IsBoxedSeq_3_01BoxedSeq_3_01T_01_4_01_4",
+      "title": "batt::IsBoxedSeq< BoxedSeq< T > >",
+      "url": "/_autogen/Classes/structbatt_1_1IsBoxedSeq_3_01BoxedSeq_3_01T_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::BoxedBinder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::BoxedBinder",
+      "refid": "structbatt_1_1seq_1_1BoxedBinder",
+      "title": "batt::seq::BoxedBinder",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1BoxedBinder/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "boxed_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/boxed.hpp",
+  "url": "/_autogen/Files/boxed_8hpp/#file-boxed.hpp",
+  "visibility": "public"
+}

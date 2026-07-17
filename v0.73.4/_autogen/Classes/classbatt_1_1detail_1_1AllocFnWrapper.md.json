@@ -1,0 +1,576 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::detail::AllocFnWrapper",
+  "hasAdditionalMembers": false,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 222,
+    "bodyFile": "batteries/small_fn.hpp",
+    "bodyStart": 180,
+    "column": 1,
+    "file": "batteries/small_fn.hpp",
+    "line": 179
+  },
+  "name": "batt::detail::AllocFnWrapper",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt::detail",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt::detail",
+    "refid": "namespacebatt_1_1detail",
+    "title": "batt::detail",
+    "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "privateAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-p-fn-",
+      "category": "attributes",
+      "const": false,
+      "definition": "Pointer batt::detail::AllocFnWrapper< Fn, kMoveOnly, Result, Args >::p_fn_",
+      "explicit": false,
+      "fullname": "batt::detail::AllocFnWrapper::p_fn_",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 221,
+        "column": 13,
+        "file": "batteries/small_fn.hpp",
+        "line": 221
+      },
+      "name": "p_fn_",
+      "override": false,
+      "refid": "classbatt_1_1detail_1_1AllocFnWrapper_1a3fb51a984be7ccd082ab0abf48dc6adb",
+      "static": false,
+      "strong": false,
+      "title": "p_fn_",
+      "type": "Pointer",
+      "typePlain": "Pointer",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/#variable-p-fn-",
+      "visibility": "private"
+    }
+  ],
+  "publicAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-move-only",
+      "category": "attributes",
+      "const": false,
+      "definition": "constexpr std::integral_constant<bool, kMoveOnly> batt::detail::AllocFnWrapper< Fn, kMoveOnly, Result, Args >::move_only",
+      "explicit": false,
+      "fullname": "batt::detail::AllocFnWrapper::move_only",
+      "hasDetails": false,
+      "initializer": "= {}",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 185,
+        "column": 45,
+        "file": "batteries/small_fn.hpp",
+        "line": 185
+      },
+      "name": "move_only",
+      "override": false,
+      "refid": "classbatt_1_1detail_1_1AllocFnWrapper_1a8eff9e63681771bfac13477ba63523de",
+      "static": true,
+      "strong": false,
+      "title": "move_only",
+      "type": "constexpr std::integral_constant< bool, kMoveOnly >",
+      "typePlain": "constexpr std::integral_constant< bool, kMoveOnly >",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/#variable-move-only",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-wrap-fn",
+      "argsString": "(std::true_type, FnInit &&... init)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static Pointer batt::detail::AllocFnWrapper< Fn, kMoveOnly, Result, Args >::wrap_fn",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::AllocFnWrapper::wrap_fn",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 193,
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 190,
+        "column": 20,
+        "file": "batteries/small_fn.hpp",
+        "line": 190
+      },
+      "name": "wrap_fn",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "std::true_type",
+          "typePlain": "std::true_type"
+        },
+        {
+          "name": "init",
+          "type": "FnInit &&...",
+          "typePlain": "FnInit &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1AllocFnWrapper_1a000b5ee528eca09214026eabc0c85b8c",
+      "static": true,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "FnInit",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "wrap_fn",
+      "type": "Pointer",
+      "typePlain": "Pointer",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/#function-wrap-fn",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-wrap-fn",
+      "argsString": "(std::false_type, FnInit &&... init)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static Pointer batt::detail::AllocFnWrapper< Fn, kMoveOnly, Result, Args >::wrap_fn",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::AllocFnWrapper::wrap_fn",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 199,
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 196,
+        "column": 20,
+        "file": "batteries/small_fn.hpp",
+        "line": 196
+      },
+      "name": "wrap_fn",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "std::false_type",
+          "typePlain": "std::false_type"
+        },
+        {
+          "name": "init",
+          "type": "FnInit &&...",
+          "typePlain": "FnInit &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1AllocFnWrapper_1a882ff93d62d7d8ea45652ba8fe9b34ba",
+      "static": true,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "FnInit",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "wrap_fn",
+      "type": "Pointer",
+      "typePlain": "Pointer",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/#function-wrap-fn",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-allocfnwrapper",
+      "argsString": "(FnInit &&... init)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::detail::AllocFnWrapper< Fn, kMoveOnly, Result, Args >::AllocFnWrapper",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::detail::AllocFnWrapper::AllocFnWrapper",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 206,
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 204,
+        "column": 14,
+        "file": "batteries/small_fn.hpp",
+        "line": 204
+      },
+      "name": "AllocFnWrapper",
+      "override": false,
+      "params": [
+        {
+          "name": "init",
+          "type": "FnInit &&...",
+          "typePlain": "FnInit &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1AllocFnWrapper_1a8cee597605043118b8fe0e269dbba9a0",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "FnInit",
+          "type": "typename...",
+          "typePlain": "typename..."
+        }
+      ],
+      "title": "AllocFnWrapper",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/#function-allocfnwrapper",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-allocfnwrapper",
+      "argsString": "(const AllocFnWrapper &)=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::detail::AllocFnWrapper< Fn, kMoveOnly, Result, Args >::AllocFnWrapper",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::AllocFnWrapper::AllocFnWrapper",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 208
+      },
+      "name": "AllocFnWrapper",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [AllocFnWrapper](/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/) &",
+          "typePlain": "const AllocFnWrapper &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1AllocFnWrapper_1a7903119dec12b0c823eba9056bb53143",
+      "static": false,
+      "strong": false,
+      "title": "AllocFnWrapper",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/#function-allocfnwrapper",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(const AllocFnWrapper &)=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "AllocFnWrapper& batt::detail::AllocFnWrapper< Fn, kMoveOnly, Result, Args >::operator=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::AllocFnWrapper::operator=",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 20,
+        "file": "batteries/small_fn.hpp",
+        "line": 209
+      },
+      "name": "operator=",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "const [AllocFnWrapper](/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/) &",
+          "typePlain": "const AllocFnWrapper &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1AllocFnWrapper_1aaf72d836cac515fd45542cc474b9a0d3",
+      "static": false,
+      "strong": false,
+      "title": "operator=",
+      "type": "[AllocFnWrapper](/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/) &",
+      "typePlain": "AllocFnWrapper &",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-allocfnwrapper",
+      "argsString": "(AllocFnWrapper &&)=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "batt::detail::AllocFnWrapper< Fn, kMoveOnly, Result, Args >::AllocFnWrapper",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::AllocFnWrapper::AllocFnWrapper",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 211
+      },
+      "name": "AllocFnWrapper",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[AllocFnWrapper](/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/) &&",
+          "typePlain": "AllocFnWrapper &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1AllocFnWrapper_1a49c9fac32209c2a7f38dd70b0404b8f3",
+      "static": false,
+      "strong": false,
+      "title": "AllocFnWrapper",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/#function-allocfnwrapper",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator=",
+      "argsString": "(AllocFnWrapper &&)=default",
+      "category": "functions",
+      "const": false,
+      "default": true,
+      "definition": "AllocFnWrapper& batt::detail::AllocFnWrapper< Fn, kMoveOnly, Result, Args >::operator=",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::AllocFnWrapper::operator=",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "column": 20,
+        "file": "batteries/small_fn.hpp",
+        "line": 212
+      },
+      "name": "operator=",
+      "override": false,
+      "params": [
+        {
+          "name": "",
+          "type": "[AllocFnWrapper](/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/) &&",
+          "typePlain": "AllocFnWrapper &&"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1AllocFnWrapper_1ac18b1c33c887a1489d151ea551ce4199",
+      "static": false,
+      "strong": false,
+      "title": "operator=",
+      "type": "[AllocFnWrapper](/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/) &",
+      "typePlain": "AllocFnWrapper &",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/#function-operator=",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-operator()",
+      "argsString": "(Args... args) const",
+      "category": "functions",
+      "const": true,
+      "default": false,
+      "definition": "Result batt::detail::AllocFnWrapper< Fn, kMoveOnly, Result, Args >::operator()",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::detail::AllocFnWrapper::operator()",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 217,
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 214,
+        "column": 12,
+        "file": "batteries/small_fn.hpp",
+        "line": 214
+      },
+      "name": "operator()",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args...",
+          "typePlain": "Args..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1detail_1_1AllocFnWrapper_1ae7201e20f77146626eb3dadfbbed9e07",
+      "static": false,
+      "strong": false,
+      "title": "operator()",
+      "type": "Result",
+      "typePlain": "Result",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/#function-operator()",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-self",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::detail::AllocFnWrapper< Fn, kMoveOnly, Result, Args >::Self =  AllocFnWrapper",
+      "explicit": false,
+      "fullname": "batt::detail::AllocFnWrapper::Self",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 182,
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 182
+      },
+      "name": "Self",
+      "override": false,
+      "refid": "classbatt_1_1detail_1_1AllocFnWrapper_1a5e96155a068418165f1f5dc306a06003",
+      "static": false,
+      "strong": false,
+      "title": "Self",
+      "type": "[AllocFnWrapper](/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/)",
+      "typePlain": "AllocFnWrapper",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/#using-self",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-pointer",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::detail::AllocFnWrapper< Fn, kMoveOnly, Result, Args >::Pointer =  std::conditional_t<kMoveOnly, std::unique_ptr<Fn>, std::shared_ptr<Fn> >",
+      "explicit": false,
+      "fullname": "batt::detail::AllocFnWrapper::Pointer",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_fn.hpp",
+        "bodyStart": 183,
+        "column": 5,
+        "file": "batteries/small_fn.hpp",
+        "line": 183
+      },
+      "name": "Pointer",
+      "override": false,
+      "refid": "classbatt_1_1detail_1_1AllocFnWrapper_1a963304843247efe5eb32c2b6a72d8f52",
+      "static": false,
+      "strong": false,
+      "title": "Pointer",
+      "type": "std::conditional_t< kMoveOnly, std::unique_ptr< Fn >, std::shared_ptr< Fn > >",
+      "typePlain": "std::conditional_t< kMoveOnly, std::unique_ptr< Fn >, std::shared_ptr< Fn > >",
+      "url": "/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/#using-pointer",
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1detail_1_1AllocFnWrapper",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename Fn",
+      "typePlain": "typename Fn"
+    },
+    {
+      "name": "kMoveOnly",
+      "type": "bool",
+      "typePlain": "bool"
+    },
+    {
+      "name": "",
+      "type": "typename Result",
+      "typePlain": "typename Result"
+    },
+    {
+      "name": "Args",
+      "type": "typename...",
+      "typePlain": "typename..."
+    }
+  ],
+  "title": "batt::detail::AllocFnWrapper",
+  "url": "/_autogen/Classes/classbatt_1_1detail_1_1AllocFnWrapper/",
+  "visibility": "public"
+}
