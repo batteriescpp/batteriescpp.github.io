@@ -1,0 +1,99 @@
+{
+  "abstract": false,
+  "anchor": "#file-make-printable.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-make-printable-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_MAKE_PRINTABLE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/make_printable.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/make_printable.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_MAKE_PRINTABLE_HPP",
+      "override": false,
+      "refid": "make__printable_8hpp_1a080781d5ff6a43856c4a7679c5015433",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_MAKE_PRINTABLE_HPP",
+      "url": "/_autogen/Files/make__printable_8hpp/#define-batteries-make-printable-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/make_printable.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/make_printable.hpp",
+    "line": 0
+  },
+  "name": "batteries/make_printable.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_MAKE_PRINTABLE_HPP\n#define BATTERIES_MAKE_PRINTABLE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/type_traits.hpp>\n#include <batteries/utility.hpp>\n\n#include <iomanip>\n#include <sstream>\n#include <string>\n\nnamespace batt {\n\ntemplate <typename T, typename = std::enable_if_t<IsPrintable<T>{}>>\ndecltype(auto) make_printable(T&& obj)\n{\n    return BATT_FORWARD(obj);\n}\n\ntemplate <typename T, typename = std::enable_if_t<!IsPrintable<T>{}>, typename = void>\nstd::string make_printable(T&& obj)\n{\n    std::ostringstream oss;\n    oss << \"(\" << name_of<T>() << \") \" << std::hex << std::setw(2) << std::setfill('0');\n\n    for (const u8* bytes = (const u8*)&obj; bytes != (const u8*)((&obj) + 1); ++bytes) {\n        oss << (int)*bytes;\n    }\n    return oss.str();\n}\n\n}  //namespace batt\n\n#endif  // BATTERIES_MAKE_PRINTABLE_HPP",
+  "refid": "make__printable_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/make_printable.hpp",
+  "url": "/_autogen/Files/make__printable_8hpp/#file-make-printable.hpp",
+  "visibility": "public"
+}
