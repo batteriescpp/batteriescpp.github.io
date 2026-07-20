@@ -1,0 +1,149 @@
+{
+  "abstract": false,
+  "anchor": "#file-fuse.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-fuse-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_FUSE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/fuse.hpp",
+        "bodyStart": 7,
+        "column": 9,
+        "file": "batteries/seq/fuse.hpp",
+        "line": 7
+      },
+      "name": "BATTERIES_SEQ_FUSE_HPP",
+      "override": false,
+      "refid": "fuse_8hpp_1a5557e4a2e70dd80b6263b1a167a182a9",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_FUSE_HPP",
+      "url": "/_autogen/Files/fuse_8hpp/#define-batteries-seq-fuse-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/fuse.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/fuse.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/fuse.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n\n#pragma once\n#ifndef BATTERIES_SEQ_FUSE_HPP\n#define BATTERIES_SEQ_FUSE_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/optional.hpp>\n#include <batteries/seq/seq_item.hpp>\n#include <batteries/utility.hpp>\n\n#include <type_traits>\n#include <utility>\n\nnamespace batt {\nnamespace seq {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// fuse() - Seq<Optional<T>> => Seq<T>; take T while Optional<T> != None\n//\n\ntemplate <typename Seq>\nclass Fuse\n{\n   public:\n    using OptionalItem = SeqItem<Seq>;\n    using Item = typename std::decay_t<OptionalItem>::value_type;\n\n    explicit Fuse(Seq&& seq) noexcept : seq_(BATT_FORWARD(seq))\n    {\n    }\n\n    Optional<Item> peek()\n    {\n        if (fused_) {\n            return None;\n        }\n        return *seq_.peek();\n    }\n\n    Optional<Item> next()\n    {\n        if (fused_) {\n            return None;\n        }\n\n        Optional<Optional<Item>> opt_item = seq_.next();\n\n        if (!opt_item) {\n            fused_ = true;\n            return None;\n        }\n        if (!*opt_item) {\n            fused_ = true;\n            return None;\n        }\n\n        return std::move(*opt_item);\n    }\n\n   private:\n    bool fused_ = false;\n    Seq seq_;\n};\n\nstruct FuseBinder {\n};\n\ninline FuseBinder fuse()\n{\n    return {};\n}\n\ntemplate <typename Seq>\n[[nodiscard]] Fuse<Seq> operator|(Seq&& seq, FuseBinder)\n{\n    return Fuse<Seq>{BATT_FORWARD(seq)};\n}\n\n}  // namespace seq\n}  // namespace batt\n\n#endif  // BATTERIES_SEQ_FUSE_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::Fuse",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::seq::Fuse",
+      "refid": "classbatt_1_1seq_1_1Fuse",
+      "title": "batt::seq::Fuse",
+      "url": "/_autogen/Classes/classbatt_1_1seq_1_1Fuse/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::FuseBinder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::FuseBinder",
+      "refid": "structbatt_1_1seq_1_1FuseBinder",
+      "title": "batt::seq::FuseBinder",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1FuseBinder/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "fuse_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/fuse.hpp",
+  "url": "/_autogen/Files/fuse_8hpp/#file-fuse.hpp",
+  "visibility": "public"
+}
