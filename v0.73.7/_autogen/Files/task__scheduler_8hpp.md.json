@@ -1,0 +1,173 @@
+{
+  "abstract": false,
+  "anchor": "#file-task-scheduler.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-task-scheduler-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_TASK_SCHEDULER_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/task_scheduler.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/task_scheduler.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_TASK_SCHEDULER_HPP",
+      "override": false,
+      "refid": "task__scheduler_8hpp_1abbd0660551a6730813711d95d0158ec0",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_TASK_SCHEDULER_HPP",
+      "url": "/_autogen/Files/task__scheduler_8hpp/#define-batteries-async-task-scheduler-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/task_scheduler.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/task_scheduler.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/task_scheduler.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_TASK_SCHEDULER_HPP\n#define BATTERIES_ASYNC_TASK_SCHEDULER_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/asio/any_io_executor.hpp>\n#include <batteries/assert.hpp>\n\nnamespace batt {\n\nclass TaskScheduler\n{\n   public:\n    TaskScheduler(const TaskScheduler&) = delete;\n    TaskScheduler& operator=(const TaskScheduler&) = delete;\n\n    virtual ~TaskScheduler() = default;\n\n    // Select an executor to run a new task.\n    //\n    virtual boost::asio::any_io_executor schedule_task() = 0;\n\n    // Request shutdown of all threads/executors owned by this scheduler.  Does not wait for shutdown\n    // to complete; see TaskScheduler::join().\n    //\n    virtual void halt() = 0;\n\n    // Wait for shutdown of all threads/executors owned by this scheduler.  Does not initiate shutdown\n    // per se, just waits for shutdown to complete.  See TaskScheduler::halt().\n    //\n    virtual void join() = 0;\n\n   protected:\n    TaskScheduler() = default;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n// TaskScheduler implementation that does not schedule anything (`schedule_task` panics).\n//\nclass NullTaskScheduler : public TaskScheduler\n{\n   public:\n    static NullTaskScheduler& instance()\n    {\n        static NullTaskScheduler instance_;\n        return instance_;\n    }\n\n    NullTaskScheduler()\n    {\n    }\n\n    boost::asio::any_io_executor schedule_task() override\n    {\n        BATT_PANIC() << \"The NullTaskScheduler can not schedule anything!  Use a different implementation.\";\n        BATT_UNREACHABLE();\n    }\n\n    void halt() override\n    {\n    }\n\n    void join() override\n    {\n    }\n};\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_TASK_SCHEDULER_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::FakeTaskScheduler",
+          "refid": "classbatt_1_1FakeTaskScheduler",
+          "url": "/_autogen/Classes/classbatt_1_1FakeTaskScheduler/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::NullTaskScheduler",
+          "refid": "classbatt_1_1NullTaskScheduler",
+          "url": "/_autogen/Classes/classbatt_1_1NullTaskScheduler/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::Runtime::DefaultScheduler",
+          "refid": "classbatt_1_1Runtime_1_1DefaultScheduler",
+          "url": "/_autogen/Classes/classbatt_1_1Runtime_1_1DefaultScheduler/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::TaskScheduler",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::TaskScheduler",
+      "refid": "classbatt_1_1TaskScheduler",
+      "title": "batt::TaskScheduler",
+      "url": "/_autogen/Classes/classbatt_1_1TaskScheduler/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::TaskScheduler",
+          "refid": "classbatt_1_1TaskScheduler",
+          "url": "/_autogen/Classes/classbatt_1_1TaskScheduler/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::NullTaskScheduler",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::NullTaskScheduler",
+      "refid": "classbatt_1_1NullTaskScheduler",
+      "title": "batt::NullTaskScheduler",
+      "url": "/_autogen/Classes/classbatt_1_1NullTaskScheduler/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "task__scheduler_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/task_scheduler.hpp",
+  "url": "/_autogen/Files/task__scheduler_8hpp/#file-task-scheduler.hpp",
+  "visibility": "public"
+}
