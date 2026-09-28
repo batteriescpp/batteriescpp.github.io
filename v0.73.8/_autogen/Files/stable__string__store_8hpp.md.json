@@ -1,0 +1,195 @@
+{
+  "abstract": false,
+  "anchor": "#file-stable-string-store.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-stable-string-store-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_STABLE_STRING_STORE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/stable_string_store.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/stable_string_store.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_STABLE_STRING_STORE_HPP",
+      "override": false,
+      "refid": "stable__string__store_8hpp_1a41c781dc56289f3d0584098e8d9a082a",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_STABLE_STRING_STORE_HPP",
+      "url": "/_autogen/Files/stable__string__store_8hpp/#define-batteries-stable-string-store-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/stable_string_store.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/stable_string_store.hpp",
+    "line": 0
+  },
+  "name": "batteries/stable_string_store.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_STABLE_STRING_STORE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/algo/parallel_copy.hpp>\n#include <batteries/assert.hpp>\n#include <batteries/async/worker_pool.hpp>\n#include <batteries/buffer.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/math.hpp>\n#include <batteries/optional.hpp>\n#include <batteries/slice.hpp>\n#include <batteries/type_traits.hpp>\n\n#include <array>\n#include <memory>\n#include <string_view>\n#include <type_traits>\n#include <vector>\n\nnamespace batt {\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\ntemplate <usize kStaticSize, usize kDynamicSize>\nclass BasicStableStringStore\n{\n   public:\n    using Self = BasicStableStringStore;\n\n    static constexpr usize kUnitSizeLog2 = 6;\n\n    static constexpr usize kUnitSize = usize{1} << kUnitSizeLog2;\n\n    using StorageUnit = std::aligned_storage_t<kUnitSize, kUnitSize>;\n\n    static constexpr usize kDefaultMinParallelCopySize = 64 * 1024;\n\n    static const usize kStaticSizeLog2 = std::max<usize>(kUnitSizeLog2,  //\n                                                         batt::log2_ceil(kStaticSize));\n\n    static const usize kDynamicSizeLog2 = std::max<usize>(kUnitSizeLog2,  //\n                                                          batt::log2_ceil(kDynamicSize));\n\n    static const usize kStaticAllocSize = usize{1} << kStaticSizeLog2;\n    static const usize kDynamicAllocSize = usize{1} << kDynamicSizeLog2;\n\n    static const usize kStaticAllocUnitsLog2 = (kStaticSizeLog2 - kUnitSizeLog2);\n    static const usize kDynamicAllocUnitsLog2 = (kDynamicSizeLog2 - kUnitSizeLog2);\n\n    static const usize kStaticAllocUnits = usize{1} << kStaticAllocUnitsLog2;\n    static const usize kDynamicAllocUnits = usize{1} << kDynamicAllocUnitsLog2;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    class AbstractDestructible\n    {\n       public:\n        AbstractDestructible(const AbstractDestructible&) = delete;\n\n        AbstractDestructible& operator=(const AbstractDestructible&) = delete;\n\n        virtual ~AbstractDestructible() = default;\n\n        AbstractDestructible* next = nullptr;\n\n       protected:\n        AbstractDestructible() = default;\n    };\n\n    template <typename T>\n    class Destructible : public AbstractDestructible\n    {\n       public:\n        explicit Destructible() : obj_{}\n        {\n        }\n\n        template <typename... Args, typename = EnableIfNoShadow<Destructible, Args...>>\n        explicit Destructible(Args&&... args) : obj_(BATT_FORWARD(args)...)\n        {\n        }\n\n        T* get()\n        {\n            return &this->obj_;\n        }\n\n       private:\n        T obj_;\n    };\n\n    template <typename T>\n    class DestructibleArray : public AbstractDestructible\n    {\n       public:\n        template <typename... Args>\n        explicit DestructibleArray(usize n, Args&&... args) : n_{n}\n        {\n            T* a = this->get();\n            for (usize i = 0; i < this->n_; ++i) {\n                new (&a[i]) T(args...);\n            }\n        }\n\n        ~DestructibleArray() noexcept\n        {\n            T* a = this->get();\n            for (usize i = this->n_; i > 0;) {\n                --i;\n                a[i].~T();\n            }\n        }\n\n        T* get()\n        {\n            return reinterpret_cast<T*>(&this->first_);\n        }\n\n       private:\n        usize n_;\n        std::aligned_storage_t<sizeof(T), alignof(T)> first_;\n    };\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    BasicStableStringStore();\n\n    BasicStableStringStore(const BasicStableStringStore&) = delete;\n    BasicStableStringStore& operator=(const BasicStableStringStore&) = delete;\n\n    ~BasicStableStringStore() noexcept\n    {\n        // Destruct the constructed objects, in reverse-construction order.\n        //\n        while (this->first_d_) {\n            auto* d = this->first_d_;\n            this->first_d_ = d->next;\n            d->~AbstractDestructible();\n        }\n    }\n\n    MutableBuffer allocate(usize n);\n\n    std::string_view store(const std::string_view& s,\n                           batt::WorkerPool& worker_pool = batt::WorkerPool::null_pool(),\n                           Optional<usize> opt_min_parallel_copy_size = None);\n\n    ConstBuffer store(const ConstBuffer& buffer,\n                      batt::WorkerPool& worker_pool = batt::WorkerPool::null_pool(),\n                      Optional<usize> opt_min_parallel_copy_size = None)\n    {\n        const std::string_view s =\n            this->store(std::string_view{static_cast<const char*>(buffer.data()), buffer.size()}, worker_pool,\n                        opt_min_parallel_copy_size);\n\n        return ConstBuffer{s.data(), s.size()};\n    }\n\n    template <typename... Parts>\n    ConstBuffer concat(Parts&&... parts)\n    {\n        usize total_size = 0;\n\n        // Compute the total amount of memory needed to be allocated for the result of the\n        // concatenation.\n        //\n        const auto add_to_total = [&total_size](auto&& part) {\n            total_size += batt::as_const_buffer(part).size();\n            return 0;\n        };\n\n        (add_to_total(parts), ...);\n\n        MutableBuffer mbuf = this->allocate(total_size);\n        MutableBuffer cbuf = mbuf;\n\n        // Copy each part to memory.\n        //\n        const auto copy_part = [&mbuf](auto&& part) {\n            auto src = batt::as_const_buffer(part);\n            std::memcpy(mbuf.data(), src.data(), src.size());\n            mbuf += src.size();\n            return 0;\n        };\n\n        (copy_part(parts), ...);\n\n        return cbuf;\n    }\n\n    template <typename T, typename... Args>\n    T* construct(StaticType<T>, Args&&... args)\n    {\n        MutableBuffer buffer = this->allocate(sizeof(Destructible<T>));\n\n        Destructible<T>* d = new (buffer.data()) Destructible<T>{BATT_FORWARD(args)...};\n\n        d->next = this->first_d_;\n        this->first_d_ = d;\n\n        return d->get();\n    }\n\n    template <typename T, typename... Args>\n    Slice<T> construct_array(StaticType<T> elem, usize n, Args&&... args)\n    {\n        if (n == 0) {\n            return {nullptr, nullptr};\n        }\n\n        if (n == 1) {\n            return as_slice(this->construct(elem, BATT_FORWARD(args)...), 1);\n        }\n\n        MutableBuffer buffer = this->allocate(\n            sizeof(DestructibleArray<T>) + sizeof(std::aligned_storage_t<sizeof(T), alignof(T)>) * (n - 1));\n\n        DestructibleArray<T>* d = new (buffer.data()) DestructibleArray<T>{n, BATT_FORWARD(args)...};\n\n        d->next = this->first_d_;\n        this->first_d_ = d;\n\n        return as_slice(d->get(), n);\n    }\n\n   private:\n    AbstractDestructible* first_d_ = nullptr;\n\n    std::array<StorageUnit, kStaticAllocUnits> chunk0_;\n\n    std::vector<std::unique_ptr<StorageUnit[]>> chunks_;\n\n    MutableBuffer free_chunk_;\n};\n\nusing StableStringStore = BasicStableStringStore<64, 4096>;\n\n//#=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <usize kStaticSize, usize kDynamicSize>\nBasicStableStringStore<kStaticSize, kDynamicSize>::BasicStableStringStore()\n    : free_chunk_{std::addressof(this->chunk0_), sizeof(this->chunk0_)}\n{\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <usize kStaticSize, usize kDynamicSize>\nMutableBuffer BasicStableStringStore<kStaticSize, kDynamicSize>::allocate(usize n)\n{\n    // Check if the current free_chunk_ is large enough to hold n bytes. If it isn't, we need to\n    // dynamically allocate a new chunk.\n    //\n    if (this->free_chunk_.size() < n) {\n        // Allocate new chunk, add it to the list of dynamically allocated chunks, and point free_chunk_\n        // to this new chunk.\n        //\n        const usize new_chunk_size = batt::round_up_bits(kDynamicSizeLog2, n);\n        const usize n_units = new_chunk_size >> kUnitSizeLog2;\n        std::unique_ptr<StorageUnit[]> new_chunk{new StorageUnit[n_units]};\n        char* const new_chunk_data = (char*)new_chunk.get();\n        this->chunks_.emplace_back(std::move(new_chunk));\n        this->free_chunk_ = MutableBuffer{new_chunk_data, new_chunk_size};\n    }\n\n    BATT_CHECK_GE(this->free_chunk_.size(), n);\n\n    // Return the newly allocated chunk and advance the start of the free_chunk_ buffer by n bytes to\n    // indicate that this region of memory is now occupied.\n    //\n    MutableBuffer stable_buffer{this->free_chunk_.data(), n};\n    this->free_chunk_ += n;\n    return stable_buffer;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <usize kStaticSize, usize kDynamicSize>\nstd::string_view BasicStableStringStore<kStaticSize, kDynamicSize>::store(\n    const std::string_view& s, batt::WorkerPool& worker_pool, Optional<usize> opt_min_parallel_copy_size)\n{\n    const usize min_parallel_copy_size =\n        opt_min_parallel_copy_size.value_or(Self::kDefaultMinParallelCopySize);\n\n    // Allocate a buffer the size of the input string data.\n    //\n    MutableBuffer stable_buffer = this->allocate(s.size());\n\n    BATT_CHECK_EQ(stable_buffer.size(), s.size());\n\n    // Check if we would benefit from parallelizing the copying process. If we do have workers in the\n    // worker_pool and the size of the string data isn't too small, parallelize.\n    //\n    if (worker_pool.size() == 0 || s.size() < min_parallel_copy_size) {\n        std::memcpy(stable_buffer.data(), s.data(), s.size());\n    } else {\n        batt::ScopedWorkContext work_context{worker_pool};\n\n        const batt::TaskCount max_tasks{worker_pool.size() + 1};\n        const batt::TaskSize min_task_size{min_parallel_copy_size};\n\n        const char* const src_begin = s.data();\n        const char* const src_end = src_begin + s.size();\n        char* const dst_begin = static_cast<char*>(stable_buffer.data());\n\n        batt::parallel_copy(work_context, src_begin, src_end, dst_begin, min_task_size, max_tasks);\n    }\n\n    // Return the copy.\n    //\n    return std::string_view{static_cast<const char*>(stable_buffer.data()), stable_buffer.size()};\n}\n\n}  // namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "A class that allows the user to efficiently allocate and copy string data in memory that is scoped to the lifetime of the object itself. ",
+      "category": "classes",
+      "fullname": "batt::BasicStableStringStore",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicStableStringStore",
+      "refid": "classbatt_1_1BasicStableStringStore",
+      "summary": "A class that allows the user to efficiently allocate and copy string data in memory that is scoped to the lifetime of the object itself. ",
+      "title": "batt::BasicStableStringStore",
+      "url": "/_autogen/Classes/classbatt_1_1BasicStableStringStore/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Type-erasure base class for types placed in the store via `construct` and `construct_array`. ",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::BasicStableStringStore< kStaticSize, kDynamicSize >::Destructible< T >",
+          "refid": "classbatt_1_1BasicStableStringStore_1_1Destructible",
+          "url": "/_autogen/Classes/classbatt_1_1BasicStableStringStore_1_1Destructible/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        },
+        {
+          "external": false,
+          "name": "batt::BasicStableStringStore< kStaticSize, kDynamicSize >::DestructibleArray< T >",
+          "refid": "classbatt_1_1BasicStableStringStore_1_1DestructibleArray",
+          "url": "/_autogen/Classes/classbatt_1_1BasicStableStringStore_1_1DestructibleArray/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::BasicStableStringStore::AbstractDestructible",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicStableStringStore::AbstractDestructible",
+      "refid": "classbatt_1_1BasicStableStringStore_1_1AbstractDestructible",
+      "summary": "Type-erasure base class for types placed in the store via construct and construct_array. ",
+      "title": "batt::BasicStableStringStore::AbstractDestructible",
+      "url": "/_autogen/Classes/classbatt_1_1BasicStableStringStore_1_1AbstractDestructible/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::BasicStableStringStore< kStaticSize, kDynamicSize >::AbstractDestructible",
+          "refid": "classbatt_1_1BasicStableStringStore_1_1AbstractDestructible",
+          "url": "/_autogen/Classes/classbatt_1_1BasicStableStringStore_1_1AbstractDestructible/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "Erases the type `T` of some (non-trivially) destuctible object. ",
+      "category": "classes",
+      "fullname": "batt::BasicStableStringStore::Destructible",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicStableStringStore::Destructible",
+      "refid": "classbatt_1_1BasicStableStringStore_1_1Destructible",
+      "summary": "Erases the type T of some (non-trivially) destuctible object. ",
+      "title": "batt::BasicStableStringStore::Destructible",
+      "url": "/_autogen/Classes/classbatt_1_1BasicStableStringStore_1_1Destructible/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::BasicStableStringStore< kStaticSize, kDynamicSize >::AbstractDestructible",
+          "refid": "classbatt_1_1BasicStableStringStore_1_1AbstractDestructible",
+          "url": "/_autogen/Classes/classbatt_1_1BasicStableStringStore_1_1AbstractDestructible/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "brief": "Erases the type `T[]` of an array of (non-trivially) destructible objects. ",
+      "category": "classes",
+      "fullname": "batt::BasicStableStringStore::DestructibleArray",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::BasicStableStringStore::DestructibleArray",
+      "refid": "classbatt_1_1BasicStableStringStore_1_1DestructibleArray",
+      "summary": "Erases the type T[] of an array of (non-trivially) destructible objects. ",
+      "title": "batt::BasicStableStringStore::DestructibleArray",
+      "url": "/_autogen/Classes/classbatt_1_1BasicStableStringStore_1_1DestructibleArray/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "stable__string__store_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/stable_string_store.hpp",
+  "url": "/_autogen/Files/stable__string__store_8hpp/#file-stable-string-store.hpp",
+  "visibility": "public"
+}

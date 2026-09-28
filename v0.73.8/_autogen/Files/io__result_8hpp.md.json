@@ -1,0 +1,125 @@
+{
+  "abstract": false,
+  "anchor": "#file-io-result.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-io-result-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_IO_RESULT_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/io_result.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/async/io_result.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASYNC_IO_RESULT_HPP",
+      "override": false,
+      "refid": "io__result_8hpp_1a9246250998d118f70e2b769c8b467f30",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_IO_RESULT_HPP",
+      "url": "/_autogen/Files/io__result_8hpp/#define-batteries-async-io-result-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/io_result.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/io_result.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/io_result.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASYNC_IO_RESULT_HPP\n#define BATTERIES_ASYNC_IO_RESULT_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/status.hpp>\n#include <batteries/utility.hpp>\n\n#include <boost/system/error_code.hpp>\n\n#include <ostream>\n#include <tuple>\n#include <type_traits>\n\nnamespace batt {\n\nusing ErrorCode = boost::system::error_code;\n\ntemplate <typename... Ts>\nclass IOResult\n{\n   public:\n    using value_type = std::tuple_element_t<\n        0, std::conditional_t<(sizeof...(Ts) == 1), std::tuple<Ts...>, std::tuple<std::tuple<Ts...>>>>;\n\n    template <typename... Args, typename = std::enable_if_t<std::is_constructible_v<value_type, Args&&...>>>\n    explicit IOResult(const ErrorCode& ec, Args&&... args) noexcept : ec_{ec}\n                                                                    , value_{BATT_FORWARD(args)...}\n    {\n    }\n\n    bool ok() const\n    {\n        return !bool{this->ec_};\n    }\n\n    const ErrorCode& error() const\n    {\n        return this->ec_;\n    }\n\n    value_type& operator*()\n    {\n        return value_;\n    }\n\n    const value_type& operator*() const\n    {\n        return value_;\n    }\n\n    value_type& value()\n    {\n        return this->value_;\n    }\n\n    const value_type& value() const\n    {\n        return this->value_;\n    }\n\n    value_type* operator->()\n    {\n        return &this->value_;\n    }\n\n    const value_type* operator->() const\n    {\n        return &this->value_;\n    }\n\n   private:\n    ErrorCode ec_;\n    value_type value_;\n};\n\ntemplate <typename... Ts>\ninline std::ostream& operator<<(std::ostream& out, const IOResult<Ts...>& t)\n{\n    return out << \"IOResult{.error=\" << t.error() << \"(\" << t.error().message()\n               << \"), .value=\" << make_printable(t.value()) << \",}\";\n}\n\ntemplate <typename... Ts>\nbool is_ok_status(const IOResult<Ts...>& io_result)\n{\n    return !io_result.error();\n}\n\ninline bool is_ok_status(const ErrorCode& ec)\n{\n    return !ec;\n}\n\ntemplate <typename... Ts>\nStatus to_status(const IOResult<Ts...>& io_result)\n{\n    return to_status(io_result.error());\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_ASYNC_IO_RESULT_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::IOResult",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::IOResult",
+      "refid": "classbatt_1_1IOResult",
+      "title": "batt::IOResult",
+      "url": "/_autogen/Classes/classbatt_1_1IOResult/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "io__result_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/io_result.hpp",
+  "url": "/_autogen/Files/io__result_8hpp/#file-io-result.hpp",
+  "visibility": "public"
+}
