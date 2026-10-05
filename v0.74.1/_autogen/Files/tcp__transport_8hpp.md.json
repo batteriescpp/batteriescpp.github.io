@@ -1,0 +1,127 @@
+{
+  "abstract": false,
+  "anchor": "#file-tcp-transport.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-http-tcp-transport-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_HTTP_TCP_TRANSPORT_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/http/tcp_transport.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/http/tcp_transport.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_HTTP_TCP_TRANSPORT_HPP",
+      "override": false,
+      "refid": "tcp__transport_8hpp_1af9b2cdee3d72be375597d365c9facb4e",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_HTTP_TCP_TRANSPORT_HPP",
+      "url": "/_autogen/Files/tcp__transport_8hpp/#define-batteries-http-tcp-transport-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/http/tcp_transport.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/http/tcp_transport.hpp",
+    "line": 0
+  },
+  "name": "batteries/http/tcp_transport.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/http",
+    "category": "dirs",
+    "fullname": "batteries/http",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/http",
+    "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+    "title": "batteries/http",
+    "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/http",
+      "category": "dirs",
+      "fullname": "batteries/http",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/http",
+      "refid": "dir_9b7f6a4fee6d4e32025f5ad2daa53829",
+      "title": "batteries/http",
+      "url": "/_autogen/Files/dir_9b7f6a4fee6d4e32025f5ad2daa53829/#dir-batteries/http",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2024 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_HTTP_TCP_TRANSPORT_HPP\n#define BATTERIES_HTTP_TCP_TRANSPORT_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/http/http_client_host_context_decl.hpp>\n\n#include <batteries/async/task.hpp>\n\n#include <batteries/asio/ip_tcp.hpp>\n\n#include <mutex>\n\nnamespace batt {\n\nclass TcpTransport\n{\n   public:\n    explicit TcpTransport(HttpClientHostContext& host_context) noexcept\n        : socket_{host_context.get_io_context()}\n    {\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    boost::asio::ip::tcp::endpoint local_endpoint(ErrorCode& ec) const noexcept\n    {\n        std::unique_lock<std::mutex> lock{this->mutex_};\n        return this->socket_.local_endpoint(ec);\n    }\n\n    boost::asio::ip::tcp::endpoint remote_endpoint(ErrorCode& ec) const noexcept\n    {\n        std::unique_lock<std::mutex> lock{this->mutex_};\n        return this->socket_.remote_endpoint(ec);\n    }\n\n    bool is_open() const noexcept\n    {\n        std::unique_lock<std::mutex> lock{this->mutex_};\n        return this->socket_.is_open();\n    }\n\n    void close(ErrorCode& ec) noexcept\n    {\n        std::unique_lock<std::mutex> lock{this->mutex_};\n        this->socket_.close(ec);\n    }\n\n    void shutdown(boost::asio::socket_base::shutdown_type mode, ErrorCode& ec) noexcept\n    {\n        std::unique_lock<std::mutex> lock{this->mutex_};\n        this->socket_.shutdown(mode, ec);\n    }\n\n    template <typename Handler = void(const ErrorCode&)>\n    void async_connect(const boost::asio::ip::tcp::endpoint& ep, Handler&& handler)\n    {\n        std::unique_lock<std::mutex> lock{this->mutex_};\n        this->socket_.async_connect(ep, BATT_FORWARD(handler));\n    }\n\n    template <typename MutableBufferSequence, typename Handler = void(const ErrorCode&, usize)>\n    void async_read_some(MutableBufferSequence&& buffers, Handler&& handler)\n    {\n        std::unique_lock<std::mutex> lock{this->mutex_};\n        this->socket_.async_read_some(BATT_FORWARD(buffers), BATT_FORWARD(handler));\n    }\n\n    template <typename ConstBufferSequence, typename Handler = void(const ErrorCode&, usize)>\n    void async_write_some(ConstBufferSequence&& buffers, Handler&& handler)\n    {\n        std::unique_lock<std::mutex> lock{this->mutex_};\n        this->socket_.async_write_some(BATT_FORWARD(buffers), BATT_FORWARD(handler));\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    mutable std::mutex mutex_;\n\n    boost::asio::ip::tcp::socket socket_;\n};\n\n}  //namespace batt\n\n#endif  // BATTERIES_HTTP_TCP_TRANSPORT_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "A thread-safe socket based TCP connection for HTTP clients. ",
+      "category": "classes",
+      "fullname": "batt::TcpTransport",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::TcpTransport",
+      "refid": "classbatt_1_1TcpTransport",
+      "summary": "A thread-safe socket based TCP connection for HTTP clients. ",
+      "title": "batt::TcpTransport",
+      "url": "/_autogen/Classes/classbatt_1_1TcpTransport/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "tcp__transport_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/http/tcp_transport.hpp",
+  "url": "/_autogen/Files/tcp__transport_8hpp/#file-tcp-transport.hpp",
+  "visibility": "public"
+}

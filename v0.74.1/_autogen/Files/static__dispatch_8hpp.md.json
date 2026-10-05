@@ -1,0 +1,185 @@
+{
+  "abstract": false,
+  "anchor": "#file-static-dispatch.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-static-dispatch-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_STATIC_DISPATCH_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/static_dispatch.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/static_dispatch.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_STATIC_DISPATCH_HPP",
+      "override": false,
+      "refid": "static__dispatch_8hpp_1a3c8e39cfb53901e07bbad92b0e25c583",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_STATIC_DISPATCH_HPP",
+      "url": "/_autogen/Files/static__dispatch_8hpp/#define-batteries-static-dispatch-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-const-t",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_CONST_T",
+      "hasDetails": false,
+      "initializer": "std::integral_constant<decltype(i), (i)>",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/static_dispatch.hpp",
+        "bodyStart": 104,
+        "column": 9,
+        "file": "batteries/static_dispatch.hpp",
+        "line": 104
+      },
+      "name": "BATT_CONST_T",
+      "override": false,
+      "params": [
+        {
+          "name": "i",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "static__dispatch_8hpp_1a5c82f7447a3ea015ef7984951611ad80",
+      "static": false,
+      "strong": false,
+      "title": "BATT_CONST_T",
+      "url": "/_autogen/Files/static__dispatch_8hpp/#define-batt-const-t",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-const",
+      "brief": "Shortcut for: `std::integral_constant<decltype(i), i>{}`. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_CONST",
+      "hasDetails": false,
+      "initializer": "BATT_CONST_T(I){}",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/static_dispatch.hpp",
+        "bodyStart": 109,
+        "column": 9,
+        "file": "batteries/static_dispatch.hpp",
+        "line": 109
+      },
+      "name": "BATT_CONST",
+      "override": false,
+      "params": [
+        {
+          "name": "i",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "static__dispatch_8hpp_1af4501ef107c15542e0835807ee095e4c",
+      "static": false,
+      "strong": false,
+      "summary": "Shortcut for: std::integral_constant<decltype(i), i>{}. ",
+      "title": "BATT_CONST",
+      "url": "/_autogen/Files/static__dispatch_8hpp/#define-batt-const",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/static_dispatch.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/static_dispatch.hpp",
+    "line": 0
+  },
+  "name": "batteries/static_dispatch.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_STATIC_DISPATCH_HPP\n#define BATTERIES_STATIC_DISPATCH_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/type_traits.hpp>\n#include <batteries/utility.hpp>\n//\n#include <array>\n#include <cstddef>\n#include <tuple>\n#include <type_traits>\n\nnamespace batt {\n\nnamespace detail {\n\ntemplate <typename Arg, typename Result>\nusing AbstractCaseHandler = Result (*)(Arg);\n\ntemplate <typename IntT, IntT I, typename Fn, typename R>\nR CaseHandlerImpl(Fn&& fn)\n{\n    return BATT_FORWARD(fn)(std::integral_constant<IntT, I>{});\n}\n\ntemplate <typename IntT, IntT I, typename Fn, typename R>\nvoid initialize_case_handlers(std::integral_constant<IntT, I>, std::integral_constant<IntT, I>,\n                              AbstractCaseHandler<Fn, R>* /*begin*/, AbstractCaseHandler<Fn, R>* /*end*/)\n{\n    // Nothing to do; empty range.\n}\n\ntemplate <typename IntT, IntT kBegin, IntT kEnd, typename Fn, typename R>\nvoid initialize_case_handlers(std::integral_constant<IntT, kBegin>, std::integral_constant<IntT, kEnd>,\n                              AbstractCaseHandler<Fn, R>* begin, AbstractCaseHandler<Fn, R>* end)\n{\n    static_assert(kEnd >= kBegin, \"\");\n\n    BATT_CHECK_LE(begin, end);\n    BATT_CHECK_EQ(kEnd - kBegin, end - begin);\n\n    if (begin == end - 1) {\n        *begin = CaseHandlerImpl<IntT, kBegin, Fn, R>;\n    } else {\n        constexpr IntT kMiddle = (kBegin + kEnd) / 2;\n        AbstractCaseHandler<Fn, R>* middle = begin + (end - begin) / 2;\n\n        initialize_case_handlers(std::integral_constant<IntT, kBegin>{},\n                                 std::integral_constant<IntT, kMiddle>{}, begin, middle);\n\n        initialize_case_handlers(std::integral_constant<IntT, kMiddle>{},\n                                 std::integral_constant<IntT, kEnd>{}, middle, end);\n    }\n}\n\n}  // namespace detail\n\ntemplate <typename IntT, IntT kBegin, IntT kEnd, typename Fn,\n          typename R = decltype(std::declval<Fn>()(std::integral_constant<IntT, kBegin>{}))>\nR static_dispatch(IntT i, Fn&& fn)\n{\n    static const std::array<detail::AbstractCaseHandler<Fn&&, R>, kEnd - kBegin> case_handlers = [&] {\n        std::array<detail::AbstractCaseHandler<Fn&&, R>, kEnd - kBegin> case_handlers;\n\n        detail::initialize_case_handlers(std::integral_constant<IntT, kBegin>{},\n                                         std::integral_constant<IntT, kEnd>{}, case_handlers.data(),\n                                         case_handlers.data() + case_handlers.size());\n\n        return case_handlers;\n    }();\n\n    BATT_CHECK_GE(i, kBegin);\n    BATT_CHECK_LT(i, kEnd);\n\n    return case_handlers[i - kBegin](BATT_FORWARD(fn));\n}\n\ntemplate <typename Fn>\ndecltype(auto) static_dispatch(bool b, Fn&& fn)\n{\n    if (b) {\n        return BATT_FORWARD(fn)(std::true_type{});\n    } else {\n        return BATT_FORWARD(fn)(std::false_type{});\n    }\n}\n\ntemplate <typename Tuple, typename Fn>\ndecltype(auto) static_dispatch(std::size_t i, Fn&& fn)\n{\n    return static_dispatch<std::size_t, 0, std::tuple_size<Tuple>::value>(\n        i, [&fn](auto static_int) mutable -> decltype(auto) {\n            using T = std::tuple_element_t<decltype(static_int)::value, Tuple>;\n            return BATT_FORWARD(fn)(StaticType<T>{});\n        });\n}\n\n#define BATT_CONST_T(i) std::integral_constant<decltype(i), (i)>\n\n// clang-format off\n#define BATT_CONST(i) BATT_CONST_T(I){}\n// clang-format on\n\n}  // namespace batt\n\n#endif  // BATTERIES_STATIC_DISPATCH_HPP",
+  "refid": "static__dispatch_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/static_dispatch.hpp",
+  "url": "/_autogen/Files/static__dispatch_8hpp/#file-static-dispatch.hpp",
+  "visibility": "public"
+}

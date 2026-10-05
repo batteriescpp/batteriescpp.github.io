@@ -1,0 +1,175 @@
+{
+  "abstract": false,
+  "anchor": "#file-small-queue.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-small-queue-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SMALL_QUEUE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/small_queue.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/small_queue.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_SMALL_QUEUE_HPP",
+      "override": false,
+      "refid": "small__queue_8hpp_1a3fad02598596c9c5f629552c3ac8f6e7",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SMALL_QUEUE_HPP",
+      "url": "/_autogen/Files/small__queue_8hpp/#define-batteries-small-queue-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/small_queue.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/int_types.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/small_queue.hpp",
+    "line": 0
+  },
+  "name": "batteries/small_queue.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_SMALL_QUEUE_HPP\n\n#include <batteries/int_types.hpp>\n#include <batteries/movable.hpp>\n#include <batteries/small_vec.hpp>\n\n#include <batteries/utility.hpp>\n\nnamespace batt {\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T>\nclass SmallQueueBase\n{\n   public:\n    using VecBase = SmallVecBase<T>;\n    using iterator = typename VecBase::iterator;\n    using const_iterator = typename VecBase::const_iterator;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    void clear()\n    {\n        this->vec_.clear();\n        this->front_i_ = 0;\n    }\n\n    usize size() const\n    {\n        return this->vec_.size() - this->front_i_;\n    }\n\n    const T* data() const noexcept\n    {\n        return this->vec_.data() + this->front_i_;\n    }\n\n    bool empty() const\n    {\n        return this->size() == 0;\n    }\n\n    iterator begin()\n    {\n        return std::next(this->vec_.begin(), this->front_i_);\n    }\n\n    iterator end()\n    {\n        return this->vec_.end();\n    }\n\n    const_iterator begin() const\n    {\n        return std::next(this->vec_.begin(), this->front_i_);\n    }\n\n    const_iterator end() const\n    {\n        return this->vec_.end();\n    }\n\n    T& front()\n    {\n        return this->vec_[this->front_i_];\n    }\n\n    T& back()\n    {\n        return this->vec_.back();\n    }\n\n    const T& front() const\n    {\n        return this->vec_[this->front_i_];\n    }\n\n    const T& back() const\n    {\n        return this->vec_.back();\n    }\n\n    void pop_front()\n    {\n        BATT_CHECK_LT(this->front_i_, this->vec_.size());\n        ++this->front_i_;\n        this->try_compact();\n    }\n\n    template <typename A>\n    void push_back(A&& arg)\n    {\n        this->vec_.push_back(BATT_FORWARD(arg));\n    }\n\n    template <typename... A>\n    decltype(auto) emplace_back(A&&... args)\n    {\n        return this->vec_.emplace_back(BATT_FORWARD(args)...);\n    }\n\n    bool try_compact()\n    {\n        if (this->front_i_ * 2 >= this->vec_.size()) {\n            this->vec_.erase(this->vec_.begin(), std::next(this->vec_.begin(), this->front_i_));\n            this->front_i_ = 0;\n            return true;\n        }\n        return false;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   protected:\n    explicit SmallQueueBase(VecBase& vec) noexcept : vec_{vec}\n    {\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    VecBase& vec_;\n    Movable<usize> front_i_{usize{0}};\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T, usize kStaticSize>\nclass SmallQueueStorage\n{\n   public:\n    using Vec = SmallVec<T, kStaticSize>;\n\n    Vec vec_;\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T, usize kStaticSize>\nclass SmallQueue\n    : private SmallQueueStorage<T, kStaticSize>\n    , public SmallQueueBase<T>\n{\n   public:\n    using Self = SmallQueue;\n    using Super = SmallQueueBase<T>;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    SmallQueue() : Super{this->SmallQueueStorage<T, kStaticSize>::vec_}\n    {\n    }\n\n    SmallQueue(const SmallQueue&) = default;\n    SmallQueue& operator=(const SmallQueue&) = default;\n\n    SmallQueue(SmallQueue&&) = default;\n    SmallQueue& operator=(SmallQueue&&) = default;\n};\n\n}  //namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::SmallQueue< T, kStaticSize >",
+          "refid": "classbatt_1_1SmallQueue",
+          "url": "/_autogen/Classes/classbatt_1_1SmallQueue/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "fullname": "batt::SmallQueueBase",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::SmallQueueBase",
+      "refid": "classbatt_1_1SmallQueueBase",
+      "title": "batt::SmallQueueBase",
+      "url": "/_autogen/Classes/classbatt_1_1SmallQueueBase/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "derivedClasses": [
+        {
+          "external": false,
+          "name": "batt::SmallQueue< T, kStaticSize >",
+          "refid": "classbatt_1_1SmallQueue",
+          "url": "/_autogen/Classes/classbatt_1_1SmallQueue/",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        }
+      ],
+      "fullname": "batt::SmallQueueStorage",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::SmallQueueStorage",
+      "refid": "classbatt_1_1SmallQueueStorage",
+      "title": "batt::SmallQueueStorage",
+      "url": "/_autogen/Classes/classbatt_1_1SmallQueueStorage/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": false,
+          "name": "batt::SmallQueueStorage< T, kStaticSize >",
+          "refid": "classbatt_1_1SmallQueueStorage",
+          "url": "/_autogen/Classes/classbatt_1_1SmallQueueStorage/",
+          "virtual": "non-virtual",
+          "visibility": "private"
+        },
+        {
+          "external": false,
+          "name": "batt::SmallQueueBase< T >",
+          "refid": "classbatt_1_1SmallQueueBase",
+          "url": "/_autogen/Classes/classbatt_1_1SmallQueueBase/",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::SmallQueue",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::SmallQueue",
+      "refid": "classbatt_1_1SmallQueue",
+      "title": "batt::SmallQueue",
+      "url": "/_autogen/Classes/classbatt_1_1SmallQueue/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "small__queue_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/small_queue.hpp",
+  "url": "/_autogen/Files/small__queue_8hpp/#file-small-queue.hpp",
+  "visibility": "public"
+}

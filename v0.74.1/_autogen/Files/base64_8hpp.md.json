@@ -1,0 +1,125 @@
+{
+  "abstract": false,
+  "anchor": "#file-base64.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-base64-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_BASE64_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/base64.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/base64.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_BASE64_HPP",
+      "override": false,
+      "refid": "base64_8hpp_1a128b7a530eabb5063867f503b701e74c",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_BASE64_HPP",
+      "url": "/_autogen/Files/base64_8hpp/#define-batteries-base64-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/base64.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/assert.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/base64.hpp",
+    "line": 0
+  },
+  "name": "batteries/base64.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_BASE64_HPP\n\n#include <batteries/assert.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/radix_encode.hpp>\n\n#include <array>\n#include <type_traits>\n\nnamespace batt {\n\nnamespace detail {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\n\n}  //namespace detail\n\ntemplate <bool kIsUrl>\nstruct Base64Encoding {\n    static constexpr usize kRadix = 64;\n    static constexpr usize kRadixBits = 6;\n\n    static const std::array<char, 64>& get_chars() noexcept\n    {\n        static const std::array<char, 64>& cache_ = []() -> auto& {\n            static std::array<char, 64> cache_;\n\n            constexpr usize kBigA = 0;\n            constexpr usize kLittleA = kBigA + 26;\n            constexpr usize kZero = kLittleA + 26;\n\n            for (usize i = 0; i < 26; ++i) {\n                cache_[i + kBigA] = 'A' + i;\n            }\n            for (usize i = 0; i < 26; ++i) {\n                cache_[i + kLittleA] = 'a' + i;\n            }\n            for (usize i = 0; i < 10; ++i) {\n                cache_[i + kZero] = '0' + i;\n            }\n            if constexpr (kIsUrl) {\n                cache_[62] = '-';\n                cache_[63] = '_';\n            } else {\n                cache_[62] = '+';\n                cache_[63] = '/';\n            }\n\n            return cache_;\n        }();\n\n        return cache_;\n    }\n};\n\ntemplate <typename UIntT>\ninline char* format_base64(UIntT value, char* buffer, usize len) noexcept\n{\n    return radix_encode<Base64Encoding<false>>(value, buffer, len);\n}\n\ntemplate <typename UIntT>\ninline char* format_base64url(UIntT value, char* buffer, usize len) noexcept\n{\n    return radix_encode<Base64Encoding<true>>(value, buffer, len);\n}\n\n}  // namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Base64Encoding",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::Base64Encoding",
+      "refid": "structbatt_1_1Base64Encoding",
+      "title": "batt::Base64Encoding",
+      "url": "/_autogen/Classes/structbatt_1_1Base64Encoding/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "base64_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/base64.hpp",
+  "url": "/_autogen/Files/base64_8hpp/#file-base64.hpp",
+  "visibility": "public"
+}

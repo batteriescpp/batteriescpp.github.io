@@ -1,0 +1,113 @@
+{
+  "abstract": false,
+  "anchor": "#file-radix-encode.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-radix-encode-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_RADIX_ENCODE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/radix_encode.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/radix_encode.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_RADIX_ENCODE_HPP",
+      "override": false,
+      "refid": "radix__encode_8hpp_1a29161dd659de0e025ebbcd0e034fd8d8",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_RADIX_ENCODE_HPP",
+      "url": "/_autogen/Files/radix__encode_8hpp/#define-batteries-radix-encode-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/radix_encode.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/assert.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/radix_encode.hpp",
+    "line": 0
+  },
+  "name": "batteries/radix_encode.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_RADIX_ENCODE_HPP\n\n#include <batteries/assert.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/math.hpp>\n#include <batteries/status.hpp>\n\n#include <array>\n#include <type_traits>\n\nnamespace batt {\n\ntemplate <typename Encoding, typename UIntT>\nchar* radix_encode(UIntT value, char* buffer, usize len) noexcept\n{\n    static_assert(std::is_integral_v<UIntT>);\n    static_assert(std::is_unsigned_v<UIntT>);\n\n    static const std::array<char, Encoding::kRadix>& chars = Encoding::get_chars();\n\n    constexpr usize kRadixBits = Encoding::kRadixBits;\n    constexpr usize kBits = (sizeof(UIntT) * 8);\n    constexpr usize kOutputLength = (kBits + kRadixBits - 1) / kRadixBits;\n    constexpr usize kMask = (usize{1} << kRadixBits) - 1;\n\n    BATT_CHECK_GE(len, kOutputLength);\n\n    char* out = &buffer[kOutputLength];\n    for (usize i = 0; i < kOutputLength; ++i) {\n        --out;\n        *out = chars[value & kMask];\n        value >>= kRadixBits;\n    }\n\n    return out;\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\ntemplate <bool kLowerCase = true>\nstruct HexEncoding {\n    static constexpr usize kRadix = 16;\n    static constexpr usize kRadixBits = 4;\n\n    static const std::array<char, 16>& get_chars() noexcept\n    {\n        static const std::array<char, 16>& cache_ = []() -> auto& {\n            static std::array<char, 16> cache_;\n\n            constexpr usize kZero = 0;\n            constexpr usize kA = 10;\n\n            for (usize i = 0; i < 10; ++i) {\n                cache_[i + kZero] = '0' + i;\n            }\n            for (usize i = 0; i < 6; ++i) {\n                if constexpr (kLowerCase) {\n                    cache_[i + kA] = 'a' + i;\n                } else {\n                    cache_[i + kA] = 'A' + i;\n                }\n            }\n\n            return cache_;\n        }();\n\n        return cache_;\n    }\n};\n\ntemplate <typename UIntT>\ninline char* format_hex(UIntT value, char* buffer, usize len) noexcept\n{\n    return radix_encode<HexEncoding<>>(value, buffer, len);\n}\n\ntemplate <typename UIntT>\ninline StatusOr<UIntT> parse_hex(const char* buffer, usize len) noexcept\n{\n    const char* next = buffer;\n    const char* last = buffer + len;\n\n    UIntT value = 0;\n\n    for (; next != last; ++next) {\n        const char ch = *next;\n        if ('0' <= ch && ch <= '9') {\n            value = (value << 4) | (ch - '0');\n        } else if ('A' <= ch && ch <= 'F') {\n            value = (value << 4) | (ch - 'A' + 0xa);\n        } else if ('a' <= ch && ch <= 'f') {\n            value = (value << 4) | (ch - 'a' + 0xa);\n        } else {\n            return {batt::StatusCode::kInvalidArgument};\n        }\n    }\n\n    return {value};\n}\n\n}  //namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::HexEncoding",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::HexEncoding",
+      "refid": "structbatt_1_1HexEncoding",
+      "title": "batt::HexEncoding",
+      "url": "/_autogen/Classes/structbatt_1_1HexEncoding/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "radix__encode_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/radix_encode.hpp",
+  "url": "/_autogen/Files/radix__encode_8hpp/#file-radix-encode.hpp",
+  "visibility": "public"
+}

@@ -1,0 +1,99 @@
+{
+  "abstract": false,
+  "anchor": "#file-env.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-env-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ENV_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/env.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/env.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ENV_HPP",
+      "override": false,
+      "refid": "env_8hpp_1ac195afe1a64df656344e83ee337fc661",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ENV_HPP",
+      "url": "/_autogen/Files/env_8hpp/#define-batteries-env-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/env.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/env.hpp",
+    "line": 0
+  },
+  "name": "batteries/env.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ENV_HPP\n#define BATTERIES_ENV_HPP\n\n#include <batteries/config.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/logging.hpp>\n#include <batteries/optional.hpp>\n#include <batteries/stream_util.hpp>\n\n#include <cstddef>\n\nnamespace batt {\n\ntemplate <typename T>\nOptional<T> getenv_as(const char* var_name)\n{\n    BATT_VLOG(1) << \"reading env variable '\" << var_name << \"'\";\n\n    const char* var_value = std::getenv(var_name);\n    if (var_value == nullptr) {\n        BATT_VLOG(1) << \"... not set\";\n        return None;\n    }\n\n    auto result = batt::from_string<T>(var_value);\n    BATT_VLOG(1) << \"... value is '\" << var_value << \"'; parsing as \" << typeid(T).name() << \" == \" << result;\n\n    return result;\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_ENV_HPP",
+  "refid": "env_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/env.hpp",
+  "url": "/_autogen/Files/env_8hpp/#file-env.hpp",
+  "visibility": "public"
+}

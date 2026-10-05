@@ -1,0 +1,151 @@
+{
+  "abstract": false,
+  "anchor": "#file-allocator.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-allocator-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ALLOCATOR_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/allocator.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/allocator.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_ALLOCATOR_HPP",
+      "override": false,
+      "refid": "allocator_8hpp_1a6fa9c12ddc3c16e09d8fc35c35ec6552",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ALLOCATOR_HPP",
+      "url": "/_autogen/Files/allocator_8hpp/#define-batteries-allocator-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/allocator.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/allocator.hpp",
+    "line": 0
+  },
+  "name": "batteries/allocator.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_ALLOCATOR_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/atomic_clamp.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/operators.hpp>\n#include <batteries/type_traits.hpp>\n\n#include <atomic>\n\nnamespace batt {\n\nstruct AtomicMemoryStats {\n    std::atomic<usize> bytes_allocated = 0;\n    std::atomic<usize> bytes_freed = 0;\n    std::atomic<usize> max_usage = 0;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    void notify_alloc(usize n_bytes) noexcept\n    {\n        const usize observed_free = this->bytes_freed.load();\n        const usize observed_alloc = this->bytes_allocated.fetch_add(n_bytes) + n_bytes;\n        atomic_clamp_min(this->max_usage, observed_alloc - observed_free);\n    }\n\n    void notify_free(usize n_bytes) noexcept\n    {\n        this->bytes_freed.fetch_add(n_bytes);\n    }\n\n    usize usage() const noexcept\n    {\n        const usize observed_free = this->bytes_freed.load();\n        const usize observed_alloc = this->bytes_allocated.load();\n        return observed_alloc - observed_free;\n    }\n};\n\nBATT_OBJECT_PRINT_IMPL((inline), AtomicMemoryStats, (bytes_allocated, bytes_freed, max_usage, usage()))\n\nstruct MemoryStats {\n    usize bytes_allocated = 0;\n    usize bytes_freed = 0;\n    usize max_usage = 0;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    void notify_alloc(usize n_bytes) noexcept\n    {\n        this->bytes_allocated += n_bytes;\n        this->max_usage = std::max(this->max_usage, this->usage());\n    }\n\n    void notify_free(usize n_bytes) noexcept\n    {\n        this->bytes_freed += n_bytes;\n    }\n\n    usize usage() const noexcept\n    {\n        return this->bytes_allocated - this->bytes_freed;\n    }\n};\n\nBATT_OBJECT_PRINT_IMPL((inline), MemoryStats, (bytes_allocated, bytes_freed, max_usage, usage()))\n\n\ntemplate <typename BaseAllocT, bool kAtomic = true>\nclass StatsAllocator\n{\n   public:\n    template <typename OtherBaseT, bool>\n    friend class StatsAllocator;\n\n    using Self = StatsAllocator;\n\n    using Stats = std::conditional_t<kAtomic, AtomicMemoryStats, MemoryStats>;\n\n    template <typename T>\n    struct rebind {\n        using other =\n            StatsAllocator<typename std::allocator_traits<BaseAllocT>::template rebind_alloc<T>, kAtomic>;\n    };\n\n    //----- --- -- -  -  -   -\n\n    using value_type = typename BaseAllocT::value_type;\n    using size_type = typename BaseAllocT::size_type;\n    using pointer = value_type*;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    StatsAllocator() = default;\n    ~StatsAllocator() = default;\n\n    template <typename... Args, typename = EnableIfNoShadow<Self, Args...>>\n    explicit StatsAllocator(Args&&... args) noexcept : base_(BATT_FORWARD(args)...)\n                                                     , stats_{}\n    {\n    }\n\n    template <typename OtherBaseT>\n    explicit StatsAllocator(const StatsAllocator<OtherBaseT, kAtomic>& other) noexcept\n        : base_{other.base_}\n        , stats_{other.stats_}\n    {\n    }\n\n    template <typename OtherBaseT>\n    explicit StatsAllocator(StatsAllocator<OtherBaseT, kAtomic>& other) noexcept\n        : base_{other.base_}\n        , stats_{other.stats_}\n    {\n    }\n\n    template <typename OtherBaseT>\n    explicit StatsAllocator(StatsAllocator<OtherBaseT, kAtomic>&& other) noexcept\n        : base_{std::move(other.base_)}\n        , stats_{std::move(other.stats_)}\n    {\n    }\n\n    template <typename OtherBaseT>\n    explicit StatsAllocator(const StatsAllocator<OtherBaseT, kAtomic>&& other) noexcept\n        : base_{std::move(other.base_)}\n        , stats_{std::move(other.stats_)}\n    {\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    const Stats& stats() const noexcept\n    {\n        return *this->stats_;\n    }\n\n    const std::shared_ptr<Stats>& shared_stats() const noexcept\n    {\n        return this->stats_;\n    }\n\n    value_type* allocate(size_type n_values) noexcept\n    {\n        this->stats_->notify_alloc(n_values * sizeof(value_type));\n        return this->base_.allocate(n_values);\n    }\n\n    void deallocate(value_type* ptr, size_type n_values) noexcept\n    {\n        this->stats_->notify_free(n_values * sizeof(value_type));\n        this->base_.deallocate(ptr, n_values);\n    }\n\n    template <typename OtherBaseT>\n    bool operator==(const StatsAllocator<OtherBaseT, kAtomic>&) const noexcept\n    {\n        return true;\n    }\n\n    template <typename OtherBaseT>\n    bool operator!=(const StatsAllocator<OtherBaseT, kAtomic>&) const noexcept\n    {\n        return false;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    BaseAllocT base_;\n    std::shared_ptr<Stats> stats_ = std::make_shared<Stats>();\n};\n\n}  //namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::AtomicMemoryStats",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::AtomicMemoryStats",
+      "refid": "structbatt_1_1AtomicMemoryStats",
+      "title": "batt::AtomicMemoryStats",
+      "url": "/_autogen/Classes/structbatt_1_1AtomicMemoryStats/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::MemoryStats",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::MemoryStats",
+      "refid": "structbatt_1_1MemoryStats",
+      "title": "batt::MemoryStats",
+      "url": "/_autogen/Classes/structbatt_1_1MemoryStats/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "brief": "Model of a std allocator that captures statistics on memory usage. ",
+      "category": "classes",
+      "fullname": "batt::StatsAllocator",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::StatsAllocator",
+      "refid": "classbatt_1_1StatsAllocator",
+      "summary": "Model of a std allocator that captures statistics on memory usage. ",
+      "title": "batt::StatsAllocator",
+      "url": "/_autogen/Classes/classbatt_1_1StatsAllocator/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::StatsAllocator::rebind",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::StatsAllocator::rebind",
+      "refid": "structbatt_1_1StatsAllocator_1_1rebind",
+      "title": "batt::StatsAllocator::rebind",
+      "url": "/_autogen/Classes/structbatt_1_1StatsAllocator_1_1rebind/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "allocator_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/allocator.hpp",
+  "url": "/_autogen/Files/allocator_8hpp/#file-allocator.hpp",
+  "visibility": "public"
+}
