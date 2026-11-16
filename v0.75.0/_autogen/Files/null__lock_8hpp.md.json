@@ -1,0 +1,113 @@
+{
+  "abstract": false,
+  "anchor": "#file-null-lock.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-null-lock-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_NULL_LOCK_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/null_lock.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/null_lock.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_NULL_LOCK_HPP",
+      "override": false,
+      "refid": "null__lock_8hpp_1ae2e9c4e17695caf2aefbf647135e3895",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_NULL_LOCK_HPP",
+      "url": "/_autogen/Files/null__lock_8hpp/#define-batteries-null-lock-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/null_lock.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/type_traits.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/null_lock.hpp",
+    "line": 0
+  },
+  "name": "batteries/null_lock.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_NULL_LOCK_HPP\n\n#include <batteries/type_traits.hpp>\n\nnamespace batt {\n\nclass NullLock\n{\n   public:\n    template <typename MutexT, typename = batt::EnableIfNoShadow<NullLock, MutexT&>>\n    explicit NullLock(MutexT&) noexcept\n    {\n    }\n\n    [[nodiscard]] bool changed() const noexcept\n    {\n        return false;\n    }\n};\n\n}  // namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::NullLock",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::NullLock",
+      "refid": "classbatt_1_1NullLock",
+      "title": "batt::NullLock",
+      "url": "/_autogen/Classes/classbatt_1_1NullLock/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "null__lock_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/null_lock.hpp",
+  "url": "/_autogen/Files/null__lock_8hpp/#file-null-lock.hpp",
+  "visibility": "public"
+}

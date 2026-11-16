@@ -1,0 +1,127 @@
+{
+  "abstract": false,
+  "anchor": "#file-packed-ptr.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-packed-packed-ptr-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_PACKED_PACKED_PTR_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/packed/packed_ptr.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/packed/packed_ptr.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_PACKED_PACKED_PTR_HPP",
+      "override": false,
+      "refid": "packed__ptr_8hpp_1aeacdfda6c0033c38636b1efd62739ef4",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_PACKED_PACKED_PTR_HPP",
+      "url": "/_autogen/Files/packed__ptr_8hpp/#define-batteries-packed-packed-ptr-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/packed/packed_ptr.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/packed/packed_ptr.hpp",
+    "line": 0
+  },
+  "name": "batteries/packed/packed_ptr.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/packed",
+    "category": "dirs",
+    "fullname": "batteries/packed",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/packed",
+    "refid": "dir_834f3c292804affa19a56619c57fca6b",
+    "title": "batteries/packed",
+    "url": "/_autogen/Files/dir_834f3c292804affa19a56619c57fca6b/#dir-batteries/packed",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/packed",
+      "category": "dirs",
+      "fullname": "batteries/packed",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/packed",
+      "refid": "dir_834f3c292804affa19a56619c57fca6b",
+      "title": "batteries/packed",
+      "url": "/_autogen/Files/dir_834f3c292804affa19a56619c57fca6b/#dir-batteries/packed",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_PACKED_PACKED_PTR_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/buffer.hpp>\n#include <batteries/int_types.hpp>\n\n#include <type_traits>\n\nnamespace batt {\n\ntemplate <typename T, typename OffsetT>\nstruct PackedPtr {\n    using Self = PackedPtr;\n\n    using value_type = T;\n    using offset_type = OffsetT;\n    using pointer = std::add_pointer_t<T>;\n    using const_pointer = std::add_pointer_t<std::add_const_t<T>>;\n\n    using reference = typename std::conditional_t<std::is_same_v<T, void>, StaticType<void>,\n                                                  std::add_lvalue_reference<T>>::type;\n\n    using const_reference = typename std::conditional_t<std::is_same_v<T, void>, StaticType<void>,\n                                                        std::add_lvalue_reference<std::add_const_t<T>>>::type;\n\n    //----- --- -- -  -  -   -\n\n    OffsetT offset_;\n\n    //----- --- -- -  -  -   -\n\n    PackedPtr(const PackedPtr&) = delete;\n\n    PackedPtr& operator=(const PackedPtr&) = delete;\n\n    //----- --- -- -  -  -   -\n\n    void reset() noexcept\n    {\n        this->offset_ = 0;\n    }\n\n    void clear() noexcept\n    {\n        this->reset();\n    }\n\n    void reset(const T* target) noexcept\n    {\n        this->offset_ = byte_distance(this, target);\n        BATT_CHECK_EQ((const void*)target, (const void*)this->get());\n    }\n\n    const T* get() const noexcept\n    {\n        return reinterpret_cast<const T*>(advance_pointer(this, this->offset_.value()));\n    }\n\n    T* get_mut() noexcept\n    {\n        return reinterpret_cast<T*>(advance_pointer(this, this->offset_.value()));\n    }\n\n    const T* operator->() const noexcept\n    {\n        return this->get();\n    }\n\n    T* operator->() noexcept\n    {\n        return this->get();\n    }\n\n    const_reference operator*() const noexcept\n#if BATT_CPP_20\n        requires(!std::is_same_v<std::decay_t<T>, void>)\n#endif\n    {\n        return *this->get();\n    }\n\n    reference operator*() noexcept\n#if BATT_CPP_20\n        requires(!std::is_same_v<std::decay_t<T>, void>)\n#endif\n    {\n        return *this->get();\n    }\n\n    const_reference operator[](isize index) const noexcept\n#if BATT_CPP_20\n        requires(!std::is_same_v<std::decay_t<T>, void>)\n#endif\n    {\n        return *(this->get() + index);\n    }\n\n    reference operator[](isize index) noexcept\n#if BATT_CPP_20\n        requires(!std::is_same_v<std::decay_t<T>, void>)\n#endif\n    {\n        return *(this->get_mut() + index);\n    }\n\n    explicit operator bool() const noexcept\n    {\n        return this->offset_ != 0;\n    }\n\n    void advance(isize delta) noexcept\n    {\n        if (delta < 0) {\n            this->offset_ -= sizeof(T) * -delta;\n        } else {\n            this->offset_ += sizeof(T) * delta;\n        }\n    }\n};\n\n#if BATT_CPP_20\n\ntemplate <typename LeftT, typename LeftOffsetT, typename RightT, typename RightOffsetT>\ninline auto operator<=>(const PackedPtr<LeftT, LeftOffsetT>& left,\n                        const PackedPtr<RightT, RightOffsetT>& right) noexcept\n{\n    return static_cast<const void*>(left.get()) <=> static_cast<const void*>(right.get());\n}\n\n#endif  // BATT_CPP_20\n\ntemplate <typename T, typename OffsetT>\ninline bool operator==(const PackedPtr<T, OffsetT>& ptr, std::nullptr_t) noexcept\n{\n    return ptr.offset_ == 0;\n}\n\ntemplate <typename T, typename OffsetT>\ninline bool operator==(std::nullptr_t, const PackedPtr<T, OffsetT>& ptr) noexcept\n{\n    return ptr.offset_ == 0;\n}\n\ntemplate <typename T, typename OffsetT>\ninline bool operator!=(const PackedPtr<T, OffsetT>& ptr, std::nullptr_t) noexcept\n{\n    return ptr.offset_ != 0;\n}\n\ntemplate <typename T, typename OffsetT>\ninline bool operator!=(std::nullptr_t, const PackedPtr<T, OffsetT>& ptr) noexcept\n{\n    return ptr.offset_ != 0;\n}\n\n}  //namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "A packed relative pointer. ",
+      "category": "classes",
+      "fullname": "batt::PackedPtr",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::PackedPtr",
+      "refid": "structbatt_1_1PackedPtr",
+      "summary": "A packed relative pointer. ",
+      "title": "batt::PackedPtr",
+      "url": "/_autogen/Classes/structbatt_1_1PackedPtr/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "packed__ptr_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/packed/packed_ptr.hpp",
+  "url": "/_autogen/Files/packed__ptr_8hpp/#file-packed-ptr.hpp",
+  "visibility": "public"
+}

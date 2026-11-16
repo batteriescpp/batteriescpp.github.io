@@ -1,0 +1,99 @@
+{
+  "abstract": false,
+  "anchor": "#file-syscall-retry.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-syscall-retry-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SYSCALL_RETRY_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/syscall_retry.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/syscall_retry.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_SYSCALL_RETRY_HPP",
+      "override": false,
+      "refid": "syscall__retry_8hpp_1a6f905a55030667c7269a223cb6c1e8bc",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SYSCALL_RETRY_HPP",
+      "url": "/_autogen/Files/syscall__retry_8hpp/#define-batteries-syscall-retry-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/syscall_retry.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/syscall_retry.hpp",
+    "line": 0
+  },
+  "name": "batteries/syscall_retry.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_SYSCALL_RETRY_HPP\n#define BATTERIES_SYSCALL_RETRY_HPP\n\n#include <batteries/config.hpp>\n//\n\n#if !BATT_PLATFORM_IS_WINDOWS\n#include <unistd.h>\n#endif\n\nnamespace batt {\n\n// Executes the passed op repeatedly it doesn't fail with EINTR.\n//\ntemplate <typename Op>\nauto syscall_retry(Op&& op)\n{\n    for (;;) {\n        const auto result = op();\n#if !BATT_PLATFORM_IS_WINDOWS\n        if (result != -1 || errno != EINTR)\n#endif  // BATT_PLATFORM_IS_WINDOWS\n        {\n            return result;\n        }\n    }\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_SYSCALL_RETRY_HPP",
+  "refid": "syscall__retry_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/syscall_retry.hpp",
+  "url": "/_autogen/Files/syscall__retry_8hpp/#file-syscall-retry.hpp",
+  "visibility": "public"
+}

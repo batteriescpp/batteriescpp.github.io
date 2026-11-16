@@ -1,0 +1,99 @@
+{
+  "abstract": false,
+  "anchor": "#file-atomic-clamp.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-atomic-clamp-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ATOMIC_CLAMP_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/atomic_clamp.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/atomic_clamp.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_ATOMIC_CLAMP_HPP",
+      "override": false,
+      "refid": "atomic__clamp_8hpp_1a4e48e4d4523e5fb7f207fbf8a1c6dcf9",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ATOMIC_CLAMP_HPP",
+      "url": "/_autogen/Files/atomic__clamp_8hpp/#define-batteries-atomic-clamp-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/atomic_clamp.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<atomic>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/atomic_clamp.hpp",
+    "line": 0
+  },
+  "name": "batteries/atomic_clamp.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_ATOMIC_CLAMP_HPP\n\n#include <atomic>\n\nnamespace batt {\n\ntemplate <typename T>\nT atomic_clamp_min(std::atomic<T>& value, T min_value)\n{\n    T observed_value = value.load();\n\n    for (;;) {\n        if (observed_value >= min_value) {\n            break;\n        }\n        if (value.compare_exchange_weak(observed_value, min_value)) {\n            break;\n        }\n    }\n\n    return observed_value;\n}\n\ntemplate <typename T>\nT atomic_clamp_max(std::atomic<T>& value, T max_value)\n{\n    T observed_value = value.load();\n\n    for (;;) {\n        if (observed_value <= max_value) {\n            break;\n        }\n        if (value.compare_exchange_weak(observed_value, max_value)) {\n            break;\n        }\n    }\n\n    return observed_value;\n}\n\n}  // namespace batt",
+  "refid": "atomic__clamp_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/atomic_clamp.hpp",
+  "url": "/_autogen/Files/atomic__clamp_8hpp/#file-atomic-clamp.hpp",
+  "visibility": "public"
+}

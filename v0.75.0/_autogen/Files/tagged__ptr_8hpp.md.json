@@ -1,0 +1,85 @@
+{
+  "abstract": false,
+  "anchor": "#file-tagged-ptr.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-tagged-ptr-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_TAGGED_PTR_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/tagged_ptr.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/tagged_ptr.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_TAGGED_PTR_HPP",
+      "override": false,
+      "refid": "tagged__ptr_8hpp_1a78819693f05a4b9db4b0c033365d6771",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_TAGGED_PTR_HPP",
+      "url": "/_autogen/Files/tagged__ptr_8hpp/#define-batteries-tagged-ptr-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/tagged_ptr.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/tagged_ptr.hpp",
+    "line": 0
+  },
+  "name": "batteries/tagged_ptr.hpp",
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_TAGGED_PTR_HPP\n\n#include <batteries/config.hpp>\n//\n#if BATT_CPP_20\n\n#include <batteries/case_of.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/math.hpp>\n#include <batteries/optional.hpp>\n#include <batteries/tuples.hpp>\n\n#include <concepts>\n#include <tuple>\n#include <variant>\n\nnamespace batt {\n\ntemplate <typename... CasesT>\nclass TaggedPtr\n{\n   public:\n    using Self = TaggedPtr;\n\n    static constexpr usize kSize = sizeof...(CasesT);\n\n    static constexpr usize kTagBits = log2_ceil(kSize);\n\n    static constexpr usize kTagShift = (8 * sizeof(uptr)) - kTagBits;\n\n    static constexpr uptr kTagMask = ~uptr{0} << kTagShift;\n\n    static constexpr uptr kPtrMask = ~kTagMask;\n\n    using VariantT = std::variant<NoneType, std::add_pointer_t<CasesT>...>;\n\n    using TupleT = std::tuple<NoneType, std::add_pointer_t<CasesT>...>;\n\n    //----- --- -- -  -  -   -\n\n    template <usize kIndex>\n    static constexpr StaticType<std::tuple_element_t<kIndex, TupleT>> get_case_type(\n        std::integral_constant<usize, kIndex> /*index*/ = {}) noexcept\n    {\n        return {};\n    }\n\n    template <usize kIndex>\n    using GetCaseType = typename decltype(get_case_type<kIndex>())::type;\n\n    static constexpr usize size() noexcept\n    {\n        return Self::kSize;\n    }\n\n    template <typename CaseT>\n        requires(std::is_same_v<CaseT, NoneType>)\n    static constexpr usize case_index(StaticType<CaseT> /*case_type*/ = {}) noexcept\n    {\n        return 0;\n    }\n\n    template <typename CaseT>\n        requires(!std::is_same_v<CaseT, NoneType>)\n    static constexpr usize case_index(StaticType<CaseT> /*case_type*/ = {}) noexcept\n    {\n        return TupleIndexOf<TupleT, std::add_pointer_t<CaseT>>::value;\n    }\n\n    template <typename CaseT>\n    static constexpr uptr case_tag(StaticType<CaseT> case_type = {}) noexcept\n    {\n        return Self::case_tag(Self::case_index(case_type));\n    }\n\n    static constexpr uptr case_tag(usize case_i) noexcept\n    {\n        return (case_i - 1) << kTagShift;\n    }\n\n    template <typename CaseT>\n    static constexpr bool is_valid_case() noexcept\n    {\n        return Self::case_index<CaseT>() < (Self::kSize + /*NoneType*/ 1);\n    }\n\n    //----- --- -- -  -  -   -\n\n    TaggedPtr(NoneType) noexcept : value_{0}\n    {\n    }\n\n    TaggedPtr() noexcept : Self{None}\n    {\n    }\n\n    TaggedPtr(const TaggedPtr&) = default;\n    TaggedPtr& operator=(const TaggedPtr&) = default;\n\n    template <typename CaseT>\n        requires(is_valid_case<CaseT>())\n    /*implicit*/ TaggedPtr(CaseT* case_ptr) noexcept\n        : value_{Self::case_tag<CaseT>() | (reinterpret_cast<uptr>(case_ptr) & Self::kPtrMask)}\n    {\n        BATT_CHECK_EQ(this->ptr_value(), (const void*)case_ptr);\n    }\n\n    //----- --- -- -  -  -   -\n\n    const void* ptr_value() const noexcept\n    {\n        return reinterpret_cast<const void*>(this->value_ & Self::kPtrMask);\n    }\n\n    uptr int_value() const noexcept\n    {\n        return this->value_;\n    }\n\n    uptr tag() const noexcept\n    {\n        return this->value_ & Self::kTagMask;\n    }\n\n    template <typename... CaseFns, typename Visitor = CaseOfVisitor<CaseFns&&...>,\n              typename Result = detail::VisitorResultT<Visitor, Self::VariantT>>\n        requires(kSize == 2)\n    Result visit(CaseFns&&... case_fns) const noexcept\n    {\n        auto visitor = Visitor{BATT_FORWARD(case_fns)...};\n\n        if (this->value_ == 0) {\n            return visitor(None);\n        }\n\n        switch (this->tag()) {\n        case Self::case_tag(1):\n            return visitor(reinterpret_cast<GetCaseType<1>>(this->value_ & kPtrMask));\n\n        case Self::case_tag(2):\n            return visitor(reinterpret_cast<GetCaseType<2>>(this->value_ & kPtrMask));\n\n        default:\n            break;\n        }\n\n        BATT_PANIC() << \"bad tag:\" << BATT_INSPECT(this->value_);\n        BATT_UNREACHABLE();\n    }\n\n    template <typename... CaseFns, typename Visitor = CaseOfVisitor<CaseFns&&...>,\n              typename Result = detail::VisitorResultT<Visitor, Self::VariantT>>\n        requires(kSize == 3)\n    Result visit(CaseFns&&... case_fns) const noexcept\n    {\n        auto visitor = Visitor{BATT_FORWARD(case_fns)...};\n\n        if (this->value_ == 0) {\n            return visitor(None);\n        }\n\n        switch (this->tag()) {\n        case Self::case_tag(1):\n            return visitor(reinterpret_cast<GetCaseType<1>>(this->value_ & kPtrMask));\n\n        case Self::case_tag(2):\n            return visitor(reinterpret_cast<GetCaseType<2>>(this->value_ & kPtrMask));\n\n        case Self::case_tag(3):\n            return visitor(reinterpret_cast<GetCaseType<3>>(this->value_ & kPtrMask));\n\n        default:\n            break;\n        }\n\n        BATT_PANIC() << \"bad tag:\" << BATT_INSPECT(this->value_);\n        BATT_UNREACHABLE();\n    }\n\n    template <typename... CaseFns, typename Visitor = CaseOfVisitor<CaseFns&&...>,\n              typename Result = detail::VisitorResultT<Visitor, Self::VariantT>>\n        requires(kSize == 4)\n    Result visit(CaseFns&&... case_fns) const noexcept\n    {\n        auto visitor = Visitor{BATT_FORWARD(case_fns)...};\n\n        if (this->value_ == 0) {\n            return visitor(None);\n        }\n\n        switch (this->tag()) {\n        case Self::case_tag(1):\n            return visitor(reinterpret_cast<GetCaseType<1>>(this->value_ & kPtrMask));\n\n        case Self::case_tag(2):\n            return visitor(reinterpret_cast<GetCaseType<2>>(this->value_ & kPtrMask));\n\n        case Self::case_tag(3):\n            return visitor(reinterpret_cast<GetCaseType<3>>(this->value_ & kPtrMask));\n\n        case Self::case_tag(4):\n            return visitor(reinterpret_cast<GetCaseType<4>>(this->value_ & kPtrMask));\n\n        default:\n            break;\n        }\n\n        BATT_PANIC() << \"bad tag:\" << BATT_INSPECT(this->value_);\n        BATT_UNREACHABLE();\n    }\n\n   private:\n    uptr value_;\n};\n\n}  // namespace batt\n\n#endif  // BATT_CPP_20",
+  "refid": "tagged__ptr_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/tagged_ptr.hpp",
+  "url": "/_autogen/Files/tagged__ptr_8hpp/#file-tagged-ptr.hpp",
+  "visibility": "public"
+}

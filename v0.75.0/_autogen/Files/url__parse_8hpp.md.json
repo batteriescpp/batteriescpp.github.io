@@ -1,0 +1,125 @@
+{
+  "abstract": false,
+  "anchor": "#file-url-parse.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-url-parse-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_URL_PARSE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/url_parse.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/url_parse.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_URL_PARSE_HPP",
+      "override": false,
+      "refid": "url__parse_8hpp_1aa0ff4749194a48a76e75f6e93fb93970",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_URL_PARSE_HPP",
+      "url": "/_autogen/Files/url__parse_8hpp/#define-batteries-url-parse-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/url_parse.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/url_parse.hpp",
+    "line": 0
+  },
+  "name": "batteries/url_parse.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_URL_PARSE_HPP\n#define BATTERIES_URL_PARSE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/int_types.hpp>\n#include <batteries/optional.hpp>\n#include <batteries/status.hpp>\n#include <batteries/stream_util.hpp>\n\n#include <string_view>\n\nnamespace batt {\n\nstruct UrlParse {\n    std::string_view scheme;\n    std::string_view user;\n    std::string_view host;\n    Optional<i64> port;\n    std::string_view path;\n    std::string_view query;\n    std::string_view fragment;\n};\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline bool operator==(const UrlParse& left, const UrlParse& right)\n{\n    return left.scheme == right.scheme   //\n           && left.user == right.user    //\n           && left.host == right.host    //\n           && left.port == right.port    //\n           && left.path == right.path    //\n           && left.query == right.query  //\n           && left.fragment == right.fragment;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline bool operator!=(const UrlParse& left, const UrlParse& right)\n{\n    return !(left == right);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline std::ostream& operator<<(std::ostream& out, const UrlParse& t)\n{\n    return out << \"UrlParse{.scheme=\" << t.scheme  //\n               << \", .user=\" << t.user             //\n               << \", .host=\" << t.host             //\n               << \", .port=\" << t.port             //\n               << \", .path=\" << t.path             //\n               << \", .query=\" << t.query           //\n               << \", .fragment=\" << t.fragment     //\n               << \",}\";\n}\n\nnamespace detail {\n\nStatusOr<UrlParse> parse_url_auth(std::string_view url, UrlParse&& parse);\nStatusOr<UrlParse> parse_url_host(std::string_view url, UrlParse&& parse);\nStatusOr<UrlParse> parse_url_port(std::string_view url, UrlParse&& parse);\nStatusOr<UrlParse> parse_url_path(std::string_view url, UrlParse&& parse);\nStatusOr<UrlParse> parse_url_query(std::string_view url, UrlParse&& parse);\nStatusOr<UrlParse> parse_url_fragment(std::string_view url, UrlParse&& parse);\n\n}  // namespace detail\n\ninline StatusOr<UrlParse> parse_url(std::string_view url)\n{\n    UrlParse parse;\n\n    if (BATT_HINT_FALSE(url.empty())) {\n        return parse;\n    }\n\n    if (url.front() == '/') {\n        return detail::parse_url_path(url, std::move(parse));\n    }\n\n    const usize scheme_delim = url.find(':');\n    if (scheme_delim == std::string_view::npos) {\n        parse.scheme = url;\n        return parse;\n    }\n\n    parse.scheme = url.substr(0, scheme_delim);\n\n    url.remove_prefix(scheme_delim + 1);\n\n    if (url.size() > 1 && url[0] == '/' && url[1] == '/') {\n        url.remove_prefix(2);\n        return detail::parse_url_auth(url, std::move(parse));\n    }\n\n    return detail::parse_url_path(url, std::move(parse));\n}\n\n//#=##=##=#==#=#==#===#+==#+==========+==+=+=+=+=+=++=+++=+++++=-++++=-+++++++++++\n\nnamespace detail {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline StatusOr<UrlParse> parse_url_auth(std::string_view url, UrlParse&& parse)\n{\n    if (!url.empty() && url.front() == '[') {\n        return parse_url_host(url, std::move(parse));\n    }\n\n    const usize auth_first_delim = url.find_first_of(\"@:/\");\n    if (auth_first_delim == std::string_view::npos) {\n        parse.host = url;\n        return std::move(parse);\n    }\n\n    switch (url[auth_first_delim]) {\n    case '@':\n        parse.user = url.substr(0, auth_first_delim);\n        url.remove_prefix(parse.user.size() + /*strlen(\"@\")=*/1);\n        return parse_url_host(url, std::move(parse));\n\n    case ':':\n        parse.user = {};\n        parse.host = url.substr(0, auth_first_delim);\n        url.remove_prefix(parse.host.size() + /*strlen(\":\")=*/1);\n        return parse_url_port(url, std::move(parse));\n\n    case '/':\n        parse.user = {};\n        parse.host = url.substr(0, auth_first_delim);\n        parse.port = None;\n        url.remove_prefix(parse.host.size());\n        return parse_url_path(url, std::move(parse));\n\n    default:\n        BATT_PANIC() << \"This should not be possible!\";\n    }\n\n    return {StatusCode::kInternal};\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline StatusOr<UrlParse> parse_url_host(std::string_view url, UrlParse&& parse)\n{\n    if (url.empty()) {\n        return std::move(parse);\n    }\n\n    if (url.front() == '[') {\n        url.remove_prefix(/*strlen(\"[\")=*/1);\n\n        const usize host_delim = url.find_first_of(\"]\");\n        if (host_delim == std::string_view::npos) {\n            return {StatusCode::kInvalidArgument};\n        }\n\n        parse.host = url.substr(0, host_delim);\n        url.remove_prefix(host_delim + /*strlen(\"]\")=*/1);\n    } else {\n        const usize host_delim = url.find_first_of(\":/\");\n        if (host_delim == std::string_view::npos) {\n            parse.host = url;\n            return std::move(parse);\n        }\n\n        parse.host = url.substr(0, host_delim);\n        url.remove_prefix(host_delim);\n    }\n\n    if (url.empty()) {\n        return std::move(parse);\n    }\n\n    switch (url.front()) {\n    case ':':\n        url.remove_prefix(1);\n        return parse_url_port(url, std::move(parse));\n\n    case '/':\n        return parse_url_path(url, std::move(parse));\n\n    default:\n        BATT_PANIC() << \"This should not be possible!\";\n    }\n\n    return {StatusCode::kInternal};\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline StatusOr<UrlParse> parse_url_port(std::string_view url, UrlParse&& parse)\n{\n    const std::string_view port_str = url.substr(0, url.find('/'));\n\n    parse.port = from_string<i64>(std::string{port_str});\n    if (!parse.port) {\n        return {StatusCode::kInvalidArgument};\n    }\n\n    url.remove_prefix(port_str.size());\n\n    return parse_url_path(url, std::move(parse));\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline StatusOr<UrlParse> parse_url_path(std::string_view url, UrlParse&& parse)\n{\n    const usize path_delim = url.find_first_of(\"?#\");\n\n    if (path_delim == std::string_view::npos) {\n        parse.path = url;\n        return std::move(parse);\n    }\n\n    parse.path = std::string_view{url.data(), path_delim};\n    url.remove_prefix(path_delim);\n\n    switch (url.front()) {\n    case '?':\n        url.remove_prefix(1);\n        return parse_url_query(url, std::move(parse));\n\n    case '#':\n        url.remove_prefix(1);\n        parse.fragment = url;\n        return std::move(parse);\n\n    default:\n        BATT_PANIC() << \"This should not be possible!\";\n    }\n\n    return {StatusCode::kInternal};\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ninline StatusOr<UrlParse> parse_url_query(std::string_view url, UrlParse&& parse)\n{\n    const usize query_delim = url.find('#');\n\n    if (query_delim == std::string_view::npos) {\n        parse.query = url;\n    } else {\n        parse.query = url.substr(0, query_delim);\n        parse.fragment = url.substr(query_delim + 1);\n    }\n\n    return std::move(parse);\n}\n\n}  // namespace detail\n\n}  // namespace batt\n\n#endif  // BATTERIES_URL_PARSE_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::UrlParse",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::UrlParse",
+      "refid": "structbatt_1_1UrlParse",
+      "title": "batt::UrlParse",
+      "url": "/_autogen/Classes/structbatt_1_1UrlParse/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "url__parse_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/url_parse.hpp",
+  "url": "/_autogen/Files/url__parse_8hpp/#file-url-parse.hpp",
+  "visibility": "public"
+}

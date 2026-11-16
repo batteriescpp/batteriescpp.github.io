@@ -1,0 +1,67 @@
+{
+  "abstract": false,
+  "anchor": "#file-zipf.bench.cpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/random/zipf.bench.cpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/random/zipf.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/random/zipf.bench.cpp",
+    "line": 0
+  },
+  "name": "batteries/random/zipf.bench.cpp",
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/random",
+    "category": "dirs",
+    "fullname": "batteries/random",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/random",
+    "refid": "dir_cdb4e56b6cadc2a0f1c65cac5420ea96",
+    "title": "batteries/random",
+    "url": "/_autogen/Files/dir_cdb4e56b6cadc2a0f1c65cac5420ea96/#dir-batteries/random",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/random",
+      "category": "dirs",
+      "fullname": "batteries/random",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/random",
+      "refid": "dir_cdb4e56b6cadc2a0f1c65cac5420ea96",
+      "title": "batteries/random",
+      "url": "/_autogen/Files/dir_cdb4e56b6cadc2a0f1c65cac5420ea96/#dir-batteries/random",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#include <batteries/random/zipf.hpp>\n\n#include <benchmark/benchmark.h>\n\n#include <batteries/async/runtime.hpp>\n\n#include <batteries/int_types.hpp>\n\nnamespace {\n\nusing namespace batt::int_types;\n\nvoid Benchmark_ZipfThreadScaling(benchmark::State& state)\n{\n    // Pre-benchmark setup.\n    //\n    batt::WorkerPool worker_pool{(usize)state.range(0), batt::Runtime::instance().default_scheduler()};\n\n    // Benchmark.\n    //\n    for (auto _ : state) {\n        batt::ZipfIntDistribution<i64> zipf{1.0, 0, 100 * 1000 * 1000, worker_pool};\n    }\n\n    // Post-benchmark cleanup.\n}\n\nBENCHMARK(Benchmark_ZipfThreadScaling)  //\n    ->RangeMultiplier(2)                //\n    ->Range(1, std::thread::hardware_concurrency());\n\n}  //namespace",
+  "refid": "zipf_8bench_8cpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/random/zipf.bench.cpp",
+  "url": "/_autogen/Files/zipf_8bench_8cpp/#file-zipf.bench.cpp",
+  "visibility": "public"
+}

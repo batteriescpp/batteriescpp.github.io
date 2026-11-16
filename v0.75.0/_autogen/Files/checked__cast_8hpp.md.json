@@ -1,0 +1,140 @@
+{
+  "abstract": false,
+  "anchor": "#file-checked-cast.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-checked-cast-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_CHECKED_CAST_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/checked_cast.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/checked_cast.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_CHECKED_CAST_HPP",
+      "override": false,
+      "refid": "checked__cast_8hpp_1a19cec5db9833a5db6c294014e9a58f6f",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_CHECKED_CAST_HPP",
+      "url": "/_autogen/Files/checked__cast_8hpp/#define-batteries-checked-cast-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-checked-cast",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_CHECKED_CAST",
+      "hasDetails": false,
+      "initializer": "::batt::checked_cast<dst_type>(src_val, __FILE__, __LINE__)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/checked_cast.hpp",
+        "bodyStart": 79,
+        "column": 9,
+        "file": "batteries/checked_cast.hpp",
+        "line": 79
+      },
+      "name": "BATT_CHECKED_CAST",
+      "override": false,
+      "params": [
+        {
+          "name": "dst_type",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "src_val",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "checked__cast_8hpp_1a3deedcfe284677ffd5304d5c7ada257b",
+      "static": false,
+      "strong": false,
+      "title": "BATT_CHECKED_CAST",
+      "url": "/_autogen/Files/checked__cast_8hpp/#define-batt-checked-cast",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/checked_cast.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/checked_cast.hpp",
+    "line": 0
+  },
+  "name": "batteries/checked_cast.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_CHECKED_CAST_HPP\n#define BATTERIES_CHECKED_CAST_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/int_types.hpp>\n\n#include <type_traits>\n\nnamespace batt {\n\n// Coerce between integral types, panicking if there is a loss of precision.\n//\ntemplate <typename ToType, typename FromType,\n          typename = std::enable_if_t<std::is_signed_v<ToType> == std::is_signed_v<FromType>>>\nToType checked_cast(FromType val, const char* file = \"\", int line = 0)\n{\n    static_assert(std::is_integral_v<ToType> && std::is_integral_v<FromType>,\n                  \"checked_cast can only be used with builtin integer types\");\n\n    static_assert(std::is_signed_v<ToType> == std::is_signed_v<FromType>,\n                  \"checked_cast can not add or remove signed-ness to a type\");\n\n    if (sizeof(ToType) < sizeof(FromType)) {\n        BATT_CHECK_EQ(static_cast<FromType>(static_cast<ToType>(val)), val)\n            << \" from \" << file << \":\" << line;\n    }\n\n    return static_cast<ToType>(val);\n}\n\n// Go from unsigned to signed.\n//\ntemplate <typename ToType, typename FromType,\n          typename = std::enable_if_t<std::is_signed_v<ToType> && !std::is_signed_v<FromType>>,\n          typename = void>\nToType checked_cast(FromType val, const char* file = \"\", int line = 0)\n{\n    static_assert(std::is_integral_v<ToType> && std::is_integral_v<FromType>,\n                  \"checked_cast can only be used with builtin integer types\");\n\n    // If going from an unsigned to a larger signed, just coerce.\n    //\n    if (sizeof(FromType) < sizeof(ToType)) {\n        return static_cast<ToType>(val);\n    }\n\n    static constexpr isize kToBits = sizeof(ToType) * 8;\n    static constexpr FromType kRetainedMask = (FromType{1} << (kToBits - 1)) - 1;\n\n    BATT_CHECK_EQ((val & kRetainedMask), val) << \" from \" << file << \":\" << line;\n\n    return static_cast<ToType>(val);\n}\n\n// Go from signed to unsigned\n//\ntemplate <typename ToType, typename FromType,\n          typename = std::enable_if_t<!std::is_signed_v<ToType> && std::is_signed_v<FromType>>,\n          typename = void, typename = void>\nToType checked_cast(FromType val, const char* file = \"\", int line = 0)\n{\n    static_assert(std::is_integral_v<ToType> && std::is_integral_v<FromType>,\n                  \"checked_cast can only be used with builtin integer types\");\n\n    // Panic if val is negative; otherwise, coerce to the same-sized unsigned type (which is always safe) and\n    // do an unsigned-to-unsigned checked_cast.\n    //\n    BATT_CHECK_GE(val, 0) << \" from \" << file << \":\" << line;\n\n    return checked_cast<ToType>(static_cast<std::make_unsigned_t<FromType>>(val), file, line);\n}\n\n#define BATT_CHECKED_CAST(dst_type, src_val) ::batt::checked_cast<dst_type>(src_val, __FILE__, __LINE__)\n\n}  // namespace batt\n\n#endif  // BATTERIES_CHECKED_CAST_HPP",
+  "refid": "checked__cast_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/checked_cast.hpp",
+  "url": "/_autogen/Files/checked__cast_8hpp/#file-checked-cast.hpp",
+  "visibility": "public"
+}

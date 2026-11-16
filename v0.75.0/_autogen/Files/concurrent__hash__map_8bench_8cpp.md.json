@@ -1,0 +1,55 @@
+{
+  "abstract": false,
+  "anchor": "#file-concurrent-hash-map.bench.cpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/concurrent_hash_map.bench.cpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/concurrent_hash_map.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/concurrent_hash_map.bench.cpp",
+    "line": 0
+  },
+  "name": "batteries/concurrent_hash_map.bench.cpp",
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#include <batteries/concurrent_hash_map.hpp>\n//\n\n#if BATT_CPP_20\n\n#include <benchmark/benchmark.h>\n\n#include <batteries/async/slice_work.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/optional.hpp>\n\n#include <random>\n\nnamespace {\n\nusing namespace batt::int_types;\n\nusing batt::None;\nusing batt::Optional;\n\nconstexpr usize kMaxKeys = 5 * 1000 * 1000;\nconstexpr usize kOpsTotal = 10 * 1000 * 1000;\n\nclass ConcurrentHashMapBenchmark : public ::benchmark::Fixture\n{\n   public:\n    void SetUp(::benchmark::State& state) override\n    {\n        this->query_pct_ = state.range(0);\n        this->preload_count_ = kOpsTotal * (100 - this->query_pct_) / 100;\n        this->preload_for_thread_.emplace(this->preload_count_, state.threads());\n        this->ops_for_thread_.emplace(kOpsTotal, state.threads());\n\n        BATT_CHECK_LE(this->query_pct_, 100);\n    }\n\n    void TearDown(::benchmark::State& state [[maybe_unused]]) override\n    {\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    Optional<batt::DivideWork> preload_for_thread_;\n    Optional<batt::DivideWork> ops_for_thread_;\n    usize preload_count_ = 0;\n    i32 query_pct_ = 0;\n    batt::ConcurrentHashMap<u64, u64> hash_map_;\n};\n\nBENCHMARK_DEFINE_F(ConcurrentHashMapBenchmark, Scalability)(benchmark::State& state)\n{\n    std::default_random_engine rng{/*seed=*/(u32)state.thread_index()};\n    std::uniform_int_distribution<u64> pick_key{0, kMaxKeys};\n    std::uniform_int_distribution<i32> pick_pct{0, 99};\n\n    // Pre-benchmark setup.\n    //\n    {\n        const usize preload_this_thread = (*this->preload_for_thread_)(state.thread_index());\n\n        for (usize i = 0; i < preload_this_thread; ++i) {\n            const u64 key = pick_key(rng);\n            this->hash_map_.upsert(key, i);\n        }\n    }\n\n    const usize ops_this_thread = (*this->ops_for_thread_)(state.thread_index());\n\n    // Benchmark.\n    //\n    for (auto _ : state) {\n        u64 result_total = 0;\n\n        for (usize i = 0; i < ops_this_thread; ++i) {\n            const u64 key = pick_key(rng);\n\n            if (pick_pct(rng) < this->query_pct_) {\n                //----- --- -- -  -  -   -\n                // Query\n                //\n                if (this->hash_map_.lookup(key)) {\n                    ++result_total;\n                }\n            } else {\n                //----- --- -- -  -  -   -\n                // Upsert\n                //\n                if (this->hash_map_.upsert(key, i)) {\n                    ++result_total;\n                }\n            }\n        }\n\n        BATT_CHECK_NE(result_total, ~((u64)state.thread_index()));\n    }\n\n    // Post-benchmark cleanup.\n}\n\nBENCHMARK_REGISTER_F(ConcurrentHashMapBenchmark, Scalability)\n    ->ThreadRange(1, std::thread::hardware_concurrency())\n\n    // Make sure we have enough samples to smooth out variation.\n    //\n    ->MinTime(2.0 /*seconds*/)\n\n    // Run for different percentages of upserts vs queries.  Parameter is:\n    //   `{preload_count, pct_queries}`\n    //\n    ->Args({0})    // no queries\n    ->Args({5})    // 5% queries\n    ->Args({25})   // 25% queries\n    ->Args({50})   // 50% queries\n    ->Args({75})   // 75% queries\n    ->Args({95})   // 95% queries\n    ->Args({100})  // 95% queries\n    ;\n\n}  //namespace\n\n#endif  // BATT_CPP_20",
+  "refid": "concurrent__hash__map_8bench_8cpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/concurrent_hash_map.bench.cpp",
+  "url": "/_autogen/Files/concurrent__hash__map_8bench_8cpp/#file-concurrent-hash-map.bench.cpp",
+  "visibility": "public"
+}

@@ -1,0 +1,97 @@
+{
+  "abstract": false,
+  "anchor": "#file-execution-context.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-asio-execution-context-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASIO_EXECUTION_CONTEXT_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/asio/execution_context.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/asio/execution_context.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_ASIO_EXECUTION_CONTEXT_HPP",
+      "override": false,
+      "refid": "execution__context_8hpp_1af0c8369f8d2d1b16b3cae32293e633ba",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASIO_EXECUTION_CONTEXT_HPP",
+      "url": "/_autogen/Files/execution__context_8hpp/#define-batteries-asio-execution-context-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/asio/execution_context.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/suppress.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/asio/execution_context.hpp",
+    "line": 0
+  },
+  "name": "batteries/asio/execution_context.hpp",
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/asio",
+    "category": "dirs",
+    "fullname": "batteries/asio",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/asio",
+    "refid": "dir_8bf407c613839f4cc467ff11f969a954",
+    "title": "batteries/asio",
+    "url": "/_autogen/Files/dir_8bf407c613839f4cc467ff11f969a954/#dir-batteries/asio",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/asio",
+      "category": "dirs",
+      "fullname": "batteries/asio",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/asio",
+      "refid": "dir_8bf407c613839f4cc467ff11f969a954",
+      "title": "batteries/asio",
+      "url": "/_autogen/Files/dir_8bf407c613839f4cc467ff11f969a954/#dir-batteries/asio",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_ASIO_EXECUTION_CONTEXT_HPP\n#define BATTERIES_ASIO_EXECUTION_CONTEXT_HPP\n\n#include <batteries/suppress.hpp>\n\nBATT_SUPPRESS_IF_GCC(\"-Wsuggest-override\")\nBATT_SUPPRESS_IF_GCC(\"-Woverloaded-virtual\")\nBATT_SUPPRESS_IF_CLANG(\"-Wsuggest-override\")\n//\n#include <boost/asio/execution_context.hpp>\n//\nBATT_UNSUPPRESS_IF_CLANG()\nBATT_UNSUPPRESS_IF_GCC()\nBATT_UNSUPPRESS_IF_GCC()\n\n#endif  // BATTERIES_ASIO_EXECUTION_CONTEXT_HPP",
+  "refid": "execution__context_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/asio/execution_context.hpp",
+  "url": "/_autogen/Files/execution__context_8hpp/#file-execution-context.hpp",
+  "visibility": "public"
+}

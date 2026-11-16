@@ -1,0 +1,173 @@
+{
+  "abstract": false,
+  "anchor": "#file-nullable.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-nullable-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_NULLABLE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/nullable.hpp",
+        "bodyStart": 5,
+        "column": 9,
+        "file": "batteries/nullable.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_NULLABLE_HPP",
+      "override": false,
+      "refid": "nullable_8hpp_1a0430e0f1cff5b2074f265a4784dc45d0",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_NULLABLE_HPP",
+      "url": "/_autogen/Files/nullable_8hpp/#define-batteries-nullable-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/nullable.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/nullable.hpp",
+    "line": 0
+  },
+  "name": "batteries/nullable.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::detail",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::detail",
+      "refid": "namespacebatt_1_1detail",
+      "title": "batt::detail",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1detail/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_NULLABLE_HPP\n#define BATTERIES_NULLABLE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/utility.hpp>\n\n#include <memory>\n#include <optional>\n\nnamespace batt {\n\nnamespace detail {\n\ntemplate <typename T>\nstruct NullableImpl {\n    using type = std::optional<T>;\n};\n\ntemplate <typename T>\nstruct NullableImpl<std::optional<T>> {\n    using type = std::optional<T>;\n};\n\ntemplate <typename T>\nstruct NullableImpl<std::unique_ptr<T>> {\n    using type = std::unique_ptr<T>;\n};\n\ntemplate <typename T>\nstruct NullableImpl<std::shared_ptr<T>> {\n    using type = std::shared_ptr<T>;\n};\n\ntemplate <typename T>\nstruct NullableImpl<T*> {\n    using type = T*;\n};\n\n}  // namespace detail\n\ntemplate <typename T>\nusing Nullable = typename detail::NullableImpl<T>::type;\n\ntemplate <typename T>\nauto make_nullable(T&& obj) -> Nullable<std::decay_t<T>>\n{\n    return Nullable<std::decay_t<T>>(BATT_FORWARD(obj));\n}\n\n}  // namespace batt\n\n#endif  // BATTERIES_NULLABLE_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::NullableImpl",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::NullableImpl",
+      "refid": "structbatt_1_1detail_1_1NullableImpl",
+      "title": "batt::detail::NullableImpl",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1NullableImpl/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::NullableImpl< std::optional< T > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::NullableImpl< std::optional< T > >",
+      "refid": "structbatt_1_1detail_1_1NullableImpl_3_01std_1_1optional_3_01T_01_4_01_4",
+      "title": "batt::detail::NullableImpl< std::optional< T > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1NullableImpl_3_01std_1_1optional_3_01T_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::NullableImpl< std::unique_ptr< T > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::NullableImpl< std::unique_ptr< T > >",
+      "refid": "structbatt_1_1detail_1_1NullableImpl_3_01std_1_1unique__ptr_3_01T_01_4_01_4",
+      "title": "batt::detail::NullableImpl< std::unique_ptr< T > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1NullableImpl_3_01std_1_1unique__ptr_3_01T_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::NullableImpl< std::shared_ptr< T > >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::NullableImpl< std::shared_ptr< T > >",
+      "refid": "structbatt_1_1detail_1_1NullableImpl_3_01std_1_1shared__ptr_3_01T_01_4_01_4",
+      "title": "batt::detail::NullableImpl< std::shared_ptr< T > >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1NullableImpl_3_01std_1_1shared__ptr_3_01T_01_4_01_4/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::detail::NullableImpl< T * >",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::detail::NullableImpl< T * >",
+      "refid": "structbatt_1_1detail_1_1NullableImpl_3_01T_01_5_01_4",
+      "title": "batt::detail::NullableImpl< T * >",
+      "url": "/_autogen/Classes/structbatt_1_1detail_1_1NullableImpl_3_01T_01_5_01_4/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "nullable_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/nullable.hpp",
+  "url": "/_autogen/Files/nullable_8hpp/#file-nullable.hpp",
+  "visibility": "public"
+}

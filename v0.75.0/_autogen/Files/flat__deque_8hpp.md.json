@@ -1,0 +1,97 @@
+{
+  "abstract": false,
+  "anchor": "#file-flat-deque.hpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/flat_deque.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/flat_deque.hpp",
+    "line": 0
+  },
+  "name": "batteries/flat_deque.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2025 Anthony Paul Astolfi\n//\n#pragma once\n\n#include <batteries/config.hpp>\n//\n#include <batteries/assert.hpp>\n#include <batteries/int_types.hpp>\n\n#include <memory>\n#include <type_traits>\n\nnamespace batt {\n\ntemplate <typename T>\nclass FlatDeque\n{\n   public:\n    using Self = FlatDeque;\n    using Storage = std::aligned_storage_t<sizeof(T), alignof(T)>;\n\n    static_assert(sizeof(Storage) == sizeof(T));\n    static_assert(alignof(Storage) == alignof(T));\n\n    static constexpr usize kGrowthFactor = 2;\n    static constexpr usize kMinGrowth = 8;\n\n    //----- --- -- -  -  -   -\n\n    struct EndType {\n    };\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    FlatDeque() = default;\n\n    FlatDeque(const FlatDeque&) = delete;\n    FlatDeque& operator=(const FlatDeque&) = delete;\n\n    FlatDeque(FlatDeque&& that) noexcept\n        : capacity_{that.capacity_}\n        , size_{that.size_}\n        , front_{that.front_}\n        , storage_{std::move(that.storage_)}\n    {\n        that.capacity_ = 0;\n        that.size_ = 0;\n        that.front_ = nullptr;\n    }\n\n    FlatDeque& operator=(FlatDeque&& that) noexcept\n    {\n        FlatDeque copy{std::move(that)};\n        this->swap(copy);\n        return *this;\n    }\n\n    ~FlatDeque() noexcept\n    {\n        T* next = this->front_;\n        T* const storage_end = this->get_storage_end();\n\n        for (usize i = 0; i < this->size_; ++i) {\n            next->~T();\n            ++next;\n            if (next == storage_end) {\n                next = this->get_storage_begin();\n            }\n        }\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    void reserve(usize n)\n    {\n        if (n <= this->capacity_) {\n            return;\n        }\n\n        std::unique_ptr<Storage[]> new_storage{new Storage[n]};\n\n        T* next = this->front_;\n        T* const storage_end = this->get_storage_end();\n\n        for (usize i = 0; i < this->size_; ++i) {\n            new (&new_storage[i]) T{std::move(*next)};\n            next->~T();\n            ++next;\n            if (next == storage_end) {\n                next = this->get_storage_begin();\n            }\n        }\n\n        std::swap(this->storage_, new_storage);\n        this->capacity_ = n;\n        this->front_ = this->get_storage_begin();\n    }\n\n    usize capacity() const\n    {\n        return this->capacity_;\n    }\n\n    bool empty() const\n    {\n        return this->size_ == 0;\n    }\n\n    usize size() const\n    {\n        return this->size_;\n    }\n\n    void pop_front()\n    {\n        BATT_ASSERT_GT(this->size_, 0);\n        BATT_ASSERT_GE(this->front_, this->get_storage_begin());\n        BATT_ASSERT_LT(this->front_, this->get_storage_end());\n\n        this->front_->~T();\n        ++this->front_;\n        --this->size_;\n        if (this->front_ == this->get_storage_end()) {\n            this->front_ = this->get_storage_begin();\n        }\n\n        BATT_ASSERT_GE(this->front_, this->get_storage_begin());\n        BATT_ASSERT_LT(this->front_, this->get_storage_end());\n    }\n\n    EndType end() const\n    {\n        return {};\n    }\n\n    T& front()\n    {\n        BATT_ASSERT_NE(this->size_, 0);\n        BATT_ASSERT_GE(this->front_, this->get_storage_begin());\n        BATT_ASSERT_LT(this->front_, this->get_storage_end());\n\n        return *this->front_;\n    }\n\n    template <typename... Args>\n    T& emplace_back(Args&&... args)\n    {\n        BATT_ASSERT_LE(this->size_, this->capacity_);\n\n        if (this->size_ == this->capacity_) {\n            this->reserve(std::max<usize>(this->capacity_ * Self::kGrowthFactor,  //\n                                          this->capacity_ + Self::kMinGrowth));\n        }\n        BATT_ASSERT_LE(this->size_ + 1, this->capacity_);\n\n        T* new_back = this->front_ + this->size_;\n        if (new_back >= this->get_storage_end()) {\n            new_back -= this->capacity_;\n        }\n        BATT_ASSERT_GE(new_back, this->get_storage_begin());\n        BATT_ASSERT_LT(new_back, this->get_storage_end());\n\n        new (new_back) T(BATT_FORWARD(args)...);\n\n        ++this->size_;\n        BATT_ASSERT_LE(this->size_, this->capacity_);\n\n        return *new_back;\n    }\n\n    template <typename Iter>\n    void insert(EndType, Iter first, const Iter& last)\n    {\n        for (; first != last; ++first) {\n            this->emplace_back(*first);\n        }\n    }\n\n    void swap(FlatDeque& that) noexcept\n    {\n        std::swap(this->capacity_, that.capacity_);\n        std::swap(this->size_, that.size_);\n        std::swap(this->front_, that.front_);\n        std::swap(this->storage_, that.storage_);\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    T* get_storage_begin()\n    {\n        return reinterpret_cast<T*>(this->storage_.get());\n    }\n\n    T* get_storage_end()\n    {\n        return this->get_storage_begin() + this->capacity_;\n    }\n\n    usize capacity_ = 0;\n    usize size_ = 0;\n    T* front_ = nullptr;\n    std::unique_ptr<Storage[]> storage_;\n};\n\n}  //namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "brief": "Double-ended queue implementation which uses a single array of `T` as its data structure (circular buffer). ",
+      "category": "classes",
+      "fullname": "batt::FlatDeque",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::FlatDeque",
+      "refid": "classbatt_1_1FlatDeque",
+      "summary": "Double-ended queue implementation which uses a single array of T as its data structure (circular buffer). ",
+      "title": "batt::FlatDeque",
+      "url": "/_autogen/Classes/classbatt_1_1FlatDeque/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::FlatDeque::EndType",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::FlatDeque::EndType",
+      "refid": "structbatt_1_1FlatDeque_1_1EndType",
+      "title": "batt::FlatDeque::EndType",
+      "url": "/_autogen/Classes/structbatt_1_1FlatDeque_1_1EndType/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "flat__deque_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/flat_deque.hpp",
+  "url": "/_autogen/Files/flat__deque_8hpp/#file-flat-deque.hpp",
+  "visibility": "public"
+}

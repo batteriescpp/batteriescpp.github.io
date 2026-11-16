@@ -1,0 +1,99 @@
+{
+  "abstract": false,
+  "anchor": "#file-token.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-token-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_TOKEN_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/token.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/token.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_TOKEN_HPP",
+      "override": false,
+      "refid": "token_8hpp_1a0ec17e88e4eb1072e9495b1d06a26a46",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_TOKEN_HPP",
+      "url": "/_autogen/Files/token_8hpp/#define-batteries-token-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/token.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/token.hpp",
+    "line": 0
+  },
+  "name": "batteries/token.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_TOKEN_HPP\n#define BATTERIES_TOKEN_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <boost/flyweight.hpp>\n#include <boost/flyweight/no_tracking.hpp>\n\nnamespace batt {\n\nusing Token = boost::flyweights::flyweight<std::string, boost::flyweights::no_tracking>;\n\n}  // namespace batt\n\n#endif  // BATTERIES_TOKEN_HPP",
+  "refid": "token_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/token.hpp",
+  "url": "/_autogen/Files/token_8hpp/#file-token.hpp",
+  "visibility": "public"
+}

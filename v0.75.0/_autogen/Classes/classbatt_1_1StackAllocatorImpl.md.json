@@ -1,0 +1,438 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "baseClasses": [
+    {
+      "external": false,
+      "name": "batt::AbstractValueImpl< AbstractStackAllocator, StackAllocatorImpl, T >",
+      "protectedAttributes": [
+        {
+          "abstract": false,
+          "anchor": "#variable-obj-",
+          "category": "attributes",
+          "const": false,
+          "definition": "T batt::AbstractValueImpl< AbstractType, TypedImpl, T >::obj_",
+          "explicit": false,
+          "fullname": "batt::AbstractValueImpl::obj_",
+          "hasDetails": false,
+          "inline": false,
+          "kind": "variable",
+          "language": "cpp",
+          "location": {
+            "bodyFile": "batteries/type_erasure.hpp",
+            "bodyStart": 280,
+            "column": 7,
+            "file": "batteries/type_erasure.hpp",
+            "line": 280
+          },
+          "name": "obj_",
+          "override": false,
+          "refid": "classbatt_1_1AbstractValueImpl_1a5174fedea3e5d569fbf2904dcb3d3882",
+          "static": false,
+          "strong": false,
+          "title": "obj_",
+          "type": "T",
+          "typePlain": "T",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/#variable-obj-",
+          "visibility": "protected"
+        }
+      ],
+      "publicFunctions": [
+        {
+          "abstract": false,
+          "anchor": "#function-abstractvalueimpl",
+          "argsString": "(T &&obj)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "batt::AbstractValueImpl< AbstractType, TypedImpl, T >::AbstractValueImpl",
+          "deleted": false,
+          "explicit": true,
+          "fullname": "batt::AbstractValueImpl::AbstractValueImpl",
+          "hasDetails": false,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 260,
+            "bodyFile": "batteries/type_erasure.hpp",
+            "bodyStart": 250,
+            "column": 14,
+            "file": "batteries/type_erasure.hpp",
+            "line": 250
+          },
+          "name": "AbstractValueImpl",
+          "override": false,
+          "params": [
+            {
+              "name": "obj",
+              "type": "T &&",
+              "typePlain": "T &&"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "classbatt_1_1AbstractValueImpl_1a8e6ed437332a2207ee6543f93ee22ee6",
+          "static": false,
+          "strong": false,
+          "title": "AbstractValueImpl",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/#function-abstractvalueimpl",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-copy-to",
+          "argsString": "(MutableBuffer memory) const override",
+          "category": "functions",
+          "const": true,
+          "default": false,
+          "definition": "AbstractType* batt::AbstractValueImpl< AbstractType, TypedImpl, T >::copy_to",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::AbstractValueImpl::copy_to",
+          "hasDetails": false,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 269,
+            "bodyFile": "batteries/type_erasure.hpp",
+            "bodyStart": 265,
+            "column": 18,
+            "file": "batteries/type_erasure.hpp",
+            "line": 265
+          },
+          "name": "copy_to",
+          "override": true,
+          "params": [
+            {
+              "name": "memory",
+              "type": "MutableBuffer",
+              "typePlain": "MutableBuffer"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "classbatt_1_1AbstractValueImpl_1a36fd3410fa73fbee4b01a8e35b35729f",
+          "static": false,
+          "strong": false,
+          "title": "copy_to",
+          "type": "AbstractType *",
+          "typePlain": "AbstractType *",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/#function-copy-to",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-move-to",
+          "argsString": "(MutableBuffer memory) override",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "AbstractType* batt::AbstractValueImpl< AbstractType, TypedImpl, T >::move_to",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::AbstractValueImpl::move_to",
+          "hasDetails": false,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 275,
+            "bodyFile": "batteries/type_erasure.hpp",
+            "bodyStart": 271,
+            "column": 18,
+            "file": "batteries/type_erasure.hpp",
+            "line": 271
+          },
+          "name": "move_to",
+          "override": true,
+          "params": [
+            {
+              "name": "memory",
+              "type": "MutableBuffer",
+              "typePlain": "MutableBuffer"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "classbatt_1_1AbstractValueImpl_1a95b38fec252faf228bc21c61b8281dd8",
+          "static": false,
+          "strong": false,
+          "title": "move_to",
+          "type": "AbstractType *",
+          "typePlain": "AbstractType *",
+          "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/#function-move-to",
+          "virtual": false,
+          "visibility": "public"
+        }
+      ],
+      "refid": "classbatt_1_1AbstractValueImpl",
+      "url": "/_autogen/Classes/classbatt_1_1AbstractValueImpl/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    },
+    {
+      "external": true,
+      "name": "AbstractType",
+      "refid": null,
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::StackAllocatorImpl",
+  "hasAdditionalMembers": true,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "class",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 67,
+    "bodyFile": "batteries/async/continuation.hpp",
+    "bodyStart": 49,
+    "column": 1,
+    "file": "batteries/async/continuation.hpp",
+    "line": 48
+  },
+  "name": "batt::StackAllocatorImpl",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-stackallocatorimpl",
+      "argsString": "(Args &&... args)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "batt::StackAllocatorImpl< T >::StackAllocatorImpl",
+      "deleted": false,
+      "explicit": true,
+      "fullname": "batt::StackAllocatorImpl::StackAllocatorImpl",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 56,
+        "bodyFile": "batteries/async/continuation.hpp",
+        "bodyStart": 54,
+        "column": 14,
+        "file": "batteries/async/continuation.hpp",
+        "line": 54
+      },
+      "name": "StackAllocatorImpl",
+      "override": false,
+      "params": [
+        {
+          "name": "args",
+          "type": "Args &&...",
+          "typePlain": "Args &&..."
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1StackAllocatorImpl_1ab17b418c2cbf44bab0c5626c17d17e14",
+      "static": false,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "Args",
+          "type": "typename...",
+          "typePlain": "typename..."
+        },
+        {
+          "defval": "EnableIfNoShadow<[StackAllocatorImpl](/_autogen/Classes/classbatt_1_1StackAllocatorImpl/), Args&&...>",
+          "defvalPlain": "EnableIfNoShadow<StackAllocatorImpl, Args&&...>",
+          "name": "",
+          "type": "typename",
+          "typePlain": "typename"
+        }
+      ],
+      "title": "StackAllocatorImpl",
+      "url": "/_autogen/Classes/classbatt_1_1StackAllocatorImpl/#function-stackallocatorimpl",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-allocate",
+      "argsString": "() override",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "boost::context::stack_context batt::StackAllocatorImpl< T >::allocate",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::StackAllocatorImpl::allocate",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 61,
+        "bodyFile": "batteries/async/continuation.hpp",
+        "bodyStart": 58,
+        "column": 35,
+        "file": "batteries/async/continuation.hpp",
+        "line": 58
+      },
+      "name": "allocate",
+      "override": true,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1StackAllocatorImpl_1a178195ab762bfbba63b2b9fee307958d",
+      "reimplements": {
+        "anchor": "#function-allocate",
+        "category": "functions",
+        "fullname": "batt::AbstractStackAllocator::allocate",
+        "kind": "function",
+        "language": "cpp",
+        "name": "allocate",
+        "pureVirtual": true,
+        "refid": "classbatt_1_1AbstractStackAllocator_1a2b1a3aa309c45087b51f5a0fae642a9e",
+        "title": "allocate",
+        "url": "/_autogen/Classes/classbatt_1_1AbstractStackAllocator/#function-allocate",
+        "virtual": true,
+        "visibility": "public"
+      },
+      "static": false,
+      "strong": false,
+      "title": "allocate",
+      "type": "boost::context::stack_context",
+      "typePlain": "boost::context::stack_context",
+      "url": "/_autogen/Classes/classbatt_1_1StackAllocatorImpl/#function-allocate",
+      "virtual": true,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-deallocate",
+      "argsString": "(boost::context::stack_context &ctx) override",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "void batt::StackAllocatorImpl< T >::deallocate",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::StackAllocatorImpl::deallocate",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 66,
+        "bodyFile": "batteries/async/continuation.hpp",
+        "bodyStart": 63,
+        "column": 10,
+        "file": "batteries/async/continuation.hpp",
+        "line": 63
+      },
+      "name": "deallocate",
+      "override": true,
+      "params": [
+        {
+          "name": "ctx",
+          "type": "boost::context::stack_context &",
+          "typePlain": "boost::context::stack_context &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "classbatt_1_1StackAllocatorImpl_1a4671c246611bd60e3d99fda02195242a",
+      "reimplements": {
+        "anchor": "#function-deallocate",
+        "category": "functions",
+        "fullname": "batt::AbstractStackAllocator::deallocate",
+        "kind": "function",
+        "language": "cpp",
+        "name": "deallocate",
+        "pureVirtual": true,
+        "refid": "classbatt_1_1AbstractStackAllocator_1ad4b809618a142b523221f1722f2bb7d4",
+        "title": "deallocate",
+        "url": "/_autogen/Classes/classbatt_1_1AbstractStackAllocator/#function-deallocate",
+        "virtual": true,
+        "visibility": "public"
+      },
+      "static": false,
+      "strong": false,
+      "title": "deallocate",
+      "type": "void",
+      "typePlain": "void",
+      "url": "/_autogen/Classes/classbatt_1_1StackAllocatorImpl/#function-deallocate",
+      "virtual": true,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-super",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::StackAllocatorImpl< T >::Super =  AbstractValueImpl<AbstractStackAllocator, StackAllocatorImpl, T>",
+      "explicit": false,
+      "fullname": "batt::StackAllocatorImpl::Super",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/continuation.hpp",
+        "bodyStart": 51,
+        "column": 5,
+        "file": "batteries/async/continuation.hpp",
+        "line": 51
+      },
+      "name": "Super",
+      "override": false,
+      "refid": "classbatt_1_1StackAllocatorImpl_1a369de0068f9bc6628aeb36bf930dbd02",
+      "static": false,
+      "strong": false,
+      "title": "Super",
+      "type": "[AbstractValueImpl](/_autogen/Classes/classbatt_1_1AbstractValueImpl/)< [AbstractStackAllocator](/_autogen/Classes/classbatt_1_1AbstractStackAllocator/), [StackAllocatorImpl](/_autogen/Classes/classbatt_1_1StackAllocatorImpl/), T >",
+      "typePlain": "AbstractValueImpl< AbstractStackAllocator, StackAllocatorImpl, T >",
+      "url": "/_autogen/Classes/classbatt_1_1StackAllocatorImpl/#using-super",
+      "visibility": "public"
+    }
+  ],
+  "refid": "classbatt_1_1StackAllocatorImpl",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename T",
+      "typePlain": "typename T"
+    }
+  ],
+  "title": "batt::StackAllocatorImpl",
+  "url": "/_autogen/Classes/classbatt_1_1StackAllocatorImpl/",
+  "visibility": "public"
+}

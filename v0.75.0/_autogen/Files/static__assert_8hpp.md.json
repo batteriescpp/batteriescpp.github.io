@@ -1,0 +1,463 @@
+{
+  "abstract": false,
+  "anchor": "#file-static-assert.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-static-assert-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_STATIC_ASSERT_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/static_assert.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/static_assert.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_STATIC_ASSERT_HPP",
+      "override": false,
+      "refid": "static__assert_8hpp_1a03243ac64331d2bdb5f8af5d9867894d",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_STATIC_ASSERT_HPP",
+      "url": "/_autogen/Files/static__assert_8hpp/#define-batteries-static-assert-hpp",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-static-assert-eq",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_STATIC_ASSERT_EQ",
+      "hasDetails": false,
+      "initializer": "    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion<decltype(x), decltype(y), (x), ::batt::Eq, \\\n                                                           (y), ((x) == (y))>                                \\\n    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/static_assert.hpp",
+        "bodyStart": 29,
+        "column": 9,
+        "file": "batteries/static_assert.hpp",
+        "line": 29
+      },
+      "name": "BATT_STATIC_ASSERT_EQ",
+      "override": false,
+      "params": [
+        {
+          "name": "x",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "y",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "static__assert_8hpp_1abe74db9a0f2362c1f548af7bcda63ea0",
+      "static": false,
+      "strong": false,
+      "title": "BATT_STATIC_ASSERT_EQ",
+      "url": "/_autogen/Files/static__assert_8hpp/#define-batt-static-assert-eq",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-static-assert-ne",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_STATIC_ASSERT_NE",
+      "hasDetails": false,
+      "initializer": "    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion<decltype(x), decltype(y), (x), ::batt::Ne, \\\n                                                           (y), ((x) != (y))>                                \\\n    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/static_assert.hpp",
+        "bodyStart": 34,
+        "column": 9,
+        "file": "batteries/static_assert.hpp",
+        "line": 34
+      },
+      "name": "BATT_STATIC_ASSERT_NE",
+      "override": false,
+      "params": [
+        {
+          "name": "x",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "y",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "static__assert_8hpp_1aae5f3fffde31f6543799b82585a0b32d",
+      "static": false,
+      "strong": false,
+      "title": "BATT_STATIC_ASSERT_NE",
+      "url": "/_autogen/Files/static__assert_8hpp/#define-batt-static-assert-ne",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-static-assert-lt",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_STATIC_ASSERT_LT",
+      "hasDetails": false,
+      "initializer": "    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion<decltype(x), decltype(y), (x), ::batt::Lt, \\\n                                                           (y), ((x) < (y))>                                 \\\n    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/static_assert.hpp",
+        "bodyStart": 39,
+        "column": 9,
+        "file": "batteries/static_assert.hpp",
+        "line": 39
+      },
+      "name": "BATT_STATIC_ASSERT_LT",
+      "override": false,
+      "params": [
+        {
+          "name": "x",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "y",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "static__assert_8hpp_1a3ed83a8fe20fde9a9c83d35999587665",
+      "static": false,
+      "strong": false,
+      "title": "BATT_STATIC_ASSERT_LT",
+      "url": "/_autogen/Files/static__assert_8hpp/#define-batt-static-assert-lt",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-static-assert-le",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_STATIC_ASSERT_LE",
+      "hasDetails": false,
+      "initializer": "    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion<decltype(x), decltype(y), (x), ::batt::Le, \\\n                                                           (y), ((x) <= (y))>                                \\\n    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/static_assert.hpp",
+        "bodyStart": 44,
+        "column": 9,
+        "file": "batteries/static_assert.hpp",
+        "line": 44
+      },
+      "name": "BATT_STATIC_ASSERT_LE",
+      "override": false,
+      "params": [
+        {
+          "name": "x",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "y",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "static__assert_8hpp_1a1f11fabf81e2a6ba986022a5fbb32039",
+      "static": false,
+      "strong": false,
+      "title": "BATT_STATIC_ASSERT_LE",
+      "url": "/_autogen/Files/static__assert_8hpp/#define-batt-static-assert-le",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-static-assert-gt",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_STATIC_ASSERT_GT",
+      "hasDetails": false,
+      "initializer": "    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion<decltype(x), decltype(y), (x), ::batt::Gt, \\\n                                                           (y), ((x) > (y))>                                 \\\n    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/static_assert.hpp",
+        "bodyStart": 49,
+        "column": 9,
+        "file": "batteries/static_assert.hpp",
+        "line": 49
+      },
+      "name": "BATT_STATIC_ASSERT_GT",
+      "override": false,
+      "params": [
+        {
+          "name": "x",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "y",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "static__assert_8hpp_1a41c69bc3a095f2969892dc1e66171b6b",
+      "static": false,
+      "strong": false,
+      "title": "BATT_STATIC_ASSERT_GT",
+      "url": "/_autogen/Files/static__assert_8hpp/#define-batt-static-assert-gt",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-static-assert-ge",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_STATIC_ASSERT_GE",
+      "hasDetails": false,
+      "initializer": "    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion<decltype(x), decltype(y), (x), ::batt::Ge, \\\n                                                           (y), ((x) >= (y))>                                \\\n    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/static_assert.hpp",
+        "bodyStart": 54,
+        "column": 9,
+        "file": "batteries/static_assert.hpp",
+        "line": 54
+      },
+      "name": "BATT_STATIC_ASSERT_GE",
+      "override": false,
+      "params": [
+        {
+          "name": "x",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "y",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "static__assert_8hpp_1a84c91f3d7b12c34d435e817e5f4042e7",
+      "static": false,
+      "strong": false,
+      "title": "BATT_STATIC_ASSERT_GE",
+      "url": "/_autogen/Files/static__assert_8hpp/#define-batt-static-assert-ge",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-static-assert-type-eq",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_STATIC_ASSERT_TYPE_EQ",
+      "hasDetails": false,
+      "initializer": "    BATT_MAYBE_UNUSED static ::batt::StaticSameTypeAssertion<x, y> BOOST_PP_CAT(                             \\\n        BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/static_assert.hpp",
+        "bodyStart": 69,
+        "column": 10,
+        "file": "batteries/static_assert.hpp",
+        "line": 69
+      },
+      "name": "BATT_STATIC_ASSERT_TYPE_EQ",
+      "override": false,
+      "params": [
+        {
+          "name": "x",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "y",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "static__assert_8hpp_1a73fb83ab57514d60d30838d9a6fdc396",
+      "static": false,
+      "strong": false,
+      "title": "BATT_STATIC_ASSERT_TYPE_EQ",
+      "url": "/_autogen/Files/static__assert_8hpp/#define-batt-static-assert-type-eq",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#define-batt-check-type",
+      "brief": "Evaluates to `expr`, failing the compilation if the type of the expression doesn't match `type`. ",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATT_CHECK_TYPE",
+      "hasDetails": false,
+      "initializer": "    [&]() noexcept(noexcept(expr)) -> decltype(auto) {                                                       \\\n        BATT_STATIC_ASSERT_TYPE_EQ(decltype(expr), type);                                                    \\\n        return expr;                                                                                         \\\n    }()",
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/static_assert.hpp",
+        "bodyStart": 76,
+        "column": 9,
+        "file": "batteries/static_assert.hpp",
+        "line": 76
+      },
+      "name": "BATT_CHECK_TYPE",
+      "override": false,
+      "params": [
+        {
+          "name": "type",
+          "type": "",
+          "typePlain": ""
+        },
+        {
+          "name": "expr",
+          "type": "",
+          "typePlain": ""
+        }
+      ],
+      "refid": "static__assert_8hpp_1ac6c367a2d0a8e85916900ac75d0aaf7d",
+      "static": false,
+      "strong": false,
+      "summary": "Evaluates to expr, failing the compilation if the type of the expression doesn't match type. ",
+      "title": "BATT_CHECK_TYPE",
+      "url": "/_autogen/Files/static__assert_8hpp/#define-batt-check-type",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/static_assert.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/static_assert.hpp",
+    "line": 0
+  },
+  "name": "batteries/static_assert.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_STATIC_ASSERT_HPP\n#define BATTERIES_STATIC_ASSERT_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/utility.hpp>\n\n#include <boost/preprocessor/cat.hpp>\n#include <type_traits>\n\nnamespace batt {\n\nstruct Eq;\nstruct Ne;\nstruct Lt;\nstruct Le;\nstruct Ge;\nstruct Gt;\n\ntemplate <typename T, typename U, T left, typename Op, U right, bool kCondition>\nstruct StaticBinaryAssertion : std::integral_constant<bool, kCondition> {\n    static_assert(kCondition == true, \"\");\n};\n\n#define BATT_STATIC_ASSERT_EQ(x, y)                                                                          \\\n    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion<decltype(x), decltype(y), (x), ::batt::Eq, \\\n                                                           (y), ((x) == (y))>                                \\\n    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)\n\n#define BATT_STATIC_ASSERT_NE(x, y)                                                                          \\\n    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion<decltype(x), decltype(y), (x), ::batt::Ne, \\\n                                                           (y), ((x) != (y))>                                \\\n    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)\n\n#define BATT_STATIC_ASSERT_LT(x, y)                                                                          \\\n    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion<decltype(x), decltype(y), (x), ::batt::Lt, \\\n                                                           (y), ((x) < (y))>                                 \\\n    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)\n\n#define BATT_STATIC_ASSERT_LE(x, y)                                                                          \\\n    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion<decltype(x), decltype(y), (x), ::batt::Le, \\\n                                                           (y), ((x) <= (y))>                                \\\n    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)\n\n#define BATT_STATIC_ASSERT_GT(x, y)                                                                          \\\n    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion<decltype(x), decltype(y), (x), ::batt::Gt, \\\n                                                           (y), ((x) > (y))>                                 \\\n    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)\n\n#define BATT_STATIC_ASSERT_GE(x, y)                                                                          \\\n    BATT_MAYBE_UNUSED static ::batt::StaticBinaryAssertion<decltype(x), decltype(y), (x), ::batt::Ge, \\\n                                                           (y), ((x) >= (y))>                                \\\n    BOOST_PP_CAT(BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\ntemplate <typename T, typename U>\nstruct StaticSameTypeAssertion {\n    static_assert(std::is_same_v<T, U>, \"\");\n};\n\n#if defined(_MSC_VER) && 0\n#define BATT_STATIC_ASSERT_TYPE_EQ(x, y) static_assert(std::is_same_v<x, y>)\n#else\n#define BATT_STATIC_ASSERT_TYPE_EQ(x, y)                                                                     \\\n    BATT_MAYBE_UNUSED static ::batt::StaticSameTypeAssertion<x, y> BOOST_PP_CAT(                             \\\n        BOOST_PP_CAT(BATTERIES_StaticAssert_Instance_, __LINE__), __COUNTER__)\n#endif\n\n#define BATT_CHECK_TYPE(type, expr)                                                                          \\\n    [&]() noexcept(noexcept(expr)) -> decltype(auto) {                                                       \\\n        BATT_STATIC_ASSERT_TYPE_EQ(decltype(expr), type);                                                    \\\n        return expr;                                                                                         \\\n    }()\n\n}  // namespace batt\n\n#endif  // BATTERIES_STATIC_ASSERT_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "baseClasses": [
+        {
+          "external": true,
+          "name": "std::integral_constant< bool, kCondition >",
+          "virtual": "non-virtual",
+          "visibility": "public"
+        }
+      ],
+      "category": "classes",
+      "fullname": "batt::StaticBinaryAssertion",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::StaticBinaryAssertion",
+      "refid": "structbatt_1_1StaticBinaryAssertion",
+      "title": "batt::StaticBinaryAssertion",
+      "url": "/_autogen/Classes/structbatt_1_1StaticBinaryAssertion/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::StaticSameTypeAssertion",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::StaticSameTypeAssertion",
+      "refid": "structbatt_1_1StaticSameTypeAssertion",
+      "title": "batt::StaticSameTypeAssertion",
+      "url": "/_autogen/Classes/structbatt_1_1StaticSameTypeAssertion/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "static__assert_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/static_assert.hpp",
+  "url": "/_autogen/Files/static__assert_8hpp/#file-static-assert.hpp",
+  "visibility": "public"
+}

@@ -1,0 +1,149 @@
+{
+  "abstract": false,
+  "anchor": "#file-splice.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-splice-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_SPLICE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/splice.hpp",
+        "bodyStart": 7,
+        "column": 9,
+        "file": "batteries/seq/splice.hpp",
+        "line": 7
+      },
+      "name": "BATTERIES_SEQ_SPLICE_HPP",
+      "override": false,
+      "refid": "splice_8hpp_1a283b33a9f850d81855655120fe99725a",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_SPLICE_HPP",
+      "url": "/_autogen/Files/splice_8hpp/#define-batteries-seq-splice-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/splice.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/splice.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/splice.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2022 Anthony Paul Astolfi\n//\n\n#pragma once\n#ifndef BATTERIES_SEQ_SPLICE_HPP\n#define BATTERIES_SEQ_SPLICE_HPP\n\n#include <batteries/config.hpp>\n//\n\n#include <batteries/int_types.hpp>\n#include <batteries/seq/chain.hpp>\n#include <batteries/seq/take_n.hpp>\n#include <batteries/utility.hpp>\n\n#include <type_traits>\n\nnamespace batt {\nnamespace seq {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// splice\n//\ntemplate <typename OuterSeq, typename InnerSeq>\nclass Splice\n{\n   public:\n    using OuterSeqRef = std::add_lvalue_reference_t<OuterSeq>;\n    using Impl = Chain<TakeN<OuterSeqRef>, Chain<InnerSeq, OuterSeqRef>>;\n\n    using Item = SeqItem<Impl>;\n\n    explicit Splice(OuterSeq&& outer_seq, usize n, InnerSeq&& inner_seq) noexcept\n        : outer_seq_(BATT_FORWARD(outer_seq))\n        , impl_{TakeN<OuterSeqRef>{outer_seq_, n},\n                Chain<InnerSeq, OuterSeqRef>{BATT_FORWARD(inner_seq), outer_seq_}}\n    {\n    }\n\n    Optional<Item> peek()\n    {\n        return impl_.peek();\n    }\n    Optional<Item> next()\n    {\n        return impl_.next();\n    }\n\n   private:\n    OuterSeq outer_seq_;\n    Impl impl_;\n};\n\ntemplate <typename InnerSeq>\nstruct SpliceBinder {\n    usize n;\n    InnerSeq inner_seq;\n};\n\ntemplate <typename InnerSeq>\ninline SpliceBinder<InnerSeq> splice(usize n, InnerSeq&& inner_seq)\n{\n    return {\n        n,\n        BATT_FORWARD(inner_seq),\n    };\n}\n\ntemplate <typename OuterSeq, typename InnerSeq>\n[[nodiscard]] auto operator|(OuterSeq&& outer_seq, SpliceBinder<InnerSeq>&& binder)\n{\n    return Splice<OuterSeq, InnerSeq>{BATT_FORWARD(outer_seq), binder.n, BATT_FORWARD(binder.inner_seq)};\n}\n\n}  // namespace seq\n}  // namespace batt\n\n#endif  // BATTERIES_SEQ_SPLICE_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::Splice",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::seq::Splice",
+      "refid": "classbatt_1_1seq_1_1Splice",
+      "title": "batt::seq::Splice",
+      "url": "/_autogen/Classes/classbatt_1_1seq_1_1Splice/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::SpliceBinder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::SpliceBinder",
+      "refid": "structbatt_1_1seq_1_1SpliceBinder",
+      "title": "batt::seq::SpliceBinder",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1SpliceBinder/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "splice_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/splice.hpp",
+  "url": "/_autogen/Files/splice_8hpp/#file-splice.hpp",
+  "visibility": "public"
+}

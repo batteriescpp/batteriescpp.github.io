@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-prev-bit.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-bit-ops-next-bit-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_BIT_OPS_NEXT_BIT_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/bit_ops/prev_bit.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/bit_ops/prev_bit.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_BIT_OPS_NEXT_BIT_HPP",
+      "override": false,
+      "refid": "prev__bit_8hpp_1a8a17ecacc94dd182db8ae89c0b270f56",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_BIT_OPS_NEXT_BIT_HPP",
+      "url": "/_autogen/Files/prev__bit_8hpp/#define-batteries-bit-ops-next-bit-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/bit_ops/prev_bit.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/bit_ops/prev_bit.hpp",
+    "line": 0
+  },
+  "name": "batteries/bit_ops/prev_bit.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/bit-ops",
+    "category": "dirs",
+    "fullname": "batteries/bit_ops",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/bit_ops",
+    "refid": "dir_09dc2df44c13d5f8f6954de245bda43d",
+    "title": "batteries/bit_ops",
+    "url": "/_autogen/Files/dir_09dc2df44c13d5f8f6954de245bda43d/#dir-batteries/bit-ops",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/bit-ops",
+      "category": "dirs",
+      "fullname": "batteries/bit_ops",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/bit_ops",
+      "refid": "dir_09dc2df44c13d5f8f6954de245bda43d",
+      "title": "batteries/bit_ops",
+      "url": "/_autogen/Files/dir_09dc2df44c13d5f8f6954de245bda43d/#dir-batteries/bit-ops",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2025 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_BIT_OPS_NEXT_BIT_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/bit_ops/last_bit.hpp>\n\nnamespace batt {\n\nconstexpr inline i32 prev_bit(u64 bit_set, i32 index)\n{\n    const u64 mask = ((u64{1} << index) - 1);\n    return last_bit(bit_set & mask);\n}\n\ntemplate <usize N>\nconstexpr inline i32 prev_bit(const std::array<u64, N>& bit_set, i32 index)\n{\n    const i32 word_i = index / 64;\n    const i32 bit_i = index % 64;\n\n    u64 mask = (bit_i == 0) ? 0 : ((u64{1} << bit_i) - 1);\n    i32 word_last_bit = last_bit(bit_set[word_i] & mask);\n    if (word_last_bit != -1) {\n        return word_i * 64 + word_last_bit;\n    }\n\n    for (i32 i = word_i - 1; i >= 0; --i) {\n        word_last_bit = last_bit(bit_set[i]);\n        if (word_last_bit != -1) {\n            return i * 64 + word_last_bit;\n        }\n    }\n\n    return -1;\n}\n\n}  //namespace batt",
+  "refid": "prev__bit_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/bit_ops/prev_bit.hpp",
+  "url": "/_autogen/Files/prev__bit_8hpp/#file-prev-bit.hpp",
+  "visibility": "public"
+}

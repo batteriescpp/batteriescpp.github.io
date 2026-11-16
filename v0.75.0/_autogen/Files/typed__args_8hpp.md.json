@@ -1,0 +1,69 @@
+{
+  "abstract": false,
+  "anchor": "#file-typed-args.hpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/typed_args.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/typed_args.hpp",
+    "line": 0
+  },
+  "name": "batteries/typed_args.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2025-2026 Anthony Paul Astolfi\n//\n#pragma once\n\n#include <batteries/config.hpp>\n//\n#include <batteries/optional.hpp>\n\n#include <type_traits>\n#include <utility>\n\nnamespace batt {\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\ntemplate <typename T>\nT&& get_typed_arg(T&& default_value)\n{\n    return std::forward<T>(default_value);\n}\n\ntemplate <typename T, typename... Rest>\nT&& get_typed_arg(T&& /*default_value*/, T&& first, Rest&&... /*rest*/)\n{\n    return std::forward<T>(first);\n}\n\ntemplate <\n    typename T, typename First, typename... Rest,\n    typename = std::enable_if_t<IsOptional<T>{} && std::is_same_v<std::decay_t<First>, RemoveOptional<T>>>>\nT&& get_typed_arg(T&& /*default_value*/, First&& first, Rest&&... /*rest*/)\n{\n    thread_local std::decay_t<T> tmp;\n    tmp.emplace(std::forward<First>(first));\n    return std::forward<T>(tmp);\n}\n\ntemplate <typename T, typename First, typename... Rest,\n          typename = std::enable_if_t<(!IsOptional<T>{} && !std::is_same_v<T, First>) ||\n                                      !std::is_same_v<std::decay_t<First>, RemoveOptional<T>>>,\n          typename = void>\nT&& get_typed_arg(T&& default_value, First&& /*first*/, Rest&&... rest)\n{\n    return get_typed_arg<T>(std::forward<T>(default_value), std::forward<Rest>(rest)...);\n}\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n\ntemplate <typename T>\nconstexpr std::false_type has_typed_arg()\n{\n    return {};\n}\n\ntemplate <typename T, typename... Rest>\nconstexpr std::true_type has_typed_arg(T&& /*first*/, Rest&&... /*rest*/)\n{\n    return {};\n}\n\ntemplate <\n    typename T, typename First, typename... Rest,\n    typename = std::enable_if_t<IsOptional<T>{} && std::is_same_v<std::decay_t<First>, RemoveOptional<T>>>>\nconstexpr std::true_type has_typed_arg(First&& /*first*/, Rest&&... /*rest*/)\n{\n    return {};\n}\n\ntemplate <typename T, typename First, typename... Rest,\n          typename = std::enable_if_t<(!IsOptional<T>{} && !std::is_same_v<T, First>) ||\n                                      !std::is_same_v<std::decay_t<First>, RemoveOptional<T>>>,\n          typename = void>\nconstexpr auto has_typed_arg(First&& /*first*/, Rest&&... rest)\n{\n    return has_typed_arg<T>(std::forward<Rest>(rest)...);\n}\n\n}  // namespace batt",
+  "refid": "typed__args_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/typed_args.hpp",
+  "url": "/_autogen/Files/typed__args_8hpp/#file-typed-args.hpp",
+  "visibility": "public"
+}

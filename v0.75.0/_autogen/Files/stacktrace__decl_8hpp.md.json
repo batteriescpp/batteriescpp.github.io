@@ -1,0 +1,69 @@
+{
+  "abstract": false,
+  "anchor": "#file-stacktrace-decl.hpp",
+  "category": "files",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/stacktrace_decl.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<boost/stacktrace.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/stacktrace_decl.hpp",
+    "line": 0
+  },
+  "name": "batteries/stacktrace_decl.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2023-2024 Anthony Paul Astolfi\n//\n#pragma once\n\n#ifdef BOOST_STACKTRACE_USE_NOOP\n#undef BOOST_STACKTRACE_USE_NOOP\n#endif  // BOOST_STACKTRACE_USE_NOOP\n\n// IMPORTANT: This file must not include any batteries/*.hpp!\n\n#if defined(__GNUC__) && !defined(__clang__)\n#pragma GCC diagnostic push\n#pragma GCC diagnostic ignored \"-Wmaybe-uninitialized\"\n#endif\n\n#include <boost/stacktrace.hpp>\n\n#if defined(__GNUC__) && !defined(__clang__)\n#pragma GCC diagnostic pop\n#endif\n\n#include <iostream>\n\nnamespace batt {\n\nvoid print_stack_trace();\n\n}  // namespace batt",
+  "refid": "stacktrace__decl_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/stacktrace_decl.hpp",
+  "url": "/_autogen/Files/stacktrace__decl_8hpp/#file-stacktrace-decl.hpp",
+  "visibility": "public"
+}
