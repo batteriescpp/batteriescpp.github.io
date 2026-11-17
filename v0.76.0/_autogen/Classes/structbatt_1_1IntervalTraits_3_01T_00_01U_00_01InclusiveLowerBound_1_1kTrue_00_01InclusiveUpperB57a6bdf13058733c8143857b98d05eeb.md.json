@@ -1,0 +1,1470 @@
+{
+  "abstract": false,
+  "anchor": "",
+  "baseClasses": [
+    {
+      "external": false,
+      "name": "batt::IntervalTraitsBase< IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >, OrderFn, EqualFn >",
+      "publicFunctions": [
+        {
+          "abstract": false,
+          "anchor": "#function-less-than",
+          "argsString": "(const T0 &left, const T1 &right)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static bool batt::IntervalTraitsBase< Derived, OrderFn, EqualFn >::less_than",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::IntervalTraitsBase::less_than",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 29,
+            "bodyFile": "batteries/interval_traits.hpp",
+            "bodyStart": 26,
+            "column": 17,
+            "file": "batteries/interval_traits.hpp",
+            "line": 26
+          },
+          "name": "less_than",
+          "override": false,
+          "params": [
+            {
+              "name": "left",
+              "type": "const T0 &",
+              "typePlain": "const T0 &"
+            },
+            {
+              "name": "right",
+              "type": "const T1 &",
+              "typePlain": "const T1 &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1IntervalTraitsBase_1a35f7e21dac2a1b9c9dbaff729e0810ae",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename T0",
+              "typePlain": "typename T0"
+            },
+            {
+              "name": "",
+              "type": "typename T1",
+              "typePlain": "typename T1"
+            }
+          ],
+          "title": "less_than",
+          "type": "bool",
+          "typePlain": "bool",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/#function-less-than",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-min",
+          "argsString": "(const T0 &left, const T1 &right)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static std::common_type_t<T0, T1> batt::IntervalTraitsBase< Derived, OrderFn, EqualFn >::min",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::IntervalTraitsBase::min",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 39,
+            "bodyFile": "batteries/interval_traits.hpp",
+            "bodyStart": 32,
+            "column": 31,
+            "file": "batteries/interval_traits.hpp",
+            "line": 32
+          },
+          "name": "min",
+          "override": false,
+          "params": [
+            {
+              "name": "left",
+              "type": "const T0 &",
+              "typePlain": "const T0 &"
+            },
+            {
+              "name": "right",
+              "type": "const T1 &",
+              "typePlain": "const T1 &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1IntervalTraitsBase_1ab32a37f5655f7bcea3812e0280bc919f",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename T0",
+              "typePlain": "typename T0"
+            },
+            {
+              "name": "",
+              "type": "typename T1",
+              "typePlain": "typename T1"
+            }
+          ],
+          "title": "min",
+          "type": "std::common_type_t< T0, T1 >",
+          "typePlain": "std::common_type_t< T0, T1 >",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/#function-min",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-max",
+          "argsString": "(const T0 &left, const T1 &right)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static std::common_type_t<T0, T1> batt::IntervalTraitsBase< Derived, OrderFn, EqualFn >::max",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::IntervalTraitsBase::max",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 49,
+            "bodyFile": "batteries/interval_traits.hpp",
+            "bodyStart": 42,
+            "column": 31,
+            "file": "batteries/interval_traits.hpp",
+            "line": 42
+          },
+          "name": "max",
+          "override": false,
+          "params": [
+            {
+              "name": "left",
+              "type": "const T0 &",
+              "typePlain": "const T0 &"
+            },
+            {
+              "name": "right",
+              "type": "const T1 &",
+              "typePlain": "const T1 &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1IntervalTraitsBase_1a14df73bc473a1fd9c4e771042f814207",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename T0",
+              "typePlain": "typename T0"
+            },
+            {
+              "name": "",
+              "type": "typename T1",
+              "typePlain": "typename T1"
+            }
+          ],
+          "title": "max",
+          "type": "std::common_type_t< T0, T1 >",
+          "typePlain": "std::common_type_t< T0, T1 >",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/#function-max",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-equal",
+          "argsString": "(const T0 &left, const T1 &right)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static bool batt::IntervalTraitsBase< Derived, OrderFn, EqualFn >::equal",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::IntervalTraitsBase::equal",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 55,
+            "bodyFile": "batteries/interval_traits.hpp",
+            "bodyStart": 52,
+            "column": 17,
+            "file": "batteries/interval_traits.hpp",
+            "line": 52
+          },
+          "name": "equal",
+          "override": false,
+          "params": [
+            {
+              "name": "left",
+              "type": "const T0 &",
+              "typePlain": "const T0 &"
+            },
+            {
+              "name": "right",
+              "type": "const T1 &",
+              "typePlain": "const T1 &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1IntervalTraitsBase_1abffccef59364518853166d8cac844ad9",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename T0",
+              "typePlain": "typename T0"
+            },
+            {
+              "name": "",
+              "type": "typename T1",
+              "typePlain": "typename T1"
+            }
+          ],
+          "title": "equal",
+          "type": "bool",
+          "typePlain": "bool",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/#function-equal",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-not-equal",
+          "argsString": "(const T0 &left, const T1 &right)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static bool batt::IntervalTraitsBase< Derived, OrderFn, EqualFn >::not_equal",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::IntervalTraitsBase::not_equal",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 61,
+            "bodyFile": "batteries/interval_traits.hpp",
+            "bodyStart": 58,
+            "column": 17,
+            "file": "batteries/interval_traits.hpp",
+            "line": 58
+          },
+          "name": "not_equal",
+          "override": false,
+          "params": [
+            {
+              "name": "left",
+              "type": "const T0 &",
+              "typePlain": "const T0 &"
+            },
+            {
+              "name": "right",
+              "type": "const T1 &",
+              "typePlain": "const T1 &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1IntervalTraitsBase_1a740f1d49b3b9bcd6b68f31e235463df5",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename T0",
+              "typePlain": "typename T0"
+            },
+            {
+              "name": "",
+              "type": "typename T1",
+              "typePlain": "typename T1"
+            }
+          ],
+          "title": "not_equal",
+          "type": "bool",
+          "typePlain": "bool",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/#function-not-equal",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-greater-than",
+          "argsString": "(const T0 &left, const T1 &right)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static bool batt::IntervalTraitsBase< Derived, OrderFn, EqualFn >::greater_than",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::IntervalTraitsBase::greater_than",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 66,
+            "bodyFile": "batteries/interval_traits.hpp",
+            "bodyStart": 63,
+            "column": 17,
+            "file": "batteries/interval_traits.hpp",
+            "line": 63
+          },
+          "name": "greater_than",
+          "override": false,
+          "params": [
+            {
+              "name": "left",
+              "type": "const T0 &",
+              "typePlain": "const T0 &"
+            },
+            {
+              "name": "right",
+              "type": "const T1 &",
+              "typePlain": "const T1 &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1IntervalTraitsBase_1a844f13ae58276b69aa5df513005b4b91",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename T0",
+              "typePlain": "typename T0"
+            },
+            {
+              "name": "",
+              "type": "typename T1",
+              "typePlain": "typename T1"
+            }
+          ],
+          "title": "greater_than",
+          "type": "bool",
+          "typePlain": "bool",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/#function-greater-than",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-less-or-equal",
+          "argsString": "(const T0 &left, const T1 &right)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static bool batt::IntervalTraitsBase< Derived, OrderFn, EqualFn >::less_or_equal",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::IntervalTraitsBase::less_or_equal",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 71,
+            "bodyFile": "batteries/interval_traits.hpp",
+            "bodyStart": 68,
+            "column": 17,
+            "file": "batteries/interval_traits.hpp",
+            "line": 68
+          },
+          "name": "less_or_equal",
+          "override": false,
+          "params": [
+            {
+              "name": "left",
+              "type": "const T0 &",
+              "typePlain": "const T0 &"
+            },
+            {
+              "name": "right",
+              "type": "const T1 &",
+              "typePlain": "const T1 &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1IntervalTraitsBase_1a6868cde27b670730426c9c37a35aac52",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename T0",
+              "typePlain": "typename T0"
+            },
+            {
+              "name": "",
+              "type": "typename T1",
+              "typePlain": "typename T1"
+            }
+          ],
+          "title": "less_or_equal",
+          "type": "bool",
+          "typePlain": "bool",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/#function-less-or-equal",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-greater-or-equal",
+          "argsString": "(const T0 &left, const T1 &right)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static bool batt::IntervalTraitsBase< Derived, OrderFn, EqualFn >::greater_or_equal",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::IntervalTraitsBase::greater_or_equal",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 76,
+            "bodyFile": "batteries/interval_traits.hpp",
+            "bodyStart": 73,
+            "column": 17,
+            "file": "batteries/interval_traits.hpp",
+            "line": 73
+          },
+          "name": "greater_or_equal",
+          "override": false,
+          "params": [
+            {
+              "name": "left",
+              "type": "const T0 &",
+              "typePlain": "const T0 &"
+            },
+            {
+              "name": "right",
+              "type": "const T1 &",
+              "typePlain": "const T1 &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1IntervalTraitsBase_1af119257e9769dc01f55bf554d93db202",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename T0",
+              "typePlain": "typename T0"
+            },
+            {
+              "name": "",
+              "type": "typename T1",
+              "typePlain": "typename T1"
+            }
+          ],
+          "title": "greater_or_equal",
+          "type": "bool",
+          "typePlain": "bool",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/#function-greater-or-equal",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-x-included-by-lower",
+          "argsString": "(const T0 &x, const T1 &lower)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static bool batt::IntervalTraitsBase< Derived, OrderFn, EqualFn >::x_included_by_lower",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::IntervalTraitsBase::x_included_by_lower",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 82,
+            "bodyFile": "batteries/interval_traits.hpp",
+            "bodyStart": 79,
+            "column": 17,
+            "file": "batteries/interval_traits.hpp",
+            "line": 79
+          },
+          "name": "x_included_by_lower",
+          "override": false,
+          "params": [
+            {
+              "name": "x",
+              "type": "const T0 &",
+              "typePlain": "const T0 &"
+            },
+            {
+              "name": "lower",
+              "type": "const T1 &",
+              "typePlain": "const T1 &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1IntervalTraitsBase_1a27ee4145df5584f89ddc40738ab2f29f",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename T0",
+              "typePlain": "typename T0"
+            },
+            {
+              "name": "",
+              "type": "typename T1",
+              "typePlain": "typename T1"
+            }
+          ],
+          "title": "x_included_by_lower",
+          "type": "bool",
+          "typePlain": "bool",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/#function-x-included-by-lower",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-upper-includes-x",
+          "argsString": "(const T0 &upper, const T1 &x)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static bool batt::IntervalTraitsBase< Derived, OrderFn, EqualFn >::upper_includes_x",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::IntervalTraitsBase::upper_includes_x",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 87,
+            "bodyFile": "batteries/interval_traits.hpp",
+            "bodyStart": 84,
+            "column": 17,
+            "file": "batteries/interval_traits.hpp",
+            "line": 84
+          },
+          "name": "upper_includes_x",
+          "override": false,
+          "params": [
+            {
+              "name": "upper",
+              "type": "const T0 &",
+              "typePlain": "const T0 &"
+            },
+            {
+              "name": "x",
+              "type": "const T1 &",
+              "typePlain": "const T1 &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1IntervalTraitsBase_1aa22fff12de68c30ff588bbc8ad6d274e",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename T0",
+              "typePlain": "typename T0"
+            },
+            {
+              "name": "",
+              "type": "typename T1",
+              "typePlain": "typename T1"
+            }
+          ],
+          "title": "upper_includes_x",
+          "type": "bool",
+          "typePlain": "bool",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/#function-upper-includes-x",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-lower-excludes-x",
+          "argsString": "(const T0 &lower, const T0 &x)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static bool batt::IntervalTraitsBase< Derived, OrderFn, EqualFn >::lower_excludes_x",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::IntervalTraitsBase::lower_excludes_x",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 92,
+            "bodyFile": "batteries/interval_traits.hpp",
+            "bodyStart": 89,
+            "column": 17,
+            "file": "batteries/interval_traits.hpp",
+            "line": 89
+          },
+          "name": "lower_excludes_x",
+          "override": false,
+          "params": [
+            {
+              "name": "lower",
+              "type": "const T0 &",
+              "typePlain": "const T0 &"
+            },
+            {
+              "name": "x",
+              "type": "const T0 &",
+              "typePlain": "const T0 &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1IntervalTraitsBase_1a553703f25db1b3c21fb908d11f482cac",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename T0",
+              "typePlain": "typename T0"
+            },
+            {
+              "name": "",
+              "type": "typename T1",
+              "typePlain": "typename T1"
+            }
+          ],
+          "title": "lower_excludes_x",
+          "type": "bool",
+          "typePlain": "bool",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/#function-lower-excludes-x",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-x-excluded-by-upper",
+          "argsString": "(const T0 &x, const T1 &upper)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static bool batt::IntervalTraitsBase< Derived, OrderFn, EqualFn >::x_excluded_by_upper",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::IntervalTraitsBase::x_excluded_by_upper",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 97,
+            "bodyFile": "batteries/interval_traits.hpp",
+            "bodyStart": 94,
+            "column": 17,
+            "file": "batteries/interval_traits.hpp",
+            "line": 94
+          },
+          "name": "x_excluded_by_upper",
+          "override": false,
+          "params": [
+            {
+              "name": "x",
+              "type": "const T0 &",
+              "typePlain": "const T0 &"
+            },
+            {
+              "name": "upper",
+              "type": "const T1 &",
+              "typePlain": "const T1 &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1IntervalTraitsBase_1af4510b30625e8132f99f067700c36024",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename T0",
+              "typePlain": "typename T0"
+            },
+            {
+              "name": "",
+              "type": "typename T1",
+              "typePlain": "typename T1"
+            }
+          ],
+          "title": "x_excluded_by_upper",
+          "type": "bool",
+          "typePlain": "bool",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/#function-x-excluded-by-upper",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-x-excluded-by-lower",
+          "argsString": "(const T0 &x, const T1 &lower)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static bool batt::IntervalTraitsBase< Derived, OrderFn, EqualFn >::x_excluded_by_lower",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::IntervalTraitsBase::x_excluded_by_lower",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 102,
+            "bodyFile": "batteries/interval_traits.hpp",
+            "bodyStart": 99,
+            "column": 17,
+            "file": "batteries/interval_traits.hpp",
+            "line": 99
+          },
+          "name": "x_excluded_by_lower",
+          "override": false,
+          "params": [
+            {
+              "name": "x",
+              "type": "const T0 &",
+              "typePlain": "const T0 &"
+            },
+            {
+              "name": "lower",
+              "type": "const T1 &",
+              "typePlain": "const T1 &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1IntervalTraitsBase_1a470533fd3e52491f339195218c33ba55",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename T0",
+              "typePlain": "typename T0"
+            },
+            {
+              "name": "",
+              "type": "typename T1",
+              "typePlain": "typename T1"
+            }
+          ],
+          "title": "x_excluded_by_lower",
+          "type": "bool",
+          "typePlain": "bool",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/#function-x-excluded-by-lower",
+          "virtual": false,
+          "visibility": "public"
+        },
+        {
+          "abstract": false,
+          "anchor": "#function-upper-excludes-x",
+          "argsString": "(const T0 &upper, const T1 &x)",
+          "category": "functions",
+          "const": false,
+          "default": false,
+          "definition": "static bool batt::IntervalTraitsBase< Derived, OrderFn, EqualFn >::upper_excludes_x",
+          "deleted": false,
+          "explicit": false,
+          "fullname": "batt::IntervalTraitsBase::upper_excludes_x",
+          "hasDetails": true,
+          "inline": true,
+          "kind": "function",
+          "language": "cpp",
+          "location": {
+            "bodyEnd": 107,
+            "bodyFile": "batteries/interval_traits.hpp",
+            "bodyStart": 104,
+            "column": 17,
+            "file": "batteries/interval_traits.hpp",
+            "line": 104
+          },
+          "name": "upper_excludes_x",
+          "override": false,
+          "params": [
+            {
+              "name": "upper",
+              "type": "const T0 &",
+              "typePlain": "const T0 &"
+            },
+            {
+              "name": "x",
+              "type": "const T1 &",
+              "typePlain": "const T1 &"
+            }
+          ],
+          "pureVirtual": false,
+          "refid": "structbatt_1_1IntervalTraitsBase_1a2b59d9fa33967b302c9d499c8c371ca6",
+          "static": true,
+          "strong": false,
+          "templateParams": [
+            {
+              "name": "",
+              "type": "typename T0",
+              "typePlain": "typename T0"
+            },
+            {
+              "name": "",
+              "type": "typename T1",
+              "typePlain": "typename T1"
+            }
+          ],
+          "title": "upper_excludes_x",
+          "type": "bool",
+          "typePlain": "bool",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/#function-upper-excludes-x",
+          "virtual": false,
+          "visibility": "public"
+        }
+      ],
+      "publicTypes": [
+        {
+          "abstract": false,
+          "anchor": "#using-base",
+          "category": "types",
+          "const": false,
+          "definition": "using batt::IntervalTraitsBase< Derived, OrderFn, EqualFn >::Base =  IntervalTraitsBase",
+          "explicit": false,
+          "fullname": "batt::IntervalTraitsBase::Base",
+          "hasDetails": false,
+          "inline": false,
+          "kind": "using",
+          "language": "cpp",
+          "location": {
+            "bodyFile": "batteries/interval_traits.hpp",
+            "bodyStart": 23,
+            "column": 5,
+            "file": "batteries/interval_traits.hpp",
+            "line": 23
+          },
+          "name": "Base",
+          "override": false,
+          "refid": "structbatt_1_1IntervalTraitsBase_1a26815c9465b9e79b5da27d6bc6e6434e",
+          "static": false,
+          "strong": false,
+          "title": "Base",
+          "type": "[IntervalTraitsBase](/_autogen/Classes/structbatt_1_1IntervalTraitsBase/)",
+          "typePlain": "IntervalTraitsBase",
+          "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/#using-base",
+          "visibility": "public"
+        }
+      ],
+      "refid": "structbatt_1_1IntervalTraitsBase",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraitsBase/",
+      "virtual": "non-virtual",
+      "visibility": "public"
+    }
+  ],
+  "category": "classes",
+  "const": false,
+  "definition": "",
+  "explicit": false,
+  "fullname": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >",
+  "hasAdditionalMembers": true,
+  "hasDetails": true,
+  "inline": false,
+  "kind": "struct",
+  "language": "cpp",
+  "location": {
+    "bodyEnd": 212,
+    "bodyFile": "batteries/interval_traits.hpp",
+    "bodyStart": 165,
+    "column": 1,
+    "file": "batteries/interval_traits.hpp",
+    "line": 162
+  },
+  "name": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >",
+  "override": false,
+  "parent": {
+    "anchor": "",
+    "category": "namespaces",
+    "fullname": "batt",
+    "kind": "namespace",
+    "language": "cpp",
+    "name": "batt",
+    "refid": "namespacebatt",
+    "title": "batt",
+    "url": "/_autogen/Namespaces/namespacebatt/",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "publicAttributes": [
+    {
+      "abstract": false,
+      "anchor": "#variable-inclusive-lower-bound",
+      "category": "attributes",
+      "const": false,
+      "definition": "constexpr InclusiveLowerBound batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::inclusive_lower_bound",
+      "explicit": false,
+      "fullname": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::inclusive_lower_bound",
+      "hasDetails": false,
+      "initializer": "= InclusiveLowerBound::kTrue",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/interval_traits.hpp",
+        "bodyStart": 167,
+        "column": 42,
+        "file": "batteries/interval_traits.hpp",
+        "line": 167
+      },
+      "name": "inclusive_lower_bound",
+      "override": false,
+      "refid": "structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb_1a3a0cee7e32e00e3f34cc19f7f2286779",
+      "static": true,
+      "strong": false,
+      "title": "inclusive_lower_bound",
+      "type": "constexpr InclusiveLowerBound",
+      "typePlain": "constexpr InclusiveLowerBound",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb/#variable-inclusive-lower-bound",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#variable-inclusive-upper-bound",
+      "category": "attributes",
+      "const": false,
+      "definition": "constexpr InclusiveUpperBound batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::inclusive_upper_bound",
+      "explicit": false,
+      "fullname": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::inclusive_upper_bound",
+      "hasDetails": false,
+      "initializer": "= InclusiveUpperBound::kTrue",
+      "inline": false,
+      "kind": "variable",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/interval_traits.hpp",
+        "bodyStart": 168,
+        "column": 42,
+        "file": "batteries/interval_traits.hpp",
+        "line": 168
+      },
+      "name": "inclusive_upper_bound",
+      "override": false,
+      "refid": "structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb_1a31fcdf894cdacd669676ef26fd88019b",
+      "static": true,
+      "strong": false,
+      "title": "inclusive_upper_bound",
+      "type": "constexpr InclusiveUpperBound",
+      "typePlain": "constexpr InclusiveUpperBound",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb/#variable-inclusive-upper-bound",
+      "visibility": "public"
+    }
+  ],
+  "publicFunctions": [
+    {
+      "abstract": false,
+      "anchor": "#function-size",
+      "argsString": "(const T &lower, const U &upper)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static std::ptrdiff_t batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::size",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::size",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 177,
+        "bodyFile": "batteries/interval_traits.hpp",
+        "bodyStart": 174,
+        "column": 27,
+        "file": "batteries/interval_traits.hpp",
+        "line": 174
+      },
+      "name": "size",
+      "override": false,
+      "params": [
+        {
+          "name": "lower",
+          "type": "const T &",
+          "typePlain": "const T &"
+        },
+        {
+          "name": "upper",
+          "type": "const U &",
+          "typePlain": "const U &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb_1ac1525ddb5536d6a5e3814a8a4cd40e11",
+      "static": true,
+      "strong": false,
+      "title": "size",
+      "type": "std::ptrdiff_t",
+      "typePlain": "std::ptrdiff_t",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb/#function-size",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-empty",
+      "argsString": "(const T &lower, const U &upper)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static bool batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::empty",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::empty",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 182,
+        "bodyFile": "batteries/interval_traits.hpp",
+        "bodyStart": 179,
+        "column": 17,
+        "file": "batteries/interval_traits.hpp",
+        "line": 179
+      },
+      "name": "empty",
+      "override": false,
+      "params": [
+        {
+          "name": "lower",
+          "type": "const T &",
+          "typePlain": "const T &"
+        },
+        {
+          "name": "upper",
+          "type": "const U &",
+          "typePlain": "const U &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb_1a62bcfacf6b03aafd32f77d5aa33414d6",
+      "static": true,
+      "strong": false,
+      "title": "empty",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb/#function-empty",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-lower-includes-x",
+      "argsString": "(const T &lower, const V &x)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static bool batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::lower_includes_x",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::lower_includes_x",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 188,
+        "bodyFile": "batteries/interval_traits.hpp",
+        "bodyStart": 185,
+        "column": 17,
+        "file": "batteries/interval_traits.hpp",
+        "line": 185
+      },
+      "name": "lower_includes_x",
+      "override": false,
+      "params": [
+        {
+          "name": "lower",
+          "type": "const T &",
+          "typePlain": "const T &"
+        },
+        {
+          "name": "x",
+          "type": "const V &",
+          "typePlain": "const V &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb_1ab3aa6a9d5de77a01348e036218f7c24a",
+      "static": true,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename V",
+          "typePlain": "typename V"
+        }
+      ],
+      "title": "lower_includes_x",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb/#function-lower-includes-x",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-x-included-by-upper",
+      "argsString": "(const V &x, const U &upper)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static bool batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::x_included_by_upper",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::x_included_by_upper",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 194,
+        "bodyFile": "batteries/interval_traits.hpp",
+        "bodyStart": 191,
+        "column": 17,
+        "file": "batteries/interval_traits.hpp",
+        "line": 191
+      },
+      "name": "x_included_by_upper",
+      "override": false,
+      "params": [
+        {
+          "name": "x",
+          "type": "const V &",
+          "typePlain": "const V &"
+        },
+        {
+          "name": "upper",
+          "type": "const U &",
+          "typePlain": "const U &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb_1a36e79d35566b7acf9f4d6012d1f17715",
+      "static": true,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename V",
+          "typePlain": "typename V"
+        }
+      ],
+      "title": "x_included_by_upper",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb/#function-x-included-by-upper",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-adjacent",
+      "argsString": "(const T &a_lower, const U &a_upper, const T1 &b_lower, const U1 &b_upper)",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static bool batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::adjacent",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::adjacent",
+      "hasDetails": true,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 201,
+        "bodyFile": "batteries/interval_traits.hpp",
+        "bodyStart": 197,
+        "column": 17,
+        "file": "batteries/interval_traits.hpp",
+        "line": 197
+      },
+      "name": "adjacent",
+      "override": false,
+      "params": [
+        {
+          "name": "a_lower",
+          "type": "const T &",
+          "typePlain": "const T &"
+        },
+        {
+          "name": "a_upper",
+          "type": "const U &",
+          "typePlain": "const U &"
+        },
+        {
+          "name": "b_lower",
+          "type": "const T1 &",
+          "typePlain": "const T1 &"
+        },
+        {
+          "name": "b_upper",
+          "type": "const U1 &",
+          "typePlain": "const U1 &"
+        }
+      ],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb_1ab0a63c8dbbbd577df949dc8bd203b455",
+      "static": true,
+      "strong": false,
+      "templateParams": [
+        {
+          "name": "",
+          "type": "typename T1",
+          "typePlain": "typename T1"
+        },
+        {
+          "name": "",
+          "type": "typename U1",
+          "typePlain": "typename U1"
+        }
+      ],
+      "title": "adjacent",
+      "type": "bool",
+      "typePlain": "bool",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb/#function-adjacent",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-left-bracket",
+      "argsString": "()",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static char batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::left_bracket",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::left_bracket",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 206,
+        "bodyFile": "batteries/interval_traits.hpp",
+        "bodyStart": 203,
+        "column": 17,
+        "file": "batteries/interval_traits.hpp",
+        "line": 203
+      },
+      "name": "left_bracket",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb_1a3d0f1a4f98e6cb82f1ab5edcb32bd097",
+      "static": true,
+      "strong": false,
+      "title": "left_bracket",
+      "type": "char",
+      "typePlain": "char",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb/#function-left-bracket",
+      "virtual": false,
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#function-right-bracket",
+      "argsString": "()",
+      "category": "functions",
+      "const": false,
+      "default": false,
+      "definition": "static char batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::right_bracket",
+      "deleted": false,
+      "explicit": false,
+      "fullname": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::right_bracket",
+      "hasDetails": false,
+      "inline": true,
+      "kind": "function",
+      "language": "cpp",
+      "location": {
+        "bodyEnd": 211,
+        "bodyFile": "batteries/interval_traits.hpp",
+        "bodyStart": 208,
+        "column": 17,
+        "file": "batteries/interval_traits.hpp",
+        "line": 208
+      },
+      "name": "right_bracket",
+      "override": false,
+      "params": [],
+      "pureVirtual": false,
+      "refid": "structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb_1ab065b1e15a8ac57ba987d50ff47b6ed6",
+      "static": true,
+      "strong": false,
+      "title": "right_bracket",
+      "type": "char",
+      "typePlain": "char",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb/#function-right-bracket",
+      "virtual": false,
+      "visibility": "public"
+    }
+  ],
+  "publicTypes": [
+    {
+      "abstract": false,
+      "anchor": "#using-lower-bound-type",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::lower_bound_type =  T",
+      "explicit": false,
+      "fullname": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::lower_bound_type",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/interval_traits.hpp",
+        "bodyStart": 170,
+        "column": 5,
+        "file": "batteries/interval_traits.hpp",
+        "line": 170
+      },
+      "name": "lower_bound_type",
+      "override": false,
+      "refid": "structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb_1a234d59bb64b98d71d77b8b5cc9db21ac",
+      "static": false,
+      "strong": false,
+      "title": "lower_bound_type",
+      "type": "T",
+      "typePlain": "T",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb/#using-lower-bound-type",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-upper-bound-type",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::upper_bound_type =  U",
+      "explicit": false,
+      "fullname": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::upper_bound_type",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/interval_traits.hpp",
+        "bodyStart": 171,
+        "column": 5,
+        "file": "batteries/interval_traits.hpp",
+        "line": 171
+      },
+      "name": "upper_bound_type",
+      "override": false,
+      "refid": "structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb_1aeca90e1c90382aee504367303258ae7d",
+      "static": false,
+      "strong": false,
+      "title": "upper_bound_type",
+      "type": "U",
+      "typePlain": "U",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb/#using-upper-bound-type",
+      "visibility": "public"
+    },
+    {
+      "abstract": false,
+      "anchor": "#using-self",
+      "category": "types",
+      "const": false,
+      "definition": "using batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::Self =  IntervalTraits",
+      "explicit": false,
+      "fullname": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >::Self",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "using",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/interval_traits.hpp",
+        "bodyStart": 172,
+        "column": 5,
+        "file": "batteries/interval_traits.hpp",
+        "line": 172
+      },
+      "name": "Self",
+      "override": false,
+      "refid": "structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb_1ad27de58f3d07a22008f6b8a30d0c662d",
+      "static": false,
+      "strong": false,
+      "title": "Self",
+      "type": "[IntervalTraits](/_autogen/Classes/structbatt_1_1IntervalTraits/)",
+      "typePlain": "IntervalTraits",
+      "url": "/_autogen/Classes/structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb/#using-self",
+      "visibility": "public"
+    }
+  ],
+  "refid": "structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb",
+  "static": false,
+  "strong": false,
+  "templateParams": [
+    {
+      "name": "",
+      "type": "typename T",
+      "typePlain": "typename T"
+    },
+    {
+      "name": "",
+      "type": "typename U",
+      "typePlain": "typename U"
+    },
+    {
+      "name": "",
+      "type": "typename OrderFn",
+      "typePlain": "typename OrderFn"
+    },
+    {
+      "name": "",
+      "type": "typename EqualFn",
+      "typePlain": "typename EqualFn"
+    }
+  ],
+  "title": "batt::IntervalTraits< T, U, InclusiveLowerBound::kTrue, InclusiveUpperBound::kTrue, OrderFn, EqualFn >",
+  "url": "/_autogen/Classes/structbatt_1_1IntervalTraits_3_01T_00_01U_00_01InclusiveLowerBound_1_1kTrue_00_01InclusiveUpperB57a6bdf13058733c8143857b98d05eeb/",
+  "visibility": "public"
+}

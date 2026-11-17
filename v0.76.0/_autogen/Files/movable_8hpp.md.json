@@ -1,0 +1,113 @@
+{
+  "abstract": false,
+  "anchor": "#file-movable.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-movable-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_MOVABLE_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/movable.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/movable.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_MOVABLE_HPP",
+      "override": false,
+      "refid": "movable_8hpp_1acad0bc2fa04e48e5c148da854d22eb81",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_MOVABLE_HPP",
+      "url": "/_autogen/Files/movable_8hpp/#define-batteries-movable-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/movable.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/movable.hpp",
+    "line": 0
+  },
+  "name": "batteries/movable.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_MOVABLE_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/type_traits.hpp>\n#include <batteries/utility.hpp>\n\n#if BATT_CPP_20\n#include <type_traits>\n#endif  // BATT_CPP_20\n#include <utility>\n\nnamespace batt {\n\ntemplate <typename T>\nclass Movable\n{\n   public:\n    Movable() = default;\n\n    template <typename... Args, typename = batt::EnableIfNoShadow<Movable, Args...>>\n    explicit Movable(Args&&... args) noexcept : value_{BATT_FORWARD(args)...}\n    {\n    }\n\n    Movable(const Movable&) = default;\n    Movable& operator=(const Movable&) = default;\n\n    Movable(Movable&& other) noexcept : value_{std::exchange(other.value_, T{})}\n    {\n    }\n\n    Movable& operator=(Movable&& other) noexcept\n    {\n        if (this != &other) {\n            this->value_ = std::exchange(other.value_, T{});\n        }\n        return *this;\n    }\n\n    operator T&()\n    {\n        return this->value_;\n    }\n\n    operator const T&() const\n    {\n        return this->value_;\n    }\n\n    T& ref() noexcept\n    {\n        return this->value_;\n    }\n\n    const T& cref() const noexcept\n    {\n        return this->value_;\n    }\n\n    template <typename U, typename = batt::EnableIfNoShadow<Movable, const U&>>\n#if BATT_CPP_20\n        requires(std::is_convertible_v<U, T>)\n#endif  // BATT_CPP_20\n    Movable& operator=(const U& new_value)\n    {\n        this->value_ = new_value;\n        return *this;\n    }\n\n   private:\n    T value_;\n};\n\n}  //namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::Movable",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::Movable",
+      "refid": "classbatt_1_1Movable",
+      "title": "batt::Movable",
+      "url": "/_autogen/Classes/classbatt_1_1Movable/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "movable_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/movable.hpp",
+  "url": "/_autogen/Files/movable_8hpp/#file-movable.hpp",
+  "visibility": "public"
+}

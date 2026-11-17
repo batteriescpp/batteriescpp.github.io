@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-insert-bit.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-bit-ops-insert-bit-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_BIT_OPS_INSERT_BIT_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/bit_ops/insert_bit.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/bit_ops/insert_bit.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_BIT_OPS_INSERT_BIT_HPP",
+      "override": false,
+      "refid": "insert__bit_8hpp_1ac90afcff2733a58f5958aa9557449a41",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_BIT_OPS_INSERT_BIT_HPP",
+      "url": "/_autogen/Files/insert__bit_8hpp/#define-batteries-bit-ops-insert-bit-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/bit_ops/insert_bit.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/bit_ops/insert_bit.hpp",
+    "line": 0
+  },
+  "name": "batteries/bit_ops/insert_bit.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/bit-ops",
+    "category": "dirs",
+    "fullname": "batteries/bit_ops",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/bit_ops",
+    "refid": "dir_09dc2df44c13d5f8f6954de245bda43d",
+    "title": "batteries/bit_ops",
+    "url": "/_autogen/Files/dir_09dc2df44c13d5f8f6954de245bda43d/#dir-batteries/bit-ops",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/bit-ops",
+      "category": "dirs",
+      "fullname": "batteries/bit_ops",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/bit_ops",
+      "refid": "dir_09dc2df44c13d5f8f6954de245bda43d",
+      "title": "batteries/bit_ops",
+      "url": "/_autogen/Files/dir_09dc2df44c13d5f8f6954de245bda43d/#dir-batteries/bit-ops",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_BIT_OPS_INSERT_BIT_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/bit_ops/set_bit.hpp>\n\n#include <batteries/int_types.hpp>\n\nnamespace batt {\n\n[[nodiscard]] constexpr inline u64 insert_bit(u64 bit_set, i32 index, bool value)\n{\n    const u64 lower_mask = (u64{1} << index) - 1;\n    const u64 upper_mask = ~lower_mask;\n\n    bit_set = (bit_set & lower_mask) | ((bit_set & upper_mask) << 1);\n    bit_set = set_bit(bit_set, index, value);\n\n    return bit_set;\n}\n\ntemplate <usize N>\n[[nodiscard]] constexpr inline std::array<u64, N> insert_bit(const std::array<u64, N>& bit_set, i32 index,\n                                                             bool value)\n{\n    std::array<u64, N> output = bit_set;\n\n    const i32 word_i = index / 64;\n    const i32 bit_i = index % 64;\n\n    u64 carry_bit = (bit_set[word_i] >> 63) & 1;\n\n    output[word_i] = insert_bit(bit_set[word_i], bit_i, value);\n\n    for (usize i = word_i + 1; i < N; ++i) {\n        u64 next_carry_bit = (bit_set[i] >> 63) & 1;\n        output[i] = (bit_set[i] << 1) | carry_bit;\n        carry_bit = next_carry_bit;\n    }\n\n    return output;\n}\n\n}  //namespace batt",
+  "refid": "insert__bit_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/bit_ops/insert_bit.hpp",
+  "url": "/_autogen/Files/insert__bit_8hpp/#file-insert-bit.hpp",
+  "visibility": "public"
+}

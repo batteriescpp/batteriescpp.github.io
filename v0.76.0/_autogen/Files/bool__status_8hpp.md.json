@@ -1,0 +1,99 @@
+{
+  "abstract": false,
+  "anchor": "#file-bool-status.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-bool-status-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_BOOL_STATUS_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/bool_status.hpp",
+        "bodyStart": 6,
+        "column": 9,
+        "file": "batteries/bool_status.hpp",
+        "line": 6
+      },
+      "name": "BATTERIES_BOOL_STATUS_HPP",
+      "override": false,
+      "refid": "bool__status_8hpp_1a7d8d6e2508756b75f70b0ea701e4bca5",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_BOOL_STATUS_HPP",
+      "url": "/_autogen/Files/bool__status_8hpp/#define-batteries-bool-status-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/bool_status.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/bool_status.hpp",
+    "line": 0
+  },
+  "name": "batteries/bool_status.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2023 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_BOOL_STATUS_HPP\n#define BATTERIES_BOOL_STATUS_HPP\n\n#include <batteries/config.hpp>\n//\n#include <batteries/int_types.hpp>\n\n#include <ostream>\n\nnamespace batt {\n\nenum struct BoolStatus : i8 {\n    kUnknown = -1,\n    kFalse = 0,\n    kTrue = 1,\n};\n\ninline constexpr BoolStatus bool_status_from(bool b) noexcept\n{\n    if (b) {\n        return BoolStatus::kTrue;\n    }\n    return BoolStatus::kFalse;\n}\n\ninline constexpr BoolStatus operator||(BoolStatus left, BoolStatus right) noexcept\n{\n    switch (left) {\n    case BoolStatus::kFalse:\n        return right;\n\n    case BoolStatus::kTrue:\n        return BoolStatus::kTrue;\n\n    case BoolStatus::kUnknown:  // fall-through\n    default:\n        switch (right) {\n        case BoolStatus::kTrue:\n            return BoolStatus::kTrue;\n\n        case BoolStatus::kFalse:    // fall-through\n        case BoolStatus::kUnknown:  // fall-through\n        default:\n            return BoolStatus::kUnknown;\n        }\n    }\n}\n\ninline constexpr BoolStatus operator&&(BoolStatus left, BoolStatus right) noexcept\n{\n    switch (left) {\n    case BoolStatus::kTrue:\n        return right;\n\n    case BoolStatus::kFalse:\n        return BoolStatus::kFalse;\n\n    case BoolStatus::kUnknown:  // fall-through\n    default:\n        switch (right) {\n        case BoolStatus::kFalse:\n            return BoolStatus::kFalse;\n\n        case BoolStatus::kTrue:     // fall-through\n        case BoolStatus::kUnknown:  // fall-through\n        default:\n            return BoolStatus::kUnknown;\n        }\n    }\n}\n\ninline constexpr BoolStatus operator!(BoolStatus b) noexcept\n{\n    switch (b) {\n    case BoolStatus::kFalse:\n        return BoolStatus::kTrue;\n\n    case BoolStatus::kTrue:\n        return BoolStatus::kFalse;\n\n    case BoolStatus::kUnknown:  // fall-through\n    default:\n        return BoolStatus::kUnknown;\n    }\n}\n\ninline std::ostream& operator<<(std::ostream& out, const BoolStatus& t) noexcept\n{\n    switch (t) {\n    case BoolStatus::kFalse:\n        return out << \"False\";\n\n    case BoolStatus::kTrue:\n        return out << \"True\";\n\n    case BoolStatus::kUnknown:  // fall-through\n    default:\n        break;\n    }\n    return out << \"Unknown\";\n}\n\n}  //namespace batt\n\n#endif  // BATTERIES_BOOL_STATUS_HPP",
+  "refid": "bool__status_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/bool_status.hpp",
+  "url": "/_autogen/Files/bool__status_8hpp/#file-bool-status.hpp",
+  "visibility": "public"
+}

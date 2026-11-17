@@ -1,0 +1,163 @@
+{
+  "abstract": false,
+  "anchor": "#file-merge-by.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-merge-by-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_MERGE_BY_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq/merge_by.hpp",
+        "bodyStart": 5,
+        "column": 9,
+        "file": "batteries/seq/merge_by.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_SEQ_MERGE_BY_HPP",
+      "override": false,
+      "refid": "merge__by_8hpp_1a5203755f521e200388d4c3cf35b3759b",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_MERGE_BY_HPP",
+      "url": "/_autogen/Files/merge__by_8hpp/#define-batteries-seq-merge-by-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq/merge_by.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq/merge_by.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq/merge_by.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt::seq",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt::seq",
+      "refid": "namespacebatt_1_1seq",
+      "title": "batt::seq",
+      "url": "/_autogen/Namespaces/namespacebatt_1_1seq/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/seq",
+    "category": "dirs",
+    "fullname": "batteries/seq",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/seq",
+    "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+    "title": "batteries/seq",
+    "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/seq",
+      "category": "dirs",
+      "fullname": "batteries/seq",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/seq",
+      "refid": "dir_0985703d1fb34e0edc7cc330d020d62d",
+      "title": "batteries/seq",
+      "url": "/_autogen/Files/dir_0985703d1fb34e0edc7cc330d020d62d/#dir-batteries/seq",
+      "visibility": "public"
+    }
+  ],
+  "privateClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::MergeBy::ToItem",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::MergeBy::ToItem",
+      "refid": "structbatt_1_1seq_1_1MergeBy_1_1ToItem",
+      "title": "batt::seq::MergeBy::ToItem",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1MergeBy_1_1ToItem/",
+      "visibility": "private"
+    }
+  ],
+  "programlisting": "// Copyright 2021-2022 Anthony Paul Astolfi\n//\n#pragma once\n#ifndef BATTERIES_SEQ_MERGE_BY_HPP\n#define BATTERIES_SEQ_MERGE_BY_HPP\n\n#include <batteries/config.hpp>\n#include <batteries/hint.hpp>\n#include <batteries/seq/emplace_back.hpp>\n#include <batteries/seq/for_each.hpp>\n#include <batteries/seq/natural_order.hpp>\n#include <batteries/seq/seq_item.hpp>\n#include <batteries/small_vec.hpp>\n#include <batteries/utility.hpp>\n\n#include <type_traits>\n\nnamespace batt {\nnamespace seq {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n// merge/merge_by\n//\ntemplate <typename LeftSeq, typename RightSeq, typename Compare>\nclass MergeBy\n{\n   public:\n    // If merging two sequences of the same type, just use that; otherwise\n    // produce a variant of the two types.\n    //\n    using Item = std::conditional_t<\n        /* if */ std::is_same_v<SeqItem<LeftSeq>, SeqItem<RightSeq>>,\n        /* then */ SeqItem<LeftSeq>,\n        /* else */\n        std::conditional_t<\n            /* if */ std::is_same_v<std::decay_t<SeqItem<LeftSeq>>, std::decay_t<SeqItem<RightSeq>>>,\n            /* then */ std::decay_t<SeqItem<LeftSeq>>,\n            // TODO [tastolfi 2020-09-28] fix it so we can have refs\n            /* else */ std::variant<std::decay_t<SeqItem<LeftSeq>>, std::decay_t<SeqItem<RightSeq>>>>>;\n\n    explicit MergeBy(LeftSeq&& left, RightSeq&& right, Compare&& compare) noexcept\n        : left_(BATT_FORWARD(left))\n        , right_(BATT_FORWARD(right))\n        , compare_(BATT_FORWARD(compare))\n    {\n    }\n\n    MergeBy(MergeBy&& that) noexcept\n        : left_(BATT_FORWARD(that.left_))\n        , right_(BATT_FORWARD(that.right_))\n        , compare_(BATT_FORWARD(*that.compare_))\n    {\n    }\n\n    MergeBy& operator=(MergeBy&& that) noexcept\n    {\n        if (BATT_HINT_TRUE(this != &that)) {\n            left_ = BATT_FORWARD(that.left_);\n            right_ = BATT_FORWARD(that.right_);\n            compare_.emplace(BATT_FORWARD(*that.compare_));\n        }\n        return *this;\n    }\n\n    MergeBy(const MergeBy& that) : left_(that.left_), right_(that.right_), compare_(*that.compare_)\n    {\n    }\n\n    MergeBy& operator=(const MergeBy& that)\n    {\n        if (BATT_HINT_TRUE(this != &that)) {\n            left_ = that.left_;\n            right_ = that.right_;\n            compare_.emplace(*that.compare_);\n        }\n        return *this;\n    }\n\n    Optional<Item> peek()\n    {\n        return impl(/*consume=*/false);\n    }\n    Optional<Item> next()\n    {\n        return impl(/*consume=*/true);\n    }\n\n    //--------------------------\n\n#if BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n    template <typename LeftSeq_, typename RightSeq_, typename Compare_, typename EachFn>\n    friend LoopControl operator|(MergeBy<LeftSeq_, RightSeq_, Compare_>&& merge_seq,\n                                 ForEachBinder<EachFn>&& binder);\n\n#endif  // BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n   private:\n    struct ToItem {\n        template <typename T, typename = std::enable_if_t<!std::is_same_v<Item, T&&>>>\n        Item operator()(T&& item) const\n        {\n            return Item{BATT_FORWARD(item)};\n        }\n\n        template <typename T, typename = std::enable_if_t<std::is_same_v<Item, T&&>>, typename = void>\n        Item operator()(T&& item) const\n        {\n            return item;\n        }\n    };\n\n    Optional<Item> impl(bool consume)\n    {\n        auto l = left_.peek();\n        auto r = right_.peek();\n        if (l) {\n            if (r) {\n                if ((*compare_)(*r, *l)) {\n                    if (consume) {\n                        return right_.next().map(ToItem{});\n                    }\n                    return r.map(ToItem{});\n                } else {\n                    if (consume) {\n                        return left_.next().map(ToItem{});\n                    }\n                    return l.map(ToItem{});\n                }\n            } else {\n                if (consume) {\n                    return left_.next().map(ToItem{});\n                }\n                return l.map(ToItem{});\n            }\n        } else {\n            if (r) {\n                if (consume) {\n                    return right_.next().map(ToItem{});\n                }\n                return r.map(ToItem{});\n            } else {\n                return None;\n            }\n        }\n    }\n\n    LeftSeq left_;\n    RightSeq right_;\n    Optional<Compare> compare_;\n};\n\ntemplate <typename RightSeq, typename Compare>\nstruct MergeByBinder {\n    RightSeq right;\n    Compare compare;\n};\n\ntemplate <typename Compare, typename RightSeq>\nMergeByBinder<RightSeq, Compare> merge_by(Compare&& compare, RightSeq&& right)\n{\n    return {BATT_FORWARD(right), BATT_FORWARD(compare)};\n}\n\ntemplate <typename RightSeq>\nauto merge(RightSeq&& right)\n{\n    return merge_by(NaturalOrder{}, BATT_FORWARD(right));\n}\n\ntemplate <typename LeftSeq, typename RightSeq, typename Compare>\n[[nodiscard]] MergeBy<LeftSeq, RightSeq, Compare> operator|(LeftSeq&& left,\n                                                            MergeByBinder<RightSeq, Compare>&& binder)\n{\n    static_assert(std::is_same_v<LeftSeq, std::decay_t<LeftSeq>>,\n                  \"Merged sequences may not be captured implicitly by reference.\");\n\n    static_assert(std::is_same_v<RightSeq, std::decay_t<RightSeq>>,\n                  \"Merged sequences may not be captured implicitly by reference.\");\n\n    static_assert(std::is_same_v<Compare, std::decay_t<Compare>>,\n                  \"Comparison functions may not be captured implicitly by reference.\");\n\n    return MergeBy<LeftSeq, RightSeq, Compare>{BATT_FORWARD(left), BATT_FORWARD(binder.right),\n                                               BATT_FORWARD(binder.compare)};\n}\n\n#if BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n\ntemplate <typename LeftSeq, typename RightSeq, typename Compare, typename EachFn>\nLoopControl operator|(MergeBy<LeftSeq, RightSeq, Compare>&& merge_seq, ForEachBinder<EachFn>&& binder)\n{\n    using LeftItem = std::decay_t<SeqItem<LeftSeq>>;\n\n    SmallVec<LeftItem, 4096 / sizeof(LeftItem)> left_items_cached;\n\n    std::forward<LeftSeq>(merge_seq.left_) | emplace_back(&left_items_cached);\n\n    auto* left_next = left_items_cached.data();\n    auto* left_end = left_items_cached.data() + left_items_cached.size();\n\n    auto& compare = *merge_seq.compare_;\n\n    auto loop_body = [&](auto&& right_item) -> LoopControl {\n        while (left_next != left_end && !compare(right_item, *left_next)) {\n            if (BATT_HINT_FALSE(run_loop_fn(binder.fn, *left_next) == kBreak)) {\n                return kBreak;\n            }\n            ++left_next;\n        }\n        return run_loop_fn(binder.fn, right_item);\n    };\n\n    LoopControl control = std::forward<RightSeq>(merge_seq.right_) | for_each(loop_body);\n    if (BATT_HINT_FALSE(control == kBreak)) {\n        return kBreak;\n    }\n\n    while (left_next != left_end) {\n        if (BATT_HINT_FALSE(run_loop_fn(binder.fn, *left_next) == kBreak)) {\n            return kBreak;\n        }\n        ++left_next;\n    }\n\n    return kContinue;\n}\n\n#endif  // BATT_SEQ_SPECIALIZE_ALGORITHMS\n\n}  // namespace seq\n}  // namespace batt\n\n#endif  // BATTERIES_SEQ_MERGE_BY_HPP",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::MergeBy",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::seq::MergeBy",
+      "refid": "classbatt_1_1seq_1_1MergeBy",
+      "title": "batt::seq::MergeBy",
+      "url": "/_autogen/Classes/classbatt_1_1seq_1_1MergeBy/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::seq::MergeByBinder",
+      "kind": "struct",
+      "language": "cpp",
+      "name": "batt::seq::MergeByBinder",
+      "refid": "structbatt_1_1seq_1_1MergeByBinder",
+      "title": "batt::seq::MergeByBinder",
+      "url": "/_autogen/Classes/structbatt_1_1seq_1_1MergeByBinder/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "merge__by_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq/merge_by.hpp",
+  "url": "/_autogen/Files/merge__by_8hpp/#file-merge-by.hpp",
+  "visibility": "public"
+}

@@ -1,0 +1,111 @@
+{
+  "abstract": false,
+  "anchor": "#file-transfer.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-transfer-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_TRANSFER_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/transfer.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/async/transfer.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_ASYNC_TRANSFER_HPP",
+      "override": false,
+      "refid": "transfer_8hpp_1af4ef8c6765ee180b1ac610787ef1126f",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_TRANSFER_HPP",
+      "url": "/_autogen/Files/transfer_8hpp/#define-batteries-async-transfer-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/transfer.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/async/io_result.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/transfer.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/transfer.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_ASYNC_TRANSFER_HPP\n\n#include <batteries/async/io_result.hpp>\n#include <batteries/async/task.hpp>\n#include <batteries/buffer.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/status.hpp>\n#include <batteries/utility.hpp>\n\n#include <boost/range/iterator_range.hpp>\n#include <boost/range/join.hpp>\n\n#include <type_traits>\n\nnamespace batt {\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename Op, typename AsyncStream, typename BuffersT>\nBATT_ALWAYS_INLINE Status await_transfer_all_impl(AsyncStream& stream, u64 offset,\n                                                  BuffersT&& buffers) noexcept\n{\n    auto iter = boost::asio::buffer_sequence_begin(buffers);\n    auto last = boost::asio::buffer_sequence_end(buffers);\n\n    using Iter = std::decay_t<decltype(iter)>;\n\n    if (iter == last) {\n        return OkStatus();\n    }\n\n    typename Op::SingleBuffer current_buffer = *iter;\n    ++iter;\n\n    while (iter != last) {\n        IOResult<usize> result = Task::await<IOResult<usize>>([&](auto&& handler) {\n            Op::async_transfer_some_at(\n                stream, offset,\n                boost::range::join(boost::make_iterator_range(&current_buffer, (&current_buffer) + 1),\n                                   boost::make_iterator_range(iter, last)),\n                BATT_FORWARD(handler));\n        });\n        BATT_REQUIRE_OK(result);\n\n        offset += *result;\n        usize remaining = *result;\n        while (remaining != 0) {\n            const usize step_size = std::min(remaining, current_buffer.size());\n            current_buffer += step_size;\n            remaining -= step_size;\n            if (current_buffer.size() == 0) {\n                ++iter;\n                if (iter == last) {\n                    break;\n                }\n                current_buffer = *iter;\n            }\n        }\n    }\n\n    while (current_buffer.size() != 0) {\n        IOResult<usize> result = Task::await<IOResult<usize>>([&](auto&& handler) {\n            Op::async_transfer_some_at(stream, offset, current_buffer, BATT_FORWARD(handler));\n        });\n        BATT_REQUIRE_OK(result);\n        current_buffer += *result;\n    }\n\n    return OkStatus();\n}\n\n}  // namespace batt",
+  "refid": "transfer_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/transfer.hpp",
+  "url": "/_autogen/Files/transfer_8hpp/#file-transfer.hpp",
+  "visibility": "public"
+}

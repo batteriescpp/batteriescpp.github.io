@@ -1,0 +1,137 @@
+{
+  "abstract": false,
+  "anchor": "#file-seq-mutex.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-seq-mutex-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_SEQ_MUTEX_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/seq_mutex.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/seq_mutex.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_SEQ_MUTEX_HPP",
+      "override": false,
+      "refid": "seq__mutex_8hpp_1ab3bddf2187cab829c5000b2bb5db7792",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_SEQ_MUTEX_HPP",
+      "url": "/_autogen/Files/seq__mutex_8hpp/#define-batteries-seq-mutex-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/seq_mutex.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/async/task.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/seq_mutex.hpp",
+    "line": 0
+  },
+  "name": "batteries/seq_mutex.hpp",
+  "namespaces": [
+    {
+      "anchor": "",
+      "category": "namespaces",
+      "fullname": "batt",
+      "kind": "namespace",
+      "language": "cpp",
+      "name": "batt",
+      "refid": "namespacebatt",
+      "title": "batt",
+      "url": "/_autogen/Namespaces/namespacebatt/",
+      "visibility": "public"
+    }
+  ],
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries",
+    "category": "dirs",
+    "fullname": "batteries",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries",
+    "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+    "title": "batteries",
+    "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_SEQ_MUTEX_HPP\n\n#include <batteries/async/task.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/null_lock.hpp>\n\n#include <atomic>\n\nnamespace batt {\n\ntemplate <typename IntT>\nclass SeqMutex\n{\n   public:\n    using Self = SeqMutex;\n\n    static constexpr IntT kLockedMask = 1;\n\n    static constexpr bool is_locked_state(IntT state) noexcept\n    {\n        return (state & Self::kLockedMask) != 0;\n    }\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    class WriteLock;\n\n    class ReadLock\n    {\n        friend class WriteLock;\n\n       public:\n        explicit ReadLock(SeqMutex& mutex) noexcept : state_{mutex.state_}, before_state_{this->state_.load()}\n        {\n            while (Self::is_locked_state(this->before_state_)) {\n                Task::yield();\n                this->before_state_ = this->state_.load();\n            }\n        }\n\n        //----- --- -- -  -  -   -\n\n        [[nodiscard]] bool changed()\n        {\n            return this->state_.load() != this->before_state_;\n        }\n\n        //----- --- -- -  -  -   -\n       private:\n        std::atomic<IntT>& state_;\n        IntT before_state_;\n    };\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    using NullLock = ::batt::NullLock;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    class WriteLock\n    {\n       public:\n        explicit WriteLock(SeqMutex& mutex) noexcept\n            : state_{mutex.state_}\n            , observed_state_{this->state_.load()}\n        {\n            for (;;) {\n                if (Self::is_locked_state(this->observed_state_)) {\n                    Task::yield();\n                    this->observed_state_ = this->state_.load();\n                    continue;\n                }\n                this->observed_state_ = this->state_.fetch_or(Self::kLockedMask);\n                if (Self::is_locked_state(this->observed_state_)) {\n                    Task::yield();\n                    this->observed_state_ = this->state_.load();\n                    continue;\n                }\n                return;\n            }\n        }\n\n        ~WriteLock() noexcept\n        {\n            this->state_.fetch_add(Self::kLockedMask);\n        }\n\n        //----- --- -- -  -  -   -\n\n        bool changed_since(const ReadLock& read_lock) const noexcept\n        {\n            return this->observed_state_ != read_lock.before_state_;\n        }\n\n        //----- --- -- -  -  -   -\n       private:\n        std::atomic<IntT>& state_;\n        IntT observed_state_;\n    };\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n\n    SeqMutex() noexcept : state_{0}\n    {\n    }\n\n    SeqMutex(const SeqMutex&) = delete;\n    SeqMutex& operator=(const SeqMutex&) = delete;\n\n    //+++++++++++-+-+--+----- --- -- -  -  -   -\n   private:\n    std::atomic<IntT> state_;\n};\n\n}  // namespace batt",
+  "publicClasses": [
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::SeqMutex",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::SeqMutex",
+      "refid": "classbatt_1_1SeqMutex",
+      "title": "batt::SeqMutex",
+      "url": "/_autogen/Classes/classbatt_1_1SeqMutex/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::SeqMutex::ReadLock",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::SeqMutex::ReadLock",
+      "refid": "classbatt_1_1SeqMutex_1_1ReadLock",
+      "title": "batt::SeqMutex::ReadLock",
+      "url": "/_autogen/Classes/classbatt_1_1SeqMutex_1_1ReadLock/",
+      "visibility": "public"
+    },
+    {
+      "anchor": "",
+      "category": "classes",
+      "fullname": "batt::SeqMutex::WriteLock",
+      "kind": "class",
+      "language": "cpp",
+      "name": "batt::SeqMutex::WriteLock",
+      "refid": "classbatt_1_1SeqMutex_1_1WriteLock",
+      "title": "batt::SeqMutex::WriteLock",
+      "url": "/_autogen/Classes/classbatt_1_1SeqMutex_1_1WriteLock/",
+      "visibility": "public"
+    }
+  ],
+  "refid": "seq__mutex_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/seq_mutex.hpp",
+  "url": "/_autogen/Files/seq__mutex_8hpp/#file-seq-mutex.hpp",
+  "visibility": "public"
+}

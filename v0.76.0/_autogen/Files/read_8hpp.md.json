@@ -1,0 +1,97 @@
+{
+  "abstract": false,
+  "anchor": "#file-read.hpp",
+  "category": "files",
+  "const": false,
+  "defines": [
+    {
+      "abstract": false,
+      "anchor": "#define-batteries-async-read-hpp",
+      "category": "defines",
+      "const": false,
+      "definition": "",
+      "explicit": false,
+      "fullname": "BATTERIES_ASYNC_READ_HPP",
+      "hasDetails": false,
+      "inline": false,
+      "kind": "define",
+      "language": "cpp",
+      "location": {
+        "bodyFile": "batteries/async/read.hpp",
+        "bodyStart": 5,
+        "column": 10,
+        "file": "batteries/async/read.hpp",
+        "line": 5
+      },
+      "name": "BATTERIES_ASYNC_READ_HPP",
+      "override": false,
+      "refid": "read_8hpp_1a098c1feb83afa543b448bcd11f3ea2ce",
+      "static": false,
+      "strong": false,
+      "title": "BATTERIES_ASYNC_READ_HPP",
+      "url": "/_autogen/Files/read_8hpp/#define-batteries-async-read-hpp",
+      "visibility": "public"
+    }
+  ],
+  "definition": "",
+  "explicit": false,
+  "fullname": "batteries/async/read.hpp",
+  "hasAdditionalMembers": false,
+  "hasDetails": false,
+  "includes": "<batteries/config.hpp>",
+  "inline": false,
+  "kind": "file",
+  "language": "cpp",
+  "location": {
+    "column": 0,
+    "file": "batteries/async/read.hpp",
+    "line": 0
+  },
+  "name": "batteries/async/read.hpp",
+  "override": false,
+  "parent": {
+    "anchor": "#dir-batteries/async",
+    "category": "dirs",
+    "fullname": "batteries/async",
+    "kind": "dir",
+    "language": "",
+    "name": "batteries/async",
+    "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+    "title": "batteries/async",
+    "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+    "visibility": "public"
+  },
+  "parentBreadcrumbs": [
+    {
+      "anchor": "#dir-batteries",
+      "category": "dirs",
+      "fullname": "batteries",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries",
+      "refid": "dir_af4e2857c92a31b60ebae85174ebeccb",
+      "title": "batteries",
+      "url": "/_autogen/Files/dir_af4e2857c92a31b60ebae85174ebeccb/#dir-batteries",
+      "visibility": "public"
+    },
+    {
+      "anchor": "#dir-batteries/async",
+      "category": "dirs",
+      "fullname": "batteries/async",
+      "kind": "dir",
+      "language": "",
+      "name": "batteries/async",
+      "refid": "dir_faaa2176564b41e79cedcf3028f42662",
+      "title": "batteries/async",
+      "url": "/_autogen/Files/dir_faaa2176564b41e79cedcf3028f42662/#dir-batteries/async",
+      "visibility": "public"
+    }
+  ],
+  "programlisting": "//######=###=##=#=#=#=#=#==#==#====#+==#+==============+==+==+==+=+==+=+=+=+=+=+=+\n// Copyright 2026 Anthony Paul Astolfi\n//\n#pragma once\n#define BATTERIES_ASYNC_READ_HPP\n\n#include <batteries/config.hpp>\n//\n#if BATT_CPP_20\n\n#include <batteries/async/io_result.hpp>\n#include <batteries/async/task.hpp>\n#include <batteries/async/transfer.hpp>\n\n#include <batteries/buffer.hpp>\n#include <batteries/int_types.hpp>\n#include <batteries/slice.hpp>\n#include <batteries/small_vec.hpp>\n#include <batteries/status.hpp>\n\n#include <boost/range/join.hpp>\n\n#include <iterator>\n\nnamespace batt {\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\ntemplate <typename T>\nconcept MutableBufferSequence = requires(const T& x) {\n    // T is copy-constructible from x\n    //\n    T(x);\n\n    { boost::asio::buffer_sequence_begin(x) } -> std::bidirectional_iterator;\n    { boost::asio::buffer_sequence_end(x) } -> std::bidirectional_iterator;\n    { *boost::asio::buffer_sequence_begin(x) } -> std::convertible_to<MutableBuffer>;\n    { *boost::asio::buffer_sequence_end(x) } -> std::convertible_to<MutableBuffer>;\n};\n\nstatic_assert(MutableBufferSequence<MutableBuffer>);\nstatic_assert(MutableBufferSequence<Slice<MutableBuffer>>);\nstatic_assert(MutableBufferSequence<SmallVec<MutableBuffer, 1>>);\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\nstruct AsyncReadSomeOp {\n    using SingleBuffer = MutableBuffer;\n\n    template <typename StreamT, typename BuffersT, typename HandlerT>\n    static BATT_ALWAYS_INLINE void async_transfer_some_at(StreamT&& stream, u64 /*offset*/,\n                                                          BuffersT&& buffers, HandlerT&& handler)\n    {\n        BATT_FORWARD(stream).async_read_some(BATT_FORWARD(buffers), BATT_FORWARD(handler));\n    }\n};\n\n//=#=#==#==#===============+=+=+=+=++=++++++++++++++-++-+--+-+----+---------------\n//\nstruct AsyncReadSomeAtOp {\n    using SingleBuffer = MutableBuffer;\n\n    template <typename StreamT, typename BuffersT, typename HandlerT>\n    static BATT_ALWAYS_INLINE void async_transfer_some_at(StreamT&& stream, u64 offset, BuffersT&& buffers,\n                                                          HandlerT&& handler)\n    {\n        BATT_FORWARD(stream).async_read_some_at(offset, BATT_FORWARD(buffers), BATT_FORWARD(handler));\n    }\n};\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename AsyncStream, MutableBufferSequence BuffersT>\nStatusOr<usize> await_read_some(AsyncStream& stream, const BuffersT& buffers) noexcept\n{\n    IOResult<usize> result = Task::await<IOResult<usize>>([&](auto&& handler) {\n        stream.async_read_some(buffers, BATT_FORWARD(handler));\n    });\n    BATT_REQUIRE_OK(result);\n    return *result;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename AsyncStream, MutableBufferSequence BuffersT>\nStatusOr<usize> await_read_some_at(AsyncStream& stream, u64 offset, const BuffersT& buffers) noexcept\n{\n    IOResult<usize> result = Task::await<IOResult<usize>>([&](auto&& handler) {\n        stream.async_read_some_at(offset, buffers, BATT_FORWARD(handler));\n    });\n    BATT_REQUIRE_OK(result);\n    return *result;\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename AsyncStream, MutableBufferSequence BuffersT>\nStatus await_read_all(AsyncStream& stream, const BuffersT& buffers) noexcept\n{\n    return await_transfer_all_impl<AsyncReadSomeOp>(stream, /*offset=*/0, buffers);\n}\n\n//==#==========+==+=+=++=+++++++++++-+-+--+----- --- -- -  -  -   -\n//\ntemplate <typename AsyncStream, MutableBufferSequence BuffersT>\nStatus await_read_all_at(AsyncStream& stream, u64 offset, const BuffersT& buffers) noexcept\n{\n    return await_transfer_all_impl<AsyncReadSomeAtOp>(stream, offset, buffers);\n}\n\n}  // namespace batt\n\n#endif  // BATT_CPP_20",
+  "refid": "read_8hpp",
+  "static": false,
+  "strong": false,
+  "title": "batteries/async/read.hpp",
+  "url": "/_autogen/Files/read_8hpp/#file-read.hpp",
+  "visibility": "public"
+}
